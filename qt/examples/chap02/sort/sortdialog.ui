@@ -1,0 +1,361 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>SortDialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>SortDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>287</width>
+            <height>321</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Sort</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="resizeMode">
+            <enum>Fixed</enum>
+        </property>
+        <widget class="QGroupBox" row="0" column="0">
+            <property name="name">
+                <cstring>primaryGroupBox</cstring>
+            </property>
+            <property name="title">
+                <string>&amp;Primary Key</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QComboBox" row="0" column="1">
+                    <item>
+                        <property name="text">
+                            <string>None</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>primaryColumnCombo</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>primaryColumnLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Column:</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="2">
+                    <property name="name">
+                        <cstring>primarySpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>10</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="2">
+                    <item>
+                        <property name="text">
+                            <string>Ascending</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Descending</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>primaryOrderCombo</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>primaryOrderLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Order:</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox" row="3" column="0">
+            <property name="name">
+                <cstring>tertiaryGroupBox</cstring>
+            </property>
+            <property name="title">
+                <string>&amp;Tertiary Key</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QComboBox" row="0" column="1">
+                    <item>
+                        <property name="text">
+                            <string>None</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>tertiaryColumnCombo</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>tertiaryColumnLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Column:</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="2">
+                    <property name="name">
+                        <cstring>tertiarySpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>10</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="2">
+                    <item>
+                        <property name="text">
+                            <string>Ascending</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Descending</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>tertiaryOrderCombo</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>tertiaryOrderLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Order:</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox" row="2" column="0">
+            <property name="name">
+                <cstring>secondaryGroupBox</cstring>
+            </property>
+            <property name="title">
+                <string>&amp;Secondary Key</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QComboBox" row="0" column="1">
+                    <item>
+                        <property name="text">
+                            <string>None</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>secondaryColumnCombo</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>secondaryColumnLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Column:</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="2">
+                    <property name="name">
+                        <cstring>secondarySpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>10</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QComboBox" row="1" column="1" rowspan="1" colspan="2">
+                    <item>
+                        <property name="text">
+                            <string>Ascending</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Descending</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>secondaryOrderCombo</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>secondaryOrderLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Order:</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QLayoutWidget" row="0" column="1" rowspan="2" colspan="1">
+            <property name="name">
+                <cstring>layout1</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>okButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>OK</string>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>cancelButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cancel</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>rightSpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Vertical</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>10</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>moreButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;More</string>
+                    </property>
+                    <property name="toggleButton">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+        <spacer row="1" column="0">
+            <property name="name">
+                <cstring>leftSpacer</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>10</height>
+                </size>
+            </property>
+        </spacer>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>moreButton</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>secondaryGroupBox</receiver>
+        <slot>setShown(bool)</slot>
+    </connection>
+    <connection>
+        <sender>moreButton</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>tertiaryGroupBox</receiver>
+        <slot>setShown(bool)</slot>
+    </connection>
+    <connection>
+        <sender>okButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SortDialog</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SortDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>primaryColumnCombo</tabstop>
+    <tabstop>primaryOrderCombo</tabstop>
+    <tabstop>okButton</tabstop>
+    <tabstop>cancelButton</tabstop>
+    <tabstop>moreButton</tabstop>
+    <tabstop>secondaryColumnCombo</tabstop>
+    <tabstop>secondaryOrderCombo</tabstop>
+    <tabstop>tertiaryColumnCombo</tabstop>
+    <tabstop>tertiaryOrderCombo</tabstop>
+</tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">sortdialog.ui.h</include>
+</includes>
+<slots>
+    <slot>setColumnRange(QChar first, QChar last)</slot>
+</slots>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

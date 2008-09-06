@@ -1,0 +1,253 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>ConvertDialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ConvertDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>325</width>
+            <height>312</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Image Converter</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>11</number>
+        </property>
+        <property name="spacing">
+            <number>6</number>
+        </property>
+        <widget class="QLabel" row="0" column="0">
+            <property name="name">
+                <cstring>sourceFileLabel</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Plain</enum>
+            </property>
+            <property name="text">
+                <string>&amp;Source File:</string>
+            </property>
+            <property name="buddy" stdset="0">
+                <cstring>sourceFileEdit</cstring>
+            </property>
+        </widget>
+        <widget class="QLabel" row="1" column="0">
+            <property name="name">
+                <cstring>targetFormatLabel</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Target Format:</string>
+            </property>
+            <property name="buddy" stdset="0">
+                <cstring>targetFormatComboBox</cstring>
+            </property>
+        </widget>
+        <widget class="QLineEdit" row="0" column="1" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>sourceFileEdit</cstring>
+            </property>
+        </widget>
+        <widget class="QComboBox" row="1" column="1">
+            <property name="name">
+                <cstring>targetFormatComboBox</cstring>
+            </property>
+        </widget>
+        <spacer row="1" column="2" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>targetFormatSpacer</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QPushButton" row="0" column="3">
+            <property name="name">
+                <cstring>browseButton</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Browse</string>
+            </property>
+            <property name="accel">
+                <string>Alt+B</string>
+            </property>
+        </widget>
+        <widget class="QButtonGroup" row="2" column="0" rowspan="1" colspan="4">
+            <property name="name">
+                <cstring>optionsButtonGroup</cstring>
+            </property>
+            <property name="title">
+                <string>Options</string>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>11</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>enhanceCheckBox</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Enhance</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+E</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>monochromeCheckBox</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Monochrome</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+M</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget" row="4" column="0" rowspan="1" colspan="4">
+            <property name="name">
+                <cstring>buttonLayout</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>buttonSpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>convertButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Convert</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>quitButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Quit</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+Q</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QTextEdit" row="3" column="0" rowspan="1" colspan="4">
+            <property name="name">
+                <cstring>outputTextEdit</cstring>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>browseButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConvertDialog</receiver>
+        <slot>browse()</slot>
+    </connection>
+    <connection>
+        <sender>convertButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConvertDialog</receiver>
+        <slot>convert()</slot>
+    </connection>
+    <connection>
+        <sender>quitButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConvertDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>browseButton</tabstop>
+    <tabstop>sourceFileEdit</tabstop>
+    <tabstop>targetFormatComboBox</tabstop>
+    <tabstop>enhanceCheckBox</tabstop>
+    <tabstop>monochromeCheckBox</tabstop>
+    <tabstop>convertButton</tabstop>
+    <tabstop>quitButton</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in implementation">qdir.h</include>
+    <include location="global" impldecl="in implementation">qfiledialog.h</include>
+    <include location="global" impldecl="in implementation">qprocess.h</include>
+    <include location="global" impldecl="in implementation">qimage.h</include>
+</includes>
+<forwards>
+    <forward>class QProcess;</forward>
+</forwards>
+<variables>
+    <variable>QProcess *process;</variable>
+    <variable>QString targetFile;</variable>
+    <variable>QString fileFilters;</variable>
+</variables>
+<slots>
+    <slot>browse()</slot>
+    <slot>convert()</slot>
+    <slot>updateOutputTextEdit()</slot>
+    <slot>processExited()</slot>
+</slots>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
