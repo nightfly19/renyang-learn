@@ -1,0 +1,2 @@
+
+由auto_moving把程式碼由main.cpp分開成各別的檔案
