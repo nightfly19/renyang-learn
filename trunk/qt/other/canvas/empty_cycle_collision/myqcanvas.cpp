@@ -16,7 +16,7 @@ void MyQCanvas::advance()
 	QCanvas::advance();
 }
 
-void MyQCanvas::setAddress(QCanvasPolygon* p,QCanvasRectangle* r,QCanvasText* t)
+void MyQCanvas::setAddress(QCanvasRectangle* p,QCanvasRectangle* r,QCanvasText* t)
 {
 	my_p = p;
 	my_r = r;
