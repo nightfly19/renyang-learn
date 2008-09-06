@@ -8,7 +8,7 @@ class View:public QCanvasView
 Q_OBJECT
 	public:
 		View(QCanvas& canvas);
-		QCanvasPolygon* getPolygon() const;
+		QCanvasRectangle* getPolygon() const;
 		QCanvasRectangle* getRectangle() const;
 		QCanvasText* getText() const;
 
@@ -16,7 +16,7 @@ Q_OBJECT
 		void contentsMousePressEvent(QMouseEvent *e);
 	
 	private:
-		QCanvasPolygon *p;
+		QCanvasRectangle *p;
 		QCanvasRectangle *r;
 		QCanvasText *t;
 };

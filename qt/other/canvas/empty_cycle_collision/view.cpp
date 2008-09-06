@@ -10,11 +10,9 @@ View::View(QCanvas &canvas):QCanvasView(&canvas)
 	canvas.resize(370,300);
 	setFixedSize(sizeHint());
 
-	p = new QCanvasPolygon(&canvas);
-	QPointArray a;
-	a.setPoints(3,50,100,200,200,50,200);
-	p->setPoints(a);
-	p->setBrush(Qt::blue);
+	p = new QCanvasRectangle(100,100,100,100,&canvas);
+	p->setBrush(NoBrush);
+	p->setPen(Qt::blue);
 	p->setZ(10);
 	p->show();
 
@@ -38,7 +36,7 @@ void View::contentsMousePressEvent(QMouseEvent *e)
 	r->move(e->pos().x(),e->pos().y());
 }
 
-QCanvasPolygon* View::getPolygon() const
+QCanvasRectangle* View::getPolygon() const
 {
 	return p;
 }
