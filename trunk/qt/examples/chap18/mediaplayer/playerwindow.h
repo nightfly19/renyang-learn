@@ -1,0 +1,41 @@
+#ifndef PLAYERWINDOW_H
+#define PLAYERWINDOW_H
+
+#include <qwidget.h>
+
+class QAxWidget;
+class QSlider;
+class QToolButton;
+
+class PlayerWindow : public QWidget
+{
+    Q_OBJECT
+    Q_ENUMS(ReadyStateConstants)
+public:
+    enum PlayStateConstants { Stopped = 0, Paused = 1, Playing = 2 };
+    enum ReadyStateConstants { Uninitialized = 0, Loading = 1,
+                               Interactive = 3, Complete = 4 };
+
+    PlayerWindow(QWidget *parent = 0, const char *name = 0);
+
+protected:
+    void timerEvent(QTimerEvent *event);
+
+private slots:
+    void onPlayStateChange(int oldState, int newState);
+    void onReadyStateChange(ReadyStateConstants readyState);
+    void onPositionChange(double oldPos, double newPos);
+    void sliderValueChanged(int newValue);
+    void openFile();
+
+private:
+    QAxWidget *wmp;
+    QToolButton *openButton;
+    QToolButton *playPauseButton;
+    QToolButton *stopButton;
+    QSlider *seekSlider;
+    QString fileFilters;
+    int updateTimer;
+};
+
+#endif

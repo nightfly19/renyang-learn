@@ -1,0 +1,483 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>PropertiesDialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>PropertiesDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>284</width>
+            <height>371</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Properties</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="resizeMode">
+            <enum>Fixed</enum>
+        </property>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>rectGeometryGroupBox</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>Box</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Sunken</enum>
+            </property>
+            <property name="title">
+                <string>Geometry</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>11</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QSpinBox" row="0" column="1">
+                    <property name="name">
+                        <cstring>xSpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>widthLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Width:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>xLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>X:</string>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="1" column="1">
+                    <property name="name">
+                        <cstring>widthSpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <spacer row="0" column="2" rowspan="2" colspan="1">
+                    <property name="name">
+                        <cstring>rectSpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Fixed</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>10</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QSpinBox" row="1" column="4">
+                    <property name="name">
+                        <cstring>heightSpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="3">
+                    <property name="name">
+                        <cstring>heightLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Height:</string>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="0" column="4">
+                    <property name="name">
+                        <cstring>ySpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="3">
+                    <property name="name">
+                        <cstring>yLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Y:</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>lineGeometryGroupBox</cstring>
+            </property>
+            <property name="title">
+                <string>Geometry</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>11</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QSpinBox" row="0" column="1">
+                    <property name="name">
+                        <cstring>x1SpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="0" column="4">
+                    <property name="name">
+                        <cstring>y1SpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="1" column="1">
+                    <property name="name">
+                        <cstring>x2SpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>x1Label</cstring>
+                    </property>
+                    <property name="text">
+                        <string>X1:</string>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="1" column="4">
+                    <property name="name">
+                        <cstring>y2SpinBox</cstring>
+                    </property>
+                    <property name="maxValue">
+                        <number>100000</number>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="3">
+                    <property name="name">
+                        <cstring>y2Label</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Y2:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="3">
+                    <property name="name">
+                        <cstring>y1Label</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Y1:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>x2Label</cstring>
+                    </property>
+                    <property name="text">
+                        <string>X2:</string>
+                    </property>
+                </widget>
+                <spacer row="0" column="2" rowspan="2" colspan="1">
+                    <property name="name">
+                        <cstring>lineSpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Fixed</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>10</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </grid>
+        </widget>
+        <widget class="QGroupBox">
+            <property name="name">
+                <cstring>attributesGroupBox</cstring>
+            </property>
+            <property name="title">
+                <string>Attributes</string>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>11</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <widget class="QLabel" row="1" column="0">
+                    <property name="name">
+                        <cstring>lineColorLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Line Color:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Text:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>fillColorLabel</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Fill Color:</string>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget" row="1" column="1">
+                    <property name="name">
+                        <cstring>lineColorLayout</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="QFrame">
+                            <property name="name">
+                                <cstring>lineColorSample</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>7</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="minimumSize">
+                                <size>
+                                    <width>80</width>
+                                    <height>0</height>
+                                </size>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32767</width>
+                                    <height>15</height>
+                                </size>
+                            </property>
+                            <property name="frameShape">
+                                <enum>Box</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Plain</enum>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>lineColorButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Choose...</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLayoutWidget" row="2" column="1">
+                    <property name="name">
+                        <cstring>fillColorLayout</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="margin">
+                            <number>0</number>
+                        </property>
+                        <property name="spacing">
+                            <number>6</number>
+                        </property>
+                        <widget class="QFrame">
+                            <property name="name">
+                                <cstring>fillColorSample</cstring>
+                            </property>
+                            <property name="sizePolicy">
+                                <sizepolicy>
+                                    <hsizetype>7</hsizetype>
+                                    <vsizetype>5</vsizetype>
+                                    <horstretch>0</horstretch>
+                                    <verstretch>0</verstretch>
+                                </sizepolicy>
+                            </property>
+                            <property name="maximumSize">
+                                <size>
+                                    <width>32767</width>
+                                    <height>15</height>
+                                </size>
+                            </property>
+                            <property name="frameShape">
+                                <enum>Box</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Plain</enum>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>fillColorButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Choose...</string>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QLineEdit" row="0" column="1">
+                    <property name="name">
+                        <cstring>textLineEdit</cstring>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>buttonLayout</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <property name="spacing">
+                    <number>6</number>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>buttonSpacer</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>20</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>okButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>OK</string>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>cancelButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cancel</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>okButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PropertiesDialog</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PropertiesDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>lineColorButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PropertiesDialog</receiver>
+        <slot>chooseLineColor()</slot>
+    </connection>
+    <connection>
+        <sender>fillColorButton</sender>
+        <signal>clicked()</signal>
+        <receiver>PropertiesDialog</receiver>
+        <slot>chooseFillColor()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>xSpinBox</tabstop>
+    <tabstop>ySpinBox</tabstop>
+    <tabstop>widthSpinBox</tabstop>
+    <tabstop>heightSpinBox</tabstop>
+    <tabstop>textLineEdit</tabstop>
+    <tabstop>lineColorButton</tabstop>
+    <tabstop>fillColorButton</tabstop>
+    <tabstop>okButton</tabstop>
+    <tabstop>cancelButton</tabstop>
+</tabstops>
+<includes>
+    <include location="global" impldecl="in declaration">qcanvas.h</include>
+</includes>
+<slots>
+    <slot>chooseLineColor()</slot>
+    <slot>chooseFillColor()</slot>
+    <slot>exec(QCanvasItem *item)</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
