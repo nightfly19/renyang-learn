@@ -10,15 +10,24 @@ total_line=`awk '{print NR}' temp|tail -n1`
 for ((current_line=1;current_line<=$total_line;current_line=current_line+1))
 do
 	awk -v current=$current_line -v total=$total_line '{
-		if ($1=="?" && current==NR)
+		if ($1=="?" && current==NR && $2!="temp")
 		{
 			printf("%s\n",$0);
+			printf("The target is %s\n",$2);
 			printf("Do you want to add(y) or delete(n):");
 			"read yn && echo $yn" | getline yn;
 			if (yn == "y")
-				system("svn add $2");
+			{
+				cmd = "svn add "$2;
+				print(cmd);
+				system(cmd);
+			}
 			else
-				system("svn delete $2");
+			{
+				cmd = "svn delete --force "$2;
+				print(cmd);
+				system(cmd);
+			}
 		}
 		else if ($1=="!" && current==NR)
 		{
@@ -26,12 +35,23 @@ do
 			printf("Do you want to revert(y) or delete(n):");
 			"read yn && echo $yn" | getline yn;
 			if (yn == "y")
-				system("svn revert $2");
+			{
+				cmd = "svn revert "$2;
+				print(cmd);
+				system(cmd);
+			}
 			else
-				system("svn delete --forece $2");
+			{
+				cmd = "svn delete "$2;
+				print(cmd);
+				system(cmd);
+			}
 		}
 	}' temp
 done
+#刪除暫存檔temp
+rm -rfv temp
+
 #awk '{
 #	if ($1=="?") 
 #	{
