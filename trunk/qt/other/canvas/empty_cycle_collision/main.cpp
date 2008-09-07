@@ -11,7 +11,7 @@ int main(int argc,char** argv)
 	MyQCanvas canvas(0,0);
 
 	View c(canvas);
-	canvas.setAddress(c.getPolygon(),c.getRectangle(),c.getText());
+	canvas.setAddress(c.getPolygon(),c.getPolygon1(),c.getRectangle(),c.getText());
 
 	canvas.setAdvancePeriod(30);
 	canvas.setDoubleBuffering(true);

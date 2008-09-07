@@ -2,4 +2,4 @@
 由auto_moving把程式碼由main.cpp分開成各別的檔案
 
 [empty_cycle_collision]
-把矩型變成小矩型,穿透空心的三角型,看是否有collision產生
+透過兩個方型差一個寬度，由eor組成一個空心的方型，當小炮彈與此區域有交集時，會產生collision字樣
