@@ -22,14 +22,14 @@ do
 				print(cmd);
 				system(cmd);
 			}
-			else
+			else if (yn == "n")
 			{
 				cmd = "svn delete --force "$2;
 				print(cmd);
 				system(cmd);
 			}
 		}
-		else if ($1=="!" && current==NR)
+		else if ($1=="!" && current==NR && $2!="temp")
 		{
 			printf("%s\n",$0);
 			printf("Do you want to revert(y) or delete(n):");
@@ -40,7 +40,7 @@ do
 				print(cmd);
 				system(cmd);
 			}
-			else
+			else if (yn == "n")
 			{
 				cmd = "svn delete "$2;
 				print(cmd);
@@ -52,19 +52,3 @@ done
 #刪除暫存檔temp
 rm -rfv temp
 
-#awk '{
-#	if ($1=="?") 
-#	{
-#		printf("%s\n",$0);
-#		printf("Do you want to add(y) or delete(n):");
-#		"read yn && echo $yn" | getline yn;
-#	}
-#	else
-#	{
-#		printf("%d\n",NR)
-#		"read yn && echo $yn" | getline pp;
-#		printf("%s\n",pp);
-#		if (pp == "y")
-#			printf("good\n");
-#	}
-#}' test
