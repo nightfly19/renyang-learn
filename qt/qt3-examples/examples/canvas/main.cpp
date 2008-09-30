@@ -26,9 +26,9 @@ int main(int argc, char** argv)
 	logo_fn = "qtlogo.png";
     
     QCanvas canvas(800,600);
-    canvas.setAdvancePeriod(30);
+    canvas.setAdvancePeriod(30); // 每30ms更新一次畫面
     Main m(canvas);
-    m.resize(m.sizeHint());
+    m.resize(m.sizeHint()); // 返回建議的窗口元件大小
     m.setCaption("Qt Example - Canvas");
     if ( QApplication::desktop()->width() > m.width() + 10
 	&& QApplication::desktop()->height() > m.height() +30 )
