@@ -6,11 +6,12 @@
 #include <qintdict.h>
 #include <qcanvas.h>
 
+// 建立一個動畫物件
 class BouncyLogo : public QCanvasSprite {
-    void initPos();
-    void initSpeed();
+    void initPos(); // 初始化位置
+    void initSpeed(); // 初始化速度
 public:
-    BouncyLogo(QCanvas*);
+    BouncyLogo(QCanvas*); // 建構子
     void advance(int);
     int rtti() const;
 };

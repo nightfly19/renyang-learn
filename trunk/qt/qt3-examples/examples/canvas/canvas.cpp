@@ -18,10 +18,10 @@
 static QBrush *tb = 0;
 static QPen *tp = 0;
 
-class EdgeItem;
-class NodeItem;
+class EdgeItem; // 因為建構子要使用,所以,必需先宣告
+class NodeItem; // 因為建構子要使用,所以,必需先宣告
 
-class EdgeItem: public QCanvasLine
+class EdgeItem: public QCanvasLine // 線
 {
 public:
     EdgeItem( NodeItem*, NodeItem*, QCanvas *canvas );
@@ -36,7 +36,7 @@ private:
 static const int imageRTTI = 984376;
 
 
-class ImageItem: public QCanvasRectangle
+class ImageItem: public QCanvasRectangle // 圖
 {
 public:
     ImageItem( QImage img, QCanvas *canvas );
@@ -51,17 +51,17 @@ private:
 
 
 ImageItem::ImageItem( QImage img, QCanvas *canvas )
-    : QCanvasRectangle( canvas ), image(img)
+    : QCanvasRectangle( canvas ), image(img) // 初始化這兩個物件,一個是父類別,一個是成員
 {
-    setSize( image.width(), image.height() );
+    setSize( image.width(), image.height() ); // 設定這一個長方型的大小
 
 #if !defined(Q_WS_QWS)
-    pixmap.convertFromImage(image, OrderedAlphaDither);
+    pixmap.convertFromImage(image, OrderedAlphaDither); // 轉換圖片到這一個pixmap
 #endif
 }
 
 
-void ImageItem::drawShape( QPainter &p )
+void ImageItem::drawShape( QPainter &p ) // 把圖片畫出來
 {
 // On Qt/Embedded, we can paint a QImage as fast as a QPixmap,
 // but on other platforms, we need to use a QPixmap.
@@ -72,31 +72,31 @@ void ImageItem::drawShape( QPainter &p )
 #endif
 }
 
-bool ImageItem::hit( const QPoint &p ) const
+bool ImageItem::hit( const QPoint &p ) const // 判斷是否有點到物件
 {
     int ix = p.x()-int(x());
     int iy = p.y()-int(y());
-    if ( !image.valid( ix , iy ) )
+    if ( !image.valid( ix , iy ) ) // 判斷(ix,iy)是否在image內有效的座標
 	return FALSE;
-    QRgb pixel = image.pixel( ix, iy );
-    return qAlpha( pixel ) != 0;
+    QRgb pixel = image.pixel( ix, iy ); // 傳回(ix,iy)點的顏色(red,green,blue)組成的成份
+    return qAlpha( pixel ) != 0; // 判斷alpha值是否為0,若為0表示滑鼠沒有點到圖片
 }
 
-class NodeItem: public QCanvasEllipse
+class NodeItem: public QCanvasEllipse // 橢圓
 {
 public:
     NodeItem( QCanvas *canvas );
     ~NodeItem() {}
 
-    void addInEdge( EdgeItem *edge ) { inList.append( edge ); }
-    void addOutEdge( EdgeItem *edge ) { outList.append( edge ); }
+    void addInEdge( EdgeItem *edge ) { inList.append( edge ); } // 在列表的最後插入edge
+    void addOutEdge( EdgeItem *edge ) { outList.append( edge ); } // 在列表的最後插入edge
 
     void moveBy(double dx, double dy);
 
     //    QPoint center() { return boundingRect().center(); }
 private:
-    QPtrList<EdgeItem> inList;
-    QPtrList<EdgeItem> outList;
+    QPtrList<EdgeItem> inList; // QPtrList類是一個提供雙向鏈表的模板類
+    QPtrList<EdgeItem> outList; // QPtrList類是一個提供雙向鏈表的模板類
 };
 
 
@@ -108,10 +108,10 @@ void EdgeItem::moveBy(double, double)
     //nothing
 }
 
-EdgeItem::EdgeItem( NodeItem *from, NodeItem *to, QCanvas *canvas )
+EdgeItem::EdgeItem( NodeItem *from, NodeItem *to, QCanvas *canvas ) // 初始化建構子
     : QCanvasLine( canvas )
 {
-    c++;
+    c++; // 增加一個count,表示多了一個邊
     setPen( *tp );
     setBrush( *tb );
     from->addOutEdge( this );
@@ -120,12 +120,12 @@ EdgeItem::EdgeItem( NodeItem *from, NodeItem *to, QCanvas *canvas )
     setZ( 127 );
 }
 
-void EdgeItem::setFromPoint( int x, int y )
+void EdgeItem::setFromPoint( int x, int y ) // 設定起點
 {
     setPoints( x,y, endPoint().x(), endPoint().y() );
 }
 
-void EdgeItem::setToPoint( int x, int y )
+void EdgeItem::setToPoint( int x, int y ) // 設定終點
 {
     setPoints( startPoint().x(), startPoint().y(), x, y );
 }
@@ -134,11 +134,12 @@ void EdgeItem::setToPoint( int x, int y )
 
 void NodeItem::moveBy(double dx, double dy)
 {
-    QCanvasEllipse::moveBy( dx, dy );
+    QCanvasEllipse::moveBy( dx, dy ); // 使用父類別的moveBy函數
 
-    QPtrListIterator<EdgeItem> it1( inList );
+    QPtrListIterator<EdgeItem> it1( inList ); // 設定it1為指到QPtrList的指標變數
     EdgeItem *edge;
-    while (( edge = it1.current() )) {
+    // 若it1指到的位置存放的EdgeItem的指標不是0時，則執行大括號內的指令,直到edge為空指標
+    while (( edge = it1.current() )) { 
 	++it1;
 	edge->setToPoint( int(x()), int(y()) );
     }
@@ -168,17 +169,18 @@ void FigureEditor::contentsMousePressEvent(QMouseEvent* e)
 {
     QPoint p = inverseWorldMatrix().map(e->pos());
     QCanvasItemList l=canvas()->collisions(p);
+    // 注意,it是指到容器的指標,而(*it)是放在容器內的指標
     for (QCanvasItemList::Iterator it=l.begin(); it!=l.end(); ++it) {
 	if ( (*it)->rtti() == imageRTTI ) {
-	    ImageItem *item= (ImageItem*)(*it);
+	    ImageItem *item= (ImageItem*)(*it); // 轉換回來ImageItem的指標
 	    if ( !item->hit( p ) )
 		 continue;
 	}
-	moving = *it;
-	moving_start = p;
+	moving = *it; // 設定要移動的物件
+	moving_start = p; // 設定起始位置
 	return;
     }
-    moving = 0;
+    moving = 0; // 沒有要移動的物件
 }
 
 void FigureEditor::clear()
@@ -196,20 +198,21 @@ void FigureEditor::contentsMouseMoveEvent(QMouseEvent* e)
     if ( moving ) {
 	QPoint p = inverseWorldMatrix().map(e->pos());
 	moving->moveBy(p.x() - moving_start.x(),
-		       p.y() - moving_start.y());
-	moving_start = p;
-	canvas()->update();
+		       p.y() - moving_start.y()); // 移動相對位置
+	moving_start = p; // 重新設定起始位置
+	canvas()->update(); // 更新canvas畫面
     }
 }
 
 
 
+// 初始化動畫
 BouncyLogo::BouncyLogo(QCanvas* canvas) :
     QCanvasSprite(0,canvas)
 {
-    static QCanvasPixmapArray logo("qt-trans.xpm");
-    setSequence(&logo);
-    setAnimated(TRUE);
+    static QCanvasPixmapArray logo("qt-trans.xpm"); // 動畫有多個frame
+    setSequence(&logo); // 設定logo
+    setAnimated(TRUE); // 動畫可移動
     initPos();
 }
 
@@ -227,8 +230,8 @@ void BouncyLogo::initPos()
     int trial=1000;
     do {
 	move(rand()%canvas()->width(),rand()%canvas()->height());
-	advance(0);
-    } while (trial-- && xVelocity()==0.0 && yVelocity()==0.0);
+	advance(0); // 動畫不移動
+    } while (trial-- && xVelocity()==0.0 && yVelocity()==0.0); // trial不為0且x,y速度都為0
 }
 
 void BouncyLogo::initSpeed()
@@ -256,12 +259,12 @@ void BouncyLogo::advance(int stage)
 	double ny = y() + vy;
 
 	if ( nx < 0 || nx >= canvas()->width() )
-	    vx = -vx;
+	    vx = -vx; // 換反方向
 	if ( ny < 0 || ny >= canvas()->height() )
-	    vy = -vy;
+	    vy = -vy; // 換反方向
 
 	for (int bounce=0; bounce<4; bounce++) {
-	    QCanvasItemList l=collisions(FALSE);
+	    QCanvasItemList l=collisions(FALSE); // 沒有那麼精準的傳回所有有碰撞的canvas item
 	    for (QCanvasItemList::Iterator it=l.begin(); it!=l.end(); ++it) {
 		QCanvasItem *hit = *it;
 		if ( hit->rtti()==logo_rtti && hit->collidesWith(this) ) {
@@ -309,10 +312,10 @@ Main::Main(QCanvas& c, QWidget* parent, const char* name, WFlags f) :
     QMainWindow(parent,name,f),
     canvas(c)
 {
-    editor = new FigureEditor(canvas,this);
+    editor = new FigureEditor(canvas,this); // 繼承canvas view而來
     QMenuBar* menu = menuBar();
 
-    QPopupMenu* file = new QPopupMenu( menu );
+    QPopupMenu* file = new QPopupMenu( menu ); // 當parent被刪除,則子類別也會被刪除
     file->insertItem("&Fill canvas", this, SLOT(init()), CTRL+Key_F);
     file->insertItem("&Erase canvas", this, SLOT(clear()), CTRL+Key_E);
     file->insertItem("&New view", this, SLOT(newView()), CTRL+Key_N);
@@ -320,7 +323,7 @@ Main::Main(QCanvas& c, QWidget* parent, const char* name, WFlags f) :
     file->insertItem("&Print...", this, SLOT(print()), CTRL+Key_P);
     file->insertSeparator();
     file->insertItem("E&xit", qApp, SLOT(quit()), CTRL+Key_Q);
-    menu->insertItem("&File", file);
+    menu->insertItem("&File", file); // 建立一個工具列名為File的label
 
     QPopupMenu* edit = new QPopupMenu( menu );
     edit->insertItem("Add &Circle", this, SLOT(addCircle()), ALT+Key_C);
@@ -359,10 +362,12 @@ Main::Main(QCanvas& c, QWidget* parent, const char* name, WFlags f) :
 
     QPopupMenu* help = new QPopupMenu( menu );
     help->insertItem("&About", this, SLOT(help()), Key_F1);
-    help->setItemChecked(dbf_id, TRUE);
+    help->setItemChecked(dbf_id, TRUE); // 很奇怪,當TRUE時,把dbf_id打勾,不懂
     menu->insertItem("&Help",help);
 
     statusBar();
+    // 返回這個窗口的狀態條。如果沒有的話
+    // statusBar()會創建一個空的狀態條，並且如果需要也創建一個工具提示組。
 
     setCentralWidget(editor);
 
@@ -379,8 +384,8 @@ void Main::init()
     srand(++r);
 
     mainCount++;
-    butterflyimg = 0;
-    logoimg = 0;
+    butterflyimg = 0; //蝴蝶指標為0
+    logoimg = 0; // Qt logo動畫指標為0
 
     int i;
     for ( i=0; i<canvas.width() / 56; i++) {
@@ -398,10 +403,10 @@ Main::~Main()
 {
     delete printer;
     if ( !--mainCount ) {
-	delete[] butterflyimg;
-	butterflyimg = 0;
-	delete[] logoimg;
-	logoimg = 0;
+	delete[] butterflyimg; // 刪除指到陣列的指標
+	butterflyimg = 0; // 設定指標為0
+	delete[] logoimg; // 刪除指到陣列的指標
+	logoimg = 0; // 設定指標為0
     }
 }
 
@@ -536,7 +541,7 @@ void Main::addSprite()
     i->show();
 }
 
-QString butterfly_fn;
+QString butterfly_fn; // 記錄圖片的路徑
 QString logo_fn;
 
 
@@ -566,7 +571,7 @@ void Main::addLogo()
     if ( logo_fn.isEmpty() )
 	return;
     if ( !logoimg ) {
-	logoimg = new QImage[4];
+	logoimg = new QImage[4]; // 產生四種大小的圖片
 	logoimg[0].load( logo_fn );
 	logoimg[1] = logoimg[0].smoothScale( int(logoimg[0].width()*0.75),
 		int(logoimg[0].height()*0.75) );
