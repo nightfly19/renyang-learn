@@ -1,0 +1,20 @@
+
+1/26
+	列印簽名單
+
+1/24
+機制
+  ChangeLane 每0.1秒發一個 BrLocation
+  Brake Emergency 每0.05秒發一個 BrLocation -> 附帶Brake Information
+
+1/23
+Final Report
+DSRC 7 channel要impl application layrer
+一個一個Car加
+
+AutoChangeLane有Bug
+Information Viewer加上屬性 
+
+1/21
+GPS - 要錯開 (現在的network collision太高了)
+安全距離公式

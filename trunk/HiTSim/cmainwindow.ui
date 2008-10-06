@@ -1,0 +1,618 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>cMainWindow</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>cMainWindow</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>678</width>
+            <height>497</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Car-Sim</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+    </grid>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <separator/>
+        <action name="actFileOpen"/>
+        <separator/>
+        <action name="eraseCanvas"/>
+        <action name="newView"/>
+        <separator/>
+        <action name="filePrintAction"/>
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <item text="&amp;Edit" name="Edit">
+        <action name="addSprite"/>
+        <action name="addCar"/>
+        <action name="randAddWifiCars"/>
+        <action name="actRandAddDSRCCar"/>
+    </item>
+    <item text="&amp;Setting" name="Setting">
+        <action name="settimeratio"/>
+        <action name="actSimSetting"/>
+        <action name="actLogfile"/>
+    </item>
+    <item text="&amp;View" name="View">
+        <action name="zoomIn"/>
+        <action name="zoomOut"/>
+        <separator/>
+        <action name="enlarge"/>
+        <action name="shrink"/>
+        <separator/>
+        <action name="actPosList"/>
+    </item>
+    <item text="&amp;Control" name="Control">
+        <action name="actPlay"/>
+        <action name="actPause"/>
+        <action name="actStop"/>
+    </item>
+    <item text="&amp;Option" name="Option">
+        <action name="doubleBuffer"/>
+    </item>
+    <item text="&amp;Help" name="helpMenu">
+        <separator/>
+        <action name="helpAboutAction"/>
+    </item>
+</menubar>
+<toolbars>
+    <toolbar dock="2">
+        <property name="name">
+            <cstring>Toolbar</cstring>
+        </property>
+        <property name="label">
+            <string>Toolbar</string>
+        </property>
+        <action name="actPlay"/>
+        <action name="actPause"/>
+        <action name="actStop"/>
+    </toolbar>
+    <toolbar dock="2">
+        <property name="name">
+            <cstring>Toolbar_2</cstring>
+        </property>
+        <property name="label">
+            <string>Toolbar_2</string>
+        </property>
+        <action name="actPosList"/>
+        <action name="actUser"/>
+        <action name="actCenter"/>
+    </toolbar>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>filePrintAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image0</iconset>
+        </property>
+        <property name="text">
+            <string>Print</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Print...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+P</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+Q</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>eraseCanvas</cstring>
+        </property>
+        <property name="text">
+            <string>Erase canvas</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Erase canvas</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+E</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>newView</cstring>
+        </property>
+        <property name="text">
+            <string>New View</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;New View</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+N</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>addSprite</cstring>
+        </property>
+        <property name="text">
+            <string>Add Sprite</string>
+        </property>
+        <property name="menuText">
+            <string>Add &amp;Sprite</string>
+        </property>
+        <property name="accel">
+            <string>Alt+S</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>doubleBuffer</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="on">
+            <bool>true</bool>
+        </property>
+        <property name="text">
+            <string>Double Buffer</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>addCar</cstring>
+        </property>
+        <property name="text">
+            <string>Add Car</string>
+        </property>
+        <property name="menuText">
+            <string>Add &amp;Car</string>
+        </property>
+        <property name="accel">
+            <string>Alt+C</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>randAddWifiCars</cstring>
+        </property>
+        <property name="text">
+            <string>Random Add Wifi Cars</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Random Add Wifi &amp;Cars</string>
+        </property>
+        <property name="accel">
+            <string>Alt+R</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>shrink</cstring>
+        </property>
+        <property name="text">
+            <string>Shrink</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+Shift+_</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>enlarge</cstring>
+        </property>
+        <property name="text">
+            <string>Enlarge</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+Shift++</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>zoomOut</cstring>
+        </property>
+        <property name="text">
+            <string>Zoom Out</string>
+        </property>
+        <property name="accel">
+            <string>-</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>zoomIn</cstring>
+        </property>
+        <property name="text">
+            <string>Zoom In</string>
+        </property>
+        <property name="accel">
+            <string>=</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>settimeratio</cstring>
+        </property>
+        <property name="text">
+            <string>Set Time Ratio</string>
+        </property>
+        <property name="menuText">
+            <string>Set &amp;Time Ratio</string>
+        </property>
+        <property name="accel">
+            <string>Alt+T</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actPlay</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="iconSet">
+            <iconset>image1</iconset>
+        </property>
+        <property name="text">
+            <string>Play</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actStop</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="iconSet">
+            <iconset>image2</iconset>
+        </property>
+        <property name="text">
+            <string>Stop</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actPause</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="iconSet">
+            <iconset>image3</iconset>
+        </property>
+        <property name="text">
+            <string>Pause</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actPosList</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="iconSet">
+            <iconset>image4</iconset>
+        </property>
+        <property name="text">
+            <string>Car Position List Viewer</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actUser</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="on">
+            <bool>true</bool>
+        </property>
+        <property name="iconSet">
+            <iconset>image5</iconset>
+        </property>
+        <property name="text">
+            <string>User Select</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actCenter</cstring>
+        </property>
+        <property name="toggleAction">
+            <bool>true</bool>
+        </property>
+        <property name="iconSet">
+            <iconset>image6</iconset>
+        </property>
+        <property name="text">
+            <string>Select Center Car</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actSimSetting</cstring>
+        </property>
+        <property name="text">
+            <string>Simulation Setting</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actRandAddDSRCCar</cstring>
+        </property>
+        <property name="text">
+            <string>Random Add DSRC Car</string>
+        </property>
+        <property name="accel">
+            <string>Alt+D</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actLogfile</cstring>
+        </property>
+        <property name="text">
+            <string>Log File Setting</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>actFileOpen</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image7</iconset>
+        </property>
+        <property name="text">
+            <string>Open Configure File</string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="PNG" length="725">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000029c49444154388d8d95ad76db4010853ff718cc3289d950d06136344c98c362964087256f503f426161021be6b2842550612e8be14299496c866dc14ab2fc77da2192665777eedc3b5af53813afafaf414448d3742f6f6600a82a005555912409575757bdeebefe396011613299b440876b4d946589f7fe68cf596080cd6673047658485571cefd3ff02900333b2a70aa23806fa792799e07336b9938e770ceede9dde82f2247fa9e65acaa244942599688486b54374eb5ff4fc6105b3c9c882e6853ec9c142719376c4e31ede655756f42ba71a40dc06ab50a5996311c0ecf8237467e7e7e022092309f5fb7787b8cdfdfdf83f79efc2347668288b40087d786695994e479ceb6daf2f0f01066b319d7d7d7bd5e1774b3f154c5163580d34c019ca408020e7ce159afffb0dd16a81a1717198bc5224ad130bd9c5ee2d2145503538e6c3103849c4f3e78656a53d2af94e79767fc57fcfad4946c7411419f9e7e85b228c3ffc457f80aa3300a12248cc228acd7ebf0e3fbcf301e8fc360908524494236c842bfda56dcdddd9c75f73052522e999223cc98311e8f4964486905cfbf5ea8aa8a7490d237c0fb22cea31988106b48ed36385c54dc14c4f160dfb9c133b4217fd88019e97018d76b77fa6551e045a29e66b4be39882ed69d38031520e604f0b6c5886788df6c5a4f1cf5b835096b00b17628148b35746f673b39d278da0945e9236065e705adc976371a200a76b8e2302ba9fb6c7a633299f20debb06cc96a7cb4faba07ea9a6d35680d58cb39180c582cee2263ef7d631588412540159d338b30d2b0b21d183bcd31430496cb25f3f9bcd7cfb28c8fb70f7ebfbda16ac4f347d81b3ee93ccb0eb2edb39ea6e572c9e3e3630f3a87d06ab50aabd51bdbfaffa5686dcace99dd5f0354cb785f1993e984dbdb5beeefef5bbcbfd1f69e0c3fec24860000000049454e44ae426082</data>
+    </image>
+    <image name="image1">
+        <data format="PNG" length="241">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af4000000b8494441545885c5d7410e03310803406fd557f17ff1aded090955d186250638e692115cec4b556123223700a8ea85a6f9ac1e45e436cc08c043460186a8846c01d59030c0434601866041520026e408e021a300436420344016420778c828c0103b48292002690178c82860856807fccfb7f3b355d069013c25acf213ece25dd906a2b9920e781b68a927c8a469ca064e62fc1180d11fd227609597d71b60b7a630a0aaae854e50d9151f37d051529780d176dcf93900fc00876451bbbe4e7e410000000049454e44ae426082</data>
+    </image>
+    <image name="image2">
+        <data format="PNG" length="127">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af400000046494441545885edd7310e00200c42516b3c15f70fd7b2bb713538fc8e2cbcb0b56c8fe4cd683b801f00eb164ada2fca6cd799c5170000000000000000000000a078cd00a4010db19908e50de1ed4e0000000049454e44ae426082</data>
+    </image>
+    <image name="image3">
+        <data format="PNG" length="120">89504e470d0a1a0a0000000d4948445200000020000000200806000000737a7af40000003f494441545885edcea10d0020100441a0acef3fd716280c0243829a959f4f6e7a9276abaae6794bd25f7f77e3bafe2100000000000000000000000000008005627e0a929de86b2c0000000049454e44ae426082</data>
+    </image>
+    <image name="image4">
+        <data format="PNG" length="1693">89504e470d0a1a0a0000000d494844520000001f0000001f08060000001fae163900000664494441544889bd97dbab5d5715c67ff3b22e7b9ffb39494e225a4d62420834a4221425622d886fd256b00453a2948abef80758e8836f62cd6ba3ad2d1549da900b15149b362a168b4ac1d6de941a43a826263931e7b22feb32e7183eacbdcf3e27b6d026c1b159ccb5c6186b7c73cc39c637d736aacabb17feaacb0b1dc4d5d445977e59b0657e1b0b0bd7a86c9b7c661355bfa0280af23c67b9778e9dd39bf9f7e259c6673c99f3f42e7aec64461a0de954cef9ab39636e0a80d85d64723ad2eb75189fd84cd24ad8b1f536635e79fd0dbd6d7e96562b27f11680c4b6303ea55f834fa10c5044613c6fec4e21317d546a6aed90ba196a6d110d001421e2d5917948b4d155d512755d519670e9f232136d3067fffea66e9adf42ee720c86d84f78ecf8936cde029d9549be7edfbddc0a31cdbc89a1a2ec09e7ff7515db59ba8243563d5ef8f32f39fae8c32c9ffe3de77e751495784bc0559a4b628d4885a93bf82c8d88f4106f08ea58c8daec7f602b0f7d6b2fcf1f3a82310654f8f2fdf7dd30f0cf9f3d89aa62aca326104c8fc05bd8222a0147b4e044d8b5f1b3dce63651fde16526a71d620c62cccd654db3f182627d8a78a813c197b291c2a54c784f574a965efd1d4fbe6639bea0d8de1e9e52c16078eed91300180caa0a66708fbeef78bd585556480985628a297c5939445b74434ad7383e73f76eeefae2499871840a887dd4284d2c5d13d4a02a6b3233033f450da03ab00dbc15d48044a1b21924e3f8b9891c5f1a48c1698bc2ce71f889ef0230d99ae6c107bfd3ecd79aac505004831d80e9684500a3a3cc0da32d53146bfa78ebe9c5096cbf7b99cc7648624d3b0a6ffee9358e1d3dc18e77aed079e58f4d1065dda86698958cf43a589d35bed0e855155101515a95604317ed5ec64fba2e5e0a9298613194138e6feebb9d7b1ed9c3f3878ea0d244b977fffd375c70278f3eb3ba024e0a92bac7d4f822366f43ec17c458422c986e7f84dea60b5cfccd69dc4c31e0809beb75a34d0c911a2f192deb196b25f8c505c7f45c0b00a1225bbc40af7f0f4fff2dc3fb84cf0d8aead4912300a37d7d8ff6bbde367c1e8e001253421883721e5f65394588b8dc628c61c71ddbd876c727f0405956c357501df0a30a18db30df903311606457ecaadf68664d12b555fac6b1242dfce4b890b7329c4dc139c464bcfcc66f9995826b711377edd9be06607d209035950f4d230846d7fbe9e05d83a5b64a992bc978855fe9f59957071251eb79e6b9131cfec1c3ecffd49d5c6877f9c2ed3f46d07559586dea7c35db2180b20eec7fb60541349095052bbd122f75b3df91888f9156e75d0e1cdccb971eb893b77ff4c20004be72e0e07b06fc2072e2674fa31200c834414c8fa25cc166de11cb0ab4464d20eedcc9ce85abec7ae92536bb0554aa41b5deb80c818762bd63a23d86af27c71a4d6aa8b5247927e7ccd21467ced45c4c3eca13c623c0f19ffe641069b0b6c36a576deeaf1f5791759dae3435555583a4f8e54aa95a81b1324550766d9f66f7ee4314ed0e63e50c6ac1c421a3450c6e10534694bbca6a437a65d57fd4050d05a71968bfc6fa881dcfe7e891a21ed479b6dffd69defecf1916975fe56aeb2d0811d5e61a066c0e146946d5d56786faa18f9a917e403426466214ac77d8b2bac00635980046845f3cfe228f3ef27dce1f3fc5e91f3ec6b08457f97a70ba0d5bacb1ac6dc3019f0f6daa8c7e10cb66f9ab4ec4c795b314610cdf6aa32ea73b768d0307f7f2d0d7f671eaf13383134df9ea37befd616a6c9d1c7bea3098c1041c84cc13da01bf756a03a6ee43ab8d0bcaf8c432fae23fe8ce5da1bdd207abab87cbcd4853079604c88290d4015ff460e3ec2ca6ce1060c7ece739f6c905beb7b4c2ecc73fc63e318069667f53e8160ca489a7b81649c4e20194b439d580857f9e63831967a23f0e04781fb6fab0a2837a09447019269dc4bcfe975febfc96799c9fba25201f44162f5da35f16789b79567a814c7bff37f05e15c124f83c9f82dab32429fdb2432e7d6c8824a9a1140b3a8721472950bb4cb457491381981243c465830f8d981224c1c60435c908a9aa510d58d3f86559423b6d93642d7ce253ea5a701a8975040795eb5019834a86af0248406dc05a8b584719b5f978c422a12268c44603e2f012896b9a23b8129188f535de586a17491307a9c7535da2aa84d46ec4eb22bead14ddcb4c93515b4fe2c18486ffd57649a88940246f328c3529cd9fc754000298b0063c820f04a3445361c4519711290bfe0b3c75a0f5fa568c3c0000000049454e44ae426082</data>
+    </image>
+    <image name="image5">
+        <data format="XPM.GZ" length="4305">789c9d95594f1b591046dff91516f5168d2a76bb6db7359a0712d6c48425846d340fbd0206c2be8ee6bfcffdce259a48d82387fea0f1a1aeababead6ad7effaeb5bfb9de7af77eeee636bf3d295be5717edd7a57dd9d9f3ffdf9d71f7fcfcd779356f8e974dbad64feb7b979bf6a952d6b7389ed1aee48f00ddc95e0b83e95e075b82fc1066712fef7e1a104dfc1b9c4fa06ae24f8bbb8c3c5fa2f702261cfe1ae041fc2a9c4fa8f704f8277e0be042fc3b904b7e15282cfe04ac23ffe92b604b33e194830eb0927d6eb141e48f8a39edda184fd096e24b827a69cd17f069310dfbf87b9b0afc27d09fe06e712fc092e257851dc4b2471ee7057c2be02a712bc060f24b80f67124c3cbd5c823fc38504a77029113ff1f44b09fb57b892b03fc0b584bd841b09fb969872c678e987412a61efc2048c9d7e1b70c1033893581fb990b057e2ac2361a7dfb3ae04935f964aac5f827188fd12e6c29ec043093be723cb25f818ae2498fa668dc4f7b7c51c17fac1e9a7612ac18ff04062fd18e681d8cfe15cc2ce7e0f0b09fb335c4af02d5c49aca79ec35ac24e3f0e1b09a69f38be313ee2cd1309de84bb12fe16601a142ee0bec4fa03782061273eca15f3a13f732eecc49b1712f63db894b09fc09544bf338ff25a623dfd5d24124c7c452ac1f42fed1ce74707a661e00d9882f23ce2279cb8bf1f602eec47702961e7bc1695843dfa6b24f8425cb62598fe2f1309667e969904efc2140066de95b5c4f3386f652361e7bc31de62bf135fd595b0137fd59360fa89e31ae70dfd570d24be3f846968ecccd7aa94b0b31f1517ccfcab6a89f59c87aa91b033ffebb6841dff752ac1ec37e322c6c3fed40309aee14cc21fe791768ee791f95917124cfd0827c6c7fba4e6c2df48dcb425ec9cffa62361a7df9b44c24ebf31de633d990f4d2a6167de373d09265ec65d3c0fbc0f9b8104c7e7332060ce0fc731e643bf34b904f37ea49d627ecc53b63fee07f38e72c77c991f4d2d89b7385f0d57e4d772f33cdc8bf8fbff9aecc3cb97bfc58f4fbfeac3abf0ddda9b596298eaa3f0233ff693188fd76ff231f6533ff373ff2e2f7ef1c67a5cfa955ffb4dc82a7f5b2ec1c7addff9bd3ff8a33fbdb11e8d3f071f0bfec13ffaa22fbdb1a6e7beec2bbeea6bfec93fc7aafa88fb84bd9e92cbba7ff18df077c9377dcbb7fdab57fc5f7d57cde8e3c677fc1b3bbbeb7bbeef077ef892e584cca6f838f6b6773ce1f3a16f7837646474fe68661f8f2197d4c77ceef9c8fb3ef0cc87787cd52f136b9a9b9bf91a1df6d2edbe62b99fffc2be8ccc430d1614037c11545861a55536a1f3a7e4f26c8d1db1cb951ddb49f8fed88eecd4cec2a757d14cf1d1b7ef7661979ce13dbfb22b97f6ed3adc678ac32e7dd36eecd6eeecde1eecd1b7edc9ce42976cdbb32dd88719e338b08fe1b41cdba22dd972f0ba62abaa9376ea75a74ef1711ae2b7e0a5676bf6c92eed73d068528f4edf9790cbba7db10ddb0c3eeec35e6fd9b67db51dcf7d77e67d59b36f1656db9e5fdabe1d848ecf42359fb5cf33c6d170df7da9efb31d865a9e58dbc63e319f297114f179b6197e8b10c19e752c09fdbee8abb3d6833b53d046b61376b66b77a17b53eb858a8c67f2317e898569e187a153fb3608676fcb321bce5a537cfc34d1ed244c9487a0f4c7199a2d8e988f2ac8dcd8c8b5c5139f36a5a6d54b3e95f2a73b77c33c2c42e73433fb18c7087eae71cc4fbb3d6b3df0f25f4ebcab8867c21b78fadec66e72facae26e2fe9ed3be1ccfdf3fbdcbf4c46a5ef</data>
+    </image>
+    <image name="image6">
+        <data format="XPM.GZ" length="3360">789ccd95cb52db581445e77c850bcda8d4895fb2e4eaea01181207020112082195812c590182897906e8ea7fefbb976c21c9867666f1f2c0eb3eb68fa423e9f54aed6877bbb6f27ae9fa26ba398d6bf14974555b496e47a387afdffefe6769b9d5acb96fd0a835975f2d2d5b528b6b5e9d0f7e8a3705dec3db023fc23b02dfc703819fe0a1c03fe191c02ff058e06d3c11788c0f85dc8bf054307f206fb4047e86fb02ff810782fd033c14ccffc22381dfe189c09bf850e0abf2a62fc81bca5b1dc17c1d0f05f3867705f3d7f27647e01ff040e023bc2bf0ef782af0f772bf2ef0633c14f806de15f8babce30bfc27ce87fa3c3c10cc7fc443816fcb292fbbde3e9e08bc23e77436f0353c1238e73b1c0abc2bef86027fc0f9500ffdd78d05f39ff144e06fe5515be0ef705fe07dbc2370fa250a047e880f057e231fd4059ee2bec0eff150501ffd384805f30d39ed9bed7f83fb021fcb293fbb1ebbf840e09b72da3bdb7f8ed370f815de16f8251e08fc0bde15f823ce01e2013e10784b9e36044effa64d81d30fa92ff05bbc23f03d3c10f8161e0a7c078f041ee2b190ef71be533e995731cf221b586c4981d88d44e6cdae9ecdb0a1a5f6dd4ed8776a67f6c371e67ec94fdc4c6ac39733ecdc467691afff6963bb748cddaf69ee855b71fe7c865dd975beeec66e4be9b76e649a7f6d57f3335c0d59c2dd6cbd85e3bc9ba49ccf66e435fcb2fb79fbf39c7bb7a254cb34a350c38b099394522d79c6c32235ccd4f2f094618fb6ba580d955a56ed31cf58b39e1b595f34819475b7a3676b79c686f3331bcfac7b636fad0fef6cb33237763b12dbc8326ccbde3bdbb69d67ae63c607dbb5bdc2fc8edb91b89d5bd9f3cdf69df52bfff3d13e95ee97533bb0c3d28abe1bddb77ef64c75bf8f2af3f7a51aa694fad30eddaec43ee719aea6c2ec17aed33c0ae77d720e9e328e4b555cba7b757e4679ddf11f99512f3e1316cb70f758bd9451bab60b9ed33e235946c39ad5fe58e8da2aa3698d42af8facf53b3d662db723eff54946dbd2dfeaf5d4ed2866645eeab397efb9497ff1bf938cacae23f3cbf7dd73b8fbcda7cf39fefc3996f57ecf3ad55ae6246cb955bda77b2ccf781aff9f5af21af2ff2b3cd78b73818573f7876e66e6bf4aef97692dfbaec3bad5e7969bdf74a3ab3c6b4ac75c79cfa99683ecddea99bbe2a97b5aeb5df9e87e6db891699f948e77e67dbb6763cfa36f95137903bdb3bd81174dbaa4e966c7c53e99f7de175eec25deb0dae9ded08dc6b3ab97fffd6be93f406aa5e2</data>
+    </image>
+    <image name="image7">
+        <data format="PNG" length="210">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b0000009949444154388ded94410e85200c445f89c7367f61bc775d2848a42860ffced9548bbe8e13043e1d928177f481a123dc2b34f6f47a3de2b865a8843f4001982a0b3d5f62c58300aa1ad70550449ab9d507a773a8a4ba4f92a2df333c64c63bebbd82e5b8addecbcc7820eb4266c639745dfa80f36faf66c66fa19c3f882fb470ec05cdc0bed07893f68e171492635f686c3eeff6ba3c8fdd366dc4c0452c8781f8080000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>actCenter</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotActCenter()</slot>
+    </connection>
+    <connection>
+        <sender>actPause</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotPause()</slot>
+    </connection>
+    <connection>
+        <sender>actPlay</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotPlay()</slot>
+    </connection>
+    <connection>
+        <sender>actPosList</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotActPosViewer(bool)</slot>
+    </connection>
+    <connection>
+        <sender>actRandAddDSRCCar</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotRandAddDSRCCar()</slot>
+    </connection>
+    <connection>
+        <sender>actSimSetting</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotActSimSet()</slot>
+    </connection>
+    <connection>
+        <sender>actStop</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotStop()</slot>
+    </connection>
+    <connection>
+        <sender>actUser</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotActUsrSel()</slot>
+    </connection>
+    <connection>
+        <sender>addCar</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotAddCar()</slot>
+    </connection>
+    <connection>
+        <sender>addSprite</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotAddSprite()</slot>
+    </connection>
+    <connection>
+        <sender>doubleBuffer</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>toggleDoubleBuffer(bool)</slot>
+    </connection>
+    <connection>
+        <sender>enlarge</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotEnlarge()</slot>
+    </connection>
+    <connection>
+        <sender>eraseCanvas</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotClear()</slot>
+    </connection>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>fileExit()</slot>
+    </connection>
+    <connection>
+        <sender>filePrintAction</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>filePrint()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>newView</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotNewView()</slot>
+    </connection>
+    <connection>
+        <sender>settimeratio</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotSetTimeRatio()</slot>
+    </connection>
+    <connection>
+        <sender>shrink</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotShrink()</slot>
+    </connection>
+    <connection>
+        <sender>zoomIn</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotZoomIn()</slot>
+    </connection>
+    <connection>
+        <sender>zoomOut</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotZoomOut()</slot>
+    </connection>
+    <connection>
+        <sender>randAddWifiCars</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotRandAddWifiCars()</slot>
+    </connection>
+    <connection>
+        <sender>actLogfile</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotLogFileSetting()</slot>
+    </connection>
+    <connection>
+        <sender>actFileOpen</sender>
+        <signal>activated()</signal>
+        <receiver>cMainWindow</receiver>
+        <slot>slotFileOpen()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">cmainwindow.ui.h</include>
+</includes>
+<slots>
+    <slot>fileNew()</slot>
+    <slot>fileOpen()</slot>
+    <slot>fileSave()</slot>
+    <slot>fileSaveAs()</slot>
+    <slot>filePrint()</slot>
+    <slot>fileExit()</slot>
+    <slot>helpIndex()</slot>
+    <slot>helpContents()</slot>
+    <slot>helpAbout()</slot>
+    <slot>slotClear()</slot>
+    <slot>slotAddSprite()</slot>
+    <slot>slotNewView()</slot>
+    <slot>toggleDoubleBuffer( bool )</slot>
+    <slot>slotAddCar()</slot>
+    <slot>slotRandAddWifiCars()</slot>
+    <slot>slotEnlarge()</slot>
+    <slot>slotShrink()</slot>
+    <slot>slotZoomIn()</slot>
+    <slot>slotZoomOut()</slot>
+    <slot>slotSetTimeRatio()</slot>
+    <slot>slotStop()</slot>
+    <slot>slotPlay()</slot>
+    <slot>slotPause()</slot>
+    <slot>slotActPosViewer(bool)</slot>
+    <slot>slotActCenter()</slot>
+    <slot>slotActUsrSel()</slot>
+    <slot>slotActSimSet()</slot>
+    <slot>slotRandAddDSRCCar()</slot>
+    <slot>slotLogFileSetting()</slot>
+    <slot>slotFileOpen()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
