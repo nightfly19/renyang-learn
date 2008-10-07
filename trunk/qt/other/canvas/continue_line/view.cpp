@@ -1,5 +1,5 @@
 
-#define MYDEBUG
+#include <mydebug.h>
 
 #ifdef MYDEBUG
 
