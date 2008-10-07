@@ -1,5 +1,4 @@
 
-#include <mydebug.h>
 #include <qapplication.h>
 
 #include "view.h"
