@@ -13,16 +13,15 @@ do
 		if ($1=="?" && current==NR && $2!="temp")
 		{
 			printf("%s\n",$0);
-			printf("The target is %s\n",$2);
-			printf("Do you want to add(y) or delete(n):");
+			printf("Do you want to add(a) or delete(d):");
 			"read yn && echo $yn" | getline yn;
-			if (yn == "y")
+			if (yn == "a")
 			{
 				cmd = "svn add "$2;
 				print(cmd);
 				system(cmd);
 			}
-			else if (yn == "n")
+			else if (yn == "d")
 			{
 				cmd = "svn delete --force "$2;
 				print(cmd);
@@ -32,15 +31,15 @@ do
 		else if ($1=="!" && current==NR && $2!="temp")
 		{
 			printf("%s\n",$0);
-			printf("Do you want to revert(y) or delete(n):");
+			printf("Do you want to revert(r) or delete(d):");
 			"read yn && echo $yn" | getline yn;
-			if (yn == "y")
+			if (yn == "r")
 			{
 				cmd = "svn revert "$2;
 				print(cmd);
 				system(cmd);
 			}
-			else if (yn == "n")
+			else if (yn == "d")
 			{
 				cmd = "svn delete "$2;
 				print(cmd);
