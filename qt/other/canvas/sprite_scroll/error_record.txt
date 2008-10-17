@@ -1,0 +1,4 @@
+1. slots必需宣告為public slots
+2. signals必需宣告為signals就好，不需要宣告為public signals
+3. 當header檔中，加入Q_OBJECT之後，必須重新qmake -project;qmake
+4. 在connect中，若要使用到本類別新建的function，必須要用到this指標
