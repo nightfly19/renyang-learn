@@ -29,6 +29,7 @@ public:
     ~DropSite();
 
 signals:
+    // 沒有實作內容,之後在main.cpp中QObject::connect( d, SIGNAL(message(const QString&)),format, SLOT(setText(const QString&)) );
     void message( const QString& );
 
 protected:

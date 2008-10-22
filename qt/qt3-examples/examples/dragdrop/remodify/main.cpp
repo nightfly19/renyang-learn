@@ -35,6 +35,7 @@ static void addStuff( QWidget * parent, bool image, bool secret = FALSE )
 	d->setText("Drag and Drop");
     }
     d->setFont(QFont("Helvetica",18));
+    // 決定是否有多一個SecretSource的框框
     if ( secret ) {
 	SecretSource *s = new SecretSource( 42, parent );
 	tll->addWidget( s );
@@ -45,6 +46,7 @@ static void addStuff( QWidget * parent, bool image, bool secret = FALSE )
     tll->activate();
     parent->resize( parent->sizeHint() );
 
+    // 只要當有拖曳進入DropSite欄位,則會顯示在QLabel這一個widget中,實際上沒有定義message(const QString&)
     QObject::connect( d, SIGNAL(message(const QString&)),
 		      format, SLOT(setText(const QString&)) );
 }
@@ -56,17 +58,17 @@ int main( int argc, char ** argv )
 
     QWidget mw;
     addStuff( &mw, TRUE );
-    mw.setCaption( "Qt Example - Drag and Drop" );
+    mw.setCaption( "Qt Example - Drag and Drop 1" );
     mw.show();
 
     QWidget mw2;
     addStuff( &mw2, FALSE );
-    mw2.setCaption( "Qt Example - Drag and Drop" );
+    mw2.setCaption( "Qt Example - Drag and Drop 2" );
     mw2.show();
 
     QWidget mw3;
     addStuff( &mw3, TRUE, TRUE );
-    mw3.setCaption( "Qt Example - Drag and Drop" );
+    mw3.setCaption( "Qt Example - Drag and Drop 3" );
     mw3.show();
 
     QObject::connect(qApp,SIGNAL(lastWindowClosed()),qApp,SLOT(quit()));

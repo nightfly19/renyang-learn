@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+                                      
+  <link type="text/css" href="css/stdlayout.css" rel="stylesheet">
+                                      
+  <link type="text/css" href="css/print.css" rel="stylesheet">
+                                      
+  <meta http-equiv="content-type" content="text/html; charset=Big5">
+                                      
+  <title>Qt3 學習筆記</title>
+</head>
+<body>
+<br>
+<div style="text-align: center;"><!--google_ad_client = "";google_ad_width = 728;google_ad_height = 15;google_ad_format = "728x15_0ads_al";google_ad_channel = "";google_color_border = "FFFFFF";google_color_bg = "FFFFFF";google_color_link = "0000FF";google_color_text = "000000";google_color_url = "008000";//--></div>
+<h3><a href="http://caterpillar.onlyfun.net/Gossip/index.html">FromGossip@caterpillar</a></h3>
+<h1>語言技術：Qt3 Gossip</h1>
+<img style="width: 37px; height: 28px; float: left;" alt="還是小毛蟲。。" title="還是小毛蟲。。" src="images/caterpillar_smaill.gif" hspace="5">這邊的文件是以前在學 <span style="font-weight: bold;">Qt3.1</span> 時所留下來的文件！應該還是有用吧！有機會的話，將針對 Qt4 再來作個改寫。。XD<br>
+<br>
+Qt可以運行在不同的平台，像是Unix/X11、Windows、MacOS與支援framebuffer的嵌入式Linux平台（Embedded Linux Platform）。 <br>
+<br>
+Qt有許多版本，其中企業版（Enterprise
+Edition）與專業版（ProfessionalEdition）可以用於商用軟體，並提供相關升級與技術支援，企業版比專業版多了一些額外的模組，
+像是OpenGL支援等；而Unix/X11自由版（Free Edition）則可在遵守Q Public License與GNU
+GeneralPublic
+License的前題下，開發自由與開放原始碼的軟體；而Qt嵌入版（EmbeddedEdition）是Qt嵌入式系統開發版本，在遵守GNU
+General Public License的前題下可以免費使用。 <br>
+<br>
+<center><!--google_ad_client = "";google_ad_width = 728;google_ad_height = 90;google_ad_format = "728x90_as";google_ad_type = "text_image";google_ad_channel = "";//--></center>
+<br>
+<br>
+<table style="text-align: left; width: 964px;" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td style="width: 694px; vertical-align: top;">                                                                                                                  
+      <dl>
+        <dt><small>入門</small></dt>
+                                                                                                                  
+      </dl>
+                                                                                                                  
+      <ul>
+        <li><a href="InstallQt.html"><small>Qt的安裝&nbsp;</small></a></li>
+        <li><small><a href="FirstQt.html">第一個Qt 視窗程式 </a><br>
+          </small></li>
+                                                                                                                  
+      </ul>
+      <small><br>
+      </small>                                                                                                                  
+      <dl>
+        <dt><small>Slot、Singal、Widget</small></dt>
+                                                                                                                  
+      </dl>
+                                                                                                                  
+      <ul>
+        <li><a href="SimpleSignalSlot.html"><small>簡單的 Singal 與 Slots</small></a></li>
+        <li><a href="ButtonClose.html"><small>用按鈕來關閉視窗</small></a></li>
+        <li><a href="CustomWidget.html"><small>自訂 Widget</small></a></li>
+        <li><a href="CommBetweenWidgets.html"><small>多個 Widget 的狀態溝通</small></a></li>
+        <li><a href="CustomSlot.html"><small>自訂 Slot</small></a></li>
+        <li><a href="CustomSingal.html"><small>自訂 Singal</small></a></li>
+        <li><a href="SimpleUnicode.html"><small>簡單的中文顯示、Unicode 轉換</small></a></li>
+                                                                                                                  
+      </ul>
+      <small><br>
+      </small>                                                                                                      
+      <dl>
+        <dt><small>版面元件</small></dt>
+                                                                                                      
+      </dl>
+                                                                                                      
+      <ul>
+        <li><a href="QGrid.html"><small>QGrid 版面配置</small></a></li>
+        <li><a href="QVBoxQHBox.html"><small>QVBox 與 QHBox 版面配置</small></a></li>
+        <li><a href="QGridLayout.html"><small>QGridLayout 版面配置</small></a></li>
+        <li><a href="QHBoxLayoutQVBoxLayout.html"><small>QHBoxLayout 與 QVBoxLayout</small></a></li>
+                                                                                                      
+      </ul>
+      <small><br>
+      </small>                                                                                                
+      <dl>
+        <dt><small>常用元件</small></dt>
+                                                                                                
+      </dl>
+                                                                                                
+      <ul>
+        <li><a href="QTimer.html"><small>使用 QTimer 製作數位時鐘</small></a></li>
+        <li><a href="QTimerMouseEvent.html"><small>再看 QTimer - 結合滑鼠事件顯示日期</small></a></li>
+        <li><a href="QCheckBoxQRadioButton.html"><small><span class="Topic">QCheckBox 與 QRadioButton 的配置</span></small></a></li>
+        <li><a href="QButton.html"><small>QButton 類別下的一堆按鈕</small></a></li>
+        <li><a href="QProgressBar.html"><small><span class="Topic">使用 QProgressBar</span></small></a></li>
+        <li><a href="QListBoxQComboBox.html"><small>QListBox 與 QComboBox 的配置</small></a></li>
+        <li><a href="QListBoxQComboBoxSS.html"><small><span class="Topic">QListBox、QComboBox 的 Signals 與 Slots 處理</span></small></a></li>
+        <li><a href="QLineEdit.html"><small>QLineEdit 輸入欄位</small></a></li>
+                <li><a href="QInputDialogQMesageBox.html"><small><span class="Topic">QInputDialog 與 QMessageBox</span></small></a></li>
+        <li><a href="QColorDialog.html"><small><span class="Topic">QColorDialog 類別</span></small></a></li>
+        <li><a href="QFontDialog.html"><small><span class="Topic">QFontDialog 類別</span></small></a></li>
+        <li><a href="QFileDialog.html"><small><span class="Topic">QFileDialog 類別</span></small></a></li>
+        <li><a href="QTextEdit.html"><small>QTextEdit - 簡單的純文字讀取</small></a></li>
+        <li><a href="QFile.html"><small><span class="Topic">QFile 類別</span></small></a></li>
+        <li><a href="QFileInfo.html"><small>QFileInfo 類別</small></a></li>
+        <li><a href="QDir.html"><small><span class="Topic">QDir 類別</span></small></a></li>
+        <li><a href="QListView.html"><small><span class="Topic">QListView 類別</span></small></a></li>
+        <li><a href="QCheckListItem.html"><small><span class="Topic">QCheckListItem 類別</span></small></a></li>
+        <li><a href="QIconView.html"><small><span class="Topic">QIconView 類別</span></small></a></li>
+        <li><a href="QTabDialog.html"><small><span class="Topic">QTabDialog 類別</span></small></a></li>
+        <li><a href="QTable.html"><small><span class="Topic">QTable 類別</span></small></a></li>
+        <li><a href="QWizard.html"><small><span class="Topic">QWizard 類別</span></small></a></li>
+        <li><a href="QGroupBox.html"><small><span class="Topic">QGroupBox 類別</span></small></a></li>
+        <li><a href="QMainWindow.html"><small>QMainWindow 類別</small></a></li>
+        <li><a href="QtExampleApplication.html"><small><span class="Topic">Qt 線上範例 - application</span></small></a></li>
+                                                                                                
+      </ul>
+      <br>
+                                                                                                
+      <dl>
+        <dt><small>繪圖元件</small></dt>
+                                                                                                
+      </dl>
+                                                                                                
+      <ul>
+        <li><a href="QPainter.html"><small>QPainter 類別 - 畫筆與畫刷</small></a></li>
+        <li><a href="QPainter2.html"><small><span class="Topic">QPainter 類別 - 文字繪製</span></small></a></li>
+        <li><a href="QWMatrix.html"><small><span class="Topic">QPainter 類別 - 座標轉換（QWMatrix）</span></small></a></li>
+        <li><a href="SimplePainter.html"><small><span class="Topic">簡單小畫家 - Qt 線上範例</span></small></a></li>
+        <li><a href="QCanvas.html"><small>QCanvas 類別 - 簡單深度與移動設定</small></a></li>
+        <li><a href="QCanvasSprite.html"><small>QCanvas 類別 - QCanvasSprite 動畫播放</small></a></li>
+        <li><a href="QClipboard.html"><small><span class="Topic">剪貼簿功能 - QClipboard 類別</span></small></a></li>
+        <li><a href="DragDrop.html"><small></small></a><small><a href="DragDrop.html">拖放功能（DragDrop）</a> </small></li>
+                                                                                                
+      </ul>
+      <br>
+                                                                                                
+      <dl>
+        <dt><small>附錄</small></dt>
+                                                                                                
+      </dl>
+                                                                                                
+      <ul>
+        <li><a href="QtTutorial.html"><small>Qt 的線上文件與範例</small></a></li>
+        <li><a href="QtDesigner.html"><small>使用 Qt Designer 設計視窗</small></a></li>
+                                                                                                
+      </ul>
+      <small><br>
+      <br>
+      </small></td>
+      <td style="width: 250px; text-align: center; vertical-align: top;"></td>
+    </tr>
+                                      
+  </tbody>
+</table>
+<br>
+</body>
+</html>
