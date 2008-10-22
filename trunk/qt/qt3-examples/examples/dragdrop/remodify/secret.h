@@ -18,16 +18,20 @@
 #include <qdragobject.h>
 #include <qlabel.h>
 
+// 定義出要拖曳的滑鼠要帶的物件
 class SecretDrag: public QStoredDrag {
 public:
-    SecretDrag( uchar, QWidget * parent = 0, const char * name = 0 );
+    SecretDrag( unsigned char, QWidget * parent = 0, const char * name = 0 );
     ~SecretDrag() {};
 
+    // 加入可以解碼的string
     static bool canDecode( QDragMoveEvent* e );
+    // 把dragdrop object 解出到QString
     static bool decode( QDropEvent* e, QString& s );
 };
 
 
+// 設定好Secret Source的版面
 class SecretSource: public QLabel
 {
 public:
