@@ -17,7 +17,7 @@ MyWidget::MyWidget(QWidget *parent,const char *name):QWidget(parent,name){
 	QPushButton *quit = new QPushButton("Quit",this,"quit");
 	connect(quit,SIGNAL(clicked()),qApp,SLOT(quit()));
 
-	MyPushButton *put = new MyPushButton(this,"problem");
+	MyPushButton *put = new MyPushButton(this,"put");
 
 	MySource *source = new MySource(this,"source");
 

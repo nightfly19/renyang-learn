@@ -18,8 +18,12 @@ Q_OBJECT
 		void dragEnterEvent(QDragEnterEvent *e);
 		void dropEvent(QDropEvent *e);
 		void contentsMousePressEvent(QMouseEvent *e);
+		void contentsMouseMoveEvent(QMouseEvent *e);
+		void contentsMouseReleaseEvent(QMouseEvent *e);
 	private:
 		bool CanPress;
+		QCanvasItem *moving;
+		QPoint moving_start;
 };
 
 #endif // VIEW_H

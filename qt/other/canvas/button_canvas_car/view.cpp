@@ -24,6 +24,7 @@ View::View(QCanvas &canvas,QWidget *parent):QCanvasView(&canvas,parent)
 	ani_x.setImage(0,new QCanvasPixmap("cater2.png"));
 	setAcceptDrops(true); // 可接收Drop
 	CanPress = false;
+	moving = 0;
 }
 
 void View::dragEnterEvent(QDragEnterEvent *e){
@@ -53,8 +54,34 @@ void View::contentsMousePressEvent(QMouseEvent *e){
 		car1->move(e->pos().x(),e->pos().y());
 		car1->setVelocity(-1,0);
 	}
+	else{
+		QPoint p = e->pos();
+		QCanvasItemList l = canvas()->collisions(p);
+		for (QCanvasItemList::Iterator it=l.begin();it!=l.end();++it){
+			moving = *it;
+			moving_start = p;
+			moving->setAnimated(false);
+			return;
+		}
+		moving = 0;
+	}
 #ifdef MYDEBUG
 	cout << "the position is " << e->pos().x() << " and " << e->pos().y() << endl;
 #endif
+}
+
+void View::contentsMouseMoveEvent(QMouseEvent *e){
+	if (moving){
+		QPoint p = e->pos();
+		moving->moveBy(p.x()-moving_start.x(),p.y()-moving_start.y());
+		moving_start = p;
+		canvas()->update();
+	}
+}
+
+void View::contentsMouseReleaseEvent(QMouseEvent *){
+	if (moving){
+		moving->setAnimated(true);
+	}
 }
 
