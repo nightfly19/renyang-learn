@@ -2,6 +2,7 @@
 #include <qfont.h>
 #include <qimage.h>
 #include <qdragobject.h>
+#include <time.h>
 
 #include "view.h"
 
@@ -49,10 +50,11 @@ void View::setCanPress(bool t){
 
 void View::contentsMousePressEvent(QMouseEvent *e){
 	if (CanPress){
+		srand((unsigned)time(NULL));
 		QCanvasSprite *car1 = new QCanvasSprite(&ani_x,canvas());
 		car1->show();
 		car1->move(e->pos().x(),e->pos().y());
-		car1->setVelocity(-1,0);
+		car1->setVelocity(-rand()%10-1,0);
 	}
 	else{
 		QPoint p = e->pos();
@@ -71,7 +73,7 @@ void View::contentsMousePressEvent(QMouseEvent *e){
 }
 
 void View::contentsMouseMoveEvent(QMouseEvent *e){
-	if (moving){
+	if (!CanPress && moving){
 		QPoint p = e->pos();
 		moving->moveBy(p.x()-moving_start.x(),p.y()-moving_start.y());
 		moving_start = p;
@@ -80,7 +82,7 @@ void View::contentsMouseMoveEvent(QMouseEvent *e){
 }
 
 void View::contentsMouseReleaseEvent(QMouseEvent *){
-	if (moving){
+	if (!CanPress && moving){
 		moving->setAnimated(true);
 	}
 }
