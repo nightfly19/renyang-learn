@@ -1,6 +1,6 @@
 
 ASM	= g++
-ASMFLAGS= -I library
+ASMFLAGS= -O3 -I library
 
 OBJ=food.o main.o
 TARGET=main
