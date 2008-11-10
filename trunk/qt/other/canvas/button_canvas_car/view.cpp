@@ -37,8 +37,10 @@ void View::dragEnterEvent(QDragEnterEvent *e){
 
 void View::dropEvent(QDropEvent *e){
 	QCanvasSprite *car1 = new QCanvasSprite(&ani,canvas());
+	int temp_x,temp_y;
 	car1->show();
-	car1->move(e->pos().x(),e->pos().y());
+	viewportToContents(e->pos().x(),e->pos().y(),temp_x,temp_y); // 把視窗的座標(x,y)轉換成內容中的座標(temp_x,temp_y)
+	car1->move(temp_x,temp_y); // 設定車子是在轉換出來的座標
 	car1->setVelocity(-rand()%10-1,0);
 #ifdef MYDEBUG
 	cout << "the object's x is " << e->pos().x() << " and " << e->pos().y() << endl;
