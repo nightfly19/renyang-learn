@@ -12,6 +12,7 @@ do
 	awk -v current=$current_line -v total=$total_line '{
 		if ($1=="?" && current==NR && $2!="temp")
 		{
+			printf("========================================\n");
 			printf("%s\n",$0);
 			printf("Do you want to add(a) or delete(d):");
 			"read yn && echo $yn" | getline yn;
@@ -30,6 +31,7 @@ do
 		}
 		else if ($1=="!" && current==NR && $2!="temp")
 		{
+			printf("========================================\n");
 			printf("%s\n",$0);
 			printf("Do you want to revert(r) or delete(d):");
 			"read yn && echo $yn" | getline yn;
