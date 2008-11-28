@@ -4,7 +4,7 @@ using namespace std;
 int foo(); 
 
 int main() { 
-    int (*ptr)() = 0; // 宣告一個函數指標變數
+    int (*ptr)(void) = 0; // 宣告一個函數指標變數ptr,回傳型別是int,而函式參數是void
 
     ptr = foo; 
 
