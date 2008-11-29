@@ -1,4 +1,5 @@
-
+#ifndef _POINT2D_H
+#define _POINT2D_H
 class Point2D { 
 public: 
     Point2D() {
@@ -19,3 +20,4 @@ private:
     int _x;
     int _y;
 }; 
+#endif // _POINT2D_H
