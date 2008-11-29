@@ -1,3 +1,5 @@
+#ifndef _POINT3D_H
+#define _POINT3D_H
 
 #include "Point2D.h"
 
@@ -13,4 +15,6 @@ public:
  
 private:
     int _z;
-}; 
+};
+
+#endif // _POINT3D_H
