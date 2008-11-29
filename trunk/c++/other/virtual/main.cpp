@@ -14,7 +14,7 @@ class Foo1
 class Foo2:public Foo1
 {
 	public:
-		virtual void show()
+		virtual void show() // 這一行的virtual可加可不加,因為,沒有子類別要修改這一個function了
 		{
 			cout << "Foo2's show" << endl;
 		}
