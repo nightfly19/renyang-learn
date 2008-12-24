@@ -1,6 +1,6 @@
 #include "MainWindow.h"
+#include "MainView.h"
 
-#include <QTextEdit>
 #include <QMenu>
 #include <QAction>
 #include <QMenuBar>
@@ -13,11 +13,10 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	
 	this->setWindowTitle("HiTSim");
 
-	// 文字編輯區
-	QTextEdit *textEdit = new QTextEdit(this);
-	textEdit->setFocus();
+	// 建立主畫面
+	MainView *view = new MainView(this);
 
-	this->setCentralWidget(textEdit);
+	this->setCentralWidget(view);
 
 	// 建立工具列 - start
 	// 建立工具列 - 建立第一個選單項目File - start
@@ -49,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	// 建立工具列 - start
 	QToolBar *toolBar = new QToolBar("QToolBar");
 	toolBar->addAction(QIcon("icon/icon_save.jpg"),"save");
-	toolBar->addAction(QIcon("icon/icon_clock.jpg"),"clock");
+	toolBar->addAction(QIcon("icon/icon_clock.jpg"),"addItem",view,SLOT(addItem()));
 	toolBar->addSeparator();
 	toolBar->addAction(QIcon("icon/icon_close.jpg"),"close",this,SLOT(close()));
 	this->addToolBar(toolBar);
