@@ -9,17 +9,19 @@ Packet::Packet()
 	: _data(NULL)
 	, _size(0)
 {
-	init(NULL,0);
+	// do nothing
 }
 Packet::Packet(int size)
 	: _data(NULL)
 	, _size(size)
 {
-	init(NULL,size);
+	// do nothing
 }
 Packet::Packet(char* data,int size)
+	: _data(data)
+	, _size(size)
 {
-	init(data,size);
+	// do nothing
 }
 
 Packet::~Packet()
@@ -31,11 +33,6 @@ Packet::~Packet()
 void Packet :: init(char* data, int size)
 {
 	_size = size;
-	/*
-	if ((_data = (char *)malloc(_size))==NULL)
-		exit(1);
-	*/
-//	memset(_data, 0x0, _size); 
 	_data = new char[_size];
 	if( !_data )
 		exit(1);
@@ -67,4 +64,5 @@ InfoPacket::InfoPacket(InfoPacket* pkt)
 	, _cid( pkt -> cID() )
 	, _speed( pkt -> Speed() )
 {
+	// do nothing
 }

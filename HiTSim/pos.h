@@ -2,6 +2,8 @@
 #ifndef __POS_H__
 #define __POS_H__
 
+// 此類別是用來記錄車子的位置(x,y) 
+
 
 class Pos
 {

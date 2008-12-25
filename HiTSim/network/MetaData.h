@@ -31,18 +31,18 @@ public:
 	void setRecvID(int i){	_recvID = i;	};
 	void setPktType(int i){	_pkt_type = PKT_TYPE(i);	};
 	
-	double Distance( );
+	double Distance( ); // 計算此封包被傳送與被接收的距離
 
-	void DumpDebug();
+	void DumpDebug();	// 用來解bug的啦
 private: 
-	int _channel;
-	bool _brcast;
-	Pos _sndrPos;
-	int _sndrID;
-	Pos _recvPos;
-	int _recvID;
+	int _channel;	// 記錄此封包是走哪一個channel
+	bool _brcast;	// 此封包是否為broadcast的封包
+	Pos _sndrPos;	// 記錄傳送此封包時的位置
+	int _sndrID;	// 傳送此封包車子的id
+	Pos _recvPos;	// 接收到此封包時的位置
+	int _recvID;	// 接收到此封包的車子id
 
-	PKT_TYPE _pkt_type;
+	PKT_TYPE _pkt_type;	// 封包形態分為DSRC與802.11
 
 };
 

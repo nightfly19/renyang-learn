@@ -282,7 +282,7 @@ lexclean:
 clean: mocclean uiclean
 	-$(DEL_FILE) $(OBJECTS)
 		-$(DEL_FILE) qmake_image_collection.cpp
-	-$(DEL_FILE) *~ core *.core $(TARGET)
+	-$(DEL_FILE) *~ core *.core
 
 
 ####### Sub-libraries
