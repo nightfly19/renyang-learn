@@ -22,14 +22,16 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	// 建立工具列 - 建立第一個選單項目File - start
 	QMenu *fileMenu = new QMenu("&File",this);
 	QAction *fileAction = new QAction("Open..",fileMenu);
+	fileAction->setEnabled(false);
 	// 快捷鍵 Ctrl+O:當焦點在選單時,ctrl+o才會有效果,且下面兩行在一起才會有效果
 	fileAction->setShortcut(Qt::CTRL + Qt::Key_O);
 	fileMenu->addAction(fileAction);
-	fileMenu->addAction("Save");
+	
+	fileAction = new QAction("Save",fileMenu);
+	fileAction->setEnabled(false);
+	fileMenu->addAction(fileAction);
 
 	// 快捷鍵 Ctrl+X，動作連接至 QApplication 的 quit()
-
-	fileMenu->addAction(fileAction);
 
 	// 建立分格線
 	fileMenu->addSeparator();
@@ -47,8 +49,9 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	
 	// 建立工具列 - start
 	QToolBar *toolBar = new QToolBar("QToolBar");
+	toolBar->addAction(QIcon("icon/open.png"),"open");
 	toolBar->addAction(QIcon("icon/icon_save.jpg"),"save");
-	toolBar->addAction(QIcon("icon/icon_clock.jpg"),"addItem",view,SLOT(addItem()));
+	toolBar->addAction(QIcon("icon/icon_clock.jpg"),"addCar",view,SLOT(addCar()));
 	toolBar->addSeparator();
 	toolBar->addAction(QIcon("icon/icon_close.jpg"),"close",this,SLOT(close()));
 	this->addToolBar(toolBar);

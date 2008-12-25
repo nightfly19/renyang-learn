@@ -1,6 +1,6 @@
 #include "MainView.h"
 #include "MainScene.h"
-#include "mouse.h"
+#include "Car.h"
 
 MainView::MainView(QGraphicsScene *scene,QWidget *parent):QGraphicsView(scene,parent)
 {
@@ -10,7 +10,7 @@ MainView::MainView(QGraphicsScene *scene,QWidget *parent):QGraphicsView(scene,pa
 MainView::MainView(QWidget *parent):QGraphicsView(parent)
 {
 	scene = new MainScene(this);
-	scene->setSceneRect(-300,-300,600,600);
+	scene->setSceneRect(-300,-300,600,600); // 左上角座標是(-300,-300)
 	scene->setItemIndexMethod(QGraphicsScene::NoIndex);
 	setScene(scene);
 	setRenderHint(QPainter::Antialiasing);
@@ -20,13 +20,13 @@ MainView::MainView(QWidget *parent):QGraphicsView(parent)
 	resize(400,300);
 }
 
-void MainView::addItem(QGraphicsItem *item)
+void MainView::addCar(QGraphicsItem *item)
 {
 	scene->addItem(item);
 }
 
-void MainView::addItem()
+void MainView::addCar()
 {
-	Mouse *mouse = new Mouse;
-	scene->addItem(mouse);
+	Car *car = new Car;
+	scene->addItem(car);
 }

@@ -13,8 +13,8 @@ Q_OBJECT
 		MainView(QWidget *parent=0);
 		MainView(QGraphicsScene *scene,QWidget *parent=0);
 	public slots:
-		void addItem(QGraphicsItem *);
-		void addItem();
+		void addCar(QGraphicsItem *);
+		void addCar();
 	private:
 		MainScene *scene;
 };
