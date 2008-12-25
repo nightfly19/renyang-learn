@@ -16,35 +16,35 @@ class Packet;
 class NetCoordinator;
 class WifiCar;
 
-class NI_802_11 // Network Interface 
+class NI_802_11 // Network Interface 建立802.11的interface
 	: public NI 
 {
 Q_OBJECT
 public:
 	NI_802_11 ( QObject * parent = 0, const char * name = 0 );
-	void setNetCoor(NetCoordinator*);
+	void setNetCoor(NetCoordinator*); // 設定由哪一個coordinator控制此interface
 
-	bool BrSend(Packet* pkt );
-	bool BrRecv(Packet* pkt, MetaData md);
+	bool BrSend(Packet* pkt ); // 傳送封包
+	bool BrRecv(Packet* pkt, MetaData md); // 接收封包
 
-	int ID();
-	int Channel(){	return phy.Channel();	};
+	int ID();	// 傳回擁有這一個interface的車子id
+	int Channel(){	return phy.Channel();	};	// 傳回這一個interface使用的channel
 
-	virtual int GetState();
-	virtual bool isBusy();
-	virtual bool isIdle();
+	virtual int GetState();	// 傳回目前這一個interface的狀態
+	virtual bool isBusy();	// 目前此interface是否忙錄
+	virtual bool isIdle();	// 目前此interface是否閒置
 
-	int getCarNodeID();
+	int getCarNodeID();	// 與ID()是做一樣的事情
 
 public slots:
-	void dataRecv(Packet*); //arise from mac layer
+	void dataRecv(Packet*); // 由使用者可以操作的介面
 signals:
-	void sigPacketRecv(Packet*);
+	void sigPacketRecv(Packet*); // 不懂
 
 protected:
 	Mac mac;
 	Phy802_11 phy;
-	WifiCar* car;
+	WifiCar* car;	// 記錄目前這一個interface是哪一台車子的
 
 };
 

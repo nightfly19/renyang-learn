@@ -72,14 +72,14 @@ Q_OBJECT
 	protected:
 		double _real_x; //meter
 		double _real_y; //meter
-		int _node_id;
+		int _node_id;	// 車子的編號
 		int _lan; // 1: 100  2:148  3:196
 		bool _relocation; //use for initial location setting
-		bool _sel;
-		bool _change2R;
-		bool _change2L;
-		CAR_BULB _front_bulb;
-		CAR_BULB _back_bulb;
+		bool _sel;	// 車子是否有被選取
+		bool _change2R;	// 是否要向右轉
+		bool _change2L;	// 是否要向左轉
+		CAR_BULB _front_bulb;	// 前面危險等級燈
+		CAR_BULB _back_bulb;	// 後面危險等級燈
 
 	public:
 		virtual CAR_TYPE CarType(){	return CT_NORMAL;	};
@@ -137,11 +137,11 @@ Q_OBJECT
 		unsigned int AccLevel();
 		void setAccLevel(unsigned int); 
 
-		bool _auto_change_lane;
+		bool _auto_change_lane;	// 記錄是否自動換車道
 		
-		Car* _around_car_array[3][3]; 
+		Car* _around_car_array[3][3];	// 記錄周圍位置的車子
 
-		bool _collision;
+		bool _collision;	// 是否與其它車子發生碰撞
 
 	/* extension for GPS module */
 	public:
@@ -150,8 +150,8 @@ Q_OBJECT
 		double LastTimeChangeLane(){	return _last_time_change_lane;	};
 
 	private:
-		double _gps_next_update_time;
-		double _last_time_change_lane;
+		double _gps_next_update_time;	// 下一次更新gps的時間
+		double _last_time_change_lane;	// 上一次改變車道的時間
 
 };
 

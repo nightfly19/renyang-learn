@@ -8,6 +8,7 @@
 
 #include "global.h"
 
+// Road類別是用來建立道路
 
 class Car;
 class Road : public QCanvasRectangle 
@@ -17,7 +18,7 @@ class Road : public QCanvasRectangle
 	public:
 		Road ( QCanvas * canvas );
 		Road ( const QRect & r, QCanvas * canvas );
-		Road ( int x, int y, int width, int height, QCanvas * canvas );
+		Road ( int x, int y, int width, int height, QCanvas * canvas ); // 設定道路左上角的起始位置,與道路的長與寬
 
 		int rtti() const;
 
@@ -50,11 +51,11 @@ class Road : public QCanvasRectangle
 	private:
 		void init();
 
-		int _number_roadway;
-		double _road_width;
-		double _stripe_width;
-		double _stripe_height;
-		Car* _center_car;
+		int _number_roadway; // 記錄道路有幾線道,預設是3線道,改成其它數值只有圖會改變,實際車子還是行走在3線道上
+		double _road_width; // 記錄每一個車道的寬度,預設是50
+		double _stripe_width; // 記錄道路中間白線的長度
+		double _stripe_height; // 記錄道路中間白線的寬度
+		Car* _center_car; // 記錄center car
 		bool _if_center;
 		int _x_pos;
 };

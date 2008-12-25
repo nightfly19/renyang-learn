@@ -48,7 +48,7 @@ Q_OBJECT
 		double front_closest_speed;
 		bool smart_brake;
 	protected:
-		QPtrList<InfoElement> pos_list;
+		QPtrList<InfoElement> pos_list; // 建立一個double-link用來記錄收到的封包資訊
 };
 
 #endif

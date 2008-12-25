@@ -31,12 +31,12 @@ Q_OBJECT
 
 		virtual CAR_TYPE CarType(){	return CT_WIFI;	};
 	private slots:
-		void dataRecv(Packet* pkt);
+		void dataRecv(Packet* pkt);	// 接收到封包,把封包送到network list中
 	protected:
 		virtual void draw( QPainter & p );
 	
 	private:
-		NI_802_11 ni1;
+		NI_802_11 ni1; // network interface
 	/*
 	public:
 		QPtrList<InfoElement> pos_list;

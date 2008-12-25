@@ -27,13 +27,13 @@ void InternetCar :: UpdateWarnningLight(bool clear)
 	front_closest_speed = gMaxVelocity;
 
 	double save_dis = (realVelocity() / 2)*10;
-	for(InfoElement * p = pos_list . first() ; p ; p = pos_list . next() ){
+	for(InfoElement * p = pos_list.first() ; p ; p = pos_list.next() ){
 		if( DoubleAbs( p -> SndrY() - p -> RecvY())
 				> 1.5*CAR_HEIGHT) //在可視範圍外
 			continue;
 		BulbTestSet(save_front_bulb, BULB_GREEN);
 
-		double DD = p->SndrX() - p->RecvX();
+		double DD = p->SndrX() - p->RecvX(); // 此封包傳送時的位置與接收時的位置相減
 		double Dns =10* (Square( KMHR_2_MS(p->SndrSpeed()) ) / (2*gFrictionFactorNormal/1000.0*9.8));
 		double Dnr =10* (Square( KMHR_2_MS(realVelocity()) ) / (2*gFrictionFactorNormal/1000.0*9.8))
 			+ KMHR_2_MS(realVelocity())*10.0*(gHumanResponseTime+gSystemHandleTime)/1000.0;
@@ -55,7 +55,7 @@ void InternetCar :: UpdateWarnningLight(bool clear)
 			}
 			if(DoubleAbs(DD) < Dew ){
 				BulbTestSet(save_front_bulb, BULB_RED);
-				if(front_closest_speed > p -> SndrSpeed() ){
+				if(front_closest_speed > p->SndrSpeed() ){
 					front_closest_speed = p->SndrSpeed();
 				}
 			}
@@ -68,7 +68,7 @@ void InternetCar :: UpdateWarnningLight(bool clear)
 			if(DoubleAbs(DD) < Dew )
 				BulbTestSet(save_back_bulb, BULB_RED);
 		}
-		if(DoubleAbs(DD) < CAR_WIDTH){
+		if(DoubleAbs(DD) < CAR_WIDTH){ // 由接收到的封包去判斷是否有發生碰撞
 			SetCollision();
 		}
 

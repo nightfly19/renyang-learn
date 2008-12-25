@@ -72,6 +72,8 @@ void Road :: drawShape ( QPainter & p )
 
 	p . setBrush( white );
 	// 一條一條的
+	p.save();
+	p.setPen(white);
 	for(int i = 0; i < _number_roadway; i++){
 		int nY = (int) (gY + _road_width*i);
 		if(nY == gY || nY == gH+gY){
@@ -86,6 +88,7 @@ void Road :: drawShape ( QPainter & p )
 		}
 
 	} 
+	p.restore();
 // 畫路標.... 10pixel = 1m .. 所以每10m就畫一個
 	if(_center_car && _if_center){
 		x_offset = int(-_center_car->realX()) % int(10*10);

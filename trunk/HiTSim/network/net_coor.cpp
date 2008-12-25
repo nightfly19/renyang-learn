@@ -87,7 +87,7 @@ void NetCoordinator :: processSendEvent( Event* )
 {
 
 }
-void NetCoordinator :: processRecvEvent( Event* event)
+void NetCoordinator :: processRecvEvent( Event* event)	// 接收事件
 {
 	// not implt yet
 	InfoPacket* infoPacket = (InfoPacket*) event->PacketPtr();

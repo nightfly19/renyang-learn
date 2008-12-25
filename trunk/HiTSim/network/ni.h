@@ -13,15 +13,15 @@ class NI // Network Interface
 {
 Q_OBJECT 
 public:
-	enum NI_STATE{ 
-		NI_SEND,
-		NI_RECV,
-		NI_IDLE 
+	enum NI_STATE{ // 分為三種情況
+		NI_SEND, // 目前正在傳送
+		NI_RECV, // 目前正在接收
+		NI_IDLE  // 目前是閒置的
 	};
 	NI( QObject * parent = 0, const char * name = 0 );
 
-	virtual bool BrSend(Packet* pkt ) = 0;
-	virtual bool BrRecv(Packet* pkt, MetaData md) = 0;
+	virtual bool BrSend(Packet* pkt ) = 0; // 虛擬函數
+	virtual bool BrRecv(Packet* pkt, MetaData md) = 0; // 虛擬函數
 
 	/*
 	virtual int GetState() = 0;
