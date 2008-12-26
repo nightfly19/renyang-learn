@@ -48,6 +48,24 @@ do
 				system(cmd);
 			}
 		}
+		else if ($1=="D" && current==NR && $2!="temp")
+		{
+			printf("========================================\n");
+			printf("%s\n",$0);
+			printf("Do you want to revert(r) or ignore(i):");
+			"read yn && echo $yn" | getline yn;
+			if (yn== "r")
+			{
+				cmd = "svn revert "$2;
+				print(cmd);
+				system(cmd);
+			}
+			else
+			{
+				cmd = "ignore it!!";
+				print(cmd);
+			}
+		}
 	}' temp
 done
 #刪除暫存檔temp

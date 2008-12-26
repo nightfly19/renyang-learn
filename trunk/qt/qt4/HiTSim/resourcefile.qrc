@@ -1,0 +1,14 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file alias="car_b.png">images/car_b.png</file>
+    <file alias="car_g.png">images/car_g.png</file>
+    <file alias="car_r.png">images/car_r.png</file>
+    <file alias="caterpillar.jpg">images/caterpillar.jpg</file>
+    <file alias="cheese.jpg">images/cheese.jpg</file>
+    <file alias="caterpillar_head.jpg">icon/caterpillar_head.jpg</file>
+    <file alias="icon_clock.jpg">icon/icon_clock.jpg</file>
+    <file alias="icon_close.jpg">icon/icon_close.jpg</file>
+    <file alias="icon_save.jpg">icon/icon_save.jpg</file>
+    <file alias="open.png">icon/open.png</file>
+</qresource>
+</RCC>

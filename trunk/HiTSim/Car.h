@@ -145,7 +145,7 @@ Q_OBJECT
 
 	/* extension for GPS module */
 	public:
-		void setGPSUpdateTime(double d){	_gps_next_update_time = d;	};
+		void setGPSUpdateTime(double d){	_gps_next_update_time = d;	};	// 設定下次gps更新的時間
 		double GPSUpdateTime(){	return _gps_next_update_time;	};
 		double LastTimeChangeLane(){	return _last_time_change_lane;	};
 

@@ -14,7 +14,7 @@ MainView::MainView(QWidget *parent):QGraphicsView(parent)
 	scene->setItemIndexMethod(QGraphicsScene::NoIndex);
 	setScene(scene);
 	setRenderHint(QPainter::Antialiasing);
-	setBackgroundBrush(QPixmap("images/cheese.jpg"));
+	setBackgroundBrush(QPixmap(":/cheese.jpg"));
 	setCacheMode(QGraphicsView::CacheBackground);
 	//setDragMode(QGraphicsView::ScrollHandDrag);
 	resize(400,300);
