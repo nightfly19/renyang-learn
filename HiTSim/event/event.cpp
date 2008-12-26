@@ -7,7 +7,7 @@ Event :: Event()
 	: EventElt()
 	, hdl_time(0)
 	, md()
-	, _event_type( RECV_EVENT)
+	, _event_type( RECV_EVENT)	// 預設是接收事件
 {
 }
 

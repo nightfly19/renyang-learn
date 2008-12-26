@@ -15,5 +15,5 @@ EventElt::EventElt(EventElt* p,EventElt* n)
 };
 EventElt::~EventElt()
 {
-	p_prev = p_next = NULL;
+	p_prev = p_next = NULL;	// 我覺得這一行不需要,反正這一個物件刪除,其指標變數也會刪除
 }

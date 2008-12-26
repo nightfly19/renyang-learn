@@ -42,8 +42,8 @@ signals:
 	void sigPacketRecv(Packet*); // 不懂
 
 protected:
-	Mac mac;
-	Phy802_11 phy;
+	Mac mac;	// 記錄目前這一個interface是用哪一個mac
+	Phy802_11 phy;	// 記錄目前這一個interface是用哪一個phy
 	WifiCar* car;	// 記錄目前這一個interface是哪一台車子的
 
 };

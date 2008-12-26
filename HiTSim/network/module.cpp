@@ -6,7 +6,7 @@ Module :: Module( QObject * parent, const char * name)
 	, upon(NULL), bellow(NULL) 
 //	, id(0)
 {
-	return;
+	// do nothing
 }
 
 

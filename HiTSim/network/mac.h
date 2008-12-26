@@ -20,7 +20,7 @@ public:
 
 	virtual bool Send2Bellow(Packet*, MetaData md = MetaData()); // for Phy
 	virtual bool RecvFromUpon(Packet* pkt, MetaData md = MetaData()); // from ?
-	virtual bool RecvFromBellow(Packet* pkt, MetaData md);
+	virtual bool RecvFromBellow(Packet* pkt, MetaData md);	// 由下層接收資料,是由phy傳送過來
 
 signals:
 	void sigPacketRecv(Packet*);
