@@ -11,8 +11,8 @@ NI_802_11 :: NI_802_11 ( QObject * parent, const char * name )
 	, phy(this,name)
 	, car((WifiCar*) parent)
 {
-	mac . setBellow( &phy );
-	phy . setUpon( &mac );
+	mac.setBellow( &phy );	// 設定mac的下層是phy
+	phy.setUpon( &mac );	// 設定phy的上層是mac
 
 	connect( &mac , SIGNAL( sigPacketRecv(Packet*) ) , this , SLOT(dataRecv(Packet*)));
 }
@@ -21,8 +21,8 @@ NI_802_11 :: NI_802_11 ( QObject * parent, const char * name )
 bool NI_802_11 :: BrSend( Packet* pkt)
 {
 	MetaData md( Pos(car->realX(),car->realY()) , Pos(0,0), Channel() , true, MetaData::PKT_802_11);
-	md . setSndrID( car-> nodeID() );
-	mac . BrSend( pkt , md);
+	md.setSndrID( car-> nodeID() );
+	mac.BrSend( pkt , md);
 
 //	_busy_until = g_timer_ticks + 10; //TODO:查出確定的數字		
 //	_ni_state = NI_SEND;
@@ -33,21 +33,21 @@ bool NI_802_11 :: BrSend( Packet* pkt)
 /*
  * From NetCoordinator, and add some meta data to Phy
  */
-bool NI_802_11 :: BrRecv( Packet* pkt, MetaData md)
+bool NI_802_11 :: BrRecv( Packet* pkt, MetaData md)	// 接收封包
 {
 	if(car == NULL)	return false;
-	if( md . SndrID() == car -> nodeID() )
+	if( md.SndrID() == car->nodeID() )	// 當傳送此封包車子的id與此interface的車子id是相同的話,回傳false
 		return false;
 
-	Pos recvPos( car->realX(), car->realY() );
-	md . setRecvPos( Pos(car->realX(), car->realY() ));
+	Pos recvPos( car->realX(), car->realY() );	// 取出接收到時車子的位置
+	md.setRecvPos( Pos(car->realX(), car->realY() ));	// 設定接收到的位置
 
 	/*
 	debug("ni BrRecv");
-	md . DumpDebug();
+	md.DumpDebug();
 	*/
 
-	if( phy.RecvFromBellow( pkt , md)){
+	if( phy.RecvFromBellow( pkt , md)){	// 由下層接收到,應該就是net coordinator
 //		_busy_until = g_timer_ticks + 10; //TODO	10/1000 !?
 //		_ni_state = NI_RECV;
 
@@ -60,14 +60,14 @@ bool NI_802_11 :: BrRecv( Packet* pkt, MetaData md)
 void NI :: setID( int i)
 {
 	id = i;
-	mac . setID( id );
-	phy . setID( id );
+	mac.setID( id );
+	phy.setID( id );
 }*/
 
 void NI_802_11 :: setNetCoor( NetCoordinator* nc )
 {
 //	NetCoordinator n;
-	phy . setBellow( nc );
+	phy.setBellow( nc );
 
 	nc -> addNI( this );
 }
@@ -99,11 +99,11 @@ int NI_802_11 :: GetState()
 			_ni_state = NI_IDLE;
 
 	}*/
-	if( phy . GetState() == Phy::PHY_IDLE )
+	if( phy.GetState() == Phy::PHY_IDLE )
 		_ni_state = NI_IDLE; 
-	else if( phy . GetState() == Phy::PHY_RECV)
+	else if( phy.GetState() == Phy::PHY_RECV)
 		_ni_state = NI_RECV; 
-	else if( phy . GetState() == Phy::PHY_SEND)
+	else if( phy.GetState() == Phy::PHY_SEND)
 		_ni_state = NI_SEND; 
 	
 	return _ni_state;

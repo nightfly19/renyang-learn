@@ -41,7 +41,7 @@ bool Mac :: RecvFromBellow(Packet* pkt, MetaData)
 }
 bool Mac :: BrSend( Packet* pkt, MetaData md)
 {
-	md . setBrCast( true );
+	md.setBrCast( true );	// 設定為broadcast
 	return Send( pkt , md);
 }
 

@@ -37,9 +37,9 @@ void EventQ::InsertTail(Event* e)
 	}*/
 	
 	//debug("real insert event hdltime = %e",e->HdlTime()); // Insert
-	p_tail	->setNext( e );
-	e	->setPrev( p_tail );
-	p_tail	= e;
+	p_tail->setNext(e);
+	e->setPrev(p_tail);
+	p_tail= e;
 
 	return; 
 }

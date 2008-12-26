@@ -7,6 +7,8 @@
 #include "network/MetaData.h"
 
 class Packet;
+
+// Module用來當作網路層每一個的板模
 class Module : public QObject
 {
 Q_OBJECT
@@ -24,8 +26,8 @@ public: // set relation
 	*/
 //protected:  //should access by successor
 public:
-	Module* upon;
-	Module* bellow;
+	Module* upon;	// 用來記錄網路架構的上層
+	Module* bellow;	// 用來記錄網路架構的下層
 //	int id;
 
 public:
