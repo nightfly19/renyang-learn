@@ -105,7 +105,7 @@ void NetCoordinator :: processRecvEvent( Event* event)	// 接收事件
 			for( NI_DSRC* ni = dsrc_ni_list.first(); ni ; ni = dsrc_ni_list.next() ){
 				if( sndrID == ni -> getCarNodeID() )
 					continue;
-				ni -> BrRecv( infoPacket, event->getMetaData());
+				ni->BrRecv( infoPacket, event->getMetaData());
 			}
 		}
 	}

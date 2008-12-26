@@ -17,11 +17,11 @@ Coordinator::Coordinator(QCanvas& c, QObject* parent , const char* name)
 	  _ticks_timer( this, "Ticks Timer"),
 	  _select_item(NULL)
 {
-	connect( &_car_timer, SIGNAL( timeout() ), this, SLOT( car_active() ) );
-	connect( &_gps_timer, SIGNAL( timeout() ), this, SLOT( gps_active() ) );
-	connect( &_ticks_timer, SIGNAL( timeout() ), this, SLOT( ticks_active() ) );
+	connect( &_car_timer, SIGNAL( timeout() ), this, SLOT( car_active() ) );	// 時間到時,更新車子的速度與位置
+	connect( &_gps_timer, SIGNAL( timeout() ), this, SLOT( gps_active() ) );	// 更新gps的時間,而gps的時間用來決定是否傳送封包
+	connect( &_ticks_timer, SIGNAL( timeout() ), this, SLOT( ticks_active() ) );	// 每次時間到,檢查是否有車子要傳送封包
 
-//	_car_list . setAutoDelete( false );
+//	_car_list.setAutoDelete( false );
 	_center_car = NULL;
 	_road = NULL;
 	g_timer_ticks = 0;
@@ -33,8 +33,8 @@ Coordinator::Coordinator(QCanvas& c, QObject* parent , const char* name)
 
 void Coordinator::add2Coordinator(QCanvasItem* item)
 {
-	_sort_car_array[ _car_list . count() ] = (Car*)item;
-	_car_list . append(item);
+	_sort_car_array[ _car_list.count() ] = (Car*)item;
+	_car_list.append(item);
 
 	if( !_center_car ){
 		_center_car = (Car*) item;
@@ -53,36 +53,36 @@ void Coordinator::Try2MoveCenterCar()
 	double wanna_cx = canvas.width()/2;
 	double wanna_cy = canvas.height()/2-10;
 
-	if( _center_car -> realX() < gEndPosition*1000*10 - 100 ){
-		_center_car -> setRealX(gStartPosition*1000*10);	
+	if( _center_car-> realX() < gEndPosition*1000*10 - 100 ){
+		_center_car-> setRealX(gStartPosition*1000*10);	
 	}
 	if(!fixed_center ){//計算要依據 center_ofset 改變wanna_cx
 
-		//int tmp = center_pos - (_center_car -> realX() - gEndPosition*1000*10);
-		int tmp =(int) (_center_car -> realX() - gEndPosition*1000*10)  - center_pos;
+		//int tmp = center_pos - (_center_car-> realX() - gEndPosition*1000*10);
+		int tmp =(int) (_center_car-> realX() - gEndPosition*1000*10)  - center_pos;
 		wanna_cx += tmp;
 //		debug("wanna_cx = %d, tmp = %d, realX=%lf, EndPos =%d, center_pos = %d",wanna_cx,tmp,_center_car->realX(),gEndPosition*1000*10,center_pos);
-		_center_car -> setX( wanna_cx );
+		_center_car-> setX( wanna_cx );
 	} 
-	if(_center_car -> realY() != 148){ //TODO: 這樣是不對的哦
+	if(_center_car-> realY() != 148){ //TODO: 這樣是不對的哦
 		wanna_cy += (_center_car->realY()-148.0);
 	}
-	_center_car -> setX( wanna_cx );
-	_center_car -> setY( wanna_cy );
+	_center_car-> setX( wanna_cx );
+	_center_car-> setY( wanna_cy );
 	
 }
 
 void Coordinator::Try2MoveOtherCar(Car* car)
 {
-	if( car -> realX() < gEndPosition*1000*10 - 100 ){
-		car -> setRealX(gStartPosition*1000*10);	
+	if( car-> realX() < gEndPosition*1000*10 - 100 ){
+		car-> setRealX(gStartPosition*1000*10);	
 	}
 
-	double gap_x = _center_car -> realX() - car -> realX();
-	double gap_y = _center_car -> realY() - car -> realY();
+	double gap_x = _center_car-> realX() - car-> realX();
+	double gap_y = _center_car-> realY() - car-> realY();
 
-	car -> setX( _center_car -> x() - gap_x );
-	car -> setY( _center_car -> y() - gap_y );
+	car-> setX( _center_car-> x() - gap_x );
+	car-> setY( _center_car-> y() - gap_y );
 
 }
 
@@ -90,11 +90,11 @@ void Coordinator::clearCarsFlags() // clear car's flags , sel
 {
 	for (QCanvasItemList::Iterator it=_car_list.begin(); it!=_car_list.end(); ++it) {
 		QCanvasItem *n = *it;
-		if ( n ->rtti()==LOGO_RTTI) {
+		if ( n->rtti()==LOGO_RTTI) {
 			// do something
-		} else if ( n ->rtti()==CAR_RTTI) {
+		} else if ( n->rtti()==CAR_RTTI) {
 			Car* c = (Car*) n;
-			c -> setSel(  false );
+			c-> setSel(  false );
 		} 
 	}
 
@@ -109,7 +109,7 @@ void Coordinator::ShellSortCarByX()
 		else if( i > 5) look_for = 3;
 
 		for(unsigned int ii = i - look_for ; ii < i ; ii ++){
-			if( _sort_car_array[ii] -> realX() > _sort_car_array[i] -> realX() ){
+			if( _sort_car_array[ii]-> realX() > _sort_car_array[i]-> realX() ){
 				Car* car_tmp =  _sort_car_array[ii];
 				 _sort_car_array[ii] =  _sort_car_array[i];
 				 _sort_car_array[i] = car_tmp;
@@ -132,7 +132,7 @@ void Coordinator::RealSortCarByX()
 	unsigned int car_count = _car_list.count();
 	for(unsigned int i = 1 ; i < car_count ; i ++){
 		for(unsigned int ii = 0 ; ii < i ; ii ++){
-			if( _sort_car_array[ii] -> realX() > _sort_car_array[i] -> realX() ){
+			if( _sort_car_array[ii]-> realX() > _sort_car_array[i]-> realX() ){
 				Car* car_tmp =  _sort_car_array[ii];
 				 _sort_car_array[ii] =  _sort_car_array[i];
 				 _sort_car_array[i] = car_tmp;
@@ -142,46 +142,45 @@ void Coordinator::RealSortCarByX()
 
 }
 
-void Coordinator::CountCarsVelocity(double timer_gap)
+void Coordinator::CountCarsVelocity(double timer_gap)	// 開始計算所有車子的下一個速度
 {
 	
 	for (QCanvasItemList::Iterator it=_car_list.begin(); it!=_car_list.end(); ++it) {
 		QCanvasItem *n = *it;
-		if ( n ->rtti()==LOGO_RTTI) {
+		if ( n->rtti()==LOGO_RTTI) {
 			// do something
 			continue;
 		} 
-		else if ( n ->rtti()==CAR_RTTI) {
+		else if ( n->rtti()==CAR_RTTI) {
 			Car* c = (Car*) n;
-			if(c && c->DriverBehavior()!=BCTRL_MODE 
-				&& c->AccLevel()!=ACTRL_MODE)
+			if(c && c->DriverBehavior()!=BCTRL_MODE && c->AccLevel()!=ACTRL_MODE)
 				c->calNextVelocity( gTimeRatio * (timer_gap/1000.0) );
 				/*
-			if(c -> AccLevel() == ACC) {
-				c -> setRealVelocity((c -> realVelocity() + 1*gTimeRatio * (g_car_timer_gap/1000.0)));
+			if(c-> AccLevel() == ACC) {
+				c-> setRealVelocity((c-> realVelocity() + 1*gTimeRatio * (g_car_timer_gap/1000.0)));
 			}
-			else if(c -> AccLevel() == DEC) {
-				c -> setRealVelocity((c -> realVelocity() - 1*gTimeRatio * (g_car_timer_gap/1000.0)));
+			else if(c-> AccLevel() == DEC) {
+				c-> setRealVelocity((c-> realVelocity() - 1*gTimeRatio * (g_car_timer_gap/1000.0)));
 			}
-			else  if(c -> AccLevel() == BRAKE_NORMAL) {
-				c -> setRealVelocity((c -> realVelocity() - gFrictionFactorNormal*0.001*9.8*gTimeRatio * (g_car_timer_gap/1000.0)));
-			} else  if(c -> AccLevel() == BRAKE_EMERG) {
-				c -> setRealVelocity((c -> realVelocity() - gFrictionFactorEmerg*0.001*9.8*gTimeRatio * (g_car_timer_gap/1000.0)));
+			else  if(c-> AccLevel() == BRAKE_NORMAL) {
+				c-> setRealVelocity((c-> realVelocity() - gFrictionFactorNormal*0.001*9.8*gTimeRatio * (g_car_timer_gap/1000.0)));
+			} else  if(c-> AccLevel() == BRAKE_EMERG) {
+				c-> setRealVelocity((c-> realVelocity() - gFrictionFactorEmerg*0.001*9.8*gTimeRatio * (g_car_timer_gap/1000.0)));
 			}
 			*/
 		}
 	}
 }
 
-void Coordinator::MoveCarsPosition(double timer_gap)
+void Coordinator::MoveCarsPosition(double timer_gap)	// 這一個函數用來計算車子的下一個位置
 {
 	// change Position in the "Real World"
 	for (QCanvasItemList::Iterator it=_car_list.begin(); it!=_car_list.end(); ++it) {
 		QCanvasItem *n = *it;
-		if ( n ->rtti()==LOGO_RTTI) {
+		if ( n->rtti()==LOGO_RTTI) {
 			// do something
 		} 
-		else if ( n ->rtti()==CAR_RTTI) 
+		else if ( n->rtti()==CAR_RTTI) 
 		{
 			Car* c = (Car*) n;
 
@@ -189,88 +188,88 @@ void Coordinator::MoveCarsPosition(double timer_gap)
 			double gap = 0;
 
 			//    ( Velocity * meter * bit_rate * time_ratio) * 0.030 msec / ( m * s) 
-			//gap = ( c -> realVelocity() * 1000.0 * 10 * gTimeRatio) * 0.03/ ( 60 * 60);
-			gap = ( c -> realVelocity() * 1000.0 * 10 * gTimeRatio) * ((timer_gap)/1000.0) / ( 60 * 60);
+			//gap = ( c-> realVelocity() * 1000.0 * 10 * gTimeRatio) * 0.03/ ( 60 * 60);
+			gap = ( c-> realVelocity() * 1000.0 * 10 * gTimeRatio) * ((timer_gap)/1000.0) / ( 60 * 60);
 
-			c -> setRealX(  c -> realX() - gap );
+			c-> setRealX(  c-> realX() - gap );
 
 			if(! (_center_car == c))
-				c -> setX( c->realX() );
-			if (c -> change2LeftLan()) {
-				if (c -> lan() == 1) {
-	 				c -> setRealY(  c -> realY() + 1*gTimeRatio );
-					if (int(c -> realY()) >= 148) {
-						c -> setRealY( 148 );
-						c -> setLan(2);
-						c -> setChange2LeftLan(false);
+				c-> setX( c->realX() );
+			if (c-> change2LeftLan()) {
+				if (c-> lan() == 1) {
+	 				c-> setRealY(  c-> realY() + 1*gTimeRatio );
+					if (int(c-> realY()) >= 148) {
+						c-> setRealY( 148 );
+						c-> setLan(2);
+						c-> setChange2LeftLan(false);
 					}
 				}
 				
-				if (c -> lan() == 2) {
-					if (int(c -> realY()) < 148){ //先按了右再按左
-						c -> setRealY(  c -> realY() + 1.0*gTimeRatio );
-						if (int(c -> realY())>= 148){
-							c -> setRealY( 148 );
-							c -> setChange2LeftLan(false);
+				if (c-> lan() == 2) {
+					if (int(c-> realY()) < 148){ //先按了右再按左
+						c-> setRealY(  c-> realY() + 1.0*gTimeRatio );
+						if (int(c-> realY())>= 148){
+							c-> setRealY( 148 );
+							c-> setChange2LeftLan(false);
 						}
 					}
 					else {
-						c -> setRealY(  c -> realY() + 1.0*gTimeRatio  );
-		 				if (int(c -> realY()) >= 196)
+						c-> setRealY(  c-> realY() + 1.0*gTimeRatio  );
+		 				if (int(c-> realY()) >= 196)
 						{
-							c -> setRealY( 196 );
-							c -> setLan(3);
-							c -> setChange2LeftLan(false);
+							c-> setRealY( 196 );
+							c-> setLan(3);
+							c-> setChange2LeftLan(false);
 						}
 					}
 				}
-				if (c -> lan() == 3) {
-					if (c -> realY() < 196){ //先按了右再按左
-						c -> setRealY(  c -> realY() + 1.0*gTimeRatio  );
-						if (int(c -> realY()) >= 196){
-							c -> setRealY( 196 );
-							c -> setChange2LeftLan(false);
+				if (c-> lan() == 3) {
+					if (c-> realY() < 196){ //先按了右再按左
+						c-> setRealY(  c-> realY() + 1.0*gTimeRatio  );
+						if (int(c-> realY()) >= 196){
+							c-> setRealY( 196 );
+							c-> setChange2LeftLan(false);
 						}
 					}
 				}
 			}
-			else if (c -> change2RightLan()) {
-				if (c -> lan() == 1) {
-					if (c -> realY() > 100){ //先按了左再按右
-						c -> setRealY(  c -> realY() - 1.0*gTimeRatio  );
-						if (int(c -> realY()) <= 100){
-							c -> setRealY( 100 );
-							c -> setChange2RightLan(false);
+			else if (c-> change2RightLan()) {
+				if (c-> lan() == 1) {
+					if (c-> realY() > 100){ //先按了左再按右
+						c-> setRealY(  c-> realY() - 1.0*gTimeRatio  );
+						if (int(c-> realY()) <= 100){
+							c-> setRealY( 100 );
+							c-> setChange2RightLan(false);
 						}
-					}else if( c -> realY() < 100){
-						c -> setRealY( 100 );
-						c -> setChange2RightLan(false);
+					}else if( c-> realY() < 100){
+						c-> setRealY( 100 );
+						c-> setChange2RightLan(false);
 					}
 				}
 				
-				if (c -> lan() == 2) {
-					if (c -> realY() > 148) { //先按了左再按右
-						c -> setRealY(  c -> realY() - 1.0*gTimeRatio  );
-						if (int(c -> realY()) == 148){
-							c -> setRealY(148);
-							c -> setChange2RightLan(false);
+				if (c-> lan() == 2) {
+					if (c-> realY() > 148) { //先按了左再按右
+						c-> setRealY(  c-> realY() - 1.0*gTimeRatio  );
+						if (int(c-> realY()) == 148){
+							c-> setRealY(148);
+							c-> setChange2RightLan(false);
 						}
 					}
 					else {
-		 				c -> setRealY(  c -> realY() - 1.0*gTimeRatio );
-		 				if (int(c -> realY()) <= 100) {
-							c -> setRealY(100);
-							c -> setLan(1);
-							c -> setChange2RightLan(false);
+		 				c-> setRealY(  c-> realY() - 1.0*gTimeRatio );
+		 				if (int(c-> realY()) <= 100) {
+							c-> setRealY(100);
+							c-> setLan(1);
+							c-> setChange2RightLan(false);
 						}
 					}
 				}
 
-				if (c -> lan() == 3) {
-					c -> setRealY(  c -> realY() - 1.0*gTimeRatio  );
-	 				if (int(c -> realY()) == 148) {
-						c -> setLan(2);
-						c -> setChange2RightLan(false);
+				if (c-> lan() == 3) {
+					c-> setRealY(  c-> realY() - 1.0*gTimeRatio  );
+	 				if (int(c-> realY()) == 148) {
+						c-> setLan(2);
+						c-> setChange2RightLan(false);
 					}
 				}
 			}
@@ -286,9 +285,9 @@ void Coordinator::MoveCarsPosition(double timer_gap)
 		QCanvasItem *n = *it;
 		if( n == _select_item)	continue; //dlg setting
 
-		if ( n ->rtti()==LOGO_RTTI) {
+		if ( n->rtti()==LOGO_RTTI) {
 			// do something
-		} else if ( n ->rtti()==CAR_RTTI) {
+		} else if ( n->rtti()==CAR_RTTI) {
 			Car* c = (Car*) n;
 			if( c == _center_car ) continue;
 
@@ -308,107 +307,107 @@ void Coordinator::UpdateAroundCarArray()
 		//右前方
 		for(cf = 1 ; cf <= look_for ; cf ++)
 		{
-			if( (_sort_car_array[i] -> realY() - _sort_car_array[i-cf] -> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i] -> realX() - _sort_car_array[i-cf] -> realX()) > 1*CAR_WIDTH )  
+			if( (_sort_car_array[i]-> realY() - _sort_car_array[i-cf]-> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i]-> realX() - _sort_car_array[i-cf]-> realX()) > 1*CAR_WIDTH )  
 			{
-				_sort_car_array[i] -> _around_car_array[0][0] = _sort_car_array[i-cf];
+				_sort_car_array[i]-> _around_car_array[0][0] = _sort_car_array[i-cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[0][0] = NULL;
+				_sort_car_array[i]-> _around_car_array[0][0] = NULL;
 		}
 		
 		//右方
 		for(cf = 1 ; cf <= 2 ; cf ++)
 		{
-			if( ( _sort_car_array[i] -> realY() - _sort_car_array[i-cf] -> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i-cf] -> realX() - _sort_car_array[i] -> realX()) < 1*CAR_WIDTH ) 
+			if( ( _sort_car_array[i]-> realY() - _sort_car_array[i-cf]-> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i-cf]-> realX() - _sort_car_array[i]-> realX()) < 1*CAR_WIDTH ) 
 			{ 
-				_sort_car_array[i] -> _around_car_array[0][1] = _sort_car_array[i-cf];
+				_sort_car_array[i]-> _around_car_array[0][1] = _sort_car_array[i-cf];
 				break;
 			}
-			else if( ( _sort_car_array[i] -> realY() - _sort_car_array[i+cf] -> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i+cf] -> realX() - _sort_car_array[i] -> realX()) < 1*CAR_WIDTH ) 
+			else if( ( _sort_car_array[i]-> realY() - _sort_car_array[i+cf]-> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i+cf]-> realX() - _sort_car_array[i]-> realX()) < 1*CAR_WIDTH ) 
 			{ 
-				_sort_car_array[i] -> _around_car_array[0][1] = _sort_car_array[i+cf];
+				_sort_car_array[i]-> _around_car_array[0][1] = _sort_car_array[i+cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[0][1] = NULL;
+				_sort_car_array[i]-> _around_car_array[0][1] = NULL;
 		}			
 		
 		//右後方
 		for(cf = 1 ; cf <= look_for ; cf ++)
 		{
-			if( (_sort_car_array[i] -> realY() - _sort_car_array[i+cf] -> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i+cf] -> realX() - _sort_car_array[i] -> realX()) > 1*CAR_WIDTH )  
+			if( (_sort_car_array[i]-> realY() - _sort_car_array[i+cf]-> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i+cf]-> realX() - _sort_car_array[i]-> realX()) > 1*CAR_WIDTH )  
 			{
-				_sort_car_array[i] -> _around_car_array[0][2] = _sort_car_array[i+cf];
+				_sort_car_array[i]-> _around_car_array[0][2] = _sort_car_array[i+cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[0][2] = NULL;
+				_sort_car_array[i]-> _around_car_array[0][2] = NULL;
 		}
 		
 		//正前方
 		for(cf = 1 ; cf <= look_for ; cf ++)
 		{
-			if( DoubleAbs(_sort_car_array[i] -> realY() - _sort_car_array[i-cf] -> realY()) < 1*CAR_HEIGHT &&  (_sort_car_array[i] -> realX() - _sort_car_array[i-cf] -> realX()) < 1000 &&  (_sort_car_array[i] -> realX() > _sort_car_array[i-cf] -> realX()))    
+			if( DoubleAbs(_sort_car_array[i]-> realY() - _sort_car_array[i-cf]-> realY()) < 1*CAR_HEIGHT &&  (_sort_car_array[i]-> realX() - _sort_car_array[i-cf]-> realX()) < 1000 &&  (_sort_car_array[i]-> realX() > _sort_car_array[i-cf]-> realX()))    
 			{
-				_sort_car_array[i] -> _around_car_array[1][0] = _sort_car_array[i-cf];
+				_sort_car_array[i]-> _around_car_array[1][0] = _sort_car_array[i-cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[1][0] = NULL;
+				_sort_car_array[i]-> _around_car_array[1][0] = NULL;
 		}
 		
 		//正後方
 		for(cf = 1 ; cf <= look_for ; cf ++)
 		{
-			if( DoubleAbs(_sort_car_array[i] -> realY() - _sort_car_array[i+cf] -> realY()) < 1*CAR_HEIGHT &&  (_sort_car_array[i+cf] -> realX() - _sort_car_array[i] -> realX()) < 1000 &&  (_sort_car_array[i] -> realX() < _sort_car_array[i+cf] -> realX()))    
+			if( DoubleAbs(_sort_car_array[i]-> realY() - _sort_car_array[i+cf]-> realY()) < 1*CAR_HEIGHT &&  (_sort_car_array[i+cf]-> realX() - _sort_car_array[i]-> realX()) < 1000 &&  (_sort_car_array[i]-> realX() < _sort_car_array[i+cf]-> realX()))    
 			{
-				_sort_car_array[i] -> _around_car_array[1][2] = _sort_car_array[i+cf];
+				_sort_car_array[i]-> _around_car_array[1][2] = _sort_car_array[i+cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[1][2] = NULL;
+				_sort_car_array[i]-> _around_car_array[1][2] = NULL;
 		}
 		
 		//左前方
 		for(cf = 1 ; cf <= look_for ; cf ++)
 		{
-			if( (_sort_car_array[i-cf] -> realY() - _sort_car_array[i] -> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i] -> realX() - _sort_car_array[i-cf] -> realX()) > 1*CAR_WIDTH )  
+			if( (_sort_car_array[i-cf]-> realY() - _sort_car_array[i]-> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i]-> realX() - _sort_car_array[i-cf]-> realX()) > 1*CAR_WIDTH )  
 			{
-				_sort_car_array[i] -> _around_car_array[2][0] = _sort_car_array[i-cf];
+				_sort_car_array[i]-> _around_car_array[2][0] = _sort_car_array[i-cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[2][0] = NULL;
+				_sort_car_array[i]-> _around_car_array[2][0] = NULL;
 		}
 		
 		//左方
 		for(cf = 1 ; cf <= 2 ; cf ++)
 		{
-			if( ( _sort_car_array[i-cf] -> realY() - _sort_car_array[i] -> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i-cf] -> realX() - _sort_car_array[i] -> realX()) < 1*CAR_WIDTH ) 
+			if( ( _sort_car_array[i-cf]-> realY() - _sort_car_array[i]-> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i-cf]-> realX() - _sort_car_array[i]-> realX()) < 1*CAR_WIDTH ) 
 			{ 
-				_sort_car_array[i] -> _around_car_array[2][1] = _sort_car_array[i-cf];
+				_sort_car_array[i]-> _around_car_array[2][1] = _sort_car_array[i-cf];
 				break;
 			}
-			else if( ( _sort_car_array[i+cf] -> realY() - _sort_car_array[i] -> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i+cf] -> realX() - _sort_car_array[i] -> realX()) < 1*CAR_WIDTH ) 
+			else if( ( _sort_car_array[i+cf]-> realY() - _sort_car_array[i]-> realY()) > 1*CAR_HEIGHT && DoubleAbs( _sort_car_array[i+cf]-> realX() - _sort_car_array[i]-> realX()) < 1*CAR_WIDTH ) 
 			{ 
-				_sort_car_array[i] -> _around_car_array[2][1] = _sort_car_array[i+cf];
+				_sort_car_array[i]-> _around_car_array[2][1] = _sort_car_array[i+cf];
 				break;
 			}			
 			else
-				_sort_car_array[i] -> _around_car_array[2][1] = NULL;
+				_sort_car_array[i]-> _around_car_array[2][1] = NULL;
 		}
 		
 		//左後方
 		for(cf = 1 ; cf <= look_for ; cf ++)
 		{
-			if( (_sort_car_array[i+cf] -> realY() - _sort_car_array[i] -> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i+cf] -> realX() - _sort_car_array[i] -> realX()) > 1*CAR_WIDTH )  
+			if( (_sort_car_array[i+cf]-> realY() - _sort_car_array[i]-> realY()) > 1*CAR_HEIGHT && (_sort_car_array[i+cf]-> realX() - _sort_car_array[i]-> realX()) > 1*CAR_WIDTH )  
 			{
-				_sort_car_array[i] -> _around_car_array[2][2] = _sort_car_array[i+cf];
+				_sort_car_array[i]-> _around_car_array[2][2] = _sort_car_array[i+cf];
 				break;
 			}
 			else
-				_sort_car_array[i] -> _around_car_array[2][2] = NULL;
+				_sort_car_array[i]-> _around_car_array[2][2] = NULL;
 		}
 		
 	}
@@ -428,8 +427,8 @@ void Coordinator::UpdateBackCarBulb()
 		bool find = false;
 		CAR_BULB bulb_save = BULB_NONE;
 		for(cf = 1 ; cf <= look_for ; cf ++){
-//			if( _sort_car_array[i+cf] -> realY() == _sort_car_array[i] -> realY()) 
-			if( DoubleAbs( _sort_car_array[i+cf] -> realY() - _sort_car_array[i] -> realY()) 
+//			if( _sort_car_array[i+cf]-> realY() == _sort_car_array[i]-> realY()) 
+			if( DoubleAbs( _sort_car_array[i+cf]-> realY() - _sort_car_array[i]-> realY()) 
 				< 1.5*CAR_HEIGHT) //在可視範圍內
 			{
 				find = true;
@@ -439,12 +438,12 @@ void Coordinator::UpdateBackCarBulb()
 				// vf 前車速度
 				// distance 兩車的距離 
 
-				double vf = _sort_car_array[i] -> realVelocity();
-				double vb = _sort_car_array[i+cf] -> realVelocity();
+				double vf = _sort_car_array[i]-> realVelocity();
+				double vb = _sort_car_array[i+cf]-> realVelocity();
 				double distance = DoubleAbs(_sort_car_array[i+cf]->realX()-CAR_WIDTH-
 						_sort_car_array[i]->realX());
 				
-				if (distance < 1000) //通訊範圍為100m -> 1000 bit
+				if (distance < 1000) //通訊範圍為100m-> 1000 bit
 				{
 
 					//distance 1
@@ -495,7 +494,7 @@ void Coordinator::UpdateFrontCarBulb()
 		bool find = false;
 		CAR_BULB bulb_save = BULB_NONE;
 		for(cf = 1 ; cf <= look_for ; cf ++){
-			if( DoubleAbs( _sort_car_array[i-cf] -> realY() - _sort_car_array[i] -> realY()) 
+			if( DoubleAbs( _sort_car_array[i-cf]-> realY() - _sort_car_array[i]-> realY()) 
 				< 1.5*CAR_HEIGHT) //在可視範圍內
 			{
 				find = true;
@@ -505,22 +504,22 @@ void Coordinator::UpdateFrontCarBulb()
 				// vf 前車速度
 				// distance 兩車的距離 
 				 
-				double vb = _sort_car_array[i] -> realVelocity();
-				double vf = _sort_car_array[i-cf] -> realVelocity();
+				double vb = _sort_car_array[i]-> realVelocity();
+				double vf = _sort_car_array[i-cf]-> realVelocity();
 				double distance = DoubleAbs(_sort_car_array[i]->realX()-CAR_WIDTH-
 							_sort_car_array[i-cf]->realX());
 				//unsigned int a=1;
 				
 				//check the overlap of car body
-				if (_sort_car_array[i] -> reLocation() == false)
+				if (_sort_car_array[i]-> reLocation() == false)
 				{
-					_sort_car_array[i] -> setReLocation(true);
+					_sort_car_array[i]-> setReLocation(true);
 
 					if(distance < 50)		
-					     _sort_car_array[i] -> setRealX( _sort_car_array[i] -> realX() + 60);
+					     _sort_car_array[i]-> setRealX( _sort_car_array[i]-> realX() + 60);
 				}
 
-				if (distance < 1000) //通訊範圍為100m -> 1000 bit
+				if (distance < 1000) //通訊範圍為100m-> 1000 bit
 				{
 
 					//distance 1
@@ -603,7 +602,7 @@ void Coordinator::UpdateWarnningSystem()
 		if((i+ch_lane_gap)%8 == 0 && 
 			 ( g_timer_ticks - ((Car*)_car_list[i])->LastTimeChangeLane() ) > 700 )
 		{
-			((Car*)_car_list[i]) -> Try2ChangeLane();
+			((Car*)_car_list[i])-> Try2ChangeLane();
 			ch_lane_gap = (ch_lane_gap+1)%8;
 		}
 	}
@@ -633,10 +632,10 @@ void Coordinator::car_active()
 		return;
 	}
 	//g_timer_ticks += (1*gTimeRatio); //move to timer ticks
-	emit sigUpdateEnable(false);
+	emit sigUpdateEnable(false);	// 這一行實際上好像沒有用到
 
-	CountCarsVelocity(timer_gap);
-	MoveCarsPosition(timer_gap);
+	CountCarsVelocity(timer_gap);	// 此函數用來計算車子的下一個時候的速度
+	MoveCarsPosition(timer_gap);	// 這一個函數用來計算車子的下一個位置
 
 	//ShellSortCarByX();
 	//RealSortCarByX();
@@ -646,23 +645,23 @@ void Coordinator::car_active()
 //	UpdateCarBulb();
 //	UpdateWarnningSystem();
 
-	if(_road)	_road -> repaint();
+	if(_road)	_road-> repaint();
 
-	emit sigUpdateEnable(true);
+	emit sigUpdateEnable(true);	// sigUpdateEnable(bool) 這一個函數沒有實作
 
-	last_modify_timer = g_timer_ticks;
+	last_modify_timer = g_timer_ticks;	// 記錄最後一次修改的時間
 }
 
-void Coordinator :: gps_active()
+void Coordinator :: gps_active()	// 重新設定gps的最後更新時間,感覺好像封包有時候會傳,有時候會不傳,依亂數而定
 {
-	unsigned int car_count = _car_list.count();
+	unsigned int car_count = _car_list.count();	// 所有車子的數量
 	double last_time = 0;
 
 	for(unsigned int i = 0; i < car_count ; i ++){
 		Car* car = (Car*) _car_list[i];
 		if( !car )	continue;
-		last_time = car -> GPSUpdateTime();	
-		if( last_time == 0 ){
+		last_time = car->GPSUpdateTime();	// 最後一次gps更新的時間
+		if( last_time == 0 ){	// 不太懂,為啥要用亂數改變上次更新gps的時間?!
 			last_time = ((rand()%(300))+200) + g_timer_ticks;
 			if( car-> AccLevel() == BRAKE_NORMAL){
 				last_time = ((rand()%(100))+50) + g_timer_ticks;
@@ -670,59 +669,59 @@ void Coordinator :: gps_active()
 			if( car->change2RightLan() || car->change2LeftLan() ){
 				last_time = ((rand()%(100))+50) + g_timer_ticks;
 			}
-			if( car-> AccLevel() == BRAKE_EMERG || car->backBulb() == BULB_RED ){
+			if( car->AccLevel() == BRAKE_EMERG || car->backBulb() == BULB_RED ){
 				last_time = ((rand()%(50))+20) + g_timer_ticks;
 			}
-			car ->  setGPSUpdateTime( last_time );
-			if(car -> CarType() == CT_WIFI || car -> CarType() == CT_DSRC ){
-				((InternetCar*)car) -> Try2ChangeLane();
+			car->setGPSUpdateTime( last_time );
+			if(car-> CarType() == CT_WIFI || car-> CarType() == CT_DSRC ){
+				((InternetCar*)car)->Try2ChangeLane();
 			}
 		}
 	}
 }
 
-void Coordinator::ticks_active()
+void Coordinator::ticks_active()	// 掃過所有的車子,判斷是否要傳送封包
 {
 	//g_timer_ticks += (1*gTimeRatio*g_car_timer_gap);
-	g_timer_ticks += (1*gTimeRatio*g_ticks_timer_gap);
+	g_timer_ticks += (1*gTimeRatio*g_ticks_timer_gap);	// g_timer_ticks增加一個TimeRatio的時間,指的應該是播放速度
 
-	if( g_timer_ticks > g_simulate_until *1000 ){
+	if( g_timer_ticks > g_simulate_until *1000 ){	// 若目前的模擬時間超過總模擬時間,則表示模擬結束
 		slotPause();
 
 		emit simulationDone();
 	}
 
 	if( _lock_try_active_gps_broadcast )	return;
-	_lock_try_active_gps_broadcast = true;
+	_lock_try_active_gps_broadcast = true;	// 用來鎖住,避免處理時間過長,使得重覆執行傳送封包
 	/* check 是否有需要BrLocation的Car */
 	double last_time = 0;
 	unsigned int car_count = _car_list.count();
 	for(unsigned int i = 0; i < car_count ; i ++){
 		Car* car = (Car*) _car_list[i];
-		last_time = car -> GPSUpdateTime();	
+		last_time = car->GPSUpdateTime();	// 上次更新gps的時間
 		if( last_time == 0 )	continue;
 		WifiCar* wc = (WifiCar*) _car_list[i];
 		DSRCCar* dc = (DSRCCar*) _car_list[i];
 
-		switch( car -> CarType() ){
+		switch( car-> CarType() ){
 			case CT_WIFI:
 				wc->UpdateWarnningLight(true);
 				wc->UpdateCarByWarnning();
 				if(  g_timer_ticks >  last_time ){
-					if( wc -> BrLocation() )
-						car -> setGPSUpdateTime(0);
+					if( wc->BrLocation() )	// 傳送封包
+						car->setGPSUpdateTime(0);	// 傳送封包完後,gps的更新時間就歸0
 					else
-						car -> setGPSUpdateTime(g_timer_ticks+2);
+						car->setGPSUpdateTime(g_timer_ticks+2);
 				}
 				break;
 			case CT_DSRC:
 				dc->UpdateWarnningLight(true);
 				dc->UpdateCarByWarnning();
 				if(  g_timer_ticks >  last_time ){
-					if( dc -> BrLocation() )
-						car -> setGPSUpdateTime(0);
+					if( dc->BrLocation() )	// 傳送封包
+						car->setGPSUpdateTime(0);
 					else
-						car -> setGPSUpdateTime(g_timer_ticks+2);
+						car->setGPSUpdateTime(g_timer_ticks+2);
 				}
 				break;
 			default: break;
@@ -748,7 +747,7 @@ int Coordinator :: CountCollision()
 	unsigned int car_count = _car_list.count();
 	for(unsigned int i = 0; i < car_count ; i ++){
 		Car* car = (Car*) _car_list[i];
-		if( car -> GetCollision() )
+		if( car-> GetCollision() )
 			tmp_count ++; 
 	}
 	g_car_collision += tmp_count;

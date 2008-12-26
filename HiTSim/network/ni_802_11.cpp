@@ -82,7 +82,6 @@ void NI_802_11 :: dataRecv(Packet* pkt)
 	InfoPacket *pp = (InfoPacket*) pkt;
 	if(pp)
 		emit sigPacketRecv(pkt);	// 觸發的是this->sigPacketRecv(pkt);
-	// 好像connect( &mac , SIGNAL( sigPacketRecv(Packet*) ) , this , SLOT(dataRecv(Pa    cket*)));與此函數會無限迴圈哩
 }
 
 int NI_802_11 :: ID()
