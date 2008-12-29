@@ -17,6 +17,7 @@ Q_OBJECT
 		void addCar();
 	private:
 		MainScene *scene;
+		void init();
 };
 
 #endif // MAINVIEW_H
