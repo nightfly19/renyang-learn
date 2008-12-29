@@ -8,6 +8,7 @@
 #include <QStatusBar>
 #include <QDockWidget>
 #include <QLabel>
+#include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent,flags){
 	
@@ -42,7 +43,8 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	// 建立工具列 - 建立第一個選單項目File - end
 	// 建立工具列 - 建立第二個選單項目About - start
 	QMenu *aboutMenu = new QMenu("&About");
-	aboutMenu->addAction("About");
+	aboutMenu->addAction("About Qt",this,SLOT(aboutQt()));
+	aboutMenu->addAction("About HiTSim",this,SLOT(aboutHiTSim()));
 	this->menuBar()->addMenu(aboutMenu);
 	// 建立工具列 - 建立第二個選單項目About - end
 	// 建立建立工具列 - end
@@ -70,4 +72,12 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 
 	this->addDockWidget(Qt::RightDockWidgetArea,dockWidget);
 	// 建立停駐元件 - end
+}
+
+void MainWindow::aboutQt() const {
+	QMessageBox::aboutQt(0);
+}
+
+void MainWindow::aboutHiTSim() const {
+	QMessageBox::information(0,"About HiTSim","Simulation for the vehicles");
 }

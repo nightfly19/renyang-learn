@@ -12,6 +12,7 @@ MyScene::MyScene(QObject *parent):QGraphicsScene(parent) {
 MyScene::MyScene(qreal x,qreal y,qreal width,qreal height,QObject *parent):QGraphicsScene(x,y,width,height,parent) {
 	// 預計加一個圓形,然後,執徑逐漸變大
 	QGraphicsEllipseItem *ball = new QGraphicsEllipseItem(-15,-15,30,30);
+	ball->setPen(QPen(QColor(125,125,125,125),3));
 	addItem(ball);
 
 	ball->setPos(this->width()/2,this->height()/2);
