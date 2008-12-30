@@ -51,8 +51,12 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	
 	// 建立工具列 - start
 	QToolBar *toolBar = new QToolBar("QToolBar");
-	toolBar->addAction(QIcon(":/open.png"),"open");
-	toolBar->addAction(QIcon(":/icon_save.jpg"),"save");
+	QAction *toolBarAction = new QAction(QIcon(":open.png"),"open",toolBar);
+	toolBarAction->setEnabled(false);	// 設定成按扭不能按,因為,還沒有功能
+	toolBar->addAction(toolBarAction);
+	toolBarAction = new QAction(QIcon(":icon_save"),"save",toolBar);
+	toolBarAction->setEnabled(false);	// 設定成不能按,因為功能還沒有做好
+	toolBar->addAction(toolBarAction);
 	toolBar->addAction(QIcon(":/icon_clock.jpg"),"addCar",view,SLOT(addCar()));
 	toolBar->addSeparator();
 	toolBar->addAction(QIcon(":/icon_close.jpg"),"close",this,SLOT(close()));
