@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include "MainView.h"
+#include "CentralWidget.h"
 
 #include <QMenu>
 #include <QAction>
@@ -15,9 +15,9 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	this->setWindowTitle("HiTSim");
 
 	// 建立主畫面
-	MainView *view = new MainView(this);
+	CentralWidget *centralwidget = new CentralWidget(this);
 
-	this->setCentralWidget(view);
+	this->setCentralWidget(centralwidget);
 
 	// 建立工具列 - start
 	// 建立工具列 - 建立第一個選單項目File - start
@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 	toolBarAction = new QAction(QIcon(":icon_save"),"save",toolBar);
 	toolBarAction->setEnabled(false);	// 設定成不能按,因為功能還沒有做好
 	toolBar->addAction(toolBarAction);
-	toolBar->addAction(QIcon(":/icon_clock.jpg"),"addCar",view,SLOT(addCar()));
+	toolBar->addAction(QIcon(":/icon_clock.jpg"),"addCar",centralwidget,SLOT(addCar()));
 	toolBar->addSeparator();
 	toolBar->addAction(QIcon(":/icon_close.jpg"),"close",this,SLOT(close()));
 	this->addToolBar(toolBar);
@@ -76,6 +76,10 @@ MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent
 
 	this->addDockWidget(Qt::RightDockWidgetArea,dockWidget);
 	// 建立停駐元件 - end
+	
+	// 設定最大化 - start
+	showMaximized();
+	// 設定最大化 - end
 }
 
 void MainWindow::aboutQt() const {
