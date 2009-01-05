@@ -9,7 +9,7 @@ DiagramScene::DiagramScene(QMenu *itemMenu, QObject *parent)
     : QGraphicsScene(parent)
 {
     myItemMenu = itemMenu;
-    myMode = MoveItem;
+    myMode = MoveItem;	// 一開始是MoveItem,表示可以移動物件
     myItemType = DiagramItem::Step;
     line = 0;
     textItem = 0;
@@ -59,7 +59,7 @@ void DiagramScene::setItemColor(const QColor &color)
 //! [4]
 void DiagramScene::setFont(const QFont &font)
 {
-    myFont = font;
+    myFont = font;	// 設定scene目前的字型設定
 
     if (isItemChange(DiagramTextItem::Type)) {
         QGraphicsTextItem *item =
@@ -102,11 +102,11 @@ void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
     DiagramItem *item;
     switch (myMode) {
         case InsertItem:
-            item = new DiagramItem(myItemType, myItemMenu);
+            item = new DiagramItem(myItemType, myItemMenu);	// 產生一個你選的物件在scene上
             item->setBrush(myItemColor);
             addItem(item);
-            item->setPos(mouseEvent->scenePos());
-            emit itemInserted(item);
+            item->setPos(mouseEvent->scenePos());	// 依滑鼠的位置放置一個選的物件
+            emit itemInserted(item);	// 只有當是itemMode把物件放到scene之後,才會設定按扭跳回來
             break;
 //! [6] //! [7]
         case InsertLine:
@@ -128,7 +128,7 @@ void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
             addItem(textItem);
             textItem->setDefaultTextColor(myTextColor);
             textItem->setPos(mouseEvent->scenePos());
-            emit textInserted(textItem);
+            emit textInserted(textItem);	// 當是文字按扭時,當按到scene之後,按扭也會跳回來
 //! [8] //! [9]
     default:
         ;
@@ -144,7 +144,7 @@ void DiagramScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
         QLineF newLine(line->line().p1(), mouseEvent->scenePos());
         line->setLine(newLine);
     } else if (myMode == MoveItem) {
-        QGraphicsScene::mouseMoveEvent(mouseEvent);
+        QGraphicsScene::mouseMoveEvent(mouseEvent);	// 所以,父類別本來就可以移動物件囉
     }
 }
 //! [10]

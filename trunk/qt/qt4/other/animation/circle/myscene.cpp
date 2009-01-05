@@ -15,7 +15,7 @@ MyScene::MyScene(qreal x,qreal y,qreal width,qreal height,QObject *parent):QGrap
 	ball->setPen(QPen(QColor(125,125,125,125),3));
 	addItem(ball);
 
-	ball->setPos(this->width()/2,this->height()/2);
+	ball->setPos(this->width()/2,this->height()/2);	// setPos(x,y):設定此小座標的原點在此(x,y)
 
 	timeLine = new QTimeLine;
 
