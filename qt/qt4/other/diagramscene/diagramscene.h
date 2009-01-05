@@ -44,7 +44,7 @@ public slots:
     void editorLostFocus(DiagramTextItem *item);
 
 signals:
-    void itemInserted(DiagramItem *item);
+    void itemInserted(DiagramItem *item);	// 不用實作,主要只是用來做signals
     void textInserted(QGraphicsTextItem *item);
     void itemSelected(QGraphicsItem *item);
 
