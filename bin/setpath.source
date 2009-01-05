@@ -6,3 +6,6 @@
 # source setpath.source
 
 PATH=$PATH:`pwd`
+
+# another method
+# [ -e /home/ren/svn/renyang-learn/bin ] && export PATH=$PATH:/home/ren/svn/renyang-learn/bin
