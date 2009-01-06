@@ -94,7 +94,8 @@ void DiagramScene::editorLostFocus(DiagramTextItem *item)
 //! [5]
 
 //! [6]
-void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)	// 不知道為什麼按下物件時,那個物件會被選取
+// 因為sceneitem被設定為可以選擇與移動,所以,當滑鼠按下時會被選擇,而當滑鼠按下且移動時,物件會被移動
+void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     if (mouseEvent->button() != Qt::LeftButton)
         return;
@@ -131,6 +132,7 @@ void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)	// 不�
 	    break;
 //! [8] //! [9]
     default:
+    	;
     }
     QGraphicsScene::mousePressEvent(mouseEvent);	// 當按下滑鼠時,此物件會被選取
 }

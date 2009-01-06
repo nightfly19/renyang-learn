@@ -39,9 +39,9 @@ DiagramItem::DiagramItem(DiagramType diagramType, QMenu *contextMenu,
                       << QPointF(-120, -80);
             break;
     }
-    setPolygon(myPolygon);
-    setFlag(QGraphicsItem::ItemIsMovable, true);
-    setFlag(QGraphicsItem::ItemIsSelectable, true);
+    setPolygon(myPolygon);		// 先設定好圖行的形狀,再把這一個圖形設定給本類別
+    setFlag(QGraphicsItem::ItemIsMovable, true);	// 設定使得物件可以移動,找了一個下午總算找到了為什麼此物件可以被選擇了
+    setFlag(QGraphicsItem::ItemIsSelectable, true);	// 設定使得物件可以被選擇
 }
 //! [0]
 
@@ -89,11 +89,11 @@ QPixmap DiagramItem::image() const
 //! [4]
 
 //! [5]
-void DiagramItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)	// 設定item的menu
+void DiagramItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)	// 當滑鼠在此物件內部按下右鍵時,會跳出QMenu
 {
-    scene()->clearSelection();
-    setSelected(true);
-    myContextMenu->exec(event->screenPos());
+    scene()->clearSelection();	// 把所有此scene被選取的items取消選取
+    setSelected(true);		// 設定目前這一個item是被選取的
+    myContextMenu->exec(event->screenPos());	// 在這個位置跳出itmeMenu
 }
 //! [5]
 
