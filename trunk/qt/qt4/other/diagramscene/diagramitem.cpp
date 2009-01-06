@@ -80,7 +80,7 @@ QPixmap DiagramItem::image() const
     QPixmap pixmap(250, 250);
     pixmap.fill(Qt::transparent);
     QPainter painter(&pixmap);
-    painter.setPen(QPen(Qt::black, 8));
+    painter.setPen(QPen(Qt::black, 8));		// 設定QToolButton小圖像的顏色
     painter.translate(125, 125);
     painter.drawPolyline(myPolygon);
 
@@ -89,7 +89,7 @@ QPixmap DiagramItem::image() const
 //! [4]
 
 //! [5]
-void DiagramItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
+void DiagramItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)	// 設定item的menu
 {
     scene()->clearSelection();
     setSelected(true);
@@ -98,7 +98,7 @@ void DiagramItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 //! [5]
 
 //! [6]
-QVariant DiagramItem::itemChange(GraphicsItemChange change,
+QVariant DiagramItem::itemChange(GraphicsItemChange change,	// 當item改變時，此function會被觸發
                      const QVariant &value)
 {
     if (change == QGraphicsItem::ItemPositionChange) {

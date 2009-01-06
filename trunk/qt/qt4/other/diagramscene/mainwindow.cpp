@@ -19,11 +19,11 @@ MainWindow::MainWindow()
     // 第四個部分建立CentralWidget
     scene = new DiagramScene(itemMenu);
     scene->setSceneRect(QRectF(0, 0, 5000, 5000));
-    connect(scene, SIGNAL(itemInserted(DiagramItem *)),
+    connect(scene, SIGNAL(itemInserted(DiagramItem *)),		// 插入scene的圖行物件
             this, SLOT(itemInserted(DiagramItem *)));
-    connect(scene, SIGNAL(textInserted(QGraphicsTextItem *)),
+    connect(scene, SIGNAL(textInserted(QGraphicsTextItem *)),	// 插入scene的文字物件
         this, SLOT(textInserted(QGraphicsTextItem *)));
-    connect(scene, SIGNAL(itemSelected(QGraphicsItem *)),
+    connect(scene, SIGNAL(itemSelected(QGraphicsItem *)),	// scene的物件被選擇
         this, SLOT(itemSelected(QGraphicsItem *)));
     createToolbars();	// 第四個部分建立toolbar
 
@@ -38,6 +38,12 @@ MainWindow::MainWindow()
     setCentralWidget(widget);			// 設定主視窗是widget
     setWindowTitle(tr("Diagramscene"));
     // 到目前為止,MainWindow的centralwidget是由toolbox與scene所主成:而這是第五個部分
+    
+    // 第六個部分設定狀態列
+    QStatusBar *statusBar = this->statusBar();
+    statusBar->showMessage("Status here...");
+
+    // 第七個部分設定Dock Widget
 }
 //! [0]
 
@@ -72,11 +78,11 @@ void MainWindow::buttonGroupClicked(int id)
     if (buttonGroup->button(id) != button)	// 把所有的此GroupButton內的button掃過一次,是此次的button則把它回復沒有按的狀態
         button->setChecked(false);
     }
-    if (id == InsertTextButton) {		// 若id是要在scene內放置文字的狀態
+    if (id == InsertTextButton) {		// 若被按的是代表要插入文字的按扭
         scene->setMode(DiagramScene::InsertText);
     } else {
         scene->setItemType(DiagramItem::DiagramType(id));
-        scene->setMode(DiagramScene::InsertItem);	// 設定為放置物件的狀態
+        scene->setMode(DiagramScene::InsertItem);	// 設定Scene的模式:InsertItem, InsertLine, InsertText, MoveItem
     }
 }
 //! [2]
@@ -96,7 +102,7 @@ void MainWindow::deleteItem()
 //! [4]
 void MainWindow::pointerGroupClicked(int)
 {
-    scene->setMode(DiagramScene::Mode(pointerTypeGroup->checkedId()));
+    scene->setMode(DiagramScene::Mode(pointerTypeGroup->checkedId()));	// 設定scene的模式是pointer或是拉線
 }
 //! [4]
 
@@ -141,7 +147,7 @@ void MainWindow::sendToBack()
 //! [7]
 void MainWindow::itemInserted(DiagramItem *item)
 {
-    scene->setMode(DiagramScene::Mode(pointerTypeGroup->checkedId()));	// 當按了scene之後,之前按的按扭要跳回來
+    scene->setMode(DiagramScene::Mode(pointerTypeGroup->checkedId()));	// 依目前被按下的按扭,設定scene的mode
     buttonGroup->button(int(item->diagramType()))->setChecked(false);	// 設定按扭跳回來
 }
 //! [7]
@@ -149,7 +155,7 @@ void MainWindow::itemInserted(DiagramItem *item)
 //! [8]
 void MainWindow::textInserted(QGraphicsTextItem *)
 {
-    buttonGroup->button(InsertTextButton)->setChecked(false);		// 同上,當按下scene之後,把按扭要彈起來
+    buttonGroup->button(InsertTextButton)->setChecked(false);	// 依目前被按下的按扭,設定scene的mode
     scene->setMode(DiagramScene::Mode(pointerTypeGroup->checkedId()));
 }
 //! [8]
@@ -249,6 +255,7 @@ void MainWindow::handleFontChange()
 //! [19]
 void MainWindow::itemSelected(QGraphicsItem *item)
 {
+    qDebug("itemSelected");
     DiagramTextItem *textItem =
     qgraphicsitem_cast<DiagramTextItem *>(item);
 
@@ -285,7 +292,7 @@ void MainWindow::createToolBox()
                       DiagramItem::Step),0, 1);
     layout->addWidget(createCellWidget(tr("Input/Output"),
                       DiagramItem::Io), 1, 0);
-//! [21]
+//! [21]			// 要把文字按扭與圖型按扭分開是因為在scene內圖型按扭有menu而文字按扭沒有
 
     QToolButton *textButton = new QToolButton;
     textButton->setCheckable(true);
@@ -484,7 +491,7 @@ void MainWindow::createToolbars()
     pointerButton->setCheckable(true);
     pointerButton->setChecked(true);
     pointerButton->setIcon(QIcon(":/images/pointer.png"));
-    QToolButton *linePointerButton = new QToolButton;
+    QToolButton *linePointerButton = new QToolButton;	// 設定為拉線的方式
     linePointerButton->setCheckable(true);
     linePointerButton->setIcon(QIcon(":/images/linepointer.png"));
 
@@ -538,7 +545,7 @@ QWidget *MainWindow::createCellWidget(const QString &text,	// 建立一個在QTo
                       DiagramItem::DiagramType type)
 {
 
-    DiagramItem item(type, itemMenu);	// 自己設定此物件的視別碼,此物件的類別是我們自己建立的
+    DiagramItem item(type, itemMenu);	// 自己設定此物件的視別碼,此物件的類別是我們自己建立的,和對它按右鍵的menu
     QIcon icon(item.image());		// 傳回此物件的icon;依此種物件,決定要使用的圖示
 
     QToolButton *button = new QToolButton;
