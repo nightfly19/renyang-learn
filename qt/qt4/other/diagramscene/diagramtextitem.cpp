@@ -8,8 +8,8 @@
 DiagramTextItem::DiagramTextItem(QGraphicsItem *parent, QGraphicsScene *scene)
     : QGraphicsTextItem(parent, scene)
 {
-    setFlag(QGraphicsItem::ItemIsMovable);
-    setFlag(QGraphicsItem::ItemIsSelectable);
+    setFlag(QGraphicsItem::ItemIsMovable);	// 設定可以被移動
+    setFlag(QGraphicsItem::ItemIsSelectable);	// 設定可以被選擇
 }
 //! [0]
 

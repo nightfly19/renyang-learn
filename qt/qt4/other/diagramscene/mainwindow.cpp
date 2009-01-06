@@ -255,7 +255,6 @@ void MainWindow::handleFontChange()
 //! [19]
 void MainWindow::itemSelected(QGraphicsItem *item)
 {
-    qDebug("itemSelected");
     DiagramTextItem *textItem =
     qgraphicsitem_cast<DiagramTextItem *>(item);
 
