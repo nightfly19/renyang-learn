@@ -22,7 +22,7 @@ class DiagramScene : public QGraphicsScene
     Q_OBJECT
 
 public:
-    enum Mode { InsertItem, InsertLine, InsertText, MoveItem };
+    enum Mode { InsertItem, InsertLine, InsertText, MoveItem };	// 設定目前scene一共有四種模式
 
     DiagramScene(QMenu *itemMenu, QObject *parent = 0);
     QFont font() const
@@ -46,7 +46,7 @@ public slots:
 signals:
     void itemInserted(DiagramItem *item);	// 不用實作,主要只是用來做signals
     void textInserted(QGraphicsTextItem *item);
-    void itemSelected(QGraphicsItem *item);
+    void itemSelected(QGraphicsItem *item);	// 沒有實作
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent);
@@ -56,17 +56,17 @@ protected:
 private:
     bool isItemChange(int type);
 
-    DiagramItem::DiagramType myItemType;
-    QMenu *myItemMenu;
-    Mode myMode;
+    DiagramItem::DiagramType myItemType;	// 目前針對的item的型態:Step, Conditional, StartEnd, Io
+    QMenu *myItemMenu;				// 由針對item建立的menu
+    Mode myMode;				// 目前scene的模式
     bool leftButtonDown;
     QPointF startPoint;
-    QGraphicsLineItem *line;
-    QFont myFont;
-    DiagramTextItem *textItem;
-    QColor myTextColor;
-    QColor myItemColor;
-    QColor myLineColor;
+    QGraphicsLineItem *line;			// 目前的直線
+    QFont myFont;				// 目前的字型
+    DiagramTextItem *textItem;			// 記錄字型的item
+    QColor myTextColor;				// 字的顏色
+    QColor myItemColor;				// 圖型的顏色
+    QColor myLineColor;				// 線的顏色
 };
 //! [0]
 

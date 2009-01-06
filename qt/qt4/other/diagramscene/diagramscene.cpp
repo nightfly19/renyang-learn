@@ -5,11 +5,11 @@
 #include "arrow.h"
 
 //! [0]
-DiagramScene::DiagramScene(QMenu *itemMenu, QObject *parent)
+DiagramScene::DiagramScene(QMenu *itemMenu, QObject *parent)	// itemMenu是表示對物件按右鍵會跳出來的menu,目前的menu只有在按item時有效
     : QGraphicsScene(parent)
 {
-    myItemMenu = itemMenu;
-    myMode = MoveItem;	// 一開始是MoveItem,表示可以移動物件
+    myItemMenu = itemMenu;	// 記錄目前的item行態
+    myMode = MoveItem;		// 一開始是MoveItem,表示可以移動物件
     myItemType = DiagramItem::Step;
     line = 0;
     textItem = 0;
@@ -71,12 +71,12 @@ void DiagramScene::setFont(const QFont &font)
 
 void DiagramScene::setMode(Mode mode)
 {
-    myMode = mode;
+    myMode = mode;	// 設定目前scene的模式:一共有四個模式啊:InsertItem, InsertLine, InsertText, MoveItem
 }
 
 void DiagramScene::setItemType(DiagramItem::DiagramType type)
 {
-    myItemType = type;
+    myItemType = type;	// scene item的模式:Step, Conditional, StartEnd, Io
 }
 
 //! [5]
@@ -94,46 +94,45 @@ void DiagramScene::editorLostFocus(DiagramTextItem *item)
 //! [5]
 
 //! [6]
-void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
+void DiagramScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)	// 不知道為什麼按下物件時,那個物件會被選取
 {
     if (mouseEvent->button() != Qt::LeftButton)
         return;
 
     DiagramItem *item;
-    switch (myMode) {
-        case InsertItem:
-            item = new DiagramItem(myItemType, myItemMenu);	// 產生一個你選的物件在scene上
-            item->setBrush(myItemColor);
-            addItem(item);
-            item->setPos(mouseEvent->scenePos());	// 依滑鼠的位置放置一個選的物件
-            emit itemInserted(item);	// 只有當是itemMode把物件放到scene之後,才會設定按扭跳回來
+    switch (myMode) {	// 判斷scene的mode:InsertItem, InsertLine, InsertText, MoveItem
+        case InsertItem:			// 若是insert mode則產生一個物件在scene上
+            item = new DiagramItem(myItemType, myItemMenu);	// 依myItemType與myItemMenu來產生要放到scene上的物件
+            item->setBrush(myItemColor);			// 設定顏色
+            addItem(item);					// 把目前的item加到scene中
+            item->setPos(mouseEvent->scenePos());		// 依滑鼠的位置放置一個選的物件
+            emit itemInserted(item);		// 只有當是itemMode把物件放到scene之後,才會設定按扭跳回來
             break;
 //! [6] //! [7]
-        case InsertLine:
-            line = new QGraphicsLineItem(QLineF(mouseEvent->scenePos(),
-                                        mouseEvent->scenePos()));
-            line->setPen(QPen(myLineColor, 2));
-            addItem(line);
+        case InsertLine:			// 加入line到scene中
+            line = new QGraphicsLineItem(QLineF(mouseEvent->scenePos(),mouseEvent->scenePos())); // 設定一條線,但是起點與終點是同一個點
+            line->setPen(QPen(myLineColor, 2));		// 設定顏色,與粗細
+            addItem(line);				// 加入scene中
             break;
 //! [7] //! [8]
-        case InsertText:
-            textItem = new DiagramTextItem();
-            textItem->setFont(myFont);
+        case InsertText:			// 加入text
+            textItem = new DiagramTextItem();	// 產生DiagramTextItem()
+            textItem->setFont(myFont);		// 設定字型
             textItem->setTextInteractionFlags(Qt::TextEditorInteraction);
             textItem->setZValue(1000.0);
             connect(textItem, SIGNAL(lostFocus(DiagramTextItem *)),
                     this, SLOT(editorLostFocus(DiagramTextItem *)));
             connect(textItem, SIGNAL(selectedChange(QGraphicsItem *)),
                     this, SIGNAL(itemSelected(QGraphicsItem *)));
-            addItem(textItem);
-            textItem->setDefaultTextColor(myTextColor);
-            textItem->setPos(mouseEvent->scenePos());
+            addItem(textItem);				// 把text物件加入scene中
+            textItem->setDefaultTextColor(myTextColor);	// 設定顏色
+            textItem->setPos(mouseEvent->scenePos());	// 設定加入的位置
             emit textInserted(textItem);	// 當是文字按扭時,當按到scene之後,按扭也會跳回來
+	    break;
 //! [8] //! [9]
     default:
-        ;
     }
-    QGraphicsScene::mousePressEvent(mouseEvent);
+    QGraphicsScene::mousePressEvent(mouseEvent);	// 當按下滑鼠時,此物件會被選取
 }
 //! [9]
 
@@ -144,7 +143,7 @@ void DiagramScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
         QLineF newLine(line->line().p1(), mouseEvent->scenePos());
         line->setLine(newLine);
     } else if (myMode == MoveItem) {
-        QGraphicsScene::mouseMoveEvent(mouseEvent);	// 所以,父類別本來就可以移動物件囉
+        QGraphicsScene::mouseMoveEvent(mouseEvent);	// 當按下滑鼠並且移動指標時,此物件位置會被移動
     }
 }
 //! [10]
@@ -152,7 +151,7 @@ void DiagramScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
 //! [11]
 void DiagramScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
-    if (line != 0 && myMode == InsertLine) {
+    if (line != 0 && myMode == InsertLine) {	// 當畫面上有一條線,且目前的scene的mode是InsertLine
         QList<QGraphicsItem *> startItems = items(line->line().p1());
         if (startItems.count() && startItems.first() == line)
             startItems.removeFirst();

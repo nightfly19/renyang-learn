@@ -11,11 +11,9 @@ class DiagramScene;
 QT_BEGIN_NAMESPACE
 class QAction;
 class QToolBox;
-class QSpinBox;
 class QComboBox;
 class QFontComboBox;
 class QButtonGroup;
-class QLineEdit;
 class QGraphicsTextItem;
 class QFont;
 class QToolButton;

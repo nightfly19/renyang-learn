@@ -10,7 +10,6 @@ class QPixmap;
 class QGraphicsItem;
 class QGraphicsScene;
 class QTextEdit;
-class QGraphicsSceneMouseEvent;
 class QMenu;
 class QGraphicsSceneContextMenuEvent;
 class QPainter;
