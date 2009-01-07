@@ -16,16 +16,17 @@ class QPainterPath;
 QT_END_NAMESPACE
 
 //! [0]
+// 這一個類別是用來建立箭頭
 class Arrow : public QGraphicsLineItem
 {
 public:
-    enum { Type = UserType + 4 };
+    enum { Type = UserType + 4 };	// 設定一個匿名enum
 
-    Arrow(DiagramItem *startItem, DiagramItem *endItem,
+    Arrow(DiagramItem *startItem, DiagramItem *endItem,		// 設定起始物件與結束物件,用來決定箭頭的起點與終點
       QGraphicsItem *parent = 0, QGraphicsScene *scene = 0);
 
     int type() const
-        { return Type; }
+        { return Type; }					// 回傳type用來辨識是哪一種GraphicsItem
     QRectF boundingRect() const;
     QPainterPath shape() const;
     void setColor(const QColor &color)
