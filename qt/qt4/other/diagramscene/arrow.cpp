@@ -9,25 +9,26 @@ const qreal Pi = 3.14;
 //! [0]
 Arrow::Arrow(DiagramItem *startItem, DiagramItem *endItem,
          QGraphicsItem *parent, QGraphicsScene *scene)
-    : QGraphicsLineItem(parent, scene)
+    : QGraphicsLineItem(parent, scene)	// QGraphicsLineItem::QGraphicsLineItem(QGraphicsItem* parent, QGraphicsScene* scene)
 {
     myStartItem = startItem;
     myEndItem = endItem;
-    setFlag(QGraphicsItem::ItemIsSelectable, true);
+    setFlag(QGraphicsItem::ItemIsSelectable, true);	// 設定可以直接被滑鼠選擇
     myColor = Qt::black;
     setPen(QPen(myColor, 2, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 }
 //! [0]
 
 //! [1]
-QRectF Arrow::boundingRect() const
+QRectF Arrow::boundingRect() const	// 回傳要重畫的區域,使得QGraphicsView知道哪一個區域要重畫
 {
     qreal extra = (pen().width() + 20) / 2.0;
 
-    return QRectF(line().p1(), QSizeF(line().p2().x() - line().p1().x(),
-                                      line().p2().y() - line().p1().y()))
-        .normalized()
-        .adjusted(-extra, -extra, extra, extra);
+    return QRectF(line().p1(), QSizeF(line().p2().x() - line().p1().x(),line().p2().y() - line().p1().y()))
+        .normalized()	// 若width()<0則左上點與右下點與對應的點左右互換;若height()<0則左上點與右下點與對應的上下點互換
+        .adjusted(-extra, -extra, extra, extra);	// 左上點座標加(-extra,-extra),右下點座標加(extra,extra)
+	// adjusted(x1,y1,x2,y2)是設定rect的左上角的點是(x1,y1)和右下角的點是(x2,y2)
+	// 回傳修改完之後的方形
 }
 //! [1]
 
