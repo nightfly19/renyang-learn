@@ -30,6 +30,7 @@ MainWindow::MainWindow()
     QHBoxLayout *layout = new QHBoxLayout;	// 設定一個水平的layout
     layout->addWidget(toolBox);			// 先在layout的左邊加入一個toolBox
     view = new QGraphicsView(scene);		// 在layout右邊加入一個scene
+    view->setRenderHint(QPainter::Antialiasing);// 設定讓QGraphicsView畫面變的更好看,不會有線模糊的感覺
     layout->addWidget(view);
 
     QWidget *widget = new QWidget;

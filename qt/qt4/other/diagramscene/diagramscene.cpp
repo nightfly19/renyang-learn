@@ -143,9 +143,9 @@ void DiagramScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     if (myMode == InsertLine && line != 0) {
         QLineF newLine(line->line().p1(), mouseEvent->scenePos());
-        line->setLine(newLine);
+        line->setLine(newLine);		// 設定新的線
     } else if (myMode == MoveItem) {
-        QGraphicsScene::mouseMoveEvent(mouseEvent);	// 當按下滑鼠並且移動指標時,此物件位置會被移動
+        QGraphicsScene::mouseMoveEvent(mouseEvent);	// 當按下滑鼠並且移動指標時,此物件位置會被移動;同時會呼叫arrow的paint()
     }
 }
 //! [10]
@@ -154,32 +154,30 @@ void DiagramScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
 void DiagramScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     if (line != 0 && myMode == InsertLine) {	// 當畫面上有一條線,且目前的scene的mode是InsertLine
-        QList<QGraphicsItem *> startItems = items(line->line().p1());
+        QList<QGraphicsItem *> startItems = items(line->line().p1());	// 收集所有與第一個點有交集的GraphicsItem,並且依z坐標排列
         if (startItems.count() && startItems.first() == line)
-            startItems.removeFirst();
-        QList<QGraphicsItem *> endItems = items(line->line().p2());
+            startItems.removeFirst();		// 先移除第一個指標,就是線自己的指標啦
+        QList<QGraphicsItem *> endItems = items(line->line().p2());	// 收集所有與第二個點有交集的GraphicsItem
         if (endItems.count() && endItems.first() == line)
-            endItems.removeFirst();
+            endItems.removeFirst();		// 先移除第一個指標,就是線自己的指標啦
 
-        removeItem(line);
-        delete line;
+        removeItem(line);	// 由scene中移除線
+        delete line;		// 把這一個指標指到的記憶體空間移除
 //! [11] //! [12]
 
         if (startItems.count() > 0 && endItems.count() > 0 &&
             startItems.first()->type() == DiagramItem::Type &&
             endItems.first()->type() == DiagramItem::Type &&
             startItems.first() != endItems.first()) {
-            DiagramItem *startItem =
-                qgraphicsitem_cast<DiagramItem *>(startItems.first());
-            DiagramItem *endItem =
-                qgraphicsitem_cast<DiagramItem *>(endItems.first());
+            DiagramItem *startItem = qgraphicsitem_cast<DiagramItem *>(startItems.first());	// 父類別指標轉換到子類別指標
+            DiagramItem *endItem = qgraphicsitem_cast<DiagramItem *>(endItems.first());		// 同上
             Arrow *arrow = new Arrow(startItem, endItem);
             arrow->setColor(myLineColor);
-            startItem->addArrow(arrow);
+            startItem->addArrow(arrow);	// 加入scene中arrow的list中
             endItem->addArrow(arrow);
             arrow->setZValue(-1000.0);
-            addItem(arrow);
-            arrow->updatePosition();
+            addItem(arrow);		// 加入scene中
+            arrow->updatePosition();	// 更新箭頭的新座標
         }
     }
 //! [12] //! [13]
