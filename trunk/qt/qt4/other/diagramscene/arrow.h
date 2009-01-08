@@ -7,11 +7,9 @@
 #include "diagramitem.h"
 
 QT_BEGIN_NAMESPACE
-class QGraphicsPolygonItem;
 class QGraphicsLineItem;
 class QGraphicsScene;
 class QRectF;
-class QGraphicsSceneMouseEvent;
 class QPainterPath;
 QT_END_NAMESPACE
 

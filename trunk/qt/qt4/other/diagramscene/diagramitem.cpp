@@ -103,7 +103,7 @@ QVariant DiagramItem::itemChange(GraphicsItemChange change,	// 當item改變時�
 {
     if (change == QGraphicsItem::ItemPositionChange) {
         foreach (Arrow *arrow, arrows) {
-            arrow->updatePosition();
+            arrow->updatePosition();	// 更新箭頭的新座標
         }
     }
 
