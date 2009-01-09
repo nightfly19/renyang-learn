@@ -43,10 +43,10 @@ protected:
                QWidget *widget = 0);
 
 private:
-    DiagramItem *myStartItem;
-    DiagramItem *myEndItem;
-    QColor myColor;
-    QPolygonF arrowHead;
+    DiagramItem *myStartItem;	// 記錄滑鼠點左鍵時滑鼠位置的DiagramItem
+    DiagramItem *myEndItem;	// 記錄滑鼠放開時滑鼠位置的DiagramItem
+    QColor myColor;		// 用來記錄箭頭(三角頭與身體)的顏色
+    QPolygonF arrowHead;	// 用來記錄三角頭的形狀
 };
 //! [0]
 

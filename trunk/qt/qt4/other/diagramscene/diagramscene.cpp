@@ -82,13 +82,13 @@ void DiagramScene::setItemType(DiagramItem::DiagramType type)
 //! [5]
 void DiagramScene::editorLostFocus(DiagramTextItem *item)
 {
-    QTextCursor cursor = item->textCursor();
-    cursor.clearSelection();
-    item->setTextCursor(cursor);
+    QTextCursor cursor = item->textCursor();	// 把在編譯的編輯指標抓出來
+    cursor.clearSelection();			// 把這一個選取的部分取消
+    item->setTextCursor(cursor);		// 設定回這一個指標
 
-    if (item->toPlainText().isEmpty()) {
-        removeItem(item);
-        item->deleteLater();
+    if (item->toPlainText().isEmpty()) {	// 判斷字串是否為空集合
+        removeItem(item);			// 由scene中移除此DiagramTextItem
+        item->deleteLater();	// The object will be deleted when control returns to the event loop
     }
 }
 //! [5]
@@ -187,7 +187,7 @@ void DiagramScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
 //! [13]
 
 //! [14]
-bool DiagramScene::isItemChange(int type)
+bool DiagramScene::isItemChange(int type)	// 找出是有任何一個物件被選取
 {
     foreach (QGraphicsItem *item, selectedItems()) {
         if (item->type() == type)

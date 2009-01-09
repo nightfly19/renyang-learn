@@ -59,8 +59,6 @@ private:
     DiagramItem::DiagramType myItemType;	// 目前針對的item的型態:Step, Conditional, StartEnd, Io
     QMenu *myItemMenu;				// 由針對item建立的menu
     Mode myMode;				// 目前scene的模式
-    bool leftButtonDown;
-    QPointF startPoint;
     QGraphicsLineItem *line;			// 目前的直線
     QFont myFont;				// 目前的字型
     DiagramTextItem *textItem;			// 記錄字型的item

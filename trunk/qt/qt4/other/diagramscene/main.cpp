@@ -5,7 +5,7 @@
 
 int main(int argv, char *args[])
 {
-    Q_INIT_RESOURCE(diagramscene);
+    Q_INIT_RESOURCE(diagramscene);		// 把載入的資料存到diagramscene中
 
     QApplication app(argv, args);
     MainWindow mainWindow;

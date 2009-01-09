@@ -75,7 +75,7 @@ void DiagramItem::addArrow(Arrow *arrow)
 //! [3]
 
 //! [4]
-QPixmap DiagramItem::image() const
+QPixmap DiagramItem::image() const	// 要讓ToolButton設定的小圖像
 {
     QPixmap pixmap(250, 250);
     pixmap.fill(Qt::transparent);
@@ -98,8 +98,9 @@ void DiagramItem::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)	// 當
 //! [5]
 
 //! [6]
-QVariant DiagramItem::itemChange(GraphicsItemChange change,	// 當item改變時，此function會被觸發
+QVariant DiagramItem::itemChange(GraphicsItemChange change,	// 當item改變時，此function會被觸發,本來是virtual function
                      const QVariant &value)
+// change is the parameter of the item that is changing. value is the new value; the type of the value depends on change.
 {
     if (change == QGraphicsItem::ItemPositionChange) {
         foreach (Arrow *arrow, arrows) {

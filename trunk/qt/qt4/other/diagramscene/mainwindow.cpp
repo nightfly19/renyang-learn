@@ -256,8 +256,7 @@ void MainWindow::handleFontChange()
 //! [19]
 void MainWindow::itemSelected(QGraphicsItem *item)
 {
-    DiagramTextItem *textItem =
-    qgraphicsitem_cast<DiagramTextItem *>(item);
+    DiagramTextItem *textItem = qgraphicsitem_cast<DiagramTextItem *>(item);
 
     QFont font = textItem->font();
     QColor color = textItem->defaultTextColor();

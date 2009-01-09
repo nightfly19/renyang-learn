@@ -15,7 +15,7 @@ DiagramTextItem::DiagramTextItem(QGraphicsItem *parent, QGraphicsScene *scene)
 
 //! [1]
 QVariant DiagramTextItem::itemChange(GraphicsItemChange change,
-                     const QVariant &value)
+                     const QVariant &value)	// 在父類別中是virtual function
 {
     if (change == QGraphicsItem::ItemSelectedHasChanged)
         emit selectedChange(this);
@@ -24,9 +24,9 @@ QVariant DiagramTextItem::itemChange(GraphicsItemChange change,
 //! [1]
 
 //! [2]
-void DiagramTextItem::focusOutEvent(QFocusEvent *event)
+void DiagramTextItem::focusOutEvent(QFocusEvent *event)	// 當由選取,變到沒有被選取,則會自動執行這一個函式
 {
-    setTextInteractionFlags(Qt::NoTextInteraction);
+    setTextInteractionFlags(Qt::NoTextInteraction);	// 設定文字輸入的方式
     emit lostFocus(this);
     QGraphicsTextItem::focusOutEvent(event);
 }
@@ -36,7 +36,7 @@ void DiagramTextItem::focusOutEvent(QFocusEvent *event)
 void DiagramTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     if (textInteractionFlags() == Qt::NoTextInteraction)
-        setTextInteractionFlags(Qt::TextEditorInteraction);
+        setTextInteractionFlags(Qt::TextEditorInteraction);	// 改成可以被修改內容
     QGraphicsTextItem::mouseDoubleClickEvent(event);
 }
 //! [5]

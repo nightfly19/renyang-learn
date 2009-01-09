@@ -27,28 +27,28 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-   MainWindow();
+   MainWindow();	// 建構子
 
 private slots:
-    void backgroundButtonGroupClicked(QAbstractButton *button);
-    void buttonGroupClicked(int id);
-    void deleteItem();
-    void pointerGroupClicked(int id);
-    void bringToFront();
-    void sendToBack();
-    void itemInserted(DiagramItem *item);
-    void textInserted(QGraphicsTextItem *item);
-    void currentFontChanged(const QFont &font);
-    void fontSizeChanged(const QString &size);
-    void sceneScaleChanged(const QString &scale);
-    void textColorChanged();
-    void itemColorChanged();
-    void lineColorChanged();
-    void textButtonTriggered();
-    void fillButtonTriggered();
-    void lineButtonTriggered();
+    void backgroundButtonGroupClicked(QAbstractButton *button);	// background其中一個按扭被按下
+    void buttonGroupClicked(int id);	// 物件的按扭其中一個被按下
+    void deleteItem();			// 刪除物件
+    void pointerGroupClicked(int id);	// 設定是點物件還是拉線
+    void bringToFront();		// 移動到前面
+    void sendToBack();			// 把物件移動到後面
+    void itemInserted(DiagramItem *item);	// 插入物件到scene
+    void textInserted(QGraphicsTextItem *item);	// 插入文件物件到scene
+    void currentFontChanged(const QFont &font);	// 改變文字
+    void fontSizeChanged(const QString &size);	// 改變字型大小
+    void sceneScaleChanged(const QString &scale);	// 放大縮小
+    void textColorChanged();	// 改變文字顏色
+    void itemColorChanged();	// 改變物件顏色
+    void lineColorChanged();	// 改變線的顏色
+    void textButtonTriggered();	// 文字按扭被按
+    void fillButtonTriggered();	// 
+    void lineButtonTriggered();	// 線的按扭被按
     void handleFontChange();
-    void itemSelected(QGraphicsItem *item);
+    void itemSelected(QGraphicsItem *item);	// 物件被選
     void about();
 
 private:
@@ -58,8 +58,7 @@ private:
     void createToolbars();
     QWidget *createBackgroundCellWidget(const QString &text,
                                         const QString &image);
-    QWidget *createCellWidget(const QString &text,
-                              DiagramItem::DiagramType type);
+    QWidget *createCellWidget(const QString &text, DiagramItem::DiagramType type);
     QMenu *createColorMenu(const char *slot, QColor defaultColor);
     QIcon createColorToolButtonIcon(const QString &image, QColor color);
     QIcon createColorIcon(QColor color);
