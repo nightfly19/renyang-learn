@@ -5,6 +5,7 @@
 #include <QHBoxLayout>
 
 CentralWidget::CentralWidget(QWidget *parent):QWidget(parent) {
+	setAcceptDrops(true);
 	QHBoxLayout *layout = new QHBoxLayout;
 	layout->addWidget(new LeftToolBox(this));
 	view =  new MainView(this);
