@@ -10,5 +10,6 @@
     <file alias="icon_close.jpg">icon/icon_close.jpg</file>
     <file alias="icon_save.jpg">icon/icon_save.jpg</file>
     <file alias="open.png">icon/open.png</file>
+    <file alias="antenna.png">images/antenna.png</file>
 </qresource>
 </RCC>
