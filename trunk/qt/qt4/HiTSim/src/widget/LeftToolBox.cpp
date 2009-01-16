@@ -1,10 +1,10 @@
 
 #include "LeftToolBox.h"
+#include "ToolButton.h"
 
 #include <QLabel>
 #include <QButtonGroup>
 #include <QGridLayout>
-#include <QToolButton>
 
 LeftToolBox::LeftToolBox(QWidget *parent):QToolBox(parent) {
 
@@ -37,7 +37,7 @@ QWidget *LeftToolBox::createCarPage() {
 
 QWidget *LeftToolBox::createButton(const QString &name,QButtonGroup *group,const int id) {
 	
-	QToolButton *carButton = new QToolButton;
+	ToolButton *carButton = new ToolButton;
 	carButton->setCheckable(true);
 	carButton->setIcon(QIcon(QPixmap(name).scaled(30,30,Qt::KeepAspectRatio)));
 	carButton->setIconSize(QSize(50,50));
