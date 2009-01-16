@@ -1,15 +1,18 @@
 
 #include "LeftToolBox.h"
 #include "ToolButton.h"
+#include "ToolLabel.h"
 
 #include <QLabel>
 #include <QButtonGroup>
 #include <QGridLayout>
+#include <QPixmap>
 
 LeftToolBox::LeftToolBox(QWidget *parent):QToolBox(parent) {
 
 	addItem(createCarPage(),tr("Car list"));
 	addItem(createBaseStationPage(),tr("BaseStation"));
+	addItem(createCarLabelPage(),tr("Car list Label"));
 }
 
 QWidget *LeftToolBox::createCarPage() {
@@ -48,6 +51,39 @@ QWidget *LeftToolBox::createButton(const QString &name,QButtonGroup *group,const
 
 	QGridLayout *layout = new QGridLayout;
 	layout->addWidget(carButton,0,0,Qt::AlignHCenter);
+
+	QWidget *widget = new QWidget;
+	widget->setLayout(layout);
+	return widget;
+}
+
+QWidget *LeftToolBox::createCarLabelPage() {
+	
+
+	QGridLayout *carLayout = new QGridLayout;
+	carLayout->addWidget(createLabel(":car_b.png"),0,0);
+	carLayout->addWidget(createLabel(":car_g.png"),0,1);
+	carLayout->addWidget(createLabel(":car_r.png"),1,0);
+
+	carLayout->setRowStretch(2,10);
+	carLayout->setColumnStretch(2,10);
+
+	QWidget *carWidget = new QWidget;
+	carWidget->setLayout(carLayout);
+
+	setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Ignored));
+	setMinimumWidth(200);	// 設定最小值為200
+
+	return carWidget;
+}
+
+QWidget *LeftToolBox::createLabel(const QString &name) {
+	
+	ToolLabel *carLabel = new ToolLabel;
+	carLabel->setPixmap(QPixmap(name));
+
+	QGridLayout *layout = new QGridLayout;
+	layout->addWidget(carLabel,0,0,Qt::AlignHCenter);
 
 	QWidget *widget = new QWidget;
 	widget->setLayout(layout);

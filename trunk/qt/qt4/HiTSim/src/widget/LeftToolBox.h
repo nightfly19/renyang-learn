@@ -14,7 +14,9 @@ Q_OBJECT
 	
 	private:
 		QWidget *createCarPage();
+		QWidget *createCarLabelPage();
 		QWidget *createButton(const QString &name,QButtonGroup *group=0,const int id=0);
+		QWidget *createLabel(const QString &name);
 		QWidget *createBaseStationPage();
 
 		QButtonGroup *buttonGroup;

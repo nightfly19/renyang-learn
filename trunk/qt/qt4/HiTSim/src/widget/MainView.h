@@ -18,6 +18,8 @@ Q_OBJECT
 	private:
 		MainScene *scene;
 		void init();
+	protected:
+		void dragEnterEvent(QDragEnterEvent *evnet);
 };
 
 #endif // MAINVIEW_H

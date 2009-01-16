@@ -22,7 +22,7 @@ void ListWidget::mousePressEvent(QMouseEvent *event) {
 void ListWidget::mouseMoveEvent(QMouseEvent *event) {
     if (event->buttons() & Qt::LeftButton) {
         if ((event->pos() - startPoint).manhattanLength()
-                >= QApplication::startDragDistance()) {	// 設定拖曳遠會出現拖曳的小圖
+                >= QApplication::startDragDistance()) {	// 設定拖曳多遠會出現拖曳的小圖
             execDrag();
         }
     }

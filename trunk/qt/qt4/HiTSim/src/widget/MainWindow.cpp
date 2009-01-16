@@ -12,6 +12,8 @@
 
 MainWindow::MainWindow(QWidget *parent,Qt::WindowFlags flags):QMainWindow(parent,flags){
 	
+	setAcceptDrops(true);	// 讓拖曳可以實現
+	
 	this->setWindowTitle("HiTSim");
 
 	// 建立主畫面
