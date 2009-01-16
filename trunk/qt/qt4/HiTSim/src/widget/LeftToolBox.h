@@ -14,9 +14,13 @@ Q_OBJECT
 	
 	private:
 		QWidget *createCarPage();
-		QWidget *createCarButton(const QString &name,QButtonGroup *group,const int id);
+		QWidget *createButton(const QString &name,QButtonGroup *group=0,const int id=0);
+		QWidget *createBaseStationPage();
 
 		QButtonGroup *buttonGroup;
+	
+	private slots:
+		void buttonGroupClicked(int id);
 };
 
 #endif // LEFTTOOLBOX_H

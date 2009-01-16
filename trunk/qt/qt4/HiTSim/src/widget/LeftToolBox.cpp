@@ -9,6 +9,7 @@
 LeftToolBox::LeftToolBox(QWidget *parent):QToolBox(parent) {
 
 	addItem(createCarPage(),tr("Car list"));
+	addItem(createBaseStationPage(),tr("BaseStation"));
 }
 
 QWidget *LeftToolBox::createCarPage() {
@@ -16,10 +17,11 @@ QWidget *LeftToolBox::createCarPage() {
 
 	QGridLayout *carLayout = new QGridLayout;
 	buttonGroup = new QButtonGroup(this);
-	buttonGroup->setExclusive(true);
-	carLayout->addWidget(createCarButton(":car_b.png",buttonGroup,1),0,0);
-	carLayout->addWidget(createCarButton(":car_g.png",buttonGroup,1),0,1);
-	carLayout->addWidget(createCarButton(":car_r.png",buttonGroup,1),1,0);
+	connect(buttonGroup,SIGNAL(buttonClicked(int)),this,SLOT(buttonGroupClicked(int)));
+	buttonGroup->setExclusive(false);	// 必需設定為false,當按扭已按下時,再按一次才會跳起來
+	carLayout->addWidget(createButton(":car_b.png",buttonGroup,1),0,0);
+	carLayout->addWidget(createButton(":car_g.png",buttonGroup,2),0,1);
+	carLayout->addWidget(createButton(":car_r.png",buttonGroup,3),1,0);
 
 	carLayout->setRowStretch(2,10);
 	carLayout->setColumnStretch(2,10);
@@ -33,14 +35,16 @@ QWidget *LeftToolBox::createCarPage() {
 	return carWidget;
 }
 
-QWidget *LeftToolBox::createCarButton(const QString &name,QButtonGroup *group,const int id) {
+QWidget *LeftToolBox::createButton(const QString &name,QButtonGroup *group,const int id) {
 	
 	QToolButton *carButton = new QToolButton;
 	carButton->setCheckable(true);
 	carButton->setIcon(QIcon(QPixmap(name).scaled(30,30,Qt::KeepAspectRatio)));
 	carButton->setIconSize(QSize(50,50));
 
-	group->addButton(carButton, id);
+	if (group != 0){
+		group->addButton(carButton, id);
+	}
 
 	QGridLayout *layout = new QGridLayout;
 	layout->addWidget(carButton,0,0,Qt::AlignHCenter);
@@ -50,3 +54,28 @@ QWidget *LeftToolBox::createCarButton(const QString &name,QButtonGroup *group,co
 	return widget;
 }
 
+void LeftToolBox::buttonGroupClicked(int id) {
+	QList<QAbstractButton *> buttons = buttonGroup->buttons();
+	foreach (QAbstractButton *button,buttons) {
+		if (buttonGroup->button(id) != button)
+			button->setChecked(false);
+	}
+}
+
+QWidget *LeftToolBox::createBaseStationPage() {
+	
+
+	QGridLayout *carLayout = new QGridLayout;
+	carLayout->addWidget(createButton(":antenna.png"),0,0);
+
+	carLayout->setRowStretch(2,10);
+	carLayout->setColumnStretch(2,10);
+
+	QWidget *carWidget = new QWidget;
+	carWidget->setLayout(carLayout);
+
+	setSizePolicy(QSizePolicy(QSizePolicy::Maximum, QSizePolicy::Ignored));
+	setMinimumWidth(200);	// 設定最小值為200
+
+	return carWidget;
+}

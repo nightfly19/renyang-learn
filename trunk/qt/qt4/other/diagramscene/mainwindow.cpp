@@ -76,7 +76,7 @@ void MainWindow::buttonGroupClicked(int id)
 {
     QList<QAbstractButton *> buttons = buttonGroup->buttons();	// 收集所有此GroupButton的按扭
     foreach (QAbstractButton *button, buttons) {	// 把buttons內收集的抓出來存到*button
-    if (buttonGroup->button(id) != button)	// 把所有的此GroupButton內的button掃過一次,是此次的button則把它回復沒有按的狀態
+    if (buttonGroup->button(id) != button)	// 把所有的此GroupButton內的button掃過一次,不是此次按的按扭,則跳起
         button->setChecked(false);
     }
     if (id == InsertTextButton) {		// 若被按的是代表要插入文字的按扭
@@ -281,7 +281,7 @@ void MainWindow::about()
 void MainWindow::createToolBox()
 {
     buttonGroup = new QButtonGroup;
-    buttonGroup->setExclusive(false);
+    buttonGroup->setExclusive(false);			// 當這個設定為true的時候,當一個按扭被按下時,再按一次,不會跳起來
     connect(buttonGroup, SIGNAL(buttonClicked(int)),	// 當按扭被按時,參數是button的id
             this, SLOT(buttonGroupClicked(int)));
     QGridLayout *layout = new QGridLayout;
