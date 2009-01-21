@@ -1,0 +1,8 @@
+v1.0
+	* new application layer handover policy
+	* sctp socket options setting
+	* new ui layout to fit small screen
+	* support QTE 3.x
+	* manual change primary path
+	
+

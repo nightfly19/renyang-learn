@@ -1,0 +1,17 @@
+
+
+// fix in 5/27/06
+void Receiver::changeStatus(receiver_status newstatus)
+{
+        switch(newstatus)
+        {
+                case RECEIVER_STATUS_MUTE:
+                        player->end();
+                        break;
+                default:
+                        if (working && playing && (!player->isWorking()))
+                                initAudioPlayer(newstatus);
+                        break;
+        }
+        status = newstatus;
+}

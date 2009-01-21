@@ -1,0 +1,26 @@
+
+
+Step 1)
+In the debian/ubuntu system, make sure you have following packets
+	* libsctp-dev
+	* libsctp-dev
+	* libasound2-dev
+	* libjack0.100.0-dev
+	* libgmp3-dev
+	* libqt3-mt-dev
+	* libsoundtouch1-dev
+	* libspeex-dev
+
+#apt-get install libsctp-dev libsctp-dev libasound2-dev libjack0.100.0-dev\
+	libgmp3-dev libqt3-mt-dev libsoundtouch1-dev libspeex-dev
+
+
+Step 2)
+Generate makfile by QT's qmake tools
+	#qmake
+
+Step 3)
+Compile
+	#make
+
+
