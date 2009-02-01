@@ -12,7 +12,7 @@ clean_target:clean
 	rm -fv $(TARGET)
 
 clean:
-	rm -fv $(OBJ)
+	rm -fv $(OBJ) copy
 
 all: clean_target everything
 
