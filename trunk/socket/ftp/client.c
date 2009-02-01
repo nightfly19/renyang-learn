@@ -5,12 +5,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define FILEBUFFERSIZE 1024
-
 int main(int argc,char *argv[])
 {
-	
-	printf("dd");
 	int client_sockfd;
 	struct sockaddr_in address;
 	int client_len,result;
@@ -27,31 +23,12 @@ int main(int argc,char *argv[])
 	if(result == -1)	// 若傳回-1則表示連線失敗
 	{
 		perror("oops: client1");
-		return ;
+		exit(1) ;
 	}
-	// 傳送資料到server端,buffer為10 bytes
-	if (strcmp(argv[1],"get")!=0)
-	{
-		return 1;
-	}
-	if (write( client_sockfd, &(*argv[1]) , 1024)==-1){
+	// 傳送資料到server端
+	if (write( client_sockfd, &(*argv[1]) , 10)==-1){
 		printf("write error\n");
-		return 1;
-	}
-	FILE *fp = fopen("copy","wb");
-	if (fp==NULL){
-		printf("檔案開啟錯誤\n");
-		close(client_sockfd);
-		return 1;
-	}
-	char temp[1024];
-	while(strcmp(temp,"exit")!=0)
-	{
-		memset(temp,0,1024);
-		read(client_sockfd, &temp, FILEBUFFERSIZE);
-		if (strcmp(temp,"exit")==0)
-			break;
-		fwrite(temp,sizeof(char),FILEBUFFERSIZE,fp);
+		exit(1);
 	}
 	close( client_sockfd);	// 關掉socket介面
         
