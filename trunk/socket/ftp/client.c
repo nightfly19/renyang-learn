@@ -1,9 +1,16 @@
+//============================include file===================================
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
+//===========================================================================
+
+//=============================define variable===============================
+#define PORT 9734
+#define FILEBUFFERSIZE 1024
+//===========================================================================
 
 int main(int argc,char *argv[])
 {
@@ -16,7 +23,7 @@ int main(int argc,char *argv[])
 	address.sin_family = AF_INET;
 	// 以下存放的必需是server的ip位址
 	address.sin_addr.s_addr=inet_addr("127.0.0.1");
-	address.sin_port = htons(9734);
+	address.sin_port = htons(PORT);
 	client_len = sizeof(address);
 	// Client端則呼叫connect()功能,要求與Server主機建立連接通道
 	result = connect(client_sockfd, (struct sockaddr *)&address,client_len);
@@ -26,7 +33,7 @@ int main(int argc,char *argv[])
 		exit(1) ;
 	}
 	// 傳送資料到server端
-	if (write( client_sockfd, &(*argv[1]) , 10)==-1){
+	if (write( client_sockfd, &(*argv[1]) , FILEBUFFERSIZE)==-1){
 		printf("write error\n");
 		exit(1);
 	}

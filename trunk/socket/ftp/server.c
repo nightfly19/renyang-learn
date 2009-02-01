@@ -1,10 +1,22 @@
+//==========================include file==================================
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <string.h>
-	//int socket(int domain, int type, int protocol);
+//========================================================================
+
+//==========================define variable===============================
+#define PORT 9734
+#define FILEBUFFERSIZE 1024
+//========================================================================
+
+//==========================global variable===============================
+//========================================================================
+
+//==========================function phototypes===========================
+//========================================================================
 
 int main(int argc,char *argv[])
 {
@@ -23,7 +35,7 @@ int main(int argc,char *argv[])
 	server_address.sin_addr.s_addr=INADDR_ANY;
 	// server_address.sin_port = 9734;
 	// 2.3.轉換成little-end,因為intel是little-end
-	server_address.sin_port = htons(9734);
+	server_address.sin_port = htons(PORT);
 	// 記錄server端的設定(port,ip,sin_family...)的資料長度
 	server_len = sizeof(server_address);
 	// 3.Socket 出入口需Binding到TCP address
@@ -40,7 +52,7 @@ int main(int argc,char *argv[])
 	while(1)
 	{
 		// temp存放要傳送的檔案
-		char temp[10];
+		char temp[FILEBUFFERSIZE];
 		printf("server waiting \n");
 		client_len = sizeof(client_address);	// 了解client的設定資料結構長度
 		// 5.以accept指令來等待client端送去連線要求(connect request)
@@ -51,8 +63,8 @@ int main(int argc,char *argv[])
 			printf("Error:accept()\n");
 			exit(1);
 		}
-		// 由client_sockfd讀取資料存到temp的位址中,buffer大小為10byte
-		read(client_sockfd, &temp, 10);
+		// 由client_sockfd讀取資料存到temp的位址中,buffer大小為1024 bytes
+		read(client_sockfd, &temp, FILEBUFFERSIZE);
 		if (printf("ch : %s \n",temp)==-1){
 			printf("Read error!\n");
 			exit(1);
@@ -64,3 +76,6 @@ int main(int argc,char *argv[])
 
 	return 0;
 }
+
+//==========================function implementation=======================
+//========================================================================
