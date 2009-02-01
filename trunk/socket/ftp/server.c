@@ -25,6 +25,25 @@ int main(int argc,char *argv[])
 	struct sockaddr_in server_address;	
 	struct sockaddr_in client_address;
 	int server_len,client_len;
+	FILE *fp;
+
+	if (argc!=2) {
+		printf("Insrtuction error!!\n");
+		printf("./server 'file'\n");
+		return 1;
+	}
+	if ((fp=fopen(argv[1],"rb"))==NULL) {
+		printf("open file error\n");
+		return 1;
+	}
+	// divide - test
+	char temp[FILEBUFFERSIZE];
+	int ReadByte;
+	while((ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp))>0) {
+		printf("%d\n",ReadByte);
+		memset(temp,0,FILEBUFFERSIZE);
+	}
+	// divide - test
 
 	// 1.建立一個新的通訊端:socket(int domain,int type,int protocol),並回傳參數值
 	server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -41,12 +60,12 @@ int main(int argc,char *argv[])
 	// 3.Socket 出入口需Binding到TCP address
 	if(bind(server_sockfd,(struct sockaddr*) &server_address, server_len)==-1){
 		printf("bind error");
-		exit(1);
+		return 1;
 	}
 	// 4.建立一個queue以接收其他程式所送達的連線要求,queue的大小為5
 	if (listen(server_sockfd,5)==-1){
 		printf("listening error");
-		exit(1);
+		return 1;
 	}
 	// 當產生了一個佇列(queue)後，再來就是要把queue中的連結請求(Connect Request)讀出
 	while(1)
@@ -61,18 +80,27 @@ int main(int argc,char *argv[])
 		client_sockfd = accept(server_sockfd,(struct sockaddr *)&client_address, &client_len);
 		if (client_sockfd==-1){
 			printf("Error:accept()\n");
-			exit(1);
+			return 1;
 		}
 		// 由client_sockfd讀取資料存到temp的位址中,buffer大小為1024 bytes
 		read(client_sockfd, &temp, FILEBUFFERSIZE);
 		if (printf("ch : %s \n",temp)==-1){
 			printf("Read error!\n");
-			exit(1);
+			return 1;
+		}
+		else
+		{
+			if (strcmp(temp,"get")==0)
+			{
+				printf("File transmite...\n");
+			}
 		}
 		// 關掉connected socket
 		close(client_sockfd);
 	}
 	close(server_sockfd);
+
+	fclose(fp);
 
 	return 0;
 }

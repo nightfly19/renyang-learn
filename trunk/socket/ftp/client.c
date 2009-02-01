@@ -17,7 +17,12 @@ int main(int argc,char *argv[])
 	int client_sockfd;
 	struct sockaddr_in address;
 	int client_len,result;
-
+	FILE *fp;
+	
+	if((fp=fopen("copy","wb"))==NULL) {
+		printf("create error\n");
+		return 1;
+	}
 	// 建立一個socket
 	client_sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	address.sin_family = AF_INET;
@@ -30,14 +35,20 @@ int main(int argc,char *argv[])
 	if(result == -1)	// 若傳回-1則表示連線失敗
 	{
 		perror("oops: client1");
-		exit(1) ;
+		fclose(fp);
+		return 1 ;
 	}
 	// 傳送資料到server端
 	if (write( client_sockfd, &(*argv[1]) , FILEBUFFERSIZE)==-1){
 		printf("write error\n");
-		exit(1);
+		fclose(fp);
+		return 1;
+	}
+	else {
+		// 接收檔案
 	}
 	close( client_sockfd);	// 關掉socket介面
+	fclose(fp);
         
         return 0;
 }
