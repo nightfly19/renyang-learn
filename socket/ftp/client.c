@@ -58,6 +58,14 @@ int main(int argc,char *argv[])
 			fwrite(temp,sizeof(char),ReadByte,fp);
 			fclose(fp);
 		}
+		write(sockfd,"got it",sizeof("got it"));
+		memset(temp,0,FILEBUFFERSIZE);
+		// 當client接收到資料後,必需要write資料到server才能再read資料!!
+		ReadByte=read(sockfd,temp,FILEBUFFERSIZE);
+		printf("Get the %d bytes\n",ReadByte);
+		if (strncmp(temp,"#end#",strlen("#end"))==0) {
+			printf("the program end!!\n");
+		}
 	}
 	close( sockfd);	// 關掉socket介面
 	fclose(fp);

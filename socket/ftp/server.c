@@ -104,8 +104,14 @@ int main(int argc,char *argv[])
 				printf("read %d Byte\n",ReadByte);
 				int WriteByte=write(connfd,temp,ReadByte);
 				printf("transmite %d bytes\n",WriteByte);
+				memset(temp,0,sizeof(temp));
+				ReadByte=read(connfd,temp,FILEBUFFERSIZE);
+				printf("%s\n",temp);
 
 			}
+			char end[]="#end#";
+			int WriteByte=write(connfd,end,sizeof(end));
+			printf("Transmite %d bytes\n",WriteByte);
 		}
 		// 關掉connected socket
 		close(connfd);
