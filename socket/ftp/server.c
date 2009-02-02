@@ -25,6 +25,9 @@ int main(int argc,char *argv[])
 	struct sockaddr_in server_address;	
 	struct sockaddr_in client_address;
 	int server_len,client_len;
+	char temp[FILEBUFFERSIZE];
+	int ReadByte,WriteByte;
+	char end[]="#end#";
 	FILE *fp;
 
 	if (argc!=2) {
@@ -37,8 +40,6 @@ int main(int argc,char *argv[])
 		return 1;
 	}
 	// divide - test
-	char temp[FILEBUFFERSIZE];
-	int ReadByte;
 	while((ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp))>0) {
 		printf("%d\n",ReadByte);
 		memset(temp,0,FILEBUFFERSIZE);
@@ -93,18 +94,16 @@ int main(int argc,char *argv[])
 			if (strncmp(temp,"get",strlen("get"))==0)
 			{
 				printf("File transmite...\n");
-				FILE *fp;
-				fp=fopen("original","rb");
+				fp=fopen(argv[1],"rb");
 				if (fp==NULL) {
 					printf("open file error!!\n");
 					return 1;
 				}
-				int ReadByte;
 				memset(temp,0,sizeof(temp));
 				ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp);
 				while(ReadByte>0){
 					printf("read %d Byte\n",ReadByte);
-					int WriteByte=write(connfd,temp,ReadByte);
+					WriteByte=write(connfd,temp,ReadByte);
 					printf("transmite %d bytes\n",WriteByte);
 					memset(temp,0,sizeof(temp));
 					ReadByte=read(connfd,temp,FILEBUFFERSIZE);
@@ -114,8 +113,7 @@ int main(int argc,char *argv[])
 				}
 
 			}
-			char end[]="#end#";
-			int WriteByte=write(connfd,end,sizeof(end));
+			WriteByte=write(connfd,end,sizeof(end));
 			printf("Transmite %d bytes\n",WriteByte);
 		}
 		// 關掉connected socket
