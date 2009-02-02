@@ -20,7 +20,7 @@
 
 int main(int argc,char *argv[])
 {
-	int server_sockfd,client_sockfd;
+	int listenfd,connfd;
 	// 在c語言中,要用到struct時,前面必需要加上struct,在c++中則不需要
 	struct sockaddr_in server_address;	
 	struct sockaddr_in client_address;
@@ -46,7 +46,7 @@ int main(int argc,char *argv[])
 	// divide - test
 
 	// 1.建立一個新的通訊端:socket(int domain,int type,int protocol),並回傳參數值
-	server_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	listenfd = socket(AF_INET, SOCK_STREAM, 0);
 	// 2.1.設定為Unix network socket,表示可以在兩個不同的電腦之間傳資料
 	server_address.sin_family = AF_INET;
 	// 2.2.server的ip位址,這裡必需是server的ip位址
@@ -58,12 +58,12 @@ int main(int argc,char *argv[])
 	// 記錄server端的設定(port,ip,sin_family...)的資料長度
 	server_len = sizeof(server_address);
 	// 3.Socket 出入口需Binding到TCP address
-	if(bind(server_sockfd,(struct sockaddr*) &server_address, server_len)==-1){
+	if(bind(listenfd,(struct sockaddr*) &server_address, server_len)==-1){
 		printf("bind error");
 		return 1;
 	}
 	// 4.建立一個queue以接收其他程式所送達的連線要求,queue的大小為5
-	if (listen(server_sockfd,5)==-1){
+	if (listen(listenfd,5)==-1){
 		printf("listening error");
 		return 1;
 	}
@@ -76,14 +76,14 @@ int main(int argc,char *argv[])
 		client_len = sizeof(client_address);	// 了解client的設定資料結構長度
 		// 5.以accept指令來等待client端送去連線要求(connect request)
 		// 由client_address獲得client端的網路位置
-		// client_sockfd即由新的connected socket 所存放參數的地方。用來和client 進行資料輸出入
-		client_sockfd = accept(server_sockfd,(struct sockaddr *)&client_address, &client_len);
-		if (client_sockfd==-1){
+		// connfd即由新的connected socket 所存放參數的地方。用來和client 進行資料輸出入
+		connfd = accept(listenfd,(struct sockaddr *)&client_address, &client_len);
+		if (connfd==-1){
 			printf("Error:accept()\n");
 			return 1;
 		}
-		// 由client_sockfd讀取資料存到temp的位址中,buffer大小為1024 bytes
-		read(client_sockfd, &temp, FILEBUFFERSIZE);
+		// 由connfd讀取資料存到temp的位址中,buffer大小為1024 bytes
+		read(connfd, &temp, FILEBUFFERSIZE);
 		if (printf("ch : %s \n",temp)==-1){
 			printf("Read error!\n");
 			return 1;
@@ -96,9 +96,9 @@ int main(int argc,char *argv[])
 			}
 		}
 		// 關掉connected socket
-		close(client_sockfd);
+		close(connfd);
 	}
-	close(server_sockfd);
+	close(listenfd);
 
 	fclose(fp);
 
