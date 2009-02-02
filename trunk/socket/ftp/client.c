@@ -46,6 +46,18 @@ int main(int argc,char *argv[])
 	}
 	else {
 		// 接收檔案
+		char temp[FILEBUFFERSIZE];
+		memset(temp,0,FILEBUFFERSIZE);
+		int ReadByte=read(sockfd,temp,FILEBUFFERSIZE);
+		printf("get the %d bytes\n",ReadByte);
+		FILE *fp = fopen("copy","wb");
+		if (fp==NULL) {
+			printf("open file error!!\n");
+		}
+		else {
+			fwrite(temp,sizeof(char),ReadByte,fp);
+			fclose(fp);
+		}
 	}
 	close( sockfd);	// 關掉socket介面
 	fclose(fp);

@@ -90,9 +90,21 @@ int main(int argc,char *argv[])
 		}
 		else
 		{
-			if (strcmp(temp,"get")==0)
+			if (strncmp(temp,"get",strlen("get"))==0)
 			{
 				printf("File transmite...\n");
+				FILE *fp;
+				fp=fopen("original","rb");
+				if (fp==NULL) {
+					printf("open file error!!\n");
+				}
+				int ReadByte;
+				memset(temp,0,sizeof(temp));
+				ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp);
+				printf("read %d Byte\n",ReadByte);
+				int WriteByte=write(connfd,temp,ReadByte);
+				printf("transmite %d bytes\n",WriteByte);
+
 			}
 		}
 		// 關掉connected socket
