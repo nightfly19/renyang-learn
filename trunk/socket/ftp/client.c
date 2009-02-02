@@ -14,7 +14,7 @@
 
 int main(int argc,char *argv[])
 {
-	int client_sockfd;
+	int sockfd;
 	struct sockaddr_in address;
 	int client_len,result;
 	FILE *fp;
@@ -24,14 +24,14 @@ int main(int argc,char *argv[])
 		return 1;
 	}
 	// 建立一個socket
-	client_sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	address.sin_family = AF_INET;
 	// 以下存放的必需是server的ip位址
 	address.sin_addr.s_addr=inet_addr("127.0.0.1");
 	address.sin_port = htons(PORT);
 	client_len = sizeof(address);
 	// Client端則呼叫connect()功能,要求與Server主機建立連接通道
-	result = connect(client_sockfd, (struct sockaddr *)&address,client_len);
+	result = connect(sockfd, (struct sockaddr *)&address,client_len);
 	if(result == -1)	// 若傳回-1則表示連線失敗
 	{
 		perror("oops: client1");
@@ -39,7 +39,7 @@ int main(int argc,char *argv[])
 		return 1 ;
 	}
 	// 傳送資料到server端
-	if (write( client_sockfd, &(*argv[1]) , FILEBUFFERSIZE)==-1){
+	if (write( sockfd, &(*argv[1]) , FILEBUFFERSIZE)==-1){
 		printf("write error\n");
 		fclose(fp);
 		return 1;
@@ -47,7 +47,7 @@ int main(int argc,char *argv[])
 	else {
 		// 接收檔案
 	}
-	close( client_sockfd);	// 關掉socket介面
+	close( sockfd);	// 關掉socket介面
 	fclose(fp);
         
         return 0;
