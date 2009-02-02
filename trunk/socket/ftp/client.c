@@ -15,19 +15,24 @@
 int main(int argc,char *argv[])
 {
 	int sockfd;
+	int ReadByte;
 	struct sockaddr_in address;
 	int client_len,result;
 	FILE *fp;
+	char server_addr[15];
 	
 	if((fp=fopen("copy","wb"))==NULL) {
 		printf("create error\n");
 		return 1;
 	}
+	fclose(fp);
+	printf("Please input server's ip:");
+	scanf("%s",server_addr);
 	// 建立一個socket
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	address.sin_family = AF_INET;
 	// 以下存放的必需是server的ip位址
-	address.sin_addr.s_addr=inet_addr("127.0.0.1");
+	address.sin_addr.s_addr=inet_addr(server_addr);
 	address.sin_port = htons(PORT);
 	client_len = sizeof(address);
 	// Client端則呼叫connect()功能,要求與Server主機建立連接通道
@@ -48,9 +53,9 @@ int main(int argc,char *argv[])
 		// 接收檔案
 		char temp[FILEBUFFERSIZE];
 		memset(temp,0,FILEBUFFERSIZE);
-		int ReadByte=read(sockfd,temp,FILEBUFFERSIZE);
+		ReadByte=read(sockfd,temp,FILEBUFFERSIZE);
 		printf("get the %d bytes\n",ReadByte);
-		FILE *fp = fopen("copy","wb");
+		fp = fopen("copy","wb");
 		if (fp==NULL) {
 			printf("open file error!!\n");
 			return 1;
@@ -72,7 +77,6 @@ int main(int argc,char *argv[])
 		// 當client接收到資料後,必需要write資料到server才能再read資料!,這樣才叫被動啊!!
 	}
 	close( sockfd);	// 關掉socket介面
-	fclose(fp);
         
         return 0;
 }
