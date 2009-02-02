@@ -97,16 +97,21 @@ int main(int argc,char *argv[])
 				fp=fopen("original","rb");
 				if (fp==NULL) {
 					printf("open file error!!\n");
+					return 1;
 				}
 				int ReadByte;
 				memset(temp,0,sizeof(temp));
 				ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp);
-				printf("read %d Byte\n",ReadByte);
-				int WriteByte=write(connfd,temp,ReadByte);
-				printf("transmite %d bytes\n",WriteByte);
-				memset(temp,0,sizeof(temp));
-				ReadByte=read(connfd,temp,FILEBUFFERSIZE);
-				printf("%s\n",temp);
+				while(ReadByte>0){
+					printf("read %d Byte\n",ReadByte);
+					int WriteByte=write(connfd,temp,ReadByte);
+					printf("transmite %d bytes\n",WriteByte);
+					memset(temp,0,sizeof(temp));
+					ReadByte=read(connfd,temp,FILEBUFFERSIZE);
+					printf("%s\n",temp);
+					memset(temp,0,FILEBUFFERSIZE);
+					ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp);
+				}
 
 			}
 			char end[]="#end#";

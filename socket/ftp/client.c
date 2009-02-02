@@ -53,19 +53,23 @@ int main(int argc,char *argv[])
 		FILE *fp = fopen("copy","wb");
 		if (fp==NULL) {
 			printf("open file error!!\n");
+			return 1;
 		}
 		else {
-			fwrite(temp,sizeof(char),ReadByte,fp);
+			while(ReadByte>0) {
+				if (strncmp(temp,"#end#",strlen("#end#"))==0) {
+					printf("The connect is over\n");
+					break;
+				}
+				fwrite(temp,sizeof(char),ReadByte,fp);
+				write(sockfd,"I got\n",sizeof("I got\n"));
+				memset(temp,0,FILEBUFFERSIZE);
+				ReadByte=read(sockfd,temp,FILEBUFFERSIZE);
+				printf("I got the %d bytes\n",ReadByte);
+			}
 			fclose(fp);
 		}
-		write(sockfd,"got it",sizeof("got it"));
-		memset(temp,0,FILEBUFFERSIZE);
-		// 當client接收到資料後,必需要write資料到server才能再read資料!!
-		ReadByte=read(sockfd,temp,FILEBUFFERSIZE);
-		printf("Get the %d bytes\n",ReadByte);
-		if (strncmp(temp,"#end#",strlen("#end"))==0) {
-			printf("the program end!!\n");
-		}
+		// 當client接收到資料後,必需要write資料到server才能再read資料!,這樣才叫被動啊!!
 	}
 	close( sockfd);	// 關掉socket介面
 	fclose(fp);
