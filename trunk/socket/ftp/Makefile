@@ -1,5 +1,6 @@
 
 ASM	= gcc
+FLAGS	= 
 
 OBJ=server.o client.o
 TARGET=server client
@@ -17,10 +18,10 @@ clean:
 all: clean_target everything
 
 client.o: client.c
-	$(ASM) -c $< -o $@
+	$(ASM) $(FLAGS) -c $< -o $@
 server.o: server.c
-	$(ASM) -c $< -o $@
+	$(ASM) $(FLAGS) -c $< -o $@
 client:client.o
-	$(ASM) $< -o $@
+	$(ASM) $(FLAGS) $< -o $@
 server:server.o
-	$(ASM) $< -o $@
+	$(ASM) $(FLAGS) $< -o $@
