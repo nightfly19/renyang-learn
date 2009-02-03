@@ -27,7 +27,7 @@ int main(int argc,char *argv[])
 	// check args
 	if (argc!=2)
 	{
-		printf("usage:udpclient <IP address>\n");
+		perror("usage:udpclient <IP address>\n");
 		exit(1);
 	}
 
@@ -37,10 +37,11 @@ int main(int argc,char *argv[])
 	servaddr.sin_port=htons(SERV_PORT);
 	if(inet_pton(AF_INET,argv[1],&servaddr.sin_addr)<=0)
 	{
-		printf("[%s] is not a valid IPaddress\n",argv[1]);
+		printf("[%s] is not a valid IP address\n",argv[1]);
 		exit(1);
 	}
 
+	// build the socket
 	sockfd=socket(AF_INET,SOCK_DGRAM,0);
 
 	do_cli(stdin,sockfd,(struct sockaddr*)&servaddr,sizeof(servaddr));
@@ -75,6 +76,7 @@ void do_cli(FILE *fp,int sockfd,struct sockaddr *pservaddr,socklen_t servlen)
 			exit(1);
 		}
 		// terminate string
+		// 依字串的最後面加上一個結束符號
 		recvline[n]=0;
 		fputs(recvline,stdout);
 	}
