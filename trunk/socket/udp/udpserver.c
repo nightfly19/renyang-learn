@@ -22,7 +22,7 @@ int main(int argc,char *argv[])
 	int sockfd;
 	struct sockaddr_in servaddr,cliaddr;
 	
-	// create a socket
+	// create a socket, using the UDP
 	sockfd = socket(AF_INET,SOCK_DGRAM,0);
 
 	// init servaddr
@@ -34,7 +34,7 @@ int main(int argc,char *argv[])
 	// bind address and port to socket
 	if (bind(sockfd,(struct sockaddr *)&servaddr,sizeof(servaddr))==-1)
 	{
-		perror("bind error");
+		perror("bind error,the ip address is wrong");
 		exit(1);
 	}
 
