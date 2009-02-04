@@ -4,6 +4,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 //===========================================================================
 
@@ -21,9 +22,13 @@ int main(int argc,char *argv[])
 	FILE *fp;
 	char server_addr[15];
 	
+	if (argc!=2) {
+		fputs("./client get",stderr);
+		exit(1);
+	}
 	if((fp=fopen("copy","wb"))==NULL) {
 		printf("create error\n");
-		return 1;
+		exit(1);
 	}
 	fclose(fp);
 	printf("Please input server's ip:");
@@ -41,13 +46,13 @@ int main(int argc,char *argv[])
 	{
 		perror("oops: client1");
 		fclose(fp);
-		return 1 ;
+		exit(1) ;
 	}
 	// 傳送資料到server端
 	if (write( sockfd, &(*argv[1]) , FILEBUFFERSIZE)==-1){
 		printf("write error\n");
 		fclose(fp);
-		return 1;
+		exit(1);
 	}
 	else {
 		// 接收檔案
@@ -58,7 +63,7 @@ int main(int argc,char *argv[])
 		fp = fopen("copy","wb");
 		if (fp==NULL) {
 			printf("open file error!!\n");
-			return 1;
+			exit(1);
 		}
 		else {
 			while(ReadByte>0) {
