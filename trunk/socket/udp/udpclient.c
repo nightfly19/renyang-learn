@@ -23,11 +23,12 @@ int main(int argc,char *argv[])
 {
 	int sockfd;
 	struct sockaddr_in servaddr;
+	char error_message[20];
 
 	// check args
 	if (argc!=2)
 	{
-		perror("usage:udpclient <IP address>\n");
+		printf("usage:udpclient <IP address>\n");
 		exit(1);
 	}
 
@@ -37,11 +38,12 @@ int main(int argc,char *argv[])
 	servaddr.sin_port=htons(SERV_PORT);
 	if(inet_pton(AF_INET,argv[1],&servaddr.sin_addr)<=0)
 	{
-		printf("[%s] is not a valid IP address\n",argv[1]);
+		sprintf(error_message,"[%s] is not a valid IP address\n",argv[1]);
+		fputs(error_message,stderr);
 		exit(1);
 	}
 
-	// build the socket
+	// build the socket, using the UDP
 	sockfd=socket(AF_INET,SOCK_DGRAM,0);
 
 	do_cli(stdin,sockfd,(struct sockaddr*)&servaddr,sizeof(servaddr));
@@ -58,7 +60,7 @@ void do_cli(FILE *fp,int sockfd,struct sockaddr *pservaddr,socklen_t servlen)
 	char sendline[MAXLINE],recvline[MAXLINE+1];
 
 	// connect to server
-	if (connect(sockfd,(struct sockaddr *)pservaddr,servlen)==-1)
+	if (connect(sockfd,pservaddr,servlen)==-1)
 	{
 		perror("connect error");
 		exit(1);
@@ -76,7 +78,7 @@ void do_cli(FILE *fp,int sockfd,struct sockaddr *pservaddr,socklen_t servlen)
 			exit(1);
 		}
 		// terminate string
-		// 依字串的最後面加上一個結束符號
+		// 依字串的最後面加上一個結束符號, 否則沒有結束符號, 會出現亂碼
 		recvline[n]=0;
 		fputs(recvline,stdout);
 	}

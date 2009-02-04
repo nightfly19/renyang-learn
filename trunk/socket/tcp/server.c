@@ -4,6 +4,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 //========================================================================
 
@@ -27,17 +28,17 @@ int main(int argc,char *argv[])
 	int server_len,client_len;
 	char temp[FILEBUFFERSIZE];
 	int ReadByte,WriteByte;
-	char end[]="#end#";
+	char end[]="#end#";	// 用來判斷是否傳送檔案結束
 	FILE *fp;
 
 	if (argc!=2) {
 		printf("Insrtuction error!!\n");
 		printf("./server 'file'\n");
-		return 1;
+		exit(1);
 	}
 	if ((fp=fopen(argv[1],"rb"))==NULL) {
-		printf("open file error\n");
-		return 1;
+		fputs("open file error\n",stderr);
+		exit(1);
 	}
 	// divide - test
 	while((ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp))>0) {
@@ -61,12 +62,12 @@ int main(int argc,char *argv[])
 	// 3.Socket 出入口需Binding到TCP address
 	if(bind(listenfd,(struct sockaddr*) &server_address, server_len)==-1){
 		printf("bind error");
-		return 1;
+		exit(1);
 	}
 	// 4.建立一個queue以接收其他程式所送達的連線要求,queue的大小為5
 	if (listen(listenfd,5)==-1){
 		printf("listening error");
-		return 1;
+		exit(1);
 	}
 	// 當產生了一個佇列(queue)後，再來就是要把queue中的連結請求(Connect Request)讀出
 	while(1)
@@ -81,13 +82,13 @@ int main(int argc,char *argv[])
 		connfd = accept(listenfd,(struct sockaddr *)&client_address, &client_len);
 		if (connfd==-1){
 			printf("Error:accept()\n");
-			return 1;
+			exit(1);
 		}
 		// 由connfd讀取資料存到temp的位址中,buffer大小為1024 bytes
 		read(connfd, &temp, FILEBUFFERSIZE);
 		if (printf("ch : %s \n",temp)==-1){
 			printf("Read error!\n");
-			return 1;
+			exit(1);
 		}
 		else
 		{
@@ -97,7 +98,7 @@ int main(int argc,char *argv[])
 				fp=fopen(argv[1],"rb");
 				if (fp==NULL) {
 					printf("open file error!!\n");
-					return 1;
+					exit(1);
 				}
 				memset(temp,0,sizeof(temp));
 				ReadByte=fread(temp,sizeof(char),FILEBUFFERSIZE,fp);
@@ -119,6 +120,7 @@ int main(int argc,char *argv[])
 		// 關掉connected socket
 		close(connfd);
 	}
+	// 關掉listen的socket
 	close(listenfd);
 
 	fclose(fp);
