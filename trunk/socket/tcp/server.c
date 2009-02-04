@@ -85,7 +85,7 @@ int main(int argc,char *argv[])
 			exit(1);
 		}
 		// 由connfd讀取資料存到temp的位址中,buffer大小為1024 bytes
-		read(connfd, &temp, FILEBUFFERSIZE);
+		read(connfd, temp, FILEBUFFERSIZE);
 		if (printf("ch : %s \n",temp)==-1){
 			printf("Read error!\n");
 			exit(1);
