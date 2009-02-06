@@ -56,6 +56,8 @@ void do_echo(int sockfd,struct sockaddr *pcliaddr,socklen_t clilen)
 		len=clilen;
 		// wait for receive data
 		n = recvfrom(sockfd,mesg,MAXLINE,0,pcliaddr,&len);
+		mesg[n]=0;
+		fputs(mesg,stdout);
 		// sent data back to client
 		sendto(sockfd,mesg,n,0,pcliaddr,len);
 	}
