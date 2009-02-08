@@ -1,9 +1,11 @@
 
-ASM	= gcc
+ASM		= gcc
 
-OBJ	= server.o
+SCTP_FLAG	= -lsctp
 
-TARGET	= server
+OBJ		= serv.o clnt.o
+
+TARGET		= serv clnt
 
 .PHONY: everything clean clean_target all
 
@@ -17,8 +19,14 @@ clean_target:clean
 
 all: clean_target everything
 
-server.o:server.c
+serv.o:serv.c
 	$(ASM) -c $< -o $@
 
-server: server.o
-	$(ASM) $< -o $@
+serv: serv.o
+	$(ASM) $(SCTP_FLAG) $< -o $@
+
+clnt.o:clnt.c
+	$(ASM) -c $< -o $@
+
+clnt:clnt.o
+	$(ASM) $(SCTP_FLAG) $< -o $@
