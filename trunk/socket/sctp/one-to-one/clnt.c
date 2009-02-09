@@ -23,6 +23,10 @@ int main()
 
   /* Create an SCTP TCP-Style Socket */
   connSock = socket( AF_INET, SOCK_STREAM, IPPROTO_SCTP );
+  if (connSock < 0) {
+  	perror("socket error");
+	exit(1);
+  }
 
 /*
  * 2.1 socket 
@@ -54,6 +58,10 @@ int main()
 
   ret = setsockopt( connSock, IPPROTO_SCTP, SCTP_INITMSG,
                      &initmsg, sizeof(initmsg) );
+  if (ret < 0) {
+  	perror("setsockopt error");
+	exit(1);
+  }
   /*
    * int setsockopt(
    * SOCKET s,
@@ -85,17 +93,29 @@ int main()
 
   /* Connect to the server */
   ret = connect( connSock, (struct sockaddr *)&servaddr, sizeof(servaddr) );
+  if (ret < 0) {
+  	perror("connect error");
+	exit(1);
+  }
 
   /* Enable receipt of SCTP Snd/Rcv Data via sctp_recvmsg */
   memset( (void *)&events, 0, sizeof(events) );
   events.sctp_data_io_event = 1;
   ret = setsockopt( connSock, SOL_SCTP, SCTP_EVENTS,
                      (const void *)&events, sizeof(events) );
+  if (ret < 0) {
+  	perror("setsockopt error");
+	exit(1);
+  }
 
   /* Read and emit the status of the Socket (optional step) */
   in = sizeof(status);
   ret = getsockopt( connSock, SOL_SCTP, SCTP_STATUS,
                      (void *)&status, (socklen_t *)&in );
+  if (ret < 0) {
+  	perror("getsockopt error");
+	exit(1);
+  }
 
   printf("assoc id  = %d\n", status.sstat_assoc_id );
   printf("state     = %d\n", status.sstat_state );
@@ -108,6 +128,10 @@ int main()
 
     in = sctp_recvmsg( connSock, (void *)buffer, sizeof(buffer),
                         (struct sockaddr *)NULL, 0, &sndrcvinfo, &flags );
+    if (in < 0) {
+    	perror("sctp_recvmsg error");
+	exit(1);
+    }
 
     if (in > 0) {
       buffer[in] = 0;

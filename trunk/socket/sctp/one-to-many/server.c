@@ -29,6 +29,9 @@ int main(int argc,char *argv[])
 		stream_increment = atoi(argv[1]);
 	}
 
+	// 若是用socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP)
+	// 就是用使用socket來完成one-to-one的connect
+	// 也就是相容於tcp
 	sock_fd = socket(AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP);
 	bzero(&servaddr,sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
