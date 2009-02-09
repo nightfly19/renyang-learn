@@ -16,6 +16,8 @@
 
 //===================define function====================
 int MakePassiveSock(unsigned short int portnumber);
+int RecvMsg(int,char*);
+int SendMsg(int,char*);
 //======================================================
 int main(int argc,char *argv[])
 {
@@ -25,6 +27,7 @@ int main(int argc,char *argv[])
 	char tmp[FILEBUFFERSIZE];
 	int MasterSock;
 	int connfd;
+	char recvbuf[FILEBUFFERSIZE];
 
 	struct sockaddr_in SockAddr;
 	socklen_t AddrLen = sizeof(SockAddr);
@@ -37,15 +40,23 @@ int main(int argc,char *argv[])
 		exit(-1);
 	}
 
+	printf("listening....\n");
+	connfd = accept(MasterSock,(struct sockaddr*)&SockAddr,(socklen_t*)&AddrLen);
+	if (connfd < 0)
+	{
+		printf("accept error! return code:%d\n",connfd);
+		exit(-1);
+	}
+	
 	while(1)
 	{
-		printf("listening....\n");
-		connfd = accept(MasterSock,(struct sockaddr*)&SockAddr,(socklen_t*)&AddrLen);
-		if (connfd < 0)
+		if (RecvMsg(connfd,recvbuf) < 0)
 		{
-			printf("accept error! return code:%d\n",connfd);
+			printf("Server recvive error\n");
 			exit(-1);
 		}
+		printf("cmd> %s",recvbuf);
+		SendMsg(connfd,"ok");
 	}
 
 	printf("#end#\n");
@@ -93,5 +104,16 @@ int MakePassiveSock(unsigned short int portnumber)
 		exit(-1);
 	}
 	return PassiveSock;
+}
+
+int RecvMsg(int skt,char *msg)
+{
+	bzero(msg,FILEBUFFERSIZE);
+	return recv(skt,msg,FILEBUFFERSIZE,0);
+}
+
+int SendMsg(int skt,char *msg)
+{
+	return send(skt,msg,strlen(msg),0);
 }
 //========================================================
