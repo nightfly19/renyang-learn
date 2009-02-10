@@ -41,7 +41,7 @@ int main(int argc,char *argv[])
 	while(1) {
 		fgets(sendbuffer,FILEBUFFERSIZE,stdin);
 		SendMsg(ServerSock,sendbuffer);
-		if (strncmp(sendbuffer,"exit",strlen("exit"))==0)
+		if (strncmp(sendbuffer,"exit\n",strlen("exit\n"))==0)
 		{
 			break;
 		}
