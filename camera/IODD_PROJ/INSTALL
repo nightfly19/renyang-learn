@@ -1,0 +1,7 @@
+If you want to run application on OpenCV only install below soft
+apt-get install libcv1 libcvaux1 libhighgui1
+
+If you want to program the OpenCV program, you have to install the below soft
+apt-get install libcv-dev libcvaux-dev libhighgui-dev
+
+gcc `pkg-config opencv --libs --cflags opencv` drawing.c -o drawing
