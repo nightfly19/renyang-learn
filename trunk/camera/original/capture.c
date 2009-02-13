@@ -445,8 +445,8 @@ init_device                     (void)
         struct v4l2_format fmt;
 	unsigned int min;
 
-        if (-1 == xioctl (fd, VIDIOC_QUERYCAP, &cap)) {
-                if (EINVAL == errno) {
+        if (-1 == xioctl (fd, VIDIOC_QUERYCAP, &cap)) {	// 尋問device的
+                if (EINVAL == errno) {	// Invalid argument
                         fprintf (stderr, "%s is no V4L2 device\n",
                                  dev_name);
                         exit (EXIT_FAILURE);
@@ -559,18 +559,18 @@ open_device                     (void)
 {
         struct stat st; 
 
-        if (-1 == stat (dev_name, &st)) {
+        if (-1 == stat (dev_name, &st)) {	// 讀取device的狀態
                 fprintf (stderr, "Cannot identify '%s': %d, %s\n",
                          dev_name, errno, strerror (errno));
                 exit (EXIT_FAILURE);
         }
 
-        if (!S_ISCHR (st.st_mode)) {
+        if (!S_ISCHR (st.st_mode)) {	// 判斷是否為char device
                 fprintf (stderr, "%s is no device\n", dev_name);
                 exit (EXIT_FAILURE);
         }
 
-        fd = open (dev_name, O_RDWR /* required */ | O_NONBLOCK, 0);	// 打開標準輔助設備
+        fd = open (dev_name, O_RDWR /* required */ | O_NONBLOCK, 0);	// 打開標準輔助設備,且設定為nonblock
 
         if (-1 == fd) {
                 fprintf (stderr, "Cannot open '%s': %d, %s\n",
