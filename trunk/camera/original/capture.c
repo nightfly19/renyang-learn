@@ -446,7 +446,7 @@ init_device                     (void)
 	unsigned int min;
 
         if (-1 == xioctl (fd, VIDIOC_QUERYCAP, &cap)) {	// 尋問device的
-                if (EINVAL == errno) {	// Invalid argument
+                if (EINVAL == errno) {	// Invalid argumenfpt
                         fprintf (stderr, "%s is no V4L2 device\n",
                                  dev_name);
                         exit (EXIT_FAILURE);
