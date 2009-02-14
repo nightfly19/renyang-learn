@@ -1,0 +1,6 @@
+Simple Video Viewer.
+    This very simple program (svv.c) displays or grabs webcam images using the V4L2 interface. It needs GTK+ and the V4L library. 
+
+
+The web http://moinejf.free.fr/
+
