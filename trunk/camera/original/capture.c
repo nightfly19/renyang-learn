@@ -59,6 +59,7 @@ xioctl                          (int                    fd,
                                  void *                 arg)
 {
         int r;
+	printf("%d\n",EINTR);
 
         do r = ioctl (fd, request, arg);
         while (-1 == r && EINTR == errno);
@@ -559,7 +560,7 @@ open_device                     (void)
 {
         struct stat st; 
 
-        if (-1 == stat (dev_name, &st)) {	// 讀取device的狀態
+        if (-1 == stat (dev_name, &st)) {	// 讀取device的狀態,把狀態存到st
                 fprintf (stderr, "Cannot identify '%s': %d, %s\n",
                          dev_name, errno, strerror (errno));
                 exit (EXIT_FAILURE);
