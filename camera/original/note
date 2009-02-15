@@ -1,0 +1,5 @@
+VIDIOC_QUERYCAP -- Query device capabilities
+
+參考
+/usr/include/linux/videodev2.h
+/usr/include/asm-generic/errno-base.h

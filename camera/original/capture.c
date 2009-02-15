@@ -59,10 +59,11 @@ xioctl                          (int                    fd,
                                  void *                 arg)
 {
         int r;
-	printf("%d\n",EINTR);
 
-        do r = ioctl (fd, request, arg);
-        while (-1 == r && EINTR == errno);
+        do
+	{
+		r = ioctl (fd, request, arg);	// 對fd裝置下系統命令
+        }while (-1 == r && EINTR == errno);	// 表示是系統呼叫，但是，回傳錯誤(-1)，必需再執行一次，可能正常busy之類
 
         return r;
 }
@@ -343,9 +344,9 @@ init_mmap			(void)
 
         req.count               = 4;
         req.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        req.memory              = V4L2_MEMORY_MMAP;
+        req.memory              = V4L2_MEMORY_MMAP;	// 設定記憶體印射位置
 
-	if (-1 == xioctl (fd, VIDIOC_REQBUFS, &req)) {
+	if (-1 == xioctl (fd, VIDIOC_REQBUFS, &req)) {	// Initiate Memory Mapping or User Pointer I/O
                 if (EINVAL == errno) {
                         fprintf (stderr, "%s does not support "
                                  "memory mapping\n", dev_name);
@@ -369,7 +370,7 @@ init_mmap			(void)
         }
 
         for (n_buffers = 0; n_buffers < req.count; ++n_buffers) {
-                struct v4l2_buffer buf;
+                struct v4l2_buffer buf;	// 存放讀取進來的資料的buffer
 
                 CLEAR (buf);
 
@@ -377,7 +378,7 @@ init_mmap			(void)
                 buf.memory      = V4L2_MEMORY_MMAP;
                 buf.index       = n_buffers;
 
-                if (-1 == xioctl (fd, VIDIOC_QUERYBUF, &buf))
+                if (-1 == xioctl (fd, VIDIOC_QUERYBUF, &buf))	// Query the status of a buffer
                         errno_exit ("VIDIOC_QUERYBUF");
 
                 buffers[n_buffers].length = buf.length;
@@ -418,16 +419,16 @@ init_userp			(unsigned int		buffer_size)
                 }
         }
 
-        buffers = calloc (4, sizeof (*buffers));
+        buffers = calloc (4, sizeof (*buffers));	// 設定4個buffers大小的空間
 
         if (!buffers) {
-                fprintf (stderr, "Out of memory\n");
+                fprintf (stderr, "Out of memory\n");	// 分配不到空間啦
                 exit (EXIT_FAILURE);
         }
 
         for (n_buffers = 0; n_buffers < 4; ++n_buffers) {
                 buffers[n_buffers].length = buffer_size;
-                buffers[n_buffers].start = memalign (/* boundary */ page_size,
+                buffers[n_buffers].start = memalign (/* boundary */ page_size,	// 配置buffer_size的空間,且啟始位址必定為page_size的倍數,若return 為0,則表示出現錯誤
                                                      buffer_size);
 
                 if (!buffers[n_buffers].start) {
@@ -446,17 +447,17 @@ init_device                     (void)
         struct v4l2_format fmt;
 	unsigned int min;
 
-        if (-1 == xioctl (fd, VIDIOC_QUERYCAP, &cap)) {	// 尋問device的
+        if (-1 == xioctl (fd, VIDIOC_QUERYCAP, &cap)) {	// 對device下命令. VIDIOC_QUERYCAP:想要了解device的能力,把結果存到v4l2_capability的變數中
                 if (EINVAL == errno) {	// Invalid argumenfpt
                         fprintf (stderr, "%s is no V4L2 device\n",
                                  dev_name);
                         exit (EXIT_FAILURE);
                 } else {
-                        errno_exit ("VIDIOC_QUERYCAP");
+                        errno_exit ("VIDIOC_QUERYCAP");	// 表示是在VIDIOC_QUERYCAP時出現錯誤
                 }
         }
 
-        if (!(cap.capabilities & V4L2_CAP_VIDEO_CAPTURE)) {
+        if (!(cap.capabilities & V4L2_CAP_VIDEO_CAPTURE)) {	// 了解是否有V4L2_CAP_VIDEO_CAPTURE的功能
                 fprintf (stderr, "%s is no video capture device\n",
                          dev_name);
                 exit (EXIT_FAILURE);
@@ -464,7 +465,7 @@ init_device                     (void)
 
 	switch (io) {
 	case IO_METHOD_READ:
-		if (!(cap.capabilities & V4L2_CAP_READWRITE)) {
+		if (!(cap.capabilities & V4L2_CAP_READWRITE)) {	// 了解是否有支援V4L2_CAP_READWRITE的功能
 			fprintf (stderr, "%s does not support read i/o\n",
 				 dev_name);
 			exit (EXIT_FAILURE);
@@ -474,7 +475,7 @@ init_device                     (void)
 
 	case IO_METHOD_MMAP:
 	case IO_METHOD_USERPTR:
-		if (!(cap.capabilities & V4L2_CAP_STREAMING)) {
+		if (!(cap.capabilities & V4L2_CAP_STREAMING)) {	// 了解是否有支援V4L2_CAP_STREAMING的功能
 			fprintf (stderr, "%s does not support streaming i/o\n",
 				 dev_name);
 			exit (EXIT_FAILURE);
@@ -487,17 +488,17 @@ init_device                     (void)
         /* Select video input, video standard and tune here. */
 
 
-	CLEAR (cropcap);
+	CLEAR (cropcap);	// 清除cropcap的內容值
 
-        cropcap.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        cropcap.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;	// 設定擷取buffer的型態
 
-        if (0 == xioctl (fd, VIDIOC_CROPCAP, &cropcap)) {
+        if (0 == xioctl (fd, VIDIOC_CROPCAP, &cropcap)) {	// 對device執行擷取的動作??
                 crop.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
                 crop.c = cropcap.defrect; /* reset to default */
 
                 if (-1 == xioctl (fd, VIDIOC_S_CROP, &crop)) {
                         switch (errno) {
-                        case EINVAL:
+                        case EINVAL:	// Invalid argumenfpt
                                 /* Cropping not supported. */
                                 break;
                         default:
@@ -512,22 +513,22 @@ init_device                     (void)
 
         CLEAR (fmt);
 
-        fmt.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        fmt.fmt.pix.width       = 640; 
-        fmt.fmt.pix.height      = 480;
-        fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
-        fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
+        fmt.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;	// 型態
+        fmt.fmt.pix.width       = 640; 	// 寬
+        fmt.fmt.pix.height      = 480;	// 高
+        fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;		// 設定格式
+        fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;	// both fields interlaced
 
-        if (-1 == xioctl (fd, VIDIOC_S_FMT, &fmt))
+        if (-1 == xioctl (fd, VIDIOC_S_FMT, &fmt))	// 是儲存檔案嗎?
                 errno_exit ("VIDIOC_S_FMT");
 
         /* Note VIDIOC_S_FMT may change width and height. */
 
 	/* Buggy driver paranoia. */
 	min = fmt.fmt.pix.width * 2;
-	if (fmt.fmt.pix.bytesperline < min)
+	if (fmt.fmt.pix.bytesperline < min)	// 設定寬度
 		fmt.fmt.pix.bytesperline = min;
-	min = fmt.fmt.pix.bytesperline * fmt.fmt.pix.height;
+	min = fmt.fmt.pix.bytesperline * fmt.fmt.pix.height;	// 設定整個畫面的大小
 	if (fmt.fmt.pix.sizeimage < min)
 		fmt.fmt.pix.sizeimage = min;
 
@@ -639,7 +640,7 @@ main                            (int                    argc,
                         exit (EXIT_SUCCESS);
 
                 case 'm':
-                        io = IO_METHOD_MMAP;
+                        io = IO_METHOD_MMAP;	// 使用mmap,而不是打開檔案來傳資料,這樣速度會比較快
 			break;
 
                 case 'r':
