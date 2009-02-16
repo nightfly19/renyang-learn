@@ -39,7 +39,7 @@ struct buffer {
 };
 
 static char *           dev_name        = NULL;
-static io_method	io		= IO_METHOD_MMAP;
+static io_method	io		= IO_METHOD_MMAP;	// 目前設定為mmap的方式
 static int              fd              = -1;
 struct buffer *         buffers         = NULL;
 static unsigned int     n_buffers       = 0;
@@ -64,6 +64,7 @@ xioctl                          (int                    fd,
 	{
 		r = ioctl (fd, request, arg);	// 對fd裝置下系統命令
         }while (-1 == r && EINTR == errno);	// 表示是系統呼叫，但是，回傳錯誤(-1)，必需再執行一次，可能正常busy之類
+						// 被其它應用程式利用系統呼叫執行中斷
 
         return r;
 }
@@ -76,7 +77,7 @@ process_image                   (const void *           p)
 }
 
 static int
-read_frame			(void)
+read_frame			(void)	// 讀取frame
 {
         struct v4l2_buffer buf;
 	unsigned int i;
@@ -103,17 +104,18 @@ read_frame			(void)
 		break;
 
 	case IO_METHOD_MMAP:
-		CLEAR (buf);
+		CLEAR (buf);	// 清除buf內的所有資料
 
-            	buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-            	buf.memory = V4L2_MEMORY_MMAP;
+            	buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;	// 設定buf的型態,同時決定怎麼處理這一個buffer
+            	buf.memory = V4L2_MEMORY_MMAP;		// 設定memory map的型態
 
+		// Applications call the VIDIOC_DQBUF ioctl to dequeue a filled (capturing) or displayed (output) buffer from the driver's outgoing queue.
     		if (-1 == xioctl (fd, VIDIOC_DQBUF, &buf)) {
             		switch (errno) {
-            		case EAGAIN:
+            		case EAGAIN:	// Try again
                     		return 0;
 
-			case EIO:
+			case EIO:	// I/O error
 				/* Could ignore EIO, see spec. */
 
 				/* fall through */
@@ -123,11 +125,12 @@ read_frame			(void)
 			}
 		}
 
-                assert (buf.index < n_buffers);	// 除錯用的
+                assert (buf.index < n_buffers);	// 除錯用的:只能接受buf.index小於n_buffers,表明有個嚴重的程序錯誤
 
 	        process_image (buffers[buf.index].start);	// 執行100次的地方
 
-		if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
+		// Applications call the VIDIOC_QBUF ioctl to enqueue an empty (capturing) or filled (output) buffer in the driver's incoming queue. The semantics depend on the selected I/O method.
+		if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))	// 把資料存放到queue中??
 			errno_exit ("VIDIOC_QBUF");
 
 		break;
@@ -181,26 +184,26 @@ mainloop                        (void)
         while (count-- > 0) {
                 for (;;) {
                         fd_set fds;
-                        struct timeval tv;
+                        struct timeval tv;	// 用來執行timeout()
                         int r;
 
-                        FD_ZERO (&fds);
-                        FD_SET (fd, &fds);
+                        FD_ZERO (&fds);		// 清空fds與所有文件描述值的關聯
+                        FD_SET (fd, &fds);	// 加入fd file descripter到file descripter set中
 
                         /* Timeout. */
                         tv.tv_sec = 2;
                         tv.tv_usec = 0;
 
-                        r = select (fd + 1, &fds, NULL, NULL, &tv);
+                        r = select (fd + 1, &fds, NULL, NULL, &tv);	// 直到發生fds或是時間tv發生timeout
 
-                        if (-1 == r) {
+                        if (-1 == r) {	// 發生錯誤
                                 if (EINTR == errno)
                                         continue;
 
                                 errno_exit ("select");
                         }
 
-                        if (0 == r) {
+                        if (0 == r) {	// 時間到了仍沒有設備準備好
                                 fprintf (stderr, "select timeout\n");
                                 exit (EXIT_FAILURE);
                         }
@@ -247,7 +250,7 @@ start_capturing                 (void)
 
 	case IO_METHOD_MMAP:
 		for (i = 0; i < n_buffers; ++i) {
-            		struct v4l2_buffer buf;
+            		struct v4l2_buffer buf;	// 準備把資料存放到buffer中
 
         		CLEAR (buf);
 
@@ -255,22 +258,22 @@ start_capturing                 (void)
         		buf.memory      = V4L2_MEMORY_MMAP;
         		buf.index       = i;
 
-        		if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
+        		if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))	// Exchange a buffer with the driver
                     		errno_exit ("VIDIOC_QBUF");
 		}
 		
 		type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 
-		if (-1 == xioctl (fd, VIDIOC_STREAMON, &type))
+		if (-1 == xioctl (fd, VIDIOC_STREAMON, &type))	// Start streaming I/O
 			errno_exit ("VIDIOC_STREAMON");
 
 		break;
 
 	case IO_METHOD_USERPTR:
-		for (i = 0; i < n_buffers; ++i) {
+		for (i = 0; i < n_buffers; ++i) {	// 共有n_buffers個frame??
             		struct v4l2_buffer buf;
 
-        		CLEAR (buf);
+        		CLEAR (buf);	// 準備把資料存到這一個buffer中
 
         		buf.type        = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         		buf.memory      = V4L2_MEMORY_USERPTR;
