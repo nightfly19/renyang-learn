@@ -2245,7 +2245,7 @@ static void start_motion_thread(struct context *cnt, pthread_attr_t *thread_attr
  *
  * Returns: Motion exit status = 0 always
  */
-int main (int argc, char **argv)
+int main (int argc, char **argv)	// 主程式啦
 {
     int i;
     pthread_attr_t thread_attr;

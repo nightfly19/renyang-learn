@@ -1,5 +1,6 @@
 
-gtkflags=`pkg-config --cflags --libs gtk+-2.0`
+gtkflags=$(shell pkg-config --cflags gtk+-2.0)
+gtklibs	=$(shell pkg-config --libs gtk+-2.0)
 
 CC	= gcc
 
@@ -22,4 +23,4 @@ svv.o:svv.c
 	$(CC) $(gtkflags) -c $< -o $@
 
 svv:svv.o
-	$(CC) $(gtkflags) $< -o $@
+	$(CC) $(gtklibs) $< -o $@

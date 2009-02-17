@@ -419,6 +419,7 @@ static int v4l2_set_mmap(src_v4l2_t * s)
     u32 b;
 
     /* Does the device support streaming? */
+    printf("I am a good boy!!\n");
     if (!s->cap.capabilities & V4L2_CAP_STREAMING)
         return -1;
 
