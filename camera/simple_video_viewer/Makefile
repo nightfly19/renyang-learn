@@ -1,6 +1,9 @@
-
+# for the gtk
 gtkflags=$(shell pkg-config --cflags gtk+-2.0)
 gtklibs	=$(shell pkg-config --libs gtk+-2.0)
+
+# for the video for linux
+gtklibs += -lv4lconvert
 
 CC	= gcc
 
