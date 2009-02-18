@@ -27,8 +27,8 @@ main()
    /* wait we run the risk of executing an exit which will terminate   */
    /* the process and all threads before the threads have completed.   */
 
-   pthread_join( thread1, NULL);
-   pthread_join( thread2, NULL); 
+   pthread_join( thread1, NULL);	// parent等待thread1執行完
+   pthread_join( thread2, NULL); 	// parent等待thread2執行完
 
    exit(0);
 }
@@ -39,4 +39,5 @@ void *functionC()
    counter++;
    printf("Counter value: %d\n",counter);
    pthread_mutex_unlock( &mutex1 );	// 解開mutex1
+   pthread_exit(0);
 }
