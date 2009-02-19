@@ -5,7 +5,7 @@
 QOpenCVWidget::QOpenCVWidget(QWidget *parent):QWidget(parent) {
 	layout = new QVBoxLayout(this,5);
 	imagelabel = new QLabel(0);
-	QImage dummy(100,100,8);
+	QImage dummy(100,100,32);	// 設定長x寬,深度
 	image = dummy;
 	layout->addWidget(imagelabel);
 	for (int x = 0;x<100;x++) {
@@ -13,6 +13,9 @@ QOpenCVWidget::QOpenCVWidget(QWidget *parent):QWidget(parent) {
 			image.setPixel(x,y,qRgb(x,y,y));
 		}
 	}
+	QPixmap lpixmap;
+	lpixmap.convertFromImage(image);
+	imagelabel->setPixmap(lpixmap);
 }
 
 QOpenCVWidget::~QOpenCVWidget(void) {
