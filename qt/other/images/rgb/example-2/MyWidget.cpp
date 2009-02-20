@@ -11,4 +11,6 @@ void MyWidget::paintEvent( QPaintEvent * ) {
 	QPainter p(this);
 	p.setPen(QColor(255,0,0));
 	p.drawPoint(20,20);
+	p.setPen(QColor(0,255,0));
+	p.drawPoint(21,20);
 }
