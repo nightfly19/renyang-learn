@@ -12,6 +12,7 @@ int main(int argc,char *argv[]) {
 	QPixmap p(10,10);	// 設定顏色區塊的大小
 	p.fill(color);		// 用顏色把pixmap填滿
 	label.setPixmap(p);	// 用此pixmap設定此label
+	qDebug("%d",p.depth());
 	label.show();
 	app.setMainWidget(&label);
 
