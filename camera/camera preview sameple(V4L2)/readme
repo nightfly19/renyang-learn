@@ -1,0 +1,4 @@
+1. 為了顯示的部份，麻煩各位安裝一下 libgtk2.0-dev
+2. 執行 make
+3. 執行 ./camera_preview
+4. 檔案 color.h(.cpp) 用來將 yuyv 轉換成 rgb24
