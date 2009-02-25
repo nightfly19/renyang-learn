@@ -125,7 +125,9 @@ SOCKET Server::accept()
 	if (ClientSocket == INVALID_SOCKET){
 		perror("Error occurred in accept()");
 		return INVALID_SOCKET;
-	}else	printf("Socket(%d) Connection from %s:%d\n",ClientSocket ,inet_ntoa(sa_client.sin_addr), sa_client.sin_port);
+	}else
+		// inet_ntoa把ip轉成數字與.的字串
+		printf("Socket(%d) Connection from %s:%d\n",ClientSocket ,inet_ntoa(sa_client.sin_addr), sa_client.sin_port);
 	
 	return ClientSocket;
 }

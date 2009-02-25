@@ -27,8 +27,7 @@ class Server{
 	public:
 		Server(const int port);
 		~Server();
-		
-	#ifdef _WIN32		
+	#ifdef _WIN32
 		bool initWsa();
 	#endif
 	

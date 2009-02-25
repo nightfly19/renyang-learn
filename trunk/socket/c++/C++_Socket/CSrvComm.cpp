@@ -26,10 +26,15 @@ int main(int argc, char* argv[])
 	Client client;
 	
 	while(true){
+		// 回傳是int,但是client是Client型別耶,是物件耶??
+		// 等待client傳送訊號過來
 		client = server.accept();
 		
 		try{
+			// 由client送出一個訊息??真是神奇,這裡是server竟然可以控制client端??
+			// 回傳值是送出的大小(bytes)
 			ret = client.send("Hello! I'm C++ Server.\n");
+			// 丟出整數型別的例外錯誤
 			if(ret <= 0 ) throw ret;
 		
 		}catch(int err){
@@ -41,8 +46,10 @@ int main(int argc, char* argv[])
 		}
 		
 		try{
+			// 由client接收字元,很神奇耶,傳送端與接收端都由client來做??
 			ret = client.recv(buf);
 			if(ret <= 0) throw ret;
+			// 把收到的buffer列印出來
 			printf("%s", buf);
 				
 		}catch(int err){
@@ -52,8 +59,6 @@ int main(int argc, char* argv[])
 				printf("Client is offline!\n");
 			}else if(err == -1) printf("Fail to receive message from Client!\n");
 		}
-		client.close();
-				
 		client.close();
 		
 	}
