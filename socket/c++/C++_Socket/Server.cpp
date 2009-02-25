@@ -53,6 +53,7 @@ bool Server::create()
 {
 	if( ! isValid() ) return false;
 	
+	// 後面的::是表示是外部的函數
 	socket = ::socket(PF_INET,SOCK_STREAM,0);
 	if(socket == INVALID_SOCKET){
 		perror("Error occurred in socket()");
