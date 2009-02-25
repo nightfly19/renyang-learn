@@ -28,8 +28,8 @@ int main(int argc, char* argv[])
 	Client client(ip, port);
 	
 	try{
-		//ret = client.recv(buf);
-		ret = client >> buf;		
+		// ret = client.recv(buf);
+		ret = client >> buf;
 		if(ret <= 0) throw ret;
 		printf("%s", buf);
 	
