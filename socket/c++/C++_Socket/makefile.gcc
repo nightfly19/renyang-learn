@@ -1,0 +1,28 @@
+CPP  = g++
+CC   = gcc
+CFLAGS = -c -g -O2 -Wall
+CXXFLAGS = -c -g -O2 -Wall
+LIBS =
+RM = rm -rf
+
+all:
+	make -f makefile.gcc cppsrv
+	make -f makefile.gcc cppcli
+
+
+cppsrv:
+	$(CPP) $(CXXFLAGS) Client.cpp
+	$(CPP) $(CXXFLAGS) Server.cpp
+	$(CPP) $(CXXFLAGS) CSrvComm.cpp
+	$(CPP) CSrvComm.o Client.o Server.o -o CSrvComm
+	$(RM) *.o
+
+cppcli:
+	$(CPP) $(CXXFLAGS) Client.cpp
+	$(CPP) $(CXXFLAGS) CCliComm.cpp
+	$(CPP) CCliComm.o Client.o -o CCliComm
+	$(RM) *.o
+
+clean :
+	$(RM) *.*~ C++/*.*~ *.o *~ C++/*~
+	$(RM) CSrvComm CCliComm
