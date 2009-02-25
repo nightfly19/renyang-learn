@@ -112,7 +112,8 @@ void init_device()
 {
 	set_format();
 	request_buffer();
-	query_buf_and_mmap();	queue_buffer();
+	query_buf_and_mmap();
+	queue_buffer();
 }
 
 void set_format()
@@ -140,7 +141,7 @@ void request_buffer()
 	req.count               = reqbuf_count;
 	req.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	req.memory              = V4L2_MEMORY_MMAP;
-	if(-1 == xioctl (fd, VIDIOC_REQBUFS, &req))
+	if(-1 == xioctl (fd, VIDIOC_REQBUFS, &req))
 	{
 		printf("request buf error\n");
 		// Error handler
@@ -165,7 +166,7 @@ void query_buf_and_mmap()
 		buf.index  = i;
 
 		if(-1 == xioctl(fd, VIDIOC_QUERYBUF, &buf))
-        {
+        	{
 			printf("query buf error\n");
         	// Error handler
 		}
@@ -174,11 +175,11 @@ void query_buf_and_mmap()
 
 		buffers[i].length = buf.length;
 		buffers[i].start = mmap(NULL,
-									buf.length,
-									PROT_READ|PROT_WRITE,
-									MAP_SHARED,
-									fd,
-									buf.m.offset);
+		buf.length,
+		PROT_READ|PROT_WRITE,
+		MAP_SHARED,
+		fd,
+		buf.m.offset);
 
 		if(MAP_FAILED == buffers[i].start)
 		{
@@ -192,9 +193,10 @@ void queue_buffer()
 	struct v4l2_buffer buf;
 
 	for(int i = 0; i < reqbuf_count; ++i) {
-		CLEAR (buf);
-		buf.type   = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-		buf.memory = V4L2_MEMORY_MMAP;		buf.index  = i;
+		CLEAR (buf);
+		buf.type   = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+		buf.memory = V4L2_MEMORY_MMAP;
+		buf.index  = i;
 
 		if(-1 == xioctl(fd, VIDIOC_QBUF, &buf))
 		{
@@ -205,7 +207,8 @@ void queue_buffer()
 
 void stream_on()
 {
-	int type = V4L2_BUF_TYPE_VIDEO_CAPTURE;	if(-1 == xioctl(fd, VIDIOC_STREAMON, &type))
+	int type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+	if(-1 == xioctl(fd, VIDIOC_STREAMON, &type))
 	{
 		// Error handler
 	}
@@ -225,9 +228,9 @@ void read_frame()
 	}
 //	assert (buf.index < n_buffers0);
    
-	memcpy(framebuffer, buffers[buf.index].start, buf.bytesused);	
+	memcpy(framebuffer, buffers[buf.index].start, buf.bytesused);
 	if(-1 == xioctl (fd, VIDIOC_QBUF, &buf))
-	{		// Error handler
+	{		// Error handler
 	} 
 }
 
@@ -245,29 +248,28 @@ static gboolean show_camera(gpointer data)
 
 	Pyuv422torgb24((unsigned char*)framebuffer, buf2, width, height);
 
-	GdkPixbuf *rgbBuf = gdk_pixbuf_new_from_data(buf2, GDK_COLORSPACE_RGB, FALSE, 8,
-     														width, height, width*3, NULL, NULL);
+	GdkPixbuf *rgbBuf = gdk_pixbuf_new_from_data(buf2, GDK_COLORSPACE_RGB, FALSE, 8,width, height, width*3, NULL, NULL);
 
 	if(rgbBuf != NULL)
 	{
 		GdkPixbuf* buf = gdk_pixbuf_scale_simple(rgbBuf,
-															preview_width,
-															preview_height,
-															GDK_INTERP_BILINEAR);
+						preview_width,
+						preview_height,
+						GDK_INTERP_BILINEAR);
 		gdk_draw_pixbuf(pixmap,
-							image_face->style->white_gc,
-							buf,
-							0, 0, 0, 0,
-							preview_width,
-							preview_height,
-							GDK_RGB_DITHER_NONE,
-							0, 0);
+				image_face->style->white_gc,
+				buf,
+				0, 0, 0, 0,
+				preview_width,
+				preview_height,
+				GDK_RGB_DITHER_NONE,
+				0, 0);
 		gdk_draw_drawable(image_face->window,
-							  image_face->style->white_gc,
-							  pixmap,
-							  0, 0, 0, 0,
-							  preview_width,
-							  preview_height);
+				  image_face->style->white_gc,
+				  pixmap,
+				  0, 0, 0, 0,
+				  preview_width,
+				  preview_height);
 		g_object_unref(buf);
 		g_object_unref(rgbBuf);
 	}
@@ -291,7 +293,7 @@ void mem_unmap_and_close_dev()
 {
 	for(int i = 0; i < reqbuf_count; ++i)
 	{
-		if(-1 == munmap(buffers[i].start, buffers[i].length))		{
+		if(-1 == munmap(buffers[i].start, buffers[i].length)){
 			// Error hanlder
 		}
 	}
@@ -301,8 +303,9 @@ void mem_unmap_and_close_dev()
 }
 
 int xioctl(int fd, int request, void* arg)
-{	int r;
-	do r = ioctl (fd, request, arg);	while (-1 == r && EINTR == errno);
+{	int r;
+	do r = ioctl (fd, request, arg);
+	while (-1 == r && EINTR == errno);
 
 	return r;
 }
