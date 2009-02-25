@@ -340,4 +340,3 @@ ColorInterpolate (unsigned char *pOutputBuffer, unsigned char *pImageBuffer, int
 	    	*cast++=(*p++);	*cast++=(*p++);	*cast++=(*p++);
         }    	
 }
-

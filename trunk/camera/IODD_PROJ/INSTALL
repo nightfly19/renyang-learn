@@ -5,3 +5,6 @@ If you want to program the OpenCV program, you have to install the below soft
 apt-get install libcv-dev libcvaux-dev libhighgui-dev
 
 gcc `pkg-config opencv --libs --cflags opencv` drawing.c -o drawing
+
+server端是在一般的pc上，用來接收影像
+client是在pxa270上,用來擷取影像
