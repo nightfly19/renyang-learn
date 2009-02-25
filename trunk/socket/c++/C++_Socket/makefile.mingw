@@ -1,0 +1,28 @@
+CPP  = g++
+CC   = gcc
+CFLAGS = -c -g -O2 -Wall
+CXXFLAGS = -c -g -O2 -Wall
+CINCS = 
+CXXLIBS = -L"C:/MinGW/lib/gcc/mingw32/3.4.5" -lwsock32
+JLIBS = -L"lib/gcj"
+RM = del /F/Q
+
+all:
+	make -f makefile.mingw cppsrv
+	make -f makefile.mingw cppcli
+
+cppsrv:
+	$(CPP) $(CXXFLAGS) Client.cpp
+	$(CPP) $(CXXFLAGS) Server.cpp
+	$(CPP) $(CXXFLAGS) CSrvComm.cpp
+	$(CPP) CSrvComm.o Client.o Server.o -o CSrvComm $(CXXLIBS)
+
+cppcli:
+	$(CPP) $(CXXFLAGS) Client.cpp
+	$(CPP) $(CXXFLAGS) CCliComm.cpp
+	$(CPP) CCliComm.o Client.o -o CCliComm $(CXXLIBS)
+	$(RM) *.o
+
+clean :
+	$(RM) *.*~ C++/*.*~ *.o *~ C++/*~
+	$(RM) CSrvComm.exe CCliComm.exe
