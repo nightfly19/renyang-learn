@@ -6,6 +6,7 @@
 
 ServerSocket::ServerSocket ( int port )
 {
+  // 因為繼承Socket,所以可以直接使用Socket類別的函數
   if ( ! Socket::create() )
     {
       throw SocketException ( "Could not create server socket." );
