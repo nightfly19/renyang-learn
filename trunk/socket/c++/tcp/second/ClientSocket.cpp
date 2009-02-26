@@ -4,13 +4,16 @@
 #include "SocketException.h"
 
 
+// 建立一個連線到host且port號為port的connfd
 ClientSocket::ClientSocket ( std::string host, int port )
 {
+  // 建立connfd
   if ( ! Socket::create() )
     {
       throw SocketException ( "Could not create client socket." );
     }
 
+  // 連線到server
   if ( ! Socket::connect ( host, port ) )
     {
       throw SocketException ( "Could not bind to port." );

@@ -8,6 +8,7 @@ int main ( int argc, int argv[] )
   try
     {
 
+      // 建立一個連到server的connfd
       ClientSocket client_socket ( "localhost", 30000 );
 
       std::string reply;

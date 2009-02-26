@@ -6,6 +6,7 @@
 
 #include <string>
 
+// 建立一個例外的物件
 class SocketException
 {
  public:
@@ -16,7 +17,7 @@ class SocketException
 
  private:
 
-  std::string m_s;
+  std::string m_s;	// 例外錯誤的內容
 
 };
 
