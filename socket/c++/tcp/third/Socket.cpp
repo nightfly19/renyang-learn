@@ -1,8 +1,8 @@
-// Implementation of the Socket class.
+// Implementation of the Socket class
+// 這一個類別主要是把c的型態轉換成c++的型態
 
 
 #include "Socket.h"
-#include "string.h"
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -14,6 +14,7 @@ Socket::Socket() :
   m_sock ( -1 )
 {
 
+  // 建立一個新的address資料結構
   memset ( &m_addr,
 	   0,
 	   sizeof ( m_addr ) );
@@ -26,24 +27,14 @@ Socket::~Socket()
     ::close ( m_sock );
 }
 
-bool Socket::create()
+bool Socket::create(int family,int type,int protocol)
 {
-  m_sock = ::socket ( AF_INET,
-		    SOCK_STREAM,
-		    0 );
+  m_sock = ::socket (	family,
+			type,
+		    	protocol );
 
   if ( ! is_valid() )
     return false;
-
-
-  // TIME_WAIT - argh
-  int on = 1;
-  // 額外的設定
-  // SO_REUSEADDR -- 允許 socket 呼叫 bind() 去設定一個已經用過的位址
-  // 包含port number
-  if ( setsockopt ( m_sock, SOL_SOCKET, SO_REUSEADDR, ( const char* ) &on, sizeof ( on ) ) == -1 )
-    return false;
-
 
   return true;
 
@@ -51,7 +42,7 @@ bool Socket::create()
 
 
 
-bool Socket::bind ( const int port )
+bool Socket::bind (const int port,int family)
 {
 
   if ( ! is_valid() )
@@ -61,7 +52,7 @@ bool Socket::bind ( const int port )
 
 
 
-  m_addr.sin_family = AF_INET;
+  m_addr.sin_family = family;
   m_addr.sin_addr.s_addr = INADDR_ANY;
   m_addr.sin_port = htons ( port );
 
@@ -79,14 +70,14 @@ bool Socket::bind ( const int port )
 }
 
 
-bool Socket::listen() const
+bool Socket::listen(int maxconnections) const
 {
   if ( ! is_valid() )
     {
       return false;
     }
 
-  int listen_return = ::listen ( m_sock, MAXCONNECTIONS );
+  int listen_return = ::listen ( m_sock, maxconnections );
 
 
   if ( listen_return == -1 )
@@ -111,12 +102,12 @@ bool Socket::accept ( Socket& new_socket ) const
 
 
 // 透過c內建的send函數傳送資料
-bool Socket::send ( const std::string s ) const
+bool Socket::send ( const char *s ) const
 {
   // c_str()把string物件回傳char的指標
   // MSG_NOSIGNAL是避免當server close後, client還透過send傳送封包
   // 當第二次send時,才會出現錯誤, 透過MSG_NOSIGNAL第一次就會回送錯誤訊息
-  int status = ::send ( m_sock, s.c_str(), s.size(), MSG_NOSIGNAL );
+  int status = ::send ( m_sock, s, strlen(s), MSG_NOSIGNAL );
   if ( status == -1 )
     {
       return false;
@@ -129,14 +120,10 @@ bool Socket::send ( const std::string s ) const
 
 
 // 接收資料
-int Socket::recv ( std::string& s ) const
+// 在使用此函數接收資料,要送過來buffer的指標,大小為MAXRECV
+int Socket::recv ( char *buf ) const
 {
-  // 建立大小為MAXRECV+1的陣列
-  char buf [ MAXRECV + 1 ];
-
-  s = "";
-
-  memset ( buf, 0, MAXRECV + 1 );
+  memset ( buf, 0, MAXRECV);
 
   int status = ::recv ( m_sock, buf, MAXRECV, 0 );
 
@@ -151,22 +138,21 @@ int Socket::recv ( std::string& s ) const
     }
   else
     {
-      s = buf;
       return status;
     }
 }
 
 
 
-bool Socket::connect ( const std::string host, const int port )
+bool Socket::connect ( const char* host, const int port ,int family)
 {
   if ( ! is_valid() ) return false;
 
-  m_addr.sin_family = AF_INET;
+  m_addr.sin_family = family;
   m_addr.sin_port = htons ( port );
 
   // 將點分十進位串轉換成網路位元組序二進位值
-  int status = inet_pton ( AF_INET, host.c_str(), &m_addr.sin_addr );
+  int status = inet_pton ( family, host, &m_addr.sin_addr );
 
   if ( errno == EAFNOSUPPORT ) return false;
 
@@ -179,29 +165,3 @@ bool Socket::connect ( const std::string host, const int port )
     return false;
 }
 
-void Socket::set_non_blocking ( const bool b )
-{
-
-  int opts;
-
-  // 取得socket的option設定
-  opts = fcntl ( m_sock,
-		 F_GETFL );
-
-  if ( opts < 0 )
-    {
-      return;
-    }
-
-  if ( b )
-    // 把noblock的設定加入進去
-    opts = ( opts | O_NONBLOCK );
-  else
-    // 把noblock的設定除去
-    opts = ( opts & ~O_NONBLOCK );
-
-  // 把option的值設定回去
-  fcntl ( m_sock,
-	  F_SETFL,opts );
-
-}
