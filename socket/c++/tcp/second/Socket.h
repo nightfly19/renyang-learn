@@ -1,4 +1,5 @@
 // Definition of the Socket class
+// 宣告一個類別,記錄所有的socket會用到的函數
 
 #ifndef Socket_class
 #define Socket_class
@@ -17,6 +18,7 @@ const int MAXHOSTNAME = 200;
 const int MAXCONNECTIONS = 5;
 const int MAXRECV = 500;
 
+// 為什麼以下的函數都可以直接透過類別呼叫??,不是要加static嗎??
 class Socket
 {
  public:

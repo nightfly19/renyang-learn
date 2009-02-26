@@ -28,7 +28,7 @@ Socket::~Socket()
 
 bool Socket::create()
 {
-  m_sock = socket ( AF_INET,
+  m_sock = ::socket ( AF_INET,
 		    SOCK_STREAM,
 		    0 );
 
@@ -38,6 +38,9 @@ bool Socket::create()
 
   // TIME_WAIT - argh
   int on = 1;
+  // 額外的設定
+  // SO_REUSEADDR -- 允許 socket 呼叫 bind() 去設定一個已經用過的位址
+  // 包含port number
   if ( setsockopt ( m_sock, SOL_SOCKET, SO_REUSEADDR, ( const char* ) &on, sizeof ( on ) ) == -1 )
     return false;
 
@@ -107,8 +110,12 @@ bool Socket::accept ( Socket& new_socket ) const
 }
 
 
+// 透過c內建的send函數傳送資料
 bool Socket::send ( const std::string s ) const
 {
+  // c_str()把string物件回傳char的指標
+  // MSG_NOSIGNAL是避免當server close後, client還透過send傳送封包
+  // 當第二次send時,才會出現錯誤, 透過MSG_NOSIGNAL第一次就會回送錯誤訊息
   int status = ::send ( m_sock, s.c_str(), s.size(), MSG_NOSIGNAL );
   if ( status == -1 )
     {
@@ -121,8 +128,10 @@ bool Socket::send ( const std::string s ) const
 }
 
 
+// 接收資料
 int Socket::recv ( std::string& s ) const
 {
+  // 建立大小為MAXRECV+1的陣列
   char buf [ MAXRECV + 1 ];
 
   s = "";
@@ -156,10 +165,12 @@ bool Socket::connect ( const std::string host, const int port )
   m_addr.sin_family = AF_INET;
   m_addr.sin_port = htons ( port );
 
+  // 將點分十進位串轉換成網路位元組序二進位值
   int status = inet_pton ( AF_INET, host.c_str(), &m_addr.sin_addr );
 
   if ( errno == EAFNOSUPPORT ) return false;
 
+  // 連線到m_addr(server)
   status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
 
   if ( status == 0 )

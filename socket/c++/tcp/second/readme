@@ -1,0 +1,5 @@
+要注意的是在連立server時
+建立其中一個是為socket file descriptor
+而另一個是connect file descriptor
+
+而client端只有connect file descriptor

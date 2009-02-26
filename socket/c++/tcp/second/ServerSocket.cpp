@@ -25,9 +25,11 @@ ServerSocket::ServerSocket ( int port )
 
 ServerSocket::~ServerSocket()
 {
+	// do nothing
 }
 
 
+// 把資料傳送到client端
 const ServerSocket& ServerSocket::operator << ( const std::string& s ) const
 {
   if ( ! Socket::send ( s ) )
@@ -40,9 +42,10 @@ const ServerSocket& ServerSocket::operator << ( const std::string& s ) const
 }
 
 
+// 由client端接收資料
 const ServerSocket& ServerSocket::operator >> ( std::string& s ) const
 {
-  if ( ! Socket::recv ( s ) )
+  if ( Socket::recv ( s )<=0 )
     {
       throw SocketException ( "Could not read from socket." );
     }
@@ -52,8 +55,10 @@ const ServerSocket& ServerSocket::operator >> ( std::string& s ) const
 
 void ServerSocket::accept ( ServerSocket& sock )
 {
+  // 呼叫c類別內建的accept函數
   if ( ! Socket::accept ( sock ) )
     {
+      // 建立一個例外錯誤物件丟出去
       throw SocketException ( "Could not accept socket." );
     }
 }
