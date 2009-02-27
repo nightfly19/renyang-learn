@@ -7,7 +7,7 @@
 // 建立一個連線到host且port號為port的connfd
 ClientSocket::ClientSocket ( std::string host, int port )
 {
-  // 建立connfd
+  // 建立socketfd
   if ( ! Socket::create() )
     {
       throw SocketException ( "Could not create client socket." );

@@ -11,7 +11,7 @@
 
 
 Socket::Socket() :
-  m_sock ( -1 )
+  socketfd ( -1 ),connfd(-1)
 {
 
   // 建立一個新的address資料結構
@@ -24,12 +24,14 @@ Socket::Socket() :
 Socket::~Socket()
 {
   if ( is_valid() )
-    ::close ( m_sock );
+    ::close ( socketfd );
+  if (is_connect_valid())
+    ::close (connfd);
 }
 
 bool Socket::create(int family,int type,int protocol)
 {
-  m_sock = ::socket (	family,
+  socketfd = ::socket (	family,
 			type,
 		    	protocol );
 
@@ -56,7 +58,7 @@ bool Socket::bind (const int port,int family)
   m_addr.sin_addr.s_addr = INADDR_ANY;
   m_addr.sin_port = htons ( port );
 
-  int bind_return = ::bind ( m_sock,
+  int bind_return = ::bind ( socketfd,
 			     ( struct sockaddr * ) &m_addr,
 			     sizeof ( m_addr ) );
 
@@ -77,7 +79,7 @@ bool Socket::listen(int maxconnections) const
       return false;
     }
 
-  int listen_return = ::listen ( m_sock, maxconnections );
+  int listen_return = ::listen ( socketfd, maxconnections );
 
 
   if ( listen_return == -1 )
@@ -89,12 +91,12 @@ bool Socket::listen(int maxconnections) const
 }
 
 
-bool Socket::accept ( Socket& new_socket ) const
+bool Socket::accept ()
 {
   int addr_length = sizeof ( m_addr );
-  new_socket.m_sock = ::accept ( m_sock, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
+  connfd = ::accept ( socketfd, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
 
-  if ( new_socket.m_sock <= 0 )
+  if ( connfd <= 0 )
     return false;
   else
     return true;
@@ -107,7 +109,7 @@ bool Socket::send ( const char *s ) const
   // c_str()把string物件回傳char的指標
   // MSG_NOSIGNAL是避免當server close後, client還透過send傳送封包
   // 當第二次send時,才會出現錯誤, 透過MSG_NOSIGNAL第一次就會回送錯誤訊息
-  int status = ::send ( m_sock, s, strlen(s), MSG_NOSIGNAL );
+  int status = ::send ( connfd, s, strlen(s), MSG_NOSIGNAL );
   if ( status == -1 )
     {
       return false;
@@ -125,7 +127,7 @@ int Socket::recv ( char *buf ) const
 {
   memset ( buf, 0, MAXRECV);
 
-  int status = ::recv ( m_sock, buf, MAXRECV, 0 );
+  int status = ::recv ( connfd, buf, MAXRECV, 0 );
 
   if ( status == -1 )
     {
@@ -157,7 +159,7 @@ bool Socket::connect ( const char* host, const int port ,int family)
   if ( errno == EAFNOSUPPORT ) return false;
 
   // 連線到m_addr(server)
-  status = ::connect ( m_sock, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
+  status = ::connect ( socketfd, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
 
   if ( status == 0 )
     return true;

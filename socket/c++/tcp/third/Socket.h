@@ -26,7 +26,7 @@ class Socket
   bool create(int family,int type,int protocol);
   bool bind ( const int port,int family );
   bool listen(int maxconnections) const;
-  bool accept ( Socket& ) const;
+  bool accept ();
 
   // Client initialization
   bool connect ( const char* host, const int port,int family );
@@ -36,13 +36,14 @@ class Socket
   int recv ( char *buf ) const;
 
 
-  bool is_valid() const { return m_sock != -1; }
+  bool is_valid() const { return socketfd != -1; }
+  bool is_connect_valid() const { return connfd !=-1;}
 
  private:
 
-  int m_sock;
+  int socketfd;
+  int connfd;
   sockaddr_in m_addr;
-
 
 };
 
