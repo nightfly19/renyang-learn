@@ -27,6 +27,7 @@ class mPacket
 		int MaxSize();
 		void setSize(int s){	size = s;	};
 
+		// 回傳buffer的指標
 		char* getBufPtr(){	return buf;	};
 
 	private:
