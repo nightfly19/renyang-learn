@@ -17,6 +17,7 @@ mPacket::mPacket(int _max_size)
 	: max_size(_max_size)
 {
 	size  = 0;
+	// 建立_max_size的buffer
 	buf = new char[_max_size];
 	if(buf<=0){
 		throw Error("memory allocation error");
@@ -26,6 +27,7 @@ mPacket::mPacket(int _max_size)
 
 mPacket::mPacket(QString s)
 {
+	// latin1()我猜是把QString變回一般的c語言中的string吧??
 	max_size = size  = strlen(s.latin1()) + 1;
 	buf = new char[ max_size];
 	if(buf<=0){

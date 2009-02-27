@@ -91,6 +91,7 @@ int SocketClient::Connect(QString ip,int port)
 	}
 	debug("test test one two three 4");
 
+	// 設定socket,必需注意_socket是己connected的狀態
 	setSocket(_socket);
 
 	return ret;
@@ -129,12 +130,14 @@ void SocketClient::Close()
 	connected = false;
 }
 
+// 把與server的連線中斷
 void SocketClient::DiscardFromServer()
 {
 	debug("SocketClient::DiscardFromServer()"); 
 	emit sigDiscardFromServer();
 }
 
+// 由server端讀取資料
 void SocketClient::ReadFromServer()
 {
 
