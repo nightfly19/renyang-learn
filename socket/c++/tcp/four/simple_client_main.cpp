@@ -8,10 +8,20 @@ void RecvFile(ClientSocket *client_socket,char *filename);
 
 int main(int argc,char **argv)
 {
+	char ipaddr[15];
+	memset(ipaddr,0,sizeof(ipaddr));
+	if (argc==2)
+	{
+		strcpy(ipaddr,argv[1]);
+	}
+	else
+	{
+		strcpy(ipaddr,"localhost");
+	}
 	try
 	{
 		ClientSocket *client_socket;
-		client_socket = new ClientSocket("localhost",30000);
+		client_socket = new ClientSocket(ipaddr,30000);
 
 		char buf[MAXRECV];
 		memset(buf,0,MAXRECV);
