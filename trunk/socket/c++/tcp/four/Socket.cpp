@@ -45,6 +45,7 @@ bool Socket::create(int family,int type,int protocol)
   socketfd = ::socket (	family,
 			type,
 		    	protocol );
+  // set_non_blocking(true);
   // debug
   // printf("socket:%d\n",socketfd);
   // debug
@@ -109,6 +110,7 @@ bool Socket::accept ()
 {
   int addr_length = sizeof ( m_addr );
   connfd = ::accept ( socketfd, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
+  set_non_blocking(true);
 
   if ( connfd <= 0 )
     return false;
@@ -135,6 +137,29 @@ bool Socket::send ( const char *s,int length ) const
     }
 }
 
+// non-blocking是針對connfd來設定的
+void Socket::set_non_blocking(const bool b)
+{
+	int opts;
+	// 取得socket的option設定
+	opts = fcntl(connfd,F_GETFL);
+	if (opts<0)
+	{
+		return ;
+	}
+	if (b)
+		opts = (opts | O_NONBLOCK);
+	else
+		opts = ( opts & ~O_NONBLOCK );
+	if (fcntl(connfd,F_SETFL,opts)<0)
+	{
+		printf("error\n");
+	}
+	else
+	{
+		printf("fcntl succeed!\n");
+	}
+}
 
 // 接收資料
 // 在使用此函數接收資料,要送過來buffer的指標,大小為MAXRECV

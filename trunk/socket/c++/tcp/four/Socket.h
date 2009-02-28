@@ -37,6 +37,7 @@ class Socket
   int recv ( char *buf ) const;
 
 
+  void set_non_blocking ( const bool );
   bool is_valid() const { return socketfd != -1; }
   bool is_connect_valid() const { return connfd !=-1;}
 
