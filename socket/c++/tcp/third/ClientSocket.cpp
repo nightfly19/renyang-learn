@@ -27,7 +27,7 @@ void ClientSocket::operator << (const char *s) const
 
 void ClientSocket::operator >> (char *s) const
 {
-	if(!Socket::recv(s)<=0)
+	if(Socket::recv(s)<=0)
         {
 		throw SocketException ( "Could not read from socket." );
         }

@@ -27,6 +27,7 @@ class Socket
   bool bind ( const int port,int family );
   bool listen(int maxconnections) const;
   bool accept ();
+  bool close_connfd();
 
   // Client initialization
   bool connect ( const char* host, const int port,int family );
