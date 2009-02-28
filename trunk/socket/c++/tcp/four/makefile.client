@@ -1,0 +1,30 @@
+
+CXX	= g++
+
+OBJ	= ClientSocket.o Socket.o simple_client_main.o
+
+TARGET	= simple_client_main
+
+.PHONY: everything all clean clean_target
+
+everything: $(TARGET)
+
+all: clean_target everything
+
+clean:
+	rm -fv $(OBJ)
+
+clean_target:clean
+	rm -fv $(TARGET)
+
+ClientSocket.o:ClientSocket.cpp
+	$(CXX) -c $< -o $@
+
+Socket.o:Socket.cpp
+	$(CXX) -c $< -o $@
+
+simple_client_main.o:simple_client_main.cpp
+	$(CXX) -c $< -o $@
+
+simple_client_main:$(OBJ)
+	$(CXX) $(OBJ) -o $@

@@ -1,0 +1,3 @@
+在server執行的目錄中必需要有一個realalt180.exe的檔案
+
+而當server執行之後,client在其它目錄執行,會把realalt180.exe複製到client的目錄中
