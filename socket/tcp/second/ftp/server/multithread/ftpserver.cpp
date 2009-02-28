@@ -267,16 +267,16 @@ void SDFile(SOCKET skt,char *filename)
     printf("Client:<#%d> sending file <%s>....\n",skt,filename);
     // need a socket to transfer
     // think about other appoach to send
-    while( (ReadByte = fread(sdbuffer,sizeof(char),FILEBUFFERSIZE,sdfile)) >0 )
+    while( (ReadByte = fread(sdbuffer,sizeof(char),FILEBUFFERSIZE,sdfile)) >0 )	// 使用binary的方式讀取檔案
     {
         //printf("Client:<#%d> sending <%s> \n",skt,sdbuffer);
         //printf("readbyte = %d\n",ReadByte);
-        send(skt,sdbuffer,ReadByte,0);
+        send(skt,sdbuffer,ReadByte,0);	// 傳送資料
         memset(sdbuffer,0,FILEBUFFERSIZE);
     }
     fclose(sdfile);
     Sleep(500); // wait to finish
-    send(skt,end,sizeof(end),0);
+    send(skt,end,sizeof(end),0);	// 傳送結束的檔案字尾
     printf("Client:<#%d> Finish!! <%s>\n",skt,filename);
     
 }
@@ -336,10 +336,10 @@ void CommunicateThread(SlaveSock_t *slvskt)
              strcpy(sdfilename,recvbuf + strlen("#getfile "));  //extract the file name
              printf("Client:<#%d>: require file <%s>\n",slvskt->skt,sdfilename);
              memset(buffer2,0,FILEBUFFERSIZE);
-             strcpy(buffer2, currpath);
-             strcat(buffer2,"\\");
+             strcpy(buffer2, currpath);	// 取得目前的位置
+             strcat(buffer2,"\\");	// 在目前的位置最後加上\\
              strcat(buffer2, sdfilename);
-             SDFile(slvskt->skt,buffer2);
+             SDFile(slvskt->skt,buffer2);	// 傳送檔案
          }
          else if(strncmp(recvbuf,"#list",strlen("#list")) == 0)
          {
