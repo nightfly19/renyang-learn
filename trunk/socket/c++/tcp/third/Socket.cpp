@@ -25,8 +25,19 @@ Socket::~Socket()
 {
   if ( is_valid() )
     ::close ( socketfd );
-  if (is_connect_valid())
-    ::close (connfd);
+}
+
+bool Socket::close_connfd()
+{
+	int return_value;
+	if (is_connect_valid())
+		return_value=::close(connfd);
+	if (return_value == 0)
+	{
+		connfd = -1;
+		return true;
+	}
+	return false;
 }
 
 bool Socket::create(int family,int type,int protocol)
@@ -34,6 +45,9 @@ bool Socket::create(int family,int type,int protocol)
   socketfd = ::socket (	family,
 			type,
 		    	protocol );
+  // debug
+  // printf("socket:%d\n",socketfd);
+  // debug
 
   if ( ! is_valid() )
     return false;
@@ -110,6 +124,7 @@ bool Socket::send ( const char *s ) const
   // MSG_NOSIGNAL是避免當server close後, client還透過send傳送封包
   // 當第二次send時,才會出現錯誤, 透過MSG_NOSIGNAL第一次就會回送錯誤訊息
   int status = ::send ( connfd, s, strlen(s), MSG_NOSIGNAL );
+  // printf("send:%d\n",status); // deubg
   if ( status == -1 )
     {
       return false;
@@ -128,7 +143,7 @@ int Socket::recv ( char *buf ) const
   memset ( buf, 0, MAXRECV);
 
   int status = ::recv ( connfd, buf, MAXRECV, 0 );
-
+  // printf("recv:%d\n",status); // debug
   if ( status == -1 )
     {
       std::cout << "status == -1   errno == " << errno << "  in Socket::recv\n";
@@ -160,6 +175,7 @@ bool Socket::connect ( const char* host, const int port ,int family)
 
   // 連線到m_addr(server)
   status = ::connect ( socketfd, ( sockaddr * ) &m_addr, sizeof ( m_addr ) );
+  connfd = socketfd;
 
   if ( status == 0 )
     return true;

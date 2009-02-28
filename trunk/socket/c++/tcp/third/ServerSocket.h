@@ -11,6 +11,7 @@ class ServerSocket:private Socket
 		void operator << (const char *s) const;
 		void operator >> (char *s) const;
 		void accept();
+		bool close_connfd();
 };
 
 #endif

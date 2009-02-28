@@ -30,7 +30,7 @@ void ServerSocket::operator << (const char *s) const
 
 void ServerSocket::operator >> (char *s) const
 {
-	if(!Socket::recv(s)<=0)
+	if(Socket::recv(s)<=0)
 	{
 		throw SocketException ( "Could not read from socket." );
 	}
@@ -42,4 +42,9 @@ void ServerSocket::accept()
 	{
 		throw SocketException ( "Could not accept socket." );
 	}
+}
+
+bool ServerSocket::close_connfd()
+{
+	return Socket::close_connfd();
 }
