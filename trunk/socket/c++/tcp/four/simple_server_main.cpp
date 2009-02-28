@@ -64,6 +64,7 @@ void SDFile(ServerSocket *server,char *filename)
 		memset(sdbuffer,0,MAXRECV);
 	}
 	fclose(sdfile);
+	// 若這邊不sleep一下的話,上面的最後一個片段會與下面的結束片斷一起傳送,就會造成傳送過去的資料判斷錯誤
 	sleep(1);
 	*server<<end;
 	printf("\nClient:<%s> Finish!!\n",filename);
