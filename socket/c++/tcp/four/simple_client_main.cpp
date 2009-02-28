@@ -16,7 +16,7 @@ int main(int argc,char **argv)
 	}
 	else
 	{
-		strcpy(ipaddr,"localhost");
+		strcpy(ipaddr,"127.0.0.1");
 	}
 	try
 	{
