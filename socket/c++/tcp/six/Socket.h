@@ -40,6 +40,7 @@ class Socket
   void set_non_blocking ( const bool );
   bool is_valid() const { return socketfd != -1; }
   bool is_connect_valid() const { return connfd !=-1;}
+  int get_connfd() { return connfd; }
 
  private:
 
