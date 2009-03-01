@@ -26,7 +26,7 @@ int main(int argc,char **argv)
 		char buf[MAXRECV];
 		memset(buf,0,MAXRECV);
 		struct imagedata image;
-		memset(&image,0,sizeof(struct imagedata));
+		memset(&image,1,sizeof(struct imagedata));
 
 		try
 		{

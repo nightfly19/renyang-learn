@@ -13,6 +13,7 @@ class ServerSocket:private Socket
 		void accept();
 		bool close_connfd();
 		void Sendbyte(const char *s,int lenght);
+		int get_connfd() { return Socket::get_connfd(); }
 };
 
 #endif

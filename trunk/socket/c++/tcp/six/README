@@ -1,5 +1,5 @@
 在server會建立一個struct imagedata，會傳送到client
-而在初始化struct必需memset(&,1,len)那一個1不可為0
+而在初始化struct必需memset(&,1,len)那一個1不可為0;有時候是0又可以?!
 否則資料傳到client會有錯誤
 
 在client執行時可以加上./simple_client_main <server ip>

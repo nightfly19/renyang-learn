@@ -11,6 +11,7 @@ class ClientSocket:private Socket
 		ClientSocket (char *host,int port,int family=AF_INET,int type=SOCK_STREAM,int protocol=0);
 		void operator << (const char *s) const;
 		int operator >> (char *s) const;
+		int get_connfd() { return Socket::get_connfd(); }
 };
 
 #endif
