@@ -1,0 +1,13 @@
+在server會建立一個struct imagedata，會傳送到client
+而在初始化struct必需memset(&,1,len)那一個1不可為0
+否則資料傳到client會有錯誤
+
+在client執行時可以加上./simple_client_main <server ip>
+
+本來要用non-blocking的，但是會出現
+status == -1   errno == 11  in Socket::recv
+的錯誤
+要思考要如何解決這一個問題
+
+目前解決的方法是切的封包的大小是1024的倍數,這樣一定會把socket填滿
+這是在知道要傳封包大小的前題下才可以這樣做的

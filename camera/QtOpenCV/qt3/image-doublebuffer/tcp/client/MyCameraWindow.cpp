@@ -20,6 +20,7 @@ MyCameraWindow::~MyCameraWindow()
 	// do nothing
 }
 
+// 接收到struct,顯示在QLabel中
 void MyCameraWindow::setCameraImage(struct imagedata &structimage)
 {
 	for (int y=0;y<480;y++)
