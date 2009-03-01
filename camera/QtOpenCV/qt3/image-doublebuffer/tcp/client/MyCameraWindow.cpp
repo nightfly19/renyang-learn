@@ -4,10 +4,15 @@
 MyCameraWindow::MyCameraWindow(QWidget *parent):QWidget(parent)
 {
 	resize(640,480);
-	pix.resize(640,480);
+	QImage temp(640,480,32);
+	image = temp;
 	layout = new QVBoxLayout(this);
-	imagelabel = new QLabel(0,"imagelabel");
+	imagelabel = new QLabel(this,"imagelabel");
 	layout->addWidget(imagelabel);
+	// 以下三行是測試透過imagedata是否是否有效果
+	// struct imagedata pixel;
+	// memset(&pixel,0,sizeof(struct imagedata));
+	// setCameraImage(pixel);
 }
 
 MyCameraWindow::~MyCameraWindow()
