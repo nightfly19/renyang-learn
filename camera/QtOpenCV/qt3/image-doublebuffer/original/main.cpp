@@ -10,7 +10,7 @@
 
 int main(int argc,char **argv) {
 	CvCapture *camera = cvCreateCameraCapture(0);
-	assert(camera);
+	assert(camera);	// 要確定有東西
 	IplImage *image=cvQueryFrame(camera);
 	assert(image);
 
