@@ -30,6 +30,7 @@ class MyCameraWindow:public QWidget
 		ClientSocket *client_socket;
 		struct imagedata pixel;
 		int begin;
+		int packageindex;
 
 	public slots:
 		void Recvdata();
