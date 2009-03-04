@@ -36,8 +36,8 @@ public:
 	connect( this, SIGNAL(readyRead()),
 		SLOT(readClient()) );
 	connect( this, SIGNAL(connectionClosed()),
-		SLOT(deleteLater()) );
-	setSocket( sock );
+		SLOT(deleteLater()) );	// 延期刪除此物件
+	setSocket( sock );	// 設定目前這一個socket物件使用此sock descripter,必需注意的是此sock必需要是connected
     }
 
     ~ClientSocket()
@@ -72,6 +72,7 @@ private:
   client that connects, it creates a new ClientSocket -- that instance is now
   responsible for the communication with that client.
 */
+// QServerSocket是提供一個TCP base的server類別
 class SimpleServer : public QServerSocket
 {
     Q_OBJECT
@@ -79,6 +80,7 @@ public:
     SimpleServer( QObject* parent=0 ) :
 	QServerSocket( 4242, 1, parent )
     {
+	// ok()回傳建構子是否成功
 	if ( !ok() ) {
 	    qWarning("Failed to bind to port 4242");
 	    exit(1);
@@ -89,14 +91,14 @@ public:
     {
     }
 
-    void newConnection( int socket )
+    void newConnection( int socket )	// 建立一個新連線
     {
 	ClientSocket *s = new ClientSocket( socket, this );
 	emit newConnect( s );
     }
 
 signals:
-    void newConnect( ClientSocket* );
+    void newConnect( ClientSocket* );	// 產生一個新連線通知
 };
 
 
@@ -132,7 +134,7 @@ public:
     }
 
 private slots:
-    void newConnect( ClientSocket *s )
+    void newConnect( ClientSocket *s )	// 送完string後,馬上關掉connection
     {
 	infoText->append( tr("New connection\n") );
 	connect( s, SIGNAL(logText(const QString&)),

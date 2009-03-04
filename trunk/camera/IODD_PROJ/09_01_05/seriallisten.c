@@ -39,6 +39,7 @@ int main(int argc, char **argv)
       fprintf(stderr, "Usage: %s <device> <rate> - dump packets from a serial port\n", argv[0]);
       exit(2);
     }
+  // 開啟sensor
   src = open_serial_source(argv[1], platform_baud_rate(argv[2]), 0, stderr_msg);
   if (!src)
     {
