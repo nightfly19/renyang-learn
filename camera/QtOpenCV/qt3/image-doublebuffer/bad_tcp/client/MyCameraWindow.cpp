@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "transmit.h"
 
 MyCameraWindow::MyCameraWindow(QWidget *parent):QWidget(parent),packageindex(0)
 {
@@ -50,22 +51,22 @@ void MyCameraWindow::Recvdata()
 	memset(&image,0,sizeof(struct imagedata));
 	char *char_image = (char*) &image;
 	int Readbyte=0;
+	/*
 	Readbyte=*client_socket>>filebuffer;
 	while (strncmp(filebuffer,"#over#",strlen("#over#"))!=0)
 	{
 		Readbyte = *client_socket>>filebuffer;
 		// strcpy(char_image+MAXRECV*packageindex,filebuffer);
-		// memcpy(char_image+MAXRECV*packageindex,filebuffer,MAXRECV);
-		packageindex++;
-	}
-		// printf("%c\n",image.b_pixel[220][220]);
+		memcpy(char_image+packageindex,filebuffer,MAXRECV);
+		packageindex += MAXRECV;
+	}*/
 		// printf("%d\n",packageindex);
+	RecvStruct(client_socket,char_image);
+		printf("%c\n",image.b_pixel[479][639]);
 		printf("byt!!\n");
 		packageindex=0;
-		/*
 		FILE *fp;
 		fp = fopen("after","wb");
 		fwrite(&image,1,sizeof(struct imagedata),fp);
 		fclose(fp);
-		*/
 }
