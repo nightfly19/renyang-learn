@@ -48,7 +48,7 @@ globle_flag
 int
 ProcessImageFromEthernetToPC (int* fd_lcd)
 {
-        cmos_info_t	CMOSInfo;	
+        cmos_info_t	CMOSInfo;	// 用來接收server端送過來的command
         int 		ret =OK, fd_cmos=-1, fd_socket=-1, WaitImage;	
         int 		nRead, nWrite, terminate, CMOSRunning, ImgW, ImgH;		
         unsigned long	dwImageSize, dwTotalReadSize, count ;
@@ -62,6 +62,8 @@ ProcessImageFromEthernetToPC (int* fd_lcd)
         }
 */
 //printf("ass hole2\n");
+
+	// cmos就是camera啦
         fd_cmos = open("/dev/cmos", O_RDWR);
    /*     if (fd_cmos < 0) {
             LCD_ErrorMessage(fd_lcd, "Open ccm error\nAny to exit:");	
@@ -75,19 +77,19 @@ ProcessImageFromEthernetToPC (int* fd_lcd)
             goto out;	    	    	
         }
 */
-        terminate = 1;		
+        terminate = 1;
         CMOSRunning = 0;
         pMsg = "\nImage to PC...";
         printf("%s", pMsg);
 //       if (!ImageToLCD)
- //           LCD_printf("%s", pMsg);	
-        while (terminate){	
-		if(globle_flag == 1) 
+ //           LCD_printf("%s", pMsg);
+        while (terminate){
+		if(globle_flag == 1)
 			goto out;
             /* 等待PC 傳送command */	
             nRead = recv(fd_socket, &CMOSInfo, sizeof(cmos_info_t), 0);
 //            if (nRead == 0){
- //	            LCD_ErrorMessage(fd_lcd, "socket break\n\n Any to exit:");		    	
+ //	            LCD_ErrorMessage(fd_lcd, "socket break\n\n Any to exit:");
   //              terminate = 0;
       //      	}    
     	    
@@ -103,7 +105,7 @@ ProcessImageFromEthernetToPC (int* fd_lcd)
                 ret = ioctl(fd_cmos, CMOS_ON, &CMOSInfo);		    	
   //              if (ret < 0){
   //                  LCD_ErrorMessage(fd_lcd, "CCM ON error\n\n Any to exit:");		
-  //                  goto out;			    
+  //                  goto out;
 //		        }
                 ImgW = CMOSInfo.ImageWidth ; ImgH = CMOSInfo.ImageHeight ;		
                 dwImageSize = ImgW * ImgH ;

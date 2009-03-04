@@ -8,3 +8,5 @@ gcc `pkg-config opencv --libs --cflags opencv` tcpserver.c -o tcpserver
 
 server端是在一般的pc上，用來接收client傳送過來的影像
 client是在pxa270上,由pxa270上的camera來擷取影像
+
+opencv只是server端用來擷取影像的部分
