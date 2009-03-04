@@ -6,5 +6,5 @@ TEMPLATE = app
 INCLUDEPATH += .
 
 # Input
-HEADERS += imagedata.h MyCameraWindow.h imagedata.h ClientSocket.h ServerSocket.h Socket.h
-SOURCES += main.cpp MyCameraWindow.cpp ClientSocket.cpp ServerSocket.cpp Socket.cpp
+HEADERS += imagedata.h MyCameraWindow.h imagedata.h ClientSocket.h ServerSocket.h Socket.h transmit.h
+SOURCES += main.cpp MyCameraWindow.cpp ClientSocket.cpp ServerSocket.cpp Socket.cpp transmit.cpp

@@ -35,6 +35,9 @@ void SDStruct(ServerSocket *server,char *pixel)
         char end[7]="#over#";
         int ReadByte=0;
         int begin=0;
+	FILE *fp = fopen("third","wb");
+	fwrite(pixel,1,sizeof(struct imagedata),fp);
+	fclose(fp);
         int structsize=sizeof(struct imagedata);
         do
         {

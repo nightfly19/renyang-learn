@@ -93,6 +93,9 @@ void RecvStruct(ClientSocket *client_socket,char *pixel)
                 Readbyte=*client_socket>>filebuffer;
                 printf("y");
         }
+	FILE *fp = fopen("four","wb");
+	fwrite(pixel,1,sizeof(struct imagedata),fp);
+	fclose(fp);
 }
 
 void Image2imagedata(IplImage *cvimage,struct imagedata &data)
