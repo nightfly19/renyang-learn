@@ -38,7 +38,13 @@ int main(int argc,char **argv)
 		}
 		catch(SocketException&){}
 		// printf("We received : %s\n",buf);
-		cout << image.b_pixel[220][220] << endl;
+		cout << image.r_pixel[0][0] << endl;
+		// 把資料寫到檔案after - start
+		FILE *fp;
+		fp = fopen("after","wb");
+		fwrite(&image,1,sizeof(struct imagedata),fp);
+		fclose(fp);
+		// 把資料寫到檔案after - end
 	}
 	catch (SocketException &e)
 	{

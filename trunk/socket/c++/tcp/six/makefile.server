@@ -12,7 +12,7 @@ everything: $(TARGET)
 all: clean_target everything
 
 clean:
-	rm -fv $(OBJ)
+	rm -fv $(OBJ) before
 
 clean_target:clean
 	rm -fv $(TARGET)
