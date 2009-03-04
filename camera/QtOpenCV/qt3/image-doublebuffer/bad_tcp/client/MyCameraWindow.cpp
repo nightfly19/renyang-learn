@@ -62,6 +62,7 @@ void MyCameraWindow::Recvdata()
 	}*/
 		// printf("%d\n",packageindex);
 	RecvStruct(client_socket,char_image);
+	/*
 		printf("%c\n",image.b_pixel[479][639]);
 		printf("byt!!\n");
 		packageindex=0;
@@ -69,4 +70,6 @@ void MyCameraWindow::Recvdata()
 		fp = fopen("after","wb");
 		fwrite(&image,1,sizeof(struct imagedata),fp);
 		fclose(fp);
+		*/
+	setCameraImage(image);
 }
