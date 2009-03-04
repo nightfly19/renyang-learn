@@ -2,6 +2,8 @@
 #include "SocketException.h"
 #include <iostream>
 #include <string>
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
 #include "imagedata.h"
 #include "transmit.h"
 using namespace std;
@@ -20,27 +22,29 @@ int main(int argc,char **argv) {
 		return -1;
 	}
 
+	CvCapture *camera = cvCreateCameraCapture(0);
+	assert(camera);
 	while(true)
 	{
 		try
 		{
-			struct imagedata image;
+			IplImage * image=cvQueryFrame(camera);
+			assert(image);
+			struct imagedata data;
+			Image2imagedata(image,data);
 			// 把第一個資料填入
-			memset(&image,1,sizeof(struct imagedata));	// 不可以填0,否則會出現錯誤,可能是所有成員都必需要有資料
-			image.b_pixel[479][639]='P';	// 先填一個數值進去,到client端再讀取出來,看是否有錯誤
-			char data[MAXRECV];
+			char buffer[MAXRECV];
 			FILE *fp;
 			fp = fopen("before","wb");
-			fwrite(&image,1,sizeof(struct imagedata),fp);
+			fwrite(&data,1,sizeof(struct imagedata),fp);
 			fclose(fp);
 			printf("write ok\n");
 			while(true)
 			{
-				memset(data,0,MAXRECV);
+				memset(buffer,0,MAXRECV);
 				//*server >> data;
 				//::SDFile(server,"realalt180.exe");
-				::SDStruct(server,(char*)&image);	// 送資料
-				printf("%s\n",data);
+				::SDStruct(server,(char*)&data);	// 送資料
 			}
 		}
 		catch (SocketException &)
