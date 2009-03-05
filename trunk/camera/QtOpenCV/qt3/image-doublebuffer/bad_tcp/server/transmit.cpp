@@ -54,6 +54,7 @@ void SDStruct(ServerSocket *server,char *pixel)
                         memset(sdbuffer,0,MAXRECV);
                         strncpy(sdbuffer,pixel+begin,ReadByte);
                         server->Sendbyte(sdbuffer,ReadByte);
+			*server>>sdbuffer;
                         begin+=ReadByte;
                 }
                 else
