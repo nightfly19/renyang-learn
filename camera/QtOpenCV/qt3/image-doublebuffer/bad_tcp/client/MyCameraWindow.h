@@ -32,8 +32,12 @@ class MyCameraWindow:public QWidget
 		int begin;
 		int packageindex;
 
+
 	public slots:
 		void Recvdata();
+	
+	protected:
+		void timerEvent(QTimerEvent*);
 };
 
 #endif
