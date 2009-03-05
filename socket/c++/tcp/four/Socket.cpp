@@ -110,7 +110,7 @@ bool Socket::accept ()
 {
   int addr_length = sizeof ( m_addr );
   connfd = ::accept ( socketfd, ( sockaddr * ) &m_addr, ( socklen_t * ) &addr_length );
-  set_non_blocking(true);
+  // set_non_blocking(true);
 
   if ( connfd <= 0 )
     return false;

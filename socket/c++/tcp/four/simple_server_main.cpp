@@ -61,6 +61,7 @@ void SDFile(ServerSocket *server,char *filename)
 		printf("fread:%d\n",ReadByte);
 		//printf(".");
 		server->Sendbyte(sdbuffer,ReadByte);
+		*server >> sdbuffer;
 		memset(sdbuffer,0,MAXRECV);
 	}
 	fclose(sdfile);
