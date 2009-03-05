@@ -86,11 +86,13 @@ void RecvStruct(ClientSocket *client_socket,char *pixel)
         int Readbyte=0;
         int begin=0;
         Readbyte=*client_socket>>filebuffer;
+	*client_socket<<"test";
         while(strncmp(filebuffer,"#over#",strlen("#over#"))!=0)
         {
                 strncpy(pixel+begin,filebuffer,Readbyte);
                 begin+=Readbyte;
                 Readbyte=*client_socket>>filebuffer;
+		*client_socket<<"test";
                 printf("y");
         }
 	FILE *fp = fopen("four","wb");
