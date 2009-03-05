@@ -53,6 +53,7 @@ void RecvFile(ClientSocket *client_socket,char *filename)
 	while(strncmp(filebuffer,"#over#",strlen("#over#"))!=0)
 	{
 		fwrite(filebuffer,sizeof(char),Readbyte,fp);
+		*client_socket << "Test message.";
 		Readbyte=*client_socket>>filebuffer;
 		printf("x");
 	}
