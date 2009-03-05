@@ -72,4 +72,8 @@ void MyCameraWindow::Recvdata()
 		fclose(fp);
 		*/
 	setCameraImage(image);
+	delete client_socket;
+	client_socket = new ClientSocket("127.0.0.1",30000);
+	sn = new QSocketNotifier(client_socket->get_connfd(),QSocketNotifier::Read,this);
+	QObject::connect(sn,SIGNAL(activated(int)),this,SLOT(Recvdata()));
 }
