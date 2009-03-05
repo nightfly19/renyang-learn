@@ -18,7 +18,7 @@ MyCameraWindow::MyCameraWindow(QWidget *parent):QWidget(parent),packageindex(0)
 	// struct imagedata pixel;
 	// memset(&pixel,0,sizeof(struct imagedata));
 	// setCameraImage(pixel);
-	client_socket = new ClientSocket("192.168.20.102",30000);
+	client_socket = new ClientSocket("127.0.0.1",30000);
 	sn = new QSocketNotifier(client_socket->get_connfd(),QSocketNotifier::Read,this);
 	QObject::connect(sn,SIGNAL(activated(int)),this,SLOT(Recvdata()));
 	startTimer(33);
