@@ -28,19 +28,21 @@ int main(int argc,char **argv) {
 	{
 		try
 		{
-			IplImage * image=cvQueryFrame(camera);
-			assert(image);
-			struct imagedata data;
-			Image2imagedata(image,data);
 			// 把第一個資料填入
 			char buffer[MAXRECV];
+			/*
 			FILE *fp;
 			fp = fopen("before","wb");
 			fwrite(&data,1,sizeof(struct imagedata),fp);
 			fclose(fp);
 			printf("write ok\n");
+			*/
 			while(true)
 			{
+			IplImage * image=cvQueryFrame(camera);
+			assert(image);
+			struct imagedata data;
+			Image2imagedata(image,data);
 				memset(buffer,0,MAXRECV);
 				//*server >> data;
 				//::SDFile(server,"realalt180.exe");
