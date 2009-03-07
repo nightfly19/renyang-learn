@@ -1,0 +1,5 @@
+這一個程式會產生兩個process
+parent會列印出"I am parent!!"
+而
+child會列印出"I am child!!"
+先印出哪一個不一定，依當時執行的環境而定
