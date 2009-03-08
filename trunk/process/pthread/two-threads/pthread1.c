@@ -6,15 +6,14 @@ void *print_message_function( void *ptr );
 
 main()
 {
-     pthread_t thread1, thread2;
-     char *message1 = "Thread 1";
+     pthread_t thread1, thread2;	// 用來記錄thread的number
+     char *message1 = "Thread 1";	// 要給thread的參數
      char *message2 = "Thread 2";
      int  iret1, iret2;
 
      /* Create independent threads each of which will execute function */
      // pthread pthread_create( &a_thread, a_thread_attribute, (void *)&thread_function,(void *) &some_argument);
      // 設定這一個thread一開始就執行哪一個function,第四個參數是表示要餵給這一個function什麼數值
-     // 並且設定了當這一個thread完成之後，要把回傳值設定給哪一個變數
      iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
      iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
 
