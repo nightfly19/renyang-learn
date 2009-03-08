@@ -11,8 +11,10 @@ main()
      char *message2 = "Thread 2";
      int  iret1, iret2;
 
-    /* Create independent threads each of which will execute function */
+     /* Create independent threads each of which will execute function */
      // pthread pthread_create( &a_thread, a_thread_attribute, (void *)&thread_function,(void *) &some_argument);
+     // 設定這一個thread一開始就執行哪一個function,第四個參數是表示要餵給這一個function什麼數值
+     // 並且設定了當這一個thread完成之後，要把回傳值設定給哪一個變數
      iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
      iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
 
@@ -22,6 +24,7 @@ main()
 
      pthread_join( thread1, NULL);	// the main process will wait for the end of the thread1
      pthread_join( thread2, NULL); 	// the main process will wait for the end of the thread2
+     // 若照這樣說,以上兩個thread必定會依照以上的順序完成
 
      printf("Thread 1 returns: %d\n",iret1);
      printf("Thread 2 returns: %d\n",iret2);
