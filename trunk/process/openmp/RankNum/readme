@@ -1,0 +1,3 @@
+可能因為只有雙核心，所以，只會出現兩個hello world
+
+可能修改環境變數NUM_OMP_THREADS可以改變hello world的次數，但是，我改了，好像還是沒有用

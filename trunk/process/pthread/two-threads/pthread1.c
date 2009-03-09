@@ -21,8 +21,15 @@ main()
      /* wait we run the risk of executing an exit which will terminate   */
      /* the process and all threads before the threads have completed.   */
 
+     printf("before\n");
      pthread_join( thread1, NULL);	// the main process will wait for the end of the thread1
+     printf("middle\n");
+     // 在middle列印出來之後,絕對不會出現thread1，因為，是執行pthread_join()的結果
+     // 會等待指定的thread結束之後,目前這一個main thread才會繼續被執行，
+     // 在執行這一個指令之前，是main,thread1,thread2三個同時在進行
+     // 執行完這一個指令之後，只剩下thread1,thread2這兩個thread在進行
      pthread_join( thread2, NULL); 	// the main process will wait for the end of the thread2
+     printf("after\n");
      // 若照這樣說,以上兩個thread必定會依照以上的順序完成
 
      printf("Thread 1 returns: %d\n",iret1);
@@ -34,6 +41,8 @@ void *print_message_function( void *ptr )
 {
      char *message;
      message = (char *) ptr;
-     printf("%s \n", message);
+     int i=0;
+     for (i=0;i<66535;i++)
+     	printf("%s \n", message);
      pthread_exit(0);	// 結束thread
 }

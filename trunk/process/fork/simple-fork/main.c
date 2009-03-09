@@ -12,18 +12,16 @@ int main()
 	if (id>0)
 	{
 		int i;
-		for (i=0;i<1000;i++)
+		for (i=0;i<65535;i++)
 		{
-			sleep(2);
 			printf("I am parent!!x:%d\n",++x);
 		}
 	}
 	else
 	{
 		int i;
-		for (i=0;i<1000;i++)
+		for (i=0;i<65535;i++)
 		{
-			sleep(1);
 			printf("I am child!!y:%d\n",++x);
 		}
 	}
