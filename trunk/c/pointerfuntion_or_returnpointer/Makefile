@@ -1,13 +1,13 @@
 
 CC	= gcc
 
-OBJ	= main.o
-
 TARGET	= main
+
+OBJ	= main.o
 
 .PHONY: everything all clean clean_target
 
-everything: $(TARGET)
+everything:$(TARGET)
 
 all: clean_target everything
 

@@ -1,8 +1,8 @@
 
 CC	= gcc
+LIBS	= -lpthread
 
 OBJ	= main.o
-
 TARGET	= main
 
 .PHONY: everything all clean clean_target
@@ -14,11 +14,11 @@ all: clean_target everything
 clean:
 	rm -fv $(OBJ)
 
-clean_target: clean
+clean_target:clean
 	rm -fv $(TARGET)
 
 main.o:main.c
 	$(CC) -c $< -o $@
 
 main:main.o
-	$(CC) $< -o $@
+	$(CC) $(LIBS) $< -o $@
