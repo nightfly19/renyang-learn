@@ -5,6 +5,8 @@ OBJ	= main.o
 
 TARGET	= main
 
+LIBS	= -lpthread
+
 .PHONY: everything all clean clean_target
 
 everything: $(TARGET)
@@ -21,4 +23,4 @@ main.o:main.c
 	$(CC) -c $< -o $@
 
 main:main.o
-	$(CC) $< -o $@
+	$(CC) $(LIBS) $< -o $@

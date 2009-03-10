@@ -9,7 +9,7 @@ TARGET	= main
 
 everything: $(TARGET)
 
-all: clean_target clean
+all: clean_target everything
 
 clean:
 	rm -fv $(OBJ)
