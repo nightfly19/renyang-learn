@@ -1,6 +1,0 @@
-可以透過已建立的Makefile或CMake來產生執行檔
-
-此程式的目的是由client把字串傳送給server並由server顯示出來
-並且透過"exit"來結束程式
-
-而這一個應該就是one-to-one的模式
