@@ -13,7 +13,7 @@
 #define LISTENQ 1024
 //=============================================================================
 
-void main(int argc,char **argv)
+int main(int argc,char **argv)
 {
 	int echo_to_all = 0;
 
@@ -86,4 +86,5 @@ void main(int argc,char **argv)
 			exit(-1);
 		}
 	}
+	return 0;
 }
