@@ -131,7 +131,13 @@ void sctpstr_cli_echoall(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tole
 		}
 		// 傳送SERV_MAX_SCTP_STRM筆資料給server
 		for (i=0;i<SERV_MAX_SCTP_STRM;i++) {
-			snprintf(sendline+strsz,sizeof(sendline)-strsz,".msg.%d",i);
+			snprintf(sendline+strsz,sizeof(sendline)-strsz,".msg.%d 1",i);
+			ret_value = sctp_sendmsg(sock_fd,sendline,sizeof(sendline),to,tolen,0,0,i,0,0);
+			if (ret_value == -1) {
+				printf("sctp_sendmsg error\n");
+				exit(-1);
+			}
+			snprintf(sendline+strsz,sizeof(sendline)-strsz,".msg.%d 2",i);
 			ret_value = sctp_sendmsg(sock_fd,sendline,sizeof(sendline),to,tolen,0,0,i,0,0);
 			if (ret_value == -1) {
 				printf("sctp_sendmsg error\n");
@@ -139,7 +145,7 @@ void sctpstr_cli_echoall(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tole
 			}
 		}
 		// 由server接收SERV_MAX_SCTP_STRM筆資料
-		for (i=0;i<SERV_MAX_SCTP_STRM;i++) {
+		for (i=0;i<SERV_MAX_SCTP_STRM*2;i++) {
 			len = sizeof(peeraddr);
 			rd_sz = sctp_recvmsg(sock_fd,recvline,sizeof(recvline),(struct sockaddr *) &peeraddr,&len,&sri,&msg_flags);
 			printf("From str:%d seq:%d (assoc:0x%x):",sri.sinfo_stream,sri.sinfo_ssn,(u_int) sri.sinfo_assoc_id);
