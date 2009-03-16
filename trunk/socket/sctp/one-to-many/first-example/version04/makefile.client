@@ -1,0 +1,26 @@
+
+CC	= gcc
+
+LIBS	= -lsctp
+
+OBJ	= sctp_strcliecho2.o
+
+TARGET	= sctp_strcliecho2
+
+.PHONY: everything all clean distclean
+
+everything: $(TARGET)
+
+all: distclean everything
+
+clean:
+	rm -fv $(OBJ)
+
+distclean: clean
+	rm -fv $(TARGET)
+
+$(OBJ): sctp_strcliecho2.c
+	$(CC) -c $< -o $@
+
+$(TARGET):$(OBJ)
+	$(CC) $(LIBS) $< -o $@
