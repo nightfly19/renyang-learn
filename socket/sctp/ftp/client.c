@@ -47,11 +47,9 @@ int main(int argc,char *argv[])
 		}
 		SendMsg(ServerSock,sendbuffer);
 		memset(recvbuffer,0,FILEBUFFERSIZE);
+
+		// 等待server傳回"ok"字串,表示server確實有接收到client傳送過去的字串,如此一來,client才可以再傳送字串
 		RecvMsg(ServerSock,recvbuffer);
-		if (strncmp(recvbuffer,"ok",strlen("ok")))
-		{
-			break;
-		}
 	}
 
 	printf("#end#\n");

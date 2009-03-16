@@ -20,8 +20,10 @@ int main(int argc,char *argv[])
 	struct sctp_event_subscribe evnts;
 	int echo_to_all = 0;
 
-	if (argc < 2)
+	if (argc < 2) {
 		printf("Missing host argument - use '%s host [echo]'\n",argv[0]);
+		exit(-1);
+	}
 	if (argc > 2) {
 		printf("Echoing message to all streams\n");
 		echo_to_all = 1;
