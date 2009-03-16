@@ -12,10 +12,13 @@
 #define SERV_PORT 9877
 #define LISTENQ 1024
 #define MAXLINE 4096
+#define SCTP_MAXLINE 800
+#define SERV_MAX_SCTP_STRM 10
 //=============================================================================
 
 //==============================define function================================
 void sctpstr_cli(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tolen);
+void sctpstr_cli_echoall(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tolen);
 //=============================================================================
 
 //==============================main function==================================
@@ -64,9 +67,7 @@ int main(int argc,char **argv)
 	}
 	else {
 		// 要設定傳給許多個server
-		// sctpstr_cli_echoall這一個函數沒有宣告
-		// sctpstr_cli_echoall(stdin,sock_fd,(struct sockaddr *) &servaddr,sizeof(sock_fd));
-		// do nothing
+		sctpstr_cli_echoall(stdin,sock_fd,(struct sockaddr *) &servaddr,sizeof(sock_fd));
 	}
 	close(sock_fd);
 	return 0;
@@ -82,6 +83,7 @@ void sctpstr_cli(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tolen)
 	socklen_t len;
 	int out_sz,rd_sz;
 	int msg_flags;
+	int ret_value=0;
 
 	bzero(&sri,sizeof(sri));
 	// block住,等待client端輸入
@@ -94,11 +96,54 @@ void sctpstr_cli(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tolen)
 		// 透過設定的stream number來傳送資料
 		sri.sinfo_stream = strtol(&sendline[1],NULL,0);
 		out_sz = strlen(sendline);	// 輸入字串的長度,用來記錄等一下要傳送幾個字元
-		sctp_sendmsg(sock_fd,sendline,out_sz,to,tolen,0,0,sri.sinfo_stream,0,0);
+		ret_value = sctp_sendmsg(sock_fd,sendline,out_sz,to,tolen,0,0,sri.sinfo_stream,0,0);
+		if (ret_value == -1) {
+			printf("sctp_sendmsg error\n");
+			exit(-1);
+		}
 
 		len = sizeof(peeraddr);
 		rd_sz = sctp_recvmsg(sock_fd,recvline,sizeof(recvline),(struct sockaddr *) &peeraddr,&len,&sri,&msg_flags);
 		printf("From str:%d seq:%d (assoc:0x%x):",sri.sinfo_stream,sri.sinfo_ssn,(u_int) sri.sinfo_assoc_id);
 		printf("%.*s",rd_sz,recvline);
+	}
+}
+
+void sctpstr_cli_echoall(FILE *fp,int sock_fd,struct sockaddr *to,socklen_t tolen)
+{
+	struct sockaddr_in peeraddr;
+	struct sctp_sndrcvinfo sri;
+	char sendline[SCTP_MAXLINE], recvline[SCTP_MAXLINE];
+	socklen_t len;
+	int rd_sz,i,strsz;
+	int msg_flags;
+	int ret_value=0;
+
+	// the client initializes the sri structure used to set up the stream it will be sending and receiving from
+	bzero(sendline,sizeof(sendline));
+	bzero(&sri,sizeof(sri));
+	while(fgets(sendline,SCTP_MAXLINE-9,fp) != NULL) {
+		strsz = strlen(sendline);
+		// delete the newline character that is at the end of the buffer
+		if (sendline[strsz-1] == '\n') {
+			sendline[strsz-1]='\0';
+			strsz--;
+		}
+		// 傳送SERV_MAX_SCTP_STRM筆資料給server
+		for (i=0;i<SERV_MAX_SCTP_STRM;i++) {
+			snprintf(sendline+strsz,sizeof(sendline)-strsz,".msg.%d",i);
+			ret_value = sctp_sendmsg(sock_fd,sendline,sizeof(sendline),to,tolen,0,0,i,0,0);
+			if (ret_value == -1) {
+				printf("sctp_sendmsg error\n");
+				exit(-1);
+			}
+		}
+		// 由server接收SERV_MAX_SCTP_STRM筆資料
+		for (i=0;i<SERV_MAX_SCTP_STRM;i++) {
+			len = sizeof(peeraddr);
+			rd_sz = sctp_recvmsg(sock_fd,recvline,sizeof(recvline),(struct sockaddr *) &peeraddr,&len,&sri,&msg_flags);
+			printf("From str:%d seq:%d (assoc:0x%x):",sri.sinfo_stream,sri.sinfo_ssn,(u_int) sri.sinfo_assoc_id);
+			printf("%.*s\n",rd_sz,recvline);
+		}
 	}
 }
