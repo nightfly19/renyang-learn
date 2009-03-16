@@ -1,0 +1,22 @@
+sctp所建立的socket不能由
+"netstat -a"
+指令所找到
+
+client端可以透過ctrl+D結束loop
+
+當sri.sinfo_stream設定為9以上時,server傳送資料就會出現錯誤,不知道為啥
+
+
+操作方式:
+server端:
+./sctpserv01
+
+client端:
+./sctpclient01 127.0.0.1
+[0]Hello
+From str:1 seq:0 (assoc:0x1):[0]Hello
+[4]Message two
+From str:5 seq:0 (assoc:0x1):[4]Message two
+[4]Message three
+From str:5 seq:1 (assoc:0x1):[4]Message three
+
