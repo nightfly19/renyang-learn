@@ -20,3 +20,30 @@ From str:5 seq:0 (assoc:0x1):[4]Message two
 [4]Message three
 From str:5 seq:1 (assoc:0x1):[4]Message three
 
+操作方式2:
+server端:
+./sctpserv01
+
+client端:
+Echoing messages to all streams
+Hello
+From str:0 seq:0 (assoc:0x1):Hello.msg.0 1
+From str:0 seq:1 (assoc:0x1):Hello.msg.0 2
+From str:1 seq:0 (assoc:0x1):Hello.msg.1 1
+From str:1 seq:1 (assoc:0x1):Hello.msg.1 2
+From str:2 seq:0 (assoc:0x1):Hello.msg.2 1
+From str:2 seq:1 (assoc:0x1):Hello.msg.2 2
+From str:3 seq:0 (assoc:0x1):Hello.msg.3 1
+From str:3 seq:1 (assoc:0x1):Hello.msg.3 2
+From str:4 seq:0 (assoc:0x1):Hello.msg.4 1
+From str:4 seq:1 (assoc:0x1):Hello.msg.4 2
+From str:5 seq:0 (assoc:0x1):Hello.msg.5 1
+From str:5 seq:1 (assoc:0x1):Hello.msg.5 2
+From str:6 seq:0 (assoc:0x1):Hello.msg.6 1
+From str:6 seq:1 (assoc:0x1):Hello.msg.6 2
+From str:7 seq:0 (assoc:0x1):Hello.msg.7 1
+From str:7 seq:1 (assoc:0x1):Hello.msg.7 2
+From str:8 seq:0 (assoc:0x1):Hello.msg.8 1
+From str:8 seq:1 (assoc:0x1):Hello.msg.8 2
+From str:9 seq:0 (assoc:0x1):Hello.msg.9 1
+From str:9 seq:1 (assoc:0x1):Hello.msg.9 2

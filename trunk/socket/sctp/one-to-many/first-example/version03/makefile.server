@@ -3,9 +3,9 @@ CC	= gcc
 
 LIBS	= -lsctp
 
-OBJ	= sctp_strcliecho2.o
+OBJ	= sctpserv01.o
 
-TARGET	= sctp_strcliecho2
+TARGET	= sctpserv01
 
 .PHONY: everything all clean distclean
 
@@ -19,7 +19,7 @@ clean:
 distclean: clean
 	rm -fv $(TARGET)
 
-$(OBJ): sctp_strcliecho2.c
+$(OBJ): sctpserv01.c
 	$(CC) -c $< -o $@
 
 $(TARGET):$(OBJ)

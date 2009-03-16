@@ -11,6 +11,7 @@
 #define BUFFERSIZE 8192
 #define SERV_PORT 9877
 #define LISTENQ 1024
+#define SERV_MORE_STRMS_SCTP 30
 //=============================================================================
 
 int main(int argc,char **argv)
@@ -27,6 +28,7 @@ int main(int argc,char **argv)
 	int stream_increment = 1;
 	socklen_t len;
 	size_t rd_sz;	// size_t指的就是unsigned long
+	struct sctp_initmsg initm;
 
 	if (argc == 2) {
 		// 把字串轉換成數字
@@ -39,6 +41,10 @@ int main(int argc,char **argv)
 		printf("socket error\n");
 		exit(-1);
 	}
+	// 預設是10條stream,設定為30條
+	memset(&initm,0,sizeof(initm));
+	initm.sinit_num_ostreams = SERV_MORE_STRMS_SCTP;
+	setsockopt(sock_fd,IPPROTO_SCTP,SCTP_INITMSG,&initm,sizeof(initm));
 	// 初始化server address的設定
 	memset(&servaddr,0,sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
