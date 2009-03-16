@@ -13,7 +13,7 @@
 #define LISTENQ 1024
 //=============================================================================
 
-int main(int argc,char **argv)
+void main(int argc,char **argv)
 {
 	int echo_to_all = 0;
 
@@ -81,6 +81,9 @@ int main(int argc,char **argv)
 		}
 		// 把接收到的資料回送給client
 		ret_value = sctp_sendmsg(sock_fd,readbuf,rd_sz,(struct sockaddr *) &cliaddr,len,sri.sinfo_ppid,sri.sinfo_flags,sri.sinfo_stream,0,0);
+		if (ret_value == -1) {
+			printf("sctp_sendmsg error\n");
+			exit(-1);
+		}
 	}
-	return 0;
 }
