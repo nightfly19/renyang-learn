@@ -1,0 +1,13 @@
+本來stream預設是10條
+這裡把它設定成30條
+
+Note that this change must be made on the socket before an association is created
+
+在編譯時
+會出現以下錯誤
+sctpserv01.c:89: 錯誤： 「MSG_EOF」 未宣告 (在此函式內第一次使用)
+sctpserv01.c:89: 錯誤： (即使在一個函式內多次出現，每個未宣告的識別碼在其
+sctpserv01.c:89: 錯誤： 所在的函式內只報告一次。)
+
+請在bits/socket.h
+把const MSG_EOF = MSG_FIN;
