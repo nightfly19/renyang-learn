@@ -29,7 +29,7 @@ int main()
   // 用來設定一些sctp的設定值
   struct sctp_initmsg initmsg;
 
-  // listenSock=socket(AF_INET, SOCK_STREAM, 0);
+  // listenSock=socket(AF_INET, SOCK_STREAM, 0);=>表示使用one-to-one的情況
   // socket(AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP);
   // 就是使用sctp的one-to-many
   // 不相容於tcp,我猜的
