@@ -1,0 +1,7 @@
+透過fork()
+可以使得clinet執行echo return
+
+
+這一個範例程式可以改成聊天室程式
+
+由select程式改過來的，但是，書上是說加了shutdown的部分，但是，我感覺不出來
