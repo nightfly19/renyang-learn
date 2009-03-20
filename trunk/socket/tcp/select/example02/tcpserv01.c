@@ -16,7 +16,8 @@
 int main(int argc,char **argv)
 {
 	int i,maxi,maxfd,listenfd,connfd,sockfd;
-	int nready,client[FD_SETSIZE];
+	int nready;
+	int client[FD_SETSIZE];	//  記錄所有用來記錄client的file descriptor的陣列
 	ssize_t n;
 	fd_set rset,allset;
 	char buf[MAXLINE];
@@ -39,8 +40,8 @@ int main(int argc,char **argv)
 
 	ret_value = listen(listenfd,LISTENQ);
 
-	maxfd = listenfd;
-	maxi = -1;	// 記錄client array的最大的數
+	maxfd = listenfd;	// initialize
+	maxi = -1;		// 記錄client array的最大的數
 	for (i=0;i<FD_SETSIZE;i++) {
 		client[i]=-1;
 	}
@@ -48,7 +49,7 @@ int main(int argc,char **argv)
 	FD_SET(listenfd,&allset);
 
 	for (;;) {
-		rset = allset;
+		rset = allset;	// structure assignment
 		nready = select(maxfd+1,&rset,NULL,NULL,NULL);
 
 		if (FD_ISSET(listenfd,&rset)) {	// new client connection
@@ -57,7 +58,7 @@ int main(int argc,char **argv)
 
 			for (i=0;i<FD_SETSIZE;i++) {
 				if (client[i]<0) {
-					client[i]=connfd;
+					client[i]=connfd; // save descriptor
 					break;
 				}
 			}
@@ -67,18 +68,18 @@ int main(int argc,char **argv)
 				exit(-1);
 			}
 
-			FD_SET(connfd,&allset);
+			FD_SET(connfd,&allset);	// add new descriptor to set
 
 			if (connfd > maxfd) {
-				maxfd = connfd;
+				maxfd = connfd;	// for select
 			}
 
 			if (i > maxi) {
-				maxi=i;
+				maxi=i;		// max index in client[] array
 			}
 
 			if (--nready <=0) {
-				continue;
+				continue;	// no more readable descriptors
 			}
 		}
 
@@ -86,14 +87,19 @@ int main(int argc,char **argv)
 			if ((sockfd = client[i] ) < 0)
 				continue;
 			if (FD_ISSET(sockfd,&rset)) {
-				if (( n = read(sockfd,buf,MAXLINE))==0) {
+				memset(buf,0,sizeof(buf));
+				if (( n = read(sockfd,buf,MAXLINE))==0) {	// 表示client端單方面結束connection
 					close(sockfd);
 					FD_CLR(sockfd,&allset);
 					client[i]=-1;
 				}
 				else
 				{
-					write(sockfd,buf,n);
+					ret_value = write(sockfd,buf,n);
+					if (ret_value < 0) {
+						perror("write error");
+						exit(-1);
+					}
 				}
 				if (--nready<=0)
 				{

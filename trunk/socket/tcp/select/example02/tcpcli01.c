@@ -75,6 +75,7 @@ void str_cli(FILE *fp,int sockfd)
 
 		if (FD_ISSET(sockfd,&rset)) {	// socket is readable
 			printf("socket is readable\n");
+			memset(recvline,0,sizeof(recvline));
 			if (read(sockfd,recvline,MAXLINE)==0) {
 				printf("str_cli:server terminated prematurely");
 			}
