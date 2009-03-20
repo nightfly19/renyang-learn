@@ -2,7 +2,7 @@
 
 # 設定編譯Qt的sh path
 # 使用方法
-# 在renyang-learn下打以下指令
+# 在renyang-learn/bin目錄下打以下指令
 # source setpath.source
 
 PATH=$PATH:`pwd`
