@@ -38,6 +38,7 @@ int main(int argc,char **argv)
 	}
 	else
 	{
+		// 無論如何一定會bind成功,因為,若給錯的ip,則會bind此host端的所有ip
 		printf("Bind success!!\n");
 	}
 
