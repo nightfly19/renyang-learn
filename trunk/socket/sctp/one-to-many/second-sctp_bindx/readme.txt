@@ -1,0 +1,15 @@
+打算使用multi-homing綁在一個socket上
+
+server端
+後面加一個本機端的ip，讓socket可以在上面服務,例:
+./server 127.0.0.1
+
+另外,server端一定會bind成功,若server端輸入的ip是錯誤的,則系統會自動bind本機端的所有ip
+若輸入是正確的，就只會bind所指定的ip
+
+client端:
+在後面加入server端的ip
+./client 127.0.0.1
+輸入
+[0]Hello
+[1]World
