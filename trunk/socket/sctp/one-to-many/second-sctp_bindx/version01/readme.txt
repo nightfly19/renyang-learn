@@ -13,3 +13,14 @@ client端:
 輸入
 [0]Hello
 [1]World
+
+也可以測式失敗的例子:
+先透過ifconfig得知host有幾個ip
+假設有192.168.20.100與127.0.0.1
+server端:
+./server 127.0.0.1
+
+client端:
+./client 192.168.20.100
+[1]Hello
+則會出現錯誤哩
