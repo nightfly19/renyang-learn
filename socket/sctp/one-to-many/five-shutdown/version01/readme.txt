@@ -36,3 +36,4 @@ server端可以在後面加多個ip,例:
 [增增]
 加入evnts.sctp_shutdown_event=1
 使得當client中斷時，會列印出client中斷
+可以參考unix_network_programming_v13e/sctp/sctp_displayevents.c的程式碼

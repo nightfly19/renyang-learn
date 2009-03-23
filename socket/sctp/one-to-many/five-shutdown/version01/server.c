@@ -15,6 +15,8 @@ int main(int argc,char **argv)
 	int ret_value=0;
 	struct sockaddr *laddrs;	// 用來記錄local addresses
 	struct sockaddr *paddrs;
+	union sctp_notification *snp;		// 用來轉換傳送過來的訊息
+	struct sctp_shutdown_event *sse;	// 當傳送過來的是shutdown event,則可以用這一個指標指到傳送過來的資料
 
 	if (argc < 2) {
 		printf("Error, use %s [list of addresses to bind]\n",argv[0]);
@@ -49,7 +51,7 @@ int main(int argc,char **argv)
 
 	// 設定事件
 	bzero(&evnts,sizeof(evnts));
-	evnts.sctp_data_io_event=1;
+	evnts.sctp_data_io_event=1;	// Enable sctp_sndrcvinfo to come with each recvmsg,否則就接收不到對方的資訊了
 	evnts.sctp_shutdown_event=1;	// 喔耶!當client端shutdown時,會通知server
 	ret_value = setsockopt(sock_fd,IPPROTO_SCTP,SCTP_EVENTS,&evnts,sizeof(evnts));
 	if (ret_value == -1) {
@@ -79,7 +81,16 @@ int main(int argc,char **argv)
 		// test the sctp_getpaddrs function - end
 		//========================================================================
 		if (msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件通告,而非一個資料
-			printf("client disconnect\n");
+			snp = (union sctp_notification *) readbuf;
+			switch (snp->sn_header.sn_type) {
+				case SCTP_SHUTDOWN_EVENT:
+					sse = &snp->sn_shutdown_event;
+					printf("SCTP_SHUTDOWN_EVENT: assoc=0x%x\n",(uint32_t) sse->sse_assoc_id);
+					break;
+				default:
+					printf("UNKNOWN\n");
+					break;
+			}
 			continue;
 		}
 		printf("%s",readbuf);
