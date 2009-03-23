@@ -40,6 +40,7 @@ int main(int argc,char **argv)
 
 	for (;;) {
 		len = sizeof(struct sockaddr_in);
+		printf("start wait...\n");
 		rd_sz = sctp_recvmsg(sock_fd,readbuf, sizeof(readbuf), (struct sockaddr *)&cliaddr, &len, &sri, &msg_flags);
 		printf("sctp_recvmsg() received %d bytes from %s:%d.\n", (int)rd_sz, inet_ntoa(cliaddr.sin_addr), ntohs(cliaddr.sin_port));
 		if (rd_sz > 0) {

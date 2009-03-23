@@ -28,3 +28,6 @@ client端:
 ./client 192.168.20.100
 [1]Hello
 則會出現錯誤哩
+
+[新增]
+當client端連上server端之後,server端會列印出local綁在socket上的個數與client端綁在socket上的個數
