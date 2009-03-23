@@ -54,7 +54,7 @@ int main(int argc,char **argv)
 
 	// Set up for notifications of internet
 	bzero(&evnts,sizeof(evnts));
-	evnts.sctp_data_io_event = 1;	// 監控sctp的data的io事件:1是打開的意思
+	evnts.sctp_data_io_event = 1;	// 使得sctp_sndrcvinfo可以伴隨資料傳送過來
 	ret_value = setsockopt(sock_fd,IPPROTO_SCTP,SCTP_EVENTS,&evnts,sizeof(evnts));
 	if (ret_value == -1) {
 		printf("setsockopt error\n");
