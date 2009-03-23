@@ -32,3 +32,6 @@ client端:
 [新增]
 server端可以在後面加多個ip,例:
 ./server 127.0.0.1 192.168.20.146
+
+[新增]
+增加測試sctp_freepaddrs()與sctp_freeladdrs()

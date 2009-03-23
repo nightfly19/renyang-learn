@@ -32,3 +32,7 @@ client端:
 [新增]
 server端可以在後面加多個ip,例:
 ./server 127.0.0.1 192.168.20.146
+
+[增增]
+加入evnts.sctp_shutdown_event=1
+使得當client中斷時，會列印出client中斷

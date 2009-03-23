@@ -75,6 +75,12 @@ int main(int argc,char **argv)
 		// test the sctp_getpaddrs function - start
 		ret_value = sctp_getpaddrs(sock_fd,sri.sinfo_assoc_id,&paddrs);
 		printf("The sctp_getpaddrs return value is %d\n",ret_value);
+		printf("before sctp_freepaddrs\n");
+		sctp_freepaddrs(paddrs);
+		printf("after sctp_freepaddrs\n");
+		printf("before sctp_freeladdrs\n");
+		sctp_freeladdrs(laddrs);
+		printf("after sctp_freeladdrs\n");
 		// test the sctp_getpaddrs function - end
 		//========================================================================
 		if (msg_flags & MSG_NOTIFICATION) {

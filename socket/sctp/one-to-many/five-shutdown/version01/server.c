@@ -50,6 +50,7 @@ int main(int argc,char **argv)
 	// 設定事件
 	bzero(&evnts,sizeof(evnts));
 	evnts.sctp_data_io_event=1;
+	evnts.sctp_shutdown_event=1;	// 喔耶!當client端shutdown時,會通知server
 	ret_value = setsockopt(sock_fd,IPPROTO_SCTP,SCTP_EVENTS,&evnts,sizeof(evnts));
 	if (ret_value == -1) {
 		printf("setsockopt error\n");
@@ -77,8 +78,8 @@ int main(int argc,char **argv)
 		printf("The sctp_getpaddrs return value is %d\n",ret_value);
 		// test the sctp_getpaddrs function - end
 		//========================================================================
-		if (msg_flags & MSG_NOTIFICATION) {
-			printf("%s\n",readbuf);
+		if (msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件通告,而非一個資料
+			printf("client disconnect\n");
 			continue;
 		}
 		printf("%s",readbuf);
