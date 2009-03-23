@@ -26,7 +26,7 @@ int main(int argc,char **argv)
 	struct sctp_event_subscribe evnts;
 	int stream_increment = 1;
 	socklen_t len;
-	size_t rd_sz;	// size_t指的就是unsigned long
+	size_t rd_sz;	// size_t指的就是unsigned long:rd_sz表示recv,send-size
 
 	if (argc == 2) {
 		// 把字串轉換成數字

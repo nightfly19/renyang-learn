@@ -1,10 +1,10 @@
 #include "sctp_api.h"
 
-int Sctp_bindx(int sockfd,const struct sockaddr *addrs,int addrcnt,int flags) {
+int Sctp_bindx(int sockfd,struct sockaddr *addrs,int addrcnt,int flags) {
 	return sctp_bindx(sockfd,addrs,addrcnt,flags);
 }
 
-int Sctp_connectx(int sockfd,const struct sockaddr *addrs,int addrcnt) {
+int Sctp_connectx(int sockfd,struct sockaddr *addrs,int addrcnt) {
 	return sctp_connectx(sockfd,addrs,addrcnt);
 }
 
@@ -24,7 +24,7 @@ int Sctp_freeladdrs(struct sockaddr *addrs) {
 	return sctp_freeladdrs(addrs);
 }
 
-ssize_t Sctp_sendmsg(int sockfd,const void *msg,size_t msgsz,const struct sockaddr *to,socklen_t tolen,uint32_t ppid,uint32_t flags,uint16_t stream,uint32_t timetolive,uint32_t context) {
+ssize_t Sctp_sendmsg(int sockfd,const void *msg,size_t msgsz,struct sockaddr *to,socklen_t tolen,uint32_t ppid,uint32_t flags,uint16_t stream,uint32_t timetolive,uint32_t context) {
 	return sctp_sendmsg(sockfd,msg,msgsz,to,tolen,ppid,flags,stream,timetolive,context);
 }
 
