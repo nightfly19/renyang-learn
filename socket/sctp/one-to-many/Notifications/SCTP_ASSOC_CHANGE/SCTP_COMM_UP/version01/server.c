@@ -1,0 +1,131 @@
+//===================include header========================
+#include "ren_unp.h"
+//=========================================================
+
+int main(int argc,char **argv)
+{
+	int sock_fd;
+	int msg_flags;	// 記錄要傳送訊息時的相關設定,包括association...
+	char readbuf[BUFFERSIZE];
+	struct sockaddr_in cliaddr, servaddr;
+	struct sctp_sndrcvinfo sri;
+	struct sctp_event_subscribe evnts;
+	socklen_t len;
+	size_t rd_sz;	// size_t指的就是unsigned long
+	int ret_value=0;
+	struct sockaddr *laddrs;	// 用來記錄local addresses
+	struct sockaddr *paddrs;
+	union sctp_notification *snp;		// 用來轉換傳送過來的訊息
+	struct sctp_shutdown_event *sse;	// 當傳送過來的是shutdown event,則可以用這一個指標指到傳送過來的資料
+	struct sctp_assoc_change *sac;
+
+	if (argc < 2) {
+		printf("Error, use %s [list of addresses to bind]\n",argv[0]);
+		exit(-1);
+	}
+	// 建立socket的型態為SCTP的one-to-many的型態
+	sock_fd = Socket(AF_INET,SOCK_SEQPACKET, IPPROTO_SCTP);
+	if (sock_fd == -1) {
+		printf("socket error\n");
+		exit(-1);
+	}
+
+	// 初始化要bind的server資料,連續加入多個要綁的ip address
+	int i;
+	for (i=1;i<argc;i++) {
+		memset(&servaddr,0,sizeof(servaddr));
+		servaddr.sin_family = AF_INET;
+		inet_pton(AF_INET,argv[i],&servaddr.sin_addr);	// 把socket與此ip綁在一起
+		servaddr.sin_port = htons(SERV_PORT);
+
+		// 把這一個ip與socket綁在一起
+		if ((ret_value=sctp_bindx(sock_fd,(struct sockaddr*) &servaddr,1,SCTP_BINDX_ADD_ADDR))==-1) {
+			printf("Can't bind the address %s\n",argv[i]);
+			exit(-1);
+		}
+		else
+		{
+			// 無論如何一定會bind成功,因為,若給錯的ip,則會bind此host端的所有ip
+			printf("Bind %s success!!\n",argv[i]);
+		}
+	}
+
+	// 設定事件
+	bzero(&evnts,sizeof(evnts));
+	evnts.sctp_data_io_event=1;	// Enable sctp_sndrcvinfo to come with each recvmsg,否則就接收不到對方的資訊了
+	evnts.sctp_shutdown_event=1;	// 喔耶!當client端shutdown時,會通知server
+	evnts.sctp_association_event=1;	// 監測
+	ret_value = setsockopt(sock_fd,IPPROTO_SCTP,SCTP_EVENTS,&evnts,sizeof(evnts));
+	if (ret_value == -1) {
+		printf("setsockopt error\n");
+		exit(-1);
+	}
+
+	// 設定多少個client可以連線
+	ret_value = listen(sock_fd,LISTENQ);
+	if (ret_value == -1) {
+		printf("listen error\n");
+		exit(-1);
+	}
+
+	printf("start wait...\n");
+	for (;;) {
+		len = sizeof(struct sockaddr_in);
+		rd_sz = sctp_recvmsg(sock_fd,readbuf,sizeof(readbuf),(struct sockaddr *) &cliaddr,&len,&sri,&msg_flags);
+		//========================================================================
+		// test the sctp_getladdrs function - start
+		ret_value = sctp_getladdrs(sock_fd,sri.sinfo_assoc_id,&laddrs);
+		printf("The sctp_getladdrs return value is %d\n",ret_value);
+		// test the sctp_getladdrs function - end
+		// test the sctp_getpaddrs function - start
+		ret_value = sctp_getpaddrs(sock_fd,sri.sinfo_assoc_id,&paddrs);
+		printf("The sctp_getpaddrs return value is %d\n",ret_value);
+		// test the sctp_getpaddrs function - end
+		//========================================================================
+		if (msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件通告,而非一個資料
+			snp = (union sctp_notification *) readbuf;
+			switch (snp->sn_header.sn_type) {
+				case SCTP_SHUTDOWN_EVENT:
+					sse = &snp->sn_shutdown_event;
+					printf("SCTP_SHUTDOWN_EVENT: assoc=0x%x\n",(uint32_t) sse->sse_assoc_id);
+					break;
+				case SCTP_ASSOC_CHANGE:
+					sac = &snp->sn_assoc_change;
+					switch (sac->sac_state) {
+						case SCTP_COMM_UP:
+							printf("COMMUNICATION UP\n");
+							break;
+						case SCTP_COMM_LOST:
+							printf("COMMUNICATION LOST\n");
+							break;
+						case SCTP_RESTART:
+							printf("RESTART\n");
+							break;
+						case SCTP_SHUTDOWN_COMP:
+							printf("SHUTDOWN COMPLETE\n");
+							break;
+						case SCTP_CANT_STR_ASSOC:
+							printf("CAN'T START ASSOC\n");
+							break;
+						default:
+							printf("UNKNOW\n");
+							break;
+					}
+					break;
+				default:
+					printf("UNKNOWN\n");
+					break;
+			}
+			continue;
+		}
+		printf("%s",readbuf);
+		ret_value = sctp_sendmsg(sock_fd,readbuf,rd_sz,(struct sockaddr *) &cliaddr,len,sri.sinfo_ppid,sri.sinfo_flags,sri.sinfo_stream,0,0);
+		if (ret_value == -1) {
+			printf("sctp_sendmsg error\n");
+			exit(-1);
+		}
+
+	}
+
+	return 0;
+}
