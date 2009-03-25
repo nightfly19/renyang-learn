@@ -89,7 +89,7 @@ int main()
   bzero( (void *)&servaddr, sizeof(servaddr) );
   servaddr.sin_family = AF_INET;
   servaddr.sin_port = htons(MY_PORT_NUM);
-  servaddr.sin_addr.s_addr = inet_addr( "l27.0.0.1" );
+  servaddr.sin_addr.s_addr = inet_addr( "127.0.0.1" );
 
   /* Connect to the server */
   ret = connect( connSock, (struct sockaddr *)&servaddr, sizeof(servaddr) );
@@ -110,7 +110,7 @@ int main()
 
   /* Read and emit the status of the Socket (optional step) */
   in = sizeof(status);
-  ret = getsockopt( connSock, SOL_SCTP, SCTP_STATUS,
+  ret = getsockopt( connSock, IPPROTO_SCTP, SCTP_STATUS,
                      (void *)&status, (socklen_t *)&in );
   if (ret < 0) {
   	perror("getsockopt error");
