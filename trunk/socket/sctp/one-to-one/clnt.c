@@ -101,7 +101,7 @@ int main()
   /* Enable receipt of SCTP Snd/Rcv Data via sctp_recvmsg */
   memset( (void *)&events, 0, sizeof(events) );
   events.sctp_data_io_event = 1;
-  ret = setsockopt( connSock, SOL_SCTP, SCTP_EVENTS,
+  ret = setsockopt( connSock, IPPROTO_SCTP, SCTP_EVENTS,
                      (const void *)&events, sizeof(events) );
   if (ret < 0) {
   	perror("setsockopt error");
@@ -119,8 +119,12 @@ int main()
 
   printf("assoc id  = %d\n", status.sstat_assoc_id );
   printf("state     = %d\n", status.sstat_state );
+  printf("rwnd      = %d\n", status.sstat_rwnd);
+  printf("unack data= %d\n", status.sstat_unackdata);
+  printf("pend data = %d\n", status.sstat_penddata);
   printf("instrms   = %d\n", status.sstat_instrms );
   printf("outstrms  = %d\n", status.sstat_outstrms );
+  printf("fragmentation point = %d\n", status.sstat_fragmentation_point);
 
   /* Expect two messages from the peer */
 
