@@ -7,17 +7,17 @@ OBJ		= serv.o clnt.o
 
 TARGET		= serv clnt
 
-.PHONY: everything clean clean_target all
+.PHONY: everything clean distclean all
 
 everything: $(TARGET)
 
 clean:
 	rm -rf $(OBJ)
 
-clean_target:clean
+distclean:clean
 	rm -rf $(TARGET)
 
-all: clean_target everything
+all: distclean everything
 
 serv.o:serv.c
 	$(ASM) -c $< -o $@
