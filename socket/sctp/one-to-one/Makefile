@@ -12,10 +12,10 @@ TARGET		= serv clnt
 everything: $(TARGET)
 
 clean:
-	rm -rf $(OBJ)
+	rm -vf $(OBJ)
 
 distclean:clean
-	rm -rf $(TARGET)
+	rm -fv $(TARGET)
 
 all: distclean everything
 
