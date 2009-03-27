@@ -6,4 +6,19 @@
 
 [新增]
 修改client與server為thread的版本
-但getaddrinfo()使用上一直有問題
+
+使用方式
+server端:
+要先了解本機端的host name,
+可以打以下指令
+$ hostname
+假設出來的結果是
+fang-desktop
+可以打以下指令,我們設定port為9877
+./tcpserv01 9877
+或是./tcpserv01 fang-desktop 9877
+
+client端:
+./tcpcli01 127.0.0.1
+
+就可以傳送字串過去啦

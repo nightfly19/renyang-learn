@@ -77,8 +77,10 @@ void str_cli(FILE *fp_arg,int sockfd_arg)
 		printf("pthread_create error\n");
 		exit(-1);
 	}
-	while (read(sockfd,recvline,MAXLINE)>0)
+	while (read(sockfd,recvline,MAXLINE)>0) {
 		fputs(recvline,stdout);
+		memset(recvline,0,sizeof(recvline));
+	}
 }
 
 void *copyto(void *arg)

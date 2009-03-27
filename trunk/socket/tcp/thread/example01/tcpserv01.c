@@ -46,7 +46,14 @@ int main(int argc,char **argv)
 	
 	for (;;) {
 		len = addrlen;
+		printf("start waiting...\n");
 		connfd = accept(listenfd,cliaddr,&len);
+		if (connfd < 0) {
+			fprintf(stderr,"accept error\n");
+			exit(-1);
+		}
+		printf("connected...\n");
+		// 產生一個thread來服務client
 		pthread_create(&tid,NULL,&doit,(void *) connfd);
 	}
 }
@@ -61,6 +68,10 @@ void str_echo(int sockfd)
 again:
 	while((n = read(sockfd,buf,MAXLINE))>0) {
 		ret_value = write(sockfd,buf,n);
+		if (ret_value < 0) {
+			fprintf(stderr,"write socket error\n");
+			pthread_exit(NULL);
+		}
 		printf("%s",buf);
 		memset(buf,0,sizeof(buf));
 	}
@@ -98,6 +109,7 @@ int tcp_listen(const char *host,const char *serv,socklen_t *addrlenp)
 
 	// 依所設定的條件(ai_flags=AI_PASSIVE;ai_family=AF_UNSPEC;ai_socktype=SOCK_STREAM)尋找本機端有用的sockaddr
 	// 若hint設定為NULL，則會列出本機端的所有ip,我猜的
+	// getaddrinfo=把人看的懂的名稱轉成ip
 	if ((n=getaddrinfo(host,serv,&hints,&res))!=0) {
 		printf("tcp_listen error for %s, %s: %s\n",host,serv,strerror(n));
 		pthread_exit(NULL);
