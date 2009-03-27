@@ -1,2 +1,13 @@
 這是一個non-blocking的範例程式
 可以拿來參考
+
+操作方式
+server端
+./Server [port]
+指定port值，若沒有指定，則預設為2145
+
+client端
+./Client [host] [port]
+指定server ip和port值
+若沒有設定預設ip為127.0.0.1
+port為23

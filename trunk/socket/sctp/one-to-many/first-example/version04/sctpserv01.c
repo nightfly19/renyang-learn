@@ -86,9 +86,10 @@ int main(int argc,char **argv)
 			}
 		}
 		// 把接收到的資料回送給client
-		ret_value = sctp_sendmsg(sock_fd,readbuf,rd_sz,(struct sockaddr *) &cliaddr,len,sri.sinfo_ppid,(sri.sinfo_flags | MSG_EOF),sri.sinfo_stream,0,0);
+		// SCTP_EOF:Invoke graceful termination after the sending of this message
+		ret_value = sctp_sendmsg(sock_fd,readbuf,rd_sz,(struct sockaddr *) &cliaddr,len,sri.sinfo_ppid,(sri.sinfo_flags | SCTP_EOF),sri.sinfo_stream,0,0);
 		if (ret_value == -1) {
-			printf("sctp_sendmsg error\n");
+			perror("sctp_sendmsg error");
 			exit(-1);
 		}
 	}
