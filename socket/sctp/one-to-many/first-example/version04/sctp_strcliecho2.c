@@ -70,7 +70,8 @@ int main(int argc,char **argv)
 		// 要設定傳給許多個server
 		sctpstr_cli_echoall(stdin,sock_fd,(struct sockaddr *) &servaddr,sizeof(servaddr));
 	}
-	ret_value = sctp_sendmsg(sock_fd,byemsg,strlen(byemsg),(struct sockaddr *) &servaddr,sizeof(servaddr),0,MSG_ABORT,0,0,0);
+	// invoke ABORTIVE termination of the association
+	ret_value = sctp_sendmsg(sock_fd,byemsg,strlen(byemsg),(struct sockaddr *) &servaddr,sizeof(servaddr),0,SCTP_ABORT,0,0,0);
 	if (ret_value == -1) {
 		printf("sctp_sendmsg error\n");
 		exit(-1);
