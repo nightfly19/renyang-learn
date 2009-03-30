@@ -117,7 +117,7 @@ void home_page(const char *host,const char *fname)
 
 	// 列印要執行的指令
 	n = snprintf(line,sizeof(line),GET_CMD,fname);
-	// 送出指令,但是,在使用write指令之前,沒有使用accpet(),listen(),非常奇怪
+	// 送出指令
 	write(fd,line,n);
 
 	for (;;) {
