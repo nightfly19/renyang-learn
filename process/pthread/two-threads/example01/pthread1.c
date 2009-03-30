@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
+// 宣告的這一個function參數值必需是void *,且回傳值必須是void,函數必須是指標函數
 void *print_message_function( void *ptr );
 
 main()
@@ -27,7 +28,7 @@ main()
      // 在middle列印出來之後,絕對不會出現thread1，因為，是執行pthread_join()的結果
      // 會等待指定的thread結束之後,目前這一個main thread才會繼續被執行，
      // 在執行這一個指令之前，是main,thread1,thread2三個同時在進行
-     // 執行完這一個指令之後，只剩下thread1,thread2這兩個thread在進行
+     // 執行完這一個指令之後，只剩下thread1,thread2這兩個thread在進行,因為main必需等到thread1結束才會繼續執行
      pthread_join( thread2, NULL); 	// the main process will wait for the end of the thread2
      printf("after\n");
      // 若照這樣說,以上兩個thread必定會依照以上的順序完成

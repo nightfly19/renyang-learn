@@ -1,0 +1,3 @@
+web appliction的精神應該就是
+取得所有file list的列表
+並且取得所有的檔案
