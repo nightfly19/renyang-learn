@@ -17,7 +17,7 @@
 //===========================================================
 
 //====================define structure=======================
-struct file {
+struct file {		// 宣告一個結構陣列
 	char *f_name;	// file name
 	char *f_host;	// hostname or IP address
 	int f_fd;	// descriptor
@@ -55,20 +55,25 @@ int main(int argc,char **argv)
 		fprintf(stderr,"usage: web <#conns> <IPaddr> <homepage> file1 ...\n");
 		exit(-1);
 	}
+	// 設定連線個數,把字串轉成數字
 	maxnconn = atoi(argv[1]);
+	// 設定要處理的檔案個數,參數個數減掉前四個必要參數,剩下的都是file名稱
 	nfiles = (argc - 4 < MAXFILES)?argc-4:MAXFILES;
 
 	for (i=0;i<nfiles;i++) {
-		file[i].f_name = argv[i+4];
-		file[i].f_host = argv[2];
-		file[i].f_flags = 0;
+		file[i].f_name = argv[i+4];	// 檔案名稱
+		file[i].f_host = argv[2];	// 設定server ip
+		file[i].f_flags = 0;		// 為0,表示這一個檔案還沒有被處理
 	}
 
+	// 列印出來要處理的檔案個數
 	printf("nfiles = %d\n",nfiles);
 
 	home_page(argv[2],argv[3]);
 
+	// 剩下要去[讀取的],[要準備連接的],[一共要讀取的檔案]
 	nlefttoread = nlefttoconn = nfiles;
+	// 目前連接數
 	nconn = 0;
 
 	// show the main processing loop of the main thread
@@ -79,23 +84,23 @@ int main(int argc,char **argv)
 				if (file[i].f_flags ==0)
 					break;
 			}
-			if (i==nfiles) {
+			if (i==nfiles) {	// 若這一個條件成立,表示所有的檔案都被處理完,或正在處理中
 				fprintf(stderr,"nlefttoconn = %d but nothing found",nlefttoconn);
-				exit(-1);
+				exit(-1);	// 直接中斷程式這樣對嗎?
 			}
-			file[i].f_flags = F_CONNECTING;
-			pthread_create(&tid,NULL,&do_get_read,&file[i]);
-			file[i].f_tid = tid;
-			nconn++;
-			nlefttoconn--;
+			file[i].f_flags = F_CONNECTING;	// 正在連線中
+			pthread_create(&tid,NULL,do_get_read,&file[i]);	// 產生一個thread,並執行do_get_read()
+			file[i].f_tid = tid;		// 設定處理這一個file的thread id是哪一個
+			nconn++;			// 增加一個連線數
+			nlefttoconn--;			// 減少剩下要被連線的個數
 		}
 		if ((n=pthread_join(tid,(void **) &fptr))!=0) {	// there is some problem??
 			errno = n;
 			fprintf(stderr,"thr_join error\n");
 			exit(-1);
 		}
-		nconn--;
-		nlefttoread--;
+		nconn--;	// 應該是處理完一個,所以,連線數減一
+		nlefttoread--;	// 減少還要處理的檔案個數
 		printf("thread id %d for %s done\n",tid,fptr->f_name);
 	}
 	exit(0);
@@ -110,13 +115,16 @@ void home_page(const char *host,const char *fname)
 
 	fd = tcp_connect(host,SERV);	// blocking connect()
 
+	// 列印要執行的指令
 	n = snprintf(line,sizeof(line),GET_CMD,fname);
+	// 送出指令,但是,在使用write指令之前,沒有使用accpet(),listen(),非常奇怪
 	write(fd,line,n);
 
 	for (;;) {
-		if ((n=read(fd,line,MAXLINE))==0)
+		if ((n=read(fd,line,MAXLINE))==0)	// 表示對方結束connection
 			break;	// server closed connection
 
+		// 列印出讀取多少個bytes
 		printf("read %d bytes of home page\n",n);
 	}
 
@@ -129,6 +137,7 @@ int tcp_connect(const char *host,const char *serv)
 	int sockfd,n;
 	struct addrinfo hints,*res,*ressave;
 	bzero(&hints,sizeof(struct addrinfo));
+	// 設定依條件所建立的socket
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 
@@ -136,20 +145,23 @@ int tcp_connect(const char *host,const char *serv)
 		fprintf(stderr,"tcp_connect error for %s,%s:%s",host,serv,gai_strerror(n));
 		exit(-1);
 	}
+	// res內儲存許多要建立的socket參數
 	ressave = res;
 	do {
+		// 嘗試建立socket
 		sockfd = socket(res->ai_family,res->ai_socktype,res->ai_protocol);
-		if (sockfd < 0)
+		if (sockfd < 0)		// 建立失敗,尋找下一個要建立socket的參數
 			continue;	// ignore this one
 		if (connect(sockfd,res->ai_addr,res->ai_addrlen)==0)
 			break;		// success
 		close(sockfd);		// ignore this one
 	} while ((res=res->ai_next)!=NULL);
 
-	if (res ==NULL) {
+	if (res ==NULL) {	// 利用了所以可以建立socket的參數,但均是失敗,則列印出錯誤
 		fprintf(stderr,"tcp_connect error for %s,%s",host,serv);
 		exit(-1);
 	}
+	// 把剛剛收集到的可以嘗試建立socket的參數陣列的空間釋放出來
 	freeaddrinfo(ressave);
 	return (sockfd);
 }

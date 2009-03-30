@@ -5,7 +5,7 @@
 //====================================================================
 
 //==========================define variable===========================
-#define NLOOP 65535
+#define NLOOP 65535	// 設定每一個迴圈的個數
 //====================================================================
 
 //==========================global variable===========================
@@ -29,8 +29,8 @@ int main(int argc,char **argv)
 		exit(-1);
 	}
 	// wait for both threads to terminate
-	pthread_join(tidA,NULL);
-	pthread_join(tidB,NULL);
+	pthread_join(tidA,NULL);	// 當執行完這一行指令之後,main的這一個thread會等待tidA這一個thread執行完
+	pthread_join(tidB,NULL);	// 當執行完這一行指令之後,main的這一個thread會等待tidB這一個thread執行完
 
 	return 0;
 }
