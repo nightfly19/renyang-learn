@@ -17,6 +17,16 @@ void err_quit(const char *fmt, ...)
 	exit(1);
 }
 
+void err_sys(const char *fmt, ...)
+{
+	va_list ap;
+	
+	va_start(ap,fmt);
+	err_doit(1,LOG_ERR,fmt,ap);
+	va_end(ap);
+	exit(1);
+}
+
 static void err_doit(int errnoflag,int level,const char *fmt,va_list ap)
 {
 	int errno_save,n;

@@ -1,6 +1,6 @@
 CC	= gcc
 
-OBJ	= error.o
+OBJ	= error.o wrapunix.o tcp_connect.o readn.o wrapsock.o
 
 TARGET	= libunp.a
 
