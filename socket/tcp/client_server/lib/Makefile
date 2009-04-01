@@ -1,0 +1,25 @@
+CC	= gcc
+
+OBJ	= error.o
+
+TARGET	= libunp.a
+
+.PHONY: everything all clean distclean
+
+everything: $(TARGET)
+
+all: distclean everything
+
+clean:
+	rm -fv $(OBJ)
+
+distclean: clean
+	rm -fv $(TARGET)
+
+# 依每一個c為副檔名的建立其物件檔
+%.o:%.c
+	$(CC) -c $< -o $@
+
+# 建立Static library
+libunp.a:$(OBJ)
+	ar rcs $@ $(OBJ)
