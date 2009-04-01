@@ -2,6 +2,10 @@ CC	= gcc
 
 OBJ	= client.o
 
+LIBS	= ../../lib/libunp.a
+
+CFLAGS	= -I../../lib
+
 TARGET	= client
 
 .PHONY: everything all clean distclean
@@ -17,7 +21,10 @@ distclean: clean
 	rm -fv $(TARGET)
 
 client.o:client.c
-	$(CC) -c $< -o $@
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 client:client.o
-	$(CC) $< -o $@
+	$(CC) $< -o $@ $(LIBS)
+
+../../lib/libunp.a:
+	make -f ../../lib/Makefile
