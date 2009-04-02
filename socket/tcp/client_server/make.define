@@ -1,1 +1,1 @@
-SUBDIR	= lib client/version01 server/01_iterative_server
+SUBDIR	= lib client/version01 server/01_iterative_server server/02_concurrent_server

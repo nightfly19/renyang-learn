@@ -1,0 +1,7 @@
+在這一個例子可以用以下方式運作
+
+server端:因為要用到1024 port以下，所以必需要有root的權限
+sudo ./server
+
+client端:./client [IP] [port] [childprocess] [everychild's connect] [string]
+./client 127.0.0.1 13 5 500 4000

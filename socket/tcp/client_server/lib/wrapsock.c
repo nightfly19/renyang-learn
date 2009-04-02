@@ -40,3 +40,9 @@ int Socket(int family,int type,int protocol)
 		err_sys("socket error");
 	return (n);
 }
+
+void Setsockopt(int fd,int level,int optname,const void *optval,socklen_t optlen)
+{
+	if (setsockopt(fd,level,optname,optval,optlen)>0)
+		err_sys("setsockopt error");
+}
