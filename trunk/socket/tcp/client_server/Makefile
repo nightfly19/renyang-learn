@@ -1,22 +1,14 @@
-FOLDER	= lib client/version01 server/01_iterative_server
-
 .PHONY: everything all clean distclean
 
 everything:
-	cd lib;$(MAKE) $@
-	cd client/version01;$(MAKE) $@
-	cd server/01_iterative_server;$(MAKE) $@
+	make -f make.everything
+
 all:
-	cd lib;$(MAKE) $@
-	cd client/version01;$(MAKE) $@
-	cd server/01_iterative_server;$(MAKE) $@
+	make -f make.distclean
+	make -f make.everything
 
 clean:
-	cd lib;$(MAKE) $@
-	cd client/version01;$(MAKE) $@
-	cd server/01_iterative_server;$(MAKE) $@
+	make -f make.clean
 
 distclean:
-	cd lib;$(MAKE) $@
-	cd client/version01;$(MAKE) $@
-	cd server/01_iterative_server;$(MAKE) $@
+	make -f distclean
