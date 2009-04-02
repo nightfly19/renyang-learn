@@ -19,3 +19,12 @@ void Write(int fd,void *ptr,size_t nbytes)
 	if (write(fd,ptr,nbytes)!=nbytes)
 		err_sys("write error");
 }
+
+void *Malloc(size_t size)
+{
+	void *ptr;
+
+	if ((ptr = malloc(size)) == NULL)
+		err_sys("malloc error");
+	return (ptr);
+}
