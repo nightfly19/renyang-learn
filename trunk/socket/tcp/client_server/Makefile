@@ -11,4 +11,4 @@ clean:
 	make -f make.clean
 
 distclean:
-	make -f distclean
+	make -f make.distclean
