@@ -23,5 +23,8 @@ distclean: clean
 server.o: server.c
 	$(CC) -c $< -o $@ $(CFLAGS)
 
-server:server.o
+server:server.o $(LIBS)
 	$(CC) $< -o $@ $(LIBS)
+
+$(LIBS):
+	$(MAKE) -w -C ../../lib
