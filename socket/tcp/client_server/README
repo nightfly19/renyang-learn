@@ -1,3 +1,6 @@
 開始連立client-server的模型
 並且把lib獨立出來
 client,server也獨立出來
+
+在最上層建立一個Makefile
+如此一來可以同時控制多個資料夾的Makefile
