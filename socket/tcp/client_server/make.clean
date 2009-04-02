@@ -1,0 +1,9 @@
+include make.define
+
+.PHONY: clean $(SUBDIR)
+
+clean: $(SUBDIR)
+
+# 進入每一個子目錄尋找Makefile
+$(SUBDIR):
+	$(MAKE) clean -C $@
