@@ -1,14 +1,11 @@
-.PHONY: everything all clean distclean
+# 列出所有的子目錄
+SUBDIRS	= lib client/version01 server/01_iterative_server server/02_concurrent_server
 
-everything:
-	make -f make.everything
+# 列出所有的make後面可接的指令
+INSTR	= everything all clean distclean
 
-all:
-	make -f make.distclean
-	make -f make.everything
+.PHONY: $(INSTR)
 
-clean:
-	make -f make.clean
-
-distclean:
-	make -f make.distclean
+# 透過shell的指令到每一個子目錄尋找Makefile並執行其makefile
+$(INSTR): $(SUBDIRS)
+	for i in $(SUBDIRS); do (cd $$i && make $@);done
