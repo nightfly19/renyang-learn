@@ -20,6 +20,7 @@
 #define SA struct sockaddr
 #define SCTP_PDAPI_INCR_SZ 65535   /* increment size for pdapi when adding buf space */
 #define SCTP_PDAPI_NEED_MORE_THRESHOLD 1024	/* need more space threshold */
+#define SERV_MAX_SCTP_STRM	10	/* normal maximum streams */
 //================================================================
 
 //========================typedef=================================
@@ -31,6 +32,12 @@ typedef void Sigfunc(int);
 int Sctp_recvmsg(int,void *,size_t,struct sockaddr *,socklen_t *,struct sctp_sndrcvinfo *,int *);
 int Sctp_sendmsg(int,void *,size_t,struct sockaddr *,socklen_t,uint32_t,uint32_t,uint16_t,uint32_t,uint32_t);
 int Sctp_bindx(int,struct sockaddr *,int,int);
+//----------------------------------------------------------------
+//------------------------sctp_strcliecho.c-----------------------
+void sctpstr_cli_echoall(FILE *,int,struct sockaddr *,socklen_t);
+//----------------------------------------------------------------
+//------------------------sctp_strcli.c---------------------------
+void sctpstr_cli(FILE *,int,struct sockaddr *,socklen_t);
 //----------------------------------------------------------------
 //------------------------wrapunix.c------------------------------
 void Close(int);
