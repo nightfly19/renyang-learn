@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
+#include <netinet/sctp.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -17,6 +18,8 @@
 #define MAXLINE 4096
 #define LISTENQ 1024
 #define SA struct sockaddr
+#define SCTP_PDAPI_INCR_SZ 65535   /* increment size for pdapi when adding buf space */
+#define SCTP_PDAPI_NEED_MORE_THRESHOLD 1024	/* need more space threshold */
 //================================================================
 
 //========================typedef=================================
@@ -24,6 +27,11 @@ typedef void Sigfunc(int);
 //================================================================
 
 //========================define function=========================
+//------------------------sctp_wrapper.c--------------------------
+int Sctp_recvmsg(int,void *,size_t,struct sockaddr *,socklen_t *,struct sctp_sndrcvinfo *,int *);
+int Sctp_sendmsg(int,void *,size_t,struct sockaddr *,socklen_t,uint32_t,uint32_t,uint16_t,uint32_t,uint32_t);
+int Sctp_bindx(int,struct sockaddr *,int,int);
+//----------------------------------------------------------------
 //------------------------wrapunix.c------------------------------
 void Close(int);
 void Write(int,void *,size_t);
@@ -69,6 +77,9 @@ int Tcp_connect(const char *,const char *);
 pid_t Fork(void);
 void err_quit(const char *, ...);
 void err_sys(const char *, ...);
+//------------------------sctp_pdapircv.c-------------------------
+uint8_t *pdapi_recvmsg(int,int *,SA *,int *,struct sctp_sndrcvinfo *,int *);
+//----------------------------------------------------------------
 //================================================================
 
 #endif
