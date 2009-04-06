@@ -2,9 +2,11 @@ CC	= gcc
 
 OBJ	= client.o
 
-LIBS	= ../../lib/libunp.a
+MAINPATH= ../../../../
 
-CFLAGS	= -I../../lib
+LIBS	= $(MAINPATH)/lib/libunp.a
+
+CFLAGS	= -I$(MAINPATH)/lib
 
 TARGET	= client
 
@@ -31,4 +33,4 @@ client:client.o $(LIBS)
 # -C是切換目錄
 # -M是回到指定的目錄
 $(LIBS):
-	$(MAKE) -w -C ../../lib M=$(PWD)
+	$(MAKE) -w -C $(MAINPATH)/lib M=$(PWD)

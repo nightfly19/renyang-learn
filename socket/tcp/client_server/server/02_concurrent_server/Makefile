@@ -2,9 +2,11 @@ CC	= gcc
 
 OBJ	= server.o
 
-LIBS	= ../../lib/libunp.a
+MAINPATH= ../../../../
 
-CFLAGS	= -I../../lib
+LIBS	= $(MAINPATH)lib/libunp.a
+
+CFLAGS	= -I$(MAINPATH)lib
 
 TARGET	= server
 
@@ -27,4 +29,4 @@ server:server.o $(LIBS)
 	$(CC) $< -o $@ $(LIBS)
 
 $(LIBS):
-	$(MAKE) -w -C ../../lib
+	$(MAKE) -w -C $(MAINPATH)lib

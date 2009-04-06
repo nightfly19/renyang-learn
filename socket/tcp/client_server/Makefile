@@ -1,5 +1,5 @@
 # 列出所有的子目錄
-SUBDIRS	= lib client/version01 server/01_iterative_server server/02_concurrent_server
+SUBDIRS	= ../../lib client/version01 server/01_iterative_server server/02_concurrent_server
 
 # 列出所有的make後面可接的指令
 INSTR	= everything all clean distclean
