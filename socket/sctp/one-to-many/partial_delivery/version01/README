@@ -1,0 +1,33 @@
+本來stream預設是10條
+這裡把它設定成30條
+
+Note that this change must be made on the socket before an association is created
+
+[新增]
+server端:
+./server
+
+client端:當輸入多個ip會啟動Echoing message to all streams
+./client 127.0.0.1 192.168.20.146
+Echoing messages to all streams
+[1]good
+From str:1 seq:0 (assoc:0x1):[1]good.msg.0 1
+From str:1 seq:1 (assoc:0x1):[1]good.msg.0 2
+From str:2 seq:0 (assoc:0x1):[1]good.msg.1 1
+From str:2 seq:1 (assoc:0x1):[1]good.msg.1 2
+From str:3 seq:0 (assoc:0x1):[1]good.msg.2 1
+From str:3 seq:1 (assoc:0x1):[1]good.msg.2 2
+From str:4 seq:0 (assoc:0x1):[1]good.msg.3 1
+From str:4 seq:1 (assoc:0x1):[1]good.msg.3 2
+From str:5 seq:0 (assoc:0x1):[1]good.msg.4 1
+From str:5 seq:1 (assoc:0x1):[1]good.msg.4 2
+From str:6 seq:0 (assoc:0x1):[1]good.msg.5 1
+From str:6 seq:1 (assoc:0x1):[1]good.msg.5 2
+From str:7 seq:0 (assoc:0x1):[1]good.msg.6 1
+From str:7 seq:1 (assoc:0x1):[1]good.msg.6 2
+From str:8 seq:0 (assoc:0x1):[1]good.msg.7 1
+From str:8 seq:1 (assoc:0x1):[1]good.msg.7 2
+From str:9 seq:0 (assoc:0x1):[1]good.msg.8 1
+From str:9 seq:1 (assoc:0x1):[1]good.msg.8 2
+From str:10 seq:0 (assoc:0x1):[1]good.msg.9 1
+From str:10 seq:1 (assoc:0x1):[1]good.msg.9 2
