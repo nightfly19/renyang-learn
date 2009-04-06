@@ -1,6 +1,6 @@
 CC	= gcc
 
-OBJ	= error.o wrapunix.o tcp_connect.o readn.o wrapsock.o sigchldwaitpid.o pr_cpu_time.o web_child.o tcp_listen.o signal.o readline.o writen.o sctp_pdapircv.o sctp_wrapper.o sctp_strcliecho.o
+OBJ	= error.o wrapunix.o tcp_connect.o readn.o wrapsock.o sigchldwaitpid.o pr_cpu_time.o web_child.o tcp_listen.o signal.o readline.o writen.o sctp_pdapircv.o sctp_wrapper.o sctp_strcliecho.o sctp_getnostrm.o sctp_addr_to_associd.o wraplib.o sctp_strcli.o
 
 TARGET	= libunp.a
 

@@ -46,3 +46,9 @@ void Setsockopt(int fd,int level,int optname,const void *optval,socklen_t optlen
 	if (setsockopt(fd,level,optname,optval,optlen)>0)
 		err_sys("setsockopt error");
 }
+
+void Getsockopt(int fd,int level,int optname,void *optval,socklen_t *optlenptr)
+{
+	if (getsockopt(fd,level,optname,optval,optlenptr)<0)
+		err_sys("getsockopt error");
+}
