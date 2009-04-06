@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <netinet/sctp.h>
+#include <arpa/inet.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -21,6 +22,8 @@
 #define SCTP_PDAPI_INCR_SZ 65535   /* increment size for pdapi when adding buf space */
 #define SCTP_PDAPI_NEED_MORE_THRESHOLD 1024	/* need more space threshold */
 #define SERV_MAX_SCTP_STRM	10	/* normal maximum streams */
+#define	BUFFSIZE	8192	/* buffer size for reads and writes */
+#define	SERV_PORT		 9877			/* TCP and UDP client-servers */
 //================================================================
 
 //========================typedef=================================
@@ -28,6 +31,12 @@ typedef void Sigfunc(int);
 //================================================================
 
 //========================define function=========================
+//------------------------sctp_getnostrm.c------------------------
+int sctp_get_no_strms(int,struct sockaddr *,socklen_t);
+//----------------------------------------------------------------
+//------------------------sctp_addr_to_associd.c------------------
+sctp_assoc_t sctp_address_to_associd(int,struct sockaddr *,socklen_t);
+//----------------------------------------------------------------
 //------------------------sctp_wrapper.c--------------------------
 int Sctp_recvmsg(int,void *,size_t,struct sockaddr *,socklen_t *,struct sctp_sndrcvinfo *,int *);
 int Sctp_sendmsg(int,void *,size_t,struct sockaddr *,socklen_t,uint32_t,uint32_t,uint16_t,uint32_t,uint32_t);
@@ -54,6 +63,11 @@ void Listen(int,int);
 int Socket(int,int,int);
 int Accept(int,struct sockaddr *,socklen_t *);
 void Setsockopt(int,int,int,const void *,socklen_t);
+void Getsockopt(int,int,int,void *,socklen_t *);
+//----------------------------------------------------------------
+//------------------------wraplib.c-------------------------------
+const char *Inet_ntop(int,const void *,char *,size_t);
+void Inet_pton(int,const char *,void *);
 //----------------------------------------------------------------
 //------------------------signal.c--------------------------------
 Sigfunc * Signal(int, Sigfunc *);
