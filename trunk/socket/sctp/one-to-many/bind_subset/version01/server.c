@@ -5,26 +5,24 @@ main(int argc, char **argv)
 {
 	int sock_fd,msg_flags;
 	char readbuf[BUFFSIZE];
-	struct sockaddr_in servaddr, cliaddr;
+	struct sockaddr_in cliaddr;
 	struct sctp_sndrcvinfo sri;
 	struct sctp_event_subscribe evnts;
-	int stream_increment=1;
 	socklen_t len;
 	size_t rd_sz;
+/* include mod_serv07 */
+	if(argc < 2)
+		err_quit("Error, use %s [list of addresses to bind]\n",
+		       argv[0]);
+	// 好像用AP_INET6則ipv6與ipv4均可以使用
+        sock_fd = Socket(AF_INET6, SOCK_SEQPACKET, IPPROTO_SCTP);
 
-	if (argc == 2)
-		stream_increment = atoi(argv[1]);
-        sock_fd = Socket(AF_INET, SOCK_SEQPACKET, IPPROTO_SCTP);
-	bzero(&servaddr, sizeof(servaddr));
-	servaddr.sin_family = AF_INET;
-	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	servaddr.sin_port = htons(SERV_PORT);
+	if(sctp_bind_arg_list(sock_fd, argv + 1, argc - 1))
+		err_sys("Can't bind the address set");
 
-	Bind(sock_fd, (SA *) &servaddr, sizeof(servaddr));
-	
-/* include mod_serv06 */
 	bzero(&evnts, sizeof(evnts));
 	evnts.sctp_data_io_event = 1;
+/* end mod_serv07 */
 	evnts.sctp_association_event = 1;
 	evnts.sctp_address_event = 1;
 	evnts.sctp_send_failure_event = 1;
@@ -36,23 +34,15 @@ main(int argc, char **argv)
 		   &evnts, sizeof(evnts));
 
 	Listen(sock_fd, LISTENQ);
-	printf("Start waiting...\n");
+
 	for ( ; ; ) {
 		len = sizeof(struct sockaddr_in);
 		rd_sz = Sctp_recvmsg(sock_fd, readbuf, sizeof(readbuf),
 			     (SA *)&cliaddr, &len,
 			     &sri,&msg_flags);
-		if(msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件,而非一個資料
+		if(msg_flags & MSG_NOTIFICATION) {
 			print_notification(readbuf);
 			continue;
-		}
-/* end mod_serv06 */
-		if(stream_increment) {
-			sri.sinfo_stream++;
-			// getsockopt用在sctp有問題!!先跳過!
-			// if(sri.sinfo_stream >= sctp_get_no_strms(sock_fd,(SA *)&cliaddr, len)) 
-			if(sri.sinfo_stream >= 100)
-				sri.sinfo_stream = 0;
 		}
 		Sctp_sendmsg(sock_fd, readbuf, rd_sz, 
 			     (SA *)&cliaddr, len,
@@ -61,4 +51,5 @@ main(int argc, char **argv)
 			     sri.sinfo_stream,
 			     0, 0);
 	}
+	
 }

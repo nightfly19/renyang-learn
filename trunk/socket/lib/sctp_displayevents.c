@@ -1,5 +1,6 @@
 #include	"unp.h"
 
+// notify_buf表示由對方收到的資料
 void
 print_notification(char *notify_buf)
 {
