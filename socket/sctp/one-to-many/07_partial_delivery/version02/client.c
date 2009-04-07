@@ -15,13 +15,17 @@ main(int argc, char **argv)
 		printf("Echoing messages to all streams\n");
 		echo_to_all = 1;
 	}
+	// 建立一個sctp的socket
         sock_fd = Socket(AF_INET, SOCK_SEQPACKET, IPPROTO_SCTP);
+	// 設定server的ip的資訊
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	servaddr.sin_port = htons(SERV_PORT);
+	// 把字串型態的ip轉換成二進位的ip型式
 	Inet_pton(AF_INET, argv[1], &servaddr.sin_addr);
 
+	// Enable sctp_sndrcvinfo to come with each recvmsg
 	bzero(&evnts, sizeof(evnts));
 	evnts.sctp_data_io_event = 1;
 	Setsockopt(sock_fd,IPPROTO_SCTP, SCTP_EVENTS,
