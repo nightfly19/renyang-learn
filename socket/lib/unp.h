@@ -13,6 +13,7 @@
 #include <string.h>
 #include <netdb.h>
 #include <sys/wait.h>
+#include <sys/un.h>	// for the struct sockaddr_un
 //================================================================
 
 //========================define variable=========================
@@ -34,6 +35,9 @@ typedef void Sigfunc(int);
 //========================define function=========================
 //------------------------sctp_getnostrm.c------------------------
 int sctp_get_no_strms(int,struct sockaddr *,socklen_t);
+//----------------------------------------------------------------
+//------------------------sctp_displayevents.c--------------------
+void print_notification(char *);
 //----------------------------------------------------------------
 //------------------------sctp_addr_to_associd.c------------------
 sctp_assoc_t sctp_address_to_associd(int,struct sockaddr *,socklen_t);
