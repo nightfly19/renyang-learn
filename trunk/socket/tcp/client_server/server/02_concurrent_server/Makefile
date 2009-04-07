@@ -29,4 +29,4 @@ server:server.o $(LIBS)
 	$(CC) $< -o $@ $(LIBS)
 
 $(LIBS):
-	$(MAKE) -w -C $(MAINPATH)lib
+	$(MAKE) -w -C $(MAINPATH)/lib

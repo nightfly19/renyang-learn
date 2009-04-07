@@ -27,8 +27,11 @@ distclean: clean
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-server:server.o
+server:server.o $(CUSTOMER)
 	$(CC) $(LIBS) $< $(CUSTOMER) -o $@
 
-client:client.o
+client:client.o $(CUSTOMER)
 	$(CC) $(LIBS) $< $(CUSTOMER) -o $@
+
+$(CUSTOMER):
+	$(MAKE) -C $(MAINPATH)/lib
