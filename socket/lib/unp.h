@@ -53,6 +53,24 @@ void sctpstr_cli_echoall(FILE *,int,struct sockaddr *,socklen_t);
 //------------------------sctp_strcli.c---------------------------
 void sctpstr_cli(FILE *,int,struct sockaddr *,socklen_t);
 //----------------------------------------------------------------
+//------------------------sctp_strcli_un.c------------------------
+void sctpstr_cli_un(FILE *, int, struct sockaddr *, socklen_t);
+//----------------------------------------------------------------
+//------------------------sctp_bindargs.c-------------------------
+int sctp_bind_arg_list(int, char **, int);
+//----------------------------------------------------------------
+//------------------------host_serv.c-----------------------------
+struct addrinfo * Host_serv(const char *, const char *, int, int);
+//----------------------------------------------------------------
+//------------------------sctp_strcli_info.c----------------------
+void sctpstr_cli_info(FILE *, int, struct sockaddr *, socklen_t);
+//----------------------------------------------------------------
+//------------------------sctp_check_notify.c---------------------
+void check_notification(int,char *,int);
+//----------------------------------------------------------------
+//------------------------sctp_print_addrs.c----------------------
+void sctp_print_addresses(struct sockaddr_storage *, int);
+//----------------------------------------------------------------
 //------------------------wrapunix.c------------------------------
 void Close(int);
 void Write(int,void *,size_t);

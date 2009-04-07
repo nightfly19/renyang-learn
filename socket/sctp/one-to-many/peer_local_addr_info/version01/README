@@ -1,0 +1,8 @@
+執行方法
+
+server端:
+./server
+
+client端:
+./client 127.0.0.1
+[0]Hello World!!
