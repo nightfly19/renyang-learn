@@ -24,6 +24,7 @@
 #define SERV_MAX_SCTP_STRM	10	/* normal maximum streams */
 #define	BUFFSIZE	8192	/* buffer size for reads and writes */
 #define	SERV_PORT		 9877			/* TCP and UDP client-servers */
+#define SERV_MORE_STRMS_SCTP 30
 //================================================================
 
 //========================typedef=================================
