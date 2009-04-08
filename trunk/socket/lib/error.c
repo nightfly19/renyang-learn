@@ -7,6 +7,15 @@ int daemon_proc;	// set nonzero by daemon_init()
 
 static void err_doit(int,int,const char *,va_list);
 
+void err_ret(const char *fmt, ...)
+{
+	va_list ap;
+	va_start(ap,fmt);
+	err_doit(1,LOG_INFO,fmt,ap);
+	va_end(ap);
+	return ;
+}
+
 void err_quit(const char *fmt, ...)
 {
 	va_list ap;	// 一個特殊的型態(type),在va_start,va_arg,va_end三個巨集中使用
