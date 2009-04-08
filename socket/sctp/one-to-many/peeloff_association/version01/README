@@ -1,0 +1,14 @@
+這一個例子使用到了由對方的ip可以取得association
+
+然後由one-to-many抽出一個one-to-one的socket
+然後由fork()去處理
+
+會這樣做是因為one-to-many不能交給thread或是fork去處理要處理的程式
+
+執行方式
+server端:
+./server
+
+client端:
+./client 127.0.0.1
+[0]Hello World!!

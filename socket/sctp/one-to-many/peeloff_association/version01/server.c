@@ -3,17 +3,15 @@
 int
 main(int argc, char **argv)
 {
-	int sock_fd,msg_flags;
+	int sock_fd,msg_flags,connfd,childpid;
+	sctp_assoc_t assoc;
 	char readbuf[BUFFSIZE];
 	struct sockaddr_in servaddr, cliaddr;
 	struct sctp_sndrcvinfo sri;
 	struct sctp_event_subscribe evnts;
-	int stream_increment=1;
 	socklen_t len;
 	size_t rd_sz;
 
-	if (argc == 2)
-		stream_increment = atoi(argv[1]);
         sock_fd = Socket(AF_INET, SOCK_SEQPACKET, IPPROTO_SCTP);
 	bzero(&servaddr, sizeof(servaddr));
 	servaddr.sin_family = AF_INET;
@@ -22,43 +20,42 @@ main(int argc, char **argv)
 
 	Bind(sock_fd, (SA *) &servaddr, sizeof(servaddr));
 	
-/* include mod_serv06 */
 	bzero(&evnts, sizeof(evnts));
 	evnts.sctp_data_io_event = 1;
-	evnts.sctp_association_event = 1;
-	evnts.sctp_address_event = 1;
-	evnts.sctp_send_failure_event = 1;
-	evnts.sctp_peer_error_event = 1;
-	evnts.sctp_shutdown_event = 1;
-	evnts.sctp_partial_delivery_event = 1;
-	evnts.sctp_adaptation_layer_event = 1;
 	Setsockopt(sock_fd, IPPROTO_SCTP, SCTP_EVENTS,
 		   &evnts, sizeof(evnts));
 
 	Listen(sock_fd, LISTENQ);
 	printf("Start waiting...\n");
+/* include mod_servfork */
 	for ( ; ; ) {
 		len = sizeof(struct sockaddr_in);
 		rd_sz = Sctp_recvmsg(sock_fd, readbuf, sizeof(readbuf),
 			     (SA *)&cliaddr, &len,
 			     &sri,&msg_flags);
-		if(msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件,而非一個資料
-			print_notification(readbuf);	// 列印出local端與server端的資訊
-			continue;
-		}
-/* end mod_serv06 */
-		if(stream_increment) {
-			sri.sinfo_stream++;
-			// getsockopt用在sctp有問題!!先跳過!
-			// if(sri.sinfo_stream >= sctp_get_no_strms(sock_fd,(SA *)&cliaddr, len)) 
-			if(sri.sinfo_stream >= 100)
-				sri.sinfo_stream = 0;
-		}
 		Sctp_sendmsg(sock_fd, readbuf, rd_sz, 
 			     (SA *)&cliaddr, len,
 			     sri.sinfo_ppid,
 			     sri.sinfo_flags,
 			     sri.sinfo_stream,
 			     0, 0);
+		assoc = sctp_address_to_associd(sock_fd,(SA *)&cliaddr,len);
+		if((int)assoc == 0){
+			err_ret("Can't get association id");
+			continue;
+		} 
+		connfd = sctp_peeloff(sock_fd,assoc);
+		if(connfd == -1){
+			err_ret("sctp_peeloff fails");
+			continue;
+		}
+		if((childpid = fork()) == 0) {
+			Close(sock_fd);
+			str_echo(connfd);
+			exit(0);
+		} else {
+			Close(connfd);
+		}
 	}
+/* end mod_servfork */
 }

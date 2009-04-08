@@ -39,6 +39,9 @@ int sctp_get_no_strms(int,struct sockaddr *,socklen_t);
 //------------------------sctp_displayevents.c--------------------
 void print_notification(char *);
 //----------------------------------------------------------------
+//------------------------sctp_modify_hb.c------------------------
+int heartbeat_action(int, struct sockaddr *, socklen_t, u_int);
+//----------------------------------------------------------------
 //------------------------sctp_addr_to_associd.c------------------
 sctp_assoc_t sctp_address_to_associd(int,struct sockaddr *,socklen_t);
 //----------------------------------------------------------------
@@ -119,8 +122,14 @@ int Tcp_listen(const char *, const char *, socklen_t *);
 int tcp_connect(const char *,const char *);
 int Tcp_connect(const char *,const char *);
 pid_t Fork(void);
+//------------------------error.c---------------------------------
 void err_quit(const char *, ...);
 void err_sys(const char *, ...);
+void err_ret(const char *, ...);
+//----------------------------------------------------------------
+//------------------------str_echo.c------------------------------
+void str_echo(int sockfd);
+//----------------------------------------------------------------
 //------------------------sctp_pdapircv.c-------------------------
 uint8_t *pdapi_recvmsg(int,int *,SA *,int *,struct sctp_sndrcvinfo *,int *);
 //----------------------------------------------------------------
