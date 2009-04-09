@@ -1,0 +1,4 @@
+這一個程式必須在5秒內輸入字串
+若沒有輸入字串，則會出現No data within five seconds.
+
+若在5秒內輸入字串,則會出現Data is available now.
