@@ -8,7 +8,7 @@ server端
 後面加一個本機端的ip，讓socket可以在上面服務,例:
 ./server 127.0.0.1
 
-另外,server端一定會bind成功,若server端輸入的ip是錯誤的,則系統會自動bind本機端的所有ip
+另外,server端一定會bind成功,若server端輸入的ip(就是不是*.*.*.*的型式)是錯誤的,則系統會自動bind本機端的所有ip
 若輸入是正確的，就只會bind所指定的ip
 
 client端:
