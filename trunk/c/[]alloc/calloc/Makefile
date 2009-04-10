@@ -3,16 +3,16 @@ CC	= gcc
 OBJ	= main.o
 TARGET	= main
 
-.PHONY: everything all clean clean_target
+.PHONY: everything all clean distclean
 
 everything: $(TARGET)
 
-all: clean_target clean
+all: distclean clean
 
 clean:
 	rm -fv $(OBJ)
 
-clean_target: clean
+distclean: clean
 	rm -fv $(TARGET)
 
 main.o:main.c
