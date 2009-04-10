@@ -5,17 +5,17 @@ FLAGS	=
 OBJ=server.o client.o
 TARGET=server client
 
-.PHONY: everything clean all clean_target
+.PHONY: everything clean all distclean
 
 everything:$(TARGET)
 
-clean_target:clean
+distclean:clean
 	rm -fv $(TARGET)
 
 clean:
 	rm -fv $(OBJ) copy
 
-all: clean_target everything
+all: distclean everything
 
 client.o: client.c
 	$(ASM) $(FLAGS) -c $< -o $@
