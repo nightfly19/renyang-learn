@@ -1,0 +1,15 @@
+這是一個Notifications的例子
+
+操作方式
+server端:
+./server
+
+client端:
+./client 127.0.0.1
+[0]Hello
+From str:1 seq:0 (assoc:0x1):[0]Hello
+Control-D:會表示是client中斷
+
+[新增]
+要執行此範例程式前,
+請到lib/sctp_strcli.c的註解移除掉
