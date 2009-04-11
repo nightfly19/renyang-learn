@@ -14,6 +14,7 @@
 #include <netdb.h>
 #include <sys/wait.h>
 #include <sys/un.h>	// for the struct sockaddr_un
+#include <fcntl.h>	// for the fcntl function
 //================================================================
 
 //========================define variable=========================
