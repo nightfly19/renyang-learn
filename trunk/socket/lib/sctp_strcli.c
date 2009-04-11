@@ -32,5 +32,7 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 		       sri.sinfo_stream,sri.sinfo_ssn,
 		       (u_int)sri.sinfo_assoc_id);
 		printf("%.*s",rd_sz,recvline);
+		// 若要列印出對方的primary address請把下面這一個註解移除
+		// printf("%s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
 	}
 }
