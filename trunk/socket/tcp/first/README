@@ -2,3 +2,9 @@
 例：./server Makefile
 
 在由client端執行，就可以把server端的檔案抓下來
+在client後面必需要接所要執行的指令
+後面必需要接所要執行的指令
+目前只有get這一個指令可以使用
+./client get
+
+這一個例子有留一個執行檔original來測試,若當binary檔可以傳送成功的話,那文字檔也不是問題啦!!
