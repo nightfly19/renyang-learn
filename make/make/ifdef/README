@@ -1,0 +1,6 @@
+這一個例子可以用ifdef與ifndef來決定某一些參數是否要設定哪一些值
+
+請使用以下例子來試試看:
+make
+與
+make GETPRIM="on"

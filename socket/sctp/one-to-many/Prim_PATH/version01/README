@@ -13,3 +13,11 @@ Control-D:會表示是client中斷
 [新增]
 要執行此範例程式前,
 請到lib/sctp_strcli.c的註解移除掉
+
+[新增]
+修改Makefile使得client.c會出現兩種情況
+若只打make則client不會印出server端的primary address
+make
+
+若打以下指令,則執行client端會出現server端的primary address
+make GETPRIM=on
