@@ -21,8 +21,10 @@ all: distclean everything
 clean:
 	rm -fv $(OBJ)
 
+# 同時移除掉lib的Makefile所產生的檔案
 distclean: clean
 	rm -fv $(TARGET)
+	$(MAKE) distclean -C $(MAINPATH)/lib
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -33,5 +35,11 @@ server:server.o $(CUSTOMER)
 client:client.o $(CUSTOMER)
 	$(CC) $(LIBS) $< $(CUSTOMER) -o $@
 
+# 只有當有定義GETPRIM=on時,client端在執行時才會出現對方prim的ip
+ifeq ($(GETPRIM),on)
+$(CUSTOMER):
+	$(MAKE) GETPRIM=on -C $(MAINPATH)/lib
+else
 $(CUSTOMER):
 	$(MAKE) -C $(MAINPATH)/lib
+endif

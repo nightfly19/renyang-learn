@@ -16,6 +16,12 @@ clean:
 distclean: clean
 	rm -fv $(TARGET)
 
+# 當有程式要取得對方的primaddr時,就要定義GETPRIM為on
+ifeq ($(GETPRIM),on)
+sctp_strcli.o:sctp_strcli.c
+	$(CC) -DGETPRIM -c $< -o $@
+endif
+
 # 依每一個c為副檔名的建立其物件檔
 %.o:%.c
 	$(CC) -c $< -o $@
