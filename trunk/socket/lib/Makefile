@@ -4,6 +4,19 @@ OBJ	= error.o wrapunix.o tcp_connect.o readn.o wrapsock.o sigchldwaitpid.o pr_cp
 
 TARGET	= libunp.a
 
+# 設定巨集,可以控制程式碼的結果
+#------------------------------------------------
+SCTP_STRCLI_FLAG = 
+
+ifeq ($(GETPRIM),on)
+	SCTP_STRCLI_FLAG += -DGETPRIM
+endif
+
+ifeq ($(SETPRIM),on)
+	SCTP_STRCLI_FLAG += -DSETPRIM
+endif
+#------------------------------------------------
+
 .PHONY: everything all clean distclean
 
 everything: $(TARGET)
@@ -16,11 +29,8 @@ clean:
 distclean: clean
 	rm -fv $(TARGET)
 
-# 當有程式要取得對方的primaddr時,就要定義GETPRIM為on
-ifeq ($(GETPRIM),on)
 sctp_strcli.o:sctp_strcli.c
-	$(CC) -DGETPRIM -c $< -o $@
-endif
+	$(CC) $(SCTP_STRCLI_FLAG) -c $< -o $@
 
 # 依每一個c為副檔名的建立其物件檔
 %.o:%.c

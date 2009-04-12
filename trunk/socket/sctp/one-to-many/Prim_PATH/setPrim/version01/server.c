@@ -49,7 +49,7 @@ main(int argc, char **argv)
 		}
 		// 取得對方的primary ip
 		if ((retbuf = sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id)) !=NULL)
-			printf("%s\n",retbuf);
+			printf("The local primary ip is %s\n",retbuf);
 		else
 			err_ret("Error:Get prim address\n");
 /* end mod_serv06 */

@@ -13,13 +13,14 @@ char *sctp_getprim(int sockfd,int assoc_id)
 	char *ret_ap = NULL;
 
 	prim.ssp_assoc_id = assoc_id;
+	// 取得local端的primary address的資訊
 	ret = getsockopt(sockfd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&prim,&prim_len);
 	if (ret < 0) {
 		err_ret("Error: sctp_getprim");
 		return NULL;
 	}
 
-	// 取出peer的primary的address,原本的型態為struct sockaddr_storage
+	// 取出local的primary的address,原本的型態為struct sockaddr_storage
 	// 來判斷sockaddr_storage是儲存哪一種ip address
 	saddr = &prim.ssp_addr;
 	if (AF_INET == saddr->ss_family) {	// 判斷是否為ipv4
@@ -39,4 +40,17 @@ char *sctp_getprim(int sockfd,int assoc_id)
 	memcpy(ret_ap,addr_buf,sizeof(addr_buf));
 
 	return ret_ap;
+}
+
+void sctp_setprim(int sockfd,int assoc_id,struct sockaddr_storage *addr)
+{
+	int ret=0;
+	struct sctp_setprim prim;
+	prim.ssp_assoc_id = assoc_id;
+	memcpy(&prim.ssp_addr,addr,sizeof(struct sockaddr_storage));
+	ret = setsockopt(sockfd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&prim,sizeof(prim));
+	if (ret < 0) {
+		err_ret("Error: sctp_setprim");
+		return ;
+	}
 }

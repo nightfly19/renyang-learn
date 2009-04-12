@@ -16,8 +16,8 @@ Control-D:會表示是client中斷
 
 [新增]
 修改Makefile使得client.c會出現兩種情況
-若只打make則client預設會印出server端的primary address
+若只打make則client預設會印出local端的primary address
 make
 
-若打以下指令,則執行client端不會出現server端的primary address
+若打以下指令,則執行client端不會出現local端的primary address
 make GETPRIM=off

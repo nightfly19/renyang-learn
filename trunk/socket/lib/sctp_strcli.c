@@ -13,9 +13,26 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 	bzero(&sri,sizeof(sri));
 	while (fgets(sendline, MAXLINE, fp) != NULL) {
 		if(sendline[0] != '[') {
-			printf("Error, line must be of the form '[streamnum]text'\n");
+#ifdef SETPRIM
+//----------------------------------------------------------------------
+			// 轉換local primary address
+			if (sri.sinfo_assoc_id != 0) {
+				printf("You want to change the local primary address to %s",sendline);
+				struct sockaddr_in servaddr;
+				bzero(&servaddr,sizeof(servaddr));
+				servaddr.sin_family = AF_INET;
+				servaddr.sin_port = htons(SERV_PORT);
+				// 以下這一行用Inet_pton不行,找時間再研究
+				servaddr.sin_addr.s_addr = inet_addr(sendline);
+				sctp_setprim(sock_fd,sri.sinfo_assoc_id,(struct sockaddr_storage *) &servaddr);
+			}
+			else
+//----------------------------------------------------------------------
+#endif
+				printf("Error, line must be of the form '[streamnum]text'\n");
 			continue;
 		}
+
 		sri.sinfo_stream = strtol(&sendline[1],NULL,0);
 		out_sz = strlen(sendline);
 		Sctp_sendmsg(sock_fd, sendline, out_sz, 
@@ -33,8 +50,10 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 		       (u_int)sri.sinfo_assoc_id);
 		printf("%.*s",rd_sz,recvline);
 #ifdef GETPRIM
-		// 若要列印出對方的primary address請把下面這一個註解移除
-		printf("%s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
+//----------------------------------------------------------------------
+		// 列印出local的primary address
+		printf("the local primary address is : %s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
+//----------------------------------------------------------------------
 #endif
 	}
 }
