@@ -142,6 +142,10 @@ uint8_t *pdapi_recvmsg(int,int *,SA *,int *,struct sctp_sndrcvinfo *,int *);
 char *sctp_getprim(int,int);
 void sctp_setprim(int,int,struct sockaddr_storage *);
 //----------------------------------------------------------------
+//------------------------sctp_file.c-----------------------------
+void SendFile(int ,FILE *,struct sockaddr *,int,int);
+void RecvFile(int,char *,struct sockaddr *,int,int);
+//----------------------------------------------------------------
 //================================================================
 
 #endif
