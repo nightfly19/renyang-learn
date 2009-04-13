@@ -16,7 +16,12 @@ Control-D:會表示是client中斷
 
 [新增]
 修改Makefile使得client.c會出現兩種情況
-若只打make則client預設會印出local端的primary address
+若只打make則client預設會印出目前的association所要傳送到對方的primary address
+
+!!注意:這一個primary address的意思是指本地端要傳送給peer端的目的ip
+!!也就是說這一個primary address應該是屬於peer端擁有的ip
+
+執行編譯
 make
 
 若打以下指令,則執行client端不會出現local端的primary address

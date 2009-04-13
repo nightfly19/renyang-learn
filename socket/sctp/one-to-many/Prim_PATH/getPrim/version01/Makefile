@@ -35,7 +35,7 @@ server:server.o $(CUSTOMER)
 client:client.o $(CUSTOMER)
 	$(CC) $(LIBS) $< $(CUSTOMER) -o $@
 
-# 只有當有定義GETPRIM=on時,client端在執行時才會出現local端的primary ip address
+# 只有當有定義GETPRIM=on時,client端在執行時才會出現目前的association的要傳送到對方的主要primary address
 ifeq ($(GETPRIM),off)
 $(CUSTOMER):
 	$(MAKE) -C $(MAINPATH)/lib

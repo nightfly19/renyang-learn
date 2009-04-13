@@ -20,8 +20,8 @@ char *sctp_getprim(int sockfd,int assoc_id)
 		return NULL;
 	}
 
-	// 取出local的primary的address,原本的型態為struct sockaddr_storage
-	// 來判斷sockaddr_storage是儲存哪一種ip address
+	// 取出指定的association的primary的address,原本的型態為struct sockaddr_storage
+	// 需要判斷sockaddr_storage是儲存哪一種ip address
 	saddr = &prim.ssp_addr;
 	if (AF_INET == saddr->ss_family) {	// 判斷是否為ipv4
 		in_addr = (struct sockaddr_in *)&prim.ssp_addr;
