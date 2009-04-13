@@ -3,11 +3,12 @@
 int main(int argc,char **argv)
 {
 	int sock_fd;
-	struct sockaddr_in servaddr;
+	struct sockaddr_in servaddr,peeraddr;
 	struct sctp_sndrcvinfo sri;
 	struct sctp_event_subscribe evnts;
 	int msg_flags;
 	char readbuf[MAXLINE];
+	socklen_t len;
 	bzero(&sri,sizeof(sri));
 
 	if (argc < 2) {
@@ -30,6 +31,10 @@ int main(int argc,char **argv)
 		if (sri.sinfo_stream>9)
 			sri.sinfo_stream = 0;
 		bzero(readbuf,MAXLINE);
+		len = sizeof(peeraddr);
+		Sctp_recvmsg(sock_fd,readbuf,MAXLINE,(SA *) &peeraddr,&len,&sri,&msg_flags);
+		if (strncmp(readbuf,"ok",strlen("ok"))==0)
+			printf("return ok\n");
 	}
 
 	Close(sock_fd);

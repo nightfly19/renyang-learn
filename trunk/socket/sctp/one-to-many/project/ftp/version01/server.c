@@ -40,6 +40,10 @@ int main(int argc,char **argv)
 			printf("%s",filename);
 		}
 		bzero(&readbuf,sizeof(readbuf));
+		sri.sinfo_stream++;
+		if (sri.sinfo_stream>9)
+			sri.sinfo_stream=0;
+		Sctp_sendmsg(sock_fd,"ok",strlen("ok"),(SA *) &cliaddr,sizeof(cliaddr),0,0,sri.sinfo_stream,0,0);
 	}
 	return 0;
 }
