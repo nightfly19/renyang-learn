@@ -134,7 +134,7 @@ void str_echo(int sockfd);
 //------------------------sctp_pdapircv.c-------------------------
 uint8_t *pdapi_recvmsg(int,int *,SA *,int *,struct sctp_sndrcvinfo *,int *);
 //----------------------------------------------------------------
-//------------------------sctp_getprim.c--------------------------
+//------------------------sctp_prim_addr.c--------------------------
 char *sctp_getprim(int,int);
 void sctp_setprim(int,int,struct sockaddr_storage *);
 //----------------------------------------------------------------
