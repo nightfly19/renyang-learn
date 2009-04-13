@@ -37,6 +37,10 @@ typedef void Sigfunc(int);
 //------------------------sctp_getnostrm.c------------------------
 int sctp_get_no_strms(int,struct sockaddr *,socklen_t);
 //----------------------------------------------------------------
+//------------------------sctp_events.c---------------------------
+void SctpTurnOnAllEvent(int);
+void SctpTurnOffAllEvent(int);
+//----------------------------------------------------------------
 //------------------------sctp_displayevents.c--------------------
 void print_notification(char *);
 //----------------------------------------------------------------
@@ -134,7 +138,7 @@ void str_echo(int sockfd);
 //------------------------sctp_pdapircv.c-------------------------
 uint8_t *pdapi_recvmsg(int,int *,SA *,int *,struct sctp_sndrcvinfo *,int *);
 //----------------------------------------------------------------
-//------------------------sctp_prim_addr.c--------------------------
+//------------------------sctp_prim_addr.c------------------------
 char *sctp_getprim(int,int);
 void sctp_setprim(int,int,struct sockaddr_storage *);
 //----------------------------------------------------------------
