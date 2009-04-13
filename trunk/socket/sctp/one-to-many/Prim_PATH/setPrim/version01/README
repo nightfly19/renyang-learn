@@ -20,7 +20,7 @@ step3: 開一個新視窗
 ./client 127.0.0.1
 step4: 輸入要使用的stream_no與字串
 [1]Hello
-step5: 輸入要改變的local primary address
+step5: 輸入要改變的association的primary address(必需是對方的ip address)
 192.168.20.146
 step6: 再輸入一次要使用的stream_no與字串,會發現到primary ip改變了
 [1]Hello World!!

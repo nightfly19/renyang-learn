@@ -15,7 +15,7 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 		if(sendline[0] != '[') {
 #ifdef SETPRIM
 //----------------------------------------------------------------------
-			// 轉換local primary address
+			// 轉換指定的association的primary address
 			if (sri.sinfo_assoc_id != 0) {
 				printf("You want to change the local primary address to %s",sendline);
 				struct sockaddr_in servaddr;
@@ -51,7 +51,7 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 		printf("%.*s",rd_sz,recvline);
 #ifdef GETPRIM
 //----------------------------------------------------------------------
-		// 列印出local的primary address
+		// 列印出指定的association的primary address
 		printf("the local primary address is : %s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
 //----------------------------------------------------------------------
 #endif

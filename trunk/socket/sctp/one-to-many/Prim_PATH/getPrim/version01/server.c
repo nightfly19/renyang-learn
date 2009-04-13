@@ -47,7 +47,7 @@ main(int argc, char **argv)
 			print_notification(readbuf);
 			continue;
 		}
-		// 取得local的primary ip
+		// 取得指定的association的primary ip
 		if ((retbuf = sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id)) !=NULL)
 			printf("the local primary address is %s\n",retbuf);
 		else
