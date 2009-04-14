@@ -20,6 +20,7 @@
 //========================define variable=========================
 #define MAXLINE 4096
 #define LISTENQ 1024
+#define FILELEN 255
 #define SA struct sockaddr
 #define SCTP_PDAPI_INCR_SZ 65535   /* increment size for pdapi when adding buf space */
 #define SCTP_PDAPI_NEED_MORE_THRESHOLD 1024	/* need more space threshold */
@@ -142,8 +143,15 @@ uint8_t *pdapi_recvmsg(int,int *,SA *,int *,struct sctp_sndrcvinfo *,int *);
 char *sctp_getprim(int,int);
 void sctp_setprim(int,int,struct sockaddr_storage *);
 //----------------------------------------------------------------
+//------------------------wrapstdio.c-----------------------------
+void Fclose(FILE *);
+FILE *Fdopen(int,const char *);
+char *Fgets(char *,int,FILE *);
+FILE *Fopen(const char *,const char *);
+void Fputs(const char *,FILE *);
+//----------------------------------------------------------------
 //------------------------sctp_file.c-----------------------------
-void SendFile(int ,FILE *,struct sockaddr *,int,int);
+void SendFile(int ,char *,struct sockaddr *,int,int);
 void RecvFile(int,char *,struct sockaddr *,int,int);
 //----------------------------------------------------------------
 //================================================================
