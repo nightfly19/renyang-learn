@@ -22,8 +22,8 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 				bzero(&servaddr,sizeof(servaddr));
 				servaddr.sin_family = AF_INET;
 				servaddr.sin_port = htons(SERV_PORT);
-				Inet_pton(AF_INET,sendline,&servaddr.sin_addr);
-				// servaddr.sin_addr.s_addr = inet_addr(sendline);	// 這一行也可以取代上面那一行
+				// Inet_pton(AF_INET,sendline,&servaddr.sin_addr);
+				servaddr.sin_addr.s_addr = inet_addr(sendline);	// 這一行也可以取代上面那一行
 				sctp_setprim(sock_fd,sri.sinfo_assoc_id,(struct sockaddr_storage *) &servaddr);
 			}
 			else
