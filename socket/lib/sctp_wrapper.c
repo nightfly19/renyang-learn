@@ -8,6 +8,8 @@ Sctp_recvmsg(int s, void *msg, size_t len,
 	     int *msg_flags)
 {
 	int ret;
+	// 在接收前,先把buffer內的資料先刪掉
+	bzero(msg,len);
 	ret = sctp_recvmsg(s,msg,len,from,fromlen,sinfo,msg_flags);
 	if(ret < 0){
 		err_sys("sctp_recvmsg error");

@@ -5,3 +5,6 @@ fgets 是 一次讀一行 (Gets a line from file pointer.)
 fread 會把整個檔案都讀出來, 然後再去看要抓多少 bytes.
 所以 fgets 讀到的是第一行到結束(後面參數不加, 就會讀到此行結束), fread 讀到的是 "abcdefg\n12" (\n 算一個 bytes), 就是看到的結果囉~
 使用的時機就自行看情況囉~ 若讀的檔案太大, 建議使用 fgets. :)
+
+fgets會在字串最後加入一個換行符號，strlen會把換行符號當作一個字元
+所以會把實際的字串加一
