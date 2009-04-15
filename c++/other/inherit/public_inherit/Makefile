@@ -6,16 +6,16 @@ ASMFLAGS = -Wall -g -O3
 TARGET = main
 OBJ = main.o
 
-.PHONY:everything all clean clean_target
+.PHONY:everything all clean distclean
 
 everything:$(TARGET)
 
-all:clean_target everything
+all:distclean everything
 
 clean:
 	rm -fv $(OBJ)
 
-clean_target:
+distclean:
 	rm -fv $(OBJ) $(TARGET)
 
 main.o:main.cpp Point2D.h Point3D.h

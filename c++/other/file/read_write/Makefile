@@ -7,13 +7,13 @@ TARGET = write read
 OBJ1 = write.o
 OBJ2 = read.o
 
-.PHONY:everything all clean clean_target
+.PHONY:everything all clean distclean
 
 everything:$(TARGET)
 
-all: clean_target everything
+all: distclean everything
 
-clean_target:
+distclean:
 	rm -fv $(OBJ1) $(OBJ2) $(TARGET)
 
 clean:
