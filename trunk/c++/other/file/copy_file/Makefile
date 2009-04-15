@@ -6,17 +6,17 @@ ASMFLAGS = -Wall -g -O3
 TARGET = copy
 OBJ = main.o
 
-.PHONY:everything all clean clean_target
+.PHONY:everything all clean distclean
 
 everything:$(TARGET)
 
 clean:
 	rm -fv $(OBJ)
 
-clean_target:
+distclean:
 	rm -fv $(OBJ) $(TARGET)
 
-all:clean_target everything
+all:distclean everything
 
 main.o:main.cpp
 	$(ASM) $(ASMFLAGS) -c $< -o $@

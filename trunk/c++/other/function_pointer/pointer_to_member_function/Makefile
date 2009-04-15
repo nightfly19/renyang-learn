@@ -10,12 +10,12 @@ OBJ = SafeArray.o main.o
 
 everything:$(TARGET)
 
-all:clean_target everything
+all:distclean everything
 
 clean:
 	rm -fv $(OBJ)
 
-clean_target:
+distclean:
 	rm -fv $(OBJ) $(TARGET)
 
 SafeArray.o:SafeArray.cpp SafeArray.h

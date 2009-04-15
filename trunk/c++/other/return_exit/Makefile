@@ -5,17 +5,17 @@ OBJ	= main.o
 
 TARGET	= main
 
-.PHONY:everything all clean clean_target
+.PHONY:everything all clean distclean
 
 everything:$(TARGET)
 
 clean:
 	rm -fv $(OBJ)
 
-clean_target: clean
+distclean: clean
 	rm -fv $(TARGET)
 
-all: clean_target everything
+all: distclean everything
 
 main.o:main.cpp
 	$(ASM) -c $< -o $@
