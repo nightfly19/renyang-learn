@@ -183,7 +183,7 @@ void DrtaMW2 :: SctpRefreshRemoteIP( int socket )
 
 	peer_addr_lst . clear();
 
-	// TODO: assoc_id ingore in one-one
+	// TODO: assoc_id ignore in one-one
 	int sock_num = sctp_getpaddrs(socket , 0 , &addr_list );
 
 	lb_recv_mtr -> clear();
@@ -236,6 +236,7 @@ void DrtaMW2 :: slotSctpClear()
 
 }
 
+// renyang - 與sigPrSendFailed()相連
 void DrtaMW2 :: slotPrSendFailed()
 {
 	static int error_handled = 0;
@@ -276,18 +277,15 @@ void DrtaMW2 :: slotPrSendFailed()
 			new_prim = reliable_path;
 		}
 
-
 		debug("try to set new primary = %d" , new_prim);
 		
-		
-		
+		// renyang - 嘗試要切換primary address
 		SctpSocketHandler::SctpSetPrim( sd , new_prim); 
 		error_handled = 0;
 
-		QString msg =tr("Drta: try to st new primary = ") + peer_addr_lst . at(new_prim) ->  getAddr();
+		QString msg =tr("Drta: try to set new primary = ") + peer_addr_lst . at(new_prim) ->  getAddr();
 		slotSctpEvent( msg );
 		message( msg);
 		QMessageBox::warning(0, "DRTA", msg);
 	}
-
 }
