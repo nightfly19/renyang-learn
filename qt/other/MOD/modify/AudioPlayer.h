@@ -36,6 +36,9 @@
 #ifndef AUDIO_PLAYER_H
 #define AUDIO_PLAYER_H
 
+// renyang - 主要的音效部分是使用Advanced Linux Sound Architecture
+// renyang - 這一的檔案的架構主要是跟IHU的差不多
+
 /* for global headers */
 #include <stdio.h>
 #include <stdlib.h>

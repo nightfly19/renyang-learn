@@ -37,7 +37,7 @@
 #define __DRTAMW2_H__
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include "config.h"	// renyang - 沒有config.h的這一個檔案,應該要讀取Config.h
 #endif
 
 #include <qvariant.h>
@@ -203,7 +203,7 @@ private:
 	int skipStat;
 	unsigned long seconds;
 	QString fileName;
-	Config& config;
+	Config& config;	// renyang - 建立一個alias的變數
 
 	QLabel *lockPixmap;
 	QLabel* trafficLabel;

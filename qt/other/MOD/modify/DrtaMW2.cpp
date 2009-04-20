@@ -237,7 +237,7 @@ DrtaMW2::~DrtaMW2()
 
 void DrtaMW2::initDrta(bool file)
 {
-	show();
+	show();	// 顯示目前這一個GUI,在Qt中所有GUI預設是隱藏的
 	
 	try
 	{
@@ -248,15 +248,15 @@ void DrtaMW2::initDrta(bool file)
 		tocrypt = false;
 		closing = false;
 		
-		rsa = new Rsa(RSA_STRENGTH);
+		rsa = new Rsa(RSA_STRENGTH);	// renyang - 設定加解密的強度
 	
-		player = new AudioPlayer();
-		receiver = new Receiver(player, rsa);
-		//receiver = new Receiver(player);
+		player = new AudioPlayer();	// renyang - 這一個類別主要是語部編碼的部分
+		receiver = new Receiver(player, rsa);	// renyang - 應該是在解語音的部分
+		//receiver = new Receiver(player);	// renyang - 原本沒有加密的部分,最後有加上加密的部分
 	
-		recorder = new Recorder();
-		transmitter = new Transmitter(recorder, rsa);
-		transmitter -> setTTL( config.readNumEntry("/drta/sctp/ttl") );
+		recorder = new Recorder();	// renyang - 可能用來記錄語音編碼之後的資料
+		transmitter = new Transmitter(recorder, rsa);	// renyang - 把編碼後的資料透過加密之後,產生傳送物件
+		transmitter -> setTTL( config.readNumEntry("/drta/sctp/ttl") );	// 設定time to live
 	
 		logger = new Logger();
 	

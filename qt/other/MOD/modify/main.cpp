@@ -24,7 +24,7 @@ int main(int argc , char** argv)
 	if (enableGui)
 	{
 		DrtaMW2 *drta = new DrtaMW2();
-		app.setMainWidget( drta);
+		app.setMainWidget( drta);	// 設定這一個應用程式的主畫面
 
 		drta -> initDrta(0);
 		drta -> show();
