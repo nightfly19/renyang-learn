@@ -71,6 +71,7 @@ class QToolButton;
 
 class LogViewer;
 
+// renyang - 記錄對方的ip address
 class PEER_ADDR{
 	public:	
 		PEER_ADDR(){	prim = false;	recv = false;	};
@@ -207,7 +208,7 @@ private:
 
 	QLabel *lockPixmap;
 	QLabel* trafficLabel;
-	QPtrList<PEER_ADDR> peer_addr_lst;
+	QPtrList<PEER_ADDR> peer_addr_lst;	// renyang - 記錄所有PEER_ADDR的資料, 準備當線路斷掉時切換
 
 	/* sctp */
 	bool allow_auto_ho;

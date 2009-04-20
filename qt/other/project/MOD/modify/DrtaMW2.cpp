@@ -76,7 +76,8 @@ DrtaMW2 ::DrtaMW2( QWidget* parent, const char* name, WFlags fl )
 {
 	setName( "DRTA" );
 	setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, 0, 0, sizePolicy().hasHeightForWidth() ) );
-	setMinimumSize(QSize(300, 400));
+	setMinimumSize(QSize(300, 400));	// renyang - 設定此widget的最小長寬
+	// renyang - minimumSizeHint()回傳目前這一個視窗的建議的最小長寬
 	resize( QSize(300, 400).expandedTo(minimumSizeHint()) );
 	
 	statusbar = statusBar();
@@ -237,7 +238,7 @@ DrtaMW2::~DrtaMW2()
 
 void DrtaMW2::initDrta(bool file)
 {
-	show();	// 顯示目前這一個GUI,在Qt中所有GUI預設是隱藏的
+	show();	// renyang - 顯示目前這一個GUI,在Qt中所有GUI預設是隱藏的
 	
 	try
 	{

@@ -97,6 +97,8 @@ Config::Config()
 	setDefault("/drta/sctp/ho_policy",DRTA_DEF_SCTP_HO_POLICY);
 }
 
+// renyang - 透過再重新包裝,把使得所有的在指定預設值時,均可以使用相同的函數名稱
+// renyang - 在使用read*Entry()時請注意, 當讀取失敗時, 會用value來直接設定所要用的value值
 void Config::setDefault(const QString& key, const char* value)
 {
 	writeEntry(key,readEntry(key,(const QString)value));
