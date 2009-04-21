@@ -1,0 +1,2 @@
+1. 尋找學長的程式碼中是如何判斷中斷的
+應該是在Receiver.cpp內的SCTP_SEND_FAILED去判斷
