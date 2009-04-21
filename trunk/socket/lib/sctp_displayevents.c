@@ -63,7 +63,8 @@ print_notification(char *notify_buf)
 		case SCTP_ADDR_MADE_PRIM:
 			str = "ADDRESS MADE PRIMARY";
 			break;
-		case SCTP_ADDR_CONFIRMED:
+		// case SCTP_ADDR_CONFIRMED:	// 應該是要使用SCTP_ADDR_CONFIRMED這一個key word,但ubuntu7.10在sctp.h的header中沒有定義
+		case SCTP_ADDR_MADE_PRIM+1:
 			str = "ADDRESS CONFIRMED";
 			break;
 		default:
