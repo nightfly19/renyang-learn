@@ -1,5 +1,5 @@
 /******************************************/
-/*	Utility for Unix socket programming.
+//	Utility for Unix socket programming.
 /******************************************/
 
 #ifndef _COMMON_H
@@ -14,6 +14,7 @@
 
 #define BUFF_SIZE 2048
 
+// renyang - 把整數轉成字串
 void itoa(int value, char* target);
 void chat(int socket);
 

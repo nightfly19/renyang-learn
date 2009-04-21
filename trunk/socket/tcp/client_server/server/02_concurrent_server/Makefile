@@ -21,6 +21,7 @@ clean:
 
 distclean: clean
 	rm -fv $(TARGET)
+	$(MAKE) $@ -C $(MAINPATH)/lib
 
 server.o: server.c
 	$(CC) -c $< -o $@ $(CFLAGS)
