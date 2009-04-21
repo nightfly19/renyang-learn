@@ -9,6 +9,7 @@ TARGET	= libunp.a
 # 設定巨集,可以控制程式碼的結果
 #------------------------------------------------
 SCTP_STRCLI_FLAG = 
+MOD_FLAG	= -DMOD
 
 ifeq ($(GETPRIM),on)
 	SCTP_STRCLI_FLAG += -DGETPRIM
@@ -16,6 +17,10 @@ endif
 
 ifeq ($(SETPRIM),on)
 	SCTP_STRCLI_FLAG += -DSETPRIM
+endif
+
+ifeq ($(MOD),off)
+	MOD_FLAG = 
 endif
 #------------------------------------------------
 
@@ -36,7 +41,7 @@ sctp_strcli.o:sctp_strcli.c
 
 # 依每一個c為副檔名的建立其物件檔
 %.o:%.c
-	$(CC) -c $< -o $@
+	$(CC) $(MOD_FLAG) -c $< -o $@
 
 # 建立Static library
 libunp.a:$(OBJ)

@@ -10,7 +10,11 @@ print_notification(char *notify_buf)
 	struct sctp_remote_error *sre;
 	struct sctp_send_failed *ssf;
 	struct sctp_shutdown_event *sse;
+#ifndef MOD
 	struct sctp_adaptation_event *ae;
+#else
+	struct sctp_adaption_event *ae;
+#endif
 	struct sctp_pdapi_event *pdapi;
 	const char *str;
 
@@ -59,9 +63,11 @@ print_notification(char *notify_buf)
 		case SCTP_ADDR_MADE_PRIM:
 			str = "ADDRESS MADE PRIMARY";
 			break;
+#ifndef MOD
 		case SCTP_ADDR_CONFIRMED:
 			str = "ADDRESS CONFIRMED";
 			break;
+#endif
 		default:
 			str = "UNKNOWN";
 			break;
@@ -80,11 +86,19 @@ print_notification(char *notify_buf)
 		printf("SCTP_SEND_FAILED: assoc=0x%x error=%d\n",
 		       (uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
 		break;
-	case SCTP_ADAPTATION_INDICATION:
+#ifndef MOD
+		case SCTP_ADAPTATION_INDICATION:
 		ae = &snp->sn_adaptation_event;
 		printf("SCTP_ADAPTATION_INDICATION: 0x%x\n",
 		    (u_int)ae->sai_adaptation_ind);
 		break;
+#else
+		case SCTP_ADAPTION_INDICATION:
+		ae = &snp->sn_adaption_event;
+		printf("SCTP_ADAPTION_INDICATION: 0x%x\n",
+		    (u_int)ae->sai_adaption_ind);
+		break;
+#endif
 	case SCTP_PARTIAL_DELIVERY_EVENT:
 	    pdapi = &snp->sn_pdapi_event;
 	    if(pdapi->pdapi_indication == SCTP_PARTIAL_DELIVERY_ABORTED)
