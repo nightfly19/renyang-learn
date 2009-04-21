@@ -21,6 +21,7 @@ clean:
 
 distclean: clean
 	rm -fv $(TARGET)
+	$(MAKE) distclean -C $(MAINPATH)/lib
 
 client.o:client.c
 	$(CC) -c $< -o $@ $(CFLAGS)
