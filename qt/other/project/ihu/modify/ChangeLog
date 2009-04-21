@@ -1,0 +1,114 @@
+# IHU v. 0.6.0
+
+- new feature: multiple calls now allowed (full conference not yet supported)
+- feature improved: AGC moved from player to recorder (with mixer support)
+- feature improved: sound input level added to GUI
+- feature improved: TX threshold and AGC volume converted to dB
+- feature improved: file player/converter in a standalone dialog
+- feature improved: .spx file converter now faster
+- feature improved: config file entirely reviewed, now it's possible to specify the file
+- feature improved: now it's possibile to save the passphrase in the config
+- feature improved: some improvements in the tray icons
+- feature removed: JACK driver for output has been disabled
+- bug fix: no more problems with XRUN handling for ALSA player
+- source code: IHU architecture totally reviewed, GUI made independent from Phone
+
+# IHU v. 0.5.7
+
+- new feature: added Save and Close buttons in the Log Viewer
+- security fix: malformed packets caused IHU to crash
+
+# IHU v. 0.5.6
+
+- new feature: added possibility to convert IHU files to SPX file
+- feature improved: quickly change port in the Receiver address using ':'
+- feature improved: Defaults button in settings now affects only current tab
+- feature improved: Volume Change speed for AGC changed to slider in the GUI
+- bug fixed: TX dump file was closed after first call
+- bug fixed: problems when playing files with different Speex modes
+- bug fixed: conflict in the GUI when wating for calls and playing files
+- source code: clear distinction in the use of h and hpp header
+
+# IHU v. 0.5.5
+
+- source code: default ADR Max Delay changed to 150 ms
+- bug fixed: now with 0% threshold TX always on
+- bug fixed: communication sometimes didn't close on Peer side
+
+# IHU v. 0.5.4
+
+- feature improved: added "pre-buffer" in settings 
+- package: speex library excluded from package
+- package: soundtouch library excluded from package
+- source code: added description of packet's architecture
+- bug fixed: "File progress" not shown when playing long files
+- bug fixed: total abort when log/dump files not found
+
+# IHU v. 0.5.3
+
+- feature improved: ring volume adjustable
+- bugfix: mute playback when seeking files
+- source code: updated to speex 1.1.11
+
+# IHU v. 0.5.2
+
+- feature improved: tray menu icons now are the same as window
+- feature improved: added tray icon for incoming call
+- feature improved: main window a bit smaller
+- feature improved: AGC time speed can be higher (max 1000)
+- feature improved: ADR option improved, delay more precise
+- bugfix: seeking while playing files slow
+- bugfix: playing crypted files with "Ignore" slow
+- bugfix: when quitting, was always writing a message in the log
+- documentation: added man page (thanks Andrea Capriotti)
+- source code: updated to soundtouch 1.3.0
+- source code: cleaned some warnings of gcc v. 4.x
+
+# IHU v. 0.5.1
+
+- feature improved: receiver's address list saved (up to 10).
+- feature improved: added icon for encryption in the status bar
+- feature improved: ADR option improved with continuous buffering.
+- feature improved: tray and button icons improved.
+- bugfix: AGC gain is not reset when changing settings.
+- documentation: manual page corrected (thanks to Alex Masoch)
+- fixed many other little bugs
+
+# IHU v. 0.5.0
+
+- Possibility of crypting the stream (Blowfish), with secure key exchange (RSA)
+- TCP protocol support introduced (useful to simplify the firewall setup, with the
+  possibility to use the port number 80 for incoming connection, if you are root)
+- Added support of JACK sound driver
+- "Audio Delay Reduction" feature now reduces the local audio delay 
+  to have the best stream performance.
+- "Automatic Gain Control" allows to keep a comfortable volume for listening
+- Added the possibility of ringing the peer
+- A new status bar is showing interesting messages about the stream health
+- Now streams dumped on files are playable from IHU
+- Better streaming with the introduction of packets
+- Fixed many bugs, and many, many, other improvements that it's too long 
+  to write here ;)
+
+# Ihu v. 0.4
+
+- Converted to ALSA
+
+# Ihu v. 0.3
+
+- converted to speex
+- GUI enlarged to fit with big fonts
+- possibility to listen only for an incoming connection
+- added sender and traffic informations
+- now ihu is indipendent of KDE, only QT are needed
+
+# Ihu v. 0.2
+
+- some corrections on settings dialog (enlarged)
+- little bug fixed in mp3 decoding. When sound was too high, some clipping
+- no need of stream initialization, when first sound is heard, it starts.
+- bug fixed: when mute mic is selected, it clears also previous packets.
+
+# Ihu v. 0.1
+
+First release!
