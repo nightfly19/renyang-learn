@@ -45,7 +45,11 @@ char *sctp_getprim(int sockfd,int assoc_id)
 void sctp_setprim(int sockfd,int assoc_id,struct sockaddr_storage *addr)
 {
 	int ret=0;
+#ifndef MOD
 	struct sctp_setprim prim;
+#else
+	struct sctp_prim prim;
+#endif
 	prim.ssp_assoc_id = assoc_id;
 	memcpy(&prim.ssp_addr,addr,sizeof(struct sockaddr_storage));
 	ret = setsockopt(sockfd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&prim,sizeof(prim));

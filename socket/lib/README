@@ -1,3 +1,12 @@
 這裡是收集所有的function
 加入判斷錯誤的function
 所重新包裝的
+
+這裡要注意一下
+在ubuntu 7.10與8.04會有一些關鍵字不一樣
+
+SCTP_ADAPTION_INDICATION->SCTP_ADAPTATION_INDICATION
+sctp_adaption_indication->sctp_adaptation_indication
+struct sctp_prim->struct sctp_setprim
+struct sctp_peerprim->struct sctp_setpeerprim
+(null)->SCTP_ADDR_CONFIRMED:表示本來沒有,最後變成有這一個
