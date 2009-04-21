@@ -45,7 +45,7 @@ char *sctp_getprim(int sockfd,int assoc_id)
 void sctp_setprim(int sockfd,int assoc_id,struct sockaddr_storage *addr)
 {
 	int ret=0;
-#ifndef MOD
+#ifdef UN_MOD
 	struct sctp_setprim prim;
 #else
 	struct sctp_prim prim;

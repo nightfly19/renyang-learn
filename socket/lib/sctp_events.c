@@ -12,7 +12,7 @@ void SctpTurnOnAllEvent(int sockfd)
 	event.sctp_peer_error_event = 1;
 	event.sctp_shutdown_event = 1;
 	event.sctp_partial_delivery_event = 1;
-#ifndef MOD
+#ifdef UN_MOD
 	event.sctp_adaptation_layer_event = 1;
 #else
 	event.sctp_adaption_layer_event = 1;

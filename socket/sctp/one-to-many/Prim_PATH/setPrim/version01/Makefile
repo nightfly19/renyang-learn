@@ -8,9 +8,15 @@ MAINPATH= ../../../../..
 
 CFLAGS	= -I$(MAINPATH)/lib
 
+MOD_FLAG= 
+
 LIBS	= -lsctp
 
 CUSTOMER	= $(MAINPATH)/lib/libunp.a
+
+ifeq ($(UN_MOD),on)
+	MOD_FLAG = -DUN_MOD
+endif
 
 .PHONY: everything all clean distclean
 
@@ -27,7 +33,7 @@ distclean: clean
 	$(MAKE) distclean -C $(MAINPATH)/lib
 
 %.o:%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(MOD_FLAG) $(CFLAGS) -c $< -o $@
 
 server:server.o $(CUSTOMER)
 	$(CC) $(LIBS) $< $(CUSTOMER) -o $@
