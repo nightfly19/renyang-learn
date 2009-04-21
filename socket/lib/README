@@ -9,4 +9,13 @@ SCTP_ADAPTION_INDICATION->SCTP_ADAPTATION_INDICATION
 sctp_adaption_indication->sctp_adaptation_indication
 struct sctp_prim->struct sctp_setprim
 struct sctp_peerprim->struct sctp_setpeerprim
-(null)->SCTP_ADDR_CONFIRMED:表示本來沒有,最後變成有這一個
+
+(null)->SCTP_ADDR_CONFIRMED:表示本來沒有,最後變成有這一個.其實在kernel的部分還是有的,只是在header的部分沒有寫出來必需要到
+/usr/include/netinet/sctp.h修改,修改如下:
+原本:
+	SCTP_ADDR_MADE_PRIM,
+};
+修改:
+	SCTP_ADDR_MADE_PRIM,
+	SCTP_ADDR_CONFIRMED,
+};

@@ -63,11 +63,9 @@ print_notification(char *notify_buf)
 		case SCTP_ADDR_MADE_PRIM:
 			str = "ADDRESS MADE PRIMARY";
 			break;
-#ifdef UN_MOD
 		case SCTP_ADDR_CONFIRMED:
 			str = "ADDRESS CONFIRMED";
 			break;
-#endif
 		default:
 			str = "UNKNOWN";
 			break;
