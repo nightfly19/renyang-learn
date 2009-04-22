@@ -9,3 +9,23 @@ client端:
 [0]Hello
 From str:1 seq:0 (assoc:0x1):[0]Hello
 Control-D:會表示是client中斷
+
+[新增]
+要測試是否有SEND_FAIL的事件發生
+
+先在一台電腦上執行server端
+再另一台電腦上執行client端
+先由client端發送資料到server端建立連線
+然後把server端的網路線拔除
+再由client再送資料過去
+會出現以下類似的資料
+SCTP_PEER_ADDR_CHANGE: ADDRESS UNREACHABLE, addr=192.168.20.100:9877, assoc=0x1
+SCTP_ASSOC_CHANGE: COMMUNICATION LOST, assoc=0x1
+SCTP_SEND_FAILED: assoc=0x1 error=0
+sctp_recvmsg error: Transport endpoint is not connected
+
+第一行是表示無法連線到server這一個ip:192.168.20.100
+第二行表示連線移失
+第三行表示傳送失敗
+前三行均是事件
+第四行是sctp_recvmsg的錯誤訊息
