@@ -21,7 +21,11 @@ int main(int argc,char **argv)
 	struct sctp_paddr_change *spc;
 	struct sctp_remote_error *sre;
 	struct sctp_send_failed *ssf;
+#ifdef UN_MOD
 	struct sctp_adaptation_event *ae;
+#else
+	struct sctp_adaption_event *ae;
+#endif
 	struct sctp_pdapi_event *pdapi;
 	int close_time = 30;
 	const char *str;
@@ -66,7 +70,11 @@ int main(int argc,char **argv)
 	evnts.sctp_send_failure_event = 1;
 	evnts.sctp_peer_error_event = 1;
 	evnts.sctp_partial_delivery_event = 1;
+#ifdef UN_MOD
 	evnts.sctp_adaptation_layer_event = 1;
+#else
+	evnts.sctp_adaption_layer_event = 1;
+#endif
 	ret_value = setsockopt(sock_fd,IPPROTO_SCTP,SCTP_EVENTS,&evnts,sizeof(evnts));
 	if (ret_value == -1) {
 		printf("setsockopt error\n");
@@ -165,10 +173,17 @@ int main(int argc,char **argv)
 					ssf = &snp->sn_send_failed;
 					printf("SCTP_SEND_FAILED\n");
 					break;
+#ifdef UN_MOD
 				case SCTP_ADAPTATION_INDICATION:
 					ae = &snp->sn_adaptation_event;
 					printf("SCTP_ADAPTION_INDICATION\n");
 					break;
+#else
+				case SCTP_ADAPTION_INDICATION:
+					ae = &snp->sn_adaption_event;
+					printf("SCTP_ADAPTION_INDICATION\n");
+					break;
+#endif
 				case SCTP_PARTIAL_DELIVERY_EVENT:
 					pdapi = &snp->sn_pdapi_event;
 					if (pdapi->pdapi_indication == SCTP_PARTIAL_DELIVERY_ABORTED)
