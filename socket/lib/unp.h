@@ -13,6 +13,8 @@
 #include <string.h>
 #include <netdb.h>
 #include <sys/wait.h>
+#include <sys/select.h>	// for the select function
+#include <sys/time.h>	// for the select function
 #include <sys/un.h>	// for the struct sockaddr_un
 #include <fcntl.h>	// for the fcntl function
 //================================================================

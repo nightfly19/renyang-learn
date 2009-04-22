@@ -1,7 +1,28 @@
 #include	"unp.h"
 
-void
-sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
+// 把接收與列印資料與事件的function獨立出來
+void RecvMsg(int sock_fd,void *recvline,size_t msgsz,struct sockaddr *from,socklen_t *fromlen,struct sctp_sndrcvinfo *sri,int *msg_flags)
+{
+	do {
+		Sctp_recvmsg(sock_fd,recvline,msgsz,from,fromlen,sri,msg_flags);
+		if (*msg_flags & MSG_NOTIFICATION) {
+			print_notification(recvline);
+			// 本來這一個副程式是用來傳送一個指令給server端,再由server端回傳指令給client端
+			// 但是,有時候接收的副程式會被事件通知所用去,所以,一旦判斷是事件所造成的影響
+			// 則必需要再執行接收副程式,以便接收實際回傳的指令
+		}
+	}while(*msg_flags & MSG_NOTIFICATION);
+	printf("From str:%d seq:%d (assoc:0x%x):",sri->sinfo_stream,sri->sinfo_ssn,(u_int)sri->sinfo_assoc_id);
+	printf("%s",recvline);
+#ifdef GETPRIM
+//----------------------------------------------------------------------
+	// 列印出指定的association的primary address
+	printf("the local primary address is : %s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
+//----------------------------------------------------------------------
+#endif
+}
+
+void sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 {
 	struct sockaddr_in peeraddr;
 	struct sctp_sndrcvinfo sri;
@@ -9,6 +30,9 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 	socklen_t len;
 	int out_sz,rd_sz;
 	int msg_flags;
+	int maxfdp1;
+	fd_set rset;
+	FD_ZERO(&rset);	// 清空
 
 	bzero(&sri,sizeof(sri));
 	while (fgets(sendline, MAXLINE, fp) != NULL) {
@@ -42,27 +66,8 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 			     0, 0);
 
 		len = sizeof(peeraddr);
-rerecv:
-		rd_sz = Sctp_recvmsg(sock_fd, recvline, sizeof(recvline),
-			     (SA *)&peeraddr, &len,
-			     &sri,&msg_flags);
-		if (msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件,而非一個資料
-			print_notification(recvline);
-			goto rerecv;
-			// 本來這一個副程式是用來傳送一個指令給server端,再由server端回傳指令給client端
-			// 但是,有時候接收的副程式會被事件通知所用去,所以,一旦判斷是事件所造成的影響
-			// 則必需要再執行接收副程式,以便接收實際回傳的指令
-			// 應該可以改成用for,但是,用goto好像更清楚
-		}
-		printf("From str:%d seq:%d (assoc:0x%x):",
-		       sri.sinfo_stream,sri.sinfo_ssn,
-		       (u_int)sri.sinfo_assoc_id);
-		printf("%.*s",rd_sz,recvline);
-#ifdef GETPRIM
-//----------------------------------------------------------------------
-		// 列印出指定的association的primary address
-		printf("the local primary address is : %s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
-//----------------------------------------------------------------------
-#endif
+
+		RecvMsg(sock_fd,recvline,sizeof(recvline),(SA *) &peeraddr,&len,&sri,&msg_flags);
 	}
 }
+
