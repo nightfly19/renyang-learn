@@ -52,3 +52,11 @@ void Getsockopt(int fd,int level,int optname,void *optval,socklen_t *optlenptr)
 	if (getsockopt(fd,level,optname,optval,optlenptr)<0)
 		err_sys("getsockopt error");
 }
+
+int Select(int nfds,fd_set *readfds,fd_set *writefds,fd_set *execptfds,struct timeval *timeout)
+{
+	int n;
+	if ((n=select(nfds,readfds,writefds,execptfds,timeout))<0)
+		err_sys("select error");
+	return (n);
+}
