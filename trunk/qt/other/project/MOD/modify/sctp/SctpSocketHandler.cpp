@@ -176,7 +176,7 @@ int SctpSocketHandler::SctpTurnOnAllEvent(int sd)
 	event . sctp_peer_error_event = 1;
 	event . sctp_shutdown_event = 1;
 	event . sctp_partial_delivery_event = 1;
-	event . sctp_adaptation_layer_event = 1;
+	event . sctp_adaption_layer_event = 1;
 
 	ret = setsockopt(sd, IPPROTO_SCTP, SCTP_EVENTS, &event , n); 
 
@@ -196,7 +196,7 @@ int SctpSocketHandler::SctpTurnOffAllEvent(int sd)
 	event . sctp_peer_error_event = 0;
 	event . sctp_shutdown_event = 0;
 	event . sctp_partial_delivery_event = 0;
-	event . sctp_adaptation_layer_event = 0;
+	event . sctp_adaption_layer_event = 0;
 
 	ret = setsockopt(sd, IPPROTO_SCTP, SCTP_EVENTS, &event , n); 
 

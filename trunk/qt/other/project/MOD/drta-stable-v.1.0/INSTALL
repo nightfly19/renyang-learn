@@ -29,5 +29,5 @@ sctp_adaption_layer_event替換成sctp_adaptation_layer_event
 若要在8.04以後(含8.04)的版本執行的話,請把所有有關的字串改成相對應的字串
 
 請使用下面兩個指令作修改
-$ find . -type f | xargs sed 's/SCTP_ADAPTION_INDICATION/SCTP_ADAPTATION_INDICATION/g' -i
-$ find . -type f | xargs sed 's/sctp_adaption_layer_event/sctp_adaptation_layer_event/g' -i
+$ find . -type f | grep -v INSTALL | xargs sed 's/SCTP_ADAPTION_INDICATION/SCTP_ADAPTATION_INDICATION/g' -i
+$ find . -type f | grep -v INSTALL | xargs sed 's/sctp_adaption_layer_event/sctp_adaptation_layer_event/g' -i
