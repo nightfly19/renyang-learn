@@ -1,3 +1,4 @@
 1. 尋找學長的程式碼中是如何判斷中斷的
 應該是在Receiver.cpp內的SCTP_SEND_FAILED去判斷
 也就是說,學長的程式碼中只有當傳送失敗時,才會再由剩下的ip list去重新傳送
+2. 開始了解如何修改unreachable,communication_lost,send_fail的時間
