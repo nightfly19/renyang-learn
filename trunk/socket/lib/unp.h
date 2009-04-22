@@ -98,6 +98,7 @@ int Socket(int,int,int);
 int Accept(int,struct sockaddr *,socklen_t *);
 void Setsockopt(int,int,int,const void *,socklen_t);
 void Getsockopt(int,int,int,void *,socklen_t *);
+int Select(int,fd_set *,fd_set *,fd_set *,struct timeval *);
 //----------------------------------------------------------------
 //------------------------wraplib.c-------------------------------
 const char *Inet_ntop(int,const void *,char *,size_t);
