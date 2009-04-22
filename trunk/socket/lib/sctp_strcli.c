@@ -45,6 +45,10 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 		rd_sz = Sctp_recvmsg(sock_fd, recvline, sizeof(recvline),
 			     (SA *)&peeraddr, &len,
 			     &sri,&msg_flags);
+		if (msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件,而非一個資料
+			print_notification(recvline);
+			continue;
+		}
 		printf("From str:%d seq:%d (assoc:0x%x):",
 		       sri.sinfo_stream,sri.sinfo_ssn,
 		       (u_int)sri.sinfo_assoc_id);
