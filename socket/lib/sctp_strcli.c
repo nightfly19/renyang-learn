@@ -42,12 +42,17 @@ sctpstr_cli(FILE *fp, int sock_fd, struct sockaddr *to, socklen_t tolen)
 			     0, 0);
 
 		len = sizeof(peeraddr);
+rerecv:
 		rd_sz = Sctp_recvmsg(sock_fd, recvline, sizeof(recvline),
 			     (SA *)&peeraddr, &len,
 			     &sri,&msg_flags);
 		if (msg_flags & MSG_NOTIFICATION) {	// 表示收到一個事件,而非一個資料
 			print_notification(recvline);
-			continue;
+			goto rerecv;
+			// 本來這一個副程式是用來傳送一個指令給server端,再由server端回傳指令給client端
+			// 但是,有時候接收的副程式會被事件通知所用去,所以,一旦判斷是事件所造成的影響
+			// 則必需要再執行接收副程式,以便接收實際回傳的指令
+			// 應該可以改成用for,但是,用goto好像更清楚
 		}
 		printf("From str:%d seq:%d (assoc:0x%x):",
 		       sri.sinfo_stream,sri.sinfo_ssn,
