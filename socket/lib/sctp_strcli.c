@@ -16,7 +16,7 @@ void RecvMsg(int sock_fd,void *recvline,size_t msgsz,struct sockaddr *from,sockl
 #ifdef GETPRIM
 //----------------------------------------------------------------------
 	// 列印出指定的association的primary address
-	printf("the local primary address is : %s\n",sctp_getprim(sock_fd,(u_int)sri.sinfo_assoc_id));
+	printf("the local primary address is : %s\n",sctp_getprim(sock_fd,(u_int)sri->sinfo_assoc_id));
 //----------------------------------------------------------------------
 #endif
 }
