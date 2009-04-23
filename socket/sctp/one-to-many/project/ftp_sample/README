@@ -1,0 +1,5 @@
+1. run as server
+execute: ./cbr server
+
+2. run as client
+execute: ./cbr
