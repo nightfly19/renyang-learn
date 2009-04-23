@@ -4,6 +4,10 @@ TARGET	= cbr
 
 OBJ	= cbr.o
 
+ifeq ($(UN_MOD),on)
+	MOD_FLAG = -DUN_MOD
+endif
+
 .PHONY: everything all clean distclean
 
 everything: $(TARGET)
@@ -17,7 +21,7 @@ distclean: clean
 	rm -fv $(TARGET)
 
 cbr.o:cbr.c
-	$(CC) -c $< -o $@
+	$(CC) $(MOD_FLAG) -c $< -o $@
 
 cbr:cbr.o
 	$(CC) $(LIBS) $< -o $@

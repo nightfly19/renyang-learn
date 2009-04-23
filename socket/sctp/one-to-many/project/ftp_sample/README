@@ -3,3 +3,8 @@ execute: ./cbr server
 
 2. run as client
 execute: ./cbr
+
+3. 若使用的是sctp_adaption_layer_event則直接打
+make
+   若想使用的是sctp_adaptation_layer_event則必需打
+make UN_MOD=on
