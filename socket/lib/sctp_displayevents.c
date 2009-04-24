@@ -42,7 +42,7 @@ print_notification(char *notify_buf)
 			str = "UNKNOWN";
 			break;
 		} /* end switch(sac->sac_state) */
-		printf("time:%ld,SCTP_ASSOC_CHANGE: %s, assoc=0x%x\n", time(NULL),str,
+		printf("SCTP_ASSOC_CHANGE: %s, assoc=0x%x\n", str,
 		       (uint32_t)sac->sac_assoc_id);
 		break;
 	case SCTP_PEER_ADDR_CHANGE:
@@ -71,48 +71,48 @@ print_notification(char *notify_buf)
 			str = "UNKNOWN";
 			break;
 		} /* end switch(spc->spc_state) */
-		printf("time:%ld,SCTP_PEER_ADDR_CHANGE: %s, addr=%s, assoc=0x%x\n", time(NULL),str,
+		printf("SCTP_PEER_ADDR_CHANGE: %s, addr=%s, assoc=0x%x\n", str,
 		       Sock_ntop((SA *)&spc->spc_aaddr, sizeof(spc->spc_aaddr)),
 		       (uint32_t)spc->spc_assoc_id);
 		break;
 	case SCTP_REMOTE_ERROR:
 		sre = &snp->sn_remote_error;
-		printf("time:%ld,SCTP_REMOTE_ERROR: assoc=0x%x error=%d\n",time(NULL),
+		printf("SCTP_REMOTE_ERROR: assoc=0x%x error=%d\n",
 		       (uint32_t)sre->sre_assoc_id, sre->sre_error);
 		break;
 	case SCTP_SEND_FAILED:
 		ssf = &snp->sn_send_failed;
-		printf("time:%ld,SCTP_SEND_FAILED: assoc=0x%x error=%d\n",time(NULL),
+		printf("SCTP_SEND_FAILED: assoc=0x%x error=%d\n",
 		       (uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
 		break;
 #ifdef UN_MOD
 		case SCTP_ADAPTATION_INDICATION:
 		ae = &snp->sn_adaptation_event;
-		printf("time:%ld,SCTP_ADAPTATION_INDICATION: 0x%x\n",time(NULL),
+		printf("SCTP_ADAPTATION_INDICATION: 0x%x\n",
 		    (u_int)ae->sai_adaptation_ind);
 		break;
 #else
 		case SCTP_ADAPTION_INDICATION:
 		ae = &snp->sn_adaption_event;
-		printf("time:%ld,SCTP_ADAPTION_INDICATION: 0x%x\n",time(NULL),
+		printf("SCTP_ADAPTION_INDICATION: 0x%x\n",
 		    (u_int)ae->sai_adaption_ind);
 		break;
 #endif
 	case SCTP_PARTIAL_DELIVERY_EVENT:
 	    pdapi = &snp->sn_pdapi_event;
 	    if(pdapi->pdapi_indication == SCTP_PARTIAL_DELIVERY_ABORTED)
-		    printf("time:%ld,SCTP_PARTIAL_DELIEVERY_ABORTED\n",time(NULL));
+		    printf("SCTP_PARTIAL_DELIEVERY_ABORTED\n");
 	    else
-		    printf("time:%ld,Unknown SCTP_PARTIAL_DELIVERY_EVENT 0x%x\n",time(NULL),
+		    printf("Unknown SCTP_PARTIAL_DELIVERY_EVENT 0x%x\n",
 			   pdapi->pdapi_indication);
 	    break;
 	case SCTP_SHUTDOWN_EVENT:
 		sse = &snp->sn_shutdown_event;
-		printf("time:%ld,SCTP_SHUTDOWN_EVENT: assoc=0x%x\n",time(NULL),
+		printf("SCTP_SHUTDOWN_EVENT: assoc=0x%x\n",
 		       (uint32_t)sse->sse_assoc_id);
 		break;
 	default:
-		printf("time:%ld,Unknown notification event type=0x%x\n", time(NULL),
+		printf("Unknown notification event type=0x%x\n", 
 		       snp->sn_header.sn_type);
 	}
 }
