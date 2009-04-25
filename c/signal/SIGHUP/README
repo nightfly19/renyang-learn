@@ -1,0 +1,17 @@
+執行方式
+
+先編譯程式
+$ make
+
+執行程式
+$ ./main
+
+得知目前這一個程式的process id
+$ ps -u
+可以尋找到目前這一個執行程式的process id
+
+$ kill -1 pid
+
+對目前這一個process id送出HUP訊號
+
+就會印出目前所設定當收到HUP訊號時要執行的副程式
