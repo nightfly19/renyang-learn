@@ -39,6 +39,7 @@
 static Ihu *ihu = NULL;
 static IhuNoGui *ihuNoGui = NULL;
 
+// renyang - 結束程式
 void terminate(int val)
 {
 	fprintf(stderr, "SIGINT caught. Terminating...\n");
@@ -46,8 +47,7 @@ void terminate(int val)
 	{
 		ihu->quit();
 	}
-	else
-	if (ihuNoGui)
+	else if (ihuNoGui)
 	{
 		ihuNoGui->quit();
 		delete ihuNoGui;

@@ -38,6 +38,7 @@
 #include "Logger.h"
 #include "Rsa.h"
 
+// renyang - 建立一個類別, 其類別是表示沒有GUI的IHU
 class IhuNoGui : public QObject
 {
 	Q_OBJECT
