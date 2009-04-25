@@ -69,9 +69,11 @@ void usage(int ret)
 
 int main( int argc, char **argv )
 {
+	// renyang - 預設是否要使用GUI介面
 	bool enableGui = true;
 	int ret = 0;
 
+	// renyang - 當使用者用ctrl+c要結束程式時,會去執行terminate這一個副程式
 	signal(SIGINT, terminate);
 	
 	/*
