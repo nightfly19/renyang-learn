@@ -33,13 +33,15 @@
 #include "IhuNoGui.hpp"
 
 #ifdef HAVE_CONFIG_H
+// renyang - 只有當執行完./configure後才會出現config.h這一個檔案
 #include "config.h"
 #endif
 
 static Ihu *ihu = NULL;
 static IhuNoGui *ihuNoGui = NULL;
 
-// renyang - 結束程式
+// renyang - 結束程式 - 當使用者使用ctrl+c，則會跳到此處執行此函式
+// renyang - 因signal(SIGINT, terminate);的關係
 void terminate(int val)
 {
 	fprintf(stderr, "SIGINT caught. Terminating...\n");
@@ -73,7 +75,7 @@ int main( int argc, char **argv )
 	bool enableGui = true;
 	int ret = 0;
 
-	// renyang - 當使用者用ctrl+c要結束程式時,會去執行terminate這一個副程式
+	// renyang - 當使用者用ctrl+c要結束程式時,會被程式攔截到,接著去執行terminate這一個副程式
 	signal(SIGINT, terminate);
 	
 	/*
@@ -85,36 +87,39 @@ int main( int argc, char **argv )
 	int waitcall = 0, call = 0, file = 0, muteMic = 0, muteSpk = 0, encrypt = 0, conf = 0;
 	char* cfg = NULL;
 
+	// renyang - 在開始執行檔案時, 設定相關的參數
 	for(int i=1; i<argc; i++)
 	{
+		// renyang - 列印出menu
 		if (strcmp(argv[i], "--help")==0)
 			usage(0);
-		else
-		if (strcmp(argv[i], "--nogui")==0)
+		// renyang - 設定不使用GUI
+		else if (strcmp(argv[i], "--nogui")==0)
 			enableGui = false;
-		else
-		if (strcmp(argv[i], "--conf")==0)
+		// renyang - 使用設定檔, 要用i+1是因為後面的那一個參數就是設定檔的檔案, 設定要使用的檔案為下一個參數(i+1)
+		else if (strcmp(argv[i], "--conf")==0)
 			conf = i+1;
-		else
-		if (strcmp(argv[i], "--wait")==0)
+		// renyang - 等待電話
+		else if (strcmp(argv[i], "--wait")==0)
 			waitcall = 1;
-		else
-		if (strcmp(argv[i], "--call")==0)
+		// renyang - 打電話, 要使用i+1也是因為下一個參數正是要撥打的電話
+		else if (strcmp(argv[i], "--call")==0)
 			call = i+1;
-		else
-		if (strcmp(argv[i], "--file")==0)
+		// renyang - 撥放IHU的檔案, 下一個參數就是要撥放的檔案
+		else if (strcmp(argv[i], "--file")==0)
 			file = i+1;
-		else
-		if (strcmp(argv[i], "--noinput")==0)
+		// renyang - 設定不使用audio input
+		else if (strcmp(argv[i], "--noinput")==0)
 			muteMic = 1;
-		else
-		if (strcmp(argv[i], "--nooutput")==0)
+		// renyang - 設定不使用audio output
+		else if (strcmp(argv[i], "--nooutput")==0)
 			muteSpk = 1;
-		else
-		if (strcmp(argv[i], "--encrypt")==0)
+		// renyang - 設定後面的那一個檔案要編碼
+		else if (strcmp(argv[i], "--encrypt")==0)
 			encrypt = 1;
 	}
 	
+	// renyang - 偵測錯誤
  	if (conf)
 	{
 		if (argc < (conf + 1))
@@ -133,68 +138,86 @@ int main( int argc, char **argv )
 
 	try
 	{
+		// renyang - 使用設定檔
 		if (conf)
 		{
 			cfg = argv[conf];
 			fprintf(stdout, "Using '%s' as configuration file\n", argv[conf]);
 		}
 
+		// renyang - 建立一個config物件, 使用的參數就是這一個檔案
 		Config ihuconfig(cfg);
 		
+		// renyang - 依enableGui來決定是使用NoGui還是Gui的版本
 		QApplication a( argc, argv, enableGui );
 		
 		if (enableGui)
 		{
+			// renyang - 產生一個Ihu的物件指標, 使用剛剛建立的設定值
 			ihu = new Ihu(ihuconfig);
+			// renyang - 設定ihu為主要的GUI畫面, 當這一個主要的GUI畫面被結束的話, 整個應用程式就結束了
+			// renyang - 另外, 值得一提的就是, 在Qt4中, 不需要設定MainWidget
 			a.setMainWidget( ihu );
 			
+			// renyang - 初始化ihu
 			ihu->initIhu();
 			
+			// renyang - 靜音
 			if (muteMic)
 				ihu->disableIn();
+			// renyang - 麥克風沒有收音
 			if (muteSpk)
 				ihu->disableOut();
+			// renyang - 封包加密
 			if (encrypt)
 				ihu->cryptOn();
 			
+			// renyang - 等待別人打電話進來
 			if (waitcall)
 				ihu->waitForCalls();
 	
+			// renyang - 撥放IHU檔案
 			if (file)
 				ihu->playFile(argv[file]);
-			else
-			if (call)
+			// renyang - 撥打給某一個ip檔案
+			else if (call)
 				ihu->call(argv[call]);
 	
+			// renyang - 執行GUI的程式
 			ret = a.exec();
 	
+			// renyang - 程式準備結束, 刪除所建立的ihu空間, 它會把所有的子類別也同時刪除
 			delete ihu;
 		}
 		else
 		{
 			fprintf(stdout, "Starting IHU without GUI...\nPress CTRL-C to terminate\n");
 
+			// renyang - 所包含的參數必需要包含waitcall, call, file這兩個其中一個
 			if (!waitcall && !call && !file)
 				usage(1);
 			
+			// renyang - 建立一個沒有GUI的指標物件
 			ihuNoGui = new IhuNoGui(ihuconfig);
 			
+			// renyang - 初始化no-GUI的物件
 			ihuNoGui->initIhu();
 			
+			// renyang - 聲音沒有辦法輸入
 			if (muteMic)
 				ihuNoGui->disableIn();
+			// renyang - 聲音沒有辦法輸出
 			if (muteSpk)
 				ihuNoGui->disableOut();
+			// renyang - 設定是否加密
 			if (encrypt)
 				ihuNoGui->cryptOn();
 			
 			if (waitcall)
 				ihuNoGui->waitForCalls();
-			else
-			if (call)
+			else if (call)
 				ihuNoGui->call(argv[call]);
-			else
-			if (file)
+			else if (file)
 				ihuNoGui->playFile(argv[file]);
 			
 			ret = a.exec();
@@ -202,8 +225,12 @@ int main( int argc, char **argv )
 			delete ihuNoGui;
 		}
 
+		// renyang - 把設定寫入Config中
 		ihuconfig.writeConfig();
 	}
+	// renyang - 抓取錯誤
+	// renyang - 由子程式出現的錯誤，若在同一個層級沒有人來處理它, 則會一直往呼叫它的層級去尋找
+	// renyang - 是否有可以處理些例外的catch
 	catch (Error e)
 	{
 		fprintf(stderr, "ABORTED.\nError: %s\n", e.getError());
