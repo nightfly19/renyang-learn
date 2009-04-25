@@ -20,6 +20,7 @@ int local_fd		= -1;
 int keepSending 	= 0;
 int keepReceiving 	= 0;
 int programAlive	= 1;
+// renyang - 表示目前使用的stream個數
 int numOfStream		= 3;
 
 pthread_t sendDataThread;
@@ -33,6 +34,7 @@ char* remoteIps[10];
 char remoteIpCnt;	
 int remotePort;
 
+// renyang - 在結束程式之前,用來結束所有的設定
 void exitProgram()
 {
 	keepSending 	= 0;
@@ -54,6 +56,8 @@ void exitProgram()
 }
 
 
+// renyang - 等待使用著輸入資料
+// renyang - 若server端有使用者輸入字串,則停止程式
 void* waitForUserInput(void *null)
 {
 	fgetc(stdin);
@@ -67,10 +71,12 @@ int cbind(char** ips, int ipCnt, int port)
 	int fd;
 	int i;
 	int result;
+	// renyang - 是因為變數的scope，因此必需要使用指標來建立address嗎??
 	struct sockaddr_in *addrs;
     struct sctp_event_subscribe event;
 
 	fd = -1;
+    // renyang - 驚!!是建立one-to-one的形式, 這樣也可以使用event的特性喔
     if ((fd = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP)) == -1)
     {
 		perror("Create socket failed");
@@ -99,6 +105,7 @@ int cbind(char** ips, int ipCnt, int port)
 		}
 
 	}
+	// 把socket bind在多個address上面
 	result = sctp_bindx(fd, (struct sockaddr *)addrs, ipCnt, SCTP_BINDX_ADD_ADDR);	
 
 	if(result < 0)
@@ -108,6 +115,7 @@ int cbind(char** ips, int ipCnt, int port)
 	}
 		
 		
+	// 設定觀察所有的事件
 	memset(&event, 0, sizeof(event));
 		
 	event.sctp_data_io_event 			= 1;
@@ -142,6 +150,7 @@ int cconnect(char** rIps, int rIpCnt, int rPort, char** lIps, int lIpCnt, int lP
 
 	fd 			= -1;
 
+	// renyang - client端應該不需要bind??
 	fd = cbind(lIps, lIpCnt, lPort);
 
 	if(fd < 0)
@@ -166,6 +175,7 @@ int cconnect(char** rIps, int rIpCnt, int rPort, char** lIps, int lIpCnt, int lP
 		}
 	}
 
+	// renyang - 連線到多個server端, 但是，一開始不是宣告one-to-one的sctp嗎?為什麼可以使用sctp_connectx??
 	result = sctp_connectx(fd, (struct sockaddr*)addrs, rIpCnt);
 
 	if(result < 0)
@@ -178,6 +188,8 @@ int cconnect(char** rIps, int rIpCnt, int rPort, char** lIps, int lIpCnt, int lP
 	return fd;
 }
 
+// renyang - 建立server端的socket
+// renyang - ips:儲放本地端ip的地址. ipCnt:本地端的ip個數. port:本地端使用的port. lCnt: 本地端(server端)要建立listen的queue個數
 int clisten(char** ips, int ipCnt, int port, int lCnt)
 {
 	int fd;
@@ -186,6 +198,7 @@ int clisten(char** ips, int ipCnt, int port, int lCnt)
 	
 	if(fd > 0)
 	{
+		// renyang - 建立多個等待client連線的queue
 		if(listen(fd, lCnt) > -1)
 		{
 			return fd;
@@ -197,6 +210,7 @@ int clisten(char** ips, int ipCnt, int port, int lCnt)
 
 
 
+// renyang - 接收對方回傳回來的資料, parms表示對方的socket file descriptor
 void* receiveData(void *parms)
 {
 	int sz;
@@ -210,7 +224,7 @@ void* receiveData(void *parms)
 	while(keepReceiving)
 	{
 		sz = sctp_recvmsg(*fd, buf, sizeof(buf), 0, 0, &sri, &msg_flags);
-		if(msg_flags & MSG_NOTIFICATION)
+		if(msg_flags & MSG_NOTIFICATION)	// renyang - 若這一個成立的話, 則表示是事件, 目前不處理啦
 		{
 			continue;
 		}
@@ -237,6 +251,7 @@ void* receiveData(void *parms)
 	pthread_exit(NULL);
 }
 
+// renyang - 參數資料的函式, parms為對方的socket file descriptor
 void* sendData(void *parms)
 {
 
@@ -250,22 +265,23 @@ void* sendData(void *parms)
 	keepSending		= 1;
 	while(keepSending)
 	{
+		// renyang - 所以, 只有stream 1和stream 2在使用
 		for(i=1; i<numOfStream && keepSending; i++)
 		{
 			printf("send sid: %d, size: %d\n", i, sizeof(buf));
 			memset(buf, sizeof(buf), 49);
 
 			sz = sctp_sendmsg(
-				*fd,
-				buf,
-				sizeof(buf),
-				0,
-				0,
-				0,
-				0,
+				*fd,	// renyang - local socket file descripter
+				buf,	// renyang - the pointer of the data will be sent
+				sizeof(buf),	// renyang - the length of the data
+				0,	// renyang - peer endpoint struct sockaddr
+				0,	// renyang - length of the address stored previous field
+				0,	// renyang - the payload protocol identifier that will be passed with the data chunk
+				0,	// renyang - flags, SCTP options
 				i,	// stream id
-				10,
-				0
+				10,	// renyang - time-to-live
+				0	// renyang - specified context
 			);
 
 			if(sz == -1)
@@ -276,6 +292,8 @@ void* sendData(void *parms)
 	}
 
 	exitProgram();
+	// renyang - 必需使用pthread_exit(), 則只會結束目前這一個thread
+	// renyang - 若使用exit(), 則會結束所有的目前這一個process的thread包含process
 	pthread_exit(NULL);
 
 }
@@ -300,9 +318,12 @@ void sender()
 
 	FD_ZERO(&fdset);
 	FD_SET(local_fd, &fdset);
+	// renyang - 當有資料可以讀時, 就跳出迴圈
 	while (select(local_fd+1, &fdset, 0, 0, 0) <= 0){ continue;}
 		
 	len = sizeof(cli_addr);
+	// renyang - 因為是one-to-one的型態，因此必需要有accept()來等待client端的連線
+	// renyang - 回傳的是相對於peer端的socket file descriptor
 	remote_fd = accept(local_fd, (struct sockaddr*)&cli_addr, (socklen_t *)&len);
 
 	if (remote_fd > 0)
@@ -314,11 +335,20 @@ void sender()
 			
 
 		// send data thread
+		// renyang - 先初始化一個pthread的參數attr
 		pthread_attr_init(&attr);
+		// renyang - 設定pthread_attr_t attr的PTHREAD_CREATE_JOINABLE的特性
+		// renyang - 設定attr為可以設定為同步,應該就是說可以使用pthread_join()來等待指定的process
+		// renyang - 預設本來就設定可以pthread_join()
 		pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+		// renyang - 建立一個pthread,pthread儲放在sendDataThread
+		// renyang - 屬性為attr,執行的function為sendData,函數的參數為remote_fd
+		// renyang - 目前這一個範例程式的server端只會執行到目前這一個地方，就一直在sendData內loop啦
 		pthread_create(&sendDataThread, &attr, sendData, &remote_fd);
+		// renyang - 當程式跑到這裡時,表示thread的function也跑完了，可以把attr刪除掉了
 		pthread_attr_destroy(&attr);
 
+		// renyang - 以下的資料server端在目前這一個程式並不會用到
 		// receive data thread
 		pthread_attr_init(&attr);
 		pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -326,7 +356,9 @@ void sender()
 		pthread_attr_destroy(&attr);
 		
 
+		// renyang - main函式必需等待sendDataThread執行完
 		pthread_join(sendDataThread, NULL);
+		// renyang - main函式必需等待receiveDataThread執行完
 		pthread_join(receiveDataThread, NULL);
 		
 	}
@@ -351,8 +383,7 @@ void receiver()
 	int rt;
 	pthread_attr_t attr;
 
-
-    pthread_create(&waitForUserInputThread, 0, waitForUserInput, 0);
+    	pthread_create(&waitForUserInputThread, 0, waitForUserInput, 0);
 
 	remote_fd = -1;
 
@@ -367,8 +398,8 @@ void receiver()
 						remotePort, 
 						localIps, 
 						localIpCnt, 
-						localPort)) < 1 && 
-						programAlive )
+						localPort)
+						) < 1 && programAlive )
 	{
 		sleep(1);		
 	}
@@ -415,27 +446,38 @@ int main(int argc, char **argv)
 
 	for(i=0; i< 10; i++)
 	{
+		// renyang - 建立10個儲存本地端ip的陣列
 		localIps[i] = malloc(16);
 	}
 	for(i=0; i< 10; i++)
 	{
+		// renyang - 建立10個儲存peer端的ip陣列
 		remoteIps[i] = malloc(16);
 	}	
+	// renyang - 記錄儲存的本地端ip個數
 	localIpCnt = 0;
+	// renyang - 記錄儲存的peer端ip個數
 	remoteIpCnt = 0;
 
+	// renyang - 設定第一個本地端的ip位址
 	localIps[localIpCnt++] = "127.0.0.1";
+	// renyang - 設定第一個peer端的ip位址
 	remoteIps[remoteIpCnt++] = "127.0.0.1";
 	
+	// renyang - 目前程式在運作
 	programAlive = 1;
 
+	// renyang - server端
 	if(argc > 1 && strcmp(argv[1], "server") == 0)
 	{
+		// renyang - 本地端使用的port號
 		localPort = 1557;
+		// renyang - 遠端使用的port號
 		remotePort = 1558;
+		// renyang - server端執行的程式
 	   	sender();
 	}
-	else
+	else	// renyang - client端
 	{
 		localPort = 1558;
 		remotePort = 1557;
