@@ -41,6 +41,7 @@ IhuNoGui::~IhuNoGui()
 	delete logger;
 }
 
+// renyang - 初始化IHU的設定
 void IhuNoGui::initIhu()
 {
 	try
