@@ -153,9 +153,9 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 
 	if (udp)
 	{
-		if ((sd = socket(AF_INET, SOCK_DGRAM, 0)) == -1)
+		if ((sd = ::socket(AF_INET, SOCK_DGRAM, 0)) == -1)
 			throw Error(tr("Can't initalize socket! (socket())"));
-		if (fcntl(sd, F_SETFL, O_NONBLOCK) == -1)
+		if (::fcntl(sd, F_SETFL, O_NONBLOCK) == -1)
 			throw Error(tr("fcntl can't set socket property\n") + strerror(errno));
 	
 		memset(&sa, 0, sizeof(sa));
@@ -164,9 +164,9 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		sa.sin_addr.s_addr = htonl(INADDR_ANY);
 	
 		int opt = 1;
-		setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt) );
+		::setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt) );
 
-		if (bind(sd, (struct sockaddr *) &sa, sizeof(sa)) == -1)
+		if (::bind(sd, (struct sockaddr *) &sa, sizeof(sa)) == -1)
 			throw Error(tr(QString("can't listen on UDP port %1 (%2)").arg(port).arg(strerror(errno))));
 		
 		notifier = new QSocketNotifier(sd, QSocketNotifier::Read, this);
@@ -540,6 +540,7 @@ void Phone::setMyName(QString name)
 	}
 }
 
+// renyang - 設定語音的編碼設定
 void Phone::setup(int mode, int quality, int abr, int vbr, float vbr_quality, int complexity, int vad, int dtx, int txstop, int th, int ring_vol)
 {
 	bool restart = recording;
@@ -551,6 +552,7 @@ void Phone::setup(int mode, int quality, int abr, int vbr, float vbr_quality, in
 
 	SpeexMode *spmode = NULL;
 	
+	// renyang - 依目前的頻寬來設定語音品質
 	switch (mode)
 	{
 		case IHU_NARROW:
@@ -564,24 +566,38 @@ void Phone::setup(int mode, int quality, int abr, int vbr, float vbr_quality, in
 			break;
 	}
 	
+	// renyang - 初始化一個編碼器
 	enc_state = speex_encoder_init(spmode);
 
+	// renyang - 類似ioctl, 直接對底層的部分操作
+	// renyang - 設定encode的複雜度
 	speex_encoder_ctl(enc_state, SPEEX_SET_COMPLEXITY, &complexity);
+	// renyang - 使用的編碼是vbr格式
 	if (vbr)
 	{
+		// renyang - 設定vbr是否要打開
 		speex_encoder_ctl(enc_state, SPEEX_SET_VBR, &vbr);
+		// renyang - 設定vbr的quality
 		speex_encoder_ctl(enc_state, SPEEX_SET_VBR_QUALITY, &vbr_quality);
 	}
 	else
 	{
+		// renyang - 設定一般語音的quality
 		speex_encoder_ctl(enc_state, SPEEX_SET_QUALITY, &quality);
+		// renyang - 設定VAD (Voice activity detection)音聲變動偵測
 		speex_encoder_ctl(enc_state, SPEEX_SET_VAD, &vad);
 	}
 	if (abr)
+	{
+		// renyang - 設定abr是否要開啟
 		speex_encoder_ctl(enc_state, SPEEX_SET_ABR, &abr);
+	}
+	// renyang - 設定DTX的狀態
 	speex_encoder_ctl(enc_state, SPEEX_SET_DTX, &dtx);
-	
+
+	// renyang - Get sampling rate used in bit-rate computation
 	speex_encoder_ctl(enc_state, SPEEX_GET_SAMPLING_RATE, &rate);
+	// renyang - 取得一個frame的大小
 	speex_encoder_ctl(enc_state, SPEEX_GET_FRAME_SIZE, &frame_size);
 
 	stoptx = txstop;
@@ -612,6 +628,7 @@ void Phone::setThreshold(int th)
 
 void Phone::setupRecorder(int driver, QString interface)
 {
+	// renyang - driver是指使用ALSA或是JACK當作音訊的編碼
 	recorder->setup(driver, interface);
 }
 
@@ -733,12 +750,15 @@ void Phone::stopPlayer()
 	}
 }
 
+// renyang - 尋找出最大音量, 來確認是有在說話
 bool Phone::isSpeaking(float *samples, int nsample)
 {
 	bool ret = false;
 	float smp;
+	// renyang - 尋找最大音量的樣本數
 	for (int i=0; i<nsample; i++)
 	{
+		// renyang - samples[i] = samples[i] * amp;
 		samples[i] *= amp;
 		smp = fabs(samples[i]);
 		if (smp > peak)
@@ -749,16 +769,20 @@ bool Phone::isSpeaking(float *samples, int nsample)
 	return ret;
 }
 
+// renyang - 傳送音訊資料
 void Phone::sendAudioData(float *sample, int samples)
 {
+	// renyang - 若最大音量有超過threshold, 則表示要傳送語音資料
 	if (isSpeaking(sample, samples))
 	{
 		if (rec_status == RECORDER_STATUS_WAITING)
 			rec_status = RECORDER_STATUS_START;
+		// renyang - 不是很懂這一個程式碼要做什麼???
 		speak = stoptx; // To guarantee stream even for small speech pauses
 	}
 	switch (rec_status)
 	{
+		// renyang - 開始傳送音訊, 並且把目前的狀態改為正在傳送音訊
 		case RECORDER_STATUS_START:
 			send(prebuffer, frame_size);
 			rec_status = RECORDER_STATUS_RUNNING;
@@ -769,6 +793,7 @@ void Phone::sendAudioData(float *sample, int samples)
 			}
 			else 
 			{
+				// renyang - 跳到等待的狀態
 				rec_status = RECORDER_STATUS_WAITING;
 			}
 		case RECORDER_STATUS_WAITING:  // It keeps the previous buffer to anticipate a little the speech
@@ -785,7 +810,12 @@ void Phone::send(float *fsamples, int samples)
 	speex_bits_reset(&enc_bits);
 	if (enc_state)
 	{
+		// renyang - int speex_encode(void *state, float *in, SpeexBits *bits);
+		// renyang - 編碼
 		speex_encode(enc_state, fsamples, &enc_bits);
+		// renyang - int speex_bits_write(SpeexBits *bits, char *bytes, int max_len);
+		// renyang - Write the content of a bit-stream to an area of memory
+		// 把語音編碼寫入out
 		tot = speex_bits_write(&enc_bits, out, MAXBUFSIZE);
 	}
 	if (tot > 0) {
@@ -794,7 +824,11 @@ void Phone::send(float *fsamples, int samples)
 			for (int i=0; i<maxcall; i++)
 			{
 				if (calls[i])
+				{
+					// renyang - 把語音資料傳送出去
+					// renyang - 把所有的calls的資料傳送出去
 					calls[i]->send(out, tot);
+				}
 			}
 		}
 		catch (Error e)

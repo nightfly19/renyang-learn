@@ -35,9 +35,12 @@
 #include <jack/jack.h>
 #endif
 
+// renyang - 選擇使用Advanced Linux Sound Architecture (ALSA) 來記錄音訊(當作input)
 #define REC_DRIVER_ALSA 0
+// renyang - 選擇使用JACK來記錄音訊(當作input)
 #define REC_DRIVER_JACK 1
 
+// renyang - 好像是記錄聲音音訊的大小
 #define REC_BUFSIZE 4096
 
 class Recorder : public QObject {
@@ -45,6 +48,7 @@ class Recorder : public QObject {
 public:
 	Recorder();
 	~Recorder(void);
+	// renyang - 設定要使用的
 	void setup(int, QString);
 	void initAlsa(unsigned int, const char*);
 	void start(unsigned int);

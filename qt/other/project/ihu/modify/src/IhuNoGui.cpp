@@ -110,6 +110,7 @@ void IhuNoGui::applySettings()
 	if (dtx)
 		th = ihuconfig.getThreshold();
 
+	// renyang - 設定使用的Recorder, 需要設定InputDriver,InputInterface
 	phone->setupRecorder(ihuconfig.getInputDriver(), ihuconfig.getInputInterface());
 	phone->setupPlayer(ihuconfig.getOutputInterface(), ihuconfig.getPrePackets());
 	fileplayer->setupPlayer(ihuconfig.getOutputInterface());

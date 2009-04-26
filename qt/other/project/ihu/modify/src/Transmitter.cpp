@@ -190,12 +190,15 @@ void Transmitter::disableCrypt()
 	crypted = false;
 }
 
+// renyang - 傳送封包
 void Transmitter::sendPacket(Packet *p)
 {
 	int snt = 0;
 	if ((s != -1) && working)
 	{
+		// renyang - 把資料透過::send()傳送出去
 		snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
+		// renyang - 傳送失敗
 		if (snt <= 0)
 		{
 			emitSignal(SIGNAL_FINISH);
@@ -207,6 +210,7 @@ void Transmitter::sendPacket(Packet *p)
 			active = true;
 		}
 	}
+	// renyang - 是否把資料存到檔案中
 	if (outFile) {
 		fwrite(p->getPacket(), 1, p->getSize(), outFile);
 		fflush(outFile);
@@ -261,16 +265,20 @@ void Transmitter::sendAudioPacket(char *data, int len)
 	if (tx)
 	{
 		int size;
+		// renyang - 了解傳送出去的是什麼型態的資料
 		char type = IHU_INFO_AUDIO;
 		try
 		{
+			// renyang - 是否要經過加密
 			if (blowfish)
 			{
 				size = PacketHandler::calculateCryptedSize(len);
 				type = IHU_INFO_CRYPTED_AUDIO;
 			}
 			else
+			{
 				size = PacketHandler::calculateSize(len);
+			}
 			Packet *p = new Packet (size);
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
 			if (blowfish)
@@ -297,7 +305,9 @@ void Transmitter::sendSpecialPacket(char *data, int len, char type)
 	{
 		int size = PacketHandler::calculateSize(len);
 		Packet *p = new Packet (size);
+		// renyang - 建立封包
 		PacketHandler::buildPacket(p, data, len, type);
+		// renyang - 傳送封包
 		sendPacket(p);
 		delete p;
 	}
@@ -461,6 +471,7 @@ bool Transmitter::isActive()
 	return temp;
 }
 
+// renyang - 傳送訊號
 void Transmitter::emitSignal(signal_type type)
 {
 	switch(type)
@@ -468,12 +479,15 @@ void Transmitter::emitSignal(signal_type type)
 		if (working)
 		{
 			case SIGNAL_FINISH:
+				// renyang - Call會執行stopCall()
 				emit finishSignal();
 				break;
 			case SIGNAL_START:
+				// renyang - Call::startRecorder()
 				emit startSignal();
 				break;
 			case SIGNAL_RINGMESSAGE:
+				// renyang - Call::ringMessage()
 				emit ringMessage();
 				break;
 		}

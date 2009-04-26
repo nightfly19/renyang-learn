@@ -86,6 +86,7 @@ public:
 	void receivedCall(int);
 
 	void send(float*, int);
+	// renyang - 傳送音訊資料
 	void sendAudioData(float *, int);
 
 	void startRecorder();
@@ -93,6 +94,7 @@ public:
 	void startPlayer();
 	void stopPlayer();
 
+	// renyang - 設定語音的編碼設定
 	void setup(int, int, int, int, float, int, int, int, int, int, int);
 	void setupRecorder(int, QString);
 	void setupPlayer(QString, int);
@@ -128,6 +130,7 @@ public:
 	void setMyName(QString);
 	void setThreshold(int);
 
+	// renyang - 尋找出最大音量, 來確認是有在說話
 	bool isSpeaking(float*, int);
 	int findFreeId();
 	int findFreeCall();
@@ -138,6 +141,9 @@ public:
 
 private:
 
+	// renyang - rec_status共有以下狀態
+	// renyang - RECORDER_STATUS_WAITING, RECORDER_STATUS_START, RECORDER_STATUS_RUNNING
+	// renyang - RECORDER_STATUS_MUTE, RECORDER_STATUS_STOP
 	recorder_status rec_status;
 	player_status play_status;
 

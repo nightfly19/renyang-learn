@@ -313,8 +313,10 @@ void Call::enableCrypt(char *passwd, int len)
 
 }
 
+// renyang - 把資料由網路傳送出去
 void Call::send(char *data, int len)
 {
+	// renyang - 有記錄, 且不是靜音
 	if (recording && !muteRec)
 		transmitter->sendAudioPacket(data, len);
 }

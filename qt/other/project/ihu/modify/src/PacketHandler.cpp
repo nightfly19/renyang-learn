@@ -23,12 +23,14 @@
 #include <stdio.h>
 #include "PacketHandler.h"
 
+// renyang - 建立封包
 void PacketHandler::buildPacket(Packet *packet, char *data, int len, char type)
 {
 	packet->init(data, len);
 	packet->setInfo(type);
 }
 
+// renyang - 建立ModePacket封包
 void PacketHandler::buildModePacket(Packet *packet, char *data, int len, char type, char mode)
 {
 	buildPacket(packet, data, len, type);
@@ -40,6 +42,7 @@ void PacketHandler::readPacket(Packet *packet, char *buffer, int len)
 	packet->fill(buffer, len);
 }
 
+// renyang - 用來計算沒有經過加密的封包大小
 int PacketHandler::calculateSize(int dataLen)
 {
 	int len = dataLen + HEADER_SIZE;
@@ -51,6 +54,7 @@ int PacketHandler::calculateSize(int dataLen)
 	return len;
 }
 
+// renyang - 計算有經過加密之後的封包的大小
 int PacketHandler::calculateCryptedSize(int dataLen)
 {
 	int align = dataLen % 8;
