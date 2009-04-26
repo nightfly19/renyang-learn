@@ -283,12 +283,14 @@ void Config::setDefault()
 	setMaxCalls(IHU_DEFAULT_MAXCALLS);
 	setMaxHosts(IHU_DEFAULT_MAXHOSTS);
 
+	// renyang - 網路相關預設值
 	setUDP(IHU_DEFAULT_UDP);
 	setTCP(IHU_DEFAULT_TCP);
 	setProtocol(IHU_DEFAULT_PROTOCOL);
 	setInPort(IHU_DEFAULT_INPORT);
 	setOutPort(IHU_DEFAULT_OUTPORT);
 
+	// renyang - 設定聲音相關設定
 	setInputDriver(IHU_DEFAULT_INDRIVER);
 	setInputInterface(IHU_DEFAULT_INTERFACE);
 	setOutputInterface(IHU_DEFAULT_INTERFACE);

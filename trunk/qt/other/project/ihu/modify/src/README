@@ -8,3 +8,19 @@
 Phone.hpp與Phone.cpp可能是實際上在處理語音的部分
 Call.hpp與Call.cpp是整合連線與記錄對話，撥放對話的部分
 Transmitter.hpp與Transmitter.cpp是實際上在處理網路傳輸的部分
+
+觀察
+void Phone::sendAudioData(float *sample, int samples);
+void Phone::send(float *fsamples, int samples);
+是在傳送語音的部分
+
+實際上把資料傳送出去的在
+void Call::send(char *data, int len)
+
+由網路傳送語音資料出去
+void Transmitter::sendAudioPacket(char *data, int len)
+
+查看Packet.cpp可以得知header的設定
+
+YYYY在Phone::waitCalls(int,bool,bool)
+要加入sctp的判斷

@@ -34,6 +34,7 @@
  *  a) SYNC Pattern (3 bytes)
  *     The pattern consists of the fixed ASCII string: "IHU"
  *
+// renyang - 記錄封包的大小
  *  b) Packet SIZE (1 byte): unsigned char that contains
  *     the size of the packet (min size 5, max size 256)
  *
@@ -73,6 +74,7 @@
 #include "Error.h"
 #include "Packet.h"
 
+// renyang - 建立一個封包, 準備要拿來放資料
 Packet::Packet(int packetSize)
 {
 	size = packetSize;
@@ -88,6 +90,7 @@ Packet::~Packet(void)
 
 void Packet::init(char *data, int len)
 {
+	// renyang - 初始化封包的header
 	strncpy(packet, HEADER_SYNC_STRING, HEADER_SYNC_LEN);
 	packet[HEADER_SYNC_LEN] = (unsigned char) size;
 	info = packet + HEADER_SYNC_LEN + 1; // Info
@@ -96,6 +99,7 @@ void Packet::init(char *data, int len)
 	if (len > 0)
 	{
 		dataPtr = packet + HEADER_SIZE;
+		// renyang - 把資料copy到自定的封包中
 		memcpy(dataPtr, data, len);
 	}
 	resetInfo();

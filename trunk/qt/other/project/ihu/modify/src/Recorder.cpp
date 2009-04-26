@@ -79,6 +79,7 @@ void Recorder::start(unsigned int rate)
 	switch(driver)
 	{
 		case REC_DRIVER_ALSA:
+			// renyang - 初始化ALSA的音訊
 			initAlsa(rate, interface.ascii());
 			break;
 		case REC_DRIVER_JACK:
@@ -92,6 +93,7 @@ void Recorder::start(unsigned int rate)
 	working = true;
 }
 
+// renyang - 初始化ALSA的音訊
 void Recorder::initAlsa(unsigned int rate, const char* interf)
 {
 	snd_pcm_hw_params_t *hw_params;

@@ -190,10 +190,12 @@ void Receiver::receive()
 		switch(protocol)
 		{
 			case IHU_UDP:
-				rlen = recvfrom(s, inputBuffer, IN_BUFSIZE, 0, (struct sockaddr *)&ca, &calen);
+				// renyang - 由udp的方式來接收資料
+				rlen = ::recvfrom(s, inputBuffer, IN_BUFSIZE, 0, (struct sockaddr *)&ca, &calen);
 				break;
 			case IHU_TCP:
-				rlen = recv(s, inputBuffer, IN_BUFSIZE, 0);
+				// renyang - 由tcp的方式來接收資料
+				rlen = ::recv(s, inputBuffer, IN_BUFSIZE, 0);
 				break;
 		}
 

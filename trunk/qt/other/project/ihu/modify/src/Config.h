@@ -29,7 +29,7 @@
 
 #include <qstring.h>
 
-// renyang - 設定config是以什麼為副檔名
+// renyang - 設定config檔是以什麼為副檔名
 #define IHU_DEFAULT_CONFIG_FILE ".ihu.xml"
 
 #define IHU_DEFAULT_MAXCALLS 5
@@ -221,16 +221,26 @@ private:
 	// renyang - 設定可以建立多少個host等待別人打電話過來(預設是20)
 	int maxHosts;
 
+	// renyang - 設定是否有支援udp (預設是true)
 	bool udp;
+	// renyang - 設定是否有支援tcp (預設是true)
 	bool tcp;
+	// renyang - 設定使用的protocol (預設是0)
 	int protocol;
+	// renyang - 設定server端使用的port號 (預設是1793)
 	int inPort;
+	// renyang - 設定要連出去的port號 (預設是1793)
 	int outPort;
 
+	// renyang - 設定要使用的語音編碼(預設是ALSA, 另一個選擇是JACK)
 	int inputDriver;
+	// renyang - 使用的interface(預設是default)???
 	QString inputInterface;
+	// renyang - 不知道是什麼意思(預設是default)???
 	QString outputInterface;
+	// renyang - 為了網路可以暢通, 設定一個threshold當音量超過某一個設定值時, 才會傳送聲音
 	int threshold;
+	// renyang - 預設是3
 	int txStop;
 	int prePackets;
 	int ringVolume;

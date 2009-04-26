@@ -65,6 +65,7 @@ public:
 	long getTotalTX();
 	long getTotalRX();
 	long getTotal();
+	// renyang - 把資料由網路傳送出去
 	void send(char*, int);
 	void muteRecorder(bool);
 	void mutePlayer(bool);
