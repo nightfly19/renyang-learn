@@ -29,6 +29,7 @@
 
 #include <qstring.h>
 
+// renyang - 設定config是以什麼為副檔名
 #define IHU_DEFAULT_CONFIG_FILE ".ihu.xml"
 
 #define IHU_DEFAULT_MAXCALLS 5
@@ -207,11 +208,17 @@ private:
 	QString hosts[IHU_MAX_HOSTS];
 
 	QString myName;
+	// renyang - 托盤, 不知道是什麼意思
 	bool trayIcon;
+	// renyang - 是否自動回應別人撥打過來的電話
 	bool autoAnswer;
+	// renyang - 是否自動進入等待別人打電話過來的狀態
 	bool autoWait;
+	// renyang - 應該是設定主視窗是否是穩藏
 	bool autoHide;
+	// renyang - 設定最大可以打的通話數(預設是5,可以開多少個tab)@@@
 	int maxCalls;
+	// renyang - 設定可以建立多少個host等待別人打電話過來(預設是20)
 	int maxHosts;
 
 	bool udp;

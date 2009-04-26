@@ -1,2 +1,10 @@
 可以使用指令列查看有哪一些功能在command line就可以設定
 ./ihu --help
+
+!!! 可能有問題
+??? 非常可能有問題
+@@@ 我猜, 我猜的可能有問題
+
+Phone.hpp與Phone.cpp可能是實際上在處理語音的部分
+Call.hpp與Call.cpp是整合連線與記錄對話，撥放對話的部分
+Transmitter.hpp與Transmitter.cpp是實際上在處理網路傳輸的部分

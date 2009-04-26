@@ -39,6 +39,7 @@
 Phone::Phone(int mc)
 {
 	maxcall = mc;
+	// renyang - 建立一個陣列是用來儲放Call *
 	calls = new Call*[maxcall];
 	for (int i=0; i<maxcall; i++)
 		calls[i] = NULL;
@@ -371,6 +372,7 @@ void Phone::abortAll()
 	}
 }
 
+// renyang - 與host ip建立連線，port號, Protocol
 void Phone::call(int callId, QString host, int port, int prot)
 {
 	if (calls[callId])

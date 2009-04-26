@@ -72,6 +72,7 @@ public:
 
 	void resize(int);
 	void waitCalls(int, bool, bool);
+	// renyang - 與server端建立連線
 	void call(int, QString, int, int);
 	void answerCall(int);
 	void endAll();
@@ -145,6 +146,7 @@ private:
 
 	QTimer *timer;
 
+	// renyang - 記錄所有要撥打出去的電話
 	Call **calls;
 	int maxcall;
 	int call_number;
