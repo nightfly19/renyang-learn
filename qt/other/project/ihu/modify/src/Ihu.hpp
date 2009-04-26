@@ -106,6 +106,7 @@ public:
 	QAction* dumpRXAction;
 	QAction* dumpTXAction;
 	PlayerDialog *playerDialog;
+	// renyang - Phone應該是主要在負責語音的部分
 	Phone* phone;
 	Logger *logger;
 	QTimer *timer;

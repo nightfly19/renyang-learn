@@ -59,6 +59,7 @@ public:
 	void stop();
 	void error();
 	void sendRing(bool);
+	// renyang - 要撥打出去的電話(ip address, port, protype)
 	void call(QString, int, int);
 	long getTraffic();
 	long getTotalTX();

@@ -30,8 +30,10 @@
 #include <qstring.h>
 #include <qtextstream.h>
 
+// renyang - Configure的建構子
 Config::Config(const char *fname)
 {
+	// renyang - 設定configure檔案是以什麼為副檔名
 	fileName = QString(IHU_DEFAULT_CONFIG_FILE);
 	setDefault();
 	if (fname != NULL)
@@ -272,6 +274,7 @@ void Config::writeConfig(QString fname)
 
 void Config::setDefault()
 {
+	// renyang - 設定一些相關預設參數
 	setMyName(QString(""));
 	setTrayIcon(IHU_DEFAULT_TRAY);
 	setAutoAnswer(IHU_DEFAULT_ANSWER);
