@@ -1,0 +1,187 @@
+<ui version="4.0" >
+ <class>ScFtpDLG</class>
+ <widget class="QWidget" name="ScFtpDLG" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>410</width>
+    <height>409</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="verticalLayout" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>10</y>
+     <width>161</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" >
+    <item>
+     <layout class="QVBoxLayout" >
+      <item>
+       <widget class="QLabel" name="label_4" >
+        <property name="text" >
+         <string>SourceFile</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label" >
+        <property name="text" >
+         <string>Server IP</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5" >
+        <property name="text" >
+         <string>Input Streams</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6" >
+        <property name="text" >
+         <string>Output Streams</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_7" >
+        <property name="text" >
+         <string>Several Parts (optional)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayout_2" >
+   <property name="geometry" >
+    <rect>
+     <x>160</x>
+     <y>10</y>
+     <width>161</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" >
+    <item>
+     <widget class="QLineEdit" name="txtSourceFile" />
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txtServerIP" >
+      <property name="text" >
+       <string>127.0.0.1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txtInputStreams" >
+      <property name="text" >
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txtOutputStreams" >
+      <property name="text" >
+       <string>10</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txtSeveralParts" >
+      <property name="text" >
+       <string>-1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="btnSend" >
+   <property name="geometry" >
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>80</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Send</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnReceive" >
+   <property name="geometry" >
+    <rect>
+     <x>200</x>
+     <y>190</y>
+     <width>80</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Receive</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="txtOutput" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>401</width>
+     <height>121</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnGet" >
+   <property name="geometry" >
+    <rect>
+     <x>330</x>
+     <y>10</y>
+     <width>80</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Get</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnClear" >
+   <property name="geometry" >
+    <rect>
+     <x>20</x>
+     <y>360</y>
+     <width>80</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnAbout" >
+   <property name="geometry" >
+    <rect>
+     <x>320</x>
+     <y>360</y>
+     <width>80</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>About</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
