@@ -1,0 +1,1128 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ConfigureDialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ConfigureDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>309</width>
+            <height>354</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Configure</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QTabWidget">
+            <property name="name">
+                <cstring>configTabWidget</cstring>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Personal</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>layout11</cstring>
+                        </property>
+                        <grid>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLabel" row="1" column="0">
+                                <property name="name">
+                                    <cstring>textLabel2_2</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>First name:</string>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="0" column="1">
+                                <property name="name">
+                                    <cstring>nickEdit</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="1" column="1">
+                                <property name="name">
+                                    <cstring>nameEdit</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLineEdit" row="2" column="1">
+                                <property name="name">
+                                    <cstring>surnameEdit</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="2" column="0">
+                                <property name="name">
+                                    <cstring>textLabel3</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Last name:</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel" row="0" column="0">
+                                <property name="name">
+                                    <cstring>textLabel1</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Nick name:</string>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton" row="3" column="0">
+                                <property name="name">
+                                    <cstring>moreButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&amp;More...</string>
+                                </property>
+                                <property name="accel">
+                                    <string>Alt+M</string>
+                                </property>
+                            </widget>
+                        </grid>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer7</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>40</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>General</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>forwardBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Forwarding</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout11</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Host:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>forwardHostEdit</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>alwaysCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Forward always</string>
+                                </property>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>busyCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Forward when busy</string>
+                                </property>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>noAnswerCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Forward when no answer</string>
+                                </property>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>incomingBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Incoming calls</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>dndCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Do not disturb</string>
+                                </property>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>autoAnswerCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Auto answer</string>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout13</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>answerLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Answer timeout:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QSpinBox">
+                                        <property name="name">
+                                            <cstring>answerSpinBox</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer6</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>20</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Codecs</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>audioGroupBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Audio</string>
+                        </property>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>videoGroupBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Video</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>sendVideoCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Send video</string>
+                                </property>
+                            </widget>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>receiveVideoCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Receive video</string>
+                                </property>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer6_2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>54</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Interface</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>groupBox5</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Button text labels</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>labelPositionCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Display text labels</string>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>positionLayout</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>labelPositionLabel</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                        <property name="text">
+                                            <string>Position:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>Bellow icon</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>Beside icon</string>
+                                            </property>
+                                        </item>
+                                        <property name="name">
+                                            <cstring>labelPositionComboBox</cstring>
+                                        </property>
+                                        <property name="enabled">
+                                            <bool>false</bool>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>groupBox6</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Other</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout14</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>textLabel4_2</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Options button:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>Left button</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>Middle button</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>Right button</string>
+                                            </property>
+                                        </item>
+                                        <property name="name">
+                                            <cstring>optionsButtonTypeComboBox</cstring>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout3</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>pluginButtonsLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Visible buttons:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QSpinBox">
+                                        <property name="name">
+                                            <cstring>pluginButtonsSpinBox</cstring>
+                                        </property>
+                                        <property name="maxValue">
+                                            <number>10</number>
+                                        </property>
+                                        <property name="value">
+                                            <number>3</number>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer2</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>70</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Gatekeeper</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QCheckBox">
+                        <property name="name">
+                            <cstring>useGkCheckBox</cstring>
+                        </property>
+                        <property name="text">
+                            <string>Use gatekeeper</string>
+                        </property>
+                        <property name="checked">
+                            <bool>true</bool>
+                        </property>
+                    </widget>
+                    <widget class="QGroupBox">
+                        <property name="name">
+                            <cstring>gkGroupBox</cstring>
+                        </property>
+                        <property name="title">
+                            <string>Gatekeeper</string>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QCheckBox">
+                                <property name="name">
+                                    <cstring>useDiversionCheckBox</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Use call diversion</string>
+                                </property>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout11</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>gkMethodLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Registration:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QComboBox">
+                                        <item>
+                                            <property name="text">
+                                                <string>automatic</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>with address</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>with ID</string>
+                                            </property>
+                                        </item>
+                                        <item>
+                                            <property name="text">
+                                                <string>address and ID</string>
+                                            </property>
+                                        </item>
+                                        <property name="name">
+                                            <cstring>gkMethodComboBox</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>1</hsizetype>
+                                                <vsizetype>5</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout12</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>gkAddressLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Address:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>gkAddressEdit</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>5</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout13</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>gkIdLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>ID:</string>
+                                        </property>
+                                    </widget>
+                                    <widget class="QLineEdit">
+                                        <property name="name">
+                                            <cstring>gkIdEdit</cstring>
+                                        </property>
+                                        <property name="sizePolicy">
+                                            <sizepolicy>
+                                                <hsizetype>5</hsizetype>
+                                                <vsizetype>0</vsizetype>
+                                                <horstretch>0</horstretch>
+                                                <verstretch>0</verstretch>
+                                            </sizepolicy>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer5</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>100</height>
+                            </size>
+                        </property>
+                    </spacer>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Plugins</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QListView">
+                        <column>
+                            <property name="text">
+                                <string>Load</string>
+                            </property>
+                            <property name="clickable">
+                                <bool>false</bool>
+                            </property>
+                            <property name="resizable">
+                                <bool>false</bool>
+                            </property>
+                        </column>
+                        <column>
+                            <property name="text">
+                                <string>Plugin</string>
+                            </property>
+                            <property name="clickable">
+                                <bool>false</bool>
+                            </property>
+                            <property name="resizable">
+                                <bool>true</bool>
+                            </property>
+                        </column>
+                        <property name="name">
+                            <cstring>pluginsView</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>5</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="allColumnsShowFocus">
+                            <bool>true</bool>
+                        </property>
+                        <property name="resizeMode">
+                            <enum>LastColumn</enum>
+                        </property>
+                    </widget>
+                    <widget class="QFrame">
+                        <property name="name">
+                            <cstring>pluginDescFrame</cstring>
+                        </property>
+                        <property name="enabled">
+                            <bool>false</bool>
+                        </property>
+                        <property name="frameShape">
+                            <enum>NoFrame</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>0</number>
+                            </property>
+                            <widget class="QLayoutWidget">
+                                <property name="name">
+                                    <cstring>layout20</cstring>
+                                </property>
+                                <hbox>
+                                    <property name="name">
+                                        <cstring>unnamed</cstring>
+                                    </property>
+                                    <widget class="QLabel">
+                                        <property name="name">
+                                            <cstring>pluginDescLabel</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>Description:</string>
+                                        </property>
+                                    </widget>
+                                    <spacer>
+                                        <property name="name">
+                                            <cstring>spacer7_2</cstring>
+                                        </property>
+                                        <property name="orientation">
+                                            <enum>Horizontal</enum>
+                                        </property>
+                                        <property name="sizeType">
+                                            <enum>Expanding</enum>
+                                        </property>
+                                        <property name="sizeHint">
+                                            <size>
+                                                <width>90</width>
+                                                <height>20</height>
+                                            </size>
+                                        </property>
+                                    </spacer>
+                                    <widget class="QPushButton">
+                                        <property name="name">
+                                            <cstring>configurePluginButton</cstring>
+                                        </property>
+                                        <property name="text">
+                                            <string>C&amp;onfigure...</string>
+                                        </property>
+                                        <property name="accel">
+                                            <string>Alt+O</string>
+                                        </property>
+                                    </widget>
+                                </hbox>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>inputDescLabel</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>&lt;b&gt;No plugin selected&lt;/b&gt;</string>
+                                </property>
+                                <property name="alignment">
+                                    <set>WordBreak|AlignTop</set>
+                                </property>
+                            </widget>
+                        </vbox>
+                    </widget>
+                </vbox>
+            </widget>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout8</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>cancelButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Cancel</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+C</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>74</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>applyButton</cstring>
+                    </property>
+                    <property name="enabled">
+                        <bool>false</bool>
+                    </property>
+                    <property name="text">
+                        <string>&amp;Apply</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+A</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>okButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>&amp;OK</string>
+                    </property>
+                    <property name="accel">
+                        <string>Alt+O</string>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>autoAnswerCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>answerSpinBox</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>autoAnswerCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>answerLabel</receiver>
+        <slot>setDisabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>labelPositionCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>labelPositionComboBox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>labelPositionCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>labelPositionLabel</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>okButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>okButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>cancelButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>applyButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>applyChanges()</slot>
+    </connection>
+    <connection>
+        <sender>labelPositionCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>labelPositionCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>labelPositionComboBox</sender>
+        <signal>activated(int)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>labelPositionComboBox_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>optionsButtonTypeComboBox</sender>
+        <signal>activated(int)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>optionsButtonTypeComboBox_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>forwardHostEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>forwardHostEdit_textChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>busyCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>busyCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>noAnswerCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>noAnswerCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>autoAnswerCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>autoAnswerCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>answerSpinBox</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>answerSpinBox_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>dndCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>dndCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>pluginsView</sender>
+        <signal>selectionChanged(QListViewItem*)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>pluginsView_selectionChanged(QListViewItem*)</slot>
+    </connection>
+    <connection>
+        <sender>configurePluginButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>configurePluginButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>alwaysCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>alwaysCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>useGkCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>gkGroupBox</receiver>
+        <slot>setEnabled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>gkAddressEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>gkAddressEdit_textChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>gkMethodComboBox</sender>
+        <signal>activated(int)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>gkMethodComboBox_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>gkIdEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>gkIdEdit_textChanged(const QString&amp;)</slot>
+    </connection>
+    <connection>
+        <sender>useDiversionCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>useDiversionCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>useGkCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>useGkCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>sendVideoCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>sendVideoCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>receiveVideoCheckBox</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>receiveVideoCheckBox_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>pluginButtonsSpinBox</sender>
+        <signal>valueChanged(int)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>pluginButtonsSpinBox_valueChanged(int)</slot>
+    </connection>
+    <connection>
+        <sender>moreButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>moreButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>nickEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>setPersonalTabChanged()</slot>
+    </connection>
+    <connection>
+        <sender>nameEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>setPersonalTabChanged()</slot>
+    </connection>
+    <connection>
+        <sender>surnameEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigureDialog</receiver>
+        <slot>setPersonalTabChanged()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">configuredialog.ui.h</include>
+</includes>
+<forwards>
+    <forward>class ConfigureAction</forward>
+    <forward>class ConfigureDialogPrivate</forward>
+</forwards>
+<variables>
+    <variable access="private">ConfigureDialogPrivate *d;</variable>
+    <variable access="private">QVBoxLayout *audioGroupBoxLayout;</variable>
+</variables>
+<signals>
+    <signal>onApplyChanges()</signal>
+    <signal>onRejectChanges()</signal>
+</signals>
+<slots>
+    <slot>setupValues()</slot>
+    <slot>applyChanges()</slot>
+    <slot>setChanged()</slot>
+    <slot>configChanged( const QString &amp; key, const QString &amp; value )</slot>
+    <slot>configChanged( const QString &amp; key, const QString &amp; value, bool notifySameMore )</slot>
+    <slot>configChanged( const QString &amp; key, bool value )</slot>
+    <slot>configChanged( const QString &amp; key, bool value, bool notifySameMore )</slot>
+    <slot>configChanged( const QString &amp; key, int value )</slot>
+    <slot>configChanged( const QString &amp; key, int value, bool notifySameMore )</slot>
+    <slot>cancelButton_clicked()</slot>
+    <slot>okButton_clicked()</slot>
+    <slot>pluginsView_selectionChanged( QListViewItem * i )</slot>
+    <slot>displayPlugins()</slot>
+    <slot>configurePluginButton_clicked()</slot>
+    <slot>pluginButtonsSpinBox_valueChanged( int value )</slot>
+    <slot>labelPositionCheckBox_toggled( bool on )</slot>
+    <slot>labelPositionComboBox_activated( int index )</slot>
+    <slot>optionsButtonTypeComboBox_activated( int i )</slot>
+    <slot>useGkCheckBox_toggled( bool b )</slot>
+    <slot>gkMethodComboBox_activated( int i )</slot>
+    <slot>gkAddressEdit_textChanged( const QString &amp; text )</slot>
+    <slot>gkIdEdit_textChanged( const QString &amp; text )</slot>
+    <slot>useDiversionCheckBox_toggled( bool b )</slot>
+    <slot>forwardHostEdit_textChanged( const QString &amp; text )</slot>
+    <slot>busyCheckBox_toggled( bool b )</slot>
+    <slot>noAnswerCheckBox_toggled( bool b )</slot>
+    <slot>alwaysCheckBox_toggled( bool b )</slot>
+    <slot>dndCheckBox_toggled( bool b )</slot>
+    <slot>autoAnswerCheckBox_toggled( bool b )</slot>
+    <slot>answerSpinBox_valueChanged( int i )</slot>
+    <slot>sendVideoCheckBox_toggled( bool b )</slot>
+    <slot>receiveVideoCheckBox_toggled( bool b )</slot>
+    <slot>show()</slot>
+    <slot>getPersonal( QMap&lt;QString, QString&gt; &amp; map )</slot>
+    <slot>setPersonal( const QMap&lt;QString, QString&gt; map )</slot>
+    <slot>moreButton_clicked()</slot>
+    <slot>updatePersonalTab()</slot>
+    <slot>setPersonalTab()</slot>
+    <slot>setPersonalTabChanged()</slot>
+</slots>
+<functions>
+    <function access="protected">init()</function>
+    <function>insertAudioConfig()</function>
+    <function>insertVideoConfig()</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

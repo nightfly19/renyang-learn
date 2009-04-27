@@ -1,0 +1,630 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>AncaForm</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>AncaForm</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>353</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>ANCA</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <property name="spacing">
+                            <number>0</number>
+                        </property>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>eraseButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>location_erase.png</iconset>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>callEdit</cstring>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="QToolButton">
+                    <property name="name">
+                        <cstring>callButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="iconSet">
+                        <iconset>disconnected.png</iconset>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QWidgetStack">
+            <property name="name">
+                <cstring>displayStack</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>7</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>infoPage</cstring>
+                </property>
+                <attribute name="id">
+                    <number>0</number>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>addressLabel</cstring>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <bold>1</bold>
+                            </font>
+                        </property>
+                        <property name="text">
+                            <string>tom@portos</string>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer7</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>40</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLabel">
+                        <property name="name">
+                            <cstring>logoPixmapLabel</cstring>
+                        </property>
+                        <property name="cursor">
+                            <cursor>2</cursor>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap>anca.png</pixmap>
+                        </property>
+                        <property name="scaledContents">
+                            <bool>false</bool>
+                        </property>
+                        <property name="alignment">
+                            <set>AlignCenter</set>
+                        </property>
+                    </widget>
+                    <spacer>
+                        <property name="name">
+                            <cstring>spacer6</cstring>
+                        </property>
+                        <property name="orientation">
+                            <enum>Vertical</enum>
+                        </property>
+                        <property name="sizeType">
+                            <enum>Expanding</enum>
+                        </property>
+                        <property name="sizeHint">
+                            <size>
+                                <width>20</width>
+                                <height>40</height>
+                            </size>
+                        </property>
+                    </spacer>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>layout7</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer9</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>40</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>timeLabel</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <bold>1</bold>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string>00:00:00</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>dateLabel</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <bold>1</bold>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string>1.1.2001</string>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>callPage</cstring>
+                </property>
+                <attribute name="id">
+                    <number>1</number>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>layout10</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>callPictureLabel</cstring>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>unknown.png</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>false</bool>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignVCenter|AlignRight</set>
+                                </property>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>callNameLabel</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <bold>1</bold>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string>Tom Potrusil</string>
+                                </property>
+                            </widget>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>callHostLabel</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <bold>1</bold>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string>(portos)</string>
+                                </property>
+                            </widget>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer11</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>40</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                        </hbox>
+                    </widget>
+                    <widget class="QFrame">
+                        <property name="name">
+                            <cstring>callVideoFrame</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>5</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                        <property name="frameShape">
+                            <enum>NoFrame</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                        <vbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>0</number>
+                            </property>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>callLogoLabel</cstring>
+                                </property>
+                                <property name="cursor">
+                                    <cursor>2</cursor>
+                                </property>
+                                <property name="pixmap">
+                                    <pixmap>anca.png</pixmap>
+                                </property>
+                                <property name="scaledContents">
+                                    <bool>false</bool>
+                                </property>
+                                <property name="alignment">
+                                    <set>AlignCenter</set>
+                                </property>
+                            </widget>
+                        </vbox>
+                    </widget>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>layout8</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <spacer>
+                                <property name="name">
+                                    <cstring>spacer9_2</cstring>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Horizontal</enum>
+                                </property>
+                                <property name="sizeType">
+                                    <enum>Expanding</enum>
+                                </property>
+                                <property name="sizeHint">
+                                    <size>
+                                        <width>40</width>
+                                        <height>20</height>
+                                    </size>
+                                </property>
+                            </spacer>
+                            <widget class="QLabel">
+                                <property name="name">
+                                    <cstring>callDurationLabel</cstring>
+                                </property>
+                                <property name="font">
+                                    <font>
+                                        <bold>1</bold>
+                                    </font>
+                                </property>
+                                <property name="text">
+                                    <string>00:00</string>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                </vbox>
+            </widget>
+        </widget>
+        <widget class="QFrame">
+            <property name="name">
+                <cstring>buttonFrame</cstring>
+            </property>
+            <property name="frameShape">
+                <enum>NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Raised</enum>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>0</number>
+                </property>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>buttonGroup</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>NoFrame</enum>
+                    </property>
+                    <property name="title">
+                        <string></string>
+                    </property>
+                </widget>
+                <widget class="QToolButton">
+                    <property name="name">
+                        <cstring>mainButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="iconSet">
+                        <iconset>maininfo.png</iconset>
+                    </property>
+                    <property name="popupDelay">
+                        <number>0</number>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>140</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QToolButton">
+                    <property name="name">
+                        <cstring>configButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string></string>
+                    </property>
+                    <property name="iconSet">
+                        <iconset>configure.png</iconset>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<toolbars>
+</toolbars>
+<actions>
+    <actiongroup>
+        <property name="name">
+            <cstring>CallActionGroup</cstring>
+        </property>
+        <property name="text">
+            <string>ActionGroup</string>
+        </property>
+        <property name="menuText">
+            <string>ActionGroup</string>
+        </property>
+        <property name="exclusive">
+            <bool>false</bool>
+        </property>
+        <property name="usesDropDown">
+            <bool>false</bool>
+        </property>
+        <action>
+            <property name="name">
+                <cstring>HoldCallAction</cstring>
+            </property>
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="text">
+                <string>Hold Call</string>
+            </property>
+        </action>
+        <action>
+            <property name="name">
+                <cstring>ConnectAction</cstring>
+            </property>
+            <property name="text">
+                <string>Connect</string>
+            </property>
+        </action>
+        <action>
+            <property name="name">
+                <cstring>TransferAction</cstring>
+            </property>
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="text">
+                <string>Transfer Call</string>
+            </property>
+        </action>
+        <action>
+            <property name="name">
+                <cstring>ToggleDNDAction</cstring>
+            </property>
+            <property name="toggleAction">
+                <bool>true</bool>
+            </property>
+            <property name="text">
+                <string>Do not Disturb</string>
+            </property>
+            <property name="menuText">
+                <string>Do not Disturb</string>
+            </property>
+        </action>
+        <action>
+            <property name="name">
+                <cstring>ForwardAction</cstring>
+            </property>
+            <property name="toggleAction">
+                <bool>true</bool>
+            </property>
+            <property name="text">
+                <string>Always Forward</string>
+            </property>
+            <property name="menuText">
+                <string>Always Forward</string>
+            </property>
+        </action>
+    </actiongroup>
+</actions>
+<connections>
+    <connection>
+        <sender>configButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AncaForm</receiver>
+        <slot>configButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>eraseButton</sender>
+        <signal>clicked()</signal>
+        <receiver>callEdit</receiver>
+        <slot>clear()</slot>
+    </connection>
+    <connection>
+        <sender>ConnectAction</sender>
+        <signal>activated()</signal>
+        <receiver>AncaForm</receiver>
+        <slot>ConnectAction_activated()</slot>
+    </connection>
+    <connection>
+        <sender>TransferAction</sender>
+        <signal>activated()</signal>
+        <receiver>AncaForm</receiver>
+        <slot>TransferAction_activated()</slot>
+    </connection>
+    <connection>
+        <sender>HoldCallAction</sender>
+        <signal>activated()</signal>
+        <receiver>AncaForm</receiver>
+        <slot>HoldCallAction_activated()</slot>
+    </connection>
+    <connection>
+        <sender>ToggleDNDAction</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>AncaForm</receiver>
+        <slot>ToggleDNDAction_toggled(bool)</slot>
+    </connection>
+    <connection>
+        <sender>ForwardAction</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>AncaForm</receiver>
+        <slot>ForwardAction_toggled(bool)</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="global" impldecl="in declaration">qpixmap.h</include>
+    <include location="local" impldecl="in implementation">ancaform.ui.h</include>
+</includes>
+<forwards>
+    <forward>class ConfigureDialog;</forward>
+    <forward>class AncaForm;</forward>
+    <forward>class QProgressBar;</forward>
+    <forward>extern AncaForm *ancaForm;</forward>
+</forwards>
+<variables>
+    <variable access="public">QPopupMenu *pluginsMenu;</variable>
+    <variable access="public">ConfigureDialog *configDlg;</variable>
+    <variable>QValueList&lt;int&gt; idList;</variable>
+    <variable>QProgressBar *callingProgressBar;</variable>
+    <variable>bool calling;</variable>
+    <variable>QPopupMenu *callMenu;</variable>
+</variables>
+<slots>
+    <slot>message( const QString &amp; msg )</slot>
+    <slot>insertButton( QPixmap pixmap, const char * name, int id, bool first )</slot>
+    <slot>removeButton( int id )</slot>
+    <slot>useLabelsChanged()</slot>
+    <slot>labelPositionChanged()</slot>
+    <slot>setCallButton( bool calling )</slot>
+    <slot access="protected">setCallAddress( const QVariant &amp; address )</slot>
+    <slot access="protected">call( const QVariant &amp; address )</slot>
+    <slot>configButton_clicked()</slot>
+    <slot>setTime( const QVariant &amp; to )</slot>
+    <slot>setDate( const QVariant &amp; to )</slot>
+    <slot>setAddress( const QVariant &amp; to )</slot>
+    <slot>setPartyName( const QVariant &amp; to )</slot>
+    <slot>setPartyHost( const QVariant &amp; to )</slot>
+    <slot>setPartyPicture( const QVariant &amp; to )</slot>
+    <slot>setDuration( const QVariant &amp; to )</slot>
+    <slot>showCallingProgress()</slot>
+    <slot>hideCallingProgress()</slot>
+    <slot>ConnectAction_activated()</slot>
+    <slot>TransferAction_activated()</slot>
+    <slot>HoldCallAction_activated()</slot>
+    <slot>ToggleDNDAction_toggled( bool b )</slot>
+    <slot>ForwardAction_toggled( bool b )</slot>
+    <slot>forwardChanged()</slot>
+    <slot>dndChanged()</slot>
+</slots>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+    <function access="private" specifier="non virtual">destroy()</function>
+    <function>setVideoWidget( QWidget * w )</function>
+    <function access="protected">timerEvent( QTimerEvent * )</function>
+    <function access="protected">mousePressEvent( QMouseEvent * e )</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

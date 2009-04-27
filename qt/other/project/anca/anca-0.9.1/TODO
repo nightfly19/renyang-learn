@@ -1,0 +1,14 @@
+- documentation
+- move currentCallToken from Plugin to AncaInfo
+- localization
+- fix LDAP support...
+- remove HTML browser for non-embedded compilation and fix HTTP push
+
+FIX:
+- videoout plugin and the change of size... (->erase)
+
+Utopia:
+- configuration via HTTP
+
+In future:
+- forbidden aliases

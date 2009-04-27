@@ -1,0 +1,362 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>ConfigDialog</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>ConfigDialog</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>306</width>
+            <height>272</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Configure VideoIn plugin</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="resizeMode">
+            <enum>Fixed</enum>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout5</cstring>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QComboBox" row="5" column="1">
+                    <item>
+                        <property name="text">
+                            <string>Small</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Large</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>sizeComboBox</cstring>
+                    </property>
+                    <property name="currentItem">
+                        <number>1</number>
+                    </property>
+                </widget>
+                <widget class="QLayoutWidget" row="6" column="1">
+                    <property name="name">
+                        <cstring>layout3</cstring>
+                    </property>
+                    <hbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLineEdit">
+                            <property name="name">
+                                <cstring>pictureEdit</cstring>
+                            </property>
+                        </widget>
+                        <widget class="QToolButton">
+                            <property name="name">
+                                <cstring>openButton</cstring>
+                            </property>
+                            <property name="text">
+                                <string></string>
+                            </property>
+                            <property name="iconSet">
+                                <iconset>image0</iconset>
+                            </property>
+                        </widget>
+                    </hbox>
+                </widget>
+                <widget class="Line" row="8" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>line1</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>HLine</enum>
+                    </property>
+                    <property name="frameShadow">
+                        <enum>Sunken</enum>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="0" column="1">
+                    <property name="name">
+                        <cstring>driverComboBox</cstring>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="2" column="1">
+                    <property name="name">
+                        <cstring>deviceComboBox</cstring>
+                    </property>
+                </widget>
+                <widget class="QComboBox" row="4" column="1">
+                    <item>
+                        <property name="text">
+                            <string>PAL</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>NTSC</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>SECAM</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Auto</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>formatComboBox</cstring>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="2" column="0">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Video device:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="6" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Picture:</string>
+                    </property>
+                </widget>
+                <widget class="Line" row="1" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>line1_2</cstring>
+                    </property>
+                    <property name="frameShape">
+                        <enum>HLine</enum>
+                    </property>
+                    <property name="frameShadow">
+                        <enum>Sunken</enum>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="0" column="0">
+                    <property name="name">
+                        <cstring>textLabel1_3</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Driver:</string>
+                    </property>
+                </widget>
+                <widget class="QCheckBox" row="7" column="0" rowspan="1" colspan="2">
+                    <property name="name">
+                        <cstring>callSizeCheckBox</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Preview is in call size</string>
+                    </property>
+                    <property name="checked">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="4" column="0">
+                    <property name="name">
+                        <cstring>textLabel3</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Video format:</string>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="5" column="0">
+                    <property name="name">
+                        <cstring>textLabel4</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Video call size:</string>
+                    </property>
+                </widget>
+                <widget class="QSpinBox" row="3" column="1">
+                    <property name="name">
+                        <cstring>channelSpinBox</cstring>
+                    </property>
+                    <property name="minValue">
+                        <number>-1</number>
+                    </property>
+                    <property name="value">
+                        <number>-1</number>
+                    </property>
+                </widget>
+                <widget class="QLabel" row="3" column="0">
+                    <property name="name">
+                        <cstring>textLabel2</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Video channel:</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>cancelButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Cancel</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>30</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>applyButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Apply</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>okButton</cstring>
+                    </property>
+                    <property name="text">
+                        <string>OK</string>
+                    </property>
+                    <property name="default">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="818">89504e470d0a1a0a0000000d49484452000000100000001008060000001ff3ff61000002f949444154388da5904b6b9c650046cffb7def5c9249a689491a53429ad2069a262548abb4168325185c0451105ca954975d08ee54e8a22a28fe0441c185a0fe03412a41da228d343169ab4d4932934c32b9cd2533dfe5bdba28b873e5b33f87c323bcf7fc9f89d3efac70e5623fedd8633ddcbe5be5ca6083e1a2214d2156b6a7d099b9d999cfcc6d6e352f7ba836639001cc2f69e47f999df7c4b19e1e3bddffc5dcab672e178b396e7cfedb8dfdc3e8facf0b0252207448e7dc374afb9cd64f0bb4726d6bdd87a108afcfce8c7e3c7b75a4d8910f51ca71757af4edef7f5afe41ca60de3801803c3bd67deddabbfd1c34a16d60e26c8ef4e1c6dc7b6f8c0c4d8cf71245d06a597030f3d270f7fcef3b5fdac5fdb7202c0104d90cadde9e808e3ca88d3a13bec6cd0f2687ce4ff4a23518034100d65976eb86c973fd97868edbd7494c1fcef74963c179d8b9bfcf54b7e1c5374ffdfb432e0759012e1ff2d1d76596d60c27060b8c4e9df974604cbcf6d7d2b695ce42184092ebe0c77bfbfc516ba2538db116ab01eb597edc60ad1e3272fe24952443efc5e1e2fe9deacba6bdb520ad774801bf2e460cf80c033d199230473d76348e1cb596a730d2c5e47881a512c4b1a3b65a73e55b2b012ef9453aeba9b7a05a6af1d527a78852436630c3725970f8b767b7ea29ef78f6b6136a9b07341e5748b79a1532aa939cbb27a514dc5e88193fd945ae2fe0ee43385877ac6f873c79e2d82c2554b614f58d03d4610de2d8837004ba84b70f0204dc5f3c64fa42078f6a508eb3acac3b6a0d87368e44799a07312a05b21d20f3206c0fe8152cab72a394323e9665e8789e63c0b9223c331cd238d49c080dbd69c4b3a145c760db86b46dc466d975ed55ec9f0861e4daea1133178e313b960501f4403204510451db915e9244b1a3d5f644ed2e94caf3d9b771bc57720b8402a95b29af4c159ec20002f28580309478a751ca628d46a918a512da89e6c1a3a30adedd8100219fbb557bfe85feae422ec05ac059b471e844a152854a5354a231a9c228439a1a76d7cc7718de47c03f86cca25b1aecc3700000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>okButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>okButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>applyButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>applyButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>channelSpinBox</sender>
+        <signal>valueChanged(const QString&amp;)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>settingsChanged()</slot>
+    </connection>
+    <connection>
+        <sender>callSizeCheckBox</sender>
+        <signal>stateChanged(int)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>settingsChanged()</slot>
+    </connection>
+    <connection>
+        <sender>formatComboBox</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>settingsChanged()</slot>
+    </connection>
+    <connection>
+        <sender>sizeComboBox</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>settingsChanged()</slot>
+    </connection>
+    <connection>
+        <sender>deviceComboBox</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>settingsChanged()</slot>
+    </connection>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>openButton</sender>
+        <signal>clicked()</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>openButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>pictureEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>settingsChanged()</slot>
+    </connection>
+    <connection>
+        <sender>driverComboBox</sender>
+        <signal>activated(const QString&amp;)</signal>
+        <receiver>ConfigDialog</receiver>
+        <slot>driverComboBox_activated(const QString&amp;)</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>channelSpinBox</tabstop>
+    <tabstop>formatComboBox</tabstop>
+    <tabstop>sizeComboBox</tabstop>
+    <tabstop>cancelButton</tabstop>
+    <tabstop>okButton</tabstop>
+</tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">configdialog.ui.h</include>
+</includes>
+<slots>
+    <slot>okButton_clicked()</slot>
+    <slot>applyButton_clicked()</slot>
+    <slot access="protected">settingsChanged()</slot>
+    <slot>openButton_clicked()</slot>
+    <slot>driverComboBox_activated( const QString &amp; )</slot>
+</slots>
+<functions>
+    <function access="protected">init()</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

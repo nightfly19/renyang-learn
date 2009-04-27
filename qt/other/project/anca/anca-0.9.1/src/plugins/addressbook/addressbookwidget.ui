@@ -1,0 +1,430 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>AddressBookWidget</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>AddressBookWidget</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>235</width>
+            <height>425</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>AddressBookWidget</string>
+    </property>
+    <property name="focusPolicy">
+        <enum>WheelFocus</enum>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <property name="margin">
+            <number>0</number>
+        </property>
+        <property name="spacing">
+            <number>0</number>
+        </property>
+        <widget class="QTabWidget">
+            <property name="name">
+                <cstring>tabWidget</cstring>
+            </property>
+            <property name="tabPosition">
+                <enum>Bottom</enum>
+            </property>
+            <property name="tabShape">
+                <enum>Triangular</enum>
+            </property>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Top 10</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="ListView">
+                        <property name="name">
+                            <cstring>topTenListView</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>tab</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Own</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="ListView">
+                        <property name="name">
+                            <cstring>allListView</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                    <widget class="QFrame">
+                        <property name="name">
+                            <cstring>allButtonsFrame</cstring>
+                        </property>
+                        <property name="frameShape">
+                            <enum>StyledPanel</enum>
+                        </property>
+                        <property name="frameShadow">
+                            <enum>Raised</enum>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <property name="margin">
+                                <number>0</number>
+                            </property>
+                            <property name="spacing">
+                                <number>2</number>
+                            </property>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>aButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>A</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>dButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>D</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>gButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>G</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>jButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>J</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>mButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>M</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>pButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>P</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>sButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>S</string>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>vButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>V</string>
+                                </property>
+                            </widget>
+                            <widget class="Line">
+                                <property name="name">
+                                    <cstring>line1_2</cstring>
+                                </property>
+                                <property name="minimumSize">
+                                    <size>
+                                        <width>20</width>
+                                        <height>0</height>
+                                    </size>
+                                </property>
+                                <property name="frameShape">
+                                    <enum>VLine</enum>
+                                </property>
+                                <property name="frameShadow">
+                                    <enum>Sunken</enum>
+                                </property>
+                                <property name="orientation">
+                                    <enum>Vertical</enum>
+                                </property>
+                            </widget>
+                            <widget class="QToolButton">
+                                <property name="name">
+                                    <cstring>newContactButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string></string>
+                                </property>
+                                <property name="iconSet">
+                                    <iconset>new.png</iconset>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>History</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="ListView">
+                        <property name="name">
+                            <cstring>historyListView</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+            <widget class="QWidget">
+                <property name="name">
+                    <cstring>TabPage</cstring>
+                </property>
+                <attribute name="title">
+                    <string>Search</string>
+                </attribute>
+                <vbox>
+                    <property name="name">
+                        <cstring>unnamed</cstring>
+                    </property>
+                    <widget class="QLayoutWidget">
+                        <property name="name">
+                            <cstring>layout1</cstring>
+                        </property>
+                        <hbox>
+                            <property name="name">
+                                <cstring>unnamed</cstring>
+                            </property>
+                            <widget class="QLineEdit">
+                                <property name="name">
+                                    <cstring>searchEdit</cstring>
+                                </property>
+                            </widget>
+                            <widget class="QPushButton">
+                                <property name="name">
+                                    <cstring>searchButton</cstring>
+                                </property>
+                                <property name="text">
+                                    <string>Search</string>
+                                </property>
+                            </widget>
+                        </hbox>
+                    </widget>
+                    <widget class="ListView">
+                        <property name="name">
+                            <cstring>resultListView</cstring>
+                        </property>
+                        <property name="sizePolicy">
+                            <sizepolicy>
+                                <hsizetype>7</hsizetype>
+                                <vsizetype>7</vsizetype>
+                                <horstretch>0</horstretch>
+                                <verstretch>0</verstretch>
+                            </sizepolicy>
+                        </property>
+                    </widget>
+                </vbox>
+            </widget>
+        </widget>
+    </vbox>
+</widget>
+<customwidgets>
+    <customwidget>
+        <class>ListView</class>
+        <header location="local">listview.h</header>
+        <sizehint>
+            <width>-1</width>
+            <height>-1</height>
+        </sizehint>
+        <container>0</container>
+        <sizepolicy>
+            <hordata>5</hordata>
+            <verdata>5</verdata>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+        <pixmap>image0</pixmap>
+    </customwidget>
+</customwidgets>
+<images>
+    <image name="image0">
+        <data format="PNG" length="1002">89504e470d0a1a0a0000000d4948445200000016000000160806000000c4b46c3b000003b149444154388dad945f4c5b551cc73fe7dc4b7b4bcba0762d45c43114323599ee6192609c51d883892ce083f1718b3ebb185f8dc91e972cf39d2d2a2f1af664b6f1e0fe3863a0718969700eb0c52142da0242a1bd6d696f7bcff101585203ceb8fd9ece39f99dcff9fe7edf939f88c562ec465f5f9fe609442c161362173c3e3eae7b7a7ac8e7f36432196cdbfe4f907c3e4f2291201e8fe338cec3737357e9e8e828aded1e229d650e1f2d51754b082110124c13a4dc5ea341eb9dc284c0558a853f3ce8cb0677ef500fde7d39d2596679e326597b8e9abb85d7a770ab16ab6983ec5a05b487a70e36f0f4e10afe408d6a558310980108478dba4a1e8233990c5d474b64ed39aa3a8fe5f3317fbf81dbd70bccfeb205947632fd74f6589c1c6ea2f70d03a58ba0c1f2c9bdc1b66de3b8256a6e11cbe7e3ee1d181b590124fe2693aeee08d223c82c3a2c24b7b874bec8f26288774f7bd054504aef0dde6e99c0eb83f9fb266323cb80a27fb0958141836044605a2ee5523393371cc646fee2da37195aa35d0c0c5b4859ac03d7e91712dcaac5adab3650a3ff9d08ef7dd8404bb48869e5d958b5b87dadc4c9a1464e9f0d0326df7ebd86bd2e310cb1bf62d384d59441f2d70a070e1c60e09489929b988681bdd9cc97170bcc4c65595f71f8e0e3301337fc24a7732467831875a47f289652b0be5e4151e6d07316c1b0c0340d8ab92023e76d66a6b2840e36d2fb7a13fee632475e6edc367ea98a90fb98b7dd6310ca0328a44761582e1bab41befabcc0ec940d28bc5e93b68e064cab84e1d9beaeb48934eac1f53b01c1b000fca496aa54b61a99fcde61662a4b4b4b23d1680be9d426173e4df3602a48ea411989a4fd590f52a8fd156b05ed9d350e3defe3cfdf4b4c7ce770ea7d3fb9f520afbe1620daeee5c26735d20b9b9cfb6811a754a439e4e5c5639a4caa1e5caf586bfc0197b78702005cb9b4cae4cd3267ce8638fe964bd72b393e39d74928d242617303a756a37f284447770dcdbffc6384a05a85de1306e9a52057c7527c7131c3c42d3f475eb2303c82d4fc3276d6811db37efeb148723082d9b08f79f97c1e5729109a9a28307cc622d2d6cdf52b2b24efe548dedb00142009862cfa879ee1a71f6cec928353511472fbf4389148b0b0e0c108081412458dfe21c9f11351e67e7358595468246d1d1e5e38a6e9e851bc39d84ab502a669331dafec0d8ec7e3e8cb06e1a881d727d1ae40180a434a8c9db129a54126ad48a7358c2b4c5352c8c374bcccdab2bb37d8719cba79fab8211f9df218e0582c261e95f8bfc04f1a1e8bc5c4dfe0a190172af6a9690000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>aButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>aButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>dButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>dButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>gButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>gButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>jButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>jButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>mButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>mButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>pButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>pButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>sButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>sButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>vButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>vButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>newContactButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>newContactButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>searchButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddressBookWidget</receiver>
+        <slot>searchButton_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>searchEdit</sender>
+        <signal>returnPressed()</signal>
+        <receiver>searchButton</receiver>
+        <slot>animateClick()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in declaration">addressbook.h</include>
+    <include location="local" impldecl="in implementation">addressbookwidget.ui.h</include>
+</includes>
+<forwards>
+    <forward>class QListViewItem</forward>
+    <forward>class AddressBookWidgetPrivate</forward>
+</forwards>
+<variables>
+    <variable>AddressBookWidgetPrivate *d;</variable>
+</variables>
+<slots>
+    <slot>currentAddressChanged( QListViewItem * listViewItem )</slot>
+    <slot access="protected">addressCalling( const QVariant &amp; url )</slot>
+    <slot access="protected">callerAddress( const QVariant &amp; url )</slot>
+    <slot access="protected">updateTopTen( AdbItemList * topten )</slot>
+    <slot access="protected">updateHistory( AdbItem * toRemove, AdbItem * toInsert, bool incoming )</slot>
+    <slot access="protected">fillHistory( HistoryQueue * history )</slot>
+    <slot access="protected">fillAllView( AdbItemDirectory * dir )</slot>
+    <slot access="protected">removeViewItem( AdbItem * item )</slot>
+    <slot access="protected">removeViewItemFromAll( AdbItem * item )</slot>
+    <slot>aButton_clicked()</slot>
+    <slot>dButton_clicked()</slot>
+    <slot>gButton_clicked()</slot>
+    <slot>jButton_clicked()</slot>
+    <slot>mButton_clicked()</slot>
+    <slot>pButton_clicked()</slot>
+    <slot>sButton_clicked()</slot>
+    <slot>vButton_clicked()</slot>
+    <slot>listViewClicked( QListViewItem * item, const QPoint &amp;, int c )</slot>
+    <slot>call( QListViewItem * item, const QPoint &amp;, int )</slot>
+    <slot access="protected">itemChanged( AdbItem * adbItem )</slot>
+    <slot access="protected">itemSaved( AdbItem * item )</slot>
+    <slot>newContactButton_clicked()</slot>
+    <slot>searchButton_clicked()</slot>
+</slots>
+<functions>
+    <function access="protected">init()</function>
+    <function access="protected">destroy()</function>
+    <function>setAddressBook( AddressBook * adb )</function>
+    <function access="protected">checkHelpers( const QString &amp; s )</function>
+    <function returnType="QString">getAlias( const QString &amp; url )</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+<includehints>
+    <includehint>listview.h</includehint>
+    <includehint>listview.h</includehint>
+    <includehint>listview.h</includehint>
+    <includehint>listview.h</includehint>
+</includehints>
+</UI>
