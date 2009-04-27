@@ -1,0 +1,369 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>DialWidget</class>
+<widget class="QWidget">
+    <property name="name">
+        <cstring>DialWidget</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>194</width>
+            <height>233</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Dial</string>
+    </property>
+    <hbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <spacer>
+            <property name="name">
+                <cstring>spacer2</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>40</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QFrame">
+            <property name="name">
+                <cstring>frame3</cstring>
+            </property>
+            <property name="sizePolicy">
+                <sizepolicy>
+                    <hsizetype>5</hsizetype>
+                    <vsizetype>0</vsizetype>
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                </sizepolicy>
+            </property>
+            <property name="frameShape">
+                <enum>StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+                <enum>Raised</enum>
+            </property>
+            <grid>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton" row="0" column="1">
+                    <property name="name">
+                        <cstring>button2</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>2</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="2">
+                    <property name="name">
+                        <cstring>button3</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>3</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="0">
+                    <property name="name">
+                        <cstring>button4</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>4</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="1">
+                    <property name="name">
+                        <cstring>button5</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>5</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="1" column="2">
+                    <property name="name">
+                        <cstring>button6</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>6</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="2" column="2">
+                    <property name="name">
+                        <cstring>button9</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>9</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="2" column="1">
+                    <property name="name">
+                        <cstring>button8</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>8</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="3" column="1">
+                    <property name="name">
+                        <cstring>button0</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>0</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="3" column="2">
+                    <property name="name">
+                        <cstring>buttonx</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>#</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="3" column="0">
+                    <property name="name">
+                        <cstring>buttono</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>*</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="2" column="0">
+                    <property name="name">
+                        <cstring>button7</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>7</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton" row="0" column="0">
+                    <property name="name">
+                        <cstring>button1</cstring>
+                    </property>
+                    <property name="sizePolicy">
+                        <sizepolicy>
+                            <hsizetype>5</hsizetype>
+                            <vsizetype>0</vsizetype>
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="text">
+                        <string>1</string>
+                    </property>
+                </widget>
+            </grid>
+        </widget>
+        <spacer>
+            <property name="name">
+                <cstring>spacer3</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>40</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+    </hbox>
+</widget>
+<connections>
+    <connection>
+        <sender>button1</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button1_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button2</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button2_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button3</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button3_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button4</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button4_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button5</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button5_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button6</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button6_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button7</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button7_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button8</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button8_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button9</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button9_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>buttono</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>buttono_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>button0</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>button0_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>buttonx</sender>
+        <signal>clicked()</signal>
+        <receiver>DialWidget</receiver>
+        <slot>buttonx_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">dialwidget.ui.h</include>
+</includes>
+<signals>
+    <signal>sendTone( char c )</signal>
+</signals>
+<slots>
+    <slot>button1_clicked()</slot>
+    <slot>button2_clicked()</slot>
+    <slot>button3_clicked()</slot>
+    <slot>button4_clicked()</slot>
+    <slot>button5_clicked()</slot>
+    <slot>button6_clicked()</slot>
+    <slot>button7_clicked()</slot>
+    <slot>button8_clicked()</slot>
+    <slot>button9_clicked()</slot>
+    <slot>buttono_clicked()</slot>
+    <slot>button0_clicked()</slot>
+    <slot>buttonx_clicked()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

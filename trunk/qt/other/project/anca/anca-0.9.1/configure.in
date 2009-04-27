@@ -1,0 +1,65 @@
+# Original Author was Kalle@kde.org
+# I lifted it in some mater. (Stephan Kulow)
+# I used much code from Janos Farkas
+
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(acinclude.m4) dnl a source file from your sub dir
+
+dnl This is so we can use kde-common
+AC_CONFIG_AUX_DIR(admin)
+
+AC_CANONICAL_SYSTEM 
+AC_ARG_PROGRAM
+
+dnl Automake doc recommends to do this only here. (Janos)
+AM_INIT_AUTOMAKE(anca,0.9)
+
+dnl KDE_SET_PREFIX
+
+AC_PREFIX_DEFAULT(/usr/local)
+if test "x$prefix" = "xNONE"; then
+  prefix=$ac_default_prefix
+  ac_configure_args="$ac_configure_args --prefix $prefix"
+fi
+
+CONFIGDIR='$(sysconfdir)/anca'
+AC_SUBST(CONFIGDIR)
+
+dnl generate the config header
+AM_CONFIG_HEADER(config.h) dnl at the distribution this done
+
+AC_DEFINE_UNQUOTED(PREL, "$prefix", [Dataprefix])
+
+dnl Checks for programs.
+AC_CHECK_COMPILERS
+AC_ENABLE_SHARED(yes)
+AC_ENABLE_STATIC(no)
+KDE_PROG_LIBTOOL
+
+all_libraries="$all_libraries $USER_LDFLAGS"
+all_includes="$all_includes $USER_INCLUDES"
+AC_SUBST(all_includes)
+AC_SUBST(all_libraries)
+
+AC_PATH_QT
+
+dnl Anca stuff
+AC_INIT_ANCA
+
+AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([src/Makefile])
+AC_CONFIG_FILES([src/libcore/Makefile])
+AC_CONFIG_FILES([src/plugins/Makefile])
+AC_CONFIG_FILES([src/plugins/videoout/Makefile])
+AC_CONFIG_FILES([src/plugins/addressbook/Makefile])
+AC_CONFIG_FILES([src/plugins/htmlbrowser/Makefile])
+AC_CONFIG_FILES([src/plugins/inputtone/Makefile])
+if test ${PWLIB_VERSION} = "1.5.2"; then
+  AC_CONFIG_FILES([src/plugins/audio-old/Makefile])
+  AC_CONFIG_FILES([src/plugins/videoin-old/Makefile])
+else
+  AC_CONFIG_FILES([src/plugins/audio/Makefile])
+  AC_CONFIG_FILES([src/plugins/videoin/Makefile])
+fi
+AC_OUTPUT()

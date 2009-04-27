@@ -1,0 +1,9 @@
+2005-01-25  Tom Potrusil  <tom@matfyz.cz>
+
+ * CHANGED: Sound and VideoIn plugins were changed to be compiled with the latest PWLib and OpenH323
+ * FIXED: Video grabber failure resulted in crash
+
+2005-01-21  Tom Potrusil  <tom@matfyz.cz>
+
+ * ChangeLog: There was no ChangeLog here, so I added one.
+

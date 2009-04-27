@@ -1,0 +1,51 @@
+You will compile Anca classical way:
+./configure
+make
+make install
+
+You will need to specify path to OpenH323 and PWLib. This can be done two ways:
+1) by setting environment variables OPENH323DIR and PWLIBDIR:
+
+export OPENH323DIR=/path/to/openh323
+export PWLIBDIR=/path/to/pwlib
+
+On Debian this is:
+export OPENH323DIR=/usr/share/openh323 
+export PWLIBDIR=/usr/share/pwlib
+
+2) by passing --with-openh323-dir and --with-pwlib-dir parameters to configure:
+
+./configure --with-openh323-dir=/path/to/openh323 --with-pwlib-dir=/path/to/pwlib
+
+
+If configure cannot find Qt3 library, you can specify it with --with-qt-dir
+parameter:
+
+./configure --with-qt-dir=/path/to/qt
+
+On Debian:
+./configure --with-qt-dir=/usr/share/qt3
+
+[新增]
+
+sudo apt-get install libpt-dev libopenh323-dev
+
+sudo cp /usr/bin/aclocal /usr/bin/aclocal-1.7
+sudo cp /usr/bin/automake /usr/bin/automake-1.7
+
+在編譯過程中，出現以下錯誤
+yuv2rgb.cpp:131: error: lvalue required as left operand of assignment
+yuv2rgb.cpp:135: error: lvalue required as left operand of assignment
+yuv2rgb.cpp:139: error: lvalue required as left operand of assignment
+
+c_this->y_buffer = (uint8_t *)c_this->y_chunk = 0;
+把它改成如下
+c_this->y_chunk = 0;
+c_this->y_buffer = (uint8_t *)c_this->y_chunk;
+
+再make一次
+好啦，849等幾行也有一樣的問題啦
+原本是如下這一行
+(uint8_t *)c_this->table_rV[i] += c_this->entry_size*(gamma - c_this->gamma);
+把它改成
+c_this->table_rV[i] = (uint8_t *)c_this->table_rV[i] + c_this->entry_size*(gamma - c_this->gamma);
