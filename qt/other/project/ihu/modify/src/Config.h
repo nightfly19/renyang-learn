@@ -216,7 +216,7 @@ private:
 	bool autoWait;
 	// renyang - 應該是設定主視窗是否是穩藏
 	bool autoHide;
-	// renyang - 設定最大可以打的通話數(預設是5,可以開多少個tab)@@@
+	// renyang - 設定最大可以同時撥出去的通話數(預設是5,可以開多少個tab)
 	int maxCalls;
 	// renyang - 設定可以建立多少個host等待別人打電話過來(預設是20)
 	int maxHosts;
@@ -269,6 +269,7 @@ private:
 	bool random;
 	bool showKey;
 	int keyLen;
+	// renyang - 密碼的長度一定要小於56
 	QString passwd;
 	QString logFile;
 };
