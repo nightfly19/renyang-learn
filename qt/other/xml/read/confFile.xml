@@ -1,0 +1,6 @@
+<!DOCTYPE IhuConfigXML>
+<renyang>
+ <general myName="fangrenyang" height="168cm" weight="70kg" />
+ <family grandemother="1" little_brother="1" mother="1" father="1" old_brother="1" />
+ <education primary_school="1" high_school="1" graduate_school="1" university="1" secondary_school="1" />
+</renyang>

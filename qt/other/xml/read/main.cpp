@@ -10,33 +10,22 @@ int main(int argc,char **argv)
 	// 用來記錄是否讀取xml檔案成功
 	bool ret = false;
 
-	QDomDocument doc("ConfigXML");
+	QDomDocument doc("IhuConfigXML");
 
 	QString fileName("confFile.xml");
 
 	QFile confFile(fileName);
 
-	if (!confFile.open(IO_ReadOnly))
-	{
-		qDebug("open file error");
-		return 0;
-	}
-	if (!doc.setContent(&confFile))
-	{
-		qDebug("setContent error");
-		confFile.close();
-		return 0;
-	}
-
-	/*
 	if (confFile.open(IO_ReadOnly))
 	{
 		// This function reads the XML document from the IO device dev
 		if (doc.setContent(&confFile))
 		{
+			// 設定文件標頭為一開始的最上層tag
 			QDomElement root = doc.documentElement();
 			if (root.tagName() == "renyang")
 			{
+				// 取得第一個child tage
 				QDomNode n = root.firstChild();
 				while (!n.isNull())
 				{
@@ -46,21 +35,24 @@ int main(int argc,char **argv)
 						QString tagName = e.tagName();
 						if (tagName == "general")
 						{
-							// do something
+							qDebug(QString("myName: %1").arg(e.attribute("myName",QString(""))));
 						}
 						else if (tagName == "family")
 						{
-							// do something
+							// 這裡會找不到grandemother, 因為實際檔案中grandmother多打了一個e
+							// 就會回傳後面的預設值
+							qDebug(QString("grandmother: %1").arg(e.attribute("grandmother","99")));
 						}
 						else if (tagName == "education")
 						{
-							// do something
+							qDebug(QString("primary_school: %1").arg(e.attribute("primary_school","99")));
 						}
 						else
 						{
 							// do nothing
 						}
 					}
+					// 下一個tag
 					n = n.nextSibling();
 				}
 				ret = true;
@@ -80,6 +72,5 @@ int main(int argc,char **argv)
 	{
 		qWarning(QString("Error: can't read config file %1 (%2)").arg("confFile.xml").arg(confFile.errorString()));
 	}
-	*/
 	return ret;
 }
