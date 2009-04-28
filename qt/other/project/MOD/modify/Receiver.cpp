@@ -399,7 +399,7 @@ void Receiver::emitSctpEvent(void * inmessage)
 			case SCTP_PARTIAL_DELIVERY_EVENT:
 				emit sigSctpEvent("PARTIAL DELIVERY EVENT");
 				break;
-			case SCTP_ADAPTION_INDICATION: 
+			case SCTP_ADAPTATION_INDICATION: 
 				assid = sctp_no->sn_shutdown_event.sse_assoc_id;
 				s = QString::number(assid);
 				emit sigSctpEvent(tr("ADAPTION INDICATION assoc_id = ") + s);
