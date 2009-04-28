@@ -7,6 +7,12 @@ OBJ	= server.o client.o
 
 LIBS	= -lsctp
 
+MOD_FLAG=
+
+ifeq ($(UN_MOD),on)
+	MOD_FLAG = -DUN_MOD
+endif
+
 .PHONY: everything all clean distclean
 
 everything:$(TARGET)
@@ -20,13 +26,13 @@ distclean: clean
 	rm -fv $(TARGET)
 
 server.o:server.c
-	$(CC) -c $< -o $@
+	$(CC) $(MOD_FLAG) -c $< -o $@
 
 server:server.o
 	$(CC) $(LIBS) $< -o $@
 
 client.o:client.c
-	$(CC) -c $< -o $@
+	$(CC) $(MOD_FLAG) -c $< -o $@
 
 client:client.o
 	$(CC) $(LIBS) $< -o $@
