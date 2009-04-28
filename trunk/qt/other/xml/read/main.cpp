@@ -19,6 +19,7 @@ int main(int argc,char **argv)
 	if (confFile.open(IO_ReadOnly))
 	{
 		// This function reads the XML document from the IO device dev
+		// 若xml檔案中有空白存在的話，那麼此時會出現錯誤
 		if (doc.setContent(&confFile))
 		{
 			// 設定文件標頭為一開始的最上層tag
