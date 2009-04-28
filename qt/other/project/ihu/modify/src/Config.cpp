@@ -33,17 +33,25 @@
 // renyang - Configure的建構子
 Config::Config(const char *fname)
 {
-	// renyang - 設定configure檔案是以什麼為副檔名
+	// renyang - 設定configure檔案在儲在哪一個檔案中
+	// renyang - 預設是在家目錄的.ihu.xml檔案中
 	fileName = QString(IHU_DEFAULT_CONFIG_FILE);
 	setDefault();
+	// renyang - fname預設是NULL
+	// renyang - 表示說若沒有指定的話, 那我預設的configure檔會存放在$(HOME)/.ihu.xml檔案中
 	if (fname != NULL)
 		fileName = QString(fname);
 	else
 	{
+		// renyang - 取得環境變數HOME
 		char *ptr = getenv("HOME");
 		if (ptr != NULL)
+		{
+			// renyang - 把整個檔名整合起來, 預設的結果會是$(HOME)/.ihu.xml
 			fileName = QString("%1/%2").arg(ptr).arg(IHU_DEFAULT_CONFIG_FILE);
+		}
 	}
+	// renyang - 讀取檔案錯誤, 使用程式預設值
 	if (!readConfig())
 	{
 		qWarning(QString("Using default settings..."));
@@ -55,32 +63,48 @@ Config::~Config()
 {
 }
 
+// renyang - 取得configure檔的檔名
 QString Config::getFileName()
 {
 	return fileName;
 }
 
+// renyang - 讀取configure檔案
 bool Config::readConfig()
 {
+	// renyang - 應該是記錄是否有讀取檔案成功, 若有一次成功, 就把它設定為true
 	bool ret = false;
+	// renyang - Creates a document and sets the name of the document type to name.
+	// renyang - 這一個類別應該就是要把由configure檔案讀取出來的放到這一個類別中@@@
 	QDomDocument doc( "IhuConfigXML" );
+	// renyang - 設定要執行configure檔案(預設在$(HOME)/.ihu.xml)
 	QFile confFile( fileName );
+	// renyang - 開啟檔案, 並且只有讀取的權限
 	if( confFile.open( IO_ReadOnly ) )
 	{
+		// renyang - This function reads the XML document from the IO device dev.
 		if( doc.setContent( &confFile ) )
 		{
+			// renyang - Returns the root element of the document
 			QDomElement root = doc.documentElement();
+			// renyang - Returns the tag name of this element
+			// renyang - 若最上層的tag是ihu的話, 那表示格式上沒有錯
 			if( root.tagName() == "ihu" )
 			{
+				// renyang - 取得最上層的第一個child, 若沒有child的話, 則會回傳Null Node
 				QDomNode n = root.firstChild();
 				while( !n.isNull() )
 				{
+					// renyang - Converts a QDomNode into a QDomElement. If the node is not an element the returned object will be null
 					QDomElement e = n.toElement();
 					if( !e.isNull() )
 					{
+						// renyang - 再由目前的QDomElement取得目前的tag Name
 						QString tagName = e.tagName();
 						if (tagName == "general")
 						{
+							// renyang - 回傳名為"myName"的屬性, 若沒有叫"myName"的屬性的話
+							// renyang - 則直接回傳後面的設定值
 							myName = e.attribute( "myName", QString("") );
 							trayIcon = (bool) e.attribute( "trayIcon", QString("%1").arg(IHU_DEFAULT_TRAY)).toInt();
 							autoWait = (bool) e.attribute( "autoWait", QString("%1").arg(IHU_DEFAULT_WAIT) ).toInt();
@@ -89,8 +113,7 @@ bool Config::readConfig()
 							maxCalls = e.attribute( "maxCalls", QString("%1").arg(IHU_DEFAULT_MAXCALLS) ).toInt();
 							maxHosts = e.attribute( "maxHosts", QString("%1").arg(IHU_DEFAULT_MAXHOSTS) ).toInt();
 						}
-						else
-						if (tagName == "network")
+						else if (tagName == "network")
 						{
 							udp = (bool) e.attribute( "udp", QString("%1").arg(IHU_DEFAULT_UDP)).toInt();
 							tcp = (bool) e.attribute( "tcp", QString("%1").arg(IHU_DEFAULT_TCP)).toInt();
@@ -98,8 +121,7 @@ bool Config::readConfig()
 							inPort = e.attribute( "inPort", QString("%1").arg(IHU_DEFAULT_INPORT) ).toInt();
 							outPort = e.attribute( "outPort", QString("%1").arg(IHU_DEFAULT_OUTPORT) ).toInt();
 						}
-						else
-						if (tagName == "sound")
+						else if (tagName == "sound")
 						{
 							inputDriver = e.attribute( "inputDriver", QString("%1").arg(IHU_DEFAULT_INDRIVER)).toInt();
 							inputInterface = e.attribute( "inputInterface", QString(IHU_DEFAULT_INTERFACE));
@@ -109,8 +131,7 @@ bool Config::readConfig()
 							prePackets = e.attribute( "prePackets", QString("%1").arg(IHU_DEFAULT_PREPACKETS) ).toInt();
 							ringVolume = e.attribute( "ringVolume", QString("%1").arg(IHU_DEFAULT_RINGVOLUME) ).toInt();
 						}
-						else
-						if (tagName == "encoder")
+						else if (tagName == "encoder")
 						{
 							speexMode = e.attribute( "speexMode", QString("%1").arg(IHU_DEFAULT_MODE)).toInt();
 							bitrateMode = e.attribute( "bitrateMode", QString("%1").arg(IHU_DEFAULT_BITRATEMODE)).toInt();
@@ -121,8 +142,7 @@ bool Config::readConfig()
 							vad = (bool) e.attribute( "vad", QString("%1").arg(IHU_DEFAULT_VAD) ).toInt();
 							dtx = (bool) e.attribute( "dtx", QString("%1").arg(IHU_DEFAULT_DTX) ).toInt();
 						}
-						else
-						if (tagName == "options")
+						else if (tagName == "options")
 						{
 							adr = (bool) e.attribute( "adr", QString("%1").arg(IHU_DEFAULT_ADR)).toInt();
 							adrStretch = e.attribute( "adrStretch", QString("%1").arg(IHU_DEFAULT_ADRSTRETCH)).toInt();
@@ -135,8 +155,7 @@ bool Config::readConfig()
 							agcLevel = e.attribute( "agcLevel", QString("%1").arg(IHU_DEFAULT_AGCLEVEL) ).toInt();
 							agcControl = e.attribute( "agcControl", QString("%1").arg(IHU_DEFAULT_AGC_CONTROL) );
 						}
-						else
-						if (tagName == "security")
+						else if (tagName == "security")
 						{
 							crypt = (bool) e.attribute( "crypt", QString("%1").arg(IHU_DEFAULT_CRYPT)).toInt();
 							random = (bool) e.attribute( "random", QString("%1").arg(IHU_DEFAULT_RANDOM)).toInt();
@@ -145,15 +164,16 @@ bool Config::readConfig()
 							passwd = e.attribute( "passwd", QString(""));
 							logFile = e.attribute( "logFile", QString(""));
 						}
-						else
-						if (tagName == "host")
+						else if (tagName == "host")
 						{
 							for (int i=0; i<IHU_MAX_HOSTS; i++)
 								hosts[i] = e.attribute(QString("h%1").arg(i), "");
 						}
 					}
+					// renyang - 會跳到下一個同一階層的tag
 					n = n.nextSibling();
 				}
+				// renyang - 當有一次執行到此, 則表示讀取configure檔案有成功
 				ret = true;
 			}
 			else
@@ -165,6 +185,7 @@ bool Config::readConfig()
 		{
 			qWarning(QString("Error: an error occurred while parsing %1").arg(fileName));
 		}
+		// renyang - 關閉開啟的檔案
 		confFile.close();
 	}
 	else
@@ -174,6 +195,7 @@ bool Config::readConfig()
 	return ret;
 }
 
+// renyang - 寫入configure到configure檔案中
 void Config::writeConfig()
 {
 	writeConfig(fileName);
