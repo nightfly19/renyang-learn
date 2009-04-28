@@ -64,6 +64,7 @@ void usage(int ret)
 	fprintf(stdout, "\t--call\tHOST\tCall HOST (DNS or IP address)\n\t--file\tFILE\tPlay a IHU FILE\n");
 	fprintf(stdout, "\t--encrypt\tEncrypt the outgoing stream\n\t--noinput\tDisable audio INPUT\n\t--nooutput\tDisable audio OUTPUT\n");
 	fprintf(stdout, "\t--nogui\t\tStart without GUI (no interaction)\n\n");
+	// renyang - 當ret!=0, 則表示缺少參數
 	if (ret)
 		fprintf(stderr, "Error: one or more argument is missing.\n");
 	exit(ret);
@@ -149,6 +150,7 @@ int main( int argc, char **argv )
 		Config ihuconfig(cfg);
 		
 		// renyang - 依enableGui來決定是使用NoGui還是Gui的版本
+		// renyang - 若使用這一行的話, 則不在X11也是可以執行
 		QApplication a( argc, argv, enableGui );
 		
 		if (enableGui)
@@ -191,6 +193,8 @@ int main( int argc, char **argv )
 		}
 		else
 		{
+			// renyang - 這一個區塊是表是沒有使用到GUI的部分
+
 			fprintf(stdout, "Starting IHU without GUI...\nPress CTRL-C to terminate\n");
 
 			// renyang - 所包含的參數必需要包含waitcall, call, file這兩個其中一個

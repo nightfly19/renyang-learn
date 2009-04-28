@@ -36,13 +36,17 @@
 #define IHU_RING_COUNT 75
 #define IHU_INIT_COUNT 2
 
+// renyang -  建立最大可以同時撥出去的電話數(Max Call)
 Phone::Phone(int mc)
 {
 	maxcall = mc;
 	// renyang - 建立一個陣列是用來儲放Call *
 	calls = new Call*[maxcall];
 	for (int i=0; i<maxcall; i++)
+	{
+		// renyang - 初始化使陣列每一個元件均存放NULL
 		calls[i] = NULL;
+	}
 	call_number = 0;
 	connections = 0;
 

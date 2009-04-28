@@ -803,6 +803,7 @@ void Config::setLogFile(QString val)
 	logFile = val;
 }
 
+// renyang - 確認所有的數值是否正確
 bool Config::checkConfig()
 {
 	if ((maxCalls < 0) || (maxCalls > IHU_MAX_CALLS))
@@ -810,6 +811,7 @@ bool Config::checkConfig()
 	if ((maxHosts < 0) || (maxHosts > IHU_MAX_HOSTS))
 		return false;
 
+	// renyang - 網路的部分, 最後可能要增加sctp
 	if (!udp && !tcp)
 		return false;
 	if ((protocol < 0) || (protocol > 1))
@@ -819,6 +821,7 @@ bool Config::checkConfig()
 	if ((outPort < 0) || (outPort > 32768))
 		return false;
 
+	// renyang - 音量；所需要先準備的封包
 	if ((threshold < -96) || (threshold > 0))
 		return false;
 	if ((txStop < 0) || (txStop > 30))
@@ -830,6 +833,7 @@ bool Config::checkConfig()
 	if ((prePackets < 0) || (prePackets > 20))
 		return false;
 
+	// renyang - 語音模式
 	if ((speexMode < 0) || (speexMode > 2))
 		return false;
 	if ((bitrateMode < 0) || (bitrateMode > 2))
@@ -843,6 +847,7 @@ bool Config::checkConfig()
 	if ((abr < 2) || (abr > 44))
 		return false;
 
+	// renyang - ???
 	if ((adrStretch < 1) || (adrStretch > 50))
 		return false;
 	if ((adrMinDelay < 0) || (adrMinDelay > 9999))

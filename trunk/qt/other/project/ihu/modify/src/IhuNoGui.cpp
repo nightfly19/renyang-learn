@@ -30,6 +30,8 @@
 
 #define STAT_TIME 1000
 
+// renyang - 透過configure檔案來初始化NoGui的IHU
+// renyang - 這一個動作只是把外部的configure檔案複製一份到IhuNoGui這一個物件裡面
 IhuNoGui::IhuNoGui(Config& ihucfg) : ihuconfig(ihucfg)
 {
 }
@@ -42,6 +44,7 @@ IhuNoGui::~IhuNoGui()
 }
 
 // renyang - 初始化IHU的設定
+// renyang - 透過configure檔案初始化IhuNoGui這一個物件
 void IhuNoGui::initIhu()
 {
 	try
@@ -49,9 +52,12 @@ void IhuNoGui::initIhu()
 		if (!ihuconfig.checkConfig())
 		{
 			qWarning(QString("\nERROR: %1 contains invalid settings!\nPlease remove the file and restart IHU to restore settings.\nIHU will start with default settings now...\n").arg(ihuconfig.getFileName()));
+			// renyang - 因為是用alias宣告ihuconfig, 因此改到ihuconfig就是改到外部的configure檔案
+			// renyang - 所以當讀取configure檔案失敗時, 則設定configure為初始值
 			ihuconfig.setDefault();
 		}
 
+		// renyang - 建立一個實際上在處理語音的類別Phone
 		phone = new Phone(ihuconfig.getMaxCalls());
 		fileplayer = new FilePlayer();
 		logger = new Logger();
