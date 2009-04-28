@@ -22,16 +22,16 @@ int main(int argc,char **argv)
 	family.setAttribute("grandemother",true);
 	family.setAttribute("father",true);
 	family.setAttribute("mother",true);
-	family.setAttribute("old brother",true);
-	family.setAttribute("little brother",true);
+	family.setAttribute("old_brother",true);
+	family.setAttribute("little_brother",true);
 
 	QDomElement education = doc.createElement("education");
 
-	education.setAttribute("primary school",true);
-	education.setAttribute("secondary school",true);
-	education.setAttribute("high school",true);
+	education.setAttribute("primary_school",true);
+	education.setAttribute("secondary_school",true);
+	education.setAttribute("high_school",true);
 	education.setAttribute("university",true);
-	education.setAttribute("graduate school",true);
+	education.setAttribute("graduate_school",true);
 
 	root.appendChild(general);
 	root.appendChild(family);
