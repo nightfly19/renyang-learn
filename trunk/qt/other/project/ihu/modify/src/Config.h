@@ -29,7 +29,7 @@
 
 #include <qstring.h>
 
-// renyang - 設定config檔是以什麼為副檔名
+// renyang - 設定config檔是儲在哪一個檔案中, 預設的檔名是.ihu.xml
 #define IHU_DEFAULT_CONFIG_FILE ".ihu.xml"
 
 #define IHU_DEFAULT_MAXCALLS 5
