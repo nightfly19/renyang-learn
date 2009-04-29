@@ -1062,8 +1062,10 @@ void Ihu::thSliderChanged(int val)
 	ihuconfig.setThreshold(val);
 }
 
+// renyang - 設定GUI的部分做出相對應的動作
 void Ihu::enableRecorder(bool on)
 {
+//	qWarning(QString("Ihu::enableRecorder(%1)").arg(on));
 	soundLabel->setEnabled(on);
 	soundLevel->setEnabled(on);
 }

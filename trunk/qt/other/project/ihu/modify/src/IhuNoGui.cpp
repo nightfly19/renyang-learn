@@ -183,13 +183,18 @@ void IhuNoGui::call(QString host)
 	}
 }
 
+// renyang - 接收到一通電話, id應該指的是受話端的id
 void IhuNoGui::receivedCall(int id)
 {
 	try
 	{
 		message(logger->logReceivedCall(phone->getCallerIp(id), phone->getCallerName(id)));
 		if (autocrypt)
+		{
+			// renyang - 設定這一個call id加密
 			cryptOn(id);
+		}
+		// renyang - 設定這一個id接受別人打過來的電話
 		phone->answerCall(id);
 	}
 	catch (Error e)
@@ -214,6 +219,7 @@ void IhuNoGui::abortCall(int id, QString text)
 	message(logger->logAbortedCall(phone->getCallerIp(id), text));
 }
 
+// renyang - 顯示錯誤或是debug訊息
 void IhuNoGui::message(QString text)
 {
 	qWarning(QString("Warning: %1").arg(text));

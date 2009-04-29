@@ -67,9 +67,12 @@ private:
 	snd_mixer_elem_t *elem;
 	short *samples;
 	float *audioBuffer;
+	// renyang - 設定音訊要使用的編碼方式, 預設是REC_DRIVER_ALSA
 	int driver;
+	// renyang - 設定音訊要使用的編碼方式, 預設是REC_DRIVER_ALSA
 	int tempDriver;
 	bool working;
+	// renyang - 預設值是"default"
 	QString interface;
 	QTimer *timer;
 	float volume;

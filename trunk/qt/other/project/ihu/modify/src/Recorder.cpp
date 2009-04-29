@@ -73,13 +73,15 @@ void Recorder::setup(int driv, QString interf)
 	interface = interf;
 }
 
+// renyang - 開始記錄音訊
 void Recorder::start(unsigned int rate)
 {
 	driver = tempDriver;
+	// renyang - 目前有兩種可以選擇ALSA, JACK
 	switch(driver)
 	{
 		case REC_DRIVER_ALSA:
-			// renyang - 初始化ALSA的音訊
+			// renyang - 初始化ALSA的音訊, 需要傳輸率與使用的介面
 			initAlsa(rate, interface.ascii());
 			break;
 		case REC_DRIVER_JACK:
