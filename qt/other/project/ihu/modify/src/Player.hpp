@@ -67,6 +67,7 @@ private:
 	int i;
 	int err;
 	unsigned int sample_rate;
+	// renyang - 一個frame的大小
 	int frame_size;
 	snd_pcm_t *playback_handle;
 	snd_pcm_sframes_t delayNow;
@@ -78,12 +79,15 @@ private:
 	float tempoChange;
 	float fdel;
 	bool adr;
+	// renyang - 是否有需要ringing
 	bool ringing;
+	// renyang - 目前準備好讓別人讀取的frame大小
 	int readyFrames;
 	int prebuffer;
 	int preframes;
 	int prepackets;
 	short *shortBuffer;
+	// renyang - 目前是否有在working
 	bool working;
 	QString interface;
 	SoundTouch pSoundTouch;

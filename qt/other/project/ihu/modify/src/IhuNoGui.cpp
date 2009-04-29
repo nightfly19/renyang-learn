@@ -59,11 +59,16 @@ void IhuNoGui::initIhu()
 
 		// renyang - 建立一個實際上在處理語音的類別Phone
 		phone = new Phone(ihuconfig.getMaxCalls());
+		// renyang - 建立一個撥放與轉換檔案的類別
 		fileplayer = new FilePlayer();
+		// renyang - 建立一個處理logger檔案的類別
 		logger = new Logger();
+		// renyang - 產生一個timer
 		timer = new QTimer(this);
 
+		// renyang - 當fileplayer表示編碼錯誤時, 會需要使用都輸入正確的編碼
 		connect( fileplayer, SIGNAL(keyRequest()), this, SLOT(keyRequest()) );
+		// renyang - 由fileplayer通知結束
 		connect( fileplayer, SIGNAL(finish()), this, SLOT(stopFile()) );
 		connect( fileplayer, SIGNAL(warning(QString)), this, SLOT(message(QString)) );
 		connect( fileplayer, SIGNAL(error(QString)), this, SLOT(abortAll(QString)) );
@@ -128,6 +133,8 @@ void IhuNoGui::applySettings()
 
 	try
 	{
+		// renyang - 設定存放記錄檔的檔案
+		// renyang - 預設是沒有存放記錄檔的位置
 		logger->enable(ihuconfig.getLogFile());
 	}
 	catch (Error e)
@@ -191,6 +198,7 @@ void IhuNoGui::receivedCall(int id)
 	}
 }
 
+// renyang - 用來記錄連線的Caller Ip與Caller Name
 void IhuNoGui::connectedCall(int id)
 {
 	message(logger->logConnectedCall(phone->getCallerIp(id), phone->getCallerName(id)));
@@ -242,7 +250,9 @@ void IhuNoGui::playFile(QString name)
 void IhuNoGui::stopFile()
 {
 	message(tr("End of file"));
+	// renyang - 把所有還在buffer的資料存入檔案中
 	fileplayer->end();
+	// renyang - 結束目前的process
 	exit(0);
 }
 
@@ -297,6 +307,7 @@ void IhuNoGui::disableOut()
 	phone->disablePlayer(true);
 }
 
+// renyang - 表示收到的封包是編碼過的, 但是, key不合, 沒有辦法解碼
 void IhuNoGui::keyRequest()
 {
 	qWarning("Stream is encrypted, but the decryption key is not available");

@@ -60,6 +60,7 @@ public:
 	void quit();
 
 private:
+	// renyang - 目的是建立一個與外部的configure檔是同一個的, 當修改其中一個, 另一個也是改變
 	Config& ihuconfig;
 	FilePlayer *fileplayer;
 	Phone *phone;

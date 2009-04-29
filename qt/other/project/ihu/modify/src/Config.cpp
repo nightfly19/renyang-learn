@@ -346,6 +346,7 @@ void Config::setDefault()
 	setShowKey(IHU_DEFAULT_SHOWKEY);
 	setKeyLen(IHU_DEFAULT_KEYLEN);
 	setPasswd(QString(""));
+	// renyang - 預設是沒有設定記錄檔的位置, 也就是說, 沒有存放記錄檔啦
 	setLogFile(QString(""));
 
 	clearHosts();
