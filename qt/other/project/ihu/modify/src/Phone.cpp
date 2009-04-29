@@ -383,6 +383,7 @@ void Phone::abortAll()
 // renyang - 與host ip建立連線，port號, Protocol
 void Phone::call(int callId, QString host, int port, int prot)
 {
+//	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
 	if (calls[callId])
 	{
 		try
@@ -400,9 +401,10 @@ void Phone::call(int callId, QString host, int port, int prot)
 			throw e;
 		}
 	}
-	else throw Error("invalid call ID");
+	else throw Error(QString("invalid call ID"));
 }
 
+// renyang - 此id的call接收別人打過來的電話
 void Phone::answerCall(int callId)
 {
 //	qWarning(QString("Phone::answerCall(%1) - connections=%2").arg(callId).arg(connections));
@@ -684,24 +686,38 @@ void Phone::processAudioSamples(float *samples, int nsample)
 	}
 }
 
+// renyang - 開始接收別人打過來的電話
 void Phone::startRecorder()
 {
 //	qWarning("Phone::startRecorder()");
 	switch (rec_status)
 	{
+		// renyang - 哇哈哈, 目前是靜音, 不處理
 		case RECORDER_STATUS_MUTE:
 			break;
 		default:
+			// renyang - 是否要記錄
 			if (!recording)
 			{
+				// renyang - 先清空預先要準備資訊(音訊???)的空間
 				memset(prebuffer, 0x0, sizeof(float)*REC_BUFSIZE);
+				// renyang - 預先清楚要送資料出去的空間???
+				// renyang - 所以資料應該是先送到預先準備的資料中, 最後再送到要送出去的資料中???
 				memset(out, 0x0, MAXBUFSIZE);
+				// renyang - 還沒有開始說話???
 				speak = 0;
+				// renyang - 還沒有準備好???
+				// renyang - 一個是預先準備的buffer好了沒, 另一個是要送出去的buffer準備好了沒
 				ready = toRead = 0;
 				bufptr = buffer;
+				// renyang - 初始化要使用的
 				recorder->start(rate);
+				// renyang - 設定目前的記錄器為等待
 				rec_status = RECORDER_STATUS_WAITING;
+				// renyang - 開始記錄
 				recording = true;
+				// renyang - 告知別人(IhuGui), 我要開始記錄啦
+				// renyang - 耶，這一個部分只有對Ihu有影響
 				emit recorderSignal(true);
 			}
 			break;

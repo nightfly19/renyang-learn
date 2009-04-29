@@ -738,13 +738,13 @@ bool Settings::saveSettings()
 			QMessageBox::warning(0, "IHU Warning", "Warning: the ADR Min Delay value is too near to Max Delay.\nThe ADR Option might not work properly.");
 
 		if (!udpBox->isChecked() && !tcpBox->isChecked())
-			throw Error("no Receiver protocol was selected.\nPlease choose at least one protocol.");
+			throw Error(QString("no Receiver protocol was selected.\nPlease choose at least one protocol."));
 		
 		if (!agchwBox->isChecked() && !agcswBox->isChecked())
-			throw Error("no AGC Control selected.\nPlease choose at least one method.");
+			throw Error(QString("no AGC Control selected.\nPlease choose at least one method."));
 
 		if (adrmaxdelayBox->value() < adrmindelayBox->value())
-			throw Error("ADR Max delay is smaller than Min delay!");
+			throw Error(QString("ADR Max delay is smaller than Min delay!"));
 		
 		ihuconfig.setMyName(nameEdit->text());
 		ihuconfig.setAutoAnswer(answerBox->isChecked());

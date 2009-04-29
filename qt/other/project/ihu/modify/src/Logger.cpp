@@ -128,7 +128,7 @@ void Logger::end()
 	}
 }
 
-// renyang - 取得目前的時間
+// renyang - 取得目r的時間
 QString Logger::getTime()
 {
 	return QDateTime::currentDateTime().toString();

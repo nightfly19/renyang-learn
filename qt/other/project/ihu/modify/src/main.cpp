@@ -201,7 +201,7 @@ int main( int argc, char **argv )
 			if (!waitcall && !call && !file)
 				usage(1);
 			
-			// renyang - 建立一個沒有GUI的指標物件, 且同時初始化IhuNoGui的configure
+			// renyang - 建立一個沒有GUI的指標物件: 且同時初始化IhuNoGui的configure
 			ihuNoGui = new IhuNoGui(ihuconfig);
 			
 			// renyang - 初始化no-GUI的物件

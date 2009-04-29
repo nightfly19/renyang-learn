@@ -1,0 +1,1 @@
+QString可以透過latin1()把QString轉成一般的char
