@@ -103,6 +103,7 @@ private:
 	bool active;
 	bool muteRec;
 	bool mutePlay;
+	// renyang - 表示目前這一個Call沒有被使用
 	bool callFree;
 	bool aborted;
 	QTimer *stopTimer;
@@ -118,6 +119,7 @@ public slots:
 	void abortCall(QString);
 	void ringMessage();
 	void startRecorder();
+	// renyang - 連線成功
 	void connected();
 	void close();
 	void decodeAudioData(char*, int);

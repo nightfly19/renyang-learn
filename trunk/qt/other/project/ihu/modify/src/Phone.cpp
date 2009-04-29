@@ -238,6 +238,7 @@ void Phone::receivedCall(int callId)
 int Phone::newCall()
 {
 	int callId = findFreeCall();
+	// renyang - 尋找不到空的call id, 自己建立一個
 	if (callId == -1)
 	{
 		try
@@ -273,6 +274,7 @@ void Phone::stopWaiting()
 	connections = 0;
 }
 
+// renyang - 建立一個新的Call
 int Phone::createCall()
 {
 	int newId = findFreeId();
@@ -282,6 +284,7 @@ int Phone::createCall()
 	}
 	else
 	{
+		// renyang - 為目前找到的這一個call id建立一個實體的Call
 		calls[newId] = new Call(newId, myName);
 		connect( calls[newId], SIGNAL(connectedSignal(int)), this, SLOT(connectedCall(int)) );	
 		connect( calls[newId], SIGNAL(cancelCallSignal(int)), this, SLOT(cancelCall(int)) );	
@@ -304,6 +307,7 @@ void Phone::deleteCall(int callId)
 		delete old_call; 
 }
 
+// renyang - 通知上層連線成功
 void Phone::connectedCall(int callId)
 {
 //	qWarning(QString("Phone::connectedCall(%1)").arg(callId));
@@ -844,6 +848,7 @@ void Phone::send(float *fsamples, int samples)
 
 int Phone::findFreeId()
 {
+	// renyang - 當找過所有的id, 仍發現所有的id仍在使用, 則回傳-1
 	for (int i=0; i<maxcall; i++)
 	{
 		if (calls[i] == NULL)
@@ -852,6 +857,7 @@ int Phone::findFreeId()
 	return -1;
 }
 
+// renyang - 尋找哪一個id目前沒有被使用
 int Phone::findFreeCall()
 {
 	for (int i=0; i<maxcall; i++)
@@ -984,6 +990,7 @@ bool Phone::isTXActive(int callId)
 	return ret;
 }
 
+// renyang - 取得player的delay
 float Phone::getDelay()
 {
 	return player->getDelay();

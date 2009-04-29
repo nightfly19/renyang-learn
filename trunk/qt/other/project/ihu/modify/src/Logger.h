@@ -36,6 +36,7 @@ class Logger
 public:
 	Logger();
 	~Logger();
+	// renyang - 存放log的檔名
 	void enable(QString);
 	void end();
 	void flush();

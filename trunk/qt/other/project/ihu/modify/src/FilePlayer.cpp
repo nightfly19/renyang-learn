@@ -483,11 +483,13 @@ void FilePlayer::emitSignal(signal_type type)
 {
 	switch(type)
 	{
+		// renyang - 作業完成
 		case SIGNAL_FINISH:
 			emit finish();
 			break;
 		if (working)
 		{
+			// renyang - key出現錯誤, 重新要求新的key???
 			case SIGNAL_KEYREQUEST:
 				emit keyRequest();
 				break;

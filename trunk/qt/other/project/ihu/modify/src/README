@@ -5,9 +5,11 @@
 ??? 非常可能有問題
 @@@ 我猜, 我猜的可能有問題
 
-Phone.hpp與Phone.cpp可能是實際上在處理語音的部分
+Phone.hpp與Phone.cpp可能是實際上在處理語音的部分(可能是一個tab就一個call???)
 Call.hpp與Call.cpp是整合連線與記錄對話，撥放對話的部分
 Transmitter.hpp與Transmitter.cpp是實際上在處理網路傳輸的部分
+FilePlayer.hpp與FilePlayer.cpp應該是在撥放檔案的部分
+Player.hpp與Player.cpp是撥放聲音的地方
 
 觀察
 void Phone::sendAudioData(float *sample, int samples);
@@ -24,3 +26,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 
 YYYY在Phone::waitCalls(int,bool,bool)
 要加入sctp的判斷
+
+
+Phone底下有Player, Recorder, QTimer, 多個Call, TcpServer
+IhuNoGui底下有Phone, FilePlayer, logger, QTimer, Config

@@ -314,8 +314,10 @@ void Player::pause(bool on)
 	}
 }
 
+// renyang - 判斷目前是否清空了
 bool Player::flush()
 {
+	// renyang - 準備好讓讀取的frames還有, 表示還沒有清空
 	if (readyFrames > 0)
 	{
 		prebuffer = 0;
@@ -328,6 +330,7 @@ bool Player::flush()
 			snd_pcm_state_t state = snd_pcm_state(playback_handle);
 			switch (state)
 			{
+				// renyang - 目前還在執行
 				case SND_PCM_STATE_RUNNING:
 					return false;
 				default:

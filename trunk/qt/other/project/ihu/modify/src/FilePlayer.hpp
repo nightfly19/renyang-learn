@@ -96,6 +96,7 @@ public:
 
 private:
 	Player *player;
+	// renyang - 用來轉換音訊檔案的
 	Ihu2Spx *ihu2spx;
 	stream_status sync;
 	FILE *inFile;
@@ -114,7 +115,9 @@ private:
 	Rsa *rsa;
 	short *ring_buffer;
 	int ring_size;
+	// renyang - 目前是否有在工作
 	bool working;
+	// renyang - 設定不解碼???
 	bool nodecrypt;
 	bool spx;
 	bool fast;

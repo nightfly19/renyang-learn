@@ -187,6 +187,7 @@ void Call::call(QString host, int port, int prot)
 	}
 }
 
+// renyang - 建立一個網路連線
 void Call::start(int socket, int protocol)
 {
 //	qWarning("Call::start()");
@@ -220,9 +221,11 @@ void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 	}
 }
 
+// renyang - 連線成功
 void Call::connected()
 {
 //	qWarning("Call::connected()");
+	// renyang - 連線成功就不需要ring啦
 	sendRing(false);
 	emit connectedSignal(id);
 	emit warning(QString("Connected with %1 (%2)").arg(getCallerName()).arg(getCallerIp()));
