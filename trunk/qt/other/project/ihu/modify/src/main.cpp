@@ -52,6 +52,8 @@ void terminate(int val)
 	else if (ihuNoGui)
 	{
 		ihuNoGui->quit();
+		// renyang - ihuNoGui需要delete, 而Ihu確不用
+		// 我猜是因為, GUI要離開時, 因為有設setMainWidget, 所以會把所有的GUI都刪掉
 		delete ihuNoGui;
 		exit(0);
 	}
@@ -147,6 +149,7 @@ int main( int argc, char **argv )
 		}
 
 		// renyang - 建立一個config物件, 使用的參數就是這一個檔案
+		// renyang - 同時也是初始化ihuconfig
 		Config ihuconfig(cfg);
 		
 		// renyang - 依enableGui來決定是使用NoGui還是Gui的版本
