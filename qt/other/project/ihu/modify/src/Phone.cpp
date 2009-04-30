@@ -1064,6 +1064,7 @@ int Phone::getPeak()
 		peak = -96.0;
 	else peak = 20 * log10(peak);
 	int ret = (int) peak;
+	// renyang - 設定為float的0
 	peak = 0.f;
 	return ret;
 }
