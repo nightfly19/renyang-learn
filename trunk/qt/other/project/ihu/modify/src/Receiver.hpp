@@ -98,6 +98,7 @@ public:
 	bool isActive();
 
 private:
+	// renyang - local socket
 	int s;
 	stream_status sync;
 	struct sockaddr_in ca;
@@ -118,6 +119,7 @@ private:
 	bool ihu_refuse;
 	bool ihu_reply;
 	bool ihu_abort;
+	// renyang - 是否與peer端連接
 	bool connected;
 	bool received;
 	bool flushing;

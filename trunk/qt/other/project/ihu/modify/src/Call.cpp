@@ -227,6 +227,7 @@ void Call::connected()
 //	qWarning("Call::connected()");
 	// renyang - 連線成功就不需要ring啦
 	sendRing(false);
+	// renyang - 告知Phone，目前此Call id連線成功啦
 	emit connectedSignal(id);
 	emit warning(QString("Connected with %1 (%2)").arg(getCallerName()).arg(getCallerIp()));
 }
@@ -495,6 +496,7 @@ QString Call::getCallerName()
 	return receiver->getCallerName();
 }
 
+// renyang - 取得對方的ip address
 QString Call::getCallerIp()
 {
 	return receiver->getIp();
