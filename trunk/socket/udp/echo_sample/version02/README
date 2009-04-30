@@ -1,0 +1,5 @@
+使用udp來傳送與接收資料
+
+與version01的差別在於這一個例子的client是使用sendto與recvfrom來傳送與接收資料
+
+udp與tcp比較起來，tcp不需要accept來等待client的連接

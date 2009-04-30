@@ -39,4 +39,4 @@ renyang-TODO
 
 key-word
 notifier
-IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername
+IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, recvfrom, send, sendto, read, write

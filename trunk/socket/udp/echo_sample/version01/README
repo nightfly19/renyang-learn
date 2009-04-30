@@ -1,0 +1,5 @@
+使用udp來傳輸資料
+
+client端使用write與read來傳送與接收資料
+
+udp與tcp比較起來，tcp不需要accept來等待client的連接

@@ -1,9 +1,9 @@
 
 ASM	= gcc
 
-OBJ	= udpclient.o udpserver.o
+OBJ	= client.o server.o
 
-TARGET	= udpclient udpserver
+TARGET	= client server
 
 .PHONY: everything all clean distclean
 
@@ -17,14 +17,14 @@ clean:
 distclean:clean
 	rm -fv $(TARGET)
 
-udpclient.o:udpclient.c
+client.o:client.c
 	$(ASM) -c $< -o $@
 
-udpserver.o:udpserver.c
+server.o:server.c
 	$(ASM) -c $< -o $@
 
-udpclient:udpclient.o
+client:client.o
 	$(ASM) $< -o $@
 
-udpserver:udpserver.o
+server:server.o
 	$(ASM) $< -o $@
