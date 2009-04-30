@@ -36,7 +36,7 @@
 #define IHU_RING_COUNT 75
 #define IHU_INIT_COUNT 2
 
-// renyang -  建立最大可以同時撥出去的電話數(Max Call)
+// renyang -  建立一個Phone最大可以同時撥出去的電話數(Max Call)
 Phone::Phone(int mc)
 {
 	maxcall = mc;
@@ -150,11 +150,13 @@ void Phone::resize(int mc)
 	}
 }
 
+// renyang-TODO - 要新增一個sctp
 void Phone::waitCalls(int port, bool udp, bool tcp)
 {
 //	qWarning(QString("Phone::waitCalls()"));
 	inport = port;
 
+	// renyang - 在同一台電腦同一張網卡udp, tcp可以同時bind相同的port
 	if (udp)
 	{
 		if ((sd = ::socket(AF_INET, SOCK_DGRAM, 0)) == -1)
@@ -201,10 +203,13 @@ void Phone::newTCPConnection(int socket)
 	}
 }
 
+// renyang - 建立一個UDP的連線
+// renyang - 感覺應該是別人送一個udp封包過來，因此這裡就建立一個udp來服務它???
 void Phone::newUDPConnection(int socket)
 {
 //	qWarning(QString("Phone::newUDPConnection(%1)").arg(socket));
 	connections++;
+	// renyang - 若沒有馬上刪除，會一直觸發目前這一個函式
 	delete notifier;
 	notifier = NULL;
 	int callId = newCall();
@@ -255,6 +260,7 @@ int Phone::newCall()
 	return callId;
 }
 
+// renyang-TODO - 當停止接收call時, sctp要做什麼動作
 void Phone::stopWaiting()
 {
 	listening = false;
