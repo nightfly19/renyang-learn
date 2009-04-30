@@ -151,10 +151,10 @@ int Transmitter::call(QString host, int port, int prot)
 			type = SOCK_STREAM;
 			break;
 		default:
-			throw Error("unknown protocol");
+			throw Error(tr("unknown protocol"));
 	}
 	
-	if ((sd = socket(AF_INET, type, 0)) == -1)
+	if ((sd = ::socket(AF_INET, type, 0)) == -1)
 		throw Error(tr("can't initalize socket (") + strerror(errno)+ tr(")"));
 	
 	if ((::connect(sd, (struct sockaddr *)&sa, sizeof(sa)))==-1)

@@ -111,6 +111,7 @@ void IhuNoGui::initIhu()
 
 void IhuNoGui::applySettings()
 {
+	// renyang - 設定Phone使用者的名字
 	phone->setMyName(ihuconfig.getMyName());
 	
 	int abr = ihuconfig.getABR()*1000;
@@ -127,7 +128,9 @@ void IhuNoGui::applySettings()
 				vbr = 0;
 				break;
 	}
+	// renyang - 預設quality為5
 	float vbrquality = (float) ihuconfig.getVBRQuality();
+	// renyang - 預設DTX為true
 	int dtx = ihuconfig.getDTX();
 	int th = -96;
 	if (dtx)
@@ -174,6 +177,7 @@ void IhuNoGui::waitForCalls()
 	}
 }
 
+// renyang - 打電話給某一個host
 void IhuNoGui::call(QString host)
 {
 	try {
@@ -184,11 +188,18 @@ void IhuNoGui::call(QString host)
 		int tmpInd = host.findRev(':');
 		if (tmpInd > 0)
 		{
+			// renyang - 例: "127.0.0.1:1937"
+			// renyang - 要連線過去的ip address
 			callHost = host.left(tmpInd);
+			// renyang - 取出要連線過去的port
 			callPort = host.right(host.length() - tmpInd - 1).toInt();
 		}
 		if (autocrypt)
+		{
+			// renyang - 對call id 0開啟加密???
 			cryptOn(0);
+		}
+		// renyang - 打電話出去啦
 		phone->call(0, callHost, callPort, ihuconfig.getProtocol());
 		message(logger->logOutgoingCall(host, phone->getCallerIp(0)));
 	}

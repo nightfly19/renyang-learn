@@ -125,6 +125,7 @@ void Receiver::start(int socket, int pt)
 //	qWarning("Receiver::start()");
 	s = socket;
 	protocol = pt;
+	// renyang - 連線之後, 可以取得對方的sockaddr_in資料
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
 	resetStream();
@@ -143,9 +144,11 @@ void Receiver::start(int socket, int pt)
 		}
 		emit newSocket(s, protocol, ca);
 	}
+	// renyang - 開始倒數計時
 	checkTimer->start(CHECK_TICKTIME, false);
 }
 
+// renyang - 每隔一段時間去判斷是否連接了
 void Receiver::checkConnection()
 {
 	if (received)
@@ -181,6 +184,7 @@ void Receiver::end()
 	disableDecrypt();
 }
 
+// renyang-TODO - 加入IHU_SCTP的部分
 void Receiver::receive()
 {
 	if (working)
@@ -189,6 +193,7 @@ void Receiver::receive()
 		
 		switch(protocol)
 		{
+			// renyang - 把接收到的資料放到inputBuffer中
 			case IHU_UDP:
 				// renyang - 由udp的方式來接收資料
 				rlen = ::recvfrom(s, inputBuffer, IN_BUFSIZE, 0, (struct sockaddr *)&ca, &calen);
@@ -199,6 +204,7 @@ void Receiver::receive()
 				break;
 		}
 
+		// renyang - 當接收字串大小為0時, 則表示連線結束
 		if (rlen > 0)
 		{
 			bytes += rlen;
@@ -213,22 +219,28 @@ void Receiver::receive()
 	}
 }
 
+// renyang - 把接收到的資料放到streamBuffer中
 void Receiver::putData(char *buffer, int len)
 {
 	if (outFile)
 	{
+		// renyang - 把接收到的資料放到outFile中
 		fwrite(buffer, 1, len, outFile);
 		fflush(outFile);
 	}
 	
+	// renyang - 若剩下的buffer(MAXBUFSIZE - len)小於streamLen，則表示空間不夠, 出現錯誤啦
+	// renyang - streamLen可以看成MAXBUFSIZE目前使用到哪裡的index
 	if (streamLen > (MAXBUFSIZE - len))
 	{
 		qWarning("Warning: receiver buffer overloaded.");
+		// renyang - 把實際的資料刪成剛好可以放到buffer的大小
 		len = MAXBUFSIZE - streamLen;
 	}
 	memcpy(streamBuffer + streamLen, buffer, len);
 	streamLen += len;
 	
+	// renyang - 資料完成放到streamBuffer中啦
 	if (sync == STREAM_READ_DATA)
 	{
 		sync = STREAM_OK;
@@ -243,11 +255,13 @@ void Receiver::processData()
 		switch (sync)
 		{
 			case STREAM_OK:
+				// renyang - 至少要有一個資料, 否則就是資料遺失
 				if (streamLen < (HEADER_SYNC_LEN + 1))
 				{
 					sync = STREAM_MISSING_DATA;
 					break;
 				}
+				// renyang - 比較Header是否有問題
 				if (strncmp(streamPtr, HEADER_SYNC_STRING, HEADER_SYNC_LEN) != 0)
 				{
 					sync = STREAM_OUT_OF_SYNC;
@@ -261,8 +275,10 @@ void Receiver::processData()
 				}
 				else
 				{
+					// renyang - 實際封包的大小(內容值是由peer端送過來的)
 					unsigned char packetlen = (unsigned char) streamPtr[HEADER_SYNC_LEN];
 					int plen = (int) packetlen;
+					// renyang - 是大於還是小於啊?
 					if (plen > streamLen)
 					{
 						sync = STREAM_MISSING_DATA;
@@ -478,6 +494,7 @@ bool Receiver::replied()
 	return ihu_reply;
 }
 
+// renyang - 接收完一個stream
 void Receiver::emitSignal(signal_type type)
 {
 	switch(type)

@@ -33,3 +33,10 @@ IhuNoGui底下有Phone, FilePlayer, logger, QTimer, Config
 當FilePlayer有錯誤訊息，會通知給IhuNoGui知道
 
 我在猜在打電話給別人時，就有準備好要接收別人的聲音啦，因為電話是雙向的嘛
+
+renyang-TODO
+在Receiver::receive()加入IHU_SCTP的判斷
+
+key-word
+notifier
+IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername

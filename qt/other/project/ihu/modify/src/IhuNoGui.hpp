@@ -49,6 +49,7 @@ public:
 	void startReceiver();
 	void agcRefresh(bool);
 	void adrRefresh(bool);
+	// renyang - 打電話給某一個address
 	void call(QString);
 	void playFile(QString);
 	void cryptOn();

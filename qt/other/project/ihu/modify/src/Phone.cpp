@@ -197,7 +197,7 @@ void Phone::newTCPConnection(int socket)
 	}
 	else
 	{
-		close(socket);
+		::close(socket);
 	}
 }
 
@@ -541,7 +541,11 @@ void Phone::disableCrypt(int callId)
 void Phone::setMyName(QString name)
 {
 	if(name.length() > IHU_MAX_NAME_LEN)
+	{
+		// renyang - 會被截為IHU_MAX_NAME_LEN的長度
+		// renyang - 事實上可以不用以上的判斷，因為若小於設定的最大長度的話，則什麼動作也不會發生
 		name.truncate(IHU_MAX_NAME_LEN);
+	}
 	myName = name;
 	for (int i=0; i<maxcall; i++)
 	{
@@ -901,6 +905,7 @@ QString Phone::getCallerName(int callId)
 	return ret;
 }
 
+// renyang - 取得caller id的ip address
 QString Phone::getCallerIp(int callId)
 {
 	QString ret = "";
