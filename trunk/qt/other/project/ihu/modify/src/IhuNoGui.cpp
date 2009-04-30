@@ -53,7 +53,7 @@ void IhuNoGui::initIhu()
 		{
 			qWarning(QString("\nERROR: %1 contains invalid settings!\nPlease remove the file and restart IHU to restore settings.\nIHU will start with default settings now...\n").arg(ihuconfig.getFileName()));
 			// renyang - 因為是用alias宣告ihuconfig, 因此改到ihuconfig就是改到外部的configure檔案
-			// renyang - 所以當讀取configure檔案失敗時, 則設定configure為初始值
+			// renyang - 所以當讀取configure檔案失敗時, 則設定configure為預設值
 			ihuconfig.setDefault();
 		}
 
@@ -70,19 +70,31 @@ void IhuNoGui::initIhu()
 		connect( fileplayer, SIGNAL(keyRequest()), this, SLOT(keyRequest()) );
 		// renyang - 由fileplayer通知結束
 		connect( fileplayer, SIGNAL(finish()), this, SLOT(stopFile()) );
+		// renyang - FilePlayer出現警告訊息
 		connect( fileplayer, SIGNAL(warning(QString)), this, SLOT(message(QString)) );
+		// renyang - FilePlayer顯示錯誤訊息
 		connect( fileplayer, SIGNAL(error(QString)), this, SLOT(abortAll(QString)) );
 	
+		// renyang - Phone接收到Call，通知IhuNoGui知道
 		connect( phone, SIGNAL(receivedCallSignal(int)), this, SLOT(receivedCall(int)) );
+		// renyang - Phone已接收連線, 通知IhuNoGui知道
 		connect( phone, SIGNAL(connectedCallSignal(int)), this, SLOT(connectedCall(int)) );
+		// renyang - Phone拒絕對方的連線要求
 		connect( phone, SIGNAL(cancelCallSignal(int)), this, SLOT(cancelCall(int)) );
+		// renyang - Phone整個出現錯誤, 要跳離程式???
 		connect( phone, SIGNAL(abortSignal(QString)), this, SLOT(abortAll(QString)) );
+		// renyang - Phone單一個功能出現錯誤???
 		connect( phone, SIGNAL(abortCallSignal(int, QString)), this, SLOT(abortCall(int, QString)) );
+		// renyang - Phone要傳送訊息
 		connect( phone, SIGNAL(messageSignal(int, QString)), this, SLOT(message(int, QString)) );
+		// renyang - 傳送警告訊息
 		connect( phone, SIGNAL(warningSignal(QString)), this, SLOT(message(QString)) );
+		// renyang - 顯示要使用新的key
 		connect( phone, SIGNAL(newKeySignal(int, QString)), this, SLOT(receivedNewKey(int, QString)) );
+		// renyang - 改變使用新的key
 		connect( phone, SIGNAL(cryptedSignal(int)), this, SLOT(changeKey(int)) );
 
+		// renyang - 每當timerout則取得最高峰
 		connect( timer, SIGNAL(timeout()), this, SLOT(statistics()) );
 
 		applySettings();
@@ -122,10 +134,13 @@ void IhuNoGui::applySettings()
 		th = ihuconfig.getThreshold();
 
 	// renyang - 設定使用的Recorder, 需要設定InputDriver,InputInterface
+	// renyang - 這應該是記錄的部分
 	phone->setupRecorder(ihuconfig.getInputDriver(), ihuconfig.getInputInterface());
 	phone->setupPlayer(ihuconfig.getOutputInterface(), ihuconfig.getPrePackets());
+	// renyang - 這個是撥放音訊的部分@@@
 	fileplayer->setupPlayer(ihuconfig.getOutputInterface());
 	
+	// renyang - 設定phone的參數@@@
 	phone->setup(ihuconfig.getSpeexMode(), ihuconfig.getQuality(), abr, vbr, vbrquality, ihuconfig.getComplexity(), ihuconfig.getVAD(), dtx, ihuconfig.getTXStop(), th, ihuconfig.getRingVolume());
 
 	adrRefresh(ihuconfig.getADR());
@@ -342,6 +357,7 @@ void IhuNoGui::quit()
 	phone->stopWaiting();
 }
 
+// renyang - 取得聲音的最高點
 void IhuNoGui::statistics()
 {
 	phone->getPeak();

@@ -200,7 +200,7 @@ int main( int argc, char **argv )
 
 			fprintf(stdout, "Starting IHU without GUI...\nPress CTRL-C to terminate\n");
 
-			// renyang - 所包含的參數必需要包含waitcall, call, file這兩個其中一個
+			// renyang - 所包含的參數必需要包含waitcall, call, file這三個其中一個
 			if (!waitcall && !call && !file)
 				usage(1);
 			

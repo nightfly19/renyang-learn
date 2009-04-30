@@ -30,5 +30,6 @@ YYYY在Phone::waitCalls(int,bool,bool)
 
 Phone底下有Player, Recorder, QTimer, 多個Call, TcpServer
 IhuNoGui底下有Phone, FilePlayer, logger, QTimer, Config
+當FilePlayer有錯誤訊息，會通知給IhuNoGui知道
 
 我在猜在打電話給別人時，就有準備好要接收別人的聲音啦，因為電話是雙向的嘛
