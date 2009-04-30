@@ -99,6 +99,8 @@ int Accept(int,struct sockaddr *,socklen_t *);
 void Setsockopt(int,int,int,const void *,socklen_t);
 void Getsockopt(int,int,int,void *,socklen_t *);
 int Select(int,fd_set *,fd_set *,fd_set *,struct timeval *);
+void Sendto(int, const void *, size_t,int, const struct sockaddr *, socklen_t);
+ssize_t Recvfrom(int,void *,size_t,int, struct sockaddr *, socklen_t *);
 //----------------------------------------------------------------
 //------------------------wraplib.c-------------------------------
 const char *Inet_ntop(int,const void *,char *,size_t);

@@ -1,0 +1,6 @@
+基本上呢
+udp與tcp可以同時宣告相同的port同時在運行
+
+但是，如果要tcp同時宣告多個應用程式使用同一個port的話，則必需使用
+
+Setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
