@@ -9,7 +9,7 @@ TARGET	= libunp.a
 # 設定巨集,可以控制程式碼的結果
 #------------------------------------------------
 SCTP_STRCLI_FLAG = 
-MOD_FLAG	= 
+MOD_FLAG	= -DUN_MOD
 
 ifeq ($(GETPRIM),on)
 	SCTP_STRCLI_FLAG += -DGETPRIM
@@ -19,8 +19,8 @@ ifeq ($(SETPRIM),on)
 	SCTP_STRCLI_FLAG += -DSETPRIM
 endif
 
-ifeq ($(UN_MOD),on)
-	MOD_FLAG = -DUN_MOD
+ifeq ($(UN_MOD),off)
+	MOD_FLAG =
 endif
 #------------------------------------------------
 
