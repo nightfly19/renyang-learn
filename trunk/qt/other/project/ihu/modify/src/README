@@ -7,7 +7,8 @@
 
 Phone.hpp與Phone.cpp可能是實際上在處理語音的部分(可能是一個tab就一個call???)
 Call.hpp與Call.cpp是整合連線與記錄對話，撥放對話的部分
-Transmitter.hpp與Transmitter.cpp是實際上在處理網路傳輸的部分(好像是設計給UDP使用滴)
+Transmitter.hpp與Transmitter.cpp是實際上在處理網路傳輸的部分(表示Sender)
+Receiver.hpp與Receiver.cpp表示接收端
 FilePlayer.hpp與FilePlayer.cpp應該是在撥放檔案的部分
 Player.hpp與Player.cpp是撥放聲音的地方
 Recorder.hpp與Recorder.cpp是在記錄和使用音訊的部分

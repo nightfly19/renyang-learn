@@ -64,6 +64,7 @@ public:
 		SIGNAL_SENDNEWKEY,
 		SIGNAL_KEYREQUEST,
 		SIGNAL_NEWKEY,
+		// renyang - 資料接收完成
 		SIGNAL_FINISH
 	};
 	
@@ -117,13 +118,15 @@ private:
 	int streamLen;
 	Blowfish *blowfish;
 	Rsa *rsa;
+	// renyang - 開始接收對方的資料, 包含對方要求通話的部分, 或是語音
 	bool working;
 	bool nodecrypt;
 	bool ihu_refuse;
 	bool ihu_reply;
 	bool ihu_abort;
-	// renyang - 是否與peer端連接
+	// renyang - 表示是否接受對方的來電
 	bool connected;
+	// renyang - 是否接收到client的連線(network部分)
 	bool received;
 	bool flushing;
 	bool active;

@@ -123,9 +123,12 @@ void Receiver::dump(QString file)
 // renyang - 開始接收對方的資料
 // renyang - socket代表client端的socket file descriptor
 // renyang - proto可能是IHU_TCP或IHU_UDP
+// renyang-TODO - 要加入IHU_SCTP的部分
 void Receiver::start(int socket, int proto)
 {
-//	qWarning("Receiver::start()");
+#ifdef IHU_DEBUG
+	qWarning("Receiver::start()");
+#endif
 	s = socket;
 	protocol = proto;
 	// renyang - 連線之後, 可以取得對方的sockaddr_in資料
@@ -140,6 +143,7 @@ void Receiver::start(int socket, int proto)
 	// renyang - 新增一個QSocketNotifier, 當有資料可以讀時, emit activated()
 	notifier = new QSocketNotifier(s, QSocketNotifier::Read, this);
 	// renyang - activated(int)其參數是表示哪一個socket file descriptor被觸發
+	// renyang - 表示client端有傳送資料過來
 	connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
 	if (received)
 	{
@@ -166,7 +170,7 @@ void Receiver::checkConnection()
 	}
 	if (connected)
 	{
-		// renyang - 若對方接受你的電話, 則停止
+		// renyang - 若對方接受你的電話, 則停止探查目前接收方的情況
 		checkTimer->stop();
 		// renyang - 送出訊息說對方接受電話啦
 		emit connectedSignal();
@@ -184,10 +188,12 @@ void Receiver::close()
 	received = false;
 }
 
+// renayng - 結束傳送端的服務
 void Receiver::end()
 {
 	close();
 	
+	// renyang - 這一行是避免對方打電話過來, 我還沒有接電話, 對方馬上就把它掛掉了
 	checkTimer->stop();
 	
 	stop();
@@ -196,8 +202,12 @@ void Receiver::end()
 }
 
 // renyang-TODO - 加入IHU_SCTP的部分
+// renyang - 當client端有傳送資料過來這裡時, 則會執行此函式
 void Receiver::receive()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::receive()");
+#endif
 	if (working)
 	{
 		int rlen = 0;
@@ -211,11 +221,13 @@ void Receiver::receive()
 				break;
 			case IHU_TCP:
 				// renyang - 由tcp的方式來接收資料
+				// renyang - 這裡沒有用Qt的接收資料的方式
+				// renyang - 還是用一般socket的使用方式
 				rlen = ::recv(s, inputBuffer, IN_BUFSIZE, 0);
 				break;
 		}
 
-		// renyang - 當接收字串大小為0時, 則表示連線結束
+		// renyang - 當接收字串長度大於0時, 表示有接收到資料
 		if (rlen > 0)
 		{
 			bytes += rlen;
@@ -225,6 +237,7 @@ void Receiver::receive()
 		}
 		else
 		{
+			// renyang - 當沒有再接收到資料時, 表示client端與server端斷線啦, 要中斷目前的連線
 			emitSignal(SIGNAL_FINISH);
 		}
 	}
@@ -446,6 +459,7 @@ void Receiver::enableDecrypt(char *passwd, int len)
 	blowfish = new Blowfish(passwd, len);
 }
 
+// renyang - 加解密的部分
 void Receiver::disableDecrypt()
 {
 	if (blowfish)
@@ -505,7 +519,7 @@ bool Receiver::replied()
 	return ihu_reply;
 }
 
-// renyang - 接收完一個stream
+// renyang - 只是用來判斷完成某件事情的訊號
 void Receiver::emitSignal(signal_type type)
 {
 	switch(type)
@@ -564,6 +578,7 @@ bool Receiver::isConnected()
 	return connected;
 }
 
+// renyang - 設定已接收client端的連線
 void Receiver::setReceived(bool on)
 {
 	received = on;
