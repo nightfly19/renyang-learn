@@ -83,10 +83,13 @@ public:
 
 private:
 	int id;
+	// renyang - 在client端程式代表server端的socket
 	int sd;
 
 	Rsa *rsa;
+	// renyang - 接收端
 	Receiver *receiver;
+	// renyang - 傳送端
 	Transmitter *transmitter;
 
 	SpeexBits bits;
@@ -100,11 +103,11 @@ private:
 	bool udp;
 	bool tcp;
 	bool recording;
-	// renyang - 表示目前這一個call是否正在撥打
+	// renyang - 表示目前這一個call是否正在撥打(進行中)
 	bool active;
 	bool muteRec;
 	bool mutePlay;
-	// renyang - 表示目前這一個Call沒有被使用
+	// renyang - 表示目前這一個Call是否正在被使用(撥電話出去, 等待接電話, 通話中都算是false)
 	bool callFree;
 	// renyang - 目前這一個call出現錯誤
 	bool aborted;

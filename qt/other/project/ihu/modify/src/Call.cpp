@@ -72,6 +72,7 @@ Call::Call(int callId, QString myName)
 	connect( receiver, SIGNAL(keyRequest()), this, SLOT(sendKeyRequest()) );
 	connect( receiver, SIGNAL(sendNewKey()), this, SLOT(sendKey()) );
 	connect( receiver, SIGNAL(newKey(QString)), this, SLOT(receivedNewKey(QString)) );
+	// renyang - 沒有再接收到client端傳送過來的訊息, 結束此Call
 	connect( receiver, SIGNAL(finishSignal()), this, SLOT(stopCall()) );
 	connect( receiver, SIGNAL(error(QString)), this, SLOT(abortCall(QString)) );
 	connect( receiver, SIGNAL(warning(QString)), this, SLOT(warning(QString)) );
@@ -110,21 +111,27 @@ int Call::getId()
 	return id;
 }
 
+// renyang - 記錄要結束通訊
 void Call::stopCall()
 {
-//	qWarning("Call::stopCall()");
+#ifdef IHU_DEBUG
+	qWarning("Call::stopCall()");
+#endif
 	stop();
 	warning("Closing communication...");
 }
 
 void Call::stop()
 {
-//	qWarning("Call::stop()");
+#ifdef IHU_DEBUG
+	qWarning("Call::stop()");
+#endif
 	if (active)
 	{
 		active = false;
 		recording = false;
 		sendRing(false);
+		// renyang - 隔一段時間之後, 才正真close掉
 		stopTimer->start(STOP_TIME, true);
 		transmitter->end();
 		receiver->end();
@@ -172,7 +179,9 @@ void Call::call(QString host, int port, int prot)
 	try
 	{
 		readyFrames = 0;
+		// renyang - 由transmitter連線到server端
 		sd = transmitter->call(host, port, prot);
+		// renyang - 接收端開始接收由對方回傳的資料並且判斷對方的動作
 		receiver->start(sd, prot);
 		sendRing(true);
 		callFree = false;
