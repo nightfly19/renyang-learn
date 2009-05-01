@@ -1077,6 +1077,9 @@ void Ihu::enablePlayer(bool on)
 
 void Ihu::statistics()
 {
+#ifdef IHU_DEBUG
+	qWarning("Ihu::statistics()");
+#endif
 	QString tempMsg;
 	float traffic;
 	float total = 0.f;
