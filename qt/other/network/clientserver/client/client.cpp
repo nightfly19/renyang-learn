@@ -25,6 +25,7 @@ class Client : public QVBox
 public:
     Client( const QString &host, Q_UINT16 port )
     {
+	qWarning(QString("Client::Client(%1,%2)").arg(host).arg(port));
 	// GUI layout
 	infoText = new QTextView( this );
 	QHBox *hb = new QHBox( this );
@@ -60,6 +61,7 @@ public:
 private slots:
     void closeConnection()
     {
+	qWarning(QString("Client::closeConnection()"));
 	socket->close();
 	if ( socket->state() == QSocket::Closing ) {
 	    // We have a delayed close.
@@ -73,6 +75,7 @@ private slots:
 
     void sendToServer()
     {
+	qWarning(QString("Client::sendToServer()"));
 	// write to the server
 	QTextStream os(socket);
 	os << inputText->text() << "\n";
@@ -81,6 +84,7 @@ private slots:
 
     void socketReadyRead()
     {
+	qWarning(QString("Client::socketReadyRead()"));
 	// read from the server
 	while ( socket->canReadLine() ) {
 	    infoText->append( socket->readLine() );
@@ -89,21 +93,25 @@ private slots:
 
     void socketConnected()
     {
+	qWarning(QString("Client::socketConnected()"));
 	infoText->append( tr("Connected to server\n") );
     }
 
     void socketConnectionClosed()
     {
+	qWarning(QString("Client::socketConnectionClosed()"));
 	infoText->append( tr("Connection closed by the server\n") );
     }
 
     void socketClosed()
     {
+	qWarning(QString("Client::socketClosed()"));
 	infoText->append( tr("Connection closed\n") );
     }
 
     void socketError( int e )
     {
+	qWarning(QString("Client::socketError(%1)").arg(e));
 	infoText->append( tr("Error number %1 occurred\n").arg(e) );
     }
 
