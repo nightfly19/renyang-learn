@@ -32,6 +32,7 @@ TcpServer::TcpServer( QObject* parent=0, int port = 0) :
 		throw Error(tr("Can't listen on TCP port %1 (already in use?)").arg(port));
 }
 
+// renyang - socket參數是指在server端代表client的socket file descriptor
 void TcpServer::newConnection( int socket )
 {
 	emit newConnect(socket);
