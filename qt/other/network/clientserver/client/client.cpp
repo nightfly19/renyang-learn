@@ -39,10 +39,15 @@ public:
 	connect( quit, SIGNAL(clicked()), qApp, SLOT(quit()) );
 
 	// create the socket and connect various of its signals
+	// 建立一個tcp socket, 其父類別是this, 表示本地端的socket[重要!!]
 	socket = new QSocket( this );
+	// 當正確連線到server端, 系統會自動emit connected()[系統預設]
 	connect( socket, SIGNAL(connected()), SLOT(socketConnected()) );
+	// 當socket被切斷連線, 系統會自動emit connectionClosed()[系統預設]
 	connect( socket, SIGNAL(connectionClosed()), SLOT(socketConnectionClosed()) );
+	// 當socket接收到資料, readyRead()會同時被觸發[系統預設]
 	connect( socket, SIGNAL(readyRead()), SLOT(socketReadyRead()) );
+	// 當socket發現錯誤, 系統會自動被emit error(int)
 	connect( socket, SIGNAL(error(int)), SLOT(socketError(int)) );
 
 	// connect to the server
@@ -72,8 +77,11 @@ private slots:
     {
 	qWarning(QString("Client::sendToServer()"));
 	// write to the server
+	// 建立一個QTextStream其IODevice是socket
 	QTextStream os(socket);
+	// 把資料送到上面宣告的QTextStream
 	os << inputText->text() << "\n";
+	// 把輸入的視窗設定為空
 	inputText->setText( "" );
     }
 
@@ -81,7 +89,9 @@ private slots:
     {
 	qWarning(QString("Client::socketReadyRead()"));
 	// read from the server
+	// 判斷是否有資料可以讀取?
 	while ( socket->canReadLine() ) {
+	    // 由socket讀取一行字串並且把它送到infoText顯示在client端的視窗
 	    infoText->append( socket->readLine() );
 	}
     }
@@ -111,8 +121,11 @@ private slots:
     }
 
 private:
+    // 儲放server的socket物件
     QSocket *socket;
+    // 表示要顯示在client的字串
     QTextView *infoText;
+    // 要傳送到server端物件
     QLineEdit *inputText;
 };
 
