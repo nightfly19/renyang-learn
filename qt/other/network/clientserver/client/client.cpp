@@ -40,14 +40,10 @@ public:
 
 	// create the socket and connect various of its signals
 	socket = new QSocket( this );
-	connect( socket, SIGNAL(connected()),
-		SLOT(socketConnected()) );
-	connect( socket, SIGNAL(connectionClosed()),
-		SLOT(socketConnectionClosed()) );
-	connect( socket, SIGNAL(readyRead()),
-		SLOT(socketReadyRead()) );
-	connect( socket, SIGNAL(error(int)),
-		SLOT(socketError(int)) );
+	connect( socket, SIGNAL(connected()), SLOT(socketConnected()) );
+	connect( socket, SIGNAL(connectionClosed()), SLOT(socketConnectionClosed()) );
+	connect( socket, SIGNAL(readyRead()), SLOT(socketReadyRead()) );
+	connect( socket, SIGNAL(error(int)), SLOT(socketError(int)) );
 
 	// connect to the server
 	infoText->append( tr("Trying to connect to the server\n") );
@@ -65,8 +61,7 @@ private slots:
 	socket->close();
 	if ( socket->state() == QSocket::Closing ) {
 	    // We have a delayed close.
-	    connect( socket, SIGNAL(delayedCloseFinished()),
-		    SLOT(socketClosed()) );
+	    connect( socket, SIGNAL(delayedCloseFinished()), SLOT(socketClosed()) );
 	} else {
 	    // The socket is closed.
 	    socketClosed();
@@ -131,4 +126,5 @@ int main( int argc, char** argv )
     return app.exec();
 }
 
+// 不知道下面這一行是什麼意思
 #include "client.moc"
