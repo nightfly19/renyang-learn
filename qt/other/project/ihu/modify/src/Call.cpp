@@ -190,7 +190,7 @@ void Call::call(QString host, int port, int prot)
 // renyang - 建立一個網路連線
 void Call::start(int socket, int protocol)
 {
-//	qWarning("Call::start()");
+//	qWarning(QString("Call::start()").arg(socket).arg(protocol));
 	try
 	{
 		readyFrames = 0;

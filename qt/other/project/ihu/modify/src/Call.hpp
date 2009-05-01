@@ -100,11 +100,13 @@ private:
 	bool udp;
 	bool tcp;
 	bool recording;
+	// renyang - 表示目前這一個call是否正在撥打
 	bool active;
 	bool muteRec;
 	bool mutePlay;
 	// renyang - 表示目前這一個Call沒有被使用
 	bool callFree;
+	// renyang - 目前這一個call出現錯誤
 	bool aborted;
 	QTimer *stopTimer;
 

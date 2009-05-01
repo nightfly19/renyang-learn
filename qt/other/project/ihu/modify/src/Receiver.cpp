@@ -120,11 +120,12 @@ void Receiver::dump(QString file)
 	}
 }
 
-void Receiver::start(int socket, int pt)
+// renyang - 開始接收對方的資料
+void Receiver::start(int socket, int proto)
 {
 //	qWarning("Receiver::start()");
 	s = socket;
-	protocol = pt;
+	protocol = proto;
 	// renyang - 連線之後, 可以取得對方的sockaddr_in資料
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 

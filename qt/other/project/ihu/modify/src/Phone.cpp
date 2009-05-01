@@ -180,7 +180,10 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 	}
 	if (tcp)
 	{
+		// renyang - 建立一個tcp server的物件, 等待別人來連線
 		tcpserver = new TcpServer(this, port);
+		// renyang - 當server端有新的連線進來時, newConnect函式會被emit[這是系統內定的]
+		// renyang -  newConnect(int)其中的int參數表示client socket file descriptor
 		connect( tcpserver, SIGNAL(newConnect(int)), this, SLOT(newTCPConnection(int)));
 	}
 
@@ -190,7 +193,9 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 void Phone::newTCPConnection(int socket)
 {
 //	qWarning(QString("Phone::newTCPConnection(%1)").arg(socket));
+	// renyang - 連線數增加
 	connections++;
+	// renyang - 取得一個新的Call ID
 	int callId = newCall();
 	if (callId >= 0)
 	{
