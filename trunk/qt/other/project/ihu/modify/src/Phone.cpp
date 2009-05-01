@@ -190,6 +190,7 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 	listening = true;
 }
 
+// renyang - 此socket代表client端的socket file descriptor
 void Phone::newTCPConnection(int socket)
 {
 //	qWarning(QString("Phone::newTCPConnection(%1)").arg(socket));

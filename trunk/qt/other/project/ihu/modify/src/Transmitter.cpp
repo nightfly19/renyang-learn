@@ -34,6 +34,9 @@
 
 Transmitter::Transmitter(Rsa *r) : rsa(r)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::Transmitter(Rsa *r):rsa(r)"));
+#endif
 	setName("Transmitter");
 	salen = sizeof(sa);
 	outFile = NULL;
@@ -46,12 +49,18 @@ Transmitter::Transmitter(Rsa *r) : rsa(r)
 
 Transmitter::~Transmitter(void)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::~Transmitter(void)"));
+#endif
 	if (outFile)
 		fclose(outFile);
 }
 
 void Transmitter::reset()
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::reset()"));
+#endif
 	s = -1;
 	total = bytes = 0;
 	working = false;
@@ -62,6 +71,9 @@ void Transmitter::reset()
 
 void Transmitter::init(int prot)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::init(%1)").arg(prot));
+#endif
 	protocol = prot;
 	
 	memset(&sa, 0, sizeof(sa));
@@ -72,11 +84,17 @@ void Transmitter::init(int prot)
 
 void Transmitter::setMyName(QString name)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::setMyName(%1)").arg(name));
+#endif
 	myName = name;
 }
 
 void Transmitter::dump(QString file)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::dump(%1)").arg(file));
+#endif
 	if (!file.isEmpty())
 	{
 		outFile = fopen(file.ascii(), "ab");
@@ -93,21 +111,33 @@ void Transmitter::dump(QString file)
 
 void Transmitter::go()
 {
+#ifdef IHU_DEBUG
+	qWarning(tr("Transmitter::go()"));
+#endif
 	working = true;
 }
 
 void Transmitter::stop()
 {
+#ifdef IHU_DEBUG
+	qWarning(tr("Transmitter::stop()"));
+#endif
 	working = false;
 }
 
+// renyang - 建立一個新連線(似呼只有IHU_UDP會使用這一個函式)
+// renyang-TODO - 以後可能要在這裡加入IHU_SCTP吧
 void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::newConnection(int %1, struct sockaddr_in ca, int %2)").arg(socket).arg(prot));
+#endif
 	init(prot);
 	
 	switch (prot)
 	{
 		case IHU_UDP:
+			// renyang - 原本udp不需要用到connect這一個函式, 但是要用好像還是可以
 			if ((::connect(socket, (struct sockaddr *)&ca, salen))==-1)
 				throw Error(strerror(errno));
 			break;
@@ -118,12 +148,19 @@ void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 
 void Transmitter::start(int socket)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::start(int %1)").arg(socket));
+#endif
 	s = socket;
 	go();
 }
 
+// renyang - 要打電話出去
 int Transmitter::call(QString host, int port, int prot)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::call(QString %1,int %2, int %3)").arg(host).arg(port).arg(prot));
+#endif
 	init(prot);
 
 	int sd = -1;
@@ -167,6 +204,9 @@ int Transmitter::call(QString host, int port, int prot)
 
 void Transmitter::end()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::end()");
+#endif
 	stop();
 	
 	timer->stop();
@@ -176,6 +216,9 @@ void Transmitter::end()
 
 void Transmitter::enableCrypt(char *passwd, int len)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::enableCrypt(char %1, int %2)").arg(passwd).arg(len));
+#endif
 	disableCrypt();
 	blowfish = new Blowfish(passwd, len);
 	sendResetPacket();
@@ -184,6 +227,9 @@ void Transmitter::enableCrypt(char *passwd, int len)
 
 void Transmitter::disableCrypt()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::disableCrypt()");
+#endif
 	if (blowfish)
 		delete blowfish;
 	blowfish = NULL;
@@ -193,6 +239,9 @@ void Transmitter::disableCrypt()
 // renyang - 傳送封包
 void Transmitter::sendPacket(Packet *p)
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendPacket(Packet *p)");
+#endif
 	int snt = 0;
 	if ((s != -1) && working)
 	{
@@ -219,6 +268,9 @@ void Transmitter::sendPacket(Packet *p)
 
 void Transmitter::prepare()
 {
+#ifdef IHU_DEBUG
+	qWarning("void Transmitter::prepare()");
+#endif
 	sendInitPacket();
 	tx = true;
 	emitSignal(SIGNAL_START);
@@ -226,6 +278,9 @@ void Transmitter::prepare()
 
 void Transmitter::ring(bool on)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::ring(bool %1)").arg(on));
+#endif
 	if (on)
 	{
 		tx = false;
@@ -240,6 +295,9 @@ void Transmitter::ring(bool on)
 
 void Transmitter::sendRing()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendRing()");
+#endif
 	if (ringing)
 	{
 		timer->start(RINGTIME, true);
@@ -261,7 +319,9 @@ void Transmitter::sendRing()
 
 void Transmitter::sendAudioPacket(char *data, int len)
 {
-//	qWarning("Transmitter::SendAudioPacket");
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::SendAudioPacket(char %1,int %2)").arg(data).arg(len));
+#endif
 	if (tx)
 	{
 		int size;
@@ -295,12 +355,17 @@ void Transmitter::sendAudioPacket(char *data, int len)
 
 void Transmitter::emitError(QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::emitError(QString %1)").arg(text));
+#endif
 	emit error(text);
 }
 
 void Transmitter::sendSpecialPacket(char *data, int len, char type)
 {
-//	qWarning("Transmitter::SendSpecialPacket");
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::SendSpecialPacket(char %1,int %2, char %3)").arg(data).arg(len).arg(type));
+#endif
 	try
 	{
 		int size = PacketHandler::calculateSize(len);
@@ -319,7 +384,9 @@ void Transmitter::sendSpecialPacket(char *data, int len, char type)
 
 void Transmitter::sendNewPacket(char *data, int len, char type)
 {
-//	qWarning("Transmitter::SendNewPacket");
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::SendNewPacket(char %1,int %2, char %3)").arg(data).arg(len).arg(type));
+#endif
 	try
 	{
 		int size = PacketHandler::calculateSize(len);
@@ -336,7 +403,9 @@ void Transmitter::sendNewPacket(char *data, int len, char type)
 
 void Transmitter::sendNamePacket(bool special, char type)
 {
-//	qWarning("Transmitter::SendNamePacket");
+#ifdef IHU_DEBUG
+	qWarning(QString("Transmitter::SendNamePacket(bool %1, char %2)").arg(special).arg(type));
+#endif
 	int dataLen = 0;
 	char *dataPtr = NULL;
 	if (!myName.isEmpty())
@@ -352,52 +421,82 @@ void Transmitter::sendNamePacket(bool special, char type)
 
 void Transmitter::answer()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::answer()");
+#endif
 	prepare();
 	sendAnswerPacket();
 }
 
 void Transmitter::sendAnswerPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendAnswerPacket()");
+#endif
 	sendNamePacket(false, IHU_INFO_ANSWER);
 }
 
 void Transmitter::sendRingPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendRingPacket()");
+#endif
 	sendNamePacket(false, IHU_INFO_RING);
 }
 
 void Transmitter::sendRingReplyPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendRingReplyPacket()");
+#endif
 	sendNamePacket(true, IHU_INFO_RING_REPLY);
 }
 
 void Transmitter::sendRefusePacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendRefusePacket()");
+#endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_REFUSE);
 }
 
 void Transmitter::sendClosePacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendClosePacket()");
+#endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_CLOSE);
 }
 
 void Transmitter::sendResetPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendResetPacket()");
+#endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_RESET);
 }
 
 void Transmitter::sendInitPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendInitPacket()");
+#endif
 	sendNewPacket(NULL, 0, IHU_INFO_INIT);
 }
 
 void Transmitter::sendErrorPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendErrorPacket()");
+#endif
 	sendNewPacket(NULL, 0, IHU_INFO_ERROR);
 }
 
 void Transmitter::sendKeyPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendKeyPacket()");
+#endif
 	char *out;
 	int keylen = rsa->getPeerPublicKeyLen();
 	try
@@ -424,6 +523,9 @@ void Transmitter::sendKeyPacket()
 
 void Transmitter::sendKeyRequestPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::sendKeyRequestPacket()");
+#endif
 	int keylen = rsa->getMyPublicKeyLen();
 	char *public_key = rsa->getMyPublicKey();
 	sendSpecialPacket(public_key, keylen, IHU_INFO_KEY_REQUEST);
@@ -431,6 +533,9 @@ void Transmitter::sendKeyRequestPacket()
 
 long Transmitter::getBytes()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::getBytes()");
+#endif
 	long temp = bytes;
 	bytes = 0;
 	return temp;
@@ -438,26 +543,41 @@ long Transmitter::getBytes()
 
 long Transmitter::getTotal()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::getTotal()");
+#endif
 	return total;
 }
 
 QString Transmitter::getIp()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::getIp()");
+#endif
 	return QString(inet_ntoa(sa.sin_addr));
 }
 
 bool Transmitter::isWorking()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::isWorking()");
+#endif
 	return working;
 }
 
 bool Transmitter::isCrypted()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::isCrypted()");
+#endif
 	return crypted;
 }
 
 bool Transmitter::isDumping()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::isDumping()");
+#endif
 	bool ret = false;
 	if (outFile)
 		ret = true;
@@ -466,6 +586,9 @@ bool Transmitter::isDumping()
 
 bool Transmitter::isActive()
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::isActive()");
+#endif
 	bool temp = active;
 	active = false;
 	return temp;
@@ -474,6 +597,9 @@ bool Transmitter::isActive()
 // renyang - 傳送訊號
 void Transmitter::emitSignal(signal_type type)
 {
+#ifdef IHU_DEBUG
+	qWarning("Transmitter::emitSignal(signal_type type)");
+#endif
 	switch(type)
 	{
 		if (working)

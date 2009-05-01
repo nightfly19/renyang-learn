@@ -121,22 +121,29 @@ void Receiver::dump(QString file)
 }
 
 // renyang - 開始接收對方的資料
+// renyang - socket代表client端的socket file descriptor
+// renyang - proto可能是IHU_TCP或IHU_UDP
 void Receiver::start(int socket, int proto)
 {
 //	qWarning("Receiver::start()");
 	s = socket;
 	protocol = proto;
 	// renyang - 連線之後, 可以取得對方的sockaddr_in資料
+	// renyang - 由socket取得對方的sockaddr
+	// renyang - 此s代表client端的socket file descriptor
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
 	resetStream();
 	reset();
 	go();
 
+	// renyang - 新增一個QSocketNotifier, 當有資料可以讀時, emit activated()
 	notifier = new QSocketNotifier(s, QSocketNotifier::Read, this);
+	// renyang - activated(int)其參數是表示哪一個socket file descriptor被觸發
 	connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
 	if (received)
 	{
+		// renyang - 若是udp的話, 則直接開始接收資料, 因udp只要是有資料送過來就直接接收@@@
 		switch(protocol)
 		{
 			case IHU_UDP:
@@ -145,20 +152,23 @@ void Receiver::start(int socket, int proto)
 		}
 		emit newSocket(s, protocol, ca);
 	}
-	// renyang - 開始倒數計時
+	// renyang - 開始倒數計時, false表示timeout一次, 就呼叫timeout()一次
 	checkTimer->start(CHECK_TICKTIME, false);
 }
 
 // renyang - 每隔一段時間去判斷是否連接了
 void Receiver::checkConnection()
 {
+	// renyang - 判斷是否連接了, 若連接但是, 對方還沒有接受, 則一直響鈴
 	if (received)
 	{
 		emitSignal(SIGNAL_RINGREPLY);
 	}
 	if (connected)
 	{
+		// renyang - 若對方接受你的電話, 則停止
 		checkTimer->stop();
+		// renyang - 送出訊息說對方接受電話啦
 		emit connectedSignal();
 	}
 }

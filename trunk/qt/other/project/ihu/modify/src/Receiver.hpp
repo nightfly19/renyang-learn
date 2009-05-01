@@ -53,6 +53,7 @@ public:
 		STREAM_OK = 0,
 		STREAM_OUT_OF_SYNC,
 		STREAM_MISSING_DATA,
+		// renyang - stream要等著接收資料
 		STREAM_READ_DATA,
 	};
 	
@@ -98,10 +99,12 @@ public:
 	bool isActive();
 
 private:
-	// renyang - local socket
+	// renyang - client socket file descriptor
 	int s;
 	stream_status sync;
+	// renyang - client端的address
 	struct sockaddr_in ca;
+	// renyang - client端sockaddr_in的長度
 	socklen_t calen;
 	int port;
 	QSocketNotifier* notifier;
