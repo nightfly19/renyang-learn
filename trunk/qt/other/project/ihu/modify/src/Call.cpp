@@ -34,6 +34,9 @@
 
 Call::Call(int callId, QString myName)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::Call(int %1, QString %2)").arg(callId).arg(myName));
+#endif
 	id = callId;
 	sd = -1;
 
@@ -94,6 +97,9 @@ Call::Call(int callId, QString myName)
 
 Call::~Call()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::~Call()");
+#endif
 	if (dec_state)
 		speex_decoder_destroy(dec_state);
 	speex_bits_destroy(&bits);
@@ -108,6 +114,9 @@ Call::~Call()
 
 int Call::getId()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getId()");
+#endif
 	return id;
 }
 
@@ -140,7 +149,9 @@ void Call::stop()
 
 void Call::close()
 {
-//	qWarning("Call::close()");
+#ifdef IHU_DEBUG
+	qWarning("Call::close()");
+#endif
 	if (sd != -1)
 		::close(sd);
 	sd = -1;
@@ -168,7 +179,9 @@ void Call::close()
 
 void Call::abortCall(QString text)
 {
-//	qWarning("Call::abortCall()");
+#ifdef IHU_DEBUG
+	qWarning("Call::abortCall()");
+#endif
 	aborted = true;
 	emit abortSignal(id, text);
 }
@@ -176,6 +189,9 @@ void Call::abortCall(QString text)
 // renyang - 要撥打出去的電話(ip address, port, protype)
 void Call::call(QString host, int port, int prot)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::call(QString %1, int %2, int %3)").arg(host).arg(port).arg(prot));
+#endif
 	try
 	{
 		readyFrames = 0;
@@ -200,7 +216,9 @@ void Call::call(QString host, int port, int prot)
 // renyang - protocol:IHU_TCP或IHU_UDP
 void Call::start(int socket, int protocol)
 {
-//	qWarning(QString("Call::start()").arg(socket).arg(protocol));
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::start(int %1,int %2)").arg(socket).arg(protocol));
+#endif
 	try
 	{
 		readyFrames = 0;
@@ -218,7 +236,9 @@ void Call::start(int socket, int protocol)
 
 void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 {
-//	qWarning("Call::newConnection()");
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::newConnection(int %1,int %2,struct sockaddr_in sa)").arg(socketd).arg(protocol));
+#endif
 	try
 	{
 		sd = socketd;
@@ -234,7 +254,9 @@ void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 // renyang - 連線成功
 void Call::connected()
 {
-//	qWarning("Call::connected()");
+#ifdef IHU_DEBUG
+	qWarning("Call::connected()");
+#endif
 	// renyang - 連線成功就不需要ring啦
 	sendRing(false);
 	// renyang - 告知Phone，目前此Call id連線成功啦
@@ -244,6 +266,9 @@ void Call::connected()
 
 void Call::error()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::error()");
+#endif
 	aborted = true;
 	transmitter->sendErrorPacket();
 	stop();
@@ -251,6 +276,7 @@ void Call::error()
 
 void Call::answer()
 {
+	qWarning("Call::answer()");
 	try
 	{
 		transmitter->answer();
@@ -265,7 +291,9 @@ void Call::answer()
 
 void Call::end()
 {
-//	qWarning("Call::end()");
+#ifdef IHU_DEBUG
+	qWarning("Call::end()");
+#endif
 	if (receiver->isReceived() && !receiver->isConnected())
 		transmitter->sendRefusePacket();
 	else
@@ -275,12 +303,15 @@ void Call::end()
 
 void Call::sendKey()
 {
+	qWarning("Call::sendKey()");
 	transmitter->sendKeyPacket();
 }
 
 void Call::sendKeyRequest()
 {
-//	qWarning("Call::sendKeyRequest()");
+#ifdef IHU_DEBUG
+	qWarning("Call::sendKeyRequest()");
+#endif
 	if (transmitter->isWorking())
 	{
 		transmitter->sendKeyRequestPacket();
@@ -298,16 +329,19 @@ void Call::sendKeyRequest()
 
 void Call::receivedNewKey(QString text)
 {
+	qWarning(QString("Call::receivedNewKey(QString %1)").arg(text));
 	emit newKeySignal(id, text);
 }
 
 void Call::enableDecrypt(char *passwd, int len)
 {
+	qWarning(QString("Call::enableDecrypt(char %1, int %2)").arg(passwd).arg(len));
 	receiver->enableDecrypt(passwd, len);
 }
 
 void Call::enableRandomCrypt(int len)
 {
+	qWarning(QString("Call::enableRandomCrypt(int %1)").arg(len));
 	char key[len];
 	for (int i=0; i<len; i++)
 		key[i] = (char)((rand()%256)-128);
@@ -316,6 +350,7 @@ void Call::enableRandomCrypt(int len)
 
 void Call::enableCrypt(char *passwd, int len)
 {
+	qWarning(QString("Call::enableCrypt(char %1, int %2)").arg(passwd).arg(len));
 	try
 	{
 		transmitter->enableCrypt(passwd, len);
@@ -330,6 +365,7 @@ void Call::enableCrypt(char *passwd, int len)
 // renyang - 把資料由網路傳送出去
 void Call::send(char *data, int len)
 {
+	qWarning(QString("Call::send(char *data, int %1)").arg(len));
 	// renyang - 有記錄, 且不是靜音
 	if (recording && !muteRec)
 		transmitter->sendAudioPacket(data, len);
@@ -337,17 +373,21 @@ void Call::send(char *data, int len)
 
 void Call::message(QString text)
 {
+	qWarning(QString("Call::message(QString %1)").arg(text));
 	warning(text);
 }
 
 void Call::warning(QString text)
 {
+	qWarning(QString("Call::warning(QString %1)").arg(text));
 	emit warningSignal(id, text);
 }
 
 void Call::playRing()
 {
-//	qWarning("Call::playRing()");
+#ifdef IHU_DEBUG
+	qWarning("Call::playRing()");
+#endif
 	transmitter->sendRingReplyPacket();
 	if (!mutePlay)
 		emit ringSignal(id);
@@ -355,13 +395,16 @@ void Call::playRing()
 
 void Call::playInit()
 {
-//	qWarning("Call::playInit()");
+#ifdef IHU_DEBUG
+	qWarning("Call::playInit()");
+#endif
 	if (!mutePlay)
 		emit initSignal(id);
 }
 
 void Call::ringMessage()
 {
+	qWarning("Call::ringMessage()");
 	QString text;
 	if (receiver->replied())
 		text = QString("Ringing %1 (%2)").arg(transmitter->getIp()).arg(receiver->getCallerName());
@@ -372,12 +415,15 @@ void Call::ringMessage()
 
 void Call::sendRing(bool on)
 {
+	qWarning(QString("Call::sendRing(bool %1)").arg(on));
 	transmitter->ring(on);
 }
 
 void Call::decodeAudioData(char *buf, int len)
 {
-//	qWarning("Call::decodeAudioData()");
+#ifdef IHU_DEBUG
+	qWarning("Call::decodeAudioData()");
+#endif
 	if (dec_state)
 	{
 		speex_bits_read_from(&bits, buf, len);
@@ -395,7 +441,9 @@ void Call::decodeAudioData(char *buf, int len)
 
 bool Call::playData(float *buf, int len)
 {
-//	qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
+#endif
 	bool ret = false;
 	if (readyFrames >= len)
 	{
@@ -412,7 +460,9 @@ bool Call::playData(float *buf, int len)
 
 bool Call::mixData(float *buf, int len, float balance)
 {
-//	qWarning(QString("Call::mixData() - Balance: %1").arg(balance, 2, 'f', 1 ));
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::mixData() - Balance: %1").arg(balance, 2, 'f', 1 ));
+#endif
 	bool ret = false;
 	if (readyFrames >= len)
 	{
@@ -429,7 +479,9 @@ bool Call::mixData(float *buf, int len, float balance)
 
 void Call::putData(float *buf, int len)
 {
-//	qWarning(QString("Call::putData() - readyFrames: %1 len: %2").arg(readyFrames).arg(len));;
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::putData() - readyFrames: %1 len: %2").arg(readyFrames).arg(len));;
+#endif
 	if (len < (MAXBUFSIZE - readyFrames))
 	{
 		memcpy(soundBuffer+readyFrames, buf, len*sizeof(float));
@@ -443,104 +495,164 @@ void Call::putData(float *buf, int len)
 
 void Call::disableCrypt()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::disableCrypt()");
+#endif
 	transmitter->disableCrypt();
 }
 
 void Call::disableDecrypt()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::disableDecrypt()");
+#endif
 	receiver->disableDecrypt();
 }
 
 void Call::startRecorder()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::startRecorder()");
+#endif
 	recording = true;
 }
 
 void Call::muteRecorder(bool on)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::muteRecorder(bool %1)").arg(on));
+#endif
 	muteRec = on;
 }
 
 void Call::mutePlayer(bool on)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::mutePlayer(bool %1)").arg(on));
+#endif
 	mutePlay = on;
 }
 
 void Call::dumpRXStream(QString filename)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::dumpRXStream(QString %1)").arg(filename));
+#endif
 	receiver->dump(filename);
 }
 
 void Call::dumpTXStream(QString filename)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::dumpTXStream(QString %1)").arg(filename));
+#endif
 	transmitter->dump(filename);
 }
 
 bool Call::isDumpingRX()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::isDumpingRX()");
+#endif
 	return receiver->isDumping();
 }
 
 bool Call::isDumpingTX()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::isDumpingTX()");
+#endif
 	return transmitter->isDumping();
 }
 
 bool Call::isRXActive()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::isRXActive()");
+#endif
 	return receiver->isActive();
 }
 
 bool Call::isTXActive()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::isTXActive()");
+#endif
 	return transmitter->isActive();
 }
 
 bool Call::isFree()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::isFree()");
+#endif
 	return callFree;
 }
 
 QString Call::getCallerName()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getCallerName()");
+#endif
 	return receiver->getCallerName();
 }
 
 // renyang - 取得對方的ip address
 QString Call::getCallerIp()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getCallerIp()");
+#endif
 	return receiver->getIp();
 }
 
 long Call::getTraffic()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getTraffic()");
+#endif
 	long total = transmitter->getBytes() + receiver->getBytes();
 	return total;
 }
 
 long Call::getTotalRX()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getTotalRX()");
+#endif
 	return receiver->getTotal();
 }
 
 long Call::getTotalTX()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getTotalTX()");
+#endif
 	return transmitter->getTotal();
 }
 
 long Call::getTotal()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::getTotal()");
+#endif
 	long total = transmitter->getTotal() + receiver->getTotal();
 	return total;
 }
 
 void Call::setMyName(QString myName)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::setMyName(QString %1)").arg(myName));
+#endif
 	transmitter->setMyName(myName);
 }
 
 void Call::updateFrames(int frames)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Call::updateFrames(int %1)").arg(frames));
+#endif
 	readyFrames -= frames;
 	if (readyFrames < 0)
 		readyFrames = 0;
@@ -552,5 +664,8 @@ void Call::updateFrames(int frames)
 
 bool Call::isRecording()
 {
+#ifdef IHU_DEBUG
+	qWarning("Call::isRecording()");
+#endif
 	return recording;
 }
