@@ -45,9 +45,11 @@
 
 #define IHU_ANONYMOUS "anonymous"
 
-Receiver::Receiver(Rsa *r)
-	: rsa(r)
+Receiver::Receiver(Rsa *r) : rsa(r)
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::Receiver(Rsa *r) : rsa(r)");
+#endif
 	setName("Receiver");
 
 	working = false;
@@ -75,6 +77,9 @@ Receiver::Receiver(Rsa *r)
 
 Receiver::~Receiver(void)
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::~Receiver(void)");
+#endif
 	if (inputBuffer)
 		free(inputBuffer);
 	if (streamBuffer)
@@ -85,6 +90,9 @@ Receiver::~Receiver(void)
 
 void Receiver::reset()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::reset()");
+#endif
 	ihu_refuse = false;
 	ihu_reply = false;
 	ihu_abort = false;
@@ -97,6 +105,9 @@ void Receiver::reset()
 
 void Receiver::resetStream()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::resetStream()");
+#endif
 	streamLen = 0;
 	streamPtr = streamBuffer;
 	sync = STREAM_READ_DATA;
@@ -104,6 +115,9 @@ void Receiver::resetStream()
 
 void Receiver::dump(QString file)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::dump(QString %1)").arg(file));
+#endif
 	if (!file.isEmpty())
 	{
 		outFile = fopen(file.ascii(), "ab");
@@ -127,7 +141,7 @@ void Receiver::dump(QString file)
 void Receiver::start(int socket, int proto)
 {
 #ifdef IHU_DEBUG
-	qWarning("Receiver::start()");
+	qWarning(QString("Receiver::start(int %1, int %2)").arg(socket).arg(proto));;
 #endif
 	s = socket;
 	protocol = proto;
@@ -163,6 +177,9 @@ void Receiver::start(int socket, int proto)
 // renyang - 每隔一段時間去判斷是否連接了
 void Receiver::checkConnection()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::checkConnection()");
+#endif
 	// renyang - 判斷是否連接了, 若連接但是, 對方還沒有接受, 則一直響鈴
 	if (received)
 	{
@@ -179,6 +196,9 @@ void Receiver::checkConnection()
 
 void Receiver::close()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::close()");
+#endif
 	if (notifier)
 		delete notifier;
 	notifier = NULL;
@@ -191,6 +211,9 @@ void Receiver::close()
 // renayng - 結束傳送端的服務
 void Receiver::end()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::end()");
+#endif
 	close();
 	
 	// renyang - 這一行是避免對方打電話過來, 我還沒有接電話, 對方馬上就把它掛掉了
@@ -246,6 +269,9 @@ void Receiver::receive()
 // renyang - 把接收到的資料放到streamBuffer中
 void Receiver::putData(char *buffer, int len)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::putData(char *buffer, int %1)").arg(len));
+#endif
 	if (outFile)
 	{
 		// renyang - 把接收到的資料放到outFile中
@@ -274,6 +300,9 @@ void Receiver::putData(char *buffer, int len)
 
 void Receiver::processData()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::processData()");
+#endif
 	while (working && (sync != STREAM_READ_DATA))
 	{
 		switch (sync)
@@ -375,6 +404,9 @@ void Receiver::processData()
 
 bool Receiver::processPacket(Packet *p)
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::processPacket(Packet *p)");
+#endif
 	switch (p->getInfo())
 	{
 		case IHU_INFO_CRYPTED_AUDIO:
@@ -450,11 +482,17 @@ bool Receiver::processPacket(Packet *p)
 
 void Receiver::emitError(QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::emitError(QString %1)").arg(text));
+#endif
 	emit error(text);
 }
 
 void Receiver::enableDecrypt(char *passwd, int len)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::enableDecrypt(char %1, int %2)").arg(passwd).arg(len));
+#endif
 	disableDecrypt();
 	blowfish = new Blowfish(passwd, len);
 }
@@ -462,6 +500,9 @@ void Receiver::enableDecrypt(char *passwd, int len)
 // renyang - 加解密的部分
 void Receiver::disableDecrypt()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::disableDecrypt()");
+#endif
 	if (blowfish)
 		delete blowfish;
 	blowfish = NULL;
@@ -469,16 +510,25 @@ void Receiver::disableDecrypt()
 
 void Receiver::stop()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::stop()");
+#endif
 	working = false;
 }
 
 void Receiver::go()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::go()");
+#endif
 	working = true;
 }
 
 long Receiver::getBytes()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::getBytes()");
+#endif
 	long temp = bytes;
 	bytes = 0;
 	return temp;
@@ -486,42 +536,66 @@ long Receiver::getBytes()
 
 long Receiver::getTotal()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::getTotal()");
+#endif
 	return total;
 }
 
 QString Receiver::getIp()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::getIp()");
+#endif
 	return QString(inet_ntoa(ca.sin_addr));
 }
 
 QString Receiver::getCallerName()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::getCallerName()");
+#endif
 	return callerName;
 }
 
 void Receiver::noDecrypt()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::noDecrypt()");
+#endif
 	nodecrypt = true;
 }
 
 bool Receiver::refused()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::refused()");
+#endif
 	return ihu_refuse;
 }
 
 bool Receiver::aborted()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::aborted()");
+#endif
 	return ihu_abort;
 }
 
 bool Receiver::replied()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::replied()");
+#endif
 	return ihu_reply;
 }
 
 // renyang - 只是用來判斷完成某件事情的訊號
 void Receiver::emitSignal(signal_type type)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::emitSignal(signal_type %1)").arg(type));
+#endif
 	switch(type)
 	{
 		case SIGNAL_FINISH:
@@ -556,12 +630,18 @@ void Receiver::emitSignal(signal_type type)
 
 void Receiver::flush()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::flush()");
+#endif
 	stop();
 	flushing = true;
 }
 
 bool Receiver::isDumping()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::isDumping()");
+#endif
 	bool ret = false;
 	if (outFile)
 		ret = true;
@@ -570,27 +650,42 @@ bool Receiver::isDumping()
 
 void Receiver::setConnected(bool on)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::setConnected(bool %1)").arg(on));
+#endif
 	connected = on;
 }
 
 bool Receiver::isConnected()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::isConnected()");
+#endif
 	return connected;
 }
 
 // renyang - 設定已接收client端的連線
 void Receiver::setReceived(bool on)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Receiver::setReceived(bool %1)").arg(on));
+#endif
 	received = on;
 }
 
 bool Receiver::isReceived()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::isReceived()");
+#endif
 	return received;
 }
 
 bool Receiver::isActive()
 {
+#ifdef IHU_DEBUG
+	qWarning("Receiver::isActive()");
+#endif
 	bool temp = active;
 	active = false;
 	return temp;

@@ -320,7 +320,7 @@ void Transmitter::sendRing()
 void Transmitter::sendAudioPacket(char *data, int len)
 {
 #ifdef IHU_DEBUG
-	qWarning(QString("Transmitter::SendAudioPacket(char %1,int %2)").arg(data).arg(len));
+	qWarning(QString("Transmitter::SendAudioPacket(char *data,int %1)").arg(len));
 #endif
 	if (tx)
 	{
