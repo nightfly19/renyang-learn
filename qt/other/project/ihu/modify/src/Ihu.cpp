@@ -405,6 +405,7 @@ void Ihu::initIhu()
 		connect( phone, SIGNAL(warningSignal(QString)), this, SLOT(warning(QString)) );
 		connect( phone, SIGNAL(newKeySignal(int, QString)), this, SLOT(receivedNewKey(int, QString)) );
 		connect( phone, SIGNAL(cryptedSignal(int)), this, SLOT(toCrypt(int)) );
+		// renyang - 由phone告知有新的電話打進來啦
 		connect( phone, SIGNAL(newCallSignal(int)), this, SLOT(newCall(int)) );
 		connect( phone, SIGNAL(recorderSignal(bool)), this, SLOT(enableRecorder(bool)) );
 		connect( phone, SIGNAL(playerSignal(bool)), this, SLOT(enablePlayer(bool)) );
@@ -569,6 +570,7 @@ void Ihu::newCall()
 	}
 }
 
+// renyang - 新增一個CallTab
 void Ihu::newCall(int id)
 {
 	if (id >= 0)

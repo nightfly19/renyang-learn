@@ -154,7 +154,7 @@ void Phone::resize(int mc)
 // renyang - 建立一個socket等待某人來連接
 void Phone::waitCalls(int port, bool udp, bool tcp)
 {
-#ifdef IHU_DEBUG
+#ifdef IHU_DEBUG_TEMP
 	qWarning(QString("Phone::waitCalls(port:%1,udp:%2,tcp:%3)").arg(port).arg(udp).arg(tcp));
 #endif
 	inport = port;
@@ -173,6 +173,7 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		sa.sin_addr.s_addr = htonl(INADDR_ANY);
 	
 		int opt = 1;
+		// renyang - 使得可以多個應用程式使用同一個port號
 		::setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt) );
 
 		if (::bind(sd, (struct sockaddr *) &sa, sizeof(sa)) == -1)
@@ -218,17 +219,18 @@ void Phone::newTCPConnection(int socket)
 // renyang - 感覺應該是別人送一個udp封包過來，因此這裡就建立一個udp來服務它???
 void Phone::newUDPConnection(int socket)
 {
-#ifdef IHU_DEBUG
+#ifdef IHU_DEBUG_TEMP
 	qWarning(QString("Phone::newUDPConnection(%1)").arg(socket));
 #endif
 	connections++;
 	// renyang - 若沒有馬上刪除，會一直觸發目前這一個函式
-	// renyang - 這裡是不是有問題啊, 當刪掉notifier的話, 不就沒有辦法偵測到新的連線了嗎
+	// renyang - 因為刪掉了notifier, 所以, 在這個函式最下面還要重新連立一個udp的socket
 	delete notifier;
 	notifier = NULL;
 	int callId = newCall();
 	if (callId >= 0)
 	{
+		// renyang - 把socket丟下去給它接受別人傳送過來的資料
 		calls[callId]->start(socket, IHU_UDP);
 		receivedCall(callId);
 	}
@@ -236,6 +238,7 @@ void Phone::newUDPConnection(int socket)
 	{
 		close(socket);
 	}
+	// renyang - 在server端再建立一個udp socket, 等待下一個通話
 	waitCalls(inport, true, false);
 }
 

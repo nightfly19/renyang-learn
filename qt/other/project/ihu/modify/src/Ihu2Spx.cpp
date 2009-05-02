@@ -36,7 +36,7 @@
 
 Ihu2Spx::Ihu2Spx(void)
 {
-	vendor_string = "Encoded with Speex";
+	vendor_string = (char *) "Encoded with Speex";
 	comments = NULL;
 	comment_init(&comments, &comments_length, vendor_string);
 	total_samples = 0;

@@ -146,7 +146,7 @@ void Receiver::start(int socket, int proto)
 	s = socket;
 	protocol = proto;
 	// renyang - 連線之後, 可以取得對方的sockaddr_in資料
-	// renyang - 由socket取得對方的sockaddr
+	// renyang - 由socket取得對方的struct sockaddr
 	// renyang - 此s代表client端的socket file descriptor
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
@@ -158,7 +158,9 @@ void Receiver::start(int socket, int proto)
 	notifier = new QSocketNotifier(s, QSocketNotifier::Read, this);
 	// renyang - activated(int)其參數是表示哪一個socket file descriptor被觸發
 	// renyang - 表示client端有傳送資料過來
+	// renyang - 每格一段時間接收一次資料
 	connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
+	// renyang - 不太清楚為什麼UDP這裡就接收一次資料
 	if (received)
 	{
 		// renyang - 若是udp的話, 則直接開始接收資料, 因udp只要是有資料送過來就直接接收@@@
@@ -228,7 +230,7 @@ void Receiver::end()
 // renyang - 當client端有傳送資料過來這裡時, 則會執行此函式
 void Receiver::receive()
 {
-#ifdef IHU_DEBUG
+#ifdef IHU_DEBUG_TEMP
 	qWarning("Receiver::receive()");
 #endif
 	if (working)
@@ -260,7 +262,7 @@ void Receiver::receive()
 		}
 		else
 		{
-			// renyang - 當沒有再接收到資料時, 表示client端與server端斷線啦, 要中斷目前的連線
+			// renyang - 當有資料送過來, 但是長度確沒有大於0，表示對方出現錯誤或是離開
 			emitSignal(SIGNAL_FINISH);
 		}
 	}
@@ -279,7 +281,7 @@ void Receiver::putData(char *buffer, int len)
 		fflush(outFile);
 	}
 	
-	// renyang - 若剩下的buffer(MAXBUFSIZE - len)小於streamLen，則表示空間不夠, 出現錯誤啦
+	// renyang - 若剩下的buffer(MAXBUFSIZE - len)小於streamLen，則表示空間不夠, 出現錯誤啦當有資料送過來, 但是長度確沒有大於0，表示對方出現錯誤或是離開
 	// renyang - streamLen可以看成MAXBUFSIZE目前使用到哪裡的index
 	if (streamLen > (MAXBUFSIZE - len))
 	{
