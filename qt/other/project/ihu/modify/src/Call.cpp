@@ -276,7 +276,9 @@ void Call::error()
 
 void Call::answer()
 {
+#ifdef IHU_DEBUG
 	qWarning("Call::answer()");
+#endif
 	try
 	{
 		transmitter->answer();
@@ -303,7 +305,9 @@ void Call::end()
 
 void Call::sendKey()
 {
+#ifdef IHU_DEBUG
 	qWarning("Call::sendKey()");
+#endif
 	transmitter->sendKeyPacket();
 }
 
@@ -329,19 +333,25 @@ void Call::sendKeyRequest()
 
 void Call::receivedNewKey(QString text)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::receivedNewKey(QString %1)").arg(text));
+#endif
 	emit newKeySignal(id, text);
 }
 
 void Call::enableDecrypt(char *passwd, int len)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::enableDecrypt(char %1, int %2)").arg(passwd).arg(len));
+#endif
 	receiver->enableDecrypt(passwd, len);
 }
 
 void Call::enableRandomCrypt(int len)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::enableRandomCrypt(int %1)").arg(len));
+#endif
 	char key[len];
 	for (int i=0; i<len; i++)
 		key[i] = (char)((rand()%256)-128);
@@ -350,7 +360,9 @@ void Call::enableRandomCrypt(int len)
 
 void Call::enableCrypt(char *passwd, int len)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::enableCrypt(char %1, int %2)").arg(passwd).arg(len));
+#endif
 	try
 	{
 		transmitter->enableCrypt(passwd, len);
@@ -365,7 +377,9 @@ void Call::enableCrypt(char *passwd, int len)
 // renyang - 把資料由網路傳送出去
 void Call::send(char *data, int len)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::send(char *data, int %1)").arg(len));
+#endif
 	// renyang - 有記錄, 且不是靜音
 	if (recording && !muteRec)
 		transmitter->sendAudioPacket(data, len);
@@ -373,13 +387,17 @@ void Call::send(char *data, int len)
 
 void Call::message(QString text)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::message(QString %1)").arg(text));
+#endif
 	warning(text);
 }
 
 void Call::warning(QString text)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::warning(QString %1)").arg(text));
+#endif
 	emit warningSignal(id, text);
 }
 
@@ -404,7 +422,9 @@ void Call::playInit()
 
 void Call::ringMessage()
 {
+#ifdef IHU_DEBUG
 	qWarning("Call::ringMessage()");
+#endif
 	QString text;
 	if (receiver->replied())
 		text = QString("Ringing %1 (%2)").arg(transmitter->getIp()).arg(receiver->getCallerName());
@@ -415,7 +435,9 @@ void Call::ringMessage()
 
 void Call::sendRing(bool on)
 {
+#ifdef IHU_DEBUG
 	qWarning(QString("Call::sendRing(bool %1)").arg(on));
+#endif
 	transmitter->ring(on);
 }
 
