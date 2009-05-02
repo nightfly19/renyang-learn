@@ -205,6 +205,7 @@ public:
 	void clearHosts();
 
 private:
+	// renyang - 記錄所有打出去或是別人打進來的host ip
 	QString hosts[IHU_MAX_HOSTS];
 
 	QString myName;
