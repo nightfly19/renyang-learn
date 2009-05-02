@@ -151,9 +151,12 @@ void Phone::resize(int mc)
 }
 
 // renyang-TODO - 要新增一個sctp
+// renyang - 建立一個socket等待某人來連接
 void Phone::waitCalls(int port, bool udp, bool tcp)
 {
-//	qWarning(QString("Phone::waitCalls()"));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::waitCalls(port:%1,udp:%2,tcp:%3)").arg(port).arg(udp).arg(tcp));
+#endif
 	inport = port;
 
 	// renyang - 在同一台電腦同一張網卡udp, tcp可以同時bind相同的port
@@ -193,7 +196,9 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 // renyang - 此socket代表client端的socket file descriptor
 void Phone::newTCPConnection(int socket)
 {
-//	qWarning(QString("Phone::newTCPConnection(%1)").arg(socket));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::newTCPConnection(socket:%1)").arg(socket));
+#endif
 	// renyang - 連線數增加
 	connections++;
 	// renyang - 取得一個新的Call ID
@@ -213,9 +218,12 @@ void Phone::newTCPConnection(int socket)
 // renyang - 感覺應該是別人送一個udp封包過來，因此這裡就建立一個udp來服務它???
 void Phone::newUDPConnection(int socket)
 {
-//	qWarning(QString("Phone::newUDPConnection(%1)").arg(socket));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::newUDPConnection(%1)").arg(socket));
+#endif
 	connections++;
 	// renyang - 若沒有馬上刪除，會一直觸發目前這一個函式
+	// renyang - 這裡是不是有問題啊, 當刪掉notifier的話, 不就沒有辦法偵測到新的連線了嗎
 	delete notifier;
 	notifier = NULL;
 	int callId = newCall();
@@ -246,6 +254,7 @@ void Phone::receivedCall(int callId)
 	}
 }
 
+// renyang - 傳回一個目前沒有在使用的Call Id
 int Phone::newCall()
 {
 	int callId = findFreeCall();

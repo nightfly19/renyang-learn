@@ -71,6 +71,7 @@ public:
 	~Phone();
 
 	void resize(int);
+	// renyang - 等待別人連線
 	void waitCalls(int, bool, bool);
 	// renyang - 與server端建立連線
 	void call(int, QString, int, int);
@@ -154,14 +155,22 @@ private:
 
 	// renyang - 記錄所有要撥打出去的電話
 	Call **calls;
+	// renyang - 最大可以有多少call同時連線(包括別人打過來，我們打過去，通話中與響鈴中)
 	int maxcall;
 	int call_number;
+	// renyang - 目前由client端連線到server端的個數
+	// renyang - 並不是表示server端接受了client端的電話邀請
+	// renyang - 只是純粹網路連接起來了而以
 	int connections;
 
+	// renyang - 用來處理tcp的部分
 	TcpServer *tcpserver;
+	// renyang - 用來記錄tcp, udp的server端代表server的socket@@@
 	struct sockaddr_in sa;
+	// renyang - 當有資料進來時, 表示有新的連線, 目前應該是設定給udp使用的
 	QSocketNotifier* notifier;
 	int sd;
+	// renyang - 對方要連進來要使用的port號
 	int inport;
 
 	SpeexBits enc_bits;
@@ -186,6 +195,7 @@ private:
 
 	bool recording;
 	bool playing;
+	// renyang - 是否在server端建立了socket等待client的連線
 	bool listening;
 
 	QString myName;
