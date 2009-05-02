@@ -324,17 +324,21 @@ int Phone::createCall()
 
 void Phone::deleteCall(int callId)
 {
-//	qWarning(QString("Phone::deleteCall(%1)").arg(callId));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::deleteCall(%1)").arg(callId));
+#endif
 	Call *old_call = calls[callId]; 
 	calls[callId] = NULL;
 	if (old_call)
 		delete old_call; 
 }
 
-// renyang - 通知上層連線成功
+// renyang - 通知上層連線成功, 接受對方打來的電話, 或是本地端接受對方打過來的電話
 void Phone::connectedCall(int callId)
 {
-//	qWarning(QString("Phone::connectedCall(%1)").arg(callId));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::connectedCall(%1)").arg(callId));
+#endif
 	emit connectedCallSignal(callId);
 }
 
@@ -364,21 +368,27 @@ void Phone::receivedNewKey(int callId, QString text)
 
 void Phone::stopCall(int callId)
 {
-//	qWarning("Phone::stopCall()");
+#ifdef IHU_DEBUG
+	qWarning("Phone::stopCall()");
+#endif
 	if (calls[callId])
 		calls[callId]->stop();
 }
 
 void Phone::cancelCall(int callId)
 {
-//	qWarning(QString("Phone::cancelCall(%1)").arg(callId));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::cancelCall(%1)").arg(callId));
+#endif
 	checkSound();
 	emit cancelCallSignal(callId);
 }
 
 void Phone::endCall(int callId)
 {
-//	qWarning("Phone::endCall()");
+#ifdef IHU_DEBUG
+	qWarning("Phone::endCall()");
+#endif
 	if (calls[callId])
 		calls[callId]->end();
 }

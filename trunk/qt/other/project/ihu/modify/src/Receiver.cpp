@@ -176,20 +176,20 @@ void Receiver::start(int socket, int proto)
 	checkTimer->start(CHECK_TICKTIME, false);
 }
 
-// renyang - 每隔一段時間去判斷是否連接了
+// renyang - 每隔一段時間去判斷對方的狀況
 void Receiver::checkConnection()
 {
 #ifdef IHU_DEBUG
 	qWarning("Receiver::checkConnection()");
 #endif
-	// renyang - 判斷是否連接了, 若連接但是, 對方還沒有接受, 則一直響鈴
 	if (received)
 	{
+		// renyang - 當是waiting端(等待別人打電話過來的那一端), 持續響鈴
 		emitSignal(SIGNAL_RINGREPLY);
 	}
 	if (connected)
 	{
-		// renyang - 若對方接受你的電話, 則停止探查目前接收方的情況
+		// renyang - 若對方接受你的電話, 或是本地端接受對方電話, 則停止探查目前接收方的情況
 		checkTimer->stop();
 		// renyang - 送出訊息說對方接受電話啦
 		emit connectedSignal();
@@ -228,9 +228,10 @@ void Receiver::end()
 
 // renyang-TODO - 加入IHU_SCTP的部分
 // renyang - 當client端有傳送資料過來這裡時, 則會執行此函式
+// renyang - 接收資料到這裡就算是結束了, 剩下的其它部分會處理
 void Receiver::receive()
 {
-#ifdef IHU_DEBUG_TEMP
+#ifdef IHU_DEBUG
 	qWarning("Receiver::receive()");
 #endif
 	if (working)

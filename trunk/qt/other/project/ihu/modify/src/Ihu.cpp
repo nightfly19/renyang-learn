@@ -607,19 +607,29 @@ void Ihu::closeCall()
 	}
 }
 
+// renyang - 打電話給這一個host
 void Ihu::call(QString host)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::call(QString %1)").arg(host));
+#endif
 	call(0, host);
 }
 
+// renyang - 由某一個id打電話給這一個host
 void Ihu::call(int id, QString host)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::call(int %1, QString %2)").arg(id).arg(host));
+#endif
 	try
 	{
 		if (host.isEmpty())
 			throw Error(id, tr("No host specified!"));
+		// renyang - 由ihuconfig讀出server的服務port
 		int callPort = ihuconfig.getOutPort();
 		QString callHost = host;
+		// renyang - 分析出ip與暫時的port號
 		int tmpInd = host.findRev(':');
 		if (tmpInd > 0)
 		{
@@ -628,6 +638,7 @@ void Ihu::call(int id, QString host)
 		}
 		phone->call(id, callHost, callPort, ihuconfig.getProtocol());
 		logViewer->addLog(logger->logOutgoingCall(host, phone->getCallerIp(id)));
+		// renyang - 應該是用來改變圖示的
 		if(callTab[id])
 		{
 			callTab[id]->setRingButton(TRUE);
@@ -644,6 +655,9 @@ void Ihu::call(int id, QString host)
 
 void Ihu::answerCall(int id)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::answerCall(int %1)").arg(id));
+#endif
 	try
 	{
 		phone->answerCall(id);
@@ -658,6 +672,9 @@ void Ihu::answerCall(int id)
 
 void Ihu::receivedCall(int id)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::receivedCall(int %1)").arg(id));
+#endif
 	if (callTab[id])
 	{
 		callTab[id]->receivedCall(phone->getCallerIp(id));
@@ -671,8 +688,12 @@ void Ihu::receivedCall(int id)
 	logViewer->addLog(logger->logReceivedCall(phone->getCallerIp(id), phone->getCallerName(id)));
 }
 
+// renyang - 接受了對方打過來的電話, 或本地端接受了對方的通話
 void Ihu::connectedCall(int id)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::connectedCall(int %1)").arg(id));
+#endif
 	if (callTab[id])
 	{
 		callTab[id]->connectedCall();
@@ -684,6 +705,9 @@ void Ihu::connectedCall(int id)
 
 void Ihu::cancelCall(int id)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::cancelCall(int %1)").arg(id));
+#endif
 	if (callTab[id])
 	{
 		callTab[id]->stopCall();
@@ -694,6 +718,9 @@ void Ihu::cancelCall(int id)
 
 void Ihu::stopCall(int id)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::stopCall(int %1)").arg(id));
+#endif
 	phone->endCall(id);
 	if (callTab[id])
 	{
@@ -704,6 +731,9 @@ void Ihu::stopCall(int id)
 
 void Ihu::abortCall(int id, QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::abortCall(int %1, QString %2)").arg(id).arg(text));
+#endif
 	if (id>=0)
 	{
 		if (callTab[id])
@@ -715,6 +745,9 @@ void Ihu::abortCall(int id, QString text)
 
 void Ihu::abortWait(QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::abortWait(QString %1)").arg(text));
+#endif
 	raise();
 	waitButton->setOn(FALSE);
 	waitButtonClicked();
@@ -723,6 +756,9 @@ void Ihu::abortWait(QString text)
 
 void Ihu::abortAll(QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::abortAll(QString %1)").arg(text));
+#endif
 	raise();
 	phone->abortAll();
 	showMessageCritical(text);
@@ -730,12 +766,18 @@ void Ihu::abortAll(QString text)
 
 void Ihu::showMessageCritical(QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::showMessageCritical(QString %1)").arg(text));
+#endif
 	QMessageBox::critical(0, "IHU Error", QString("Error: %1").arg(text));
 	message("Aborted");
 }
 
 void Ihu::showWarning(QString text)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::showWarning(QString %1)").arg(text));
+#endif
 	QString msg = QString("Warning: %1").arg(text); 
 	QMessageBox::warning(0, "IHU Warning", msg);
 	message(msg);
@@ -743,6 +785,9 @@ void Ihu::showWarning(QString text)
 
 void Ihu::closeEvent(QCloseEvent *e)
 {
+#ifdef IHU_DEBUG
+	qWarning("Ihu::closeEvent(QCloseEvent *e)");
+#endif
 	if (!trayIcon || closing)
 	{
 		e->accept();
@@ -756,6 +801,9 @@ void Ihu::closeEvent(QCloseEvent *e)
 
 void Ihu::quit()
 {
+#ifdef IHU_DEBUG
+	qWarning("Ihu::quit()");
+#endif
 	phone->endAll();
 	phone->stopWaiting();
 

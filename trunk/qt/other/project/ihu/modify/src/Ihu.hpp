@@ -114,6 +114,7 @@ public:
 	TrayIcon* trayIcon;
 
 	int maxcalls;
+	// renyang - 記錄Call的分頁
 	CallTab **callTab;
 
 public slots:

@@ -69,6 +69,7 @@ public:
 	void statistics(float, QString);
 	void answer();
 	void call();
+	// renyang - 打電話給指定的host
 	void call(QString);
 	void receivedCall(QString);
 	void connectedCall();
@@ -88,6 +89,7 @@ public:
 private:
 	int callId;
 	bool received;
+	// renyang - 表示目前正在通話啦
 	bool talking;
 	unsigned long seconds;
 	int skipStat;
