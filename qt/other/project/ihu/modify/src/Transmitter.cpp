@@ -69,6 +69,7 @@ void Transmitter::reset()
 	tx = false;
 }
 
+// renyang - 設定真實的socket protocal, 並且把自定的protocal(IHU_TCP或IHU_UDP)存在protocol
 void Transmitter::init(int prot)
 {
 #ifdef IHU_DEBUG
@@ -155,25 +156,31 @@ void Transmitter::start(int socket)
 	go();
 }
 
-// renyang - 要打電話出去
+// renyang - 要打電話出去, 要連到server端
+// renyang-TODO - 要加上sctp的部分
 int Transmitter::call(QString host, int port, int prot)
 {
 #ifdef IHU_DEBUG
 	qWarning(QString("Transmitter::call(QString %1,int %2, int %3)").arg(host).arg(port).arg(prot));
 #endif
+	// renyang - 設定真實的socket protocal, 並且把自定的protocal(IHU_TCP或IHU_UDP)存在protocol
 	init(prot);
 
 	int sd = -1;
 	
+	// renyang - 設定port號(也是對方的服務port號)
 	sa.sin_port = htons(port);
 	
+	// renyang - 當回傳是1時, 表示轉換成功. 回傳是0時, 表示轉換失敗
 	if (inet_aton(host.ascii(), &sa.sin_addr) == 0)
 	{
 		struct hostent *he;
 
+		// renyang - 把tw.yahoo.com轉換成ip
 		he = gethostbyname(host.ascii());
 		if (he == NULL)
 			throw Error(tr("can't resolve ") + host.ascii());
+		// renyang - 轉出來的部分直接就是network address啦
 		sa.sin_addr = *(struct in_addr *) he ->h_addr;
 	}
 	
@@ -191,12 +198,15 @@ int Transmitter::call(QString host, int port, int prot)
 			throw Error(tr("unknown protocol"));
 	}
 	
+	// renyang - 建立clinet端的socket
 	if ((sd = ::socket(AF_INET, type, 0)) == -1)
 		throw Error(tr("can't initalize socket (") + strerror(errno)+ tr(")"));
 	
+	// renyang - 此socket是用來控制連到server端用的
 	if ((::connect(sd, (struct sockaddr *)&sa, sizeof(sa)))==-1)
 		throw Error(strerror(errno));
 	
+	// renyang - 要儲存要使用的socket. s=sd
 	start(sd);
 	
 	return sd;
@@ -276,6 +286,7 @@ void Transmitter::prepare()
 	emitSignal(SIGNAL_START);
 }
 
+// renyang - 請傳送出去, 叫對方送出鈴聲
 void Transmitter::ring(bool on)
 {
 #ifdef IHU_DEBUG

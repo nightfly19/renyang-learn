@@ -126,7 +126,8 @@ private:
 	bool ihu_abort;
 	// renyang - 表示是否接受對方的來電
 	bool connected;
-	// renyang - 是否接收到client的連線(network部分)
+	// renyang - 表示是打電話過去的那一端還是等待別人打電話過來的那一端
+	// renyang - 若是waiting這一端則received=true
 	bool received;
 	bool flushing;
 	bool active;

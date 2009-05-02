@@ -180,11 +180,16 @@ void IhuNoGui::waitForCalls()
 // renyang - 打電話給某一個host
 void IhuNoGui::call(QString host)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("IhuNoGui::call(QString %1)").arg(host));
+#endif
 	try {
 		if (host.isEmpty())
 			throw Error(tr("No host specified!"));
+		// renyang - 取出要送出去的port號
 		int callPort = ihuconfig.getOutPort();
 		QString callHost = host;
+		// renyang - 是否有暫時指定port號
 		int tmpInd = host.findRev(':');
 		if (tmpInd > 0)
 		{
@@ -199,7 +204,7 @@ void IhuNoGui::call(QString host)
 			// renyang - 對call id 0開啟加密???
 			cryptOn(0);
 		}
-		// renyang - 打電話出去啦
+		// renyang - 打電話出去啦, call id一定是0, 由ihuconfig取得使用的通訊協定
 		phone->call(0, callHost, callPort, ihuconfig.getProtocol());
 		message(logger->logOutgoingCall(host, phone->getCallerIp(0)));
 	}

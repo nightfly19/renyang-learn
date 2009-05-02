@@ -195,9 +195,10 @@ void Call::call(QString host, int port, int prot)
 	try
 	{
 		readyFrames = 0;
-		// renyang - 由transmitter連線到server端
+		// renyang - 由transmitter連線到server端, 回傳表示peer端的socket
 		sd = transmitter->call(host, port, prot);
 		// renyang - 接收端開始接收由對方回傳的資料並且判斷對方的動作
+		// renyang - 開始查看是否有新的資料由peer端傳送過來
 		receiver->start(sd, prot);
 		sendRing(true);
 		callFree = false;
@@ -251,7 +252,7 @@ void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 	}
 }
 
-// renyang - 連線成功
+// renyang - 連線成功(不論是本地端接受通話或是遠端接受通話)
 void Call::connected()
 {
 #ifdef IHU_DEBUG

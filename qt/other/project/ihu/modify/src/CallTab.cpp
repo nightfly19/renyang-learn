@@ -255,8 +255,13 @@ void CallTab::callButtonClicked()
 		call(hostEdit->currentText());
 }
 
+// renyang - 打電話給指定的host
 void CallTab::call(QString host)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("CallTab::call(QString %1)").arg(host));
+#endif
+	// renyang - 若沒有在打過的電話簿中找到的話, 就安插進去
 	if (hostEdit->listBox()->findItem(host) == 0)
 		hostEdit->insertItem(host, 0);
 	emit callSignal(callId, host);
@@ -294,6 +299,9 @@ void CallTab::ringButtonClicked()
 
 void CallTab::receivedCall(QString ip)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("CallTab::receivedCall(QString %1)").arg(ip));
+#endif
 	hostEdit->setCurrentText(ip);
 	hostEdit->setEnabled(FALSE);
 	callButton->setText( tr("&Answer") );
@@ -307,10 +315,14 @@ void CallTab::receivedCall(QString ip)
 	received = true;
 }
 
+// renyang - 本地端接受了遠端的通話，或是遠端接受了本地端的通話
 void CallTab::connectedCall()
 {
+#ifdef IHU_DEBUG
+	qWarning("CallTab::connectedCall()");
+#endif
 	if (ringButton->isOn())
-		ringButton->setOn(FALSE);
+		ringButton->setOn(false);
 	talking = true;
 }
 
