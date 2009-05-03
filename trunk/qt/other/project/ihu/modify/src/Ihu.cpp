@@ -558,10 +558,15 @@ void Ihu::waitButtonClicked()
 	}
 }
 
+// renyang - 在介面上建立一個新的CallTab
 void Ihu::newCall()
 {
+#ifdef REN_DEBUG
+	qWarning("Ihu::newCall()");
+#endif
 	try
 	{
+		// renyang - 建立一個Call類別的物件
 		int id = phone->createCall();
 		newCall(id);
 	}
@@ -571,9 +576,12 @@ void Ihu::newCall()
 	}
 }
 
-// renyang - 新增一個CallTab
+// renyang - 新增一個CallTab(GUI的部分)
 void Ihu::newCall(int id)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::newCall(int %1)").arg(id));
+#endif
 	if (id >= 0)
 	{
 		QString callName = "Default";
@@ -611,7 +619,7 @@ void Ihu::closeCall()
 // renyang - 打電話給這一個host
 void Ihu::call(QString host)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::call(QString %1)").arg(host));
 #endif
 	call(0, host);
@@ -620,7 +628,7 @@ void Ihu::call(QString host)
 // renyang - 由某一個id打電話給這一個host
 void Ihu::call(int id, QString host)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::call(int %1, QString %2)").arg(id).arg(host));
 #endif
 	try
@@ -657,7 +665,7 @@ void Ihu::call(int id, QString host)
 // renyang - 答應別人的通話
 void Ihu::answerCall(int id)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::answerCall(int %1)").arg(id));
 #endif
 	try
@@ -678,7 +686,7 @@ void Ihu::answerCall(int id)
 // renyang - 改變圖示
 void Ihu::receivedCall(int id)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::receivedCall(int %1)").arg(id));
 #endif
 	if (callTab[id])
@@ -700,7 +708,7 @@ void Ihu::receivedCall(int id)
 // renyang - 接受了對方打過來的電話, 或本地端接受了對方的通話
 void Ihu::connectedCall(int id)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::connectedCall(int %1)").arg(id));
 #endif
 	if (callTab[id])
@@ -714,7 +722,7 @@ void Ihu::connectedCall(int id)
 
 void Ihu::cancelCall(int id)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::cancelCall(int %1)").arg(id));
 #endif
 	if (callTab[id])
@@ -727,7 +735,7 @@ void Ihu::cancelCall(int id)
 
 void Ihu::stopCall(int id)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::stopCall(int %1)").arg(id));
 #endif
 	phone->endCall(id);
@@ -740,7 +748,7 @@ void Ihu::stopCall(int id)
 
 void Ihu::abortCall(int id, QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::abortCall(int %1, QString %2)").arg(id).arg(text));
 #endif
 	if (id>=0)
@@ -754,7 +762,7 @@ void Ihu::abortCall(int id, QString text)
 
 void Ihu::abortWait(QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::abortWait(QString %1)").arg(text));
 #endif
 	raise();
@@ -765,7 +773,7 @@ void Ihu::abortWait(QString text)
 
 void Ihu::abortAll(QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::abortAll(QString %1)").arg(text));
 #endif
 	raise();
@@ -775,7 +783,7 @@ void Ihu::abortAll(QString text)
 
 void Ihu::showMessageCritical(QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::showMessageCritical(QString %1)").arg(text));
 #endif
 	QMessageBox::critical(0, "IHU Error", QString("Error: %1").arg(text));
@@ -784,7 +792,7 @@ void Ihu::showMessageCritical(QString text)
 
 void Ihu::showWarning(QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::showWarning(QString %1)").arg(text));
 #endif
 	QString msg = QString("Warning: %1").arg(text); 
@@ -794,7 +802,7 @@ void Ihu::showWarning(QString text)
 
 void Ihu::closeEvent(QCloseEvent *e)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Ihu::closeEvent(QCloseEvent *e)");
 #endif
 	if (!trayIcon || closing)
@@ -810,7 +818,7 @@ void Ihu::closeEvent(QCloseEvent *e)
 
 void Ihu::quit()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Ihu::quit()");
 #endif
 	phone->endAll();
@@ -1124,7 +1132,7 @@ void Ihu::thSliderChanged(int val)
 // renyang - 設定GUI的部分做出相對應的動作
 void Ihu::enableRecorder(bool on)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::enableRecorder(%1)").arg(on));
 #endif
 	soundLabel->setEnabled(on);
@@ -1134,7 +1142,7 @@ void Ihu::enableRecorder(bool on)
 // renyang - 圖示
 void Ihu::enablePlayer(bool on)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Ihu::enablePlayer(bool %1)").arg(on));
 #endif
 	delayLabel->setEnabled(on);
@@ -1142,7 +1150,7 @@ void Ihu::enablePlayer(bool on)
 
 void Ihu::statistics()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Ihu::statistics()");
 #endif
 	QString tempMsg;

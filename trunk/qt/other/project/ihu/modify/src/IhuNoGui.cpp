@@ -180,7 +180,7 @@ void IhuNoGui::waitForCalls()
 // renyang - 打電話給某一個host
 void IhuNoGui::call(QString host)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("IhuNoGui::call(QString %1)").arg(host));
 #endif
 	try {

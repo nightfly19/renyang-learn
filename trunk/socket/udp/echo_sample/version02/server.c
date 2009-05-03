@@ -55,6 +55,7 @@ void do_echo(int sockfd,struct sockaddr *pcliaddr,socklen_t clilen)
 	{
 		len=clilen;
 		// wait for receive data
+		// 限制一定要是由pcliaddr傳送過來的資料
 		n = recvfrom(sockfd,mesg,MAXLINE,0,pcliaddr,&len);
 		mesg[n]=0;
 		fputs(mesg,stdout);

@@ -35,7 +35,7 @@ IhuNoGui底下有Phone, FilePlayer, logger, QTimer, Config
 
 我在猜在打電話給別人時，就有準備好要接收別人的聲音啦，因為電話是雙向的嘛
 
-在Makefile的檔案中的DEFS變數上加上-DIHU_DEBUG可以列印出trace訊息, 但是每一次重新產生Makefile均再次修改一次
+在Makefile的檔案中的DEFS變數上加上-DREN_DEBUG可以列印出trace訊息, 但是每一次重新產生Makefile均再次修改一次
 
 renyang-TODO
 在Receiver::receive()加入IHU_SCTP的判斷
