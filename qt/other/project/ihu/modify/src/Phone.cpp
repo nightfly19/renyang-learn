@@ -242,8 +242,12 @@ void Phone::newUDPConnection(int socket)
 	waitCalls(inport, true, false);
 }
 
+// renyang - 當有電話進來, 改變圖示, 開始播放器
 void Phone::receivedCall(int callId)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::receivedCall(int %1)").arg(callId));
+#endif
 	try
 	{
 		call_number++;
@@ -439,10 +443,12 @@ void Phone::call(int callId, QString host, int port, int prot)
 	else throw Error(QString("invalid call ID"));
 }
 
-// renyang - 此id的call接收別人打過來的電話
+// renyang - 此id的call接受別人打過來的電話
 void Phone::answerCall(int callId)
 {
-//	qWarning(QString("Phone::answerCall(%1) - connections=%2").arg(callId).arg(connections));
+#ifdef IHU_DEBUG
+	qWarning(QString("Phone::answerCall(%1) - connections=%2").arg(callId).arg(connections));
+#endif
 	if (calls[callId])
 	{
 		try
@@ -778,14 +784,19 @@ void Phone::stopRecorder()
 	}
 }
 
+// renyang - 開始執行播放器
 void Phone::startPlayer()
 {
-//	qWarning("Phone::startPlayer()");
+#ifdef IHU_DEBUG
+	qWarning("Phone::startPlayer()");
+#endif
 	switch (play_status)
 	{
+		// renyang - 若是靜音設定的話, 則直接跳出
 		case PLAYER_STATUS_MUTE:
 			break;
 		default:
+			// renyang - 若沒有設定播放的話, 再設定開始撥放
 			if (!playing)
 			{
 				player->start(play_rate, play_frame_size);

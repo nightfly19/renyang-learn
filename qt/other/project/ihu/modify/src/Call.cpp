@@ -363,7 +363,7 @@ void Call::enableRandomCrypt(int len)
 void Call::enableCrypt(char *passwd, int len)
 {
 #ifdef IHU_DEBUG
-	qWarning(QString("Call::enableCrypt(char %1, int %2)").arg(passwd).arg(len));
+	qWarning(QString("Call::enableCrypt(char *passwd, int %1)").arg(len));
 #endif
 	try
 	{
@@ -466,7 +466,7 @@ void Call::decodeAudioData(char *buf, int len)
 bool Call::playData(float *buf, int len)
 {
 #ifdef IHU_DEBUG
-	qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
+	// qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
 #endif
 	bool ret = false;
 	if (readyFrames >= len)

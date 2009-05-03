@@ -77,20 +77,29 @@
 // renyang - 建立一個封包, 準備要拿來放資料
 Packet::Packet(int packetSize)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Packet::Packet(int %1)").arg(packetSize));
+#endif
 	size = packetSize;
 	if ((packet = (char *)malloc(size))==NULL)
 		throw Error(Error::IHU_ERR_MEMORY);
 	memset(packet, 0x0, size);
 }
 
-Packet::~Packet(void)
+Packet::~Packet()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::~Packet()");
+#endif
 	free(packet);
 }
 
 // renyang - 初始化這一個封包, 它的資料內容與封包長度
 void Packet::init(char *data, int len)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Packet::init(char *data, int %1)").arg(len));
+#endif
 	// renyang - 初始化封包的header
 	strncpy(packet, HEADER_SYNC_STRING, HEADER_SYNC_LEN);
 	packet[HEADER_SYNC_LEN] = (unsigned char) size;
@@ -108,32 +117,50 @@ void Packet::init(char *data, int len)
 
 void Packet::resetInfo()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::resetInfo()");
+#endif
 	*info = 0x0;
 }
 
 // renyang - 設定這一個封包的型態
 void Packet::setInfo(char param)
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::setInfo(char param)");
+#endif
 	*info |= param;
 }
 
 char Packet::getInfo()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::getInfo()");
+#endif
 	return (*info & 0x3f);
 }
 
 bool Packet::isInfo(char param)
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::isInfo(char param)");
+#endif
 	return (getInfo() & param);
 }
 
 char Packet::getSeq()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::getSeq()");
+#endif
 	return (*info & 0xc0);
 }
 
 void Packet::fill(char *buffer, int len)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Packet::fill(char *buffer, int %1)").arg(len));
+#endif
 	memcpy(packet, buffer, len);
 	dataPtr = packet + HEADER_SIZE;
 	dataLen = (unsigned char *) dataPtr - 1;
@@ -142,6 +169,9 @@ void Packet::fill(char *buffer, int len)
 
 void Packet::crypt(Blowfish *blowfish)
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::crypt(Blowfish *blowfish)");
+#endif
 	int len = *dataLen % DATA_BLOCK_SIZE;
 	if (len)
 		len = *dataLen + DATA_BLOCK_SIZE - len;
@@ -151,26 +181,41 @@ void Packet::crypt(Blowfish *blowfish)
 
 void Packet::decrypt(Blowfish *blowfish)
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::decrypt(Blowfish *blowfish)");
+#endif
 	if (dataLen > 0)
 		blowfish->decrypt(dataPtr, size - HEADER_SIZE);
 }
 
 int Packet::getSize()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::getSize()");
+#endif
 	return size;
 }
 
 char * Packet::getPacket()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::getPacket()");
+#endif
 	return packet;
 }
 
 char * Packet::getData()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::getData()");
+#endif
 	return dataPtr;
 }
 
 int Packet::getDataLen()
 {
+#ifdef IHU_DEBUG
+	qWarning("Packet::getDataLen()");
+#endif
 	return (int) *dataLen;
 }

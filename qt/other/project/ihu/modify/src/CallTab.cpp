@@ -244,11 +244,17 @@ void CallTab::languageChange()
 
 void CallTab::answer()
 {
+#ifdef IHU_DEBUG
+	qWarning("CallTab::answer()");
+#endif
 	emit answerSignal(callId);
 }
 
 void CallTab::callButtonClicked()
 {
+#ifdef IHU_DEBUG
+	qWarning("CallTab::callButtonClicked()");
+#endif
 	if (received)
 		answer();
 	else
@@ -267,8 +273,12 @@ void CallTab::call(QString host)
 	emit callSignal(callId, host);
 }
 
+// renyang - 當回答要接受電話時, 設定相關GUI的部分
 void CallTab::startCall()
 {
+#ifdef IHU_DEBUG
+	qWarning("CallTab::startCall()");
+#endif
 	callButton->setEnabled(FALSE);
 	stopButton->setEnabled(TRUE);
 	stopButton->setText("&Hang up");
@@ -283,6 +293,9 @@ void CallTab::startCall()
 
 void CallTab::stopButtonClicked()
 {
+#ifdef IHU_DEBUG
+	qWarning("CallTab::stopButtonClicked()");
+#endif
 	callButton->setEnabled(FALSE);
 	stopButton->setEnabled(FALSE);
 	ringButton->setEnabled(FALSE);
@@ -291,6 +304,9 @@ void CallTab::stopButtonClicked()
 
 void CallTab::ringButtonClicked()
 {
+#ifdef IHU_DEBUG
+	qWarning("CallTab::ringButtonClicked()");
+#endif
 	bool on = false;
 	if (ringButton->isOn())
 		on = true;
