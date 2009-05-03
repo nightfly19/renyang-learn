@@ -88,6 +88,7 @@ Packet::~Packet(void)
 	free(packet);
 }
 
+// renyang - 初始化這一個封包, 它的資料內容與封包長度
 void Packet::init(char *data, int len)
 {
 	// renyang - 初始化封包的header
@@ -110,6 +111,7 @@ void Packet::resetInfo()
 	*info = 0x0;
 }
 
+// renyang - 設定這一個封包的型態
 void Packet::setInfo(char param)
 {
 	*info |= param;

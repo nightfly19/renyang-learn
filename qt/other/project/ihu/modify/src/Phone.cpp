@@ -310,6 +310,7 @@ int Phone::createCall()
 	{
 		// renyang - 為目前找到的這一個call id建立一個實體的Call
 		calls[newId] = new Call(newId, myName);
+		// renyang - 某一個call剛剛建立通話
 		connect( calls[newId], SIGNAL(connectedSignal(int)), this, SLOT(connectedCall(int)) );	
 		connect( calls[newId], SIGNAL(cancelCallSignal(int)), this, SLOT(cancelCall(int)) );	
 		connect( calls[newId], SIGNAL(abortSignal(int, QString)), this, SLOT(abortCall(int, QString)) );

@@ -31,12 +31,14 @@ void PacketHandler::buildPacket(Packet *packet, char *data, int len, char type)
 }
 
 // renyang - 建立ModePacket封包
+// renyang - 感覺這一行跟上面那一個函式是一樣的@@@
 void PacketHandler::buildModePacket(Packet *packet, char *data, int len, char type, char mode)
 {
 	buildPacket(packet, data, len, type);
 	packet->setInfo(mode);
 }
 
+// renyang - 把buffer開始長度為len的資料, 複製到packet這一個位址中
 void PacketHandler::readPacket(Packet *packet, char *buffer, int len)
 {
 	packet->fill(buffer, len);

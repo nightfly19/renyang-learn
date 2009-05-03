@@ -321,6 +321,7 @@ void CallTab::connectedCall()
 #ifdef IHU_DEBUG
 	qWarning("CallTab::connectedCall()");
 #endif
+	// renyang - 若本地端電話還在響, 則把它關掉
 	if (ringButton->isOn())
 		ringButton->setOn(false);
 	talking = true;
@@ -437,6 +438,7 @@ void CallTab::statistics(float traffic, QString statName)
 	trafficLabel->setText( QString("%1 KB/s").arg(traffic, 2, 'f', 1 ) );
 	if (talking)
 	{
+		// renyang - 取得開始通話的時間
 		QString statTime;
 		statTime.sprintf("%02d:%02d", (int)(seconds/60), (int)(seconds%60));
 		tempMsg = QString("%1 - %2").arg(statName).arg(statTime);

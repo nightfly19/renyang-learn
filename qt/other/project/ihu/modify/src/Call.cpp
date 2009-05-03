@@ -80,6 +80,7 @@ Call::Call(int callId, QString myName)
 	connect( receiver, SIGNAL(error(QString)), this, SLOT(abortCall(QString)) );
 	connect( receiver, SIGNAL(warning(QString)), this, SLOT(warning(QString)) );
 	connect( receiver, SIGNAL(message(QString)), this, SLOT(warning(QString)) );
+	// renyang - 對方接受通話, 或是本地端接受通話
 	connect( receiver, SIGNAL(connectedSignal()), this, SLOT(connected()) );
 	connect( receiver, SIGNAL(ringSignal()), this, SLOT(playRing()) );
 	connect( receiver, SIGNAL(initSignal()), this, SLOT(playInit()) );

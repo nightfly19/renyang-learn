@@ -397,6 +397,7 @@ void Ihu::initIhu()
 		logger = new Logger();
 
 		connect( phone, SIGNAL(receivedCallSignal(int)), this, SLOT(receivedCall(int)) );
+		// renyang - 有一通電話剛剛建立通話
 		connect( phone, SIGNAL(connectedCallSignal(int)), this, SLOT(connectedCall(int)) );
 		connect( phone, SIGNAL(cancelCallSignal(int)), this, SLOT(cancelCall(int)) );
 		connect( phone, SIGNAL(abortSignal(QString)), this, SLOT(abortAll(QString)) );
