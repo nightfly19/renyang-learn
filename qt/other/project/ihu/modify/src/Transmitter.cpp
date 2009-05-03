@@ -34,7 +34,7 @@
 
 Transmitter::Transmitter(Rsa *r) : rsa(r)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::Transmitter(Rsa *r):rsa(r)"));
 #endif
 	setName("Transmitter");
@@ -49,7 +49,7 @@ Transmitter::Transmitter(Rsa *r) : rsa(r)
 
 Transmitter::~Transmitter(void)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::~Transmitter(void)"));
 #endif
 	if (outFile)
@@ -58,7 +58,7 @@ Transmitter::~Transmitter(void)
 
 void Transmitter::reset()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::reset()"));
 #endif
 	s = -1;
@@ -72,7 +72,7 @@ void Transmitter::reset()
 // renyang - 設定真實的socket protocal, 並且把自定的protocal(IHU_TCP或IHU_UDP)存在protocol
 void Transmitter::init(int prot)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::init(%1)").arg(prot));
 #endif
 	protocol = prot;
@@ -85,7 +85,7 @@ void Transmitter::init(int prot)
 
 void Transmitter::setMyName(QString name)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::setMyName(%1)").arg(name));
 #endif
 	myName = name;
@@ -93,7 +93,7 @@ void Transmitter::setMyName(QString name)
 
 void Transmitter::dump(QString file)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::dump(%1)").arg(file));
 #endif
 	if (!file.isEmpty())
@@ -112,7 +112,7 @@ void Transmitter::dump(QString file)
 
 void Transmitter::go()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(tr("Transmitter::go()"));
 #endif
 	working = true;
@@ -120,17 +120,17 @@ void Transmitter::go()
 
 void Transmitter::stop()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(tr("Transmitter::stop()"));
 #endif
 	working = false;
 }
 
-// renyang - 建立一個新連線(似呼只有IHU_UDP會使用這一個函式)
+// renyang - 建立一個新連線
 // renyang-TODO - 以後可能要在這裡加入IHU_SCTP吧
 void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::newConnection(int %1, struct sockaddr_in ca, int %2)").arg(socket).arg(prot));
 #endif
 	init(prot);
@@ -139,17 +139,20 @@ void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 	{
 		case IHU_UDP:
 			// renyang - 原本udp不需要用到connect這一個函式, 但是要用好像還是可以
+			// renyang - 這樣才能改成one-to-one的udp型態
 			if ((::connect(socket, (struct sockaddr *)&ca, salen))==-1)
 				throw Error(strerror(errno));
 			break;
 	}
+	// renyang - 設定給TCP使用的啦
 	::getpeername(socket, (struct sockaddr *)&sa, &salen);
 	start(socket);
 }
 
+// renyang - 開始要傳送資料啦
 void Transmitter::start(int socket)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::start(int %1)").arg(socket));
 #endif
 	s = socket;
@@ -160,7 +163,7 @@ void Transmitter::start(int socket)
 // renyang-TODO - 要加上sctp的部分
 int Transmitter::call(QString host, int port, int prot)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::call(QString %1,int %2, int %3)").arg(host).arg(port).arg(prot));
 #endif
 	// renyang - 設定真實的socket protocal, 並且把自定的protocal(IHU_TCP或IHU_UDP)存在protocol
@@ -214,7 +217,7 @@ int Transmitter::call(QString host, int port, int prot)
 
 void Transmitter::end()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::end()");
 #endif
 	stop();
@@ -226,7 +229,7 @@ void Transmitter::end()
 
 void Transmitter::enableCrypt(char *passwd, int len)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::enableCrypt(char *passwd, int %1)").arg(len));
 #endif
 	disableCrypt();
@@ -237,7 +240,7 @@ void Transmitter::enableCrypt(char *passwd, int len)
 
 void Transmitter::disableCrypt()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::disableCrypt()");
 #endif
 	if (blowfish)
@@ -249,13 +252,14 @@ void Transmitter::disableCrypt()
 // renyang - 傳送封包
 void Transmitter::sendPacket(Packet *p)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendPacket(Packet *p)");
 #endif
 	int snt = 0;
 	if ((s != -1) && working)
 	{
 		// renyang - 把資料透過::send()傳送出去
+		// renyang - 就算是udp也可以使用::send, 因為是connect型態的udp
 		snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
 		// renyang - 傳送失敗
 		if (snt <= 0)
@@ -278,7 +282,7 @@ void Transmitter::sendPacket(Packet *p)
 
 void Transmitter::prepare()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("void Transmitter::prepare()");
 #endif
 	sendInitPacket();
@@ -289,7 +293,7 @@ void Transmitter::prepare()
 // renyang - 請傳送出去, 叫對方送出鈴聲
 void Transmitter::ring(bool on)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::ring(bool %1)").arg(on));
 #endif
 	if (on)
@@ -306,7 +310,7 @@ void Transmitter::ring(bool on)
 
 void Transmitter::sendRing()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendRing()");
 #endif
 	if (ringing)
@@ -330,8 +334,8 @@ void Transmitter::sendRing()
 
 void Transmitter::sendAudioPacket(char *data, int len)
 {
-#ifdef IHU_DEBUG
-	qWarning(QString("Transmitter::SendAudioPacket(char *data,int %1)").arg(len));
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendAudioPacket(char *data,int %1)").arg(len));
 #endif
 	if (tx)
 	{
@@ -366,7 +370,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 
 void Transmitter::emitError(QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::emitError(QString %1)").arg(text));
 #endif
 	emit error(text);
@@ -375,7 +379,7 @@ void Transmitter::emitError(QString text)
 // renyang - 建立要送出去的封包
 void Transmitter::sendSpecialPacket(char *data, int len, char type)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::SendSpecialPacket(char %1,int %2, char %3)").arg(data).arg(len).arg(type));
 #endif
 	try
@@ -397,7 +401,7 @@ void Transmitter::sendSpecialPacket(char *data, int len, char type)
 
 void Transmitter::sendNewPacket(char *data, int len, char type)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::SendNewPacket(char %1,int %2, char %3)").arg(data).arg(len).arg(type));
 #endif
 	try
@@ -416,7 +420,7 @@ void Transmitter::sendNewPacket(char *data, int len, char type)
 
 void Transmitter::sendNamePacket(bool special, char type)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::SendNamePacket(bool %1, char %2)").arg(special).arg(type));
 #endif
 	int dataLen = 0;
@@ -435,7 +439,7 @@ void Transmitter::sendNamePacket(bool special, char type)
 
 void Transmitter::answer()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::answer()");
 #endif
 	prepare();
@@ -444,7 +448,7 @@ void Transmitter::answer()
 
 void Transmitter::sendAnswerPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendAnswerPacket()");
 #endif
 	sendNamePacket(false, IHU_INFO_ANSWER);
@@ -452,7 +456,7 @@ void Transmitter::sendAnswerPacket()
 
 void Transmitter::sendRingPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendRingPacket()");
 #endif
 	sendNamePacket(false, IHU_INFO_RING);
@@ -461,7 +465,7 @@ void Transmitter::sendRingPacket()
 // renyang - 傳送重覆答鈴聲
 void Transmitter::sendRingReplyPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendRingReplyPacket()");
 #endif
 	sendNamePacket(true, IHU_INFO_RING_REPLY);
@@ -469,7 +473,7 @@ void Transmitter::sendRingReplyPacket()
 
 void Transmitter::sendRefusePacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendRefusePacket()");
 #endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_REFUSE);
@@ -477,7 +481,7 @@ void Transmitter::sendRefusePacket()
 
 void Transmitter::sendClosePacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendClosePacket()");
 #endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_CLOSE);
@@ -485,7 +489,7 @@ void Transmitter::sendClosePacket()
 
 void Transmitter::sendResetPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendResetPacket()");
 #endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_RESET);
@@ -493,7 +497,7 @@ void Transmitter::sendResetPacket()
 
 void Transmitter::sendInitPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendInitPacket()");
 #endif
 	sendNewPacket(NULL, 0, IHU_INFO_INIT);
@@ -501,7 +505,7 @@ void Transmitter::sendInitPacket()
 
 void Transmitter::sendErrorPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendErrorPacket()");
 #endif
 	sendNewPacket(NULL, 0, IHU_INFO_ERROR);
@@ -509,7 +513,7 @@ void Transmitter::sendErrorPacket()
 
 void Transmitter::sendKeyPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendKeyPacket()");
 #endif
 	char *out;
@@ -538,7 +542,7 @@ void Transmitter::sendKeyPacket()
 
 void Transmitter::sendKeyRequestPacket()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendKeyRequestPacket()");
 #endif
 	int keylen = rsa->getMyPublicKeyLen();
@@ -548,7 +552,7 @@ void Transmitter::sendKeyRequestPacket()
 
 long Transmitter::getBytes()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::getBytes()");
 #endif
 	long temp = bytes;
@@ -558,7 +562,7 @@ long Transmitter::getBytes()
 
 long Transmitter::getTotal()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::getTotal()");
 #endif
 	return total;
@@ -566,7 +570,7 @@ long Transmitter::getTotal()
 
 QString Transmitter::getIp()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::getIp()");
 #endif
 	return QString(inet_ntoa(sa.sin_addr));
@@ -574,7 +578,7 @@ QString Transmitter::getIp()
 
 bool Transmitter::isWorking()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::isWorking()");
 #endif
 	return working;
@@ -582,7 +586,7 @@ bool Transmitter::isWorking()
 
 bool Transmitter::isCrypted()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::isCrypted()");
 #endif
 	return crypted;
@@ -590,7 +594,7 @@ bool Transmitter::isCrypted()
 
 bool Transmitter::isDumping()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::isDumping()");
 #endif
 	bool ret = false;
@@ -601,7 +605,7 @@ bool Transmitter::isDumping()
 
 bool Transmitter::isActive()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::isActive()");
 #endif
 	bool temp = active;
@@ -612,7 +616,7 @@ bool Transmitter::isActive()
 // renyang - 傳送訊號
 void Transmitter::emitSignal(signal_type type)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::emitSignal(signal_type type)");
 #endif
 	switch(type)

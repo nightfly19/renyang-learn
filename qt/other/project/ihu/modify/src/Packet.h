@@ -45,6 +45,7 @@
 
 #define DATA_BLOCK_SIZE 8
 
+// renyang - 設定封包的功能
 #define IHU_INFO_RESET 0x0
 #define IHU_INFO_INIT 0x1
 #define IHU_INFO_AUDIO 0x2

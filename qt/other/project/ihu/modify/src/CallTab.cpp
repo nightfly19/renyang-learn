@@ -244,7 +244,7 @@ void CallTab::languageChange()
 
 void CallTab::answer()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::answer()");
 #endif
 	emit answerSignal(callId);
@@ -252,7 +252,7 @@ void CallTab::answer()
 
 void CallTab::callButtonClicked()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::callButtonClicked()");
 #endif
 	if (received)
@@ -264,7 +264,7 @@ void CallTab::callButtonClicked()
 // renyang - 打電話給指定的host
 void CallTab::call(QString host)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("CallTab::call(QString %1)").arg(host));
 #endif
 	// renyang - 若沒有在打過的電話簿中找到的話, 就安插進去
@@ -276,7 +276,7 @@ void CallTab::call(QString host)
 // renyang - 當回答要接受電話時, 設定相關GUI的部分
 void CallTab::startCall()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::startCall()");
 #endif
 	callButton->setEnabled(FALSE);
@@ -293,7 +293,7 @@ void CallTab::startCall()
 
 void CallTab::stopButtonClicked()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::stopButtonClicked()");
 #endif
 	callButton->setEnabled(FALSE);
@@ -304,7 +304,7 @@ void CallTab::stopButtonClicked()
 
 void CallTab::ringButtonClicked()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::ringButtonClicked()");
 #endif
 	bool on = false;
@@ -315,7 +315,7 @@ void CallTab::ringButtonClicked()
 
 void CallTab::receivedCall(QString ip)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("CallTab::receivedCall(QString %1)").arg(ip));
 #endif
 	hostEdit->setCurrentText(ip);
@@ -334,7 +334,7 @@ void CallTab::receivedCall(QString ip)
 // renyang - 本地端接受了遠端的通話，或是遠端接受了本地端的通話
 void CallTab::connectedCall()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::connectedCall()");
 #endif
 	// renyang - 若本地端電話還在響, 則把它關掉

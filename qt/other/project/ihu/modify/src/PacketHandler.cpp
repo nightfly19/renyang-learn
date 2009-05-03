@@ -27,7 +27,7 @@
 // renyang - 建立封包
 void PacketHandler::buildPacket(Packet *packet, char *data, int len, char type)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("PacketHandler::buildPacket(Packet *packet, char *data, int len, char type)");
 #endif
 	packet->init(data, len);
@@ -38,7 +38,7 @@ void PacketHandler::buildPacket(Packet *packet, char *data, int len, char type)
 // renyang - 感覺這一行跟上面那一個函式是一樣的@@@
 void PacketHandler::buildModePacket(Packet *packet, char *data, int len, char type, char mode)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("PacketHandler::buildModePacket(Packet *packet, char *data, int len, char type, char mode)");
 #endif
 	buildPacket(packet, data, len, type);
@@ -48,7 +48,7 @@ void PacketHandler::buildModePacket(Packet *packet, char *data, int len, char ty
 // renyang - 把buffer開始長度為len的資料, 複製到packet這一個位址中
 void PacketHandler::readPacket(Packet *packet, char *buffer, int len)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("PacketHandler::readPacket(Packet *packet, char *buffer, int len)");
 #endif
 	packet->fill(buffer, len);
@@ -57,7 +57,7 @@ void PacketHandler::readPacket(Packet *packet, char *buffer, int len)
 // renyang - 用來計算沒有經過加密的封包大小
 int PacketHandler::calculateSize(int dataLen)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("PacketHandler::calculateSize(int %1)").arg(dataLen));
 #endif
 	int len = dataLen + HEADER_SIZE;
@@ -72,7 +72,7 @@ int PacketHandler::calculateSize(int dataLen)
 // renyang - 計算有經過加密之後的封包的大小
 int PacketHandler::calculateCryptedSize(int dataLen)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("PacketHandler::calculateCryptedSize(int %1)").arg(dataLen));
 #endif
 	int align = dataLen % 8;

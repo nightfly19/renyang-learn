@@ -47,7 +47,7 @@
 
 Receiver::Receiver(Rsa *r) : rsa(r)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::Receiver(Rsa *r) : rsa(r)");
 #endif
 	setName("Receiver");
@@ -77,7 +77,7 @@ Receiver::Receiver(Rsa *r) : rsa(r)
 
 Receiver::~Receiver(void)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::~Receiver(void)");
 #endif
 	if (inputBuffer)
@@ -90,7 +90,7 @@ Receiver::~Receiver(void)
 
 void Receiver::reset()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::reset()");
 #endif
 	ihu_refuse = false;
@@ -105,7 +105,7 @@ void Receiver::reset()
 
 void Receiver::resetStream()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::resetStream()");
 #endif
 	streamLen = 0;
@@ -115,7 +115,7 @@ void Receiver::resetStream()
 
 void Receiver::dump(QString file)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::dump(QString %1)").arg(file));
 #endif
 	if (!file.isEmpty())
@@ -140,7 +140,7 @@ void Receiver::dump(QString file)
 // renyang-TODO - 要加入IHU_SCTP的部分
 void Receiver::start(int socket, int proto)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG_TEMP
 	qWarning(QString("Receiver::start(int %1, int %2)").arg(socket).arg(proto));;
 #endif
 	s = socket;
@@ -150,11 +150,15 @@ void Receiver::start(int socket, int proto)
 	// renyang - 此s代表client端的socket file descriptor
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
+	// renyang - 設定sync的型態為STREAM_READ_DATA
 	resetStream();
+	// renyang - 設定ihu_refuse, ihu_reply, ihu_abort, connected,...為false
 	reset();
+	// renayng - working=ture, 表示正在響鈴
 	go();
 
 	// renyang - 新增一個QSocketNotifier, 當有資料可以讀時, emit activated()
+	// renyang - 用來判斷對方是否有傳資料進來
 	notifier = new QSocketNotifier(s, QSocketNotifier::Read, this);
 	// renyang - activated(int)其參數是表示哪一個socket file descriptor被觸發
 	// renyang - 表示client端有傳送資料過來
@@ -167,9 +171,12 @@ void Receiver::start(int socket, int proto)
 		switch(protocol)
 		{
 			case IHU_UDP:
+				// renyang - 因為是connection-less的關係, 所以先接收第一筆資料???
 				receive();
 				break;
 		}
+		// renyang - 不論是tcp或是udp均會處理目前的函式
+		// renyang - 把這一個socket, protocol, ca送到Transmitter, 讓Transmitter可以傳送資料, 給peer端
 		emit newSocket(s, protocol, ca);
 	}
 	// renyang - 開始倒數計時, false表示timeout一次, 就呼叫timeout()一次
@@ -179,7 +186,7 @@ void Receiver::start(int socket, int proto)
 // renyang - 每隔一段時間去判斷對方的狀況
 void Receiver::checkConnection()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::checkConnection()");
 #endif
 	if (received)
@@ -198,7 +205,7 @@ void Receiver::checkConnection()
 
 void Receiver::close()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::close()");
 #endif
 	if (notifier)
@@ -213,7 +220,7 @@ void Receiver::close()
 // renayng - 結束傳送端的服務
 void Receiver::end()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::end()");
 #endif
 	close();
@@ -231,7 +238,7 @@ void Receiver::end()
 // renyang - 接收資料到這裡就算是結束了, 剩下的其它部分會處理
 void Receiver::receive()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG_TEMP
 	qWarning("Receiver::receive()");
 #endif
 	if (working)
@@ -243,6 +250,7 @@ void Receiver::receive()
 			// renyang - 把接收到的資料放到inputBuffer中
 			case IHU_UDP:
 				// renyang - 由udp的方式來接收資料
+				// renyang - 限制資料一定是由ca這一個sockaddr傳送過來的
 				rlen = ::recvfrom(s, inputBuffer, IN_BUFSIZE, 0, (struct sockaddr *)&ca, &calen);
 				break;
 			case IHU_TCP:
@@ -272,7 +280,7 @@ void Receiver::receive()
 // renyang - 把接收到的資料放到streamBuffer中
 void Receiver::putData(char *buffer, int len)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::putData(char *buffer, int %1)").arg(len));
 #endif
 	if (outFile)
@@ -303,7 +311,7 @@ void Receiver::putData(char *buffer, int len)
 
 void Receiver::processData()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::processData()");
 #endif
 	while (working && (sync != STREAM_READ_DATA))
@@ -321,7 +329,7 @@ void Receiver::processData()
 				if (strncmp(streamPtr, HEADER_SYNC_STRING, HEADER_SYNC_LEN) != 0)
 				{
 					sync = STREAM_OUT_OF_SYNC;
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 					fprintf(stderr, "OUT OF SYNC (Dump: 0x");
 					for(int i=0;i<4;i++)
 						fprintf(stderr, "%02x", (unsigned char) streamPtr[i]);
@@ -407,7 +415,7 @@ void Receiver::processData()
 
 bool Receiver::processPacket(Packet *p)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::processPacket(Packet *p)");
 #endif
 	switch (p->getInfo())
@@ -485,7 +493,7 @@ bool Receiver::processPacket(Packet *p)
 
 void Receiver::emitError(QString text)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::emitError(QString %1)").arg(text));
 #endif
 	emit error(text);
@@ -493,7 +501,7 @@ void Receiver::emitError(QString text)
 
 void Receiver::enableDecrypt(char *passwd, int len)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::enableDecrypt(char %1, int %2)").arg(passwd).arg(len));
 #endif
 	disableDecrypt();
@@ -503,7 +511,7 @@ void Receiver::enableDecrypt(char *passwd, int len)
 // renyang - 加解密的部分
 void Receiver::disableDecrypt()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::disableDecrypt()");
 #endif
 	if (blowfish)
@@ -513,7 +521,7 @@ void Receiver::disableDecrypt()
 
 void Receiver::stop()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::stop()");
 #endif
 	working = false;
@@ -521,7 +529,7 @@ void Receiver::stop()
 
 void Receiver::go()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::go()");
 #endif
 	working = true;
@@ -529,7 +537,7 @@ void Receiver::go()
 
 long Receiver::getBytes()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::getBytes()");
 #endif
 	long temp = bytes;
@@ -539,7 +547,7 @@ long Receiver::getBytes()
 
 long Receiver::getTotal()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::getTotal()");
 #endif
 	return total;
@@ -547,7 +555,7 @@ long Receiver::getTotal()
 
 QString Receiver::getIp()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::getIp()");
 #endif
 	return QString(inet_ntoa(ca.sin_addr));
@@ -555,7 +563,7 @@ QString Receiver::getIp()
 
 QString Receiver::getCallerName()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::getCallerName()");
 #endif
 	return callerName;
@@ -563,7 +571,7 @@ QString Receiver::getCallerName()
 
 void Receiver::noDecrypt()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::noDecrypt()");
 #endif
 	nodecrypt = true;
@@ -571,7 +579,7 @@ void Receiver::noDecrypt()
 
 bool Receiver::refused()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::refused()");
 #endif
 	return ihu_refuse;
@@ -579,7 +587,7 @@ bool Receiver::refused()
 
 bool Receiver::aborted()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::aborted()");
 #endif
 	return ihu_abort;
@@ -587,7 +595,7 @@ bool Receiver::aborted()
 
 bool Receiver::replied()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::replied()");
 #endif
 	return ihu_reply;
@@ -596,7 +604,7 @@ bool Receiver::replied()
 // renyang - 只是用來判斷完成某件事情的訊號
 void Receiver::emitSignal(signal_type type)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::emitSignal(signal_type %1)").arg(type));
 #endif
 	switch(type)
@@ -634,7 +642,7 @@ void Receiver::emitSignal(signal_type type)
 
 void Receiver::flush()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::flush()");
 #endif
 	stop();
@@ -643,7 +651,7 @@ void Receiver::flush()
 
 bool Receiver::isDumping()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::isDumping()");
 #endif
 	bool ret = false;
@@ -654,7 +662,7 @@ bool Receiver::isDumping()
 
 void Receiver::setConnected(bool on)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::setConnected(bool %1)").arg(on));
 #endif
 	connected = on;
@@ -662,16 +670,16 @@ void Receiver::setConnected(bool on)
 
 bool Receiver::isConnected()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::isConnected()");
 #endif
 	return connected;
 }
 
-// renyang - 設定已接收client端的連線
+// renyang - 設定已接收client端的連線(就網路的部分, 還沒有接受通話)
 void Receiver::setReceived(bool on)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::setReceived(bool %1)").arg(on));
 #endif
 	received = on;
@@ -679,7 +687,7 @@ void Receiver::setReceived(bool on)
 
 bool Receiver::isReceived()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::isReceived()");
 #endif
 	return received;
@@ -687,7 +695,7 @@ bool Receiver::isReceived()
 
 bool Receiver::isActive()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Receiver::isActive()");
 #endif
 	bool temp = active;

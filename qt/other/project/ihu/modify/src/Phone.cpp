@@ -154,7 +154,7 @@ void Phone::resize(int mc)
 // renyang - 建立一個socket等待某人來連接
 void Phone::waitCalls(int port, bool udp, bool tcp)
 {
-#ifdef IHU_DEBUG_TEMP
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::waitCalls(port:%1,udp:%2,tcp:%3)").arg(port).arg(udp).arg(tcp));
 #endif
 	inport = port;
@@ -197,7 +197,7 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 // renyang - 此socket代表client端的socket file descriptor
 void Phone::newTCPConnection(int socket)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::newTCPConnection(socket:%1)").arg(socket));
 #endif
 	// renyang - 連線數增加
@@ -219,9 +219,10 @@ void Phone::newTCPConnection(int socket)
 // renyang - 感覺應該是別人送一個udp封包過來，因此這裡就建立一個udp來服務它???
 void Phone::newUDPConnection(int socket)
 {
-#ifdef IHU_DEBUG_TEMP
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::newUDPConnection(%1)").arg(socket));
 #endif
+	// renyang - 網路連線數加1
 	connections++;
 	// renyang - 若沒有馬上刪除，會一直觸發目前這一個函式
 	// renyang - 因為刪掉了notifier, 所以, 在這個函式最下面還要重新連立一個udp的socket
@@ -238,14 +239,15 @@ void Phone::newUDPConnection(int socket)
 	{
 		close(socket);
 	}
-	// renyang - 在server端再建立一個udp socket, 等待下一個通話
+	// renyang - 在server端再建立一個udp socket, 等待下一個通話, 否則當資料傳送進來, 會當作有新的電話進來
+	// renyang - 一直會出現CallTab
 	waitCalls(inport, true, false);
 }
 
 // renyang - 當有電話進來, 改變圖示, 開始播放器
 void Phone::receivedCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::receivedCall(int %1)").arg(callId));
 #endif
 	try
@@ -264,8 +266,12 @@ void Phone::receivedCall(int callId)
 // renyang - 傳回一個目前沒有在使用的Call Id
 int Phone::newCall()
 {
+#ifdef REN_DEBUG
+	qWarning("Phone::newCall()");
+#endif
+	// renyang - 回傳一個call id目前沒有被使用(也就是新增的一個CallTab但目前沒有被使用)
 	int callId = findFreeCall();
-	// renyang - 尋找不到空的call id, 自己建立一個
+	// renyang - 尋找不到空的call id, 自己建立一個(也就是目前的所有CallTab均被使用中)
 	if (callId == -1)
 	{
 		try
@@ -305,6 +311,9 @@ void Phone::stopWaiting()
 // renyang - 建立一個新的Call
 int Phone::createCall()
 {
+#ifdef REN_DEBUG
+	qWarning("Phone::createCall()");
+#endif
 	int newId = findFreeId();
 	if (newId < 0)
 	{
@@ -329,7 +338,7 @@ int Phone::createCall()
 
 void Phone::deleteCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::deleteCall(%1)").arg(callId));
 #endif
 	Call *old_call = calls[callId]; 
@@ -341,7 +350,7 @@ void Phone::deleteCall(int callId)
 // renyang - 通知上層連線成功, 接受對方打來的電話, 或是本地端接受對方打過來的電話
 void Phone::connectedCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::connectedCall(%1)").arg(callId));
 #endif
 	emit connectedCallSignal(callId);
@@ -373,7 +382,7 @@ void Phone::receivedNewKey(int callId, QString text)
 
 void Phone::stopCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Phone::stopCall()");
 #endif
 	if (calls[callId])
@@ -382,7 +391,7 @@ void Phone::stopCall(int callId)
 
 void Phone::cancelCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::cancelCall(%1)").arg(callId));
 #endif
 	checkSound();
@@ -391,7 +400,7 @@ void Phone::cancelCall(int callId)
 
 void Phone::endCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Phone::endCall()");
 #endif
 	if (calls[callId])
@@ -446,7 +455,7 @@ void Phone::call(int callId, QString host, int port, int prot)
 // renyang - 此id的call接受別人打過來的電話
 void Phone::answerCall(int callId)
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Phone::answerCall(%1) - connections=%2").arg(callId).arg(connections));
 #endif
 	if (calls[callId])
@@ -787,7 +796,7 @@ void Phone::stopRecorder()
 // renyang - 開始執行播放器
 void Phone::startPlayer()
 {
-#ifdef IHU_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Phone::startPlayer()");
 #endif
 	switch (play_status)
@@ -914,6 +923,9 @@ void Phone::send(float *fsamples, int samples)
 
 int Phone::findFreeId()
 {
+#ifdef REN_DEBUG
+	qWarning("Phone::findFreeId()");
+#endif
 	// renyang - 當找過所有的id, 仍發現所有的id仍在使用, 則回傳-1
 	for (int i=0; i<maxcall; i++)
 	{
@@ -926,6 +938,9 @@ int Phone::findFreeId()
 // renyang - 尋找哪一個id目前沒有被使用
 int Phone::findFreeCall()
 {
+#ifdef REN_DEBUG
+	qWarning("Phone::findFreeCall()");
+#endif
 	for (int i=0; i<maxcall; i++)
 	{
 		if (calls[i])
