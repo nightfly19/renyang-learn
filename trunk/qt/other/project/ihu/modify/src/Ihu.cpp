@@ -654,6 +654,7 @@ void Ihu::call(int id, QString host)
 	}
 }
 
+// renyang - 答應別人的通話
 void Ihu::answerCall(int id)
 {
 #ifdef IHU_DEBUG
@@ -663,7 +664,10 @@ void Ihu::answerCall(int id)
 	{
 		phone->answerCall(id);
 		if (callTab[id])
+		{
+			// renyang - 當回答要接受電話時, 設定相關GUI的部分
 			callTab[id]->startCall();
+		}
 	}
 	catch (Error e)
 	{
@@ -671,6 +675,7 @@ void Ihu::answerCall(int id)
 	}
 }
 
+// renyang - 改變圖示
 void Ihu::receivedCall(int id)
 {
 #ifdef IHU_DEBUG
@@ -678,10 +683,13 @@ void Ihu::receivedCall(int id)
 #endif
 	if (callTab[id])
 	{
+		// renyang - 當對方打電話進來時, 設定相關GUI的部分
 		callTab[id]->receivedCall(phone->getCallerIp(id));
+		// renyang - 設定圖示
 		callWidget->setTabIconSet(callTab[id], QPixmap::fromMimeSource( "ihu_alarm.png" ) );
 		if (autoanswer)
 		{
+			// renyang - 當回答要接受電話時, 設定相關GUI的部分
 			callTab[id]->startCall();
 			answerCall(id);
 		}
@@ -1116,13 +1124,19 @@ void Ihu::thSliderChanged(int val)
 // renyang - 設定GUI的部分做出相對應的動作
 void Ihu::enableRecorder(bool on)
 {
-//	qWarning(QString("Ihu::enableRecorder(%1)").arg(on));
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::enableRecorder(%1)").arg(on));
+#endif
 	soundLabel->setEnabled(on);
 	soundLevel->setEnabled(on);
 }
 
+// renyang - 圖示
 void Ihu::enablePlayer(bool on)
 {
+#ifdef IHU_DEBUG
+	qWarning(QString("Ihu::enablePlayer(bool %1)").arg(on));
+#endif
 	delayLabel->setEnabled(on);
 }
 

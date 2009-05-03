@@ -276,7 +276,7 @@ void Recorder::alsa_callback()
 	if (err < 0)
 	{
 #ifdef IHU_DEBUG
-		fprintf (stderr, "ALSA: RECORDER Error: %s\n", snd_strerror (err));
+		// fprintf (stderr, "ALSA: RECORDER Error: %s\n", snd_strerror (err));
 #endif
 		snd_pcm_state_t pcm_state = snd_pcm_state (capture_handle);
 		if (pcm_state == SND_PCM_STATE_XRUN) // An XRUN occurred

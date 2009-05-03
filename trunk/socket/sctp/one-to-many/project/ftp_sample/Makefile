@@ -4,8 +4,10 @@ TARGET	= cbr
 
 OBJ	= cbr.o
 
-ifeq ($(UN_MOD),on)
-	MOD_FLAG = -DUN_MOD
+MOD_FLAG = -DUN_MOD
+
+ifeq ($(UN_MOD),off)
+	MOD_FLAG =
 endif
 
 .PHONY: everything all clean distclean

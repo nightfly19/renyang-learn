@@ -194,6 +194,7 @@ private:
 	float balance;
 
 	bool recording;
+	// renyang - 放出聲音啦
 	bool playing;
 	// renyang - 是否在server端建立了socket等待client的連線
 	bool listening;

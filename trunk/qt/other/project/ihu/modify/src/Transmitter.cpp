@@ -227,7 +227,7 @@ void Transmitter::end()
 void Transmitter::enableCrypt(char *passwd, int len)
 {
 #ifdef IHU_DEBUG
-	qWarning(QString("Transmitter::enableCrypt(char %1, int %2)").arg(passwd).arg(len));
+	qWarning(QString("Transmitter::enableCrypt(char *passwd, int %1)").arg(len));
 #endif
 	disableCrypt();
 	blowfish = new Blowfish(passwd, len);

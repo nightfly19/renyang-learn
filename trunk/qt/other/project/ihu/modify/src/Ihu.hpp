@@ -185,6 +185,7 @@ public slots:
 
 private:
 	bool closing;
+	// renyang - 是否要自動回覆
 	bool autoanswer;
 	bool autocrypt;
 	bool showkey;
