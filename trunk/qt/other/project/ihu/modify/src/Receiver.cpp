@@ -612,6 +612,7 @@ void Receiver::emitSignal(signal_type type)
 			case SIGNAL_RING:
 				emit ringSignal();
 				break;
+			// renyang - 回覆答鈴
 			case SIGNAL_RINGREPLY:
 				emit ringReplySignal();
 				break;

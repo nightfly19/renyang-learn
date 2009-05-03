@@ -372,6 +372,7 @@ void Transmitter::emitError(QString text)
 	emit error(text);
 }
 
+// renyang - 建立要送出去的封包
 void Transmitter::sendSpecialPacket(char *data, int len, char type)
 {
 #ifdef IHU_DEBUG
@@ -379,6 +380,7 @@ void Transmitter::sendSpecialPacket(char *data, int len, char type)
 #endif
 	try
 	{
+		// renyang - 計算這一個封包所需要的大小
 		int size = PacketHandler::calculateSize(len);
 		Packet *p = new Packet (size);
 		// renyang - 建立封包
@@ -424,6 +426,7 @@ void Transmitter::sendNamePacket(bool special, char type)
 		dataLen = myName.length()+1;
 		dataPtr = (char *) myName.ascii();
 	}
+	// renyang - special應該是表是說是否之前有傳送過, 像是傳送鈴聲, 就是重複的封包(還是特殊的封包???)
 	if (special)
 		sendSpecialPacket(dataPtr, dataLen, type);
 	else
@@ -455,6 +458,7 @@ void Transmitter::sendRingPacket()
 	sendNamePacket(false, IHU_INFO_RING);
 }
 
+// renyang - 傳送重覆答鈴聲
 void Transmitter::sendRingReplyPacket()
 {
 #ifdef IHU_DEBUG
