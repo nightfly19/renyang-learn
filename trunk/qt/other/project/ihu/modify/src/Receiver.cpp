@@ -140,7 +140,7 @@ void Receiver::dump(QString file)
 // renyang-TODO - 要加入IHU_SCTP的部分
 void Receiver::start(int socket, int proto)
 {
-#ifdef REN_DEBUG_TEMP
+#ifdef REN_DEBUG
 	qWarning(QString("Receiver::start(int %1, int %2)").arg(socket).arg(proto));;
 #endif
 	s = socket;
@@ -238,7 +238,7 @@ void Receiver::end()
 // renyang - 接收資料到這裡就算是結束了, 剩下的其它部分會處理
 void Receiver::receive()
 {
-#ifdef REN_DEBUG_TEMP
+#ifdef REN_DEBUG
 	qWarning("Receiver::receive()");
 #endif
 	if (working)
