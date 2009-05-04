@@ -81,10 +81,14 @@ public:
 	char getInfo();
 	bool isInfo(char);
 private:
+	// renyang - 這一個封包的起始位址
 	char *packet;
+	// renyang - 這一個封包開始放資料的起始位址
 	char *dataPtr;
 	int size;
+	// renyang - 放置此封包大小的起始位址
 	unsigned char *dataLen;
+	// renyang - 放置此封包info的起始位址
 	char *info;
 };
 

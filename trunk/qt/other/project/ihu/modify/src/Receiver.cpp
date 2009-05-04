@@ -164,7 +164,8 @@ void Receiver::start(int socket, int proto)
 	// renyang - 表示client端有傳送資料過來
 	// renyang - 每格一段時間接收一次資料
 	connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
-	// renyang - 不太清楚為什麼UDP這裡就接收一次資料
+	// renyang - 因為tcp所接收到的第一個資料是connection，所以，不需要
+	// renyang - 但是, udp所接收到的第一個資料就是資料啦, 所以要比tcp多接收一次
 	if (received)
 	{
 		// renyang - 若是udp的話, 則直接開始接收資料, 因udp只要是有資料送過來就直接接收@@@
@@ -177,6 +178,7 @@ void Receiver::start(int socket, int proto)
 		}
 		// renyang - 不論是tcp或是udp均會處理目前的函式
 		// renyang - 把這一個socket, protocol, ca送到Transmitter, 讓Transmitter可以傳送資料, 給peer端
+		// renyang - 只有當是waitCalls才會建立一個Transmitter的一個socket用來傳送資料
 		emit newSocket(s, protocol, ca);
 	}
 	// renyang - 開始倒數計時, false表示timeout一次, 就呼叫timeout()一次
@@ -241,6 +243,7 @@ void Receiver::receive()
 #ifdef REN_DEBUG
 	qWarning("Receiver::receive()");
 #endif
+	// renyang - 哇!!竟然不用delete notifier???
 	if (working)
 	{
 		int rlen = 0;
@@ -283,6 +286,7 @@ void Receiver::putData(char *buffer, int len)
 #ifdef REN_DEBUG
 	qWarning(QString("Receiver::putData(char *buffer, int %1)").arg(len));
 #endif
+	// renyang - 應該是要把音訊檔存到檔案中吧
 	if (outFile)
 	{
 		// renyang - 把接收到的資料放到outFile中
@@ -342,7 +346,7 @@ void Receiver::processData()
 					// renyang - 實際封包的大小(內容值是由peer端送過來的)
 					unsigned char packetlen = (unsigned char) streamPtr[HEADER_SYNC_LEN];
 					int plen = (int) packetlen;
-					// renyang - 是大於還是小於啊?
+					// renyang - 封包面裡記錄的資料大小比streamLen還要大, 則表示有資料遺失
 					if (plen > streamLen)
 					{
 						sync = STREAM_MISSING_DATA;
@@ -354,6 +358,7 @@ void Receiver::processData()
 							if (plen >= MIN_PACKET_SIZE)
 							{
 								Packet *p = new Packet(plen);
+								// renyang - 建立Packet
 								PacketHandler::readPacket(p, streamPtr, plen);
 								processPacket(p);
 								delete p;
@@ -413,6 +418,7 @@ void Receiver::processData()
 	}
 }
 
+// renyang-TODO - 加入Vedio的部分吧
 bool Receiver::processPacket(Packet *p)
 {
 #ifdef REN_DEBUG
@@ -422,7 +428,10 @@ bool Receiver::processPacket(Packet *p)
 	{
 		case IHU_INFO_CRYPTED_AUDIO:
 			if (blowfish)
+			{
+				// renyang - 解碼
 				p->decrypt(blowfish);
+			}
 			else
 			{
 				if (!nodecrypt)
@@ -432,6 +441,7 @@ bool Receiver::processPacket(Packet *p)
 				break;
 			}
 		case IHU_INFO_AUDIO:
+			// renyang - 取出資料, 並且通知有新資料到
 			if (p->getDataLen() > MIN_DATA_SIZE)
 			{
 				emit newAudioData(p->getData(), p->getDataLen());

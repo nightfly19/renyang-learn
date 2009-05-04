@@ -39,6 +39,9 @@
 // renyang -  建立一個Phone最大可以同時撥出去的電話數(Max Call)
 Phone::Phone(int mc)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::Phone(int %1)").arg(mc));
+#endif
 	maxcall = mc;
 	// renyang - 建立一個陣列是用來儲放Call *
 	calls = new Call*[maxcall];
@@ -109,11 +112,15 @@ Phone::Phone(int mc)
 	connect( recorder, SIGNAL(data(float*, int)), this, SLOT(processAudioSamples(float*,int)) );
 	connect( player, SIGNAL(warning(QString)), this, SLOT(warning(QString)) );
 
+	// renyang - 重點, 每一段時間到會檢查所有的Call
 	connect( timer, SIGNAL(timeout()), this, SLOT(playCallback()) );
 }
 
 Phone::~Phone(void)
 {
+#ifdef REN_DEBUG
+	qWarning("Phone::~Phone()");
+#endif
 	timer->stop();
 	for (int i=0; i<maxcall; i++)
 	{
@@ -137,6 +144,9 @@ Phone::~Phone(void)
 
 void Phone::resize(int mc)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::resize(int %1)").arg(mc));
+#endif
 	if (mc != maxcall)
 	{
 		Call** oldcalls = calls;
@@ -225,9 +235,11 @@ void Phone::newUDPConnection(int socket)
 	// renyang - 網路連線數加1
 	connections++;
 	// renyang - 若沒有馬上刪除，會一直觸發目前這一個函式
+	// renyang - 因為你還沒有把資料處理掉, 所以, 它會一直觸發
 	// renyang - 因為刪掉了notifier, 所以, 在這個函式最下面還要重新連立一個udp的socket
 	delete notifier;
 	notifier = NULL;
+	// renyang - 回傳一個空閒的Call Id(若沒有的話, 此函式會自己建立)
 	int callId = newCall();
 	if (callId >= 0)
 	{
@@ -291,6 +303,9 @@ int Phone::newCall()
 // renyang-TODO - 當停止接收call時, sctp要做什麼動作
 void Phone::stopWaiting()
 {
+#ifdef REN_DEBUG
+	qWarning("Phone::stopWaiting()");
+#endif
 	listening = false;
 
 	if(tcpserver)
@@ -358,13 +373,19 @@ void Phone::connectedCall(int callId)
 
 void Phone::abortCall(int callId, QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::abortCall(int %1, QString %2)").arg(callId).arg(text));
 //	qWarning("Phone::abortCall(int, QString)");
+#endif
 	abortCall(callId);
 	emit abortCallSignal(callId, text);
 }
 
 void Phone::abortCall(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::abortCall(int %1)").arg(callId));
+#endif
 //	qWarning("Phone::abortCall(int)");
 	if (calls[callId])
 		calls[callId]->error();
@@ -372,11 +393,17 @@ void Phone::abortCall(int callId)
 
 void Phone::callWarning(int callId, QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::callWarning(int %1, QString %2)").arg(callId).arg(text));
+#endif
 	emit messageSignal(callId, text);
 }
 
 void Phone::receivedNewKey(int callId, QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::receivedNewKey(int %1, QString %2)").arg(callId).arg(text));
+#endif
 	emit newKeySignal(callId, text);
 }
 
@@ -409,6 +436,9 @@ void Phone::endCall(int callId)
 
 void Phone::endAll()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::endAll()"));
+#endif
 	for (int i=0; i<maxcall; i++)
 	{
 		if (calls[i])
@@ -418,6 +448,9 @@ void Phone::endAll()
 
 void Phone::abortAll()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::abortAll()"));
+#endif
 	for (int i=0; i<maxcall; i++)
 	{
 		if (calls[i])
@@ -431,7 +464,9 @@ void Phone::abortAll()
 // renyang - 與host ip建立連線，port號, Protocol
 void Phone::call(int callId, QString host, int port, int prot)
 {
-//	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
+#endif
 	if (calls[callId])
 	{
 		try
@@ -478,11 +513,17 @@ void Phone::answerCall(int callId)
 
 void Phone::setupAdr(bool on, float min, float max, float stretch)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setupAdr(bool %1, float %2, float %3, float %4)").arg(on).arg(min).arg(max).arg(stretch));
+#endif
 	player->setAdr(on, min, max, stretch);
 }
 
 void Phone::setupAgc(bool on, bool hw_on, bool sw_on, float step, float lev, const char* mixname)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setupAgc(bool %1, bool %2, bool %3, float %4, float %5, const %6)").arg(on).arg(hw_on).arg(sw_on).arg(step).arg(lev).arg(mixname));
+#endif
 	agc_hw = hw_on & on;
 	agc_sw = sw_on & on;
 	agc_step = step;
@@ -504,6 +545,9 @@ void Phone::setupAgc(bool on, bool hw_on, bool sw_on, float step, float lev, con
 
 void Phone::disableRecorder(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::disableRecorder(bool %1)").arg(on));
+#endif
 	if (on)
 	{
 		stopRecorder();
@@ -531,18 +575,27 @@ void Phone::disableRecorder(bool on)
 
 void Phone::mutePlayer(int callId, bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::mutePlayer(int %1, bool %2)").arg(callId).arg(on));
+#endif
 	if (calls[callId])
 		calls[callId]->mutePlayer(on);
 }
 
 void Phone::muteRecorder(int callId, bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::muteRecorder(int %1, bool %2)").arg(callId).arg(on));
+#endif
 	if (calls[callId])
 		calls[callId]->muteRecorder(on);
 }
 
 void Phone::disablePlayer(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::disablePlayer(bool %1)").arg(on));
+#endif
 	if (on)
 	{
 		stopPlayer();
@@ -560,36 +613,54 @@ void Phone::disablePlayer(bool on)
 
 void Phone::enableRandomCrypt(int callId, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::enableRandomCrypt(int %1, int %2)").arg(callId).arg(len));
+#endif
 	if (calls[callId])
 		calls[callId]->enableRandomCrypt(len);
 }
 
 void Phone::enableCrypt(int callId, char *passwd, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::enableCrypt(int %1, char *passwd, int %2)").arg(callId).arg(len));
+#endif
 	if (calls[callId])
 		calls[callId]->enableCrypt(passwd, len);
 }
 
 void Phone::enableDecrypt(int callId, char *passwd, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::enableDecrypt(int %1, char *passwd, int %2)").arg(callId).arg(len));
+#endif
 	if (calls[callId])
 		calls[callId]->enableDecrypt(passwd, len);
 }
 
 void Phone::disableDecrypt(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::disableDecrypt(int callId)"));
+#endif
 	if (calls[callId])
 		calls[callId]->disableDecrypt();
 }
 
 void Phone::disableCrypt(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::disableCrypt(int callId)"));
+#endif
 	if (calls[callId])
 		calls[callId]->disableCrypt();
 }
 
 void Phone::setMyName(QString name)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setMyName(QString name)"));
+#endif
 	if(name.length() > IHU_MAX_NAME_LEN)
 	{
 		// renyang - 會被截為IHU_MAX_NAME_LEN的長度
@@ -607,6 +678,9 @@ void Phone::setMyName(QString name)
 // renyang - 設定語音的編碼設定
 void Phone::setup(int mode, int quality, int abr, int vbr, float vbr_quality, int complexity, int vad, int dtx, int txstop, int th, int ring_vol)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setup"));
+#endif
 	bool restart = recording;
 	if (restart)
 		stopRecorder();
@@ -683,6 +757,9 @@ void Phone::setup(int mode, int quality, int abr, int vbr, float vbr_quality, in
 
 void Phone::setThreshold(int th)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setThreshold(int th)"));
+#endif
 	float input = (float) th;
 	if (input <= -96.0)
 		threshold = 0.0;
@@ -692,17 +769,26 @@ void Phone::setThreshold(int th)
 
 void Phone::setupRecorder(int driver, QString interface)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setupRecorder(int driver, QString interface)"));
+#endif
 	// renyang - driver是指使用ALSA或是JACK當作音訊的編碼
 	recorder->setup(driver, interface);
 }
 
 void Phone::setupPlayer(QString interface, int prepackets)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setupPlayer"));
+#endif
 	player->setup(interface, prepackets);
 }
 
 void Phone::ring(int callId, bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::ring(int callId, bool on)"));
+#endif
 //	qWarning("Phone::ring()");
 	if (calls[callId])
 		calls[callId]->sendRing(on);
@@ -710,6 +796,9 @@ void Phone::ring(int callId, bool on)
 
 void Phone::processAudioSamples(float *samples, int nsample)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::processAudioSamples"));
+#endif
 	recBuffer = samples;
 	while (nsample > 0)
 	{
@@ -722,8 +811,7 @@ void Phone::processAudioSamples(float *samples, int nsample)
 			nsample = 0;
 			break;
 		}
-		else
-		if (nsample >= toRead)
+		else if (nsample >= toRead)
 		{
 			memcpy(bufptr, recBuffer, toRead*sizeof(float));
 			ready += toRead;
@@ -740,9 +828,12 @@ void Phone::processAudioSamples(float *samples, int nsample)
 	}
 }
 
-// renyang - 開始接收別人打過來的電話
+// renyang - 應該是開始擷取麥克風的資料
 void Phone::startRecorder()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::startRecorder()"));
+#endif
 //	qWarning("Phone::startRecorder()");
 	switch (rec_status)
 	{
@@ -768,7 +859,7 @@ void Phone::startRecorder()
 				recorder->start(rate);
 				// renyang - 設定目前的記錄器為等待
 				rec_status = RECORDER_STATUS_WAITING;
-				// renyang - 開始記錄
+				// renyang - 開始擷取麥克風的語音
 				recording = true;
 				// renyang - 告知別人(IhuGui), 我要開始記錄啦
 				// renyang - 耶，這一個部分只有對Ihu有影響
@@ -780,6 +871,9 @@ void Phone::startRecorder()
 
 void Phone::stopRecorder()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::stopRecorder()"));
+#endif
 	switch (rec_status)
 	{
 		case RECORDER_STATUS_MUTE:
@@ -811,6 +905,7 @@ void Phone::startPlayer()
 				player->start(play_rate, play_frame_size);
 				play_status = PLAYER_STATUS_RUNNING;
 				playing = true;
+				// renyang - 改變GUI的變化
 				emit playerSignal(true);
 			}
 			break;
@@ -819,6 +914,9 @@ void Phone::startPlayer()
 
 void Phone::stopPlayer()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::stopPlayer()"));
+#endif
 //	qWarning("Phone::stopPlayer()");
 	switch (play_status)
 	{
@@ -836,6 +934,9 @@ void Phone::stopPlayer()
 // renyang - 尋找出最大音量, 來確認是有在說話
 bool Phone::isSpeaking(float *samples, int nsample)
 {
+#ifdef REN_DEBUG	
+	qWarning(QString("Phone::isSpeaking"));
+#endif
 	bool ret = false;
 	float smp;
 	// renyang - 尋找最大音量的樣本數
@@ -855,6 +956,9 @@ bool Phone::isSpeaking(float *samples, int nsample)
 // renyang - 傳送音訊資料
 void Phone::sendAudioData(float *sample, int samples)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::sendAudioData"));
+#endif
 	// renyang - 若最大音量有超過threshold, 則表示要傳送語音資料
 	if (isSpeaking(sample, samples))
 	{
@@ -889,6 +993,9 @@ void Phone::sendAudioData(float *sample, int samples)
 
 void Phone::send(float *fsamples, int samples)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::send"));
+#endif
 	int tot = 0;
 	speex_bits_reset(&enc_bits);
 	if (enc_state)
@@ -955,11 +1062,17 @@ int Phone::findFreeCall()
 
 void Phone::warning(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::warning(%1)").arg(text));
+#endif
 	emit warningSignal(text);
 }
 
 QString Phone::getCallerName(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getCallerName(%1)").arg(callId));
+#endif
 	QString ret = "";
 	if (calls[callId])
 		ret = calls[callId]->getCallerName();
@@ -969,6 +1082,9 @@ QString Phone::getCallerName(int callId)
 // renyang - 取得caller id的ip address
 QString Phone::getCallerIp(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getCallerIp(%1)").arg(callId));
+#endif
 	QString ret = "";
 	if (calls[callId])
 		ret = calls[callId]->getCallerIp();
@@ -977,6 +1093,9 @@ QString Phone::getCallerIp(int callId)
 
 long Phone::getCallTraffic(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getCallTraffic(%1)").arg(callId));
+#endif
 	long ret = 0;
 	if (calls[callId])
 		ret = calls[callId]->getTraffic();
@@ -985,6 +1104,9 @@ long Phone::getCallTraffic(int callId)
 
 long Phone::getCallRX(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("getCallRX(int %1)").arg(callId));
+#endif
 	long ret = 0;
 	if (calls[callId])
 		ret = calls[callId]->getTotalRX();
@@ -993,6 +1115,9 @@ long Phone::getCallRX(int callId)
 
 long Phone::getCallTX(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getCallTX(int %1)").arg(callId));
+#endif
 	long ret = 0;
 	if (calls[callId])
 		ret = calls[callId]->getTotalTX();
@@ -1001,6 +1126,9 @@ long Phone::getCallTX(int callId)
 
 long Phone::getTotal()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getTotal()"));
+#endif
 	long total = 0;
 	for (int i=0; i<maxcall; i++)
 	{
@@ -1012,7 +1140,9 @@ long Phone::getTotal()
 
 void Phone::checkSound()
 {
-//	qWarning(QString("Phone::checkSound() - call_number = %1").arg(call_number));
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::checkSound() - call_number = %1").arg(call_number));
+#endif
 	if (--call_number <= 0)
 	{
 		call_number = 0;
@@ -1024,24 +1154,35 @@ void Phone::checkSound()
 
 void Phone::cryptCall(int callId)
 {
-//	qWarning("Phone::cryptCall()");
+#ifdef REN_DEBUG
+	qWarning("Phone::cryptCall()");
+#endif
 	emit cryptedSignal(callId);
 }
 
 void Phone::dumpRXStream(int callId, QString filename)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::dumpRXStream(%1, %2)").arg(callId).arg(filename));
+#endif
 	if (calls[callId])
 		calls[callId]->dumpRXStream(filename);
 }
 
 void Phone::dumpTXStream(int callId, QString filename)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::dumpTXStream(%1, %2)").arg(callId).arg(filename));
+#endif
 	if (calls[callId])
 		calls[callId]->dumpTXStream(filename);
 }
 
 bool Phone::isDumpingRX(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::isDumpingRX(%1)").arg(callId));
+#endif
 	bool ret = false;
 	if (calls[callId])
 		ret = calls[callId]->isDumpingRX();
@@ -1050,6 +1191,9 @@ bool Phone::isDumpingRX(int callId)
 
 bool Phone::isDumpingTX(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::isDumpingTX(%1)").arg(callId));
+#endif
 	bool ret = false;
 	if (calls[callId])
 		ret = calls[callId]->isDumpingTX();
@@ -1058,6 +1202,9 @@ bool Phone::isDumpingTX(int callId)
 
 bool Phone::isRXActive(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::isRXActive(%1)").arg(callId));
+#endif
 	bool ret = false;
 	if (calls[callId])
 		ret = calls[callId]->isRXActive();
@@ -1066,6 +1213,9 @@ bool Phone::isRXActive(int callId)
 
 bool Phone::isTXActive(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::isTXActive(%1)").arg(callId));
+#endif
 	bool ret = false;
 	if (calls[callId])
 		ret = calls[callId]->isTXActive();
@@ -1075,31 +1225,49 @@ bool Phone::isTXActive(int callId)
 // renyang - 取得player的delay
 float Phone::getDelay()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getDelay()"));
+#endif
 	return player->getDelay();
 }
 
 bool Phone::isListening()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::isListening()"));
+#endif
 	return listening;
 }
 
 int Phone::getConnections()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getConnections()"));
+#endif
 	return connections;
 }
 
 int Phone::getCalls()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getCalls()"));
+#endif
 	return call_number;
 }
 
 void Phone::clearConnections()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::clearConnections()"));
+#endif
 	connections = 0;
 }
 
 int Phone::getPeak()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::getPeak()"));
+#endif
 	if (speak > 0)
 		speak--;
 
@@ -1135,10 +1303,16 @@ int Phone::getPeak()
 	return ret;
 }
 
+// renyang - 每18毫秒會執行一次, 把準備好的音訊撥放出來
 void Phone::playCallback()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::playCallback()"));
+#endif
+	// renyang - 設定是否有對方的聲音, 當silence=true則表示有聲音(可能是鈴聲或是對方的聲音)
 	bool silence = true;
 	balance = 2.f;
+	// renyang - 設定響鈴次數
 	if (ringing)
 	{
 		if (ringCount-- > 0)
@@ -1163,6 +1337,7 @@ void Phone::playCallback()
 		{
 			if (silence)
 			{
+				// renyang - 把某一個call的ready的檔案copy到playBuffer中
 				if (calls[i]->playData(playBuffer, play_frame_size))
 				{
 					silence = false;
@@ -1181,7 +1356,10 @@ void Phone::playCallback()
 	{
 		case PLAYER_STATUS_RUNNING:
 			if (!silence)
+			{
 				player->put(playBuffer, play_frame_size);
+			}
+			// renyang - 實際放出音量啦
 			player->callback();
 			break;
 		default:
@@ -1191,7 +1369,10 @@ void Phone::playCallback()
 
 void Phone::playInit(int callId)
 {
+#ifdef REN_DEBUG
 //	qWarning("Phone::playInit()");
+	qWarning(QString("Phone::playInit(int %1)").arg(callId));
+#endif
 	ringCount = IHU_INIT_COUNT;
 	ringPtr = 0;
 	if (!ringing)
@@ -1203,6 +1384,9 @@ void Phone::playInit(int callId)
 
 void Phone::playRing(int callId)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::playRing(%1)").arg(callId));
+#endif
 //	qWarning("Phone::playRing()");
 	if (!ringing)
 	{

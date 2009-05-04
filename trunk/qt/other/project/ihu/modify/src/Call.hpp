@@ -92,11 +92,13 @@ private:
 	// renyang - 傳送端
 	Transmitter *transmitter;
 
+	// renyang - 存放SpeexBits
 	SpeexBits bits;
 	void *dec_state;
 	float *outBuffer;
 	float *soundBuffer;
 	int frame_size;
+	// renyang - 目前有多少個frame已經可以播放了
 	int readyFrames;
 
 	int inport;
@@ -106,6 +108,7 @@ private:
 	// renyang - 表示目前這一個call是否正在撥打(進行中)
 	bool active;
 	bool muteRec;
+	// renyang - 目前這一個Call是否為靜音設定
 	bool mutePlay;
 	// renyang - 表示目前這一個Call是否正在被使用(撥電話出去, 等待接電話, 通話中都算是false)
 	bool callFree;

@@ -224,8 +224,9 @@ void Call::start(int socket, int protocol)
 	try
 	{
 		readyFrames = 0;
-		// renyang - 設定本端是接收端
+		// renyang - 設定本端是接收端(就是等待別人打電話過來的啦)
 		receiver->setReceived(true);
+		// renyang - 開始定時的去查看是否有新的資料可以接收
 		receiver->start(socket, protocol);
 		callFree = false;
 		active = true;
@@ -237,7 +238,7 @@ void Call::start(int socket, int protocol)
 	}
 }
 
-// renyang - 似乎只有UDP會使用到此函式, 可能因為它是connection-less
+// renyang - 建立一個傳送的protocol
 void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 {
 #ifdef REN_DEBUG
@@ -246,6 +247,7 @@ void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 	try
 	{
 		sd = socketd;
+		// renyang - 建立一個專門給Transmitter使用的socket
 		transmitter->newConnection(sd, sa, protocol);
 		emit warning(QString("Incoming connection from %1!").arg(receiver->getIp()));
 	}
@@ -445,6 +447,7 @@ void Call::sendRing(bool on)
 	transmitter->ring(on);
 }
 
+// renyang - 替音訊解碼
 void Call::decodeAudioData(char *buf, int len)
 {
 #ifdef REN_DEBUG
@@ -452,7 +455,9 @@ void Call::decodeAudioData(char *buf, int len)
 #endif
 	if (dec_state)
 	{
+		// renyang - Initializes the bit-stream from the data in an area of memory
 		speex_bits_read_from(&bits, buf, len);
+		// renyang 當<0表示解碼失敗
 		if (speex_decode(dec_state, &bits, outBuffer) < 0)
 		{
 			emit warning("Warning: wrong decryption key or stream corrupted!");
@@ -460,15 +465,18 @@ void Call::decodeAudioData(char *buf, int len)
 		}
 		else
 		{
+			// renyang - 來到這裡表示解碼成功
 			putData(outBuffer, frame_size);
 		}
 	}
 }
 
+// renyang - 播放響鈴或是對方的語音
 bool Call::playData(float *buf, int len)
 {
 #ifdef REN_DEBUG
 	// qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
+	qWarning(QString("Call::playData(float %1, int %2)").arg(*buf).arg(len));
 #endif
 	bool ret = false;
 	if (readyFrames >= len)
@@ -476,9 +484,13 @@ bool Call::playData(float *buf, int len)
 		if (!mutePlay)
 		{
 			for (int i=0; i<len; i++)
+			{
+				// renyang - 撥放是由Phone去撥放的
 				buf[i] = soundBuffer[i];
+			}
 			ret = true;
 		}
+		// renyang - 由readyBuffer扣掉len長度
 		updateFrames(len);
 	}
 	return ret;
@@ -490,6 +502,7 @@ bool Call::mixData(float *buf, int len, float balance)
 	qWarning(QString("Call::mixData() - Balance: %1").arg(balance, 2, 'f', 1 ));
 #endif
 	bool ret = false;
+	// renyang - 目前準備好的音訊檔的frames個數大於len
 	if (readyFrames >= len)
 	{
 		if (!mutePlay)
@@ -503,6 +516,7 @@ bool Call::mixData(float *buf, int len, float balance)
 	return ret;
 }
 
+// renyang - 把解碼之後的音訊放到soundBuffer中
 void Call::putData(float *buf, int len)
 {
 #ifdef REN_DEBUG
@@ -674,6 +688,7 @@ void Call::setMyName(QString myName)
 	transmitter->setMyName(myName);
 }
 
+// renyang - 設定readyFrames的個數
 void Call::updateFrames(int frames)
 {
 #ifdef REN_DEBUG

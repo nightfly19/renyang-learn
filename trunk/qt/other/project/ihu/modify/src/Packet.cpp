@@ -109,7 +109,7 @@ void Packet::init(char *data, int len)
 	if (len > 0)
 	{
 		dataPtr = packet + HEADER_SIZE;
-		// renyang - 把資料copy到自定的封包中
+		// renyang - 把資料copy到自訂的封包中
 		memcpy(dataPtr, data, len);
 	}
 	resetInfo();
@@ -156,6 +156,7 @@ char Packet::getSeq()
 	return (*info & 0xc0);
 }
 
+// renyang - 依資料建立Packet
 void Packet::fill(char *buffer, int len)
 {
 #ifdef REN_DEBUG

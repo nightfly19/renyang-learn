@@ -63,8 +63,12 @@ float Player::getDelay()
 	return delay;
 }
 
+// renyang - 設定音訊撥放器
 void Player::start(unsigned int rate, int fsize)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Player::start(unsigned int %1, int %2)").arg(rate).arg(fsize));
+#endif
 	sample_rate = rate;
 	frame_size = fsize;
 	readyFrames = 0;
@@ -161,8 +165,10 @@ void Player::playShort(short *buffer, int frames)
 	}
 }
 
+// renyang - 撥放音訊檔
 void Player::play(float *buffer, int frames)
 {
+	// renyang - 要撥放的音訊是否足夠
 	if (ready(frames))
 	{
 		for(i=0;i<frames;i++)
@@ -206,6 +212,9 @@ bool Player::ready()
 
 void Player::callback()
 {
+#ifdef REN_DEBUG
+	qWarning("Player::callback()");
+#endif
 	state = snd_pcm_state(playback_handle);
 	switch(state)
 	{
@@ -231,6 +240,7 @@ void Player::callback()
 				{
 					delay = (minDelay+maxDelay)/2.f;
 				}
+				// renyang - 把音訊寫入音效卡, 讓它撥放(snd_pcm_writei)???
 				err = snd_pcm_writei(playback_handle, shortBuffer, readyFrames);
 				if (err > 0)
 				{
@@ -249,6 +259,7 @@ void Player::playInit()
 	prebuffer = frame_size;
 }
 
+// renyang - 把音訊檔放到要撥放的地方
 void Player::put(float *buffer, int frames)
 {
 	int nSamples = frames;
@@ -265,8 +276,7 @@ void Player::put(float *buffer, int frames)
 #endif
 			}
 		}
-		else
-		if (delay < minDelay)
+		else if (delay < minDelay)
 		{
 			if (stretch >= 0.f)
 			{
@@ -300,7 +310,9 @@ void Player::put(float *buffer, int frames)
 		}
 	}
 	else
+	{
 		play(buffer, nSamples);
+	}
 }
 
 void Player::pause(bool on)
