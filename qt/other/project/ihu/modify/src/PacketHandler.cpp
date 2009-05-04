@@ -46,6 +46,7 @@ void PacketHandler::buildModePacket(Packet *packet, char *data, int len, char ty
 }
 
 // renyang - 把buffer開始長度為len的資料, 複製到packet這一個位址中
+// renyang - 感覺不應該叫readPacket, 應該叫writePacket, 因為, 它是把資料寫到自定的封包中
 void PacketHandler::readPacket(Packet *packet, char *buffer, int len)
 {
 #ifdef REN_DEBUG

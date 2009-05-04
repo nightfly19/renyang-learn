@@ -180,8 +180,10 @@ private:
 	int toRead;
 	float *buffer, *bufptr;
 	float *prebuffer;
+	// renyang - 存放要撥放的音訊的buffer起始位置
 	float *playBuffer;
 	char *out;
+	// renyang - 存在playBuffer的frame個數
 	int frame_size;
 	int ready;
 	int stoptx;
@@ -194,7 +196,7 @@ private:
 	float balance;
 
 	bool recording;
-	// renyang - 放出聲音啦
+	// renyang - 放出聲音啦(撥放器開始運作啦)
 	bool playing;
 	// renyang - 是否在server端建立了socket等待client的連線
 	bool listening;
@@ -210,8 +212,10 @@ private:
 	float agc_err;
 
 	float ringBuffer[SIZE_RING_32];
+	// renyang - 是否有要響鈴
 	bool ringing;
 	int ringPtr;
+	// renyang - 還要響鈴的次數
 	int ringCount;
 
 public slots:

@@ -140,6 +140,7 @@ void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 		case IHU_UDP:
 			// renyang - 原本udp不需要用到connect這一個函式, 但是要用好像還是可以
 			// renyang - 這樣才能改成one-to-one的udp型態
+			// renyang - 這樣才可以直接對socket就可以傳送資料了
 			if ((::connect(socket, (struct sockaddr *)&ca, salen))==-1)
 				throw Error(strerror(errno));
 			break;
