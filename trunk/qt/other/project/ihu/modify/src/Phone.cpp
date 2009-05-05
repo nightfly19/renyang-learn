@@ -857,7 +857,7 @@ void Phone::startRecorder()
 				// renyang - 一個是預先準備的buffer好了沒, 另一個是要送出去的buffer準備好了沒
 				ready = toRead = 0;
 				bufptr = buffer;
-				// renyang - 初始化要使用的
+				// renyang - 開始讀取麥克風的聲音啦
 				recorder->start(rate);
 				// renyang - 設定目前的記錄器為等待
 				rec_status = RECORDER_STATUS_WAITING;

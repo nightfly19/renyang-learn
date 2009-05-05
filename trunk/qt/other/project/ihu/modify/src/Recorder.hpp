@@ -71,6 +71,7 @@ private:
 	int driver;
 	// renyang - 設定音訊要使用的編碼方式, 預設是REC_DRIVER_ALSA
 	int tempDriver;
+	// renyang - 設定Record「可以」抓麥克風的音訊啦(可以不表示真的開始啦)
 	bool working;
 	// renyang - 預設值是"default"
 	QString interface;

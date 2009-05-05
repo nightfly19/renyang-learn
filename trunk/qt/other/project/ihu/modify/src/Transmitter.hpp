@@ -95,7 +95,7 @@ public:
 private:
 	// renyang - 由client要傳送資料到server端要使用的socket
 	int s;
-	// renyang - client端的資訊
+	// renyang - server端的資訊
 	struct sockaddr_in sa;
 	socklen_t salen;
 	int port;
@@ -107,12 +107,13 @@ private:
 	QString myName;
 	QTimer *timer;
 	int protocol;
-	// renyang - 表示目前正要連線到server端
+	// renyang - 網路的部分client連線成功到server端
 	bool working;
 	// renayng - 是否要請peer端響鈴
 	bool ringing;
 	bool crypted;
 	bool active;
+	// renyang - 是否可以傳送資料
 	bool tx;
 	void emitSignal(signal_type);
 

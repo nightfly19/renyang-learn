@@ -201,6 +201,7 @@ void Call::call(QString host, int port, int prot)
 		// renyang - 接收端開始接收由對方回傳的資料並且判斷對方的動作
 		// renyang - 開始查看是否有新的資料由peer端傳送過來
 		receiver->start(sd, prot);
+		// renyang - 送出響鈴的封包
 		sendRing(true);
 		callFree = false;
 		active = true;

@@ -87,7 +87,7 @@ private:
 	int preframes;
 	int prepackets;
 	short *shortBuffer;
-	// renyang - 目前是否有在working
+	// renyang - 目前Player是否有在working
 	bool working;
 	QString interface;
 	SoundTouch pSoundTouch;
