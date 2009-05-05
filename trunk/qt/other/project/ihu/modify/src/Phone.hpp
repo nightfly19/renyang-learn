@@ -36,6 +36,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <netinet/in.h>
+#include <netinet/sctp.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <qsocketnotifier.h>
@@ -174,6 +175,12 @@ private:
 	// renyang - 對方要連進來要使用的port號
 	int inport;
 
+	// renyang - modify - start
+	struct sockaddr_in sctp_sa;
+	QSocketNotifier *sctp_notifier;
+	int sctp_sd;
+	// renyang - modify - end
+
 	SpeexBits enc_bits;
 	void *enc_state;
 
@@ -236,6 +243,9 @@ public slots:
 	void playInit(int);
 	void playRing(int);
 	void playCallback();
+	// renyang - modify - start
+	void newSCTPConnection(int);
+	// renyang - modify - end
 
 signals:
 	void warningSignal(QString);
