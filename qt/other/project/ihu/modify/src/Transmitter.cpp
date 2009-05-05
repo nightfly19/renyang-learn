@@ -176,6 +176,7 @@ int Transmitter::call(QString host, int port, int prot)
 	sa.sin_port = htons(port);
 	
 	// renyang - 當回傳是1時, 表示轉換成功. 回傳是0時, 表示轉換失敗
+	// renyang - 猜測可能是使用網址而不是ip address
 	if (inet_aton(host.ascii(), &sa.sin_addr) == 0)
 	{
 		struct hostent *he;
@@ -202,7 +203,7 @@ int Transmitter::call(QString host, int port, int prot)
 			throw Error(tr("unknown protocol"));
 	}
 	
-	// renyang - 建立clinet端的socket
+	// renyang - 建立clinet端代表server端的socket
 	if ((sd = ::socket(AF_INET, type, 0)) == -1)
 		throw Error(tr("can't initalize socket (") + strerror(errno)+ tr(")"));
 	
@@ -288,6 +289,7 @@ void Transmitter::prepare()
 #endif
 	sendInitPacket();
 	tx = true;
+	// renyang - 開始讓Record開始執行
 	emitSignal(SIGNAL_START);
 }
 
@@ -309,6 +311,7 @@ void Transmitter::ring(bool on)
 	}
 }
 
+// renyang - 送出響鈴的封包
 void Transmitter::sendRing()
 {
 #ifdef REN_DEBUG
@@ -440,11 +443,13 @@ void Transmitter::sendNamePacket(bool special, char type)
 		sendNewPacket(dataPtr, dataLen, type);
 }
 
+// renyang - 回答電話啦
 void Transmitter::answer()
 {
 #ifdef REN_DEBUG
 	qWarning("Transmitter::answer()");
 #endif
+	// renyang - 開始由麥克風抓取聲音
 	prepare();
 	sendAnswerPacket();
 }
