@@ -270,6 +270,7 @@ void Receiver::receive()
 			bytes += rlen;
 			total += rlen;
 			active = true;
+			// renyang - 把接收到的資料放到streamBuffer中
 			putData(inputBuffer, rlen);
 		}
 		else
@@ -313,6 +314,7 @@ void Receiver::putData(char *buffer, int len)
 	}
 }
 
+// renyang - 解析封包, 是否在傳送過程中否有出現問題
 void Receiver::processData()
 {
 #ifdef REN_DEBUG
@@ -370,12 +372,16 @@ void Receiver::processData()
 							}
 							if (plen < streamLen)
 							{
+								// renyang - 要讀取的stream移到下一個位址
 								streamPtr = streamPtr + plen;
+								// renyang - 可以讀取的stream長度減剛剛建立封包的大小
 								streamLen = streamLen - plen;
+								// renyang - 表示還可以進行下一次的封包建立
 								sync = STREAM_OK;
 							}
 							else 
 							{
+								// renyang - 表示stream的封包不夠, 需要讀取stream
 								sync = STREAM_READ_DATA;
 								resetStream();
 							}
@@ -411,6 +417,10 @@ void Receiver::processData()
 			case STREAM_MISSING_DATA:
 				sync = STREAM_READ_DATA;
 			case STREAM_READ_DATA:
+				// renyang - 把streamPtr資料移動streamLen到streamBuffer
+				// renyang - 當我們由網路收到資料時, 我們是把它放到streamBuffer
+				// renyang - 但是, 我們在讀取的時候是透過streamPtr
+				// renyang - 完全就是在這裡設定
 				memmove(streamBuffer, streamPtr, streamLen);
 				streamPtr = streamBuffer;
 				break;
@@ -419,6 +429,7 @@ void Receiver::processData()
 }
 
 // renyang-TODO - 加入Vedio的部分吧
+// renyang - 分析這一個封包是什麼種類的封包
 bool Receiver::processPacket(Packet *p)
 {
 #ifdef REN_DEBUG

@@ -163,12 +163,13 @@ private:
 	// renyang - 只是純粹網路連接起來了而以
 	int connections;
 
-	// renyang - 用來處理tcp的部分
+	// renyang - 用來處理是否有新的tcp連線進來
 	TcpServer *tcpserver;
-	// renyang - 用來記錄tcp, udp的server端代表server的socket@@@
+	// renyang - 用來記錄udp的server端代表server的socket@@@
 	struct sockaddr_in sa;
 	// renyang - 當有資料進來時, 表示有新的連線, 目前應該是設定給udp使用的
 	QSocketNotifier* notifier;
+	// renyang - server端的udp socket
 	int sd;
 	// renyang - 對方要連進來要使用的port號
 	int inport;
@@ -177,6 +178,7 @@ private:
 	void *enc_state;
 
 	float *recBuffer;
+	// renyang - 還要讀多少資料才可以送出音訊封包
 	int toRead;
 	float *buffer, *bufptr;
 	float *prebuffer;
