@@ -46,5 +46,6 @@ IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, re
 
 由version 350開始改寫sctp啦~
 在加入sctp之後, 因為在編譯執行檔前要-lsctp
-因此，在產生Makefile後，隨便在-logg後加-lsctp就可以運行啦
-OGG_LIBS =  -logg -lsctp
+在建立Makefile就用以下的指令
+LIBS=-lsctp ./configure
+在編譯就會加入-lsctp這一個library啦
