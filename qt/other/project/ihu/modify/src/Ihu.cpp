@@ -1198,11 +1198,9 @@ void Ihu::statistics()
 	{
 		if (phone->getConnections() > 0)
 			changeTrayIcon(IHU_ICON_ALARM);
-		else
-		if (phone->getCalls() > 0)
+		else if (phone->getCalls() > 0)
 			changeTrayIcon(IHU_ICON_TALK);
-		else
-		if (phone->isListening())
+		else if (phone->isListening())
 			changeTrayIcon(IHU_ICON_WAIT);
 		else
 			changeTrayIcon(IHU_ICON_NORMAL);

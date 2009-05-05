@@ -95,6 +95,7 @@ public:
 private:
 	// renyang - 由client要傳送資料到server端要使用的socket
 	int s;
+	// renyang - client端的資訊
 	struct sockaddr_in sa;
 	socklen_t salen;
 	int port;

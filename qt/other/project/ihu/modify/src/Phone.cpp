@@ -803,6 +803,7 @@ void Phone::processAudioSamples(float *samples, int nsample)
 	while (nsample > 0)
 	{
 		toRead = frame_size - ready;
+		// renyang - 目前送過來的音訊封包還是小於必需要讀取的封包
 		if (nsample < toRead)
 		{
 			memcpy(bufptr, recBuffer, nsample*sizeof(float));
@@ -813,6 +814,7 @@ void Phone::processAudioSamples(float *samples, int nsample)
 		}
 		else if (nsample >= toRead)
 		{
+			// renyang - 會到這裡表示目前由麥克風收到的封包大於缺少的封包個數
 			memcpy(bufptr, recBuffer, toRead*sizeof(float));
 			ready += toRead;
 			bufptr += toRead;
@@ -973,6 +975,7 @@ void Phone::sendAudioData(float *sample, int samples)
 		case RECORDER_STATUS_START:
 			send(prebuffer, frame_size);
 			rec_status = RECORDER_STATUS_RUNNING;
+			// renyang - 不知道這裡是不是少一個break???
 		case RECORDER_STATUS_RUNNING:
 			if (speak > 0) {
 				send(sample, samples);
@@ -997,6 +1000,7 @@ void Phone::send(float *fsamples, int samples)
 	qWarning(QString("Phone::send"));
 #endif
 	int tot = 0;
+	// renyang - Resets bits to initial value (just after initialization, erasing content)
 	speex_bits_reset(&enc_bits);
 	if (enc_state)
 	{
@@ -1013,6 +1017,7 @@ void Phone::send(float *fsamples, int samples)
 		{
 			for (int i=0; i<maxcall; i++)
 			{
+				// renyang - 看目前哪一個call有在用, 就送出去
 				if (calls[i])
 				{
 					// renyang - 把語音資料傳送出去
@@ -1303,7 +1308,7 @@ int Phone::getPeak()
 	return ret;
 }
 
-// renyang - 每18毫秒會執行一次, 把準備好的音訊撥放出來
+// renyang - 每18毫秒會執行一次, 把準備好的音訊撥放出來(由網路收到的音訊撥放出來)
 void Phone::playCallback()
 {
 #ifdef REN_DEBUG
@@ -1357,6 +1362,7 @@ void Phone::playCallback()
 		case PLAYER_STATUS_RUNNING:
 			if (!silence)
 			{
+				// renyang - 把剛剛抓出來的資料, 放到player中
 				player->put(playBuffer, play_frame_size);
 			}
 			// renyang - 實際放出音量啦

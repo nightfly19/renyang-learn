@@ -341,7 +341,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 	if (tx)
 	{
 		int size;
-		// renyang - 了解傳送出去的是什麼型態的資料
+		// renyang - 設定要送出去的封包是什麼型態的, 是IHU_INFO_AUDIO
 		char type = IHU_INFO_AUDIO;
 		try
 		{
@@ -356,6 +356,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 				size = PacketHandler::calculateSize(len);
 			}
 			Packet *p = new Packet (size);
+			// renyang - 建立Packet的內容
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
 			if (blowfish)
 				p->crypt(blowfish);
@@ -377,7 +378,7 @@ void Transmitter::emitError(QString text)
 	emit error(text);
 }
 
-// renyang - 建立要送出去的封包
+// renyang - 建立要送出去的封包, 是特殊的封包, 並不包含資料
 void Transmitter::sendSpecialPacket(char *data, int len, char type)
 {
 #ifdef REN_DEBUG
@@ -432,6 +433,7 @@ void Transmitter::sendNamePacket(bool special, char type)
 		dataPtr = (char *) myName.ascii();
 	}
 	// renyang - special應該是表是說是否之前有傳送過, 像是傳送鈴聲, 就是重複的封包(還是特殊的封包???)
+	// renyang - 可能是特殊的封包, 沒有包含data的部分
 	if (special)
 		sendSpecialPacket(dataPtr, dataLen, type);
 	else
