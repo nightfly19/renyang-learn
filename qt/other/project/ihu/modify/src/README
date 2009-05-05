@@ -43,3 +43,8 @@ renyang-TODO
 key-word
 notifier
 IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, recvfrom, send, sendto, read, write
+
+由version 350開始改寫sctp啦~
+在加入sctp之後, 因為在編譯執行檔前要-lsctp
+因此，在產生Makefile後，隨便在-logg後加-lsctp就可以運行啦
+OGG_LIBS =  -logg -lsctp

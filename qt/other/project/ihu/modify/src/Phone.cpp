@@ -201,6 +201,25 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		connect( tcpserver, SIGNAL(newConnect(int)), this, SLOT(newTCPConnection(int)));
 	}
 
+	// renyang - modify - start
+	bool sctp = true;
+	if (sctp)
+	{
+		if ((sctp_sd = ::socket(AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP)) == -1)
+			throw Error(tr("Can't initalize sctp socket! (socket())"));
+		memset(&sctp_sa,0,sizeof(sctp_sa));
+		sctp_sa.sin_family = AF_INET;
+		sctp_sa.sin_port = htons(port);
+		sctp_sa.sin_addr.s_addr = htonl(INADDR_ANY);
+		
+		if (::bind(sctp_sd,(struct sockaddr *) &sctp_sa,sizeof(sctp_sa)) == -1)
+			throw Error(tr(QString("can't listen on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
+
+		sctp_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
+		connect(sctp_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
+	}
+	// renyang - modify - end
+
 	listening = true;
 }
 
@@ -254,6 +273,14 @@ void Phone::newUDPConnection(int socket)
 	// renyang - 在server端再建立一個udp socket, 等待下一個通話, 否則當資料傳送進來, 會當作有新的電話進來
 	// renyang - 一直會出現CallTab
 	waitCalls(inport, true, false);
+}
+
+void Phone::newSCTPConnection(int socket)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::newSCTPConnection(%1)").arg(socket));
+#endif
+	qWarning("newSCTPConnection");
 }
 
 // renyang - 當有電話進來, 改變圖示, 開始播放器
