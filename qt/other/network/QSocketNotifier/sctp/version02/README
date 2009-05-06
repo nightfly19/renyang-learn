@@ -1,0 +1,8 @@
+server端
+./server
+
+client端
+./clinet [server's ip]
+
+[新增]
+加入non-blocking的功能進去
