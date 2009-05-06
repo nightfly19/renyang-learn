@@ -166,6 +166,7 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::waitCalls(port:%1,udp:%2,tcp:%3)").arg(port).arg(udp).arg(tcp));
+	int sctp = true;
 #endif
 	inport = port;
 
@@ -202,21 +203,27 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 	}
 
 	// renyang - modify - start
-	bool sctp = true;
 	if (sctp)
 	{
 		if ((sctp_sd = ::socket(AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP)) == -1)
 			throw Error(tr("Can't initalize sctp socket! (socket())"));
+		if (::fcntl(sctp_sd,F_SETFL,O_NONBLOCK) == -1)
+			throw Error(tr("fcntl can't set socket property\n") + strerror(errno));
+
 		memset(&sctp_sa,0,sizeof(sctp_sa));
 		sctp_sa.sin_family = AF_INET;
 		sctp_sa.sin_port = htons(port);
 		sctp_sa.sin_addr.s_addr = htonl(INADDR_ANY);
+		
+		int opt=1;
+		::setsockopt(sctp_sd,SOL_SOCKET,SO_REUSEADDR,(char *)&opt,sizeof(opt));
 		
 		if (::bind(sctp_sd,(struct sockaddr *) &sctp_sa,sizeof(sctp_sa)) == -1)
 			throw Error(tr(QString("can't listen on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
 
 		sctp_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
 		connect(sctp_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
+		qWarning("Start SCTP server");
 	}
 	// renyang - modify - end
 
@@ -493,6 +500,7 @@ void Phone::call(int callId, QString host, int port, int prot)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
+	prot = IHU_SCTP;
 #endif
 	if (calls[callId])
 	{

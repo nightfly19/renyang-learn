@@ -175,6 +175,9 @@ void Receiver::start(int socket, int proto)
 				// renyang - 因為是connection-less的關係, 所以先接收第一筆資料???
 				receive();
 				break;
+			case IHU_SCTP:
+				receive();
+				break;
 		}
 		// renyang - 不論是tcp或是udp均會處理目前的函式
 		// renyang - 把這一個socket, protocol, ca送到Transmitter, 讓Transmitter可以傳送資料, 給peer端
@@ -243,6 +246,12 @@ void Receiver::receive()
 #ifdef REN_DEBUG
 	qWarning("Receiver::receive()");
 #endif
+	struct sockaddr_in sctp_from;
+	socklen_t sctp_fromlen = sizeof(sctp_from);
+	struct sctp_sndrcvinfo sndrcvinfo;
+	QString ip_from;
+	int msg_flag = 0;
+
 	// renyang - 哇!!竟然不用delete notifier???
 	if (working)
 	{
@@ -261,6 +270,12 @@ void Receiver::receive()
 				// renyang - 這裡沒有用Qt的接收資料的方式
 				// renyang - 還是用一般socket的使用方式
 				rlen = ::recv(s, inputBuffer, IN_BUFSIZE, 0);
+				break;
+			case IHU_SCTP:
+				qWarning("get some data from sctp");
+				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(sockaddr *) &sctp_from,&sctp_fromlen,&sndrcvinfo,&msg_flag);
+				if (msg_flag & MSG_NOTIFICATION)
+					return ;
 				break;
 		}
 

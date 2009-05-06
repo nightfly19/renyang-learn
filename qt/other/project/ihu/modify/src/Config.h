@@ -79,6 +79,9 @@
 #define IHU_MAX_NAME_LEN 64
 #define IHU_UDP 0
 #define IHU_TCP 1
+// renyang-modify - start
+#define IHU_SCTP 2
+// renyang-modify - end
 
 #define IHU_NARROW 0
 #define IHU_WIDE 1
