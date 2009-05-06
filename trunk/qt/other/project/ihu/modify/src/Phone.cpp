@@ -166,7 +166,6 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::waitCalls(port:%1,udp:%2,tcp:%3)").arg(port).arg(udp).arg(tcp));
-	int sctp = true;
 #endif
 	inport = port;
 
@@ -185,7 +184,8 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 	
 		int opt = 1;
 		// renyang - 使得可以多個應用程式使用同一個port號
-		::setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt) );
+		if (::setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, (char *)&opt, sizeof(opt) )==-1)
+			throw Error(tr("setsockopt error"));
 
 		if (::bind(sd, (struct sockaddr *) &sa, sizeof(sa)) == -1)
 			throw Error(tr(QString("can't listen on UDP port %1 (%2)").arg(port).arg(strerror(errno))));
@@ -203,6 +203,7 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 	}
 
 	// renyang - modify - start
+	int sctp = true;
 	if (sctp)
 	{
 		if ((sctp_sd = ::socket(AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP)) == -1)
@@ -210,19 +211,31 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		if (::fcntl(sctp_sd,F_SETFL,O_NONBLOCK) == -1)
 			throw Error(tr("fcntl can't set socket property\n") + strerror(errno));
 
+		sctp_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
+		connect(sctp_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
+
 		memset(&sctp_sa,0,sizeof(sctp_sa));
 		sctp_sa.sin_family = AF_INET;
 		sctp_sa.sin_port = htons(port);
 		sctp_sa.sin_addr.s_addr = htonl(INADDR_ANY);
 		
+		// renyang - 讓sctp可以關掉之後, 短時間再啟動
 		int opt=1;
-		::setsockopt(sctp_sd,SOL_SOCKET,SO_REUSEADDR,(char *)&opt,sizeof(opt));
+		if (::setsockopt(sctp_sd,SOL_SOCKET,SO_REUSEADDR,(char *)&opt,sizeof(opt))==-1)
+			throw Error(tr("setsockopt error"));
 		
 		if (::bind(sctp_sd,(struct sockaddr *) &sctp_sa,sizeof(sctp_sa)) == -1)
+			throw Error(tr(QString("can't bind on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
+
+		struct sctp_event_subscribe events;
+		memset((void *)&events,0,sizeof(events));
+		events.sctp_data_io_event = 1;
+		if (::setsockopt(sctp_sd,SOL_SCTP,SCTP_EVENTS,(const void *)&events,sizeof(events))==-1)
+			throw Error(tr(QString("can't set io event")));
+
+		if (::listen(sctp_sd,1)==-1)
 			throw Error(tr(QString("can't listen on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
 
-		sctp_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
-		connect(sctp_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
 		qWarning("Start SCTP server");
 	}
 	// renyang - modify - end
@@ -287,6 +300,21 @@ void Phone::newSCTPConnection(int socket)
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::newSCTPConnection(%1)").arg(socket));
 #endif
+	connections++;
+	disconnect(sctp_notifier,NULL,NULL,NULL);
+	delete notifier;
+	notifier = NULL;
+	int callId = newCall();
+	qWarning("Hello World");
+	if (callId >=0)
+	{
+		calls[callId]->start(socket,IHU_SCTP);
+		receivedCall(callId);
+	}
+	else
+	{
+		close(socket);
+	}
 	qWarning("newSCTPConnection");
 }
 
@@ -502,6 +530,9 @@ void Phone::call(int callId, QString host, int port, int prot)
 	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
 	prot = IHU_SCTP;
 #endif
+	// renyang - 暫時 - start
+	prot = IHU_SCTP;
+	// renyang - 暫時 - end
 	if (calls[callId])
 	{
 		try
