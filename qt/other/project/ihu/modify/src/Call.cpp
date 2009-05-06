@@ -226,9 +226,12 @@ void Call::start(int socket, int protocol)
 	{
 		readyFrames = 0;
 		// renyang - 設定本端是接收端(就是等待別人打電話過來的啦)
+		qWarning("1111");
 		receiver->setReceived(true);
+		qWarning("2222");
 		// renyang - 開始定時的去查看是否有新的資料可以接收
 		receiver->start(socket, protocol);
+		qWarning("3333");
 		callFree = false;
 		active = true;
 		aborted = false;

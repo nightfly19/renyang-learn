@@ -159,13 +159,14 @@ void Receiver::start(int socket, int proto)
 
 	// renyang - 新增一個QSocketNotifier, 當有資料可以讀時, emit activated()
 	// renyang - 用來判斷對方是否有傳資料進來
-	notifier = new QSocketNotifier(s, QSocketNotifier::Read, this);
+	//notifier = new QSocketNotifier(s, QSocketNotifier::Read, this);
 	// renyang - activated(int)其參數是表示哪一個socket file descriptor被觸發
 	// renyang - 表示client端有傳送資料過來
 	// renyang - 每格一段時間接收一次資料
-	connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
+	//connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
 	// renyang - 因為tcp所接收到的第一個資料是connection，所以，不需要
 	// renyang - 但是, udp所接收到的第一個資料就是資料啦, 所以要比tcp多接收一次
+	// renyang - 只有waitCalls端才要執行received的程式
 	if (received)
 	{
 		// renyang - 若是udp的話, 則直接開始接收資料, 因udp只要是有資料送過來就直接接收@@@
@@ -246,8 +247,6 @@ void Receiver::receive()
 #ifdef REN_DEBUG
 	qWarning("Receiver::receive()");
 #endif
-	struct sockaddr_in sctp_from;
-	socklen_t sctp_fromlen = sizeof(sctp_from);
 	struct sctp_sndrcvinfo sndrcvinfo;
 	QString ip_from;
 	int msg_flag = 0;
@@ -273,7 +272,7 @@ void Receiver::receive()
 				break;
 			case IHU_SCTP:
 				qWarning("get some data from sctp");
-				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(sockaddr *) &sctp_from,&sctp_fromlen,&sndrcvinfo,&msg_flag);
+				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,NULL,NULL,&sndrcvinfo,&msg_flag);
 				if (msg_flag & MSG_NOTIFICATION)
 					return ;
 				break;
