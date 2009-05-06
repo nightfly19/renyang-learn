@@ -171,6 +171,9 @@ int Transmitter::call(QString host, int port, int prot)
 	init(prot);
 
 	int sd = -1;
+	// renyang-modify - start
+	int real_protocol=0;
+	// renyang-modify - end
 	
 	// renyang - 設定port號(也是對方的服務port號)
 	sa.sin_port = htons(port);
@@ -195,16 +198,22 @@ int Transmitter::call(QString host, int port, int prot)
 	{
 		case IHU_UDP:
 			type = SOCK_DGRAM;
+			real_protocol = 0;
 			break;
 		case IHU_TCP:
 			type = SOCK_STREAM;
+			real_protocol = 0;
+			break;
+		case IHU_SCTP:
+			type = SOCK_SEQPACKET;
+			real_protocol = IPPROTO_SCTP;
 			break;
 		default:
 			throw Error(tr("unknown protocol"));
 	}
 	
 	// renyang - 建立clinet端代表server端的socket
-	if ((sd = ::socket(AF_INET, type, 0)) == -1)
+	if ((sd = ::socket(AF_INET, type, real_protocol)) == -1)
 		throw Error(tr("can't initalize socket (") + strerror(errno)+ tr(")"));
 	
 	// renyang - 此socket是用來控制連到server端用的
@@ -262,7 +271,10 @@ void Transmitter::sendPacket(Packet *p)
 	{
 		// renyang - 把資料透過::send()傳送出去
 		// renyang - 就算是udp也可以使用::send, 因為是connect型態的udp
-		snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
+		if (protocol == IHU_UDP || protocol == IHU_TCP)
+			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
+		else if (protocol == IHU_SCTP)
+			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),NULL,0,0,0,0,0,0);
 		// renyang - 傳送失敗
 		if (snt <= 0)
 		{
