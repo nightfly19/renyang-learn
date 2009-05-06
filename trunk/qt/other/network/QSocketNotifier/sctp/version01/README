@@ -1,0 +1,5 @@
+server端
+./server
+
+client端
+./clinet [server's ip]
