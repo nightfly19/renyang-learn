@@ -8,14 +8,14 @@ MAINPATH= ../../../../..
 
 CFLAGS	= -I$(MAINPATH)/lib
 
-MOD_FLAG= 
+MOD_FLAG= -DUN_MOD
 
 LIBS	= -lsctp
 
 CUSTOMER	= $(MAINPATH)/lib/libunp.a
 
-ifeq ($(UN_MOD),on)
-	MOD_FLAG = -DUN_MOD
+ifeq ($(MOD),on)
+	MOD_FLAG =
 endif
 
 .PHONY: everything all clean distclean
