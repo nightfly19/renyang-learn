@@ -245,7 +245,6 @@ public slots:
 	void playCallback();
 	// renyang - modify - start
 	void newSCTPConnection(int);
-	void renotification_sctp();
 	void re_notification_sctp();
 	// renyang - modify - end
 

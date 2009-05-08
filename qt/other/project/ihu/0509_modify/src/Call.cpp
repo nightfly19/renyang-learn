@@ -95,7 +95,7 @@ Call::Call(int callId, QString myName)
 
 	// renyang-modify - start
 	connect(receiver,SIGNAL(re_notification_sctp_Signal()),this,SLOT(re_notification_sctp()));
-	connect(receiver,SIGNAL(SCTPnewSocket(int,int,struct sockaddr *)),this,SLOT(SCTPnewConnection(int,int,struct sockaddr *)));
+	connect(receiver,SIGNAL(SCTPnewSocket(int,int,struct sockaddr *,int)),this,SLOT(SCTPnewConnection(int,int,struct sockaddr *,int)));
 	// renyang-modify - end
 
 	connect( stopTimer, SIGNAL(timeout()), this, SLOT(close()) );

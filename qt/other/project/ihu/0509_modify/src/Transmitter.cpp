@@ -155,8 +155,9 @@ void Transmitter::SCTPnewConnection(int socket,struct sockaddr *addrs,int addrcn
 #ifdef REN_DEBUG
 	qWarning(QString("Transmitter::newConnection(%1,struct sockaddr *addrs,%2)").arg(socket).arg(addrcnt));
 #endif
+	init(IHU_SCTP);
 	if ((::sctp_connectx(socket,addrs,addrcnt))==-1)
-		throw Error(strrror(errno));
+		throw Error(strerror(errno));
 	start(socket);
 }
 
@@ -284,7 +285,7 @@ void Transmitter::sendPacket(Packet *p)
 		if (protocol == IHU_UDP || protocol == IHU_TCP)
 			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
 		else if (protocol == IHU_SCTP)
-			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)&sa,salen,0,0,0,0,0);
+			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,0,0,0);
 		// renyang - 傳送失敗
 		if (snt <= 0)
 		{

@@ -282,13 +282,18 @@ void Receiver::receive()
 				qWarning("get some data from sctp");
 				if (sctp_connfd == -1)
 				{
+					// renyang - 接收第一筆資料
 					rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,NULL,NULL,&sndrcvinfo,&msg_flag);
-					addrcnt = ::sctp_getpaddrs(s,sndrcvinfo.sinfo_assoc_id,addrs);
+					// renyang - 取得peer端的所有multi-homing的address
+					addrcnt = ::sctp_getpaddrs(s,sndrcvinfo.sinfo_assoc_id,&addrs);
+					// renyang - 由one-to-many取出一個association為one-to-one
 					sctp_connfd = ::sctp_peeloff(s,sndrcvinfo.sinfo_assoc_id);
+					// renyang - 重新設定server端這裡的notification, 以便等待下一個sctp連線
 					emit re_notification_sctp_Signal();
 				}
 				else
 				{
+					// renyang - 當轉成one-to-one之後, 就用sctp_connfd當作其socket
 					rlen = ::sctp_recvmsg(sctp_connfd,inputBuffer,IN_BUFSIZE,NULL,NULL,&sndrcvinfo,&msg_flag);
 				}
 				if (msg_flag & MSG_NOTIFICATION)

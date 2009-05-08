@@ -93,7 +93,7 @@ public:
 	bool isDumping();
 	bool isActive();
 	// renyang-modify - start
-	void SCTPnewConnection(int sd,struct sockadr *,int);
+	void SCTPnewConnection(int sd,struct sockaddr *,int);
 	// renyang-modify - end
 
 private:

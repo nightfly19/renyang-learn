@@ -304,6 +304,8 @@ void Phone::newSCTPConnection(int socket)
 	delete sctp_notifier;
 	sctp_notifier = NULL;
 	int callId = newCall();
+	// renyang - 不知道重覆connect會不會出現錯誤
+	connect(calls[callId],SIGNAL(re_notification_sctp_Signal()),this,SLOT(re_notification_sctp()));
 	if (callId >=0)
 	{
 		calls[callId]->start(socket,IHU_SCTP);
@@ -526,7 +528,6 @@ void Phone::call(int callId, QString host, int port, int prot)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
-	prot = IHU_SCTP;
 #endif
 	// renyang - 暫時 - start
 	prot = IHU_SCTP;
