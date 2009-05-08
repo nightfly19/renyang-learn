@@ -1,0 +1,3 @@
+這一個例子在測試當classA的private的指標變數是否可以透過connect把值傳送給classB使用
+
+結果是可以的!!
