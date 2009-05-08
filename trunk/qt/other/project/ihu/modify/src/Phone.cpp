@@ -301,9 +301,8 @@ void Phone::newSCTPConnection(int socket)
 	qWarning(QString("Phone::newSCTPConnection(%1)").arg(socket));
 #endif
 	connections++;
-	disconnect(sctp_notifier,NULL,NULL,NULL);
-	delete notifier;
-	notifier = NULL;
+	delete sctp_notifier;
+	sctp_notifier = NULL;
 	int callId = newCall();
 	qWarning("Hello World");
 	if (callId >=0)

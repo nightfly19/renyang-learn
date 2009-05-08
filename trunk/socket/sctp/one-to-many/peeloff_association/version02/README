@@ -1,0 +1,13 @@
+使用方式
+
+server端:
+./server
+
+clinet端:
+./client 127.0.0.1
+[0]Hello World!!
+
+可以由one-to-many把其中一個association抽出來, 成為one-to-one的型態
+
+另外, 要注意的是, 似乎只有當sctp_recvmsg收到訊息時, 使用sctp_peeloff才會成功
+若在收到第一個訊息前建立會失敗
