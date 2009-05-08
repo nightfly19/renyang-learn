@@ -140,7 +140,7 @@ private:
 	// renyang - 用來記錄peer端有多少個ip
 	int addrcnt;
 	// renyang - 用來記錄peer端的address位址
-	struct sockaddr *addrs
+	struct sockaddr *addrs;
 	// renyang - 用來接收為one-to-one的file descriptor
 	int sctp_connfd;
 	// renyang-modify - end
