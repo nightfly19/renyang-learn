@@ -369,14 +369,17 @@ void Phone::stopWaiting()
 #endif
 	listening = false;
 
+	// renyang - 刪掉tcp server的部分(內含tcp的notifier)
 	if(tcpserver)
 		delete tcpserver;
 	tcpserver = NULL;
 
+	// renyang - 刪掉UDP server的notifier
 	if (notifier)
 		delete notifier;
 	notifier = NULL;
 
+	// renyang - 刪掉udp的socket descriptor
 	if (sd != -1)
 		close(sd);
 	sd = -1;
@@ -620,6 +623,8 @@ void Phone::disableRecorder(bool on)
 	}
 	else
 	{
+		// renyang - 若on為false的話, 則recorder暫時停止, 然後看是否有calltab仍為recording=true
+		// renyang - 若有則是enableRecorder的感覺
 		rec_status = RECORDER_STATUS_STOP;
 		if (call_number > 0)
 		{
@@ -656,6 +661,7 @@ void Phone::muteRecorder(int callId, bool on)
 		calls[callId]->muteRecorder(on);
 }
 
+// renyang - 停止目前這一個call tab的player, 但是會去尋找是否有其它的call tab的player
 void Phone::disablePlayer(bool on)
 {
 #ifdef REN_DEBUG
@@ -908,7 +914,7 @@ void Phone::startRecorder()
 		case RECORDER_STATUS_MUTE:
 			break;
 		default:
-			// renyang - 是否要記錄
+			// renyang - 啟動擷取麥克風的音量
 			if (!recording)
 			{
 				// renyang - 先清空預先要準備資訊(音訊???)的空間
@@ -1059,6 +1065,7 @@ void Phone::sendAudioData(float *sample, int samples)
 	}
 }
 
+// renyang - 由麥克風擷取到的音訊傳給目前所有正在使用的call
 void Phone::send(float *fsamples, int samples)
 {
 #ifdef REN_DEBUG
@@ -1074,7 +1081,7 @@ void Phone::send(float *fsamples, int samples)
 		speex_encode(enc_state, fsamples, &enc_bits);
 		// renyang - int speex_bits_write(SpeexBits *bits, char *bytes, int max_len);
 		// renyang - Write the content of a bit-stream to an area of memory
-		// 把語音編碼寫入out
+		// 把語音編碼寫入out, 回傳tot為資料長度
 		tot = speex_bits_write(&enc_bits, out, MAXBUFSIZE);
 	}
 	if (tot > 0) {
