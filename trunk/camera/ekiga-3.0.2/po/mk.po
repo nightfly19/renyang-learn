@@ -1,0 +1,3334 @@
+# translation of ekiga.gnome-2-24.mk.po to Macedonian
+# translation of gnomemeeting.HEAD.po to
+# translation of gnomemeeting.HEAD.po to
+# translation of gnomemeeting.HEAD.po to
+# translation of gnomemeeting.HEAD.po to
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER, 2003.
+#
+# Darko Spasovski <darko@ultra.com.mk>, 2003.
+# Geore Zaharcev <aristotel@mt.net.mk>, 2005.
+# Арангел Ангов <ufo@linux.net.mk>, 2005.
+# Ivica Micev <icko@elfasko.org.mk>, 2006.
+# Arangel Angov <ufo@linux.net.mk>, 2006, 2007.
+# Jovan Naumovski <jovan@lugola.net>, 2006, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: ekiga.gnome-2-24.mk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-23 17:43+0000\n"
+"PO-Revision-Date: 2008-09-24 19:54+0200\n"
+"Last-Translator: Jovan Naumovski <jovan@lugola.net>\n"
+"Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural= n==1 || n%10==1 ? 0 : 1\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../ekiga.desktop.in.in.h:1
+msgid "Ekiga Softphone"
+msgstr "Ekiga Softphone"
+
+#: ../ekiga.desktop.in.in.h:2
+msgid "IP Telephony, VoIP and Video Conferencing"
+msgstr "IP телефонија, VoIP и видео конференција"
+
+#: ../ekiga.desktop.in.in.h:3
+msgid "Talk to people over the Internet"
+msgstr "Зборувајте со луѓе преку интернет"
+
+#: ../ekiga.schemas.in.in.h:1
+msgid "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+msgstr "0: 56Kbps, 1: ISDN, 2:DSL, 3: ЛАН, 4: Сопствено"
+
+#: ../ekiga.schemas.in.in.h:2
+msgid ""
+"Allow Ekiga to fall back to software scaling the picture-in-picture if "
+"hardware support is not available. If this is set to false, Ekiga will not "
+"try to open the PIP if hardware support is not available."
+msgstr "Дозволи му на Egika да се врати на софтверско намалување на „слика во слика“ ако тоа не е хардверски поддржано. Ако е поставено на false, Ekiga нема да се обиде да го отвори PIP ако хардверската поддршка не е достапна."
+
+#: ../ekiga.schemas.in.in.h:3
+msgid "Allow picture-in-picture software scaling"
+msgstr "Дозволи софтверско намалување на „слика во слика“"
+
+#: ../ekiga.schemas.in.in.h:4
+msgid "Alternative audio output device"
+msgstr "Алтернативен уред за аудио излез"
+
+#: ../ekiga.schemas.in.in.h:5
+msgid "Always forward calls to the given host"
+msgstr "Секогаш пренасочувај ги повиците кон дадениот хост"
+
+#: ../ekiga.schemas.in.in.h:6
+msgid "Audio input device"
+msgstr "Уред за аудио влез"
+
+#: ../ekiga.schemas.in.in.h:7
+msgid "Audio output device"
+msgstr "Уред за аудио излез"
+
+#: ../ekiga.schemas.in.in.h:8
+msgid "Automatic echo cancellation"
+msgstr "Автоматско поништување на ехото"
+
+#: ../ekiga.schemas.in.in.h:9 ../src/gui/preferences.cpp:428
+msgid ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+msgstr ""
+"Автоматски одбиј го или пренасочи го пристигнатиот повик ако на него не е "
+"одговорено во одреден период од време (во секунди)"
+
+#: ../ekiga.schemas.in.in.h:10
+msgid "Calls history"
+msgstr "Историја на повици"
+
+#: ../ekiga.schemas.in.in.h:11
+msgid "Change the main window panel section"
+msgstr "Промени ја секцијата на панелот од главниот прозорец"
+
+#: ../ekiga.schemas.in.in.h:12
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+msgstr ""
+"Конекцијата ќе биде воспоставена во модот Брз Старт. Брз Старт е нов начин "
+"за побрзо започнување на повици што е воведен во H.323v2. Не е поддржан од "
+"Netmeeting, а истовремено користење на Брз Старт и H.245 тунелирање може да "
+"сруши некои верзии на Netmeeting."
+
+#: ../ekiga.schemas.in.in.h:13
+msgid "Contact long status"
+msgstr "Долг статус за контактите"
+
+#: ../ekiga.schemas.in.in.h:14
+msgid "Contact short status"
+msgstr "Краток статус за контактите"
+
+#: ../ekiga.schemas.in.in.h:15
+msgid "Country code"
+msgstr "Код на земјата"
+
+#: ../ekiga.schemas.in.in.h:16
+msgid "DTMF sending"
+msgstr "DTMF испраќање"
+
+#: ../ekiga.schemas.in.in.h:17
+msgid "Disable video hardware acceleration"
+msgstr "Оневозможи хардверска видео акцелерација"
+
+#: ../ekiga.schemas.in.in.h:18
+msgid "Display a popup window when receiving a call"
+msgstr "Прикажи скокачки прозорец при прием на повик"
+
+#: ../ekiga.schemas.in.in.h:19
+msgid "Enable 'Fast Start'"
+msgstr "Овозможи 'Брз старт'"
+
+#: ../ekiga.schemas.in.in.h:20
+msgid "Enable H.245 tunneling"
+msgstr "Вклучи H.245 _тунелирање"
+
+#: ../ekiga.schemas.in.in.h:21
+msgid "Enable early H.245"
+msgstr "Вклучи ран H.245"
+
+#: ../ekiga.schemas.in.in.h:22
+msgid "Enable echo cancelation"
+msgstr "Овозможи откажување на ехо"
+
+#: ../ekiga.schemas.in.in.h:23
+msgid "Enable silence detection"
+msgstr "Овозможи детекција на тишина"
+
+#: ../ekiga.schemas.in.in.h:24
+msgid "Enable video support"
+msgstr "Овозможи видео поддршка"
+
+#: ../ekiga.schemas.in.in.h:25
+msgid ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+msgstr "Внеси го бројот на секунди за освежување на NAT врската кога се користи STUN "
+
+#: ../ekiga.schemas.in.in.h:26 ../src/gui/preferences.cpp:378
+#, fuzzy
+msgid "Enter your full name"
+msgstr "Внесете го вашето презиме"
+
+#: ../ekiga.schemas.in.in.h:27
+msgid "Forward calls to host"
+msgstr "Пренасочи ги повиците кон хостот"
+
+#: ../ekiga.schemas.in.in.h:28
+msgid "Forward calls to the given host if busy"
+msgstr "Пренасочи ги повиците кон наведениот хост доколку е зафатено"
+
+#: ../ekiga.schemas.in.in.h:29
+msgid "Forward calls to the given host if no answer"
+msgstr "Пренасочи ги повиците кон наведениот хост доколку нема одговор"
+
+#: ../ekiga.schemas.in.in.h:30 ../src/gui/preferences.cpp:999
+msgid "Frame Rate"
+msgstr "Размер на рамка"
+
+#: ../ekiga.schemas.in.in.h:31
+#, fuzzy
+msgid "Full name"
+msgstr "Име"
+
+#: ../ekiga.schemas.in.in.h:32 ../src/gui/preferences.cpp:396
+msgid ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+msgstr ""
+"Доколку е овозможено, Ekiga ќе се стартира скриен при што е вклучена "
+"забелешка во лентата на GNOME"
+
+#: ../ekiga.schemas.in.in.h:33
+msgid "If enabled, a popup window will be displayed when receiving an incoming call"
+msgstr "Доколку е вклучено, ќе се прикажува скокачки прозорец при прием на повик"
+
+#: ../ekiga.schemas.in.in.h:34
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+msgstr ""
+"Докплку е овозможено, сите пристигнати повици ќе се пренасочат кон хостот "
+"што е наведен во полето подолу"
+
+#: ../ekiga.schemas.in.in.h:35
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+msgstr ""
+"Доколку се овозможи, кога сте во средина на повик или ако сте во модот \"Не "
+"вознемирувај\" сите пристигнати повици ќе бидат пренасочат кон хостот што е "
+"наведен во полето подолу"
+
+#: ../ekiga.schemas.in.in.h:36
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+msgstr ""
+"Доколку е овозможено, сите пристигнати повици ќе се пренасочат кон хостот "
+"што е наведен во полето подолу ако не одговорите на повикот"
+
+#: ../ekiga.schemas.in.in.h:37
+msgid "If enabled, allows video during calls"
+msgstr "Доколку е овозможено, дозволен е прием на видео за време на повик"
+
+#: ../ekiga.schemas.in.in.h:38 ../src/gui/preferences.cpp:398
+msgid "If enabled, offline contacts will be shown in the roster"
+msgstr "Ако е овозможено, контактите ќе бидат прикажани во списокот"
+
+#: ../ekiga.schemas.in.in.h:39
+msgid "If enabled, use echo cancelation"
+msgstr "Ако е овозможено, користи откажување на ехо"
+
+#: ../ekiga.schemas.in.in.h:40
+msgid "If enabled, use silence detection with the codecs supporting it"
+msgstr ""
+"Доколку е овозможено, употребувај детекција на тишина со кодеците што ја "
+"поддржуваат"
+
+#: ../ekiga.schemas.in.in.h:41
+msgid "Kind of network selected in the druid"
+msgstr "Вид на мрежа одбран во друидот"
+
+#: ../ekiga.schemas.in.in.h:42
+msgid "LDAP servers"
+msgstr "LDAP сервери"
+
+#: ../ekiga.schemas.in.in.h:43
+msgid "List of configured LDAP servers"
+msgstr "Листа на конфигурирани LDAP сервери"
+
+#: ../ekiga.schemas.in.in.h:44
+msgid "List of folded groups in the roster"
+msgstr "Листа на собрани групи во списокот"
+
+#: ../ekiga.schemas.in.in.h:45
+msgid "Listen port"
+msgstr "Порта"
+
+#: ../ekiga.schemas.in.in.h:46
+msgid "Local video window size"
+msgstr "Големина на локалниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:47
+#, fuzzy
+msgid "Maximum RX video bitrate"
+msgstr "Максимален пропусен опсег за видео"
+
+#: ../ekiga.schemas.in.in.h:48
+#, fuzzy
+msgid "Maximum TX video bitrate"
+msgstr "Максимален пропусен опсег за видео"
+
+#: ../ekiga.schemas.in.in.h:49
+msgid "Maximum jitter buffer"
+msgstr "Максимален jitter бафер"
+
+#: ../ekiga.schemas.in.in.h:50
+msgid "NAT Binding Timeout"
+msgstr "Време на истекување на NAT врската "
+
+#: ../ekiga.schemas.in.in.h:51
+msgid "No answer timeout"
+msgstr "Без одговор при истек на време"
+
+#: ../ekiga.schemas.in.in.h:52
+msgid "Outbound Proxy"
+msgstr "Надворешен прокси"
+
+#: ../ekiga.schemas.in.in.h:53
+msgid "Output device type"
+msgstr "Тип на излезен уред"
+
+#: ../ekiga.schemas.in.in.h:54 ../src/gui/preferences.cpp:405
+msgid "Place windows displaying video above other windows during calls"
+msgstr ""
+"Постави го прозорецот што прикажува видео пред останатите прозорци за време "
+"на повици"
+
+#: ../ekiga.schemas.in.in.h:55 ../src/gui/preferences.cpp:1367
+msgid "Play busy tone"
+msgstr "Отсвири тон за зафатено"
+
+#: ../ekiga.schemas.in.in.h:56 ../src/gui/preferences.cpp:1358
+msgid "Play ring tone"
+msgstr "Отсвири ринг тон"
+
+#: ../ekiga.schemas.in.in.h:57 ../src/gui/preferences.cpp:1349
+msgid "Play sound on incoming calls"
+msgstr "Отсвири звук при пристигнат повик."
+
+#: ../ekiga.schemas.in.in.h:58
+msgid "Play sound on new message"
+msgstr "Отсвири звук при нова порака"
+
+#: ../ekiga.schemas.in.in.h:59
+msgid "Play sound on new voice mail"
+msgstr "Отсвири звук при нова гласовна пошта"
+
+#: ../ekiga.schemas.in.in.h:60
+msgid "Position of the local video window"
+msgstr "Позиција на локалниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:61
+msgid "Position on the screen of the address book window"
+msgstr "Позиција на екранот на прозорецот на именикот"
+
+#: ../ekiga.schemas.in.in.h:62
+#, fuzzy
+msgid "Position on the screen of the audio settings window"
+msgstr "Позиција на екранот на главниот прозорец"
+
+#: ../ekiga.schemas.in.in.h:63
+msgid "Position on the screen of the chat window"
+msgstr "Позиција на екранот на чат прозорецот"
+
+#: ../ekiga.schemas.in.in.h:64
+msgid "Position on the screen of the druid window"
+msgstr "Позиција на екранот на друид прозорецот"
+
+#: ../ekiga.schemas.in.in.h:65
+msgid "Position on the screen of the log window"
+msgstr "Позиција на екранот на прозорецот за логирање"
+
+#: ../ekiga.schemas.in.in.h:66
+msgid "Position on the screen of the main window"
+msgstr "Позиција на екранот на главниот прозорец"
+
+#: ../ekiga.schemas.in.in.h:67
+msgid "Position on the screen of the preferences window"
+msgstr "Позиција на екранот на прозорецот за параметри"
+
+#: ../ekiga.schemas.in.in.h:68
+#, fuzzy
+msgid "Position on the screen of the video settings window"
+msgstr "Позиција на екранот на прозорецот за логирање"
+
+#: ../ekiga.schemas.in.in.h:69
+msgid "Registration timeout"
+msgstr "Регистрирање на истек на време"
+
+#: ../ekiga.schemas.in.in.h:70
+msgid "Remote video window position"
+msgstr "Позиција на далечниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:71
+msgid "Remote video window size"
+msgstr "Големина на далечниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:72
+msgid "Revision of the schema file"
+msgstr "Ревизија на шема датотеката"
+
+#: ../ekiga.schemas.in.in.h:73
+msgid "Roster view saving group status"
+msgstr "Преглед на списокот со зачувување на статусот на групата"
+
+#: ../ekiga.schemas.in.in.h:74
+msgid "Select an alternative audio output device to use for sound events."
+msgstr "Изберете алтернативен уред за аудио излез за користење за звучни настани."
+
+#: ../ekiga.schemas.in.in.h:75 ../src/gui/preferences.cpp:707
+msgid "Select the audio input device to use"
+msgstr "Изберете го аудио плејер уредот за влез за употреба"
+
+#: ../ekiga.schemas.in.in.h:76 ../src/gui/preferences.cpp:700
+msgid "Select the audio output device to use"
+msgstr "Изберете го аудио плејер уредот за излез за употреба"
+
+#: ../ekiga.schemas.in.in.h:77 ../src/gui/preferences.cpp:863
+msgid "Select the format for video cameras (does not apply to most USB cameras)"
+msgstr ""
+"Одберете го форматот за видео камери (не може да се примени на повеќето од "
+"USB камерите)"
+
+#: ../ekiga.schemas.in.in.h:78
+msgid ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"Одберете ја големината на емитуваното видео: мала (QCIF 176x144) или голема "
+"(CIF 352x288)."
+
+#: ../ekiga.schemas.in.in.h:79 ../src/gui/preferences.cpp:855
+msgid ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+msgstr ""
+"Изберете уред за видео излез. Доколку некоја грешка попречува при користењ "
+"на овој уред ќе биде емитувана тест слика."
+
+#: ../ekiga.schemas.in.in.h:80
+msgid "Show offline contacts"
+msgstr "Покажи ги офлајн контактите"
+
+#: ../ekiga.schemas.in.in.h:81 ../src/gui/main.cpp:1850
+msgid "Show the call panel"
+msgstr "Покажи го панелот за повици"
+
+#: ../ekiga.schemas.in.in.h:82
+msgid "Size of the address book window"
+msgstr "Големина на прозорецот за именикот"
+
+#: ../ekiga.schemas.in.in.h:83
+msgid "Size of the audio settings window"
+msgstr "Големина на прозорецот за поставувања за звукот"
+
+#: ../ekiga.schemas.in.in.h:84
+msgid "Size of the chat window"
+msgstr "Големина на прозорецот за разговор"
+
+#: ../ekiga.schemas.in.in.h:85
+msgid "Size of the druid window"
+msgstr "Големина на далечниот друид прозорец"
+
+#: ../ekiga.schemas.in.in.h:86
+msgid "Size of the preferences window"
+msgstr "Големина на прозорецот за параметри"
+
+#: ../ekiga.schemas.in.in.h:87
+#, fuzzy
+msgid "Size of the video settings window"
+msgstr "Големина на прозорецот за логирање"
+
+#: ../ekiga.schemas.in.in.h:88
+msgid "Specify the software scaling algorithm"
+msgstr "Одреди го алгоритмот за софтверско скалирање"
+
+#: ../ekiga.schemas.in.in.h:89
+msgid ""
+"Specify the software scaling algorithm: 0: nearest neighbor, 1: nearest "
+"neighbor with box filter, 2: bilinear filtering, 3: hyperbolic filtering. "
+"Does not apply on windows systems."
+msgstr "Одреди го алгоритмот за софтверско скалирање: 0: најблизок сосед, 1: најблизок сосед со филтер-кутија, 2: билинеарно филтрирање, 3: хиперболичко филтрирање. Не се однесува на Windows системите."
+
+#: ../ekiga.schemas.in.in.h:90
+msgid "Start hidden"
+msgstr "Стартирај се скриен"
+
+#: ../ekiga.schemas.in.in.h:91
+msgid "TCP port range"
+msgstr "Ранг на TCP порти"
+
+#: ../ekiga.schemas.in.in.h:92
+msgid "Temporal Spatial Trade Off"
+msgstr "Временско-просторна размена"
+
+#: ../ekiga.schemas.in.in.h:93
+msgid "The Audio Codecs List"
+msgstr "Листа на аудио кодеци"
+
+#: ../ekiga.schemas.in.in.h:94
+msgid ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+msgstr ""
+"Ниво на автоматско укинување на ехо: Исклучено, Ниско, Средно, Високо, "
+"Автоматска компензација на гејн. Одбирање на автоматска гејн компензација ја "
+"модулира јачината за најдобар квалитет."
+
+#: ../ekiga.schemas.in.in.h:95 ../src/gui/preferences.cpp:657
+msgid "The SIP Outbound Proxy to use for outgoing calls"
+msgstr "SIP надворешен прокси за надворешни повици"
+
+#: ../ekiga.schemas.in.in.h:96
+msgid "The STUN Server"
+msgstr "STUN сервер"
+
+#: ../ekiga.schemas.in.in.h:97
+#, fuzzy
+msgid ""
+"The STUN server to use for STUN Support. STUN is a technology that permits "
+"passage through some types of NAT gateway"
+msgstr ""
+"STUN сервер се користи за STUN подршка. STUN е начин што дозволува користење "
+"на некои типови на NAT премини"
+
+#: ../ekiga.schemas.in.in.h:98
+#, fuzzy
+msgid "The Video Codecs List"
+msgstr "Листа на аудио кодеци"
+
+#: ../ekiga.schemas.in.in.h:99
+msgid "The accounts list"
+msgstr "Листа на сметки"
+
+#: ../ekiga.schemas.in.in.h:100
+#, fuzzy
+msgid "The audio codecs list"
+msgstr "Листа на аудио кодеци"
+
+#: ../ekiga.schemas.in.in.h:101
+msgid "The busy tone sound"
+msgstr "Тон за зафатено"
+
+#: ../ekiga.schemas.in.in.h:102
+msgid ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+msgstr ""
+"Избраниот тон ќе биде отсвирен на крајот од повикот или при повикувањето на "
+"некого кој е зафатен, доколку е овозможено"
+
+#: ../ekiga.schemas.in.in.h:103
+msgid "The chosen sound will be played on incoming calls, if enabled"
+msgstr "Избраниот звук ќе биде отсвирен за пристигнатите повици, доколку е овозможено"
+
+#: ../ekiga.schemas.in.in.h:104
+msgid ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+msgstr ""
+"Избраниот звук ке биде отсвирен кога е примена нова инстант порака, ако е "
+"вклучено"
+
+#: ../ekiga.schemas.in.in.h:105
+msgid "The chosen sound will be played when a new voice mail is received, if enabled"
+msgstr ""
+"Избраниот звук ке биде отсвирен кога е примена нова гласовна пошта, ако е "
+"вклучено"
+
+#: ../ekiga.schemas.in.in.h:106
+msgid "The chosen sound will be played when calling somebody, if enabled"
+msgstr "Избраниот звук ке биде отсвирен кога повикувате некого, доколку е овозможено"
+
+#: ../ekiga.schemas.in.in.h:107
+msgid "The default video view"
+msgstr "Стандарден видео поглед"
+
+#: ../ekiga.schemas.in.in.h:108
+#, fuzzy
+msgid ""
+"The default video view (0: Local, 1: Remote, 2: Both layered, 3: Both with "
+"local video in a separate window, 4: Both)"
+msgstr ""
+"Стандарден видео поглед (0: Локален, 1: Далечински, 2: Двете помешани, 3: "
+"Двете со локалното видео во посебен прозорец, 4: Двете)"
+
+#: ../ekiga.schemas.in.in.h:109
+msgid "The dial tone sound"
+msgstr "Звук за бирање"
+
+#: ../ekiga.schemas.in.in.h:110
+#, fuzzy
+msgid "The history of the 100 last calls"
+msgstr "Историја на минатите 100 повици"
+
+#: ../ekiga.schemas.in.in.h:111 ../src/gui/preferences.cpp:606
+#: ../src/gui/preferences.cpp:660
+msgid "The host where calls should be forwarded if call forwarding is enabled"
+msgstr "Хост на кој што треба да се пренасочуваат повици ако е вклучено пренасочување"
+
+#: ../ekiga.schemas.in.in.h:112
+msgid ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+msgstr ""
+"Сликата што се емитува доколку е одбрано \"Слика\" како видео додаток или "
+"ако отворањето на уредот не успее. Оставете празно за да се користи "
+"стандардното  Ekiga лого."
+
+#: ../ekiga.schemas.in.in.h:113
+msgid "The incoming call sound"
+msgstr "Звук за пристигнати повици"
+
+#: ../ekiga.schemas.in.in.h:114
+msgid "The list of accounts to which Ekiga should register"
+msgstr "Листа на сметки на кои треба да се регистрира Ekiga"
+
+#: ../ekiga.schemas.in.in.h:115
+#, fuzzy
+msgid "The long status information"
+msgstr "Уреди ги информациите за контакт"
+
+#: ../ekiga.schemas.in.in.h:116
+msgid ""
+"The maximum RX video bitrate in kbit/s. This value will be signaled to the "
+"peer endpoint that can adjust (if it supports it) its TX bitrate if it is "
+"above the signaled value"
+msgstr "Максимален RX видео битрејт во kbit/s. Оваа вредност ќе се сигнализира до крајната точка на peer-от која ќе може да си го прилагоди својот TX битрејт"
+
+#: ../ekiga.schemas.in.in.h:117
+#, fuzzy
+msgid ""
+"The maximum TX video bitrate in kbit/s. The video quality and the number of "
+"transmitted frames per second (depends on selected codec) will be "
+"dynamically adjusted above their minimum during calls to try to minimize the "
+"bandwidth to the given value"
+msgstr ""
+"Маскимален пропусен опсег за видео во кбајти/с. Видео квалитетот и бројот на "
+"пренесни фрејмови во секунда динамички ќе биде подесен над минимумот за "
+"време на повиците со цел да се минимизира пропусниот опсег на дадената "
+"вредност"
+
+#: ../ekiga.schemas.in.in.h:118
+msgid "The maximum jitter buffer size for audio reception (in ms)"
+msgstr "Максимална големина на jitter баферот за прием на аудио (во ms)"
+
+#: ../ekiga.schemas.in.in.h:119
+msgid ""
+"The maximum transmitted frame rate in frames/s. This rate may not be reached "
+"in case a minimum quality was configure via a TSTO value smaller than 31 and "
+"the bitrate selected is not sufficient to support this minimum quality"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:120
+msgid "The new instant message sound"
+msgstr "Звук за нова инстант порака"
+
+#: ../ekiga.schemas.in.in.h:121
+msgid "The new voice mail sound"
+msgstr "Звук за нова гласовна пошта"
+
+#: ../ekiga.schemas.in.in.h:122
+msgid ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+msgstr ""
+"Типот на уредот за излез е тип на уред поврзан со Quicknet картичка. Може во "
+"исто време да биде POTS (едноставен стар телефонски систем) или слушалки."
+
+#: ../ekiga.schemas.in.in.h:123
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+msgstr ""
+"Влезна порта за пристигнати конекции. Ekiga треба да се рестартира за новата "
+"вредност да стапи на сила."
+
+#: ../ekiga.schemas.in.in.h:124
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+msgstr ""
+"Влезна порта за пристигнати конекции. Ekiga треба да се рестартира за новата "
+"вредност да стапи на сила."
+
+#: ../ekiga.schemas.in.in.h:125
+msgid "The position of the local video window"
+msgstr "Позиција на локалниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:126
+msgid "The position of the remote video window"
+msgstr "Позиција на далечниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:127
+msgid ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+msgstr ""
+"Префикс кој што ќе се користи за зачувување на слики при разговорот. На "
+"префискот му следи број на земање слика."
+
+#: ../ekiga.schemas.in.in.h:128
+#, fuzzy
+msgid ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. This "
+"port range has no effect if both participants to the conference are using "
+"H.245 Tunneling."
+msgstr ""
+"Опсег на TCP порти кои Ekiga ќе ги користи за H.323 H.245 каналот. Ekiga "
+"треба да се рестартира за да новите вредности стапат на сила. Оваа порта "
+"нема ефект доколку двајцата учесници на конференцијата користат H.245 "
+"тунелирање."
+
+#: ../ekiga.schemas.in.in.h:129
+msgid "The range of UDP ports that Ekiga will use."
+msgstr "Опсегот на UDP порти кои ќе ги користи Ekiga."
+
+#: ../ekiga.schemas.in.in.h:130
+msgid "The save prefix"
+msgstr "Префикс за зачувување"
+
+#: ../ekiga.schemas.in.in.h:131
+#, fuzzy
+msgid "The short status information"
+msgstr "Уреди ги информациите за контакт"
+
+#: ../ekiga.schemas.in.in.h:132
+msgid "The size of the local video window"
+msgstr "Големина на локалниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:133
+msgid "The size of the remote video window"
+msgstr "Големина на далечниот видео прозорец"
+
+#: ../ekiga.schemas.in.in.h:134
+msgid ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+msgstr ""
+"Звукот кој ќе биде отсвирен на крајот на разговорот или кога повикувате "
+"некого кој е зафатен, доколку е овозможено"
+
+#: ../ekiga.schemas.in.in.h:135
+msgid "The sound that will be played on incoming calls, if enabled"
+msgstr "Звукот кој ќе биде отсвирен на пристигнати повици, доколку е овозможено"
+
+#: ../ekiga.schemas.in.in.h:136
+msgid "The sound that will be played when calling somebody, if enabled"
+msgstr "Звукот кој ќе биде отсвирен кога повикувате некого, доколку е овозможено"
+
+#: ../ekiga.schemas.in.in.h:137
+msgid "The sound that will be played when there is a new instant message, if enabled"
+msgstr "Звукот кој ќе биде отсвирен кога има нова инстант порака, ако е вклучено"
+
+#: ../ekiga.schemas.in.in.h:138
+msgid "The sound that will be played when there is a new voice mail, if enabled"
+msgstr "Звукот кој ќе биде отсвирен кога има нова гласовна пошта, ако е вклучено"
+
+#: ../ekiga.schemas.in.in.h:139
+msgid "The time after which Ekiga will renew its registration with the registrar"
+msgstr "Време после кое Ekiga ќе ја обнови неговата регистрација со регистраторот"
+
+#: ../ekiga.schemas.in.in.h:140
+msgid "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+msgstr "Кодот на државата со две букви (пр.: БЕ, ОК, ФР, ГЕ, ...)"
+
+#: ../ekiga.schemas.in.in.h:141 ../src/gui/preferences.cpp:859
+msgid "The video channel number to use (to select camera, tv or other sources)"
+msgstr "Видео број на канал кој ќе се користи (за избирање камера, тв или друг извор)"
+
+#: ../ekiga.schemas.in.in.h:142
+#, fuzzy
+msgid "The video codecs list"
+msgstr "Листа на аудио кодеци"
+
+#: ../ekiga.schemas.in.in.h:143
+msgid "The video view before having switched to fullscreen"
+msgstr "Прегледот на видеото пред премин на цел екран"
+
+#: ../ekiga.schemas.in.in.h:144
+msgid ""
+"The video view before having switched to fullscreen (same values as "
+"video_view)"
+msgstr "Прегледот на видеото пред премин на цел екран (иста вредност како video_view)"
+
+#: ../ekiga.schemas.in.in.h:145
+msgid "The zoom value"
+msgstr "Вредност за зум"
+
+#: ../ekiga.schemas.in.in.h:146
+#, fuzzy
+msgid ""
+"The zoom value in percent to apply to images displayed in the main GUI (can "
+"be 50, 100, or 200)"
+msgstr ""
+"Вредност на зумот применет на слики прикажани во главниот GUI (може да биде "
+"0.50, 1.00 или 2.00)"
+
+#: ../ekiga.schemas.in.in.h:147
+#, fuzzy
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be "
+"\"RFC2833\" (0), \"INFO\" (1)"
+msgstr ""
+"Ова овозможува сетирање на режимот за DTMF праќање. Вредноста може да биде "
+"само \"RFC2833\" (0)"
+
+#: ../ekiga.schemas.in.in.h:148
+#, fuzzy
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+msgstr ""
+"Ова овозможува да го наместите модот за DTMF испраќање. Вредностите може да "
+"бидат\"String\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) "
+"(стандардно е \"String\"). Избирање на други вредности од \"String\" го "
+"оневозможува Текст разговорот"
+
+#: ../ekiga.schemas.in.in.h:149 ../src/gui/preferences.cpp:618
+#, fuzzy
+msgid ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+msgstr ""
+"Конекцијата ќе биде воспоставена во модот Брз Старт. Брз Старт е нов начин "
+"за побрзо започнување на повици што е воведен во H.323v2. Не е поддржан од "
+"Netmeeting, а истовремено користење на Брз Старт и H.245 тунелирање може да "
+"сруши некои верзии на Netmeeting."
+
+#: ../ekiga.schemas.in.in.h:150 ../src/gui/preferences.cpp:620
+msgid "This enables H.245 early in the setup"
+msgstr "Ова го овоозможува рано H.245 во поставувањето"
+
+#: ../ekiga.schemas.in.in.h:151
+msgid ""
+"This key disables DirectX (on win32) and XVideo (on Linux) video hardware "
+"acceleration"
+msgstr "Овој клуч го оневозможува хардверското забрзување со DirectX (на win32) и XVideo (на Linux)"
+
+#: ../ekiga.schemas.in.in.h:152
+msgid "UDP port range"
+msgstr "Ранг на UDP порти"
+
+#: ../ekiga.schemas.in.in.h:153
+msgid "Version"
+msgstr "Верзија"
+
+#: ../ekiga.schemas.in.in.h:154
+msgid "Video channel"
+msgstr "Видео канали"
+
+#: ../ekiga.schemas.in.in.h:155
+msgid "Video format"
+msgstr "Видео формат"
+
+#: ../ekiga.schemas.in.in.h:156
+msgid "Video image"
+msgstr "Видео слика"
+
+#: ../ekiga.schemas.in.in.h:157 ../src/gui/assistant.cpp:1045
+msgid "Video input device"
+msgstr "Уред за видео влез"
+
+#: ../ekiga.schemas.in.in.h:158
+msgid "Video preview"
+msgstr "Видео преглед"
+
+#: ../ekiga.schemas.in.in.h:159
+msgid "Video size"
+msgstr "Видео големина"
+
+#: ../ekiga.schemas.in.in.h:160
+msgid ""
+"Whether to prefer to sustain the max. frame rate or lower it possibly in "
+"order to keep a minimum level of (spatial) quality for all frames. 0: "
+"Highest minimal quality, 31: lowest minimal quality"
+msgstr "Дали да се задржи макс. интензитет на фрејмови или да се намали за да се зачува нивото на квалитет за сите фрејмови. 0: Најголемиот минимален квалитет, 31: најнискиот минимален квалитет"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:148
+#, fuzzy
+msgid "Received"
+msgstr "Примени повици"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:151
+#, fuzzy
+msgid "Placed"
+msgstr "Placed повици"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:154
+#, fuzzy
+msgid "Missed"
+msgstr "Пропуштени повици"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:234
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:194
+#: ../src/endpoints/opal-account.cpp:310 ../src/gui/main.cpp:1808
+msgid "_Edit"
+msgstr "_Уреди"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:236
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:196
+#: ../src/endpoints/opal-account.cpp:312
+msgid "_Remove"
+msgstr "_Отстрани"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:325
+msgid "Edit contact"
+msgstr "Уреди го контактот"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:327
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:298
+#: ../src/endpoints/opal-account.cpp:353
+msgid "Please update the following fields:"
+msgstr "Ве молам, ажурирајте ги следниве полиња:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:329
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:221
+#: ../lib/engine/presence/local-roster/local-heap.cpp:177
+#: ../lib/engine/presence/local-roster/local-heap.cpp:324
+#: ../src/endpoints/opal-account.cpp:355 ../src/endpoints/opal-bank.cpp:101
+#: ../src/endpoints/opal-bank.cpp:111
+msgid "Name:"
+msgstr "Име:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:338
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:301
+#, fuzzy
+msgid "VoIP _URI:"
+msgstr "VoIP URL:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:339
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:302
+#, fuzzy
+msgid "_Home phone:"
+msgstr "_Видеофон"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:340
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:303
+#, fuzzy
+msgid "_Office phone:"
+msgstr "_Видеофон"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:341
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:304
+#, fuzzy
+msgid "_Cell phone:"
+msgstr "_Видеофон"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:342
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:305
+#, fuzzy
+msgid "_Pager:"
+msgstr "Слика:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:392
+#, fuzzy
+msgid "Remove contact"
+msgstr "Далечни контакти"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:394
+#, fuzzy, c-format
+msgid "Are you sure you want to remove %s from the addressbook?"
+msgstr "Дали сте сигурни дека сакате да го избришите %s од %s ?"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:76
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:591
+#, fuzzy, c-format
+msgid "%d user found"
+msgid_plural "%d users found"
+msgstr[0] "Корисникот не е пронајден"
+msgstr[1] "Корисникот не е пронајден"
+msgstr[2] "Корисникот не е пронајден"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:244
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:310
+#, fuzzy
+msgid "_Refresh"
+msgstr "_Параметри"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:247
+msgid "New _Contact"
+msgstr "Нов _Контакт"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:296
+#: ../lib/engine/presence/local-roster/local-heap.cpp:118
+#, fuzzy
+msgid "New contact"
+msgstr "Нов _Контакт"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:300
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:157
+#, fuzzy
+msgid "_Name:"
+msgstr "Име:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:139
+#, fuzzy
+msgid "Add an LDAP Address Book"
+msgstr "Додај Именик"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:142
+msgid "Add the Ekiga.net Directory"
+msgstr "Додај во директориумот Ekiga.net"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:153
+msgid "Create LDAP directory"
+msgstr "Креирај LDAP директориум"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:155
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:611
+msgid "Please edit the following fields"
+msgstr "Ве молам, уредете ги следниве полиња"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:158
+#, fuzzy
+msgid "_Hostname:"
+msgstr "Име на хостот:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:159
+#, fuzzy
+msgid "_Port:"
+msgstr "Порта:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:160
+#, fuzzy
+msgid "_Base DN:"
+msgstr "Основна DN:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:164
+#, fuzzy
+msgid "_Subtree"
+msgstr "Subtree"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:165
+#, fuzzy
+msgid "Single _Level"
+msgstr "Едно ниво"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:166
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:629
+msgid "_Scope"
+msgstr "_Простор"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:169
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:632
+msgid "Call _Attribute"
+msgstr "_Атрибут на повик"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:170
+msgid "Password"
+msgstr "Лозинка"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:188
+#, fuzzy
+msgid "Ekiga.net Directory"
+msgstr "Кориснички директориум"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:313
+#, fuzzy
+msgid "_Remove addressbook"
+msgstr "Отвори го именикот"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:315
+msgid "Addressbook _properties"
+msgstr "_Својства на адресарот"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:380
+msgid "Refreshing"
+msgstr "Освежувам"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:388
+msgid "Could not initialize server"
+msgstr "Не можам да го иницијализирам серверот"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:421
+msgid "Could not contact server"
+msgstr "Не можам да контактирам со серверот"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:429
+#, fuzzy
+msgid "Contacted server"
+msgstr "Контакти блиску мене"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:466
+#, fuzzy
+msgid "Could not connect to server"
+msgstr "Неможам да се поврзам на далечниот хост"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:516
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:564
+msgid "Could not search"
+msgstr "Не можам да пребарам"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:524
+msgid "Waiting for search results"
+msgstr "Чекам резултати од пребарувањето"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:609
+#, fuzzy
+msgid "Edit LDAP directory"
+msgstr "Кориснички именик"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:613
+#, fuzzy
+msgid "_Name"
+msgstr "Име"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:614
+#, fuzzy
+msgid "_Hostname"
+msgstr "Име на хостот:"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:620
+#, fuzzy
+msgid "_Port"
+msgstr "Порта:"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:622
+#, fuzzy
+msgid "_Base DN"
+msgstr "Основна DN:"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:627
+msgid "Subtree"
+msgstr "Subtree"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:628
+#, fuzzy
+msgid "Single Level"
+msgstr "Едно ниво"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:634
+#, fuzzy
+msgid "_Password"
+msgstr "_Лозинка"
+
+#: ../lib/engine/addressbook/skel/contact-core.cpp:57
+#, fuzzy
+msgid "_Find"
+msgstr "_Датотека"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:659
+msgid "Address Book"
+msgstr "Именик"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:678
+#: ../src/gui/main.cpp:1757
+msgid "Address _Book"
+msgstr "И_меник"
+
+#. This will add static and dynamic actions
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:687
+#, fuzzy
+msgid "_Action"
+msgstr "_Локација:"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:732
+#, fuzzy
+msgid "Category"
+msgstr "Категории"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:247
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:968
+msgid "says:"
+msgstr "вели:"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:370
+msgid "Open link in browser"
+msgstr "Отвори ја врската во прелистувач"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:376
+#, fuzzy
+msgid "Copy link"
+msgstr "_Копирај Равенство"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:905
+msgid "_Smile..."
+msgstr "_Смајли..."
+
+#. The window
+#. we can't do much here since we get the Chat as reference...
+#: ../lib/engine/gui/gtk-frontend/chat-window-old.cpp:562
+#: ../lib/engine/gui/gtk-frontend/chat-window.cpp:433
+msgid "Chat Window"
+msgstr "Прозорец за разговор"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:638
+#: ../src/gui/assistant.cpp:1253
+#, fuzzy
+msgid "Full Name"
+msgstr "_Целосен Преглед"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:649
+#, fuzzy
+msgid "_Search Filter:"
+msgstr "Атрибути за пребарување:"
+
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:981
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:1016
+#, fuzzy
+msgid "Unsorted"
+msgstr "Нерегистрирано"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:752
+msgid "_Send"
+msgstr "_Прати"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:963
+#, fuzzy, c-format
+msgid "You say:\n"
+msgstr "кажи:"
+
+#: ../lib/engine/gui/gtk-frontend/call-history-view-gtk.cpp:163
+#: ../src/gui/statusmenu.cpp:499
+msgid "Clear"
+msgstr "Исчисти"
+
+#: ../lib/engine/presence/avahi/avahi-heap.cpp:129
+#: ../lib/engine/presence/avahi/avahi-heap.cpp:315
+msgid "Neighbours"
+msgstr "Соседи"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:218
+msgid "Edit roster element"
+msgstr "Уреди го елементот од списокот"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:219
+msgid ""
+"Please fill in this form to change an existing element of ekiga's internal "
+"roster"
+msgstr "Ве молам, пополнете ја оваа форма за размена на постоечкиот елемент на внатрешниот список на ekiga"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:222
+#: ../lib/engine/presence/local-roster/local-heap.cpp:186
+#: ../lib/engine/presence/local-roster/local-heap.cpp:188
+msgid "Address:"
+msgstr "Адреса:"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:224
+msgid "Choose groups:"
+msgstr "Изберете групи:"
+
+#: ../lib/engine/presence/local-roster/local-roster-bridge.cpp:94
+#: ../lib/engine/presence/local-roster/local-heap.cpp:174
+msgid "Add to local roster"
+msgstr "Додај во локален список"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:93
+msgid "Services"
+msgstr "Сервиси"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:94
+msgid "Echo test"
+msgstr "Ехо тест"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:95
+msgid "Conference room"
+msgstr "Соба за конференција"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:111
+#, fuzzy
+msgid "Local roster"
+msgstr "Локални контакти"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:128
+#, fuzzy
+msgid "Rename"
+msgstr "Име"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:175
+msgid "Please fill in this form to add a new contact to ekiga's internal roster"
+msgstr "Ве молам, пополнете ја оваа форма за додавање на нов контакт во внатрешниот список на екига"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:192
+msgid "Put contact in groups:"
+msgstr "Стави го контактот во групите:"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:295
+msgid "You supplied an unsupported address"
+msgstr "Напишавте неподдржана адреса"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:297
+msgid "You already have a contact with this address!"
+msgstr "Веќе имате контакт со таа адреса"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:322
+msgid "Rename group"
+msgstr "Преименувај ја групата"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:323
+#, fuzzy
+msgid "Please edit this group name"
+msgstr "Ве молиме внесете го вашето корисничко име:"
+
+#: ../lib/gui/codecsbox.cpp:477
+msgid "Move selected codec priority upwards"
+msgstr "Покачи го приоритетот на избраниот кодек"
+
+#: ../lib/gui/codecsbox.cpp:487
+msgid "Move selected codec priority downwards"
+msgstr "Намали го приоритетот на избраниот кодек"
+
+#: ../lib/gui/gmdialog.c:474
+msgid "Do not show this dialog again"
+msgstr "Не го прикажувај повторно овој диалог"
+
+#: ../src/devices/audio.cpp:281
+msgid "Opening device for playing"
+msgstr "Отвори уред за свирење"
+
+#: ../src/devices/audio.cpp:283
+msgid "Opening device for recording"
+msgstr "Отвори уред за снимање"
+
+#: ../src/devices/audio.cpp:294 ../src/devices/audio.cpp:296
+msgid "Failed to open the device"
+msgstr "Откажано отварањето на уред"
+
+#: ../src/devices/audio.cpp:294
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for recording. Please "
+"check your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Невозможно е отварањето на избраниот уред (%s) за снимање. Ве молиме "
+"проверете го аудио поставувањето, дозволата и дали уредот е зафатен."
+
+#: ../src/devices/audio.cpp:296
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for playing. Please check "
+"your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Невозможно е отварањето на аудио уредот (%s) за свирење. Ве молиме проверете "
+"го аудио поставувањето, дозволата и дали уредот е зафатен."
+
+#: ../src/devices/audio.cpp:312 ../src/devices/audio.cpp:381
+msgid "Cannot use the audio device"
+msgstr "Неможе да се користи аудио уредот"
+
+#: ../src/devices/audio.cpp:312
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to read data from this device. Please check your audio setup."
+msgstr ""
+"Избраниот аудио уред (%s) е успешно отворен но не е возможно читање на "
+"податоци од овој уред. Ве молиме проверете го аудио поставувањето."
+
+#: ../src/devices/audio.cpp:321
+msgid "Recording your voice"
+msgstr "Снимање на вашиот глас"
+
+#: ../src/devices/audio.cpp:360
+msgid "Recording and playing back"
+msgstr "Снимање и повторно пуштање"
+
+#: ../src/devices/audio.cpp:381
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to write data to this device. Please check your audio setup."
+msgstr ""
+"Избраниот аудио уред (%s) е успешно отворен но не е возможно запишување на "
+"податоци во овој уред. Ве молиме проверете го аудио поставувањето."
+
+#: ../src/devices/audio.cpp:476 ../src/devices/audio.cpp:477
+#: ../src/gui/assistant.cpp:1118 ../src/gui/assistant.cpp:1141
+#: ../src/gui/assistant.cpp:1164 ../src/gui/preferences.cpp:734
+#: ../src/gui/preferences.cpp:758 ../src/gui/preferences.cpp:781
+msgid "No device found"
+msgstr "Никаков уред не е пронајден"
+
+#: ../src/devices/audio.cpp:488
+#, fuzzy
+msgid "Audio test running"
+msgstr "_Аудио поставувања"
+
+#: ../src/devices/audio.cpp:495
+#, fuzzy, c-format
+msgid ""
+"Ekiga is now recording from %s and playing back to %s. Please say \"1, 2, 3, "
+"Ekiga rocks!\" in your microphone. You should hear yourself from the "
+"speakers after a four-second delay."
+msgstr ""
+"Ekiga сега снима од %s и го отсвирува во %s.Ве молиме кажете \"1 2 3\" во "
+"вашиот микрофон, Вие треба да се слушнете во слушалките со задоцнување од 4 "
+"секунди."
+
+#: ../src/endpoints/h323-endpoint.cpp:153
+#: ../src/endpoints/sip-endpoint.cpp:273 ../src/endpoints/sip-endpoint.cpp:277
+#, fuzzy
+msgid "Call"
+msgstr "П_овик"
+
+#: ../src/endpoints/h323-endpoint.cpp:156
+#: ../src/endpoints/sip-endpoint.cpp:274 ../src/endpoints/sip-endpoint.cpp:278
+#: ../src/gui/main.cpp:3878
+msgid "Transfer"
+msgstr "Емитувај"
+
+#. Translators : The alias we are registering already exists : failure
+#: ../src/endpoints/h323-endpoint.cpp:319
+msgid "Duplicate alias"
+msgstr "Дуплирај алиас"
+
+#: ../src/endpoints/h323-endpoint.cpp:322
+msgid "Bad username/password"
+msgstr "Неправилно име на корисник/лозинка"
+
+#: ../src/endpoints/h323-endpoint.cpp:325
+#: ../src/endpoints/sip-endpoint.cpp:904
+#, fuzzy
+msgid "Transport error"
+msgstr "Емитувај"
+
+#: ../src/endpoints/h323-endpoint.cpp:336
+#: ../src/endpoints/h323-endpoint.cpp:341
+#: ../src/endpoints/sip-endpoint.cpp:911
+#, fuzzy
+msgid "Failed"
+msgstr "_Датотека"
+
+#: ../src/endpoints/manager.cpp:708
+msgid ""
+"Ekiga did not manage to configure your network settings automatically. You "
+"can still use it, but you need to configure your network settings manually.\n"
+"\n"
+"Please see http://wiki.ekiga.org/index.php/Enable_port_forwarding_manually "
+"for instructions"
+msgstr ""
+"Ekiga не успеа автоматски да ги конфигурира Вашите мрежни поставувања. Можете да продолжите со користење, но прво ќе треба рачно да ги конфигурирате мрежните поставувања.\n"
+"\n"
+"Ве молам, посетете го http://wiki.ekiga.org/index.php/Enable_port_forwarding_manually за упатства"
+
+#: ../src/endpoints/opal-account.cpp:302
+msgid "_Disable"
+msgstr "_Оневозможи"
+
+#: ../src/endpoints/opal-account.cpp:305
+msgid "_Enable"
+msgstr "_Овозможи"
+
+#: ../src/endpoints/opal-account.cpp:326 ../src/gui/assistant.cpp:664
+msgid "Recharge the account"
+msgstr "Наполнете ја сметката пак"
+
+#: ../src/endpoints/opal-account.cpp:331 ../src/gui/assistant.cpp:676
+msgid "Consult the balance history"
+msgstr "Консултирајте ја историјата на балансот"
+
+#: ../src/endpoints/opal-account.cpp:336
+#, fuzzy
+msgid "Consult the call history"
+msgstr "Консултирајте ја историјата на повици"
+
+#: ../src/endpoints/opal-account.cpp:351 ../src/endpoints/opal-bank.cpp:74
+#, fuzzy
+msgid "Edit account"
+msgstr "Ажурирај ги сопствените сметки"
+
+#: ../src/endpoints/opal-account.cpp:357 ../src/endpoints/opal-bank.cpp:112
+msgid "Registrar:"
+msgstr "Регистратор:"
+
+#: ../src/endpoints/opal-account.cpp:359 ../src/endpoints/opal-bank.cpp:102
+msgid "Gatekeeper:"
+msgstr "Gatekeeper:"
+
+#: ../src/endpoints/opal-account.cpp:360 ../src/endpoints/opal-bank.cpp:83
+#: ../src/endpoints/opal-bank.cpp:103 ../src/endpoints/opal-bank.cpp:113
+msgid "User:"
+msgstr "Корисник:"
+
+#. Translators:
+#. * SIP knows two usernames: The name for the client ("User") and the name
+#. * for the authentication procedure ("Authentication User")
+#: ../src/endpoints/opal-account.cpp:365 ../src/endpoints/opal-bank.cpp:114
+#, fuzzy
+msgid "Authentication User:"
+msgstr "Логин за проверка на автентичноста"
+
+#: ../src/endpoints/opal-account.cpp:366 ../src/endpoints/opal-bank.cpp:85
+#: ../src/endpoints/opal-bank.cpp:105 ../src/endpoints/opal-bank.cpp:115
+msgid "Password:"
+msgstr "Лозинка:"
+
+#: ../src/endpoints/opal-account.cpp:367 ../src/endpoints/opal-bank.cpp:106
+#: ../src/endpoints/opal-bank.cpp:116
+#, fuzzy
+msgid "Timeout:"
+msgstr "Истече"
+
+#: ../src/endpoints/opal-account.cpp:368 ../src/endpoints/opal-bank.cpp:119
+#, fuzzy
+msgid "Enable Account"
+msgstr "Сметки"
+
+#: ../src/endpoints/opal-account.cpp:403 ../src/endpoints/opal-bank.cpp:155
+msgid "You did not supply a name for that account."
+msgstr "Не напишавте име за таа сметка"
+
+#: ../src/endpoints/opal-account.cpp:405 ../src/endpoints/opal-bank.cpp:157
+msgid "You did not supply a host to register to."
+msgstr "Не напишавте хост за регистрирање"
+
+#: ../src/endpoints/opal-account.cpp:407 ../src/endpoints/opal-bank.cpp:159
+msgid "You did not supply a user name for that account."
+msgstr "Не напишавте корисничко име за таа сметка"
+
+#: ../src/endpoints/opal-account.cpp:409 ../src/endpoints/opal-bank.cpp:161
+msgid "The timeout should have a bigger value."
+msgstr "Времето треба да има поголема вредност"
+
+#: ../src/endpoints/opal-bank.cpp:55
+msgid "_Add an Ekiga.net Account"
+msgstr "_Додај Ekiga.net сметка"
+
+#: ../src/endpoints/opal-bank.cpp:57
+msgid "_Add an Ekiga Call Out Account"
+msgstr "_Додај Ekiga сметка за повици кон обични телефони"
+
+#: ../src/endpoints/opal-bank.cpp:59
+msgid "_Add a SIP Account"
+msgstr "_Додај SIP сметка"
+
+#: ../src/endpoints/opal-bank.cpp:61
+msgid "_Add an H.323 Account"
+msgstr "_Додај H.323 сметка"
+
+#: ../src/endpoints/opal-bank.cpp:75
+msgid "Please update the following fields."
+msgstr "Ве молам, ажурирајте ги следниве полиња."
+
+#: ../src/endpoints/opal-bank.cpp:80 ../src/gui/assistant.cpp:540
+#, fuzzy
+msgid "Get an Ekiga.net SIP account"
+msgstr "Креирајте ekiga.net SIP сметка "
+
+#: ../src/endpoints/opal-bank.cpp:90 ../src/gui/assistant.cpp:652
+#, fuzzy
+msgid "Get an Ekiga Call Out account"
+msgstr "Земете Ekiga PC-до-телефон сметка"
+
+#: ../src/endpoints/opal-bank.cpp:94 ../src/gui/main.cpp:3575
+#: ../src/gui/main.cpp:3672
+#, fuzzy
+msgid "Account ID:"
+msgstr "Број на сметка:"
+
+#: ../src/endpoints/opal-bank.cpp:96
+msgid "PIN Code:"
+msgstr "PIN код:"
+
+#: ../src/endpoints/opal-call.cpp:398
+msgid "Local user cleared the call"
+msgstr "Локалниот корисник го избриша повикот"
+
+#: ../src/endpoints/opal-call.cpp:401 ../src/endpoints/opal-call.cpp:404
+msgid "Local user rejected the call"
+msgstr "Локалниот корисник го отфрли повикот"
+
+#: ../src/endpoints/opal-call.cpp:407
+msgid "Remote user cleared the call"
+msgstr "Далечниот корисник го избриша повикот"
+
+#: ../src/endpoints/opal-call.cpp:410
+msgid "Remote user rejected the call"
+msgstr "Далечниот корисник го отфрли повикот"
+
+#: ../src/endpoints/opal-call.cpp:413
+msgid "Remote user has stopped calling"
+msgstr "Далечниот корисник го запре повикувањето"
+
+#: ../src/endpoints/opal-call.cpp:416
+msgid "Abnormal call termination"
+msgstr "Абнормален прекин на повик"
+
+#: ../src/endpoints/opal-call.cpp:419 ../src/gui/main.cpp:1542
+msgid "Could not connect to remote host"
+msgstr "Неможам да се поврзам на далечниот хост"
+
+#: ../src/endpoints/opal-call.cpp:422
+msgid "The Gatekeeper cleared the call"
+msgstr "Gatekeeper го избриша повикот"
+
+#: ../src/endpoints/opal-call.cpp:425
+msgid "User not found"
+msgstr "Корисникот не е пронајден"
+
+#: ../src/endpoints/opal-call.cpp:428
+msgid "Insufficient bandwidth"
+msgstr "Недоволен пропустен опсег"
+
+#: ../src/endpoints/opal-call.cpp:431
+msgid "No common codec"
+msgstr "Нема заеднички кодек"
+
+#: ../src/endpoints/opal-call.cpp:434
+msgid "Call forwarded"
+msgstr "Пренасочен повик"
+
+#: ../src/endpoints/opal-call.cpp:437
+msgid "Security check failed"
+msgstr "Откажано проверување на безбедноста"
+
+#: ../src/endpoints/opal-call.cpp:440
+msgid "Local user is busy"
+msgstr "Локалниот корисник е зафатен"
+
+#: ../src/endpoints/opal-call.cpp:443 ../src/endpoints/opal-call.cpp:449
+msgid "Congested link to remote party"
+msgstr "Блокиран линк на далечната забава"
+
+#: ../src/endpoints/opal-call.cpp:446
+msgid "Remote user is busy"
+msgstr "Далечниот корисник е зафатен"
+
+#: ../src/endpoints/opal-call.cpp:452
+msgid "Remote host is offline"
+msgstr "Далечниот хост не е на линија"
+
+#: ../src/endpoints/opal-call.cpp:458
+#, fuzzy
+msgid "User is not available"
+msgstr "Привремено недостапно"
+
+#: ../src/endpoints/opal-call.cpp:470
+msgid "Call completed"
+msgstr "Повикот е завршен"
+
+#: ../src/endpoints/sip-endpoint.cpp:298 ../src/endpoints/sip-endpoint.cpp:300
+#, fuzzy
+msgid "Message"
+msgstr "_Прати ја порака"
+
+#: ../src/endpoints/sip-endpoint.cpp:718
+msgid "Bad request"
+msgstr "Неточно побарување"
+
+#: ../src/endpoints/sip-endpoint.cpp:722
+msgid "Payment required"
+msgstr "Плаќање е потребно"
+
+#: ../src/endpoints/sip-endpoint.cpp:726
+msgid "Unauthorized"
+msgstr "Неавторизирано"
+
+#: ../src/endpoints/sip-endpoint.cpp:730
+msgid "Forbidden"
+msgstr "Забрането"
+
+#: ../src/endpoints/sip-endpoint.cpp:734
+msgid "Timeout"
+msgstr "Истече"
+
+#: ../src/endpoints/sip-endpoint.cpp:738
+msgid "Conflict"
+msgstr "Конфликт"
+
+#: ../src/endpoints/sip-endpoint.cpp:742
+msgid "Temporarily unavailable"
+msgstr "Привремено недостапно"
+
+#: ../src/endpoints/sip-endpoint.cpp:746
+#, fuzzy
+msgid "Not acceptable"
+msgstr "Неприфатливо"
+
+#: ../src/endpoints/sip-endpoint.cpp:750
+msgid "Illegal status code"
+msgstr "Нелегален код на статус"
+
+#: ../src/endpoints/sip-endpoint.cpp:754
+msgid "Multiple choices"
+msgstr "Повеќе опции"
+
+#: ../src/endpoints/sip-endpoint.cpp:758
+msgid "Moved permanently"
+msgstr "Преместено засекогаш"
+
+#: ../src/endpoints/sip-endpoint.cpp:762
+msgid "Moved temporarily"
+msgstr "Преместено привремено"
+
+#: ../src/endpoints/sip-endpoint.cpp:766
+msgid "Use proxy"
+msgstr "Користи прокси"
+
+#: ../src/endpoints/sip-endpoint.cpp:770
+msgid "Alternative service"
+msgstr "Алтернативен сервис"
+
+#: ../src/endpoints/sip-endpoint.cpp:774
+msgid "Not found"
+msgstr "Не е пронајдено"
+
+#: ../src/endpoints/sip-endpoint.cpp:778
+msgid "Method not allowed"
+msgstr "Методот не е дозволен"
+
+#: ../src/endpoints/sip-endpoint.cpp:782
+#, fuzzy
+msgid "Proxy authentication required"
+msgstr "Плаќање е потребно"
+
+#: ../src/endpoints/sip-endpoint.cpp:786
+#, fuzzy
+msgid "Length required"
+msgstr "Плаќање е потребно"
+
+#: ../src/endpoints/sip-endpoint.cpp:790
+msgid "Request entity too big"
+msgstr "Барањето е преголемо"
+
+#: ../src/endpoints/sip-endpoint.cpp:794
+msgid "Request URI too long"
+msgstr "URI-то на барањето е преголемо"
+
+#: ../src/endpoints/sip-endpoint.cpp:798
+msgid "Unsupported media type"
+msgstr "Неподдржан тип на медиум"
+
+#: ../src/endpoints/sip-endpoint.cpp:802
+msgid "Unsupported URI scheme"
+msgstr "Неподдржана URI шема"
+
+#. Translators : The extension we are trying to register does not exist
+#: ../src/endpoints/sip-endpoint.cpp:807
+msgid "Bad extension"
+msgstr "Неправилна екстензија"
+
+#: ../src/endpoints/sip-endpoint.cpp:811
+#, fuzzy
+msgid "Extension required"
+msgstr "Плаќање е потребно"
+
+#: ../src/endpoints/sip-endpoint.cpp:815
+msgid "Interval too brief"
+msgstr "Интервалот е премногу краток"
+
+#: ../src/endpoints/sip-endpoint.cpp:819
+msgid "Loop detected"
+msgstr "Откриен е циклус"
+
+#: ../src/endpoints/sip-endpoint.cpp:823
+msgid "Too many hops"
+msgstr "Премногу циклуси"
+
+#: ../src/endpoints/sip-endpoint.cpp:827
+#, fuzzy
+msgid "Address incomplete"
+msgstr "Именик"
+
+#: ../src/endpoints/sip-endpoint.cpp:831
+msgid "Ambiguous"
+msgstr "Двосмислено"
+
+#: ../src/endpoints/sip-endpoint.cpp:835
+msgid "Busy Here"
+msgstr "Зафатен"
+
+#: ../src/endpoints/sip-endpoint.cpp:839
+msgid "Request terminated"
+msgstr "Барањето е прекинато"
+
+#: ../src/endpoints/sip-endpoint.cpp:843
+#, fuzzy
+msgid "Not acceptable here"
+msgstr "Неприфатливо"
+
+#: ../src/endpoints/sip-endpoint.cpp:847
+#, fuzzy
+msgid "Bad event"
+msgstr "Неточно побарување"
+
+#: ../src/endpoints/sip-endpoint.cpp:851
+#, fuzzy
+msgid "Request pending"
+msgstr "Регистрирам"
+
+#: ../src/endpoints/sip-endpoint.cpp:855
+msgid "Undecipherable"
+msgstr "Не може да се дешифрира"
+
+#: ../src/endpoints/sip-endpoint.cpp:859
+msgid "Internal server error"
+msgstr "Внатрешна грешка на серверот"
+
+#: ../src/endpoints/sip-endpoint.cpp:863
+msgid "Not implemented"
+msgstr "Не е имплементирано"
+
+#: ../src/endpoints/sip-endpoint.cpp:867
+msgid "Bad gateway"
+msgstr "Неправилен премин"
+
+#: ../src/endpoints/sip-endpoint.cpp:871
+msgid "Service unavailable"
+msgstr "Сервисот не е достапен"
+
+#: ../src/endpoints/sip-endpoint.cpp:875
+#, fuzzy
+msgid "Server timeout"
+msgstr "Без одговор при истек на време"
+
+#: ../src/endpoints/sip-endpoint.cpp:879
+msgid "SIP version not supported"
+msgstr "SIP верзијата не е поддржана"
+
+#: ../src/endpoints/sip-endpoint.cpp:883
+msgid "Message too large"
+msgstr "Пораката е преголема"
+
+#: ../src/endpoints/sip-endpoint.cpp:887
+msgid "Busy everywhere"
+msgstr "Зафатен секаде"
+
+#: ../src/endpoints/sip-endpoint.cpp:891
+msgid "Decline"
+msgstr "Одбиј"
+
+#: ../src/endpoints/sip-endpoint.cpp:895
+msgid "Does not exist anymore"
+msgstr "Не постои повеќе"
+
+#: ../src/endpoints/sip-endpoint.cpp:899
+msgid "Globally not acceptable"
+msgstr "Глобално неприфатливо"
+
+#: ../src/endpoints/sip-endpoint.cpp:1027
+#, fuzzy
+msgid "Could not send message"
+msgstr "Прати порака"
+
+#: ../src/gui/accounts.cpp:234
+msgid "Registered"
+msgstr "Регистрирано"
+
+#: ../src/gui/accounts.cpp:238
+msgid "Unregistered"
+msgstr "Нерегистрирано"
+
+#: ../src/gui/accounts.cpp:242
+msgid "Could not unregister"
+msgstr "Не можев да се одрегистрирам"
+
+#: ../src/gui/accounts.cpp:248
+msgid "Could not register"
+msgstr "Не можев да се регистрирам"
+
+#: ../src/gui/accounts.cpp:254
+msgid "Processing..."
+msgstr "Процесирам..."
+
+#: ../src/gui/accounts.cpp:628
+msgid "Account Name"
+msgstr "Име на сметка"
+
+#: ../src/gui/accounts.cpp:629
+msgid "Voice Mails"
+msgstr "Гласовни Пораки"
+
+#: ../src/gui/accounts.cpp:630
+msgid "Status"
+msgstr "Статус"
+
+#: ../src/gui/accounts.cpp:641 ../src/gui/accounts.cpp:684
+msgid "Accounts"
+msgstr "Сметки"
+
+#: ../src/gui/accounts.cpp:655 ../src/gui/main.cpp:1818
+msgid "_Accounts"
+msgstr "_Сметки"
+
+#: ../src/gui/accounts.cpp:659 ../src/gui/main.cpp:1901
+msgid "_Help"
+msgstr "_Помош"
+
+#. Translators:
+#. * The following string "A" means "activated" or "active". It's a column
+#. * description in the list of configured accounts, it shows if an account
+#. * is activated or not (a status the user can choose).
+#.
+#: ../src/gui/accounts.cpp:692 ../src/gui/preferences.cpp:497
+msgid "A"
+msgstr "A"
+
+#: ../src/gui/assistant.cpp:258
+msgid ""
+"This is the Ekiga general configuration assistant. The following steps will "
+"set up Ekiga by asking a few simple questions.\n"
+"\n"
+"Once you have completed these steps, you can always change them later by "
+"selecting Preferences in the Edit menu."
+msgstr ""
+"Ова е главниот асистент за конфигурирање на Ekiga. Овие чекори ќе ја "
+"постават Ekiga со поставување на неколку едноставни прашања.\n"
+"\n"
+"Отако сте го поминале овие чекори, можете да ги промените во секое време "
+"избирајќи Параметри во менито Уреди."
+
+#: ../src/gui/assistant.cpp:266
+msgid "Welcome in Ekiga"
+msgstr "Добредојдовте во Ekiga"
+
+#: ../src/gui/assistant.cpp:300 ../src/gui/preferences.cpp:373
+msgid "Personal Information"
+msgstr "Лични податоци"
+
+#. The user fields
+#: ../src/gui/assistant.cpp:303
+msgid "Please enter your first name and your surname:"
+msgstr "Ве молиме внесете го вашето име и презиме:"
+
+#: ../src/gui/assistant.cpp:312
+msgid ""
+"Your first name and surname will be used when connecting to other VoIP and "
+"videoconferencing software."
+msgstr ""
+"Вашето име и презиме ќе бидат искористени за поврзување со друг VoIP и "
+"софтвер за видеоконференција."
+
+#: ../src/gui/assistant.cpp:503
+#, fuzzy
+msgid "Ekiga.net Account"
+msgstr "ekiga.net Сметка - страница%d/%d "
+
+#: ../src/gui/assistant.cpp:505
+msgid "Please enter your username:"
+msgstr "Ве молиме внесете го вашето корисничко име:"
+
+#: ../src/gui/assistant.cpp:513
+msgid "Please enter your password:"
+msgstr "Ве молиме внесете ја вашата лозинка:"
+
+#: ../src/gui/assistant.cpp:523
+msgid ""
+"The username and password are used to login to your existing account at the "
+"ekiga.net free SIP service. If you do not have an ekiga.net SIP address yet, "
+"you may first create an account below. This will provide a SIP address that "
+"allows people to call you.\n"
+"\n"
+"You may skip this step if you use an alternative SIP service, or if you "
+"would prefer to specify the login details later."
+msgstr ""
+"Корисничкото име и лозинката се користат за најава на постоечка сметка на "
+"бесплатната ekiga.net SIP услуга. Ако сеуште немате ekiga.net SIP адреса "
+"потребно е прво да создадете една сметка подолу. Ова ќе овозможи да може да "
+"ве повикуваат луѓе.\n"
+"\n"
+"Ако користите алтернативна SIP услуга или доколку претпочитате да ги внесете "
+"деталите за најава подоцна прескокнете го овој чекор."
+
+#: ../src/gui/assistant.cpp:550
+msgid "I do not want to sign up for the ekiga.net free service"
+msgstr "Не сакам да се регистрирам за бесплатната ekiga.net услуга"
+
+#: ../src/gui/assistant.cpp:617
+msgid "Ekiga Call Out Account"
+msgstr "Ekgia сметка за повици кон обични телефони"
+
+#: ../src/gui/assistant.cpp:619
+msgid "Please enter your account ID:"
+msgstr "Ве молам, внесете ID за Вашата сметка:"
+
+#: ../src/gui/assistant.cpp:627
+msgid "Please enter your PIN code:"
+msgstr "Ве молам, внесете PIN код:"
+
+#: ../src/gui/assistant.cpp:638
+msgid ""
+"You can make calls to regular phones and cell numbers worldwide using "
+"Ekiga.\n"
+"\n"
+"To enable this, you need to do two things:\n"
+"- First buy an account at the URL below.\n"
+"- Then enter your account ID and PIN code.\n"
+"The service will work only if your account is created using the URL in this "
+"dialog.\n"
+msgstr ""
+"Можете да правите повици кон обични телефони и мобилни броеви ширум светот "
+"со Ekiga.\n"
+"\n"
+"За да го овозможите ова, треба да направите две работи:\n"
+"- Прво купете сметка на URL-то дадено подолу.\n"
+"- Потоа внесете го ID-то и Вашиот PIN код.\n"
+"Сервисот ќе работи ако Вашата сметка е креирана со користење на URL-то во овој дијалог прозорец.\n"
+
+#: ../src/gui/assistant.cpp:688
+msgid "Consult the calls history"
+msgstr "Консултирајте ја историјата на повици"
+
+#: ../src/gui/assistant.cpp:698
+#, fuzzy
+msgid "I do not want to sign up for the Ekiga Call Out service"
+msgstr "Не сакам да се регистрирам за бесплатната ekiga.net услуга"
+
+#: ../src/gui/assistant.cpp:767 ../src/gui/assistant.cpp:1264
+#, fuzzy
+msgid "Connection Type"
+msgstr "Тип на врска - страница%d/%d"
+
+#. The connection type
+#: ../src/gui/assistant.cpp:770
+msgid "Please choose your connection type:"
+msgstr "Ве молиме одберете го видот на врската"
+
+#: ../src/gui/assistant.cpp:787
+msgid "56k Modem"
+msgstr "56к Модем"
+
+#: ../src/gui/assistant.cpp:792
+msgid "ISDN"
+msgstr "ISDN"
+
+#: ../src/gui/assistant.cpp:797
+msgid "DSL/Cable (128 kbit/s uplink)"
+msgstr "DSL/Кабелски интернет (128 kbit/s аплинк)"
+
+#: ../src/gui/assistant.cpp:802
+msgid "DSL/Cable (512 kbit/s uplink)"
+msgstr "DSL/Кабелски интернет (512 kbit/s аплинк)"
+
+#: ../src/gui/assistant.cpp:807
+msgid "LAN"
+msgstr "LAN"
+
+#: ../src/gui/assistant.cpp:812
+msgid "Keep current settings"
+msgstr "Задржи ги тековните поставувања"
+
+#: ../src/gui/assistant.cpp:817
+msgid ""
+"The connection type will permit determining the best quality settings that "
+"Ekiga will use during calls. You can later change the settings individually "
+"in the preferences window."
+msgstr ""
+"Типот на поврзување ќе дозволи одредување на најдобрите поставувања за "
+"квалитет што Ekiga ќе ги користи за време на повиците. Можете подоцна да ги "
+"промените поставувањата индивидуално во прозорецот за параметри."
+
+#: ../src/gui/assistant.cpp:907 ../src/gui/main.cpp:3948
+#: ../src/gui/main.cpp:3952 ../src/gui/preferences.cpp:690
+msgid "Audio Devices"
+msgstr "Аудио уред"
+
+#: ../src/gui/assistant.cpp:909
+#, fuzzy
+msgid "Please choose the audio ringing device:"
+msgstr "Ве молиме одберете го уредот за аудио влез:"
+
+#: ../src/gui/assistant.cpp:917
+#, fuzzy
+msgid ""
+"The audio ringing device is the device that will be used to play the ringing "
+"sound on incoming calls."
+msgstr ""
+"Уредот за аудио влез е уред управуван од аудио управителот што ќе се "
+"користат за снимање на вашиот глас."
+
+#. ---
+#: ../src/gui/assistant.cpp:928
+msgid "Please choose the audio output device:"
+msgstr "Ве молиме одберете го уредот за аудио излез:"
+
+#: ../src/gui/assistant.cpp:936
+#, fuzzy
+msgid ""
+"The audio output device is the device that will be used to play audio during "
+"calls."
+msgstr ""
+"Уредот за аудио излез е уред управуван од управителот за аудио кој ќе биде "
+"користен за свирење аудио."
+
+#. ---
+#: ../src/gui/assistant.cpp:947
+msgid "Please choose the audio input device:"
+msgstr "Ве молиме одберете го уредот за аудио влез:"
+
+#: ../src/gui/assistant.cpp:955
+#, fuzzy
+msgid ""
+"The audio input device is the device that will be used to record your voice "
+"during calls."
+msgstr ""
+"Уредот за аудио влез е уред управуван од аудио управителот што ќе се "
+"користат за снимање на вашиот глас."
+
+#: ../src/gui/assistant.cpp:1047
+#, fuzzy
+msgid "Please choose your video input device:"
+msgstr "Ве молиме одберете го уредот за видео влез:"
+
+#: ../src/gui/assistant.cpp:1055
+#, fuzzy
+msgid ""
+"The video input device is the device that will be used to capture video "
+"during calls."
+msgstr ""
+"Уредот за видео влез е уред управуван од видео управителот што ќе биде "
+"користен за овековечување на видео."
+
+#: ../src/gui/assistant.cpp:1195
+#, fuzzy
+msgid "Configuration Complete"
+msgstr "Конфигурација завршена - страница%d/%d "
+
+#: ../src/gui/assistant.cpp:1197
+msgid ""
+"You have now finished the Ekiga configuration. All the settings can be "
+"changed in the Ekiga preferences. Enjoy!"
+msgstr "Завршивте со конфигурирањето на Ekiga. Сите поставувања ќе бидат променети во преференциите на Ekiga. Уживајте!"
+
+#: ../src/gui/assistant.cpp:1204
+msgid "Configuration summary:"
+msgstr "Резиме на конфигурацијата:"
+
+#: ../src/gui/assistant.cpp:1274
+msgid "Audio Ringing Device"
+msgstr "Уред за аудио бирање"
+
+#: ../src/gui/assistant.cpp:1283
+msgid "Audio Output Device"
+msgstr "Уред за аудио излез"
+
+#: ../src/gui/assistant.cpp:1292
+msgid "Audio Input Device"
+msgstr "Уред за аудио влез"
+
+#: ../src/gui/assistant.cpp:1301
+msgid "Video Input Device"
+msgstr "Уред за видео влез"
+
+#: ../src/gui/assistant.cpp:1314
+msgid "SIP URI"
+msgstr "SIP URI"
+
+#: ../src/gui/assistant.cpp:1326
+msgid "Ekiga Call Out"
+msgstr "Повик кон обични телефони од Ekiga"
+
+#: ../src/gui/assistant.cpp:1368
+#, c-format
+msgid "Ekiga Configuration Assistant (%d of %d)"
+msgstr "Асистент за конфигурирање на Ekiga (%d од %d)"
+
+#: ../src/gui/callbacks.cpp:130
+msgid "Contributors:"
+msgstr "Соработници:"
+
+#: ../src/gui/callbacks.cpp:140
+msgid "Artwork:"
+msgstr "Уметници:"
+
+#: ../src/gui/callbacks.cpp:147
+msgid "See AUTHORS file for full credits"
+msgstr "Проверете ја AUTHORS датотеката за целосни заслуги"
+
+#: ../src/gui/callbacks.cpp:163
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version. "
+msgstr "Оваа програма е слободен софтвер; можете да го редистрибуирате и/или менувате во согласност со општата јавна ГНУ лиценца објавена од страна наФондацијата за слободен софтвер; можете да ја разгледате втората или пак некоја понова верзија."
+
+#: ../src/gui/callbacks.cpp:167
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details. You should have received a copy of the GNU General Public "
+"License along with this program; if not, write to the Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+msgstr ""
+"Nautilus се дистрибуира со надеж дека ќе биде корисен,но без БИЛО КАКВИ ГАРАНЦИИ.  За повеќе погледнете ја општата јавна ГНУ лиценца. "
+"Заедно со Nautilus треба да добиете и копија од општата и јавнаГНУ лиценца; доколку ја нема лиценцата пишете и на Фондацијата заслободен софтвер на следнава адреса: 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+
+#: ../src/gui/callbacks.cpp:174
+msgid ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+msgstr ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+
+#. Translators: Please write translator credits here, and
+#. * separate names with \n
+#: ../src/gui/callbacks.cpp:186
+msgid "translator-credits"
+msgstr ""
+"Jovan Naumovski <jovan@lugola.net>, \n"
+"Arangel Angov <ufo@linux.net.mk>"
+
+#: ../src/gui/callbacks.cpp:191
+msgid ""
+"Ekiga is full-featured SIP and H.323 compatible VoIP, IP-Telephony and "
+"Videoconferencing application that allows you to make audio and video calls "
+"to remote users with SIP and H.323 hardware or software."
+msgstr ""
+"Ekiga е целосна апликација за видеоконференција компатибилна со SIP, H.323, "
+"VoIP и IP-телефонија и Ви дозволува да правите аудио  и видео повици до "
+"далечни корисници со SIP и H.323 хардвер или софтвер."
+
+#: ../src/gui/dialpad.cpp:59
+msgid "abc"
+msgstr "abc"
+
+#: ../src/gui/dialpad.cpp:60
+msgid "def"
+msgstr "def"
+
+#: ../src/gui/dialpad.cpp:61
+msgid "ghi"
+msgstr "ghi"
+
+#: ../src/gui/dialpad.cpp:62
+msgid "jkl"
+msgstr "jkl"
+
+#: ../src/gui/dialpad.cpp:63
+msgid "mno"
+msgstr "mno"
+
+#: ../src/gui/dialpad.cpp:64
+msgid "pqrs"
+msgstr "pqrs"
+
+#: ../src/gui/dialpad.cpp:65
+msgid "tuv"
+msgstr "tuv"
+
+#: ../src/gui/dialpad.cpp:66
+msgid "wxyz"
+msgstr "wxyz"
+
+#. Translators: Is displayed once an account "%s" is registered.
+#: ../src/gui/main.cpp:583
+#, c-format
+msgid "Registered %s"
+msgstr "Регистрирано на %s"
+
+#. Translators: Is displayed once an account "%s" is unregistered.
+#: ../src/gui/main.cpp:589
+#, c-format
+msgid "Unregistered %s"
+msgstr "Нерегистрирано %s"
+
+#: ../src/gui/main.cpp:594
+#, c-format
+msgid "Could not unregister %s"
+msgstr "Не можев да одрегистрирам %s"
+
+#: ../src/gui/main.cpp:598
+#, c-format
+msgid "Could not register %s"
+msgstr "Не можев да регистрирам %s"
+
+#: ../src/gui/main.cpp:663
+#, c-format
+msgid "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+msgstr "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+
+#: ../src/gui/main.cpp:708
+#, c-format
+msgid "Connected with %s"
+msgstr "Поврзано со %s"
+
+#: ../src/gui/main.cpp:744 ../src/gui/main.cpp:2339
+msgid "Standby"
+msgstr "Чекам"
+
+#: ../src/gui/main.cpp:810
+#, fuzzy
+msgid "Call on hold"
+msgstr "Повикот е завршен"
+
+#: ../src/gui/main.cpp:823
+#, fuzzy
+msgid "Call retrieved"
+msgstr "Пренасочен повик"
+
+#: ../src/gui/main.cpp:840
+#, fuzzy, c-format
+msgid "Missed call from %s"
+msgstr "Повик од %s"
+
+#: ../src/gui/main.cpp:983 ../src/gui/misc.cpp:94
+msgid "Error"
+msgstr "Грешка"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1118
+#, fuzzy, c-format
+msgid "Added video input device %s"
+msgstr "Уред за аудио влез"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1136
+#, fuzzy, c-format
+msgid "Removed video input device %s"
+msgstr "Уред за видео влез"
+
+#: ../src/gui/main.cpp:1153
+#, fuzzy, c-format
+msgid "Error while accessing video device %s"
+msgstr "Грешка при отварање на видео уред %s"
+
+#: ../src/gui/main.cpp:1156
+#, fuzzy
+msgid ""
+"A moving logo will be transmitted during calls. Notice that you can always "
+"transmit a given image or the moving logo by choosing \"Picture\" as video "
+"plugin and \"Moving logo\" or \"Static picture\" as device."
+msgstr ""
+"Движечко лого ќе се пренесува во тек на повиците. Забележете дека можете "
+"секогаш да пренесете дадена слика или движечкото лого со избирање \"Слика\" "
+"како видео додаток и \"Движечко лого\" или \"Статична слика\" како уред."
+
+#: ../src/gui/main.cpp:1160
+#, fuzzy
+msgid ""
+"There was an error while opening the device. In case it is a pluggable "
+"device it may be sufficient to reconnect it. If not, or if it still is not "
+"accessible, please check your permissions and make sure that the appropriate "
+"driver is loaded."
+msgstr ""
+"Има грешка при отварање на уредот. Ве молиме проверете ја дозволата и "
+"осигурајте се дали соодветниот управувач е вчитан."
+
+#: ../src/gui/main.cpp:1164
+msgid "Your video driver doesn't support the requested video format."
+msgstr "Вашиот видео управувач не го подржува бараниот видео формат."
+
+#: ../src/gui/main.cpp:1168
+msgid "Could not open the chosen channel."
+msgstr "Неможе да се отвори избраниот канал."
+
+#: ../src/gui/main.cpp:1172
+msgid ""
+"Your driver doesn't seem to support any of the color formats supported by "
+"Ekiga.\n"
+" Please check your kernel driver documentation in order to determine which "
+"Palette is supported."
+msgstr ""
+"Вашиот управувач изгледа дека не поддржува ниту еден од форматите за боја "
+"подржани од Ekiga.\n"
+" Ве молиме проверете ја документацијата за управувачко јадро во редослед да "
+"одредите која палета е подржана."
+
+#: ../src/gui/main.cpp:1176
+msgid "Error while setting the frame rate."
+msgstr "Грешка при поставувањето на размер на рамката."
+
+#: ../src/gui/main.cpp:1180
+msgid "Error while setting the frame size."
+msgstr "Грешка при поставувањето на големината на рамката."
+
+#: ../src/gui/main.cpp:1185 ../src/gui/main.cpp:1300 ../src/gui/main.cpp:1422
+#, fuzzy
+msgid "Unknown error."
+msgstr "Непознат NAT"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1244
+#, fuzzy, c-format
+msgid "Added audio input device %s"
+msgstr "Уред за аудио влез"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1265
+#, fuzzy, c-format
+msgid "Removed audio input device %s"
+msgstr "Уред за аудио влез"
+
+#: ../src/gui/main.cpp:1282
+#, fuzzy, c-format
+msgid "Error while opening audio input device %s"
+msgstr "Грешка при отварање на видео уред %s"
+
+#. Translators: This happens when there is an error with audio input:
+#. * Nothing ("silence") will be transmitted
+#: ../src/gui/main.cpp:1287
+msgid "Only silence will be transmitted."
+msgstr "Ќе биде емитувана само тишина"
+
+#: ../src/gui/main.cpp:1291
+#, fuzzy
+msgid ""
+"Unable to open the selected audio device for recording. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Невозможно е отварањето на избраниот уред (%s) за снимање. Ве молиме "
+"проверете го аудио поставувањето, дозволата и дали уредот е зафатен."
+
+#: ../src/gui/main.cpp:1295
+#, fuzzy
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"read data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Избраниот аудио уред (%s) е успешно отворен но не е возможно читање на "
+"податоци од овој уред. Ве молиме проверете го аудио поставувањето."
+
+#: ../src/gui/main.cpp:1367
+#, fuzzy, c-format
+msgid "Added audio output device %s"
+msgstr "Уред за аудио излез"
+
+#: ../src/gui/main.cpp:1385
+#, fuzzy, c-format
+msgid "Removed audio output device %s"
+msgstr "Алтернативен уред за аудио излез"
+
+#: ../src/gui/main.cpp:1406
+#, fuzzy, c-format
+msgid "Error while opening audio output device %s"
+msgstr "Грешка при отварање на видео уред %s"
+
+#: ../src/gui/main.cpp:1409
+msgid "No incoming sound will be played."
+msgstr "Нема да бидат пуштани дојдовните звуци."
+
+#: ../src/gui/main.cpp:1413
+#, fuzzy
+msgid ""
+"Unable to open the selected audio device for playing. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Невозможно е отварањето на аудио уредот (%s) за свирење. Ве молиме проверете "
+"го аудио поставувањето, дозволата и дали уредот е зафатен."
+
+#: ../src/gui/main.cpp:1417
+#, fuzzy
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"write data to this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Избраниот аудио уред (%s) е успешно отворен но не е возможно запишување на "
+"податоци во овој уред. Ве молиме проверете го аудио поставувањето."
+
+#: ../src/gui/main.cpp:1660
+#, fuzzy
+msgid "Enter a URI on the left, and click this button to place a call"
+msgstr ""
+"Внесете URL да се јавете на левото, и кликнете на ова копче за да направите "
+"повик"
+
+#: ../src/gui/main.cpp:1741
+#, fuzzy
+msgid "_Chat"
+msgstr "П_овик"
+
+#: ../src/gui/main.cpp:1743
+msgid "Ca_ll"
+msgstr "П_овик"
+
+#: ../src/gui/main.cpp:1743
+msgid "Place a new call"
+msgstr "Направете нов повик"
+
+#: ../src/gui/main.cpp:1746
+msgid "_Hang up"
+msgstr "_Спушти"
+
+#: ../src/gui/main.cpp:1747
+msgid "Terminate the current call"
+msgstr "Прекинете го тековниот повик"
+
+#: ../src/gui/main.cpp:1753
+#, fuzzy
+msgid "A_dd Contact"
+msgstr "С_сите Контакти"
+
+#: ../src/gui/main.cpp:1753
+#, fuzzy
+msgid "Add a contact to the roster"
+msgstr "Додај контакт во _Именикот"
+
+#: ../src/gui/main.cpp:1758
+#, fuzzy
+msgid "Find contacts"
+msgstr "Локацијата содржи"
+
+#: ../src/gui/main.cpp:1765
+#, fuzzy
+msgid "_Contact"
+msgstr "К_онтакт"
+
+#: ../src/gui/main.cpp:1766
+msgid "Act on selected contact"
+msgstr "Делувај на избраниот контакт"
+
+#: ../src/gui/main.cpp:1772
+msgid "H_old Call"
+msgstr "_Задржи повик"
+
+#: ../src/gui/main.cpp:1772 ../src/gui/main.cpp:2435
+msgid "Hold the current call"
+msgstr "Задржи го тековниот повик"
+
+#: ../src/gui/main.cpp:1776
+msgid "_Transfer Call"
+msgstr "_Пренос на повик"
+
+#: ../src/gui/main.cpp:1777
+msgid "Transfer the current call"
+msgstr "Пренеси го тековниот повик"
+
+#: ../src/gui/main.cpp:1784 ../src/gui/main.cpp:3193
+msgid "Suspend _Audio"
+msgstr "Суспендирај _аудио"
+
+#: ../src/gui/main.cpp:1785
+msgid "Suspend or resume the audio transmission"
+msgstr "Суспендирај или продолжи го аудио преносот"
+
+#: ../src/gui/main.cpp:1789 ../src/gui/main.cpp:3195
+msgid "Suspend _Video"
+msgstr "Суспендирај _видео"
+
+#: ../src/gui/main.cpp:1790
+msgid "Suspend or resume the video transmission"
+msgstr "Суспендирај или продолжи го видео преносот"
+
+#: ../src/gui/main.cpp:1797
+msgid "Close the Ekiga window"
+msgstr "Затвори го прозорецот на Ekiga"
+
+#: ../src/gui/main.cpp:1804 ../src/gui/statusicon.cpp:426
+msgid "Quit"
+msgstr "Крај"
+
+#: ../src/gui/main.cpp:1810
+msgid "_Configuration Assistant"
+msgstr "Асистент за _конфигурација"
+
+#: ../src/gui/main.cpp:1811
+msgid "Run the configuration assistant"
+msgstr "Изврши го асистентот за конфигурирање"
+
+#: ../src/gui/main.cpp:1819
+msgid "Edit your accounts"
+msgstr "Ажурирај ги сопствените сметки"
+
+#: ../src/gui/main.cpp:1825
+msgid "Change your preferences"
+msgstr "Променете ги вашите параметри"
+
+#: ../src/gui/main.cpp:1830
+msgid "_View"
+msgstr "_Преглед"
+
+#: ../src/gui/main.cpp:1832
+#, fuzzy
+msgid "Con_tacts"
+msgstr "К_онтакт"
+
+#: ../src/gui/main.cpp:1832
+#, fuzzy
+msgid "View the contacts list"
+msgstr "Преглед на повиците од историја"
+
+#: ../src/gui/main.cpp:1837
+msgid "_Dialpad"
+msgstr "_Површина за бирање"
+
+#: ../src/gui/main.cpp:1837
+msgid "View the dialpad"
+msgstr "Покажи површина за бирање"
+
+#: ../src/gui/main.cpp:1842
+#, fuzzy
+msgid "_Call History"
+msgstr "Повици во историја"
+
+#: ../src/gui/main.cpp:1842
+#, fuzzy
+msgid "View the call history"
+msgstr "Преглед на повиците од историја"
+
+#: ../src/gui/main.cpp:1850
+msgid "_Show Call Panel"
+msgstr "_Покажи панел за повици"
+
+#: ../src/gui/main.cpp:1858
+msgid "_Local Video"
+msgstr "_Локално видео"
+
+#: ../src/gui/main.cpp:1859
+msgid "Local video image"
+msgstr "Слика од локално видео"
+
+#: ../src/gui/main.cpp:1864
+msgid "_Remote Video"
+msgstr "_Далечно видео"
+
+#: ../src/gui/main.cpp:1865
+msgid "Remote video image"
+msgstr "Слика од далечното видео"
+
+#: ../src/gui/main.cpp:1870
+#, fuzzy
+msgid "_Picture-in-Picture"
+msgstr "Двете (Слика во слика)"
+
+#: ../src/gui/main.cpp:1871 ../src/gui/main.cpp:1877
+msgid "Both video images"
+msgstr "Двете видео слики"
+
+#: ../src/gui/main.cpp:1876
+msgid "Picture-in-Picture in Separate _Window"
+msgstr "„Слика во слика“ во одделен _прозорец"
+
+#: ../src/gui/main.cpp:1884
+msgid "Zoom in"
+msgstr "Зумирај"
+
+#: ../src/gui/main.cpp:1888
+msgid "Zoom out"
+msgstr "Одзумирај"
+
+#: ../src/gui/main.cpp:1892
+msgid "Normal size"
+msgstr "Нормална големина"
+
+#: ../src/gui/main.cpp:1896
+msgid "_Fullscreen"
+msgstr "_Цел екран"
+
+#: ../src/gui/main.cpp:1896
+msgid "Switch to fullscreen"
+msgstr "Промени на цел _екран"
+
+#: ../src/gui/main.cpp:1904 ../src/gui/statusicon.cpp:403
+#: ../src/gui/statusicon.cpp:414
+msgid "Get help by reading the Ekiga manual"
+msgstr "Добиј помош читајќи го прирачникот на Ekiga"
+
+#: ../src/gui/main.cpp:1909 ../src/gui/statusicon.cpp:408
+#: ../src/gui/statusicon.cpp:419
+msgid "View information about Ekiga"
+msgstr "Прегледај ги информациите за Ekiga"
+
+#: ../src/gui/main.cpp:1946
+#, fuzzy
+msgid "Contacts"
+msgstr "К_онтакт"
+
+#: ../src/gui/main.cpp:1974
+msgid "Dialpad"
+msgstr "Површина за бирање"
+
+#: ../src/gui/main.cpp:2010
+#, fuzzy
+msgid "Video Settings"
+msgstr "_Видео поставувања"
+
+#: ../src/gui/main.cpp:2037
+msgid "Adjust brightness"
+msgstr "Регулирај ја светлината"
+
+#: ../src/gui/main.cpp:2058
+msgid "Adjust whiteness"
+msgstr "Регулирај ја белината"
+
+#: ../src/gui/main.cpp:2079
+msgid "Adjust color"
+msgstr "Регулирај ја бојата"
+
+#: ../src/gui/main.cpp:2100
+msgid "Adjust contrast"
+msgstr "Регулирај го контрастот"
+
+#: ../src/gui/main.cpp:2154
+#, fuzzy
+msgid "Audio Settings"
+msgstr "_Аудио поставувања"
+
+#: ../src/gui/main.cpp:2373
+msgid "Change the volume of your soundcard"
+msgstr "Промени го нивото на гласност на Вашата звучна каритчка"
+
+#: ../src/gui/main.cpp:2393
+msgid "Change the color settings of your video device"
+msgstr "Променете ги поставувањата за боја на Вашиот аудио уред"
+
+#: ../src/gui/main.cpp:2415
+msgid "Display images from your camera device"
+msgstr "Прикажи слики од твојата камера"
+
+#: ../src/gui/main.cpp:2468
+#, fuzzy
+msgid "Call history"
+msgstr "Повици во историја"
+
+#: ../src/gui/main.cpp:3141
+msgid "_Retrieve Call"
+msgstr "_Вчитување на повик"
+
+#: ../src/gui/main.cpp:3154
+msgid "_Hold Call"
+msgstr "_Задржи повик"
+
+#: ../src/gui/main.cpp:3197
+msgid "Resume _Audio"
+msgstr "Продолжува _аудио"
+
+#: ../src/gui/main.cpp:3199
+msgid "Resume _Video"
+msgstr "Продолжува _видео"
+
+#: ../src/gui/main.cpp:3524 ../src/gui/main.cpp:3678
+msgid "Reject"
+msgstr "Одбиј"
+
+#: ../src/gui/main.cpp:3526 ../src/gui/main.cpp:3677
+msgid "Accept"
+msgstr "Прифати"
+
+#: ../src/gui/main.cpp:3532 ../src/gui/main.cpp:3665
+msgid "Incoming call from"
+msgstr "Пристигнат повик од"
+
+#: ../src/gui/main.cpp:3550 ../src/gui/main.cpp:3668
+#, fuzzy
+msgid "Remote URI:"
+msgstr "Далечна URL:"
+
+#: ../src/gui/main.cpp:3562 ../src/gui/main.cpp:3670
+msgid "Remote Application:"
+msgstr "Далечна апликација:"
+
+#: ../src/gui/main.cpp:3583
+#, c-format
+msgid "Call from %s"
+msgstr "Повик од %s"
+
+#: ../src/gui/main.cpp:3840
+#, fuzzy, c-format
+msgid "Call Duration: %s\n"
+msgstr "Траење на повик"
+
+#: ../src/gui/main.cpp:3877
+msgid "Transfer call to:"
+msgstr "Емитување на повикот до:"
+
+#: ../src/gui/main.cpp:3934
+#, fuzzy
+msgid "No"
+msgstr "Ништо"
+
+#: ../src/gui/main.cpp:3936
+msgid "Yes"
+msgstr "Да"
+
+#: ../src/gui/main.cpp:3947
+msgid "Detected new audio input device:"
+msgstr "Открив нов уред за аудио влез:"
+
+#: ../src/gui/main.cpp:3951
+#, fuzzy
+msgid "Detected new audio output device:"
+msgstr "Ве молиме одберете го уредот за аудио излез:"
+
+#: ../src/gui/main.cpp:3955
+#, fuzzy
+msgid "Detected new video input device:"
+msgstr "Ве молиме одберете го уредот за видео влез:"
+
+#: ../src/gui/main.cpp:3956 ../src/gui/preferences.cpp:848
+msgid "Video Devices"
+msgstr "Видео уред"
+
+#: ../src/gui/main.cpp:3974
+msgid "Do you want to use it as default device?"
+msgstr "Дали сакате да го користите као стандарден уред?"
+
+#: ../src/gui/main.cpp:4043
+msgid "Ekiga"
+msgstr "Ekiga"
+
+#. Translators:
+#. * TX is a common abbreviation for "transmit"
+#: ../src/gui/main.cpp:4467
+#, c-format
+msgid "TX: %dx%d "
+msgstr "TX: %dx%d "
+
+#. Translators:
+#. * RX is a common abbreviation for "receive"
+#: ../src/gui/main.cpp:4472
+#, c-format
+msgid "RX: %dx%d "
+msgstr "RX: %dx%d "
+
+#: ../src/gui/main.cpp:4474
+#, c-format
+msgid ""
+"Lost packets: %.1f %%\n"
+"Late packets: %.1f %%\n"
+"Out of order packets: %.1f %%\n"
+"Jitter buffer: %d ms%s%s%s"
+msgstr ""
+"Изгубени пакети: %.1f %%\n"
+"Задоцнети пакети: %.1f %%\n"
+"Изместени пакети: %.1f %%\n"
+"Jitter бафер: %d ms %s%s%s"
+
+#: ../src/gui/main.cpp:4622
+#, fuzzy
+msgid "Prints debug messages in the console (level between 1 and 5)"
+msgstr "Печати пораки за чистење од бубачки во конзола (ниво помеѓу 1 и 6)"
+
+#: ../src/gui/main.cpp:4627
+#, fuzzy
+msgid "Prints user plane debug messages in the console (level between 1 and 4)"
+msgstr "Печати пораки за чистење од бубачки во конзола (ниво помеѓу 1 и 6)"
+
+#: ../src/gui/main.cpp:4632
+#, fuzzy
+msgid "Makes Ekiga call the given URI"
+msgstr "Се обавува Ekiga повик до дадената URL"
+
+#: ../src/gui/main.cpp:4748
+msgid "No usable audio plugin detected"
+msgstr "Нема откриено аудио додаток кој може да се користи"
+
+#: ../src/gui/main.cpp:4749
+msgid ""
+"Ekiga didn't find any usable audio plugin. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga не пронајде никаков аудио додаток кој може да се користи. Осигурајте "
+"се дека инсталацијата е правилна."
+
+#: ../src/gui/main.cpp:4752
+#, fuzzy
+msgid "No usable audio codecs detected"
+msgstr "Нема откриено аудио додаток кој може да се користи"
+
+#: ../src/gui/main.cpp:4753
+#, fuzzy
+msgid ""
+"Ekiga didn't find any usable audio codec. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga не пронајде никаков аудио додаток кој може да се користи. Осигурајте "
+"се дека инсталацијата е правилна."
+
+#: ../src/gui/main.cpp:4759
+#, fuzzy
+msgid "Configuration database corruption"
+msgstr "Друид за конфигурирање"
+
+#: ../src/gui/main.cpp:4760
+#, fuzzy, c-format
+msgid ""
+"Ekiga got an invalid value for the configuration key %s.\n"
+"\n"
+"It probably means that your configuration schemas have not been correctly "
+"installed or that the permissions are not correct.\n"
+"\n"
+"Please check the FAQ (http://www.ekiga.org/), the troubleshooting section of "
+"the GConf site (http://www.gnome.org/projects/gconf/) or the mailing list "
+"archives for more information (http://mail.gnome.org) about this problem."
+msgstr ""
+"Ekiga доби погрешна вредност за GConf клучот %s.\n"
+"\n"
+"Ова најверојатно значи дека вашите GConf шеми не се правилно инсталирани или "
+"дека немате правилни дозволи.\n"
+"\n"
+"Ве молиме проверете ги ЧПП (http://www.ekiga.org/), секцијата за помош на  "
+"GConf вебсајот(http://www.gnome.org/projects/gconf/) или архивата на "
+"поштенски листи за повеќе информации (http://mail.gnome.org) за наведениот "
+"проблем."
+
+#: ../src/gui/preferences.cpp:376
+#, fuzzy
+msgid "_Full name:"
+msgstr "_Име:"
+
+#: ../src/gui/preferences.cpp:394
+#, fuzzy
+msgid "User Interface"
+msgstr "Мрежен интерфејс"
+
+#: ../src/gui/preferences.cpp:396
+msgid "Start _hidden"
+msgstr "Стартувај се _скриен"
+
+#: ../src/gui/preferences.cpp:398
+msgid "Show offline _contacts"
+msgstr "Покажи ги офлајн _контактите"
+
+#: ../src/gui/preferences.cpp:403
+msgid "Video Display"
+msgstr "Прикажи видео"
+
+#: ../src/gui/preferences.cpp:405
+msgid "Place windows displaying video _above other windows"
+msgstr "Нека прозорецот прикаже видео_пред другите прозорци"
+
+#: ../src/gui/preferences.cpp:415
+msgid "Call Forwarding"
+msgstr "Пренасочување на повик"
+
+#: ../src/gui/preferences.cpp:417
+msgid "_Always forward calls to the given host"
+msgstr "_Секогаш пренасочувај ги повиците до дадениот хост"
+
+#: ../src/gui/preferences.cpp:417
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings"
+msgstr ""
+"Доколку е овозможено, сите пристигнати повици ќе се пренасочат кон хостот "
+"што е наведен во поставките за протокол"
+
+#: ../src/gui/preferences.cpp:419
+msgid "Forward calls to the given host if _no answer"
+msgstr "Пренасочи ги повиците до дадениот хост доколку _нема одговор"
+
+#: ../src/gui/preferences.cpp:419
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you do not answer the call"
+msgstr ""
+"Доколку е вклучено, сите пристигнати повици ќе се пренасочат кон хостот што "
+"е наведен во поставките за протокол ако не одговарате на повикот."
+
+#: ../src/gui/preferences.cpp:421
+msgid "Forward calls to the given host if _busy"
+msgstr "Пренасочи ги повиците до дадениот хост доколку е _зафатено"
+
+#: ../src/gui/preferences.cpp:421
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you already are in a call or if you "
+"are in Do Not Disturb mode"
+msgstr ""
+"Доколку се вклучи, кога сте во средина на повик или ако сте во модот \"Не "
+"вознемирувај\" сите пристигнати повици ќе бидат пренасочат кон хостот што е "
+"наведен во поставките за протокол."
+
+#: ../src/gui/preferences.cpp:425 ../src/gui/preferences.cpp:1442
+msgid "Call Options"
+msgstr "Опции за повик"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:428
+msgid "Timeout to reject or forward unanswered incoming calls (in seconds):"
+msgstr ""
+"Време за одбивањеј или пренасочување на пристигнат повик на кој не е "
+"одговорено (во секунди) "
+
+#: ../src/gui/preferences.cpp:460
+msgid "Ekiga Sound Events"
+msgstr "Ekiga звучни настани"
+
+#: ../src/gui/preferences.cpp:509 ../src/gui/preferences.cpp:518
+#: ../src/gui/preferences.cpp:527
+msgid "Event"
+msgstr "Настан"
+
+#: ../src/gui/preferences.cpp:539
+msgid "Choose a sound"
+msgstr "Одберете звук"
+
+#: ../src/gui/preferences.cpp:545
+msgid "Wavefiles"
+msgstr "wavе датотеки "
+
+#: ../src/gui/preferences.cpp:554 ../src/gui/preferences.cpp:573
+msgid "Play"
+msgstr "Свири"
+
+#: ../src/gui/preferences.cpp:594
+msgid "String"
+msgstr "Стринг"
+
+#: ../src/gui/preferences.cpp:595
+msgid "Tone"
+msgstr "Тон"
+
+#: ../src/gui/preferences.cpp:596 ../src/gui/preferences.cpp:645
+msgid "RFC2833"
+msgstr "RFC2833"
+
+#: ../src/gui/preferences.cpp:597
+msgid "Q.931"
+msgstr "Q.931"
+
+#: ../src/gui/preferences.cpp:603 ../src/gui/preferences.cpp:655
+msgid "Misc Settings"
+msgstr "Различни поставки"
+
+#: ../src/gui/preferences.cpp:606 ../src/gui/preferences.cpp:660
+#, fuzzy
+msgid "Forward _URI:"
+msgstr "Пренасочи _URL:"
+
+#: ../src/gui/preferences.cpp:615
+msgid "Advanced Settings"
+msgstr "Напредни поставувања"
+
+#. The toggles
+#: ../src/gui/preferences.cpp:618
+msgid "Enable H.245 _tunneling"
+msgstr "Вклучи H.245 _тунелирање"
+
+#: ../src/gui/preferences.cpp:620
+msgid "Enable _early H.245"
+msgstr "Овозможи _ран H.245"
+
+#: ../src/gui/preferences.cpp:622
+msgid "Enable fast _start procedure"
+msgstr "Овозможи процедура за брз_старт"
+
+#: ../src/gui/preferences.cpp:622
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting."
+msgstr ""
+"Конекцијата ќе биде воспоставена во модот Брз Старт. Брз Старт е нов начин "
+"за побрзо започнување на повици што е воведен во H.323v2. Не е поддржан од "
+"Netmeeting, а истовремено користење на Брз Старт и H.245 тунелирање може да "
+"сруши некои верзии на Netmeeting."
+
+#: ../src/gui/preferences.cpp:628 ../src/gui/preferences.cpp:668
+msgid "DTMF Mode"
+msgstr "DTMF Режим"
+
+#: ../src/gui/preferences.cpp:630 ../src/gui/preferences.cpp:670
+msgid "_Send DTMF as:"
+msgstr "_Испрати DTMF како:"
+
+#: ../src/gui/preferences.cpp:630 ../src/gui/preferences.cpp:670
+#, fuzzy
+msgid "This allows you to set the mode for DTMFs sending."
+msgstr ""
+"Ова овозможува сетирање на режимот за DTMF праќање. Вредноста може да биде "
+"само \"RFC2833\" (0)"
+
+#: ../src/gui/preferences.cpp:646
+msgid "INFO"
+msgstr "INFO"
+
+#: ../src/gui/preferences.cpp:657
+msgid "_Outbound Proxy:"
+msgstr "_Надворешен прокси"
+
+#: ../src/gui/preferences.cpp:698
+msgid "Ringing Device"
+msgstr "Уред за ѕвонење"
+
+#: ../src/gui/preferences.cpp:698
+#, fuzzy
+msgid "Select the ringing audio device to use"
+msgstr "Изберете го аудио плејер уредот за влез за употреба"
+
+#: ../src/gui/preferences.cpp:700
+msgid "Output device:"
+msgstr "Уред за излез:"
+
+#: ../src/gui/preferences.cpp:707 ../src/gui/preferences.cpp:855
+msgid "Input device:"
+msgstr "Уред за влез:"
+
+#. That button will refresh the device list
+#. The file selector button
+#. FIXME disabled for now
+#. label = gtk_label_new (_("Image:"));
+#.
+#. button =
+#. gtk_file_chooser_button_new_with_backend (_("Choose a Picture"),
+#. GTK_FILE_CHOOSER_ACTION_OPEN,
+#. FILECHOOSER_BACKEND);
+#.
+#. preview_image_frame = gtk_frame_new (_("Preview"));
+#. preview_image = gtk_image_new ();
+#. gtk_container_add (GTK_CONTAINER (preview_image_frame), preview_image);
+#. gtk_widget_set_size_request (preview_image, 256, 256);
+#. gtk_widget_show (preview_image);
+#. gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER (button),
+#. preview_image_frame);
+#.
+#.
+#. filefilter = gtk_file_filter_new ();
+#. gtk_file_filter_set_name (filefilter, _("Images"));
+#. gtk_file_filter_add_pixbuf_formats (filefilter);
+#. gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (button), filefilter);
+#.
+#. g_signal_connect (G_OBJECT (button), "update-preview",
+#. G_CALLBACK (image_filename_browse_preview_cb),
+#. (gpointer) preview_image);
+#.
+#. conf_image = gm_conf_get_string (VIDEO_DEVICES_KEY "image");
+#. if (!conf_image || (!strcmp (conf_image, ""))) {
+#. g_free (conf_image);
+#. conf_image = NULL;
+#. }
+#.
+#. if (conf_image)
+#. gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (button), conf_image);
+#. g_free (conf_image);
+#.
+#. gtk_table_attach (GTK_TABLE (subsection), button, 1, 2, 4, 5,
+#. (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
+#. (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
+#. 0, GNOMEMEETING_PAD_SMALL);
+#.
+#. gtk_table_attach (GTK_TABLE (subsection), label, 0, 1, 4, 5,
+#. (GtkAttachOptions) (GTK_FILL),
+#. (GtkAttachOptions) (GTK_FILL),
+#. 0, 0);
+#.
+#. gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#. gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_LEFT);
+#.
+#. g_signal_connect_after (G_OBJECT (button), "selection-changed",
+#. G_CALLBACK (image_filename_browse_cb),
+#. (gpointer) VIDEO_DEVICES_KEY "image");
+#.
+#. That button will refresh the device list
+#: ../src/gui/preferences.cpp:712 ../src/gui/preferences.cpp:920
+msgid "_Detect devices"
+msgstr "_Утврди уреди"
+
+#: ../src/gui/preferences.cpp:712 ../src/gui/preferences.cpp:920
+#, fuzzy
+msgid "Click here to refresh the device list."
+msgstr "Кликнете овде за освежување на листата со уреди."
+
+#: ../src/gui/preferences.cpp:833
+msgid "PAL (Europe)"
+msgstr "PAL (Европа)"
+
+#: ../src/gui/preferences.cpp:834
+msgid "NTSC (America)"
+msgstr "NTSC (Америка)"
+
+#: ../src/gui/preferences.cpp:835
+msgid "SECAM (France)"
+msgstr "SECAM (Франција)"
+
+#: ../src/gui/preferences.cpp:836
+msgid "Auto"
+msgstr "Автоматски"
+
+#. Video Channel
+#: ../src/gui/preferences.cpp:859
+msgid "Channel:"
+msgstr "Канал:"
+
+#: ../src/gui/preferences.cpp:861
+msgid "Size:"
+msgstr "Големина:"
+
+#: ../src/gui/preferences.cpp:861
+#, fuzzy
+msgid "Select the transmitted video size"
+msgstr "Изберете го аудио плејер уредот за излез за употреба"
+
+#: ../src/gui/preferences.cpp:863
+msgid "Format:"
+msgstr "Формат:"
+
+#: ../src/gui/preferences.cpp:944 ../src/gui/preferences.cpp:983
+#: ../src/gui/preferences.cpp:1467 ../src/gui/preferences.cpp:1477
+msgid "Codecs"
+msgstr "Кодеци"
+
+#: ../src/gui/preferences.cpp:957 ../src/gui/preferences.cpp:996
+#, fuzzy
+msgid "Settings"
+msgstr "NAT Поставувања"
+
+#. Translators: the full sentence is Automatically adjust jitter buffer
+#. between X and Y ms
+#: ../src/gui/preferences.cpp:961
+msgid "Enable silence _detection"
+msgstr "Овозможи детекција на _тишина"
+
+#: ../src/gui/preferences.cpp:961
+msgid "If enabled, use silence detection with the codecs supporting it."
+msgstr ""
+"Доколку е овозможено, употребувај детекција на тишина со кодеците кои ја "
+"поддржуваат."
+
+#: ../src/gui/preferences.cpp:963
+msgid "Enable echo can_celation"
+msgstr "Овозможи откажување на _ехо"
+
+#: ../src/gui/preferences.cpp:963
+msgid "If enabled, use echo cancelation."
+msgstr "Ако е овозможено, користи поништување на ехото."
+
+#: ../src/gui/preferences.cpp:965
+#, fuzzy
+msgid "Maximum _jitter buffer (in ms):"
+msgstr "Максимален jitter бафер"
+
+#: ../src/gui/preferences.cpp:965
+msgid "The maximum jitter buffer size for audio reception (in ms)."
+msgstr "Максимална големина на jitter баферот за прием на аудио (во ms)."
+
+#. Translators: the full sentence is Keep a minimum video quality of X %
+#: ../src/gui/preferences.cpp:999
+msgid "Picture Quality"
+msgstr "Квалитет на слика"
+
+#: ../src/gui/preferences.cpp:999
+msgid ""
+"Choose if you want to guarantee a minimum image quality (possibly leading to "
+"dropped frames in order not to surpass the bitrate limit) or if you prefer "
+"to keep the frame rate."
+msgstr ""
+"Одберете ако сакате да гарантирате минимален квалитет на сликата (најчесто предизвикува "
+"сецкање и кочење за да не се надмине битрејт лимитот) или ако сакате да го зачувате тековниот интензитет на фрејмови."
+
+#: ../src/gui/preferences.cpp:1001
+#, fuzzy
+msgid "Maximum video _bitrate (in kbits/s):"
+msgstr "Максимум видео _пропусен опсег (во kB/s):"
+
+#: ../src/gui/preferences.cpp:1001
+#, fuzzy
+msgid ""
+"The maximum video bitrate in kbits/s. The video quality and the effective "
+"frame rate will be dynamically adjusted to keep the bitrate at the given "
+"value."
+msgstr ""
+"Маскимален пропусен опсег за видео во кбајти/с. Видео квалитетот и бројот на "
+"пренесни фрејмови во секунда динамички ќе биде подесен над минимумот за "
+"време на повиците со цел да се минимизира пропусниот опсег на дадената "
+"вредност."
+
+#: ../src/gui/preferences.cpp:1376
+msgid "Play sound for new voice mails"
+msgstr "Отсвири звук при нова гласовна пошта"
+
+#: ../src/gui/preferences.cpp:1385
+msgid "Play sound for new instant messages"
+msgstr "Отсвири звук при нови инстант пораки"
+
+#: ../src/gui/preferences.cpp:1414
+msgid "Ekiga Preferences"
+msgstr "Ekiga параметри"
+
+#: ../src/gui/preferences.cpp:1432
+msgid "General"
+msgstr "Општо"
+
+#: ../src/gui/preferences.cpp:1433
+msgid "Personal Data"
+msgstr "Лични податоци"
+
+#: ../src/gui/preferences.cpp:1438
+msgid "General Settings"
+msgstr "Општи поставувања"
+
+#: ../src/gui/preferences.cpp:1447
+msgid "Sound Events"
+msgstr "Звучни настани"
+
+#: ../src/gui/preferences.cpp:1451
+msgid "Protocols"
+msgstr "Протоколи"
+
+#: ../src/gui/preferences.cpp:1453
+msgid "SIP Settings"
+msgstr "SIP поставувања"
+
+#: ../src/gui/preferences.cpp:1458
+msgid "H.323 Settings"
+msgstr "H.323 поставувања"
+
+#: ../src/gui/preferences.cpp:1462
+msgid "Audio"
+msgstr "Аудио"
+
+#: ../src/gui/preferences.cpp:1463 ../src/gui/preferences.cpp:1473
+msgid "Devices"
+msgstr "Уреди"
+
+#: ../src/gui/preferences.cpp:1472
+msgid "Video"
+msgstr "Видео"
+
+#: ../src/gui/statusicon.cpp:311
+#, fuzzy, c-format
+msgid "You have %d message"
+msgid_plural "You have %d messages"
+msgstr[0] "Прати порака"
+msgstr[1] "Прати порака"
+msgstr[2] "Прати порака"
+
+#: ../src/gui/statusicon.cpp:413
+msgid "_Contents"
+msgstr "_Содржина"
+
+#: ../src/gui/statusicon.cpp:418
+msgid "_About"
+msgstr "_За"
+
+#: ../src/gui/statusmenu.cpp:90
+msgid "Online"
+msgstr "Онлајн"
+
+#: ../src/gui/statusmenu.cpp:91
+msgid "Away"
+msgstr "Отсутен"
+
+#: ../src/gui/statusmenu.cpp:92
+#, fuzzy
+msgid "Do Not Disturb"
+msgstr "_Не вознемирувај"
+
+#: ../src/gui/statusmenu.cpp:456
+msgid "Custom message..."
+msgstr "Сопствена порака..."
+
+#. Build the dialog
+#: ../src/gui/statusmenu.cpp:587 ../src/gui/statusmenu.cpp:741
+msgid "Custom Message"
+msgstr "Сопствена порака"
+
+#: ../src/gui/statusmenu.cpp:603
+msgid "Delete custom messages:"
+msgstr "Избриши ги сопствените пораки:"
+
+#: ../src/gui/statusmenu.cpp:762
+msgid "Define a custom message:"
+msgstr "Дефинирај сопствена порака:"
+

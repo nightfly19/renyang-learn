@@ -1,0 +1,5308 @@
+# Hebrew translation of gnomemeeting.
+# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Shuki Vaknin <radioschizo@yahoo.com>, 2005.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnomemeeting\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-31 18:41+0000\n"
+"PO-Revision-Date: 2005-07-26 20:52+0300\n"
+"Last-Translator: Yair Hershkovitz <yairhr@gmail.com>\n"
+"Language-Team: Hebrew\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=( n != 1 );\n"
+
+#: ../ekiga.desktop.in.in.h:1
+msgid "Ekiga Softphone"
+msgstr "תוכנת הטלפון Ekiga"
+
+#: ../ekiga.desktop.in.in.h:2
+msgid "IP Telephony, VoIP and Video Conferencing"
+msgstr "טלפוניית IP, VoIP וועידות וידאו"
+
+#: ../ekiga.desktop.in.in.h:3
+msgid "Talk to people over the Internet"
+msgstr "דבר עם אנשים ברחבי האינטרנט"
+
+#: ../ekiga.schemas.in.in.h:1
+msgid "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+msgstr "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+
+#: ../ekiga.schemas.in.in.h:2
+msgid ""
+"Allow Ekiga to fall back to software scaling the picture-in-picture if "
+"hardware support is not available. If this is set to false, Ekiga will not "
+"try to open the PIP if hardware support is not available."
+msgstr ""
+"Allow Ekiga to fall back to software scaling the picture-in-picture if "
+"hardware support is not available. If this is set to false, Ekiga will not "
+"try to open the PIP if hardware support is not available."
+
+#: ../ekiga.schemas.in.in.h:3
+msgid "Allow picture-in-picture software scaling"
+msgstr "Allow picture-in-picture software scaling"
+
+#: ../ekiga.schemas.in.in.h:4
+msgid "Alternative audio output device"
+msgstr "Alternative audio output device"
+
+#: ../ekiga.schemas.in.in.h:5
+msgid "Always forward calls to the given host"
+msgstr "Always forward calls to the given host"
+
+#: ../ekiga.schemas.in.in.h:6
+msgid "Audio input device"
+msgstr "Audio input device"
+
+#: ../ekiga.schemas.in.in.h:7
+msgid "Audio output device"
+msgstr "Audio output device"
+
+#: ../ekiga.schemas.in.in.h:8
+msgid "Automatic echo cancellation"
+msgstr "Automatic echo cancellation"
+
+#: ../ekiga.schemas.in.in.h:9 ../src/gui/preferences.cpp:439
+msgid ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+msgstr ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+
+#: ../ekiga.schemas.in.in.h:10
+msgid "Calls history"
+msgstr "Calls history"
+
+#: ../ekiga.schemas.in.in.h:11
+msgid "Change the main window panel section"
+msgstr "Change the main window panel section"
+
+#: ../ekiga.schemas.in.in.h:12
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+msgstr ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+
+#: ../ekiga.schemas.in.in.h:13
+msgid "Contact long status"
+msgstr "Contact long status"
+
+#: ../ekiga.schemas.in.in.h:14
+msgid "Contact short status"
+msgstr "Contact short status"
+
+#: ../ekiga.schemas.in.in.h:15
+msgid "Country code"
+msgstr "Country code"
+
+#: ../ekiga.schemas.in.in.h:16
+msgid "DTMF sending"
+msgstr "DTMF sending"
+
+#: ../ekiga.schemas.in.in.h:17
+msgid "Disable video hardware acceleration"
+msgstr "Disable video hardware acceleration"
+
+#: ../ekiga.schemas.in.in.h:18
+msgid "Display a popup window when receiving a call"
+msgstr "Display a popup window when receiving a call"
+
+#: ../ekiga.schemas.in.in.h:19
+msgid "Enable 'Fast Start'"
+msgstr "Enable 'Fast Start'"
+
+#: ../ekiga.schemas.in.in.h:20
+msgid "Enable H.245 tunneling"
+msgstr "Enable H.245 tunneling"
+
+#: ../ekiga.schemas.in.in.h:21
+msgid "Enable early H.245"
+msgstr "Enable early H.245"
+
+#: ../ekiga.schemas.in.in.h:22
+msgid "Enable echo cancelation"
+msgstr "Enable echo cancelation"
+
+#: ../ekiga.schemas.in.in.h:23
+msgid "Enable silence detection"
+msgstr "Enable silence detection"
+
+#: ../ekiga.schemas.in.in.h:24
+msgid "Enable video support"
+msgstr "Enable video support"
+
+#: ../ekiga.schemas.in.in.h:25
+msgid ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+msgstr ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+
+#: ../ekiga.schemas.in.in.h:26
+msgid "Enter your full name"
+msgstr "Enter your full name"
+
+#: ../ekiga.schemas.in.in.h:27
+msgid "Forward calls to host"
+msgstr "Forward calls to host"
+
+#: ../ekiga.schemas.in.in.h:28
+msgid "Forward calls to the given host if busy"
+msgstr "Forward calls to the given host if busy"
+
+#: ../ekiga.schemas.in.in.h:29
+msgid "Forward calls to the given host if no answer"
+msgstr "העבר שיחות לשרת הנתון אם אין תשובה"
+
+#: ../ekiga.schemas.in.in.h:30 ../src/gui/preferences.cpp:1009
+msgid "Frame Rate"
+msgstr "קצב פריימים"
+
+#: ../ekiga.schemas.in.in.h:31
+msgid "Full name"
+msgstr "Full name"
+
+#: ../ekiga.schemas.in.in.h:32 ../src/gui/preferences.cpp:407
+msgid ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+msgstr ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+
+#: ../ekiga.schemas.in.in.h:33
+msgid ""
+"If enabled, a popup window will be displayed when receiving an incoming call"
+msgstr ""
+"If enabled, a popup window will be displayed when receiving an incoming call"
+
+#: ../ekiga.schemas.in.in.h:34
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+msgstr ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+
+#: ../ekiga.schemas.in.in.h:35
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+msgstr ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+
+#: ../ekiga.schemas.in.in.h:36
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+msgstr ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+
+#: ../ekiga.schemas.in.in.h:37
+msgid "If enabled, allows video during calls"
+msgstr "If enabled, allows video during calls"
+
+#: ../ekiga.schemas.in.in.h:38 ../src/gui/preferences.cpp:409
+msgid "If enabled, offline contacts will be shown in the roster"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:39
+msgid "If enabled, use echo cancelation"
+msgstr "If enabled, use echo cancelation"
+
+#: ../ekiga.schemas.in.in.h:40
+msgid "If enabled, use silence detection with the codecs supporting it"
+msgstr "If enabled, use silence detection with the codecs supporting it"
+
+#: ../ekiga.schemas.in.in.h:41
+msgid "Kind of network selected in the druid"
+msgstr "Kind of network selected in the druid"
+
+#: ../ekiga.schemas.in.in.h:42
+msgid "LDAP servers"
+msgstr "LDAP servers"
+
+#: ../ekiga.schemas.in.in.h:43
+msgid "List of configured LDAP servers"
+msgstr "List of configured LDAP servers"
+
+#: ../ekiga.schemas.in.in.h:44
+msgid "List of folded groups in the roster"
+msgstr "List of folded groups in the roster"
+
+#: ../ekiga.schemas.in.in.h:45
+msgid "Listen port"
+msgstr "Listen port"
+
+#: ../ekiga.schemas.in.in.h:46
+msgid "Local video window size"
+msgstr "Local video window size"
+
+#: ../ekiga.schemas.in.in.h:47
+msgid "Maximum RX video bitrate"
+msgstr "Maximum RX video bitrate"
+
+#: ../ekiga.schemas.in.in.h:48
+msgid "Maximum TX video bitrate"
+msgstr "Maximum TX video bitrate"
+
+#: ../ekiga.schemas.in.in.h:49
+msgid "Maximum jitter buffer"
+msgstr "Maximum jitter buffer"
+
+#: ../ekiga.schemas.in.in.h:50
+msgid "NAT Binding Timeout"
+msgstr "NAT Binding Timeout"
+
+#: ../ekiga.schemas.in.in.h:51
+msgid "No answer timeout"
+msgstr "No answer timeout"
+
+#: ../ekiga.schemas.in.in.h:52
+msgid "Number of frames for G.711"
+msgstr "Number of frames for G.711"
+
+#: ../ekiga.schemas.in.in.h:53
+msgid "Number of frames for GSM"
+msgstr "Number of frames for GSM"
+
+#: ../ekiga.schemas.in.in.h:54
+msgid "Number of frames transmitted in each packet for the G.711 codec"
+msgstr "Number of frames transmitted in each packet for the G.711 codec"
+
+#: ../ekiga.schemas.in.in.h:55
+msgid "Number of frames transmitted in each packet for the GSM codec"
+msgstr "Number of frames transmitted in each packet for the GSM codec"
+
+#: ../ekiga.schemas.in.in.h:56
+msgid "Outbound Proxy"
+msgstr "Outbound Proxy"
+
+#: ../ekiga.schemas.in.in.h:57
+msgid "Output device type"
+msgstr "סוג התקן יציאה"
+
+#: ../ekiga.schemas.in.in.h:58 ../src/gui/preferences.cpp:416
+msgid "Place windows displaying video above other windows during calls"
+msgstr "בזמן שיחה הצג את חלון הוידאו מעל כל החלונות"
+
+#: ../ekiga.schemas.in.in.h:59 ../src/gui/preferences.cpp:1394
+msgid "Play busy tone"
+msgstr "נגן צליל עסוק"
+
+#: ../ekiga.schemas.in.in.h:60 ../src/gui/preferences.cpp:1385
+msgid "Play ring tone"
+msgstr "נגן צליל צלצול"
+
+#: ../ekiga.schemas.in.in.h:61 ../src/gui/preferences.cpp:1376
+msgid "Play sound on incoming calls"
+msgstr "השמע צליל כאשר שיחה נכנסת"
+
+#: ../ekiga.schemas.in.in.h:62
+msgid "Play sound on new message"
+msgstr "Play sound on new message"
+
+#: ../ekiga.schemas.in.in.h:63
+msgid "Play sound on new voice mail"
+msgstr "Play sound on new voice mail"
+
+#: ../ekiga.schemas.in.in.h:64
+msgid "Position of the local video window"
+msgstr "מיקום חלון הוידאו המקומי"
+
+#: ../ekiga.schemas.in.in.h:65
+msgid "Position on the screen of the PC-To-Phone window"
+msgstr "Position on the screen of the PC-To-Phone window"
+
+#: ../ekiga.schemas.in.in.h:66
+msgid "Position on the screen of the address book window"
+msgstr "Position on the screen of the address book window"
+
+#: ../ekiga.schemas.in.in.h:67
+msgid "Position on the screen of the audio settings window"
+msgstr "Position on the screen of the audio settings window"
+
+#: ../ekiga.schemas.in.in.h:68
+msgid "Position on the screen of the chat window"
+msgstr "Position on the screen of the chat window"
+
+#: ../ekiga.schemas.in.in.h:69
+msgid "Position on the screen of the druid window"
+msgstr "Position on the screen of the druid window"
+
+#: ../ekiga.schemas.in.in.h:70
+msgid "Position on the screen of the log window"
+msgstr "Position on the screen of the log window"
+
+#: ../ekiga.schemas.in.in.h:71
+msgid "Position on the screen of the main window"
+msgstr "Position on the screen of the main window"
+
+#: ../ekiga.schemas.in.in.h:72
+msgid "Position on the screen of the preferences window"
+msgstr "Position on the screen of the preferences window"
+
+#: ../ekiga.schemas.in.in.h:73
+msgid "Position on the screen of the video settings window"
+msgstr "Position on the screen of the video settings window"
+
+#: ../ekiga.schemas.in.in.h:74
+msgid "Registration timeout"
+msgstr "Registration timeout"
+
+#: ../ekiga.schemas.in.in.h:75
+msgid "Remote video window position"
+msgstr "Remote video window position"
+
+#: ../ekiga.schemas.in.in.h:76
+msgid "Remote video window size"
+msgstr "Remote video window size"
+
+#: ../ekiga.schemas.in.in.h:77
+msgid "Revision of the schema file"
+msgstr "Revision of the schema file"
+
+#: ../ekiga.schemas.in.in.h:78
+msgid "Roster view saving group status"
+msgstr "Roster view saving group status"
+
+#: ../ekiga.schemas.in.in.h:79
+msgid "Select an alternative audio output device to use for sound events."
+msgstr "Select an alternative audio output device to use for sound events."
+
+#: ../ekiga.schemas.in.in.h:80 ../src/gui/preferences.cpp:718
+msgid "Select the audio input device to use"
+msgstr "בחר את התקן האודיו לשימוש"
+
+#: ../ekiga.schemas.in.in.h:81 ../src/gui/preferences.cpp:711
+msgid "Select the audio output device to use"
+msgstr "בחר את התקן האודיו היוצא לשימוש"
+
+#: ../ekiga.schemas.in.in.h:82 ../src/gui/preferences.cpp:874
+msgid ""
+"Select the format for video cameras (does not apply to most USB cameras)"
+msgstr ""
+"Select the format for video cameras (does not apply to most USB cameras)"
+
+#: ../ekiga.schemas.in.in.h:83
+msgid ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+
+#: ../ekiga.schemas.in.in.h:84 ../src/gui/preferences.cpp:866
+msgid ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+msgstr ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+
+#: ../ekiga.schemas.in.in.h:85
+msgid "Show offline contacts"
+msgstr "Show offline contacts"
+
+#: ../ekiga.schemas.in.in.h:86 ../src/gui/main.cpp:1838
+msgid "Show the call panel"
+msgstr "הצג את לוח השיחות"
+
+#: ../ekiga.schemas.in.in.h:87
+msgid "Size of the PC-To-Phone window"
+msgstr "Size of the PC-To-Phone window"
+
+#: ../ekiga.schemas.in.in.h:88
+msgid "Size of the address book window"
+msgstr "Size of the address book window"
+
+#: ../ekiga.schemas.in.in.h:89
+msgid "Size of the audio settings window"
+msgstr "Size of the audio settings window"
+
+#: ../ekiga.schemas.in.in.h:90
+msgid "Size of the chat window"
+msgstr "Size of the chat window"
+
+#: ../ekiga.schemas.in.in.h:91
+msgid "Size of the druid window"
+msgstr "Size of the druid window"
+
+#: ../ekiga.schemas.in.in.h:92
+msgid "Size of the preferences window"
+msgstr "Size of the preferences window"
+
+#: ../ekiga.schemas.in.in.h:93
+msgid "Size of the video settings window"
+msgstr "Size of the video settings window"
+
+#: ../ekiga.schemas.in.in.h:94
+msgid "Specify the software scaling algorithm"
+msgstr "Specify the software scaling algorithm"
+
+#: ../ekiga.schemas.in.in.h:95
+msgid ""
+"Specify the software scaling algorithm: 0: nearest neighbor, 1: nearest "
+"neighbor with box filter, 2: bilinear filtering, 3: hyperbolic filtering. "
+"Does not apply on windows systems."
+msgstr ""
+"Specify the software scaling algorithm: 0: nearest neighbor, 1: nearest "
+"neighbor with box filter, 2: bilinear filtering, 3: hyperbolic filtering. "
+"Does not apply on windows systems."
+
+#: ../ekiga.schemas.in.in.h:96
+msgid "Start hidden"
+msgstr "Start hidden"
+
+#: ../ekiga.schemas.in.in.h:97
+msgid "TCP port range"
+msgstr "TCP port range"
+
+#: ../ekiga.schemas.in.in.h:98
+msgid "Temporal Spatial Trade Off"
+msgstr "Temporal Spatial Trade Off"
+
+#: ../ekiga.schemas.in.in.h:99
+msgid "The Audio Codecs List"
+msgstr "The Audio Codecs List"
+
+#: ../ekiga.schemas.in.in.h:100
+msgid ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+msgstr ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+
+#: ../ekiga.schemas.in.in.h:101 ../src/gui/preferences.cpp:668
+msgid "The SIP Outbound Proxy to use for outgoing calls"
+msgstr "The SIP Outbound Proxy to use for outgoing calls"
+
+#: ../ekiga.schemas.in.in.h:102
+msgid "The STUN Server"
+msgstr "The STUN Server"
+
+#: ../ekiga.schemas.in.in.h:103
+msgid ""
+"The STUN server to use for STUN Support. STUN is a technology that permits "
+"passage through some types of NAT gateway"
+msgstr ""
+"The STUN server to use for STUN Support. STUN is a technology that permits "
+"passage through some types of NAT gateway"
+
+#: ../ekiga.schemas.in.in.h:104
+msgid "The Video Codecs List"
+msgstr "The Video Codecs List"
+
+#: ../ekiga.schemas.in.in.h:105
+msgid "The accounts list"
+msgstr "The accounts list"
+
+#: ../ekiga.schemas.in.in.h:106
+msgid "The audio codecs list"
+msgstr "The audio codecs list"
+
+#: ../ekiga.schemas.in.in.h:107
+msgid "The busy tone sound"
+msgstr "The busy tone sound"
+
+#: ../ekiga.schemas.in.in.h:108
+msgid ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+msgstr ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+
+#: ../ekiga.schemas.in.in.h:109
+msgid "The chosen sound will be played on incoming calls, if enabled"
+msgstr "The chosen sound will be played on incoming calls, if enabled"
+
+#: ../ekiga.schemas.in.in.h:110
+msgid ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+msgstr ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+
+#: ../ekiga.schemas.in.in.h:111
+msgid ""
+"The chosen sound will be played when a new voice mail is received, if enabled"
+msgstr ""
+"The chosen sound will be played when a new voice mail is received, if enabled"
+
+#: ../ekiga.schemas.in.in.h:112
+msgid "The chosen sound will be played when calling somebody, if enabled"
+msgstr "The chosen sound will be played when calling somebody, if enabled"
+
+#: ../ekiga.schemas.in.in.h:113
+msgid "The default video view"
+msgstr "The default video view"
+
+#: ../ekiga.schemas.in.in.h:114
+msgid ""
+"The default video view (0: Local, 1: Remote, 2: Both layered, 3: Both with "
+"local video in a separate window, 4: Both)"
+msgstr ""
+"The default video view (0: Local, 1: Remote, 2: Both layered, 3: Both with "
+"local video in a separate window, 4: Both)"
+
+#: ../ekiga.schemas.in.in.h:115
+msgid "The dial tone sound"
+msgstr "The dial tone sound"
+
+#: ../ekiga.schemas.in.in.h:116
+msgid "The history of the 100 last calls"
+msgstr "The history of the 100 last calls"
+
+#: ../ekiga.schemas.in.in.h:117 ../src/gui/preferences.cpp:617
+#: ../src/gui/preferences.cpp:671
+msgid "The host where calls should be forwarded if call forwarding is enabled"
+msgstr "The host where calls should be forwarded if call forwarding is enabled"
+
+#: ../ekiga.schemas.in.in.h:118
+msgid ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+msgstr ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+
+#: ../ekiga.schemas.in.in.h:119
+msgid "The incoming call sound"
+msgstr "The incoming call sound"
+
+#: ../ekiga.schemas.in.in.h:120
+msgid "The list of accounts to which Ekiga should register"
+msgstr "The list of accounts to which Ekiga should register"
+
+#: ../ekiga.schemas.in.in.h:121
+msgid "The long status information"
+msgstr "The long status information"
+
+#: ../ekiga.schemas.in.in.h:122
+msgid ""
+"The maximum RX video bitrate in kbit/s. This value will be signaled to the "
+"peer endpoint that can adjust (if it supports it) its TX bitrate if it is "
+"above the signaled value"
+msgstr ""
+"The maximum RX video bitrate in kbit/s. This value will be signaled to the "
+"peer endpoint that can adjust (if it supports it) its TX bitrate if it is "
+"above the signaled value"
+
+#: ../ekiga.schemas.in.in.h:123
+msgid ""
+"The maximum TX video bitrate in kbit/s. The video quality and the number of "
+"transmitted frames per second (depends on selected codec) will be "
+"dynamically adjusted above their minimum during calls to try to minimize the "
+"bandwidth to the given value"
+msgstr ""
+"The maximum TX video bitrate in kbit/s. The video quality and the number of "
+"transmitted frames per second (depends on selected codec) will be "
+"dynamically adjusted above their minimum during calls to try to minimize the "
+"bandwidth to the given value"
+
+#: ../ekiga.schemas.in.in.h:124
+msgid "The maximum jitter buffer size for audio reception (in ms)"
+msgstr "The maximum jitter buffer size for audio reception (in ms)"
+
+#: ../ekiga.schemas.in.in.h:125
+msgid ""
+"The maximum transmitted frame rate in frames/s. This rate may not be reached "
+"in case a minimum quality was configure via a TSTO value smaller than 31 and "
+"the bitrate selected is not sufficient to support this minimum quality"
+msgstr ""
+"The maximum transmitted frame rate in frames/s. This rate may not be reached "
+"in case a minimum quality was configure via a TSTO value smaller than 31 and "
+"the bitrate selected is not sufficient to support this minimum quality"
+
+#: ../ekiga.schemas.in.in.h:126
+msgid "The new instant message sound"
+msgstr "The new instant message sound"
+
+#: ../ekiga.schemas.in.in.h:127
+msgid "The new voice mail sound"
+msgstr "The new voice mail sound"
+
+#: ../ekiga.schemas.in.in.h:128
+msgid ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+msgstr ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+
+#: ../ekiga.schemas.in.in.h:129
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+msgstr ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+
+#: ../ekiga.schemas.in.in.h:130
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+msgstr ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+
+#: ../ekiga.schemas.in.in.h:131
+msgid "The position of the local video window"
+msgstr "The position of the local video window"
+
+#: ../ekiga.schemas.in.in.h:132
+msgid "The position of the remote video window"
+msgstr "The position of the remote video window"
+
+#: ../ekiga.schemas.in.in.h:133
+msgid ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+msgstr ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+
+#: ../ekiga.schemas.in.in.h:134
+msgid ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. This "
+"port range has no effect if both participants to the conference are using "
+"H.245 Tunneling."
+msgstr ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. This "
+"port range has no effect if both participants to the conference are using "
+"H.245 Tunneling."
+
+#: ../ekiga.schemas.in.in.h:135
+msgid "The range of UDP ports that Ekiga will use."
+msgstr "The range of UDP ports that Ekiga will use."
+
+#: ../ekiga.schemas.in.in.h:136
+msgid "The save prefix"
+msgstr "The save prefix"
+
+#: ../ekiga.schemas.in.in.h:137
+msgid "The short status information"
+msgstr "The short status information"
+
+#: ../ekiga.schemas.in.in.h:138
+msgid "The size of the local video window"
+msgstr "The size of the local video window"
+
+#: ../ekiga.schemas.in.in.h:139
+msgid "The size of the remote video window"
+msgstr "The size of the remote video window"
+
+#: ../ekiga.schemas.in.in.h:140
+msgid ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+msgstr ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+
+#: ../ekiga.schemas.in.in.h:141
+msgid "The sound that will be played on incoming calls, if enabled"
+msgstr "The sound that will be played on incoming calls, if enabled"
+
+#: ../ekiga.schemas.in.in.h:142
+msgid "The sound that will be played when calling somebody, if enabled"
+msgstr "The sound that will be played when calling somebody, if enabled"
+
+#: ../ekiga.schemas.in.in.h:143
+msgid ""
+"The sound that will be played when there is a new instant message, if enabled"
+msgstr ""
+"The sound that will be played when there is a new instant message, if enabled"
+
+#: ../ekiga.schemas.in.in.h:144
+msgid ""
+"The sound that will be played when there is a new voice mail, if enabled"
+msgstr ""
+"The sound that will be played when there is a new voice mail, if enabled"
+
+#: ../ekiga.schemas.in.in.h:145
+msgid ""
+"The time after which Ekiga will renew its registration with the registrar"
+msgstr ""
+"The time after which Ekiga will renew its registration with the registrar"
+
+#: ../ekiga.schemas.in.in.h:146
+msgid "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+msgstr ""
+"The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+
+#: ../ekiga.schemas.in.in.h:147 ../src/gui/preferences.cpp:870
+msgid "The video channel number to use (to select camera, tv or other sources)"
+msgstr ""
+"The video channel number to use (to select camera, tv or other sources)"
+
+#: ../ekiga.schemas.in.in.h:148
+msgid "The video codecs list"
+msgstr "The video codecs list"
+
+#: ../ekiga.schemas.in.in.h:149
+msgid "The video view before having switched to fullscreen"
+msgstr "The video view before having switched to fullscreen"
+
+#: ../ekiga.schemas.in.in.h:150
+msgid ""
+"The video view before having switched to fullscreen (same values as "
+"video_view)"
+msgstr ""
+"The video view before having switched to fullscreen (same values as "
+"video_view)"
+
+#: ../ekiga.schemas.in.in.h:151
+msgid "The zoom value"
+msgstr "The zoom value"
+
+#: ../ekiga.schemas.in.in.h:152
+msgid ""
+"The zoom value in percent to apply to images displayed in the main GUI (can "
+"be 50, 100, or 200)"
+msgstr ""
+"The zoom value in percent to apply to images displayed in the main GUI (can "
+"be 50, 100, or 200)"
+
+#: ../ekiga.schemas.in.in.h:153
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be "
+"\"RFC2833\" (0), \"INFO\" (1)"
+msgstr ""
+"This allows you to set the mode for sending DTMFs. The values can be "
+"\"RFC2833\" (0), \"INFO\" (1)"
+
+#: ../ekiga.schemas.in.in.h:154
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+msgstr ""
+"This allows you to set the mode for sending DTMFs. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+
+#: ../ekiga.schemas.in.in.h:155 ../src/gui/preferences.cpp:629
+msgid ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+msgstr ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+
+#: ../ekiga.schemas.in.in.h:156 ../src/gui/preferences.cpp:631
+msgid "This enables H.245 early in the setup"
+msgstr "This enables H.245 early in the setup"
+
+#: ../ekiga.schemas.in.in.h:157
+msgid ""
+"This key disables DirectX (on win32) and XVideo (on Linux) video hardware "
+"acceleration"
+msgstr ""
+"This key disables DirectX (on win32) and XVideo (on Linux) video hardware "
+"acceleration"
+
+#: ../ekiga.schemas.in.in.h:158
+msgid "UDP port range"
+msgstr "UDP port range"
+
+#: ../ekiga.schemas.in.in.h:159
+msgid "Version"
+msgstr "Version"
+
+#: ../ekiga.schemas.in.in.h:160
+msgid "Video channel"
+msgstr "Video channel"
+
+#: ../ekiga.schemas.in.in.h:161
+msgid "Video format"
+msgstr "Video format"
+
+#: ../ekiga.schemas.in.in.h:162
+msgid "Video image"
+msgstr "Video image"
+
+#: ../ekiga.schemas.in.in.h:163 ../src/gui/assistant.cpp:1045
+msgid "Video input device"
+msgstr "Video input device"
+
+#: ../ekiga.schemas.in.in.h:164
+msgid "Video preview"
+msgstr "Video preview"
+
+#: ../ekiga.schemas.in.in.h:165
+msgid "Video size"
+msgstr "Video size"
+
+#: ../ekiga.schemas.in.in.h:166
+msgid ""
+"Whether to prefer to sustain the max. frame rate or lower it possibly in "
+"order to keep a minimum level of (spatial) quality for all frames. 0: "
+"Highest minimal quality, 31: lowest minimal quality"
+msgstr ""
+"Whether to prefer to sustain the max. frame rate or lower it possibly in "
+"order to keep a minimum level of (spatial) quality for all frames. 0: "
+"Highest minimal quality, 31: lowest minimal quality"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:148
+msgid "Received"
+msgstr "התקבלו"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:151
+msgid "Placed"
+msgstr "חויגו"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:154
+msgid "Missed"
+msgstr "לא נענו"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:234
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:194
+#: ../src/endpoints/opal-account.cpp:306 ../src/gui/main.cpp:1796
+msgid "_Edit"
+msgstr " _ערוך"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:236
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:312
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:196
+#: ../src/endpoints/opal-account.cpp:308
+msgid "_Remove"
+msgstr "_הסר"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:325
+msgid "Edit contact"
+msgstr "ערוך איש קשר"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:327
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:313
+#: ../src/endpoints/opal-account.cpp:349
+msgid "Please update the following fields:"
+msgstr "נא לעדכן את השדות הבאים:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:329
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:221
+#: ../lib/engine/presence/local-roster/local-heap.cpp:177
+#: ../lib/engine/presence/local-roster/local-heap.cpp:324
+#: ../src/endpoints/opal-account.cpp:351 ../src/endpoints/opal-bank.cpp:101
+#: ../src/endpoints/opal-bank.cpp:111
+msgid "Name:"
+msgstr "שם:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:338
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:316
+msgid "VoIP _URI:"
+msgstr "כתובת _VoIP:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:339
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:317
+msgid "_Home phone:"
+msgstr "טלפון _בבית:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:340
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:318
+msgid "_Office phone:"
+msgstr "טלפון ב_משרד:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:341
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:319
+msgid "_Cell phone:"
+msgstr "טלפון _סלולרי"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:342
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:320
+#, fuzzy
+msgid "_Pager:"
+msgstr "תמונה:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:392
+msgid "Remove contact"
+msgstr "הסר איש קשר"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:394
+#, c-format
+msgid "Are you sure you want to remove %s from the addressbook?"
+msgstr "אתה בטוח שאתה רוצה למחוק את %s מספר הכתובות?"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:86
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:590
+#, c-format
+msgid "%d user found"
+msgid_plural "%d users found"
+msgstr[0] "נמצא משתמש אחד"
+msgstr[1] "נמצאו %d משתמשים"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:259
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:309
+msgid "_Refresh"
+msgstr "_רענן"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:262
+msgid "New _Contact"
+msgstr "איש קשר _חדש"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:311
+#: ../lib/engine/presence/local-roster/local-heap.cpp:118
+msgid "New contact"
+msgstr "איש קשר חדש"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:315
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:157
+msgid "_Name:"
+msgstr "_שם:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:139
+msgid "Add an LDAP Address Book"
+msgstr "הוסף ספר כתובות LDAP"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:142
+msgid "Add the Ekiga.net Directory"
+msgstr "הוסף את ספריית ה-Ekiga.net"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:153
+msgid "Create LDAP directory"
+msgstr "צור ספריית LDAP"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:155
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:610
+msgid "Please edit the following fields"
+msgstr "נא לערוך את השדות הבאים"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:158
+msgid "_Hostname:"
+msgstr "שם  _מארח:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:159
+msgid "_Port:"
+msgstr "_שער:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:160
+msgid "_Base DN:"
+msgstr ""
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:164
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:626
+msgid "_Subtree"
+msgstr "תת _עץ"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:165
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:627
+msgid "Single _Level"
+msgstr "רמה _אחת"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:166
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:628
+msgid "_Scope"
+msgstr ""
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:169
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:631
+msgid "Call _Attribute"
+msgstr "_תכונות שיחה"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:170
+msgid "Password"
+msgstr "סיסמה"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:188
+msgid "Ekiga.net Directory"
+msgstr "ספריית Ekiga.net"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:314
+msgid "_Properties"
+msgstr "_מאפיינים"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:379
+msgid "Refreshing"
+msgstr "מרענן"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:387
+msgid "Could not initialize server"
+msgstr "לא ניתן לאתחל את השרת"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:420
+msgid "Could not contact server"
+msgstr "לא ניתן ליצור קשר עם השרת"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:428
+#, fuzzy
+msgid "Contacted server"
+msgstr "אנשי קשר קרובים אלי"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:465
+msgid "Could not connect to server"
+msgstr "לא ניתן להתחבר אל השרת"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:515
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:563
+msgid "Could not search"
+msgstr "לא ניתן לחפש"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:523
+msgid "Waiting for search results"
+msgstr "ממתין לתוצאות החיפוש"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:608
+msgid "Edit LDAP directory"
+msgstr "ערוך ספריית LDAP"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:612
+msgid "_Name"
+msgstr "ש_ם"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:613
+msgid "_Hostname"
+msgstr "שם _מארח"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:619
+msgid "_Port"
+msgstr "שער_:"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:621
+msgid "_Base DN"
+msgstr ""
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:633
+msgid "_Password"
+msgstr "_סיסמה:"
+
+#: ../lib/engine/addressbook/skel/contact-core.cpp:57
+msgid "_Find"
+msgstr "_חפש"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:660
+msgid "Address Book"
+msgstr "ספר כתובות"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:680
+#: ../src/gui/main.cpp:1745
+msgid "Address _Book"
+msgstr "ספר _כתובות"
+
+#. This will add static and dynamic actions
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:689
+msgid "_Action"
+msgstr "_פעולה:"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:734
+msgid "Category"
+msgstr "קטגוריה"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:241
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:968
+msgid "says:"
+msgstr "אומר:"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:364
+msgid "Open link in browser"
+msgstr "פתח קישור בדפדפן"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:370
+msgid "Copy link"
+msgstr "העתק קישור"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:878
+msgid "_Smile..."
+msgstr "_חיוך..."
+
+#. The window
+#. we can't do much here since we get the Chat as reference...
+#: ../lib/engine/gui/gtk-frontend/chat-window-old.cpp:562
+#: ../lib/engine/gui/gtk-frontend/chat-window.cpp:420
+msgid "Chat Window"
+msgstr "חלון שיחה"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:628
+#: ../src/gui/assistant.cpp:1253
+msgid "Full Name"
+msgstr "שם מלא"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:639
+msgid "_Search Filter:"
+msgstr "מסנן _חיפוש:"
+
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:967
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:1001
+msgid "Unsorted"
+msgstr "לא ממויין"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:752
+msgid "_Send"
+msgstr "_שלח"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:963
+#, c-format
+msgid "You say:\n"
+msgstr "אתה אומר:\n"
+
+#: ../lib/engine/gui/gtk-frontend/call-history-view-gtk.cpp:163
+#: ../src/gui/statusmenu.cpp:545
+msgid "Clear"
+msgstr "נקה"
+
+#: ../lib/engine/presence/avahi/avahi-presentity.cpp:47
+msgid "Neighbours"
+msgstr "שכנים"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:218
+msgid "Edit roster element"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:219
+msgid ""
+"Please fill in this form to change an existing element of ekiga's internal "
+"roster"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:222
+#: ../lib/engine/presence/local-roster/local-heap.cpp:186
+#: ../lib/engine/presence/local-roster/local-heap.cpp:188
+msgid "Address:"
+msgstr "כתובת:"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:224
+msgid "Choose groups:"
+msgstr "בחר קבוצות:"
+
+#: ../lib/engine/presence/local-roster/local-roster-bridge.cpp:94
+#: ../lib/engine/presence/local-roster/local-heap.cpp:174
+#, fuzzy
+msgid "Add to local roster"
+msgstr "נכשל בנסיון לעבד קובץ XML"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:93
+msgid "Services"
+msgstr "שירותים"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:94
+msgid "Echo test"
+msgstr "בדיקת הד"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:95
+msgid "Conference room"
+msgstr "חדר ועידה"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:111
+#, fuzzy
+msgid "Local roster"
+msgstr "אנשי קשר מקומיים"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:128
+msgid "Rename"
+msgstr "שנה שם"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:175
+msgid ""
+"Please fill in this form to add a new contact to ekiga's internal roster"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:192
+msgid "Put contact in groups:"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:295
+msgid "You supplied an unsupported address"
+msgstr "הכתובת שסופקה אינה נתמכת"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:297
+msgid "You already have a contact with this address!"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:322
+msgid "Rename group"
+msgstr "שנה שם קבוצה"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:323
+msgid "Please edit this group name"
+msgstr "נא לערוך את שם קבוצה זאת"
+
+#: ../lib/gui/codecsbox.cpp:476
+msgid "Move selected codec priority upwards"
+msgstr "העלה את עדיפות המקודד"
+
+#: ../lib/gui/codecsbox.cpp:486
+msgid "Move selected codec priority downwards"
+msgstr "הורד את עדיפות המקודד"
+
+#: ../lib/gui/gmdialog.c:474
+msgid "Do not show this dialog again"
+msgstr "אל תציג את תיבת הדו-שיח שנית"
+
+#: ../src/devices/audio.cpp:281
+msgid "Opening device for playing"
+msgstr "פותח התקן לניגון"
+
+#: ../src/devices/audio.cpp:283
+msgid "Opening device for recording"
+msgstr "פותח התקן להקלטה"
+
+#: ../src/devices/audio.cpp:294 ../src/devices/audio.cpp:296
+msgid "Failed to open the device"
+msgstr "שגיאה בפתיחת ההתקן"
+
+#: ../src/devices/audio.cpp:294
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for recording. Please "
+"check your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"לא אפשרי לפתוח את התקן האודיו הנבחר (%s) להקלטה. אנא בדוק את הגדרות האודיו "
+"שלך, ההרשאות ושההתקן לא עסוק."
+
+#: ../src/devices/audio.cpp:296
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for playing. Please check "
+"your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"לא אפשרי לפתוח את התקן האודיו הנבחר (%s) לניגון. אנא בדוק את הגדרות האודיו "
+"שלך, ההרשאות ושההתקן לא תפוס."
+
+#: ../src/devices/audio.cpp:312 ../src/devices/audio.cpp:381
+msgid "Cannot use the audio device"
+msgstr "לא ניתן להשתמש בהתקן האודיו"
+
+#: ../src/devices/audio.cpp:312
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to read data from this device. Please check your audio setup."
+msgstr ""
+"התקן האודיו הנבחר (%s) נפתח בהצלחה אבל זה בלתי אפשרי לקרוא מידע מההתקן. אנא "
+"בדקו הגדרות אודיו."
+
+#: ../src/devices/audio.cpp:321
+msgid "Recording your voice"
+msgstr "מקליט את קולך"
+
+#: ../src/devices/audio.cpp:360
+msgid "Recording and playing back"
+msgstr "מקליט ומשמיע"
+
+#: ../src/devices/audio.cpp:381
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to write data to this device. Please check your audio setup."
+msgstr ""
+"התקן האודיו הנבחר (%s) נפתח בהצלחה אבל זה בלתי אפשרי לכתוב מידע אל ההתקן. "
+"אנא בדקו הגדרות אודיו."
+
+#: ../src/devices/audio.cpp:476 ../src/devices/audio.cpp:477
+#: ../src/gui/assistant.cpp:1118 ../src/gui/assistant.cpp:1141
+#: ../src/gui/assistant.cpp:1164 ../src/gui/preferences.cpp:745
+#: ../src/gui/preferences.cpp:769 ../src/gui/preferences.cpp:792
+msgid "No device found"
+msgstr "לא נמצא התקן"
+
+#: ../src/devices/audio.cpp:488
+msgid "Audio test running"
+msgstr "בדיקת שמע פעילה"
+
+#: ../src/devices/audio.cpp:495
+#, c-format
+msgid ""
+"Ekiga is now recording from %s and playing back to %s. Please say \"1, 2, 3, "
+"Ekiga rocks!\" in your microphone. You should hear yourself from the "
+"speakers after a four-second delay."
+msgstr ""
+"‏Ekiga מקליט עכשיו מ-%s ומשמיע ב-%s. אנא אמור \"1 2 3\" אל תוך המיקרופון. אתה "
+"אמור לשמוע את עצמך ברמקולים באיחור של 4 שניות."
+
+#: ../src/endpoints/h323-endpoint.cpp:149
+#: ../src/endpoints/sip-endpoint.cpp:273 ../src/endpoints/sip-endpoint.cpp:277
+msgid "Call"
+msgstr "התקשר"
+
+#: ../src/endpoints/h323-endpoint.cpp:314
+msgid "Duplicate alias"
+msgstr ""
+
+#: ../src/endpoints/h323-endpoint.cpp:317
+msgid "Bad username/password"
+msgstr "שם משתמש/סיסמה שגוי"
+
+#: ../src/endpoints/h323-endpoint.cpp:320
+#: ../src/endpoints/sip-endpoint.cpp:891
+msgid "Transport error"
+msgstr "שגיאת העברה"
+
+#: ../src/endpoints/h323-endpoint.cpp:331
+#: ../src/endpoints/h323-endpoint.cpp:336
+#: ../src/endpoints/sip-endpoint.cpp:898
+msgid "Failed"
+msgstr "נכשל"
+
+#: ../src/endpoints/manager.cpp:101
+msgid ""
+"Ekiga did not manage to configure your network settings automatically. You "
+"can still use it, but you need to configure your network settings manually.\n"
+"\n"
+"Please see http://wiki.ekiga.org/index.php/Enable_port_forwarding_manually "
+"for instructions"
+msgstr ""
+
+#: ../src/endpoints/opal-account.cpp:298
+msgid "_Disable"
+msgstr "_כבה"
+
+#: ../src/endpoints/opal-account.cpp:301
+msgid "_Enable"
+msgstr "_אפשר"
+
+#: ../src/endpoints/opal-account.cpp:322 ../src/gui/assistant.cpp:664
+msgid "Recharge the account"
+msgstr "טען את החשבון"
+
+#: ../src/endpoints/opal-account.cpp:327 ../src/gui/assistant.cpp:676
+msgid "Consult the balance history"
+msgstr "התייעץ עם היסטוריית המאזן"
+
+#: ../src/endpoints/opal-account.cpp:332
+msgid "Consult the call history"
+msgstr "התייעץ בהיסטוריית השיחות"
+
+#: ../src/endpoints/opal-account.cpp:347 ../src/endpoints/opal-bank.cpp:74
+msgid "Edit account"
+msgstr "ערוך חשבון"
+
+#: ../src/endpoints/opal-account.cpp:353 ../src/endpoints/opal-bank.cpp:112
+#, fuzzy
+msgid "Registrar:"
+msgstr "רשום"
+
+#: ../src/endpoints/opal-account.cpp:355 ../src/endpoints/opal-bank.cpp:102
+msgid "Gatekeeper:"
+msgstr "Gatekeeper:"
+
+#: ../src/endpoints/opal-account.cpp:356 ../src/endpoints/opal-bank.cpp:83
+#: ../src/endpoints/opal-bank.cpp:103 ../src/endpoints/opal-bank.cpp:113
+msgid "User:"
+msgstr "משתמש:"
+
+#: ../src/endpoints/opal-account.cpp:358 ../src/endpoints/opal-bank.cpp:114
+msgid "Authentication User:"
+msgstr ""
+
+#: ../src/endpoints/opal-account.cpp:359 ../src/endpoints/opal-bank.cpp:85
+#: ../src/endpoints/opal-bank.cpp:105 ../src/endpoints/opal-bank.cpp:115
+msgid "Password:"
+msgstr "סיסמה:"
+
+#: ../src/endpoints/opal-account.cpp:360 ../src/endpoints/opal-bank.cpp:106
+#: ../src/endpoints/opal-bank.cpp:116
+msgid "Timeout:"
+msgstr ""
+
+#: ../src/endpoints/opal-account.cpp:361 ../src/endpoints/opal-bank.cpp:119
+msgid "Enable Account"
+msgstr "אפשר חשבון"
+
+#: ../src/endpoints/opal-account.cpp:396 ../src/endpoints/opal-bank.cpp:155
+msgid "You did not supply a name for that account."
+msgstr "לא סופק שם עבור החשבון."
+
+#: ../src/endpoints/opal-account.cpp:398 ../src/endpoints/opal-bank.cpp:157
+msgid "You did not supply a host to register to."
+msgstr "לא צויין שן מארח לרישום."
+
+#: ../src/endpoints/opal-account.cpp:400 ../src/endpoints/opal-bank.cpp:159
+msgid "You did not supply a user name for that account."
+msgstr "לא סופק שם משתמש עבור חשבון זה."
+
+#: ../src/endpoints/opal-account.cpp:402 ../src/endpoints/opal-bank.cpp:161
+msgid "The timeout should have a bigger value."
+msgstr ""
+
+#: ../src/endpoints/opal-bank.cpp:55
+msgid "_Add an Ekiga.net Account"
+msgstr "הוסף _חשבון Ekiga.net"
+
+#: ../src/endpoints/opal-bank.cpp:57
+msgid "_Add an Ekiga Call Out Account"
+msgstr ""
+
+#: ../src/endpoints/opal-bank.cpp:59
+msgid "_Add a SIP Account"
+msgstr "הוסף ח_שבון SIP"
+
+#: ../src/endpoints/opal-bank.cpp:61
+msgid "_Add an H.323 Account"
+msgstr "הוסף חשבון _H.323"
+
+#: ../src/endpoints/opal-bank.cpp:75
+msgid "Please update the following fields."
+msgstr "נא לעדכן את השדות הבאים:"
+
+#: ../src/endpoints/opal-bank.cpp:80 ../src/gui/assistant.cpp:540
+msgid "Get an Ekiga.net SIP account"
+msgstr "קבל חשבון SIP ב-Ekiga.net"
+
+#: ../src/endpoints/opal-bank.cpp:90 ../src/gui/assistant.cpp:652
+msgid "Get an Ekiga Call Out account"
+msgstr ""
+"קבל חשבון שיחות יוצאות של Ekiga"
+
+#: ../src/endpoints/opal-bank.cpp:94
+msgid "Account ID:"
+msgstr "מזהה חשבון:"
+
+#: ../src/endpoints/opal-bank.cpp:96
+msgid "PIN Code:"
+msgstr "קוד סודי:"
+
+#: ../src/endpoints/opal-call.cpp:388
+msgid "Local user cleared the call"
+msgstr "המשתמש מקומי סגר את השיחה"
+
+#: ../src/endpoints/opal-call.cpp:391 ../src/endpoints/opal-call.cpp:394
+msgid "Local user rejected the call"
+msgstr "המשתמש מקומי דחה את השיחה"
+
+#: ../src/endpoints/opal-call.cpp:397
+msgid "Remote user cleared the call"
+msgstr "המשתמש המרוחק סגר את השיחה"
+
+#: ../src/endpoints/opal-call.cpp:400
+msgid "Remote user rejected the call"
+msgstr "המשתמש המרוחק דחה את השיחה"
+
+#: ../src/endpoints/opal-call.cpp:403
+msgid "Remote user has stopped calling"
+msgstr "משתמש מרוחק הפסיק להתקשר"
+
+#: ../src/endpoints/opal-call.cpp:406
+msgid "Abnormal call termination"
+msgstr "סיום שיחה לא רגיל"
+
+#: ../src/endpoints/opal-call.cpp:409
+msgid "Could not connect to remote host"
+msgstr "לא ניתן להתקשר אל השרת המרוחק"
+
+#: ../src/endpoints/opal-call.cpp:412
+msgid "The Gatekeeper cleared the call"
+msgstr "הGatekeeper סגר את השיחה"
+
+#: ../src/endpoints/opal-call.cpp:415
+msgid "User not found"
+msgstr "משתמש לא נמצא"
+
+#: ../src/endpoints/opal-call.cpp:418
+msgid "Insufficient bandwidth"
+msgstr "אין מספיק רוחב פס"
+
+#: ../src/endpoints/opal-call.cpp:421
+msgid "No common codec"
+msgstr "אין מקודדים נפוצים"
+
+#: ../src/endpoints/opal-call.cpp:424
+msgid "Call forwarded"
+msgstr "שיחה הועברה"
+
+#: ../src/endpoints/opal-call.cpp:427
+msgid "Security check failed"
+msgstr "בדיקת הבטחה נכשלה"
+
+#: ../src/endpoints/opal-call.cpp:430
+msgid "Local user is busy"
+msgstr "המשתמש המקומי עסוק"
+
+#: ../src/endpoints/opal-call.cpp:433 ../src/endpoints/opal-call.cpp:439
+msgid "Congested link to remote party"
+msgstr "דוחס כתובת בשביל הצד המרוחק"
+
+#: ../src/endpoints/opal-call.cpp:436
+msgid "Remote user is busy"
+msgstr "המשתמש המרוחק עסוק"
+
+#: ../src/endpoints/opal-call.cpp:442
+msgid "Remote host is offline"
+msgstr "השרת המרוחק לא מקוון"
+
+#: ../src/endpoints/opal-call.cpp:448
+msgid "User is not available"
+msgstr "המשתמש אינו זמין"
+
+#: ../src/endpoints/opal-call.cpp:460
+msgid "Call completed"
+msgstr "שיחה הסתיימה"
+
+#: ../src/endpoints/sip-endpoint.cpp:274 ../src/endpoints/sip-endpoint.cpp:278
+#: ../src/gui/main.cpp:3647
+msgid "Transfer"
+msgstr "העבר"
+
+#: ../src/endpoints/sip-endpoint.cpp:298 ../src/endpoints/sip-endpoint.cpp:300
+msgid "Message"
+msgstr "הודעה"
+
+#: ../src/endpoints/sip-endpoint.cpp:706
+msgid "Bad request"
+msgstr "בקשה לא תקינה"
+
+#: ../src/endpoints/sip-endpoint.cpp:710
+msgid "Payment required"
+msgstr "נדרש תשלום"
+
+#: ../src/endpoints/sip-endpoint.cpp:714
+msgid "Unauthorized"
+msgstr "לא מאושר"
+
+#: ../src/endpoints/sip-endpoint.cpp:718
+msgid "Forbidden"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:722
+msgid "Timeout"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:726
+#, fuzzy
+msgid "Conflict"
+msgstr "א_יש קשר"
+
+#: ../src/endpoints/sip-endpoint.cpp:730
+msgid "Temporarily unavailable"
+msgstr "לא זמין זמנית"
+
+#: ../src/endpoints/sip-endpoint.cpp:734
+msgid "Not acceptable"
+msgstr "לא מקובל"
+
+#: ../src/endpoints/sip-endpoint.cpp:738
+msgid "Illegal status code"
+msgstr "קוד מצב לא חוקי"
+
+#: ../src/endpoints/sip-endpoint.cpp:742
+msgid "Multiple choices"
+msgstr "בחירה מרובה"
+
+#: ../src/endpoints/sip-endpoint.cpp:746
+msgid "Moved permanently"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:750
+msgid "Moved temporarily"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:754
+msgid "Use proxy"
+msgstr "השתמש במתווך"
+
+#: ../src/endpoints/sip-endpoint.cpp:758
+msgid "Alternative service"
+msgstr "שירות חלופי"
+
+#: ../src/endpoints/sip-endpoint.cpp:762
+msgid "Not found"
+msgstr "לא נמצא"
+
+#: ../src/endpoints/sip-endpoint.cpp:766
+msgid "Method not allowed"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:770
+msgid "Proxy auth. required"
+msgstr "הזדהות מתווך נדרשת"
+
+#: ../src/endpoints/sip-endpoint.cpp:774
+msgid "Length required"
+msgstr "האורך נדרש"
+
+#: ../src/endpoints/sip-endpoint.cpp:778
+msgid "Request entity too big"
+msgstr "יישות הבקשה גדולה מדי"
+
+#: ../src/endpoints/sip-endpoint.cpp:782
+msgid "Request URI too long"
+msgstr "כתובת הבקשה ארוכה מדי"
+
+#: ../src/endpoints/sip-endpoint.cpp:786
+msgid "Unsupported media type"
+msgstr "סוג המדיה לא נתמך"
+
+#: ../src/endpoints/sip-endpoint.cpp:790
+msgid "Unsupported URI scheme"
+msgstr "סוג כתובת לא נתמך"
+
+#: ../src/endpoints/sip-endpoint.cpp:794
+msgid "Bad extension"
+msgstr "הרחבה לא תקינה"
+
+#: ../src/endpoints/sip-endpoint.cpp:798
+msgid "Extension required"
+msgstr "נדרשת הרחבה"
+
+#: ../src/endpoints/sip-endpoint.cpp:802
+msgid "Interval too brief"
+msgstr "המרווח קצר מדי"
+
+#: ../src/endpoints/sip-endpoint.cpp:806
+msgid "Loop detected"
+msgstr "התגלתה לולאה"
+
+#: ../src/endpoints/sip-endpoint.cpp:810
+msgid "Too many hops"
+msgstr "יותר מדי קפיצות"
+
+#: ../src/endpoints/sip-endpoint.cpp:814
+msgid "Address incomplete"
+msgstr "הכתובת אינה מלאה"
+
+#: ../src/endpoints/sip-endpoint.cpp:818
+msgid "Ambiguous"
+msgstr "דו משמעי"
+
+#: ../src/endpoints/sip-endpoint.cpp:822
+msgid "Busy Here"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:826
+msgid "Request terminated"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:830
+msgid "Not acceptable here"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:834
+msgid "Bad event"
+msgstr "אירוע לא תקין"
+
+#: ../src/endpoints/sip-endpoint.cpp:838
+msgid "Request pending"
+msgstr "בקשה ממתינה"
+
+#: ../src/endpoints/sip-endpoint.cpp:842
+msgid "Undecipherable"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:846
+msgid "Internal server error"
+msgstr "שגיאת שרת פנימית"
+
+#: ../src/endpoints/sip-endpoint.cpp:850
+msgid "Not implemented"
+msgstr "לא ממומש"
+
+#: ../src/endpoints/sip-endpoint.cpp:854
+msgid "Bad gateway"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:858
+msgid "Service unavailable"
+msgstr "השירות אינו זמין"
+
+#: ../src/endpoints/sip-endpoint.cpp:862
+#, fuzzy
+msgid "Server timeout"
+msgstr "No answer timeout"
+
+#: ../src/endpoints/sip-endpoint.cpp:866
+msgid "SIP version not supported"
+msgstr "גירסת ה-SIP לא נתמכת"
+
+#: ../src/endpoints/sip-endpoint.cpp:870
+msgid "Message too large"
+msgstr "ההודעה גדולה מדי"
+
+#: ../src/endpoints/sip-endpoint.cpp:874
+msgid "Busy everywhere"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:878
+msgid "Decline"
+msgstr "דחה"
+
+#: ../src/endpoints/sip-endpoint.cpp:882
+msgid "Does not exist anymore"
+msgstr "לא קיים יותר"
+
+#: ../src/endpoints/sip-endpoint.cpp:886
+msgid "Globally not acceptable"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:999
+msgid "Could not send message"
+msgstr "לא ניתן לשלוח את ההודעה"
+
+#: ../src/gui/accounts.cpp:165
+msgid "Registered"
+msgstr "רשום"
+
+#: ../src/gui/accounts.cpp:169
+msgid "Unregistered"
+msgstr "לא רשום"
+
+#: ../src/gui/accounts.cpp:173
+msgid "Could not unregister"
+msgstr "לא ניתן לבטל רישום"
+
+#: ../src/gui/accounts.cpp:179
+msgid "Could not register"
+msgstr "לא ניתן להרשם"
+
+#: ../src/gui/accounts.cpp:185
+msgid "Processing..."
+msgstr "מעבד..."
+
+#: ../src/gui/accounts.cpp:522
+msgid "Account Name"
+msgstr "שם חשבון"
+
+#: ../src/gui/accounts.cpp:523
+msgid "Voice Mails"
+msgstr "דואר קולי"
+
+#: ../src/gui/accounts.cpp:524
+msgid "Status"
+msgstr "סטטוס"
+
+#: ../src/gui/accounts.cpp:535 ../src/gui/accounts.cpp:573
+msgid "Accounts"
+msgstr "חשבונות"
+
+#: ../src/gui/accounts.cpp:550
+msgid "Account"
+msgstr "חשבון"
+
+#: ../src/gui/accounts.cpp:576 ../src/gui/preferences.cpp:508
+msgid "A"
+msgstr "A"
+
+#: ../src/gui/assistant.cpp:258
+msgid ""
+"This is the Ekiga general configuration assistant. The following steps will "
+"set up Ekiga by asking a few simple questions.\n"
+"\n"
+"Once you have completed these steps, you can always change them later by "
+"selecting Preferences in the Edit menu."
+msgstr ""
+"זהו אשף ההגדרות הכלליות של Ekiga. הצעדים הבאים יגדירו את Ekiga על ידי מספר "
+"שאלות פשוטות.\n"
+"\n"
+"לאחר סיום האשף ניתן לשנות את ההגדרות על ידי בחירה ב\"הגדרות\" בתפריט עריכה."
+
+#: ../src/gui/assistant.cpp:266
+msgid "Welcome in Ekiga"
+msgstr "ברוכים הבאים ל-Ekiga"
+
+#: ../src/gui/assistant.cpp:300 ../src/gui/preferences.cpp:381
+msgid "Personal Information"
+msgstr "פרטים אישיים"
+
+#. The user fields
+#: ../src/gui/assistant.cpp:303
+msgid "Please enter your first name and your surname:"
+msgstr "אנא הכנס/י שם ושם משפחה:"
+
+#: ../src/gui/assistant.cpp:312
+msgid ""
+"Your first name and surname will be used when connecting to other VoIP and "
+"videoconferencing software."
+msgstr "שמך הפרטי ושם המשפחה שלך ישמשו כאשר תתחבר/י לתוכנות ועידת וידאו וVoIP."
+
+#: ../src/gui/assistant.cpp:503
+msgid "Ekiga.net Account"
+msgstr "חשבון Ekiga.net"
+
+#: ../src/gui/assistant.cpp:505
+msgid "Please enter your username:"
+msgstr "נא להכניס את שם המשתמש:"
+
+#: ../src/gui/assistant.cpp:513
+msgid "Please enter your password:"
+msgstr "נא להכניס את הסיסמה:"
+
+#: ../src/gui/assistant.cpp:523
+msgid ""
+"The username and password are used to login to your existing account at the "
+"ekiga.net free SIP service. If you do not have an ekiga.net SIP address yet, "
+"you may first create an account below. This will provide a SIP address that "
+"allows people to call you.\n"
+"\n"
+"You may skip this step if you use an alternative SIP service, or if you "
+"would prefer to specify the login details later."
+msgstr ""
+
+#: ../src/gui/assistant.cpp:550
+msgid "I do not want to sign up for the ekiga.net free service"
+msgstr "אני לא מעוניין להרשם לשירות החינמי של ekiga.net"
+
+#: ../src/gui/assistant.cpp:617
+msgid "Ekiga Call Out Account"
+msgstr "חשבון שיחות יוצאות של Ekiga"
+
+#: ../src/gui/assistant.cpp:619
+msgid "Please enter your account ID:"
+msgstr "נא להכניס את מזהה החשבון שלך:"
+
+#: ../src/gui/assistant.cpp:627
+msgid "Please enter your PIN code:"
+msgstr "נא להכניס הקוד שלך:"
+
+#: ../src/gui/assistant.cpp:638
+msgid ""
+"You can make calls to regular phones and cell numbers worldwide using "
+"Ekiga.\n"
+"\n"
+"To enable this, you need to do three things:\n"
+"- First buy an account at the URL below.\n"
+"- Then enter your account ID and PIN code.\n"
+"The service will work only if your account is created using the URL in this "
+"dialog.\n"
+msgstr ""
+"בעזרת Ekiga באפשרותך לבצע שיחות לטלפונים רגילים וסלולריים בכל העולם.\n"
+"\n"
+" כדי לאפשר זאת עליך לעשות שני דברים:\n"
+" - ראשית, עליך לקנות חשבון בכתובת שמתחת.\n"
+" - לאחר מכן הכנס את מזהה החשבון ואת הקוד הסודי שלך.\n"
+"השירות יעבוד אך ורק עם החשבון נוצר בעזרת הכתובת שבחלון זה.\n"
+
+#: ../src/gui/assistant.cpp:688
+msgid "Consult the calls history"
+msgstr "התייעץ עם היסטוריית השיחות"
+
+#: ../src/gui/assistant.cpp:698
+msgid "I do not want to sign up for the Ekiga Call Out service"
+msgstr "אני לא מעוניין להרשם לשירות החינמי של Ekiga.net"
+
+#: ../src/gui/assistant.cpp:767 ../src/gui/assistant.cpp:1264
+msgid "Connection Type"
+msgstr "סוג החיבור"
+
+#. The connection type
+#: ../src/gui/assistant.cpp:770
+msgid "Please choose your connection type:"
+msgstr "בחר את סוג החיבור שלך:"
+
+#: ../src/gui/assistant.cpp:787
+msgid "56k Modem"
+msgstr "56k מודם"
+
+#: ../src/gui/assistant.cpp:792
+msgid "ISDN"
+msgstr "ISDN"
+
+#: ../src/gui/assistant.cpp:797
+msgid "DSL/Cable (128 kbit/s uplink)"
+msgstr "‏DSL/כבלים (מהירות יוצאת 128 kbit/s‏)"
+
+#: ../src/gui/assistant.cpp:802
+msgid "DSL/Cable (512 kbit/s uplink)"
+msgstr "‏DSL/כבלים (מהירות יוצאת 512 kbit/s‏)"
+
+#: ../src/gui/assistant.cpp:807
+msgid "LAN"
+msgstr "רשת מקומית"
+
+#: ../src/gui/assistant.cpp:812
+msgid "Keep current settings"
+msgstr "שמור הגדרות נוכחיות"
+
+#: ../src/gui/assistant.cpp:817
+msgid ""
+"The connection type will permit determining the best quality settings that "
+"Ekiga will use during calls. You can later change the settings individually "
+"in the preferences window."
+msgstr ""
+"סוג החיבור מאפשר לקבוע את הגדרת האיכות הטובה ביותר שבה Ekiga ישתמש בזמן "
+"השיחות. ניתן לשנות את הגדרה זאת בחלון ההעדפות."
+
+#: ../src/gui/assistant.cpp:907 ../src/gui/preferences.cpp:701
+msgid "Audio Devices"
+msgstr "התקני אודיו"
+
+#: ../src/gui/assistant.cpp:909
+msgid "Please choose the audio ringing device:"
+msgstr "בחר את התקן הצילצול:"
+
+#: ../src/gui/assistant.cpp:917
+msgid ""
+"The audio ringing device is the device that will be used to play the ringing "
+"sound on incoming calls."
+msgstr ""
+"התקן הצלצול הוא ההתקן אשר ישמש להשמעת צליל הצלצול עבור שיחות נכנסות"
+
+#. ---
+#: ../src/gui/assistant.cpp:928
+msgid "Please choose the audio output device:"
+msgstr "נא לבחור את התקן פלט האדיו:"
+
+#: ../src/gui/assistant.cpp:936
+msgid ""
+"The audio output device is the device that will be used to play audio during "
+"calls."
+msgstr ""
+"התקן יציאת השמע הוא ההתקן אשר ישמש להשמעת הקול במהלך שיחות."
+
+#. ---
+#: ../src/gui/assistant.cpp:947
+msgid "Please choose the audio input device:"
+msgstr "נא לבחור את התקן קלט האדיו:"
+
+#: ../src/gui/assistant.cpp:955
+msgid ""
+"The audio input device is the device that will be used to record your voice "
+"during calls."
+msgstr "התקן כניסת השמע הוא ההתקן אשר ישמש להקלטת קולך במהלך שיחות."
+
+#: ../src/gui/assistant.cpp:1047
+msgid "Please choose your video input device:"
+msgstr "בחר את התקן קלט הוידאו:"
+
+#: ../src/gui/assistant.cpp:1055
+msgid ""
+"The video input device is the device that will be used to capture video "
+"during calls."
+msgstr ""
+"התקן כניסת הוידאו הוא ההתקן אשר ישתמש ללכידת וידאו במהלך שיחות."
+
+#: ../src/gui/assistant.cpp:1195
+msgid "Configuration Complete"
+msgstr "ההגדרות הסתיימו"
+
+#: ../src/gui/assistant.cpp:1197
+msgid ""
+"You have now finished the Ekiga configuration. All the settings can be "
+"changed in the Ekiga preferences. Enjoy!"
+msgstr "סיימת להגדיר את Ekiga. ניתן לשנות את ההגדרות מתפריט העדפות Ekiga."
+
+#: ../src/gui/assistant.cpp:1204
+msgid "Configuration summary:"
+msgstr "סיכום ההגדרות:"
+
+#: ../src/gui/assistant.cpp:1274
+msgid "Audio Ringing Device"
+msgstr "התקן צלצול"
+
+#: ../src/gui/assistant.cpp:1283
+msgid "Audio Output Device"
+msgstr "התקן יציאת שמע"
+
+#: ../src/gui/assistant.cpp:1292
+msgid "Audio Input Device"
+msgstr "התקן כניסת שמע"
+
+#: ../src/gui/assistant.cpp:1301
+msgid "Video Input Device"
+msgstr "התקן כניסת וידאו"
+
+#: ../src/gui/assistant.cpp:1314
+msgid "SIP URI"
+msgstr "כתובת SIP"
+
+#: ../src/gui/assistant.cpp:1326
+msgid "Ekiga Call Out"
+msgstr ""
+
+#: ../src/gui/assistant.cpp:1368
+#, c-format
+msgid "Ekiga Configuration Assistant (%d of %d)"
+msgstr "אשף ההגדרות של Ekiga‏ (%d מתוך %d)"
+
+#: ../src/gui/callbacks.cpp:129
+msgid "Contributors:"
+msgstr "תורמים:"
+
+#: ../src/gui/callbacks.cpp:139
+msgid "Artwork:"
+msgstr "מעצבים:"
+
+#: ../src/gui/callbacks.cpp:146
+msgid "See AUTHORS file for full credits"
+msgstr "ראה את הקובץ AUTHORS לרשימת קרדיטים מלאה"
+
+#: ../src/gui/callbacks.cpp:162
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version. "
+msgstr ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version. "
+
+#: ../src/gui/callbacks.cpp:166
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details. You should have received a copy of the GNU General Public "
+"License along with this program; if not, write to the Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+msgstr ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details. You should have received a copy of the GNU General Public "
+"License along with this program; if not, write to the Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+
+#: ../src/gui/callbacks.cpp:173
+msgid ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+msgstr ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+
+#. Translators: Please write translator credits here, and
+#. * separate names with \n
+#: ../src/gui/callbacks.cpp:185
+msgid "translator-credits"
+msgstr ""
+"שוקי וקנין <radioschizo@yahoo.com>\n"
+"יאיר הרשקוביץ <yairhr@gmail.com>\n"
+"\n"
+"פרוייקט תרגום GNOME לעברית:\n"
+"‏http://gnome-il.berlios.de"
+
+#: ../src/gui/callbacks.cpp:190
+msgid ""
+"Ekiga is full-featured SIP and H.323 compatible VoIP, IP-Telephony and "
+"Videoconferencing application that allows you to make audio and video calls "
+"to remote users with SIP and H.323 hardware or software."
+msgstr ""
+"‏‏Ekiga היא תוכנה בעלת תמיכה מלאה בשיחות VoIP (‏SIP ו-H.323), טלפוניית  IP "
+"וועידות וידאו אשר מאפשרת לך לעשות שיחות אודיו ווידאו למשתמשים מרוחקים "
+"שברשותם חומרה או תוכנה בעלת תמיכה ב-SIP או H.323."
+
+#: ../src/gui/dialpad.cpp:59
+msgid "abc"
+msgstr "דהו"
+
+#: ../src/gui/dialpad.cpp:60
+msgid "def"
+msgstr "אבג"
+
+#: ../src/gui/dialpad.cpp:61
+msgid "ghi"
+msgstr "מנ"
+
+#: ../src/gui/dialpad.cpp:62
+msgid "jkl"
+msgstr "יכל"
+
+#: ../src/gui/dialpad.cpp:63
+msgid "mno"
+msgstr "זחט"
+
+#: ../src/gui/dialpad.cpp:64
+msgid "pqrs"
+msgstr "רשת"
+
+#: ../src/gui/dialpad.cpp:65
+msgid "tuv"
+msgstr "צק"
+
+#: ../src/gui/dialpad.cpp:66
+msgid "wxyz"
+msgstr "סעפ"
+
+#. Translators: Is displayed once an account "%s" is registered.
+#: ../src/gui/main.cpp:581
+#, c-format
+msgid "Registered %s"
+msgstr ""
+"‏%s נרשם"
+
+#. Translators: Is displayed once an account "%s" is unregistered.
+#: ../src/gui/main.cpp:587
+#, c-format
+msgid "Unregistered %s"
+msgstr ""
+"‏%s בוטל"
+
+#: ../src/gui/main.cpp:592
+#, c-format
+msgid "Could not unregister %s"
+msgstr "נכשל בביטול %s"
+
+#: ../src/gui/main.cpp:596
+#, c-format
+msgid "Could not register %s"
+msgstr "נכשל ברישום %s"
+
+#: ../src/gui/main.cpp:656
+#, c-format
+msgid "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+msgstr "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+
+#: ../src/gui/main.cpp:731
+#, c-format
+msgid "Connected with %s"
+msgstr "מחובר עם %s"
+
+#: ../src/gui/main.cpp:764 ../src/gui/main.cpp:2334
+msgid "Standby"
+msgstr "המתנה"
+
+#: ../src/gui/main.cpp:825
+msgid "Call on hold"
+msgstr "השיחה בהמתנה"
+
+#: ../src/gui/main.cpp:838
+msgid "Call retrieved"
+msgstr "שיחה התקבלה"
+
+#: ../src/gui/main.cpp:857
+#, c-format
+msgid "Missed call from %s"
+msgstr "שיחה שלא נענתה מ-%s"
+
+#: ../src/gui/main.cpp:1004 ../src/gui/misc.cpp:94
+msgid "Error"
+msgstr "שגיאה"
+
+#: ../src/gui/main.cpp:1137
+#, fuzzy, c-format
+msgid "Added video input device %s"
+msgstr "Audio input device"
+
+#: ../src/gui/main.cpp:1154
+#, fuzzy, c-format
+msgid "Removed video input device %s"
+msgstr "Video input device"
+
+#: ../src/gui/main.cpp:1171
+#, c-format
+msgid "Error while accessing video device %s"
+msgstr "שגיאה בזמן גישה להתקן הוידאו %s"
+
+#: ../src/gui/main.cpp:1174
+msgid ""
+"A moving logo will be transmitted during calls. Notice that you can always "
+"transmit a given image or the moving logo by choosing \"Picture\" as video "
+"plugin and \"Moving logo\" or \"Static picture\" as device."
+msgstr ""
+"סמליל זז ישלח במהלך שיחות. שים לב שבאפשרותך תמיד לשלוח תמונה כלשהיא או את הסמליל הזז על ידי בחירת \"תמונה\" כתוסף וידאו ו-\"סמליל זז\" או \"תמונה קבועה\""
+" כהתקן."
+
+#: ../src/gui/main.cpp:1178
+msgid ""
+"There was an error while opening the device. In case it is a pluggable "
+"device it may be sufficient to reconnect it. If not, or if it still is not "
+"accessible, please check your permissions and make sure that the appropriate "
+"driver is loaded."
+msgstr ""
+"ארעה שגיאה במהלך פתיחת ההתקן. במקרה ומדובר בהתקן נשלף אפשר לנסת לנתק ולחבר אותו מחדש. אם לא, או אם הוא עדיין אינו נגיש, נסה לבדוק את ההרשאות שלך "
+"וודא שמנהל ההתקן הנחוץ טעון."
+
+#: ../src/gui/main.cpp:1182
+msgid "Your video driver doesn't support the requested video format."
+msgstr "מנהל ההתקן של הוידאו שלך לא תומך בפורמט הוידאו הרצוי."
+
+#: ../src/gui/main.cpp:1186
+msgid "Could not open the chosen channel."
+msgstr "לא ניתן לפתוח את הערוץ הנבחר."
+
+#: ../src/gui/main.cpp:1190
+msgid ""
+"Your driver doesn't seem to support any of the color formats supported by "
+"Ekiga.\n"
+" Please check your kernel driver documentation in order to determine which "
+"Palette is supported."
+msgstr ""
+"מנהל ההתקן שלך לא תומך בתצורת הצבעים שנתמכים על ידי Ekiga.‏\n"
+"אנא בדוק את תיעוד מנהל ההתקן כדי לקבוע איזה פלטת צבעים נתמכת."
+
+#: ../src/gui/main.cpp:1194
+msgid "Error while setting the frame rate."
+msgstr "שגיאה בזמן קביעת קצב הפריים."
+
+#: ../src/gui/main.cpp:1198
+msgid "Error while setting the frame size."
+msgstr "שגיאה בזמן קביעת גודל הפריים."
+
+#: ../src/gui/main.cpp:1203 ../src/gui/main.cpp:1312 ../src/gui/main.cpp:1432
+msgid "Unknown error."
+msgstr "‏שגיאה לא ידועה."
+
+#: ../src/gui/main.cpp:1259
+#, fuzzy, c-format
+msgid "Added audio input device %s"
+msgstr "Audio input device"
+
+#: ../src/gui/main.cpp:1279
+#, fuzzy, c-format
+msgid "Removed audio input device %s"
+msgstr "Audio input device"
+
+#: ../src/gui/main.cpp:1296
+#, c-format
+msgid "Error while opening audio input device %s"
+msgstr "שגיאה בזמן פתיחת התקן קלט השמע %s"
+
+#: ../src/gui/main.cpp:1299
+msgid "Only silence will be transmitted."
+msgstr ""
+
+#: ../src/gui/main.cpp:1303
+msgid ""
+"Unable to open the selected audio device for recording. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"לא ניתן לפתוח את התקן השמע הנבחר להקלטה. במידה ומדובר בהתקן נשלף אפשר לנסות לנתק ולחבר אותו מחדש. אם לא, או אם הוא עדיין אינו נגיש, "
+"נסה לבדוק את הגדרות השמע, ההרשאות ושההתקן אינו עסוק."
+
+#: ../src/gui/main.cpp:1307
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"read data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"התקו השמע הנבחר נפתח בהצלחה אולם לא ניתן לקרוא ממנו. במידה ומדובר בהתקן נשלף אפשר לנסות לנתק ולחבר אותו מחדש. אם לא, או אם הוא עדיין אינו נגיש, "
+"נסה לבדוק את הגדרות השמע."
+
+#: ../src/gui/main.cpp:1377
+#, fuzzy, c-format
+msgid "Added audio output device %s"
+msgstr "Audio output device"
+
+#: ../src/gui/main.cpp:1395
+#, fuzzy, c-format
+msgid "Removed audio output device %s"
+msgstr "Alternative audio output device"
+
+#: ../src/gui/main.cpp:1416
+#, c-format
+msgid "Error while opening audio output device %s"
+msgstr "שגיאה בזמן פתיחת התקן יציאת השמע %s"
+
+#: ../src/gui/main.cpp:1419
+msgid "No incoming sound will be played."
+msgstr "לא ינוגן צליל עבור שיחה נכנסת."
+
+#: ../src/gui/main.cpp:1423
+#, fuzzy
+msgid ""
+"Unable to open the selected audio device for playing. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"לא אפשרי לפתוח את התקן האודיו הנבחר (%s) לניגון. אנא בדוק את הגדרות האודיו "
+"שלך, ההרשאות ושההתקן לא תפוס."
+
+#: ../src/gui/main.cpp:1427
+#, fuzzy
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"write data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"התקן האודיו הנבחר (%s) נפתח בהצלחה אבל זה בלתי אפשרי לכתוב מידע אל ההתקן. "
+"אנא בדקו הגדרות אודיו."
+
+#: ../src/gui/main.cpp:1648
+msgid "Enter a URI on the left, and click this button to place a call"
+msgstr "הכנס כתובת  בצד שמאל, ולחץ על כפתורזה כדי להתקשר"
+
+#: ../src/gui/main.cpp:1729
+#, fuzzy
+msgid "_Chat"
+msgstr "_שוחח"
+
+#: ../src/gui/main.cpp:1731
+msgid "Ca_ll"
+msgstr "הת_קשר"
+
+#: ../src/gui/main.cpp:1731
+msgid "Place a new call"
+msgstr "שיחה חדשה"
+
+#: ../src/gui/main.cpp:1734
+msgid "_Hang up"
+msgstr "_נתק"
+
+#: ../src/gui/main.cpp:1735
+msgid "Terminate the current call"
+msgstr "נתק את השיחה הנוכחית"
+
+#: ../src/gui/main.cpp:1741
+msgid "A_dd Contact"
+msgstr "_הוסף איש קשר"
+
+#: ../src/gui/main.cpp:1741
+#, fuzzy
+msgid "Add a contact to the roster"
+msgstr "הוסף איש קשר לס_פר הכתובות"
+
+#: ../src/gui/main.cpp:1746
+msgid "Find contacts"
+msgstr "חפש אנשי קשר"
+
+#: ../src/gui/main.cpp:1753
+msgid "_Contact"
+msgstr "_איש קשר"
+
+#: ../src/gui/main.cpp:1754
+msgid "Act on selected contact"
+msgstr "פעל על איש הקשר הנבחר"
+
+#: ../src/gui/main.cpp:1760
+#, fuzzy
+msgid "H_old Call"
+msgstr "_החזק שיחה"
+
+#: ../src/gui/main.cpp:1760 ../src/gui/main.cpp:2432
+msgid "Hold the current call"
+msgstr "החזק שיחה נוכחית"
+
+#: ../src/gui/main.cpp:1764
+msgid "_Transfer Call"
+msgstr "_שליחת שיחה"
+
+#: ../src/gui/main.cpp:1765
+msgid "Transfer the current call"
+msgstr "שלח את השיחה הנוכחית"
+
+#: ../src/gui/main.cpp:1772 ../src/gui/main.cpp:3199
+msgid "Suspend _Audio"
+msgstr "השתק _קול"
+
+#: ../src/gui/main.cpp:1773
+msgid "Suspend or resume the audio transmission"
+msgstr "השתק או חדש שליחת אודיו"
+
+#: ../src/gui/main.cpp:1777 ../src/gui/main.cpp:3201
+msgid "Suspend _Video"
+msgstr "השהה _וידאו"
+
+#: ../src/gui/main.cpp:1778
+msgid "Suspend or resume the video transmission"
+msgstr "הפעל או חדש שליחת וידאו"
+
+#: ../src/gui/main.cpp:1785
+msgid "Close the Ekiga window"
+msgstr "סגור את חלון ה-Ekiga"
+
+#: ../src/gui/main.cpp:1792 ../src/gui/statusicon.cpp:418
+msgid "Quit"
+msgstr "יציאה"
+
+#: ../src/gui/main.cpp:1798
+msgid "_Configuration Assistant"
+msgstr "א_שף ההגדרות"
+
+#: ../src/gui/main.cpp:1799
+msgid "Run the configuration assistant"
+msgstr "הרץ את אשף ההגדרות"
+
+#: ../src/gui/main.cpp:1806
+msgid "_Accounts"
+msgstr "_חשבונות"
+
+#: ../src/gui/main.cpp:1807
+msgid "Edit your accounts"
+msgstr "ערוך את החשבונות שלך"
+
+#: ../src/gui/main.cpp:1813
+msgid "Change your preferences"
+msgstr "שנה את ההגדרות שלך"
+
+#: ../src/gui/main.cpp:1818
+msgid "_View"
+msgstr "_תצוגה"
+
+#: ../src/gui/main.cpp:1820
+msgid "Con_tacts"
+msgstr "א_נשי קשר"
+
+#: ../src/gui/main.cpp:1820
+msgid "View the contacts list"
+msgstr "הצג רשימת אנשי הקשר"
+
+#: ../src/gui/main.cpp:1825
+msgid "_Dialpad"
+msgstr "_מקשי חיוג"
+
+#: ../src/gui/main.cpp:1825
+msgid "View the dialpad"
+msgstr "הצג מקשי חיוג"
+
+#: ../src/gui/main.cpp:1830
+msgid "_Call History"
+msgstr "היסטורית _שיחות"
+
+#: ../src/gui/main.cpp:1830
+msgid "View the call history"
+msgstr "הצג את היסטוריית השיחות"
+
+#: ../src/gui/main.cpp:1838
+msgid "_Show Call Panel"
+msgstr "הצג את _לוח השיחות"
+
+#: ../src/gui/main.cpp:1846
+msgid "_Local Video"
+msgstr "וידאו _מקומי"
+
+#: ../src/gui/main.cpp:1847
+msgid "Local video image"
+msgstr "תמונת וידאו מקומית"
+
+#: ../src/gui/main.cpp:1852
+msgid "_Remote Video"
+msgstr "וידאו מ_רוחק"
+
+#: ../src/gui/main.cpp:1853
+msgid "Remote video image"
+msgstr "תמונת וידאו מרוחקת"
+
+#: ../src/gui/main.cpp:1858
+msgid "_Picture-in-Picture"
+msgstr "תמונה-בתוך-תמונה_"
+
+#: ../src/gui/main.cpp:1859 ../src/gui/main.cpp:1865
+msgid "Both video images"
+msgstr "שתי תמונות הוידאו"
+
+#: ../src/gui/main.cpp:1864
+msgid "Picture-in-Picture in Separate _Window"
+msgstr "תמונה-בתוך-תמונה ב_חלון נפרד"
+
+#: ../src/gui/main.cpp:1872
+msgid "Zoom in"
+msgstr "התקרב"
+
+#: ../src/gui/main.cpp:1876
+msgid "Zoom out"
+msgstr "התרחק"
+
+#: ../src/gui/main.cpp:1880
+msgid "Normal size"
+msgstr "גודל נורמאלי"
+
+#: ../src/gui/main.cpp:1884
+msgid "_Fullscreen"
+msgstr "מ_סך מלא"
+
+#: ../src/gui/main.cpp:1884
+msgid "Switch to fullscreen"
+msgstr "החלף למסך מלא"
+
+#: ../src/gui/main.cpp:1889
+msgid "_Help"
+msgstr "_עזרה"
+
+#: ../src/gui/main.cpp:1892 ../src/gui/statusicon.cpp:395
+#: ../src/gui/statusicon.cpp:406
+msgid "Get help by reading the Ekiga manual"
+msgstr "השג עזרה על ידי קריאת מדריך Ekiga"
+
+#: ../src/gui/main.cpp:1897 ../src/gui/statusicon.cpp:400
+#: ../src/gui/statusicon.cpp:411
+msgid "View information about Ekiga"
+msgstr "הצג מידע אודות Ekiga"
+
+#: ../src/gui/main.cpp:1934
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+#: ../src/gui/main.cpp:1962
+msgid "Dialpad"
+msgstr "לוח חיוג"
+
+#: ../src/gui/main.cpp:1998
+msgid "Video Settings"
+msgstr "הגדרות וידאו"
+
+#: ../src/gui/main.cpp:2025
+msgid "Adjust brightness"
+msgstr "התאם בהירות"
+
+#: ../src/gui/main.cpp:2046
+msgid "Adjust whiteness"
+msgstr "התאם לובן"
+
+#: ../src/gui/main.cpp:2067
+msgid "Adjust color"
+msgstr "התאם צבע"
+
+#: ../src/gui/main.cpp:2088
+msgid "Adjust contrast"
+msgstr "התאם ניגוד"
+
+#: ../src/gui/main.cpp:2142
+msgid "Audio Settings"
+msgstr "הגדרות אודיו"
+
+#: ../src/gui/main.cpp:2368
+msgid "Change the volume of your soundcard"
+msgstr "שנה את עוצמת השמע"
+
+#: ../src/gui/main.cpp:2390
+msgid "Change the color settings of your video device"
+msgstr "שנה את הגדרות הצבע של התקן הוידאו שלך"
+
+#: ../src/gui/main.cpp:2412
+msgid "Display images from your camera device"
+msgstr "הצג תמונות מתוך התקן המצלמה שלך"
+
+#: ../src/gui/main.cpp:2463
+msgid "Call history"
+msgstr "היסטורית שיחות"
+
+#: ../src/gui/main.cpp:3147
+msgid "_Retrieve Call"
+msgstr "_קבל שיחה"
+
+#: ../src/gui/main.cpp:3160
+msgid "_Hold Call"
+msgstr "_החזק שיחה"
+
+#: ../src/gui/main.cpp:3203
+msgid "Resume _Audio"
+msgstr "המשך _קול"
+
+#: ../src/gui/main.cpp:3205
+msgid "Resume _Video"
+msgstr "המשך _וידאו"
+
+#: ../src/gui/main.cpp:3609
+#, c-format
+msgid "Call Duration: %s\n"
+msgstr "משך השיחה: %s\n"
+
+#: ../src/gui/main.cpp:3646
+msgid "Transfer call to:"
+msgstr "העבר שיחה אל:"
+
+#: ../src/gui/main.cpp:3711
+msgid "Reject"
+msgstr "דחה"
+
+#: ../src/gui/main.cpp:3713
+msgid "Accept"
+msgstr "קבל"
+
+#: ../src/gui/main.cpp:3720
+msgid "Incoming call from"
+msgstr "שיחה נכנסת מ"
+
+#: ../src/gui/main.cpp:3739
+msgid "Remote URI:"
+msgstr "‏כתובת מרוחקת:"
+
+#: ../src/gui/main.cpp:3751
+msgid "Remote Application:"
+msgstr "תוכנה מרוחקת"
+
+#: ../src/gui/main.cpp:3759
+#, c-format
+msgid "Call from %s"
+msgstr "שיחה מ %s"
+
+#: ../src/gui/main.cpp:3801
+msgid "No"
+msgstr "לא"
+
+#: ../src/gui/main.cpp:3803
+msgid "Yes"
+msgstr "כן"
+
+#: ../src/gui/main.cpp:3813
+msgid "Detected new audio input device:"
+msgstr "התקו כניסת שמע חדש זוהה:"
+
+#: ../src/gui/main.cpp:3816
+msgid "Detected new audio output device:"
+msgstr "התקו יציאת שמע חדש זוהה:"
+
+#: ../src/gui/main.cpp:3819
+msgid "Detected new video input device:"
+msgstr "התקו כניסת וידאו חדש זוהה:"
+
+#: ../src/gui/main.cpp:3837
+msgid "Do you want to use it as default device?"
+msgstr "האם להשתמש בו כהתקן ברירתה המחדל?"
+
+#. Add title
+#: ../src/gui/main.cpp:3895 ../src/gui/main.cpp:4000
+msgid "Ekiga"
+msgstr "‏Ekiga"
+
+#: ../src/gui/main.cpp:4189
+#, c-format
+msgid "Missed calls: %d - Voice Mails: %d"
+msgstr "שיחות שלא נענו: %d - הודעות קוליות: %d"
+
+#: ../src/gui/main.cpp:4348
+#, c-format
+msgid "TX: %dx%d "
+msgstr ""
+
+#: ../src/gui/main.cpp:4351
+#, c-format
+msgid "RX: %dx%d "
+msgstr ""
+
+#: ../src/gui/main.cpp:4353
+#, fuzzy, c-format
+msgid ""
+"Lost packets: %.1f %%\n"
+"Late packets: %.1f %%\n"
+"Out of order packets: %.1f %%\n"
+"Jitter buffer: %d ms%s%s%s"
+msgstr ""
+"חבילות שנאבדו: %.1f %%\n"
+"חבילות שאחרו: %.1f %%\n"
+"עיכוב מחזור טעות: %d ms\n"
+"Jitter buffer: %d ms"
+
+#: ../src/gui/main.cpp:4499
+#, fuzzy
+msgid "Prints debug messages in the console (level between 1 and 5)"
+msgstr "הצג הודעות debug במסוף (רמה מ1 עד 6)"
+
+#: ../src/gui/main.cpp:4504
+#, fuzzy
+msgid "Prints user plane debug messages in the console (level between 1 and 4)"
+msgstr "הצג הודעות debug במסוף (רמה מ1 עד 6)"
+
+#: ../src/gui/main.cpp:4509
+msgid "Makes Ekiga call the given URI"
+msgstr "גורם ל-Ekiga להתקשר לכתובת שצוינה"
+
+#: ../src/gui/main.cpp:4618
+msgid "No usable audio plugin detected"
+msgstr "לא נתגלה תוסף שמע שמיש"
+
+#: ../src/gui/main.cpp:4619
+#, fuzzy
+msgid ""
+"Ekiga didn't find any usable audio plugin. Make sure that your installation "
+"is correct."
+msgstr "‏‏GnomeMeeting לא מוצא שום תוסף אודיו שמיש. וודא שההתקנה נכונה."
+
+#: ../src/gui/main.cpp:4622
+msgid "No usable audio codecs detected"
+msgstr "לא התגלו מקודדי שמע שמישים"
+
+#: ../src/gui/main.cpp:4623
+msgid ""
+"Ekiga didn't find any usable audio codec. Make sure that your installation "
+"is correct."
+msgstr "‏‏Ekiga לא מצאה תוסף שמע שמיש. וודא שההתקנה נכונה."
+
+#: ../src/gui/main.cpp:4629
+#, fuzzy
+msgid "Configuration database corruption"
+msgstr "אשף ההגדרות"
+
+#: ../src/gui/main.cpp:4630
+#, c-format
+msgid ""
+"Ekiga got an invalid value for the configuration key %s.\n"
+"\n"
+"It probably means that your configuration schemas have not been correctly "
+"installed or that the permissions are not correct.\n"
+"\n"
+"Please check the FAQ (http://www.ekiga.org/), the troubleshooting section of "
+"the GConf site (http://www.gnome.org/projects/gconf/) or the mailing list "
+"archives for more information (http://mail.gnome.org) about this problem."
+msgstr ""
+"‏Ekiga קיבלה ערך לא חוקי עבור מפתח ההגדרות %s.\n"
+"\n"
+"זה יכול להצביע על זה שסכמות ההגדרות לא הותקנו כראוי או שההרשאות אינן "
+"נכונות.\n"
+"\n"
+"אנא בדוק את השאלות הנפוצות ב-(http://www.ekiga.org), את איזור פתרון התקלות "
+"באתר GConf ‏(http://www.gnome.org/projects/gconf) או את ארכיון רשימת התפוצה "
+"(http://mail.gnome.org) על מנת לקבל מידע נוסף על בעיה זאת."
+
+#: ../src/gui/preferences.cpp:384
+msgid "_Full name:"
+msgstr "_שם מלא:"
+
+#: ../src/gui/preferences.cpp:386
+msgid "Enter your first name"
+msgstr "הכנס את שמך הפרטי"
+
+#. Add the update button
+#: ../src/gui/preferences.cpp:391
+msgid "_Apply"
+msgstr "_החל"
+
+#: ../src/gui/preferences.cpp:391
+#, fuzzy
+msgid ""
+"Click here to update the users directory you are registered to with the new "
+"First Name, Last Name, E-Mail, Comment and Location"
+msgstr ""
+"לחץ/י כאן כדי לעדכן את ספריית המשתמשים שהנך רשום/ה בה עם שמך הפרטי, שם "
+"המשפחה, דואר האלקטרוני, הערות והמיקום החדשים או לעדכן את הכינוי שלך "
+"בGatekeeper"
+
+#: ../src/gui/preferences.cpp:405
+msgid "User Interface"
+msgstr "מנשק משתמש"
+
+#: ../src/gui/preferences.cpp:407
+msgid "Start _hidden"
+msgstr "התחל _ממוזער"
+
+#: ../src/gui/preferences.cpp:409
+msgid "Show offline _contacts"
+msgstr "הצג אנשי קשר _לא מקוונים"
+
+#: ../src/gui/preferences.cpp:414
+msgid "Video Display"
+msgstr "תצוגת וידאו"
+
+#: ../src/gui/preferences.cpp:416
+msgid "Place windows displaying video _above other windows"
+msgstr "הצב חלונות שמציגים וידאו _מעל כל החלונות"
+
+#: ../src/gui/preferences.cpp:426
+msgid "Call Forwarding"
+msgstr "העברת שיחות"
+
+#: ../src/gui/preferences.cpp:428
+msgid "_Always forward calls to the given host"
+msgstr "תמיד העבר שיח_ות אל המארח הנתון"
+
+#: ../src/gui/preferences.cpp:428
+#, fuzzy
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings"
+msgstr "בחירת האפשרות תגרום לכל השיחות הנכנסות להיות מעוברות לשרת שכתוב מתחת"
+
+#: ../src/gui/preferences.cpp:430
+msgid "Forward calls to the given host if _no answer"
+msgstr "העברת שיחות למארח אם _אין תשובה"
+
+#: ../src/gui/preferences.cpp:430
+#, fuzzy
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you do not answer the call"
+msgstr ""
+"בחירת האפשרות תגרום לכל השיחות הנכנסות להיות מעוברות במידה ואינך עונה לשיחה"
+
+#: ../src/gui/preferences.cpp:432
+msgid "Forward calls to the given host if _busy"
+msgstr "העברת שיחות למארח אם _עסוק"
+
+#: ../src/gui/preferences.cpp:432
+#, fuzzy
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you already are in a call or if you "
+"are in Do Not Disturb mode"
+msgstr ""
+"אם אתה כבר בשיחה או אם אתה במצב נא לא להפריע בחירת האפשרות תגרום לכל השיחות "
+"הנכנסות להיות מועברות לשרת שכתוב מתחת "
+
+#: ../src/gui/preferences.cpp:436 ../src/gui/preferences.cpp:1469
+msgid "Call Options"
+msgstr "אפשרויות שיחה"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:439
+#, fuzzy
+msgid "Timeout to reject or forward unanswered incoming calls (in seconds):"
+msgstr "דחה או העבר שיחות נכנסות שלא נענו אחרי "
+
+#: ../src/gui/preferences.cpp:471
+msgid "Ekiga Sound Events"
+msgstr "ארועי צליל של Ekiga"
+
+#: ../src/gui/preferences.cpp:520 ../src/gui/preferences.cpp:529
+#: ../src/gui/preferences.cpp:538
+msgid "Event"
+msgstr "ארוע"
+
+#: ../src/gui/preferences.cpp:550
+msgid "Choose a sound"
+msgstr "בחר צליל"
+
+#: ../src/gui/preferences.cpp:556
+msgid "Wavefiles"
+msgstr "קבצי Wave"
+
+#: ../src/gui/preferences.cpp:565 ../src/gui/preferences.cpp:584
+msgid "Play"
+msgstr "נגן"
+
+#: ../src/gui/preferences.cpp:605
+msgid "String"
+msgstr "מחרוזת"
+
+#: ../src/gui/preferences.cpp:606
+msgid "Tone"
+msgstr "טון"
+
+#: ../src/gui/preferences.cpp:607 ../src/gui/preferences.cpp:656
+msgid "RFC2833"
+msgstr "RFC2833"
+
+#: ../src/gui/preferences.cpp:608
+msgid "Q.931"
+msgstr "Q.931"
+
+#: ../src/gui/preferences.cpp:614 ../src/gui/preferences.cpp:666
+msgid "Misc Settings"
+msgstr "כלליות הגדרות"
+
+#: ../src/gui/preferences.cpp:617 ../src/gui/preferences.cpp:671
+msgid "Forward _URI:"
+msgstr "_כתובת העברה:"
+
+#: ../src/gui/preferences.cpp:626
+msgid "Advanced Settings"
+msgstr "הגדרות מתקדמות"
+
+#. The toggles
+#: ../src/gui/preferences.cpp:629
+msgid "Enable H.245 _tunneling"
+msgstr "תעל_ת H.245 מופעלת"
+
+#: ../src/gui/preferences.cpp:631
+msgid "Enable _early H.245"
+msgstr "אפשר H.245 ישן"
+
+#: ../src/gui/preferences.cpp:633
+msgid "Enable fast _start procedure"
+msgstr "הפעל התחלת _פרוצדורה מהירה"
+
+#: ../src/gui/preferences.cpp:633
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting."
+msgstr ""
+"החיבור יתקיים במצב Fast Start. Fast Start היא דרך חדשה להתחלת שיחות במהירות "
+"גבוהה יותר מאשר היה בH.323v2. הוא אינו נתמך על ידי נטמיטינג אבל שימוש בחיבור "
+"Fast Start וH.245 יכול לגרום לקריסת כמה גרסאות של Netmeeting"
+
+#: ../src/gui/preferences.cpp:639 ../src/gui/preferences.cpp:679
+msgid "DTMF Mode"
+msgstr "מצב DTMF"
+
+#: ../src/gui/preferences.cpp:641 ../src/gui/preferences.cpp:681
+msgid "_Send DTMF as:"
+msgstr "_שלח DTMF-כ:"
+
+#: ../src/gui/preferences.cpp:641 ../src/gui/preferences.cpp:681
+#, fuzzy
+msgid "This allows you to set the mode for DTMFs sending."
+msgstr ""
+"This permits to set the mode for DTMFs sending. The value can be \"RFC2833"
+"\" (0) only"
+
+#: ../src/gui/preferences.cpp:657
+msgid "INFO"
+msgstr ""
+
+#: ../src/gui/preferences.cpp:668
+msgid "_Outbound Proxy:"
+msgstr ""
+
+#: ../src/gui/preferences.cpp:709
+msgid "Ringing Device"
+msgstr "יהתקן צלצול"
+
+#: ../src/gui/preferences.cpp:709
+msgid "Select the ringing audio device to use"
+msgstr "בחר את התקן הצלצול לשימוש"
+
+#: ../src/gui/preferences.cpp:711
+msgid "Output device:"
+msgstr "התקן פלט:"
+
+#: ../src/gui/preferences.cpp:718 ../src/gui/preferences.cpp:866
+msgid "Input device:"
+msgstr "התקן קלט:"
+
+#. That button will refresh the device list
+#: ../src/gui/preferences.cpp:723 ../src/gui/preferences.cpp:930
+msgid "_Detect devices"
+msgstr "_גלה התקנים"
+
+#: ../src/gui/preferences.cpp:723 ../src/gui/preferences.cpp:930
+msgid "Click here to refresh the device list."
+msgstr "לחץ כאן כדי לרענן את רשימת ההתקנים."
+
+#: ../src/gui/preferences.cpp:844
+msgid "PAL (Europe)"
+msgstr "PAL (אירופאי)"
+
+#: ../src/gui/preferences.cpp:845
+msgid "NTSC (America)"
+msgstr "NTSC (אמריקאי)"
+
+#: ../src/gui/preferences.cpp:846
+msgid "SECAM (France)"
+msgstr "SECAM (צרפתי)"
+
+#: ../src/gui/preferences.cpp:847
+msgid "Auto"
+msgstr "אוטומטי"
+
+#: ../src/gui/preferences.cpp:859
+msgid "Video Devices"
+msgstr "התקני וידאו"
+
+#. Video Channel
+#: ../src/gui/preferences.cpp:870
+msgid "Channel:"
+msgstr "ערוץ:"
+
+#: ../src/gui/preferences.cpp:872
+msgid "Size:"
+msgstr "גודל:"
+
+#: ../src/gui/preferences.cpp:872
+msgid "Select the transmitted video size"
+msgstr "בחר את גודל הוידאו שנשלח"
+
+#: ../src/gui/preferences.cpp:874
+msgid "Format:"
+msgstr "תצורה::"
+
+#. The file selector button
+#: ../src/gui/preferences.cpp:877
+msgid "Image:"
+msgstr "תמונה:"
+
+#: ../src/gui/preferences.cpp:880
+msgid "Choose a Picture"
+msgstr "בחר תמונה"
+
+#: ../src/gui/preferences.cpp:884
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: ../src/gui/preferences.cpp:894
+msgid "Images"
+msgstr "תמונות"
+
+#: ../src/gui/preferences.cpp:954 ../src/gui/preferences.cpp:993
+#: ../src/gui/preferences.cpp:1494 ../src/gui/preferences.cpp:1504
+msgid "Codecs"
+msgstr "מקודדים"
+
+#: ../src/gui/preferences.cpp:967 ../src/gui/preferences.cpp:1006
+msgid "Settings"
+msgstr "הגדרות"
+
+#. Translators: the full sentence is Automatically adjust jitter buffer
+#. between X and Y ms
+#: ../src/gui/preferences.cpp:971
+msgid "Enable silence _detection"
+msgstr "אפשר גילוי _דממה"
+
+#: ../src/gui/preferences.cpp:971
+#, fuzzy
+msgid "If enabled, use silence detection with the codecs supporting it."
+msgstr "בחירת האפשרות תגרום לגילוי דממה עם מקודדי GSM וG.711."
+
+#: ../src/gui/preferences.cpp:973
+msgid "Enable echo can_celation"
+msgstr "הפעל ביטול _הד"
+
+#: ../src/gui/preferences.cpp:973
+msgid "If enabled, use echo cancelation."
+msgstr "אם מופעל, השתמש בביטול הד."
+
+#: ../src/gui/preferences.cpp:975
+#, fuzzy
+msgid "Maximum _jitter buffer (in ms):"
+msgstr "Maximum jitter buffer"
+
+#: ../src/gui/preferences.cpp:975
+msgid "The maximum jitter buffer size for audio reception (in ms)."
+msgstr "מקסימום גודל jitter buffer לקבלת אודיו (במילי-שנייה)"
+
+#. Translators: the full sentence is Keep a minimum video quality of X %
+#: ../src/gui/preferences.cpp:1009
+msgid "Picture Quality"
+msgstr "איכות תמונה"
+
+#: ../src/gui/preferences.cpp:1009
+msgid ""
+"Choose if you want to guarantee a minimum image quality (possibly leading to "
+"dropped frames in order not to surpass the bitrate limit) or if you prefer "
+"to keep the frame rate."
+msgstr ""
+
+#: ../src/gui/preferences.cpp:1011
+#, fuzzy
+msgid "Maximum video _bitrate (in kbits/s):"
+msgstr "רוחב פ_ס מקסימלי של"
+
+#: ../src/gui/preferences.cpp:1011
+#, fuzzy
+msgid ""
+"The maximum video bitrate in kbits/s. The video quality and the effective "
+"frame rate will be dynamically adjusted to keep the bitrate at the given "
+"value."
+msgstr ""
+"רוחב הפס המקסימלי בקילובתים/שניה. איכות הוידאו ומספר הפריימים המעוברים "
+"לשנייה יווסתו דינמית מעל המינימום במהלך השיחה כדי לצמצם את רוחב הפס לערך "
+"הנתון."
+
+#: ../src/gui/preferences.cpp:1403
+msgid "Play sound for new voice mails"
+msgstr "השמע צליל עבור הודעות קוליות חדשות"
+
+#: ../src/gui/preferences.cpp:1412
+msgid "Play sound for new instant messages"
+msgstr "השמע צליל עבור הודעות מיידיות חדשות"
+
+#: ../src/gui/preferences.cpp:1441
+msgid "Ekiga Preferences"
+msgstr "ה_עדפות Ekiga"
+
+#: ../src/gui/preferences.cpp:1459
+msgid "General"
+msgstr "כללי"
+
+#: ../src/gui/preferences.cpp:1460
+msgid "Personal Data"
+msgstr "מידע אישי"
+
+#: ../src/gui/preferences.cpp:1465
+msgid "General Settings"
+msgstr "הגדרות כלליות"
+
+#: ../src/gui/preferences.cpp:1474
+msgid "Sound Events"
+msgstr "צלילים"
+
+#: ../src/gui/preferences.cpp:1478
+msgid "Protocols"
+msgstr "פרוטוקולים"
+
+#: ../src/gui/preferences.cpp:1480
+msgid "SIP Settings"
+msgstr "הגדרות SIP"
+
+#: ../src/gui/preferences.cpp:1485
+msgid "H.323 Settings"
+msgstr "הגדרות H.323"
+
+#: ../src/gui/preferences.cpp:1489
+msgid "Audio"
+msgstr "אודיו"
+
+#: ../src/gui/preferences.cpp:1490 ../src/gui/preferences.cpp:1500
+msgid "Devices"
+msgstr "התקנים"
+
+#: ../src/gui/preferences.cpp:1499
+msgid "Video"
+msgstr "וידאו"
+
+# c-format
+#: ../src/gui/statusicon.cpp:303
+#, c-format
+msgid "You have %d message"
+msgid_plural "You have %d messages"
+msgstr[0] "יש לך הודעה אחת"
+msgstr[1] "יש לך %d הודעות"
+
+#: ../src/gui/statusicon.cpp:405
+msgid "_Contents"
+msgstr "_נושאי העזרה"
+
+#: ../src/gui/statusicon.cpp:410
+msgid "_About"
+msgstr "_אודות"
+
+#: ../src/gui/statusmenu.cpp:90
+msgid "Online"
+msgstr "מקוון"
+
+#: ../src/gui/statusmenu.cpp:91
+msgid "Away"
+msgstr "מרוחק"
+
+#: ../src/gui/statusmenu.cpp:92
+msgid "Do Not Disturb"
+msgstr "נא לא להפריע"
+
+#: ../src/gui/statusmenu.cpp:510
+msgid "Custom message..."
+msgstr "הודעה מותאמת אישית..."
+
+#: ../src/gui/statusmenu.cpp:624 ../src/gui/statusmenu.cpp:759
+msgid "Custom Message"
+msgstr "הודעה מותאמת אישית"
+
+#: ../src/gui/statusmenu.cpp:640
+msgid "Delete custom messages:"
+msgstr "מחק הודעות מותאמות אישית:"
+
+#: ../src/gui/statusmenu.cpp:780
+msgid "Define a custom message:"
+msgstr "הגדר הודעה מותאמת אישית:"
+
+#~ msgid "Forward"
+#~ msgstr "העבר"
+
+#~ msgid ""
+#~ "The video manager is the plugin that will manage your video devices, "
+#~ "Video4Linux is the most common choice if you own a webcam."
+#~ msgstr ""
+#~ "מנהל הוידאו הוא תוסף אשר מנהל את התקני הוידאו שלך, Video4Linux היא הבחירה "
+#~ "הנפוצה אם ברשותך מצלמת אינטרנט."
+
+#~ msgid "_Find Contacts"
+#~ msgstr "חפש _אנשי קשר"
+
+#~ msgid "Auto Away Timeout"
+#~ msgstr "Auto Away Timeout"
+
+#~ msgid "Timeout after which the user is automatically set as away"
+#~ msgstr "Timeout after which the user is automatically set as away"
+
+#~ msgid "User directory"
+#~ msgstr "User directory"
+
+#, fuzzy
+#~ msgid "Call _Attribute:"
+#~ msgstr "הגדרות החיפוש:"
+
+#~ msgid "Address Books"
+#~ msgstr "ספרי כתובות"
+
+#~ msgid "Host"
+#~ msgstr "מארח"
+
+#~ msgid "_New"
+#~ msgstr "_חדש"
+
+#~ msgid "Remote user is not available"
+#~ msgstr "המשתמש המרוחק אינו זמין"
+
+#~ msgid "Protocol"
+#~ msgstr "פרוטוקול"
+
+#~ msgid "xDSL/Cable"
+#~ msgstr "xDSL/כבלים"
+
+#~ msgid "_Tools"
+#~ msgstr "_כלים"
+
+#~ msgid "PC-To-Phone Account"
+#~ msgstr "חשבון PC-To-Phone"
+
+#~ msgid "Manage your PC-To-Phone account"
+#~ msgstr "נהל את חשבון הPC-To-Phone שלך"
+
+#, fuzzy
+#~ msgid "Auto Away"
+#~ msgstr "מענ_ה אוטומטי"
+
+#, fuzzy
+#~ msgid ""
+#~ "Timeout after which the user is automatically set as away (in minutes):"
+#~ msgstr "Timeout after which the user is automatically set as away"
+
+#~ msgid ""
+#~ "Choose if you want to favour frame rate or quality for the transmitted "
+#~ "video."
+#~ msgstr "בחר אם להעדיף קצב מסגרת או איכות עבור הוידאו הנשלח."
+
+#~ msgid "PC-To-Phone Settings"
+#~ msgstr "הגדרות PC-To-Phone"
+
+#~ msgid "Use PC-To-Phone service"
+#~ msgstr "השתמש בשירות PC-To-Phone"
+
+#~ msgid ""
+#~ "Click on one of the following links to get more information about your "
+#~ "existing Ekiga PC-To-Phone account, or to create a new account."
+#~ msgstr ""
+#~ "לחץ על אחד מהקישורים הבאים כדי לקבל מידע נוסף אודות חשבון ה-PC-To-Phone "
+#~ "שלך, או כדי ליצור חשבון חדש."
+
+#~ msgid "Address of public IP detector"
+#~ msgstr "Address of public IP detector"
+
+#~ msgid "Enable IP checking"
+#~ msgstr "Enable IP checking"
+
+#~ msgid ""
+#~ "Enter a valid URL to connect to a web application that outputs the public "
+#~ "IP of your host"
+#~ msgstr ""
+#~ "Enter a valid URL to connect to a web application that outputs the public "
+#~ "IP of your host"
+
+#~ msgid ""
+#~ "Enter the public IP of your NAT/PAT router if you want to use IP "
+#~ "translation"
+#~ msgstr ""
+#~ "Enter the public IP of your NAT/PAT router if you want to use IP "
+#~ "translation"
+
+#~ msgid "Gateway/proxy host"
+#~ msgstr "Gateway/proxy host"
+
+#~ msgid ""
+#~ "If enabled, Ekiga will pop up a warning each time a audio/video input or "
+#~ "output device could not be opened."
+#~ msgstr ""
+#~ "If enabled, Ekiga will pop up a warning each time a audio/video input or "
+#~ "output device could not be opened."
+
+#~ msgid "Minimum jitter buffer"
+#~ msgstr "Minimum jitter buffer"
+
+#~ msgid "Public IP of the NAT/PAT router"
+#~ msgstr "Public IP of the NAT/PAT router"
+
+#~ msgid ""
+#~ "Select the desired method for NAT traversal (STUN is strongly suggested)"
+#~ msgstr ""
+#~ "Select the desired method for NAT traversal (STUN is strongly suggested)"
+
+#~ msgid "Show device warnings"
+#~ msgstr "Show device warnings"
+
+#~ msgid ""
+#~ "The Gateway host is the host to use to do H.323 calls through a gateway "
+#~ "that will relay calls"
+#~ msgstr ""
+#~ "The Gateway host is the host to use to do H.323 calls through a gateway "
+#~ "that will relay calls"
+
+#~ msgid "The NAT method"
+#~ msgstr "The NAT method"
+
+#~ msgid "The minimum jitter buffer size for audio reception (in ms)"
+#~ msgstr "The minimum jitter buffer size for audio reception (in ms)"
+
+#~ msgid ""
+#~ "This enables IP checking from ekiga.com. The returned IP is only used "
+#~ "when IP Translation is enabled."
+#~ msgstr ""
+#~ "This enables IP checking from ekiga.com. The returned IP is only used "
+#~ "when IP Translation is enabled."
+
+#~ msgid "Unknown NAT"
+#~ msgstr "‏NAT לא ידוע"
+
+#~ msgid "Open NAT"
+#~ msgstr "‏NAT פתוח"
+
+#~ msgid "Restricted NAT"
+#~ msgstr "‏NAT מוגבל"
+
+#~ msgid "Symmetric NAT"
+#~ msgstr "‏NAT סימטרי"
+
+#~ msgid "Symmetric Firewall"
+#~ msgstr "חומת-אש סימטרית"
+
+#~ msgid "Blocked"
+#~ msgstr "חסום"
+
+#~ msgid "Partially Blocked"
+#~ msgstr "חסום למחצה"
+
+#~ msgid "No NAT"
+#~ msgstr "ללא NAT"
+
+#, fuzzy
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Ekiga could not detect the type of NAT you are using. The most "
+#~ "appropriate method, if your router does not natively support SIP or "
+#~ "H.323, is probably to forward the required ports to your internal machine "
+#~ "and use IP translation if you are behind a NAT router. Please also make "
+#~ "sure you are not running a local firewall."
+#~ msgstr ""
+#~ "תוצאות בדיקת STUN:‏ %s.\n"
+#~ "\n"
+#~ "‏Ekiga לא זיהתה את סוג ה-NAT שבו אתה משתמש. האפשרות הטובה ביותר, אם הנתב "
+#~ "שלך אינו תומך ב-SIP או H.323, היא להגדיר "
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Your system does not need any specific configuration as long as you do "
+#~ "not have a local firewall blocking the ports required by Ekiga."
+#~ msgstr ""
+#~ "תוצאות בדיקת STUN:‏ %s.\n"
+#~ "\n"
+#~ "המערכת שלך איננה זקוקה להגדרות מיוחדות כל עוד לא מופעלת חומת אש מקומית "
+#~ "אשר חוסמת את השערים שדרושים ל-Ekiga."
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "You do not seem to be using a NAT router. STUN support is not required."
+#~ msgstr ""
+#~ "סיכום תוצאות בדיקת STUN:‏ %s.\n"
+#~ "\n"
+#~ "נראה שהנתב שברשותך לא משתמש ב-NAT. תמיכת STUN אינה נדרשת."
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Using a STUN server is most probably the most appropriate method if your "
+#~ "router does not natively support SIP or H.323.\n"
+#~ "\n"
+#~ "Enable STUN Support?"
+#~ msgstr ""
+#~ "תוצאות בדיקת STUN:‏ %s.\n"
+#~ "\n"
+#~ "שימוש בשרת STUN הוא ככול הנראה הבחירה המתאימה אם הנתב שלך אינו תומך ב-SIP "
+#~ "או ב-H.323.\n"
+#~ "\n"
+#~ "לאפשר תמיכה ב-STUN?"
+
+#~ msgid "NAT Detection Finished"
+#~ msgstr "גילוי NAT הסתיים"
+
+#~ msgid "The detection of your NAT type is finished"
+#~ msgstr "זיהוי סוג ה-NAT הסתיים"
+
+#~ msgid "Please wait while your type of NAT is being detected."
+#~ msgstr "נא להתין בזמן זיהוי סוג ה-NAT."
+
+#, fuzzy
+#~ msgid "Gone"
+#~ msgstr "כלום"
+
+#~ msgid "Free For Chat"
+#~ msgstr "פנוי לשיחה"
+
+#~ msgid "Edit the Account Information"
+#~ msgstr "ערוך מידע החשבון"
+
+#~ msgid "Account Name:"
+#~ msgstr "שם חשבון:"
+
+#~ msgid "Protocol:"
+#~ msgstr "פרוטוקול:"
+
+#~ msgid "More _Options"
+#~ msgstr "אפשרויות _נוספות"
+
+#~ msgid "Gatekeeper ID:"
+#~ msgstr "זהות Gatekeeper:"
+
+#, fuzzy
+#~ msgid "Registration Timeout:"
+#~ msgstr "פסק-זמן הרישום"
+
+#~ msgid "Missing or wrong information"
+#~ msgstr "מידע חסר או שגוי"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please make sure to provide at least an <b>account name</b>, a "
+#~ "<b>username</b> and a valid <b>timeout in seconds</b>."
+#~ msgstr "אנא בדוק שסיפקת לפחות שם או כתובת בשביל איש הקשר."
+
+#~ msgid "Are you sure you want to delete account %s?"
+#~ msgstr "למחוק את החשבון %s?"
+
+#~ msgid "_Default"
+#~ msgstr "_ברירת מחדל"
+
+#~ msgid "Ekiga GUI"
+#~ msgstr "מנשק המשתמש של Ekiga"
+
+#~ msgid "_Warn if input or output devices could not be opened"
+#~ msgstr "ה_זהר אם לא ניתן לפתוח התקני קלט או פלט"
+
+#~ msgid ""
+#~ "Show a warning message if  input or output devices could not be opened"
+#~ msgstr "הצג הודעת אזהרה אם לא ניתן לפתוח התקני קלט או פלט"
+
+#~ msgid "STUN"
+#~ msgstr "STUN"
+
+#~ msgid "IP Translation"
+#~ msgstr "תרגום כתובות IP"
+
+#~ msgid "NAT Settings"
+#~ msgstr "הגדרות NAT"
+
+#~ msgid "STUN Se_rver:"
+#~ msgstr "שר_ת STUN:"
+
+#~ msgid "The STUN server to use for STUN Support."
+#~ msgstr "שרת ה-STUN לשימוש עבור תמיכה ה-STUN."
+
+#, fuzzy
+#~ msgid "Click here to update your NAT settings"
+#~ msgstr "לחץ/י כאן כדי לעדכן את הגדרות שרת הSTUN שלך"
+
+#, fuzzy
+#~ msgid "Default _gateway:"
+#~ msgstr "השתמש בשער"
+
+#~ msgid "Network Settings"
+#~ msgstr "הגדרות רשת"
+
+#~ msgid "Invalid parameters"
+#~ msgstr "ערך לא חוקי"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please provide your username and password in order to be able to use the "
+#~ "PC-To-Phone service."
+#~ msgstr ""
+#~ "אנא ספק את שמך ואת דואר האלקטרוני שלך בסעיף מידע אישי כדי להירשם לספריית "
+#~ "המשתמשים."
+
+#~ msgid "You have %d messages"
+#~ msgstr "יש לך %d הודעות"
+
+#~ msgid "Audio plugin"
+#~ msgstr "Audio plugin"
+
+#~ msgid ""
+#~ "The audio plugin that will be used to detect the devices and manage them"
+#~ msgstr ""
+#~ "The audio plugin that will be used to detect the devices and manage them"
+
+#~ msgid "The network interface"
+#~ msgstr "The network interface"
+
+#~ msgid "The network interface to listen on"
+#~ msgstr "ממשק הרשת עליו להאזין"
+
+#~ msgid ""
+#~ "The range of UDP ports that Ekiga will use for RTP (audio and video "
+#~ "communication channels). Ekiga needs to be restarted for the new values "
+#~ "to take effect."
+#~ msgstr ""
+#~ "The range of UDP ports that Ekiga will use for RTP (audio and video "
+#~ "communication channels). Ekiga needs to be restarted for the new values "
+#~ "to take effect."
+
+#~ msgid ""
+#~ "The range of UDP ports that Ekiga will use for SIP signaling and when "
+#~ "registering to gatekeepers. Ekiga needs to be restarted for the new "
+#~ "values to take effect."
+#~ msgstr ""
+#~ "The range of UDP ports that Ekiga will use for SIP signaling and when "
+#~ "registering to gatekeepers. Ekiga needs to be restarted for the new "
+#~ "values to take effect."
+
+#~ msgid ""
+#~ "The video plugin that will be used to detect the devices and manage them"
+#~ msgstr "תוסף הוידאו אשר ינוצל לגילוי וטיפול בתקנים"
+
+#~ msgid "Video plugin"
+#~ msgstr "Video plugin"
+
+#~ msgid "Picture"
+#~ msgstr "תמונה"
+
+#, fuzzy
+#~ msgid ""
+#~ "Ekiga is now testing the %s video device. If you experience machine "
+#~ "crashes, then report a bug to the video driver author."
+#~ msgstr ""
+#~ "‏GnomeMeeting עכשיו מנסה את התקן הוידאו %s. במידה וקרסה המערכת/התוכנה, אנא "
+#~ "דווח למחבר התקן הוידאו שלך."
+
+#~ msgid "Test %d done"
+#~ msgstr "בדיקת %d הסתיים"
+
+#~ msgid "Test %d failed"
+#~ msgstr "בדיקת %d נכשל"
+
+#~ msgid "Error while opening %s."
+#~ msgstr "שגיאה בזמן פתיחת %s."
+
+#~ msgid "Could not open the chosen channel with the chosen video format."
+#~ msgstr "לא ניתן לפתוח את הערוץ הנבחר עם פורמט הוידאו הנבחר."
+
+#~ msgid "Your driver doesn't support any of the color formats tried by Ekiga"
+#~ msgstr "ההתקן שלך אינו תומך בתצורות הצבע של Ekiga"
+
+#~ msgid "Error with the frame rate."
+#~ msgstr "שגיאה עם קצב הפריימים."
+
+#~ msgid "Error with the frame size."
+#~ msgstr "שגיאה בגודל הפריים."
+
+#~ msgid "Could not open audio channel for audio transmission"
+#~ msgstr "לא ניתן לפתוח ערוצי אודיו להעברה"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred while trying to record from the soundcard for the audio "
+#~ "transmission. Please check that your soundcard is not busy and that your "
+#~ "driver supports full-duplex.\n"
+#~ "The audio transmission has been disabled."
+#~ msgstr ""
+#~ "ארעה שגיאה כאשר ניסיתי להקליט מכרטיס הקול שלך בשביל שליחת אודיו. אנא בדק/"
+#~ "י שהכרטיס קול אינו תפוס ושמנהל ההתקן שלך תומך בFull-Duplex.\n"
+#~ "שליחת האודיו נפסלה."
+
+#~ msgid "Could not open audio channel for audio reception"
+#~ msgstr "לא ניתן לפתוח את ערוצי האודיו לקבלה"
+
+#, fuzzy
+#~ msgid ""
+#~ "An error occurred while trying to play audio to the soundcard for the "
+#~ "audio reception. Please check that your soundcard is not busy and that "
+#~ "your driver supports full-duplex.\n"
+#~ "The audio reception has been disabled."
+#~ msgstr ""
+#~ "ארעה שגיאה כאשר ניסיתי לנגן לכרטיס הקול שלך בשביל קבלת אודיו. אנא בדק/י "
+#~ "שהכרטיס קול אינו תפוס ושמנהל ההתקן שלך תומך בFull-Duplex.\n"
+#~ "קבלת האודיו נפסלה."
+
+#~ msgid "Offline"
+#~ msgstr "לא מקוון"
+
+#~ msgid "Invalid URL handler"
+#~ msgstr "כתובת לא תקינה"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please specify a valid URL handler. Currently h323:, callto: and sip: are "
+#~ "supported."
+#~ msgstr "אנא ספק כתובת תיקנית. כרגע גם H.323: וגם callto: נתמכים."
+
+#~ msgid "Calling %s"
+#~ msgstr "מתקשר אל %s"
+
+#~ msgid "Transferring call to %s"
+#~ msgstr "מעביר שיחה אל %s"
+
+#, fuzzy
+#~ msgid "Failed to call user"
+#~ msgstr "נכשל בנסיון לעבד קובץ XML"
+
+#~ msgid "Audio Manager"
+#~ msgstr "מנהל האודיו"
+
+#~ msgid "Please choose your audio manager:"
+#~ msgstr "נא לבחור את מנהל האודיו:"
+
+#~ msgid ""
+#~ "The audio manager is the plugin that will manage your audio devices. "
+#~ "WindowsMultimedia is probably the best choice when available."
+#~ msgstr ""
+#~ "מנהל האודיו הוא תוסף אשר ינהל את התקני האודיו. WindowsMultimedia הוא "
+#~ "כנראה הבחירה הנבונה ביותר, אם היא זמינה."
+
+#~ msgid ""
+#~ "The audio manager is the plugin that will manage your audio devices. ALSA "
+#~ "is probably the best choice when available."
+#~ msgstr ""
+#~ "מנהל האודיו הוא תוסף אשר ינהל את התקני האודיו, ALSA הוא כנראה הבחירה "
+#~ "הנבונה ביותר, אם היא זמינה."
+
+#~ msgid "Video manager"
+#~ msgstr "מנהל הוידאו"
+
+#~ msgid "Please choose your video manager:"
+#~ msgstr "בחר את מנהל הוידאו שלך:"
+
+#~ msgid "Find Contacts"
+#~ msgstr "חפש אנשי קשר"
+
+#~ msgid "_Online"
+#~ msgstr "_מקוון"
+
+#~ msgid "Do Not _Disturb"
+#~ msgstr "_נא לא להפריע"
+
+#~ msgid "Save a snapshot of the current video"
+#~ msgstr "שמור תצלום של הוידאו הנוכחי"
+
+#, fuzzy
+#~ msgid "Panel"
+#~ msgstr "ערוץ:"
+
+#, fuzzy
+#~ msgid "View the call information"
+#~ msgstr "הצג היסטוריית שיחות"
+
+#, fuzzy
+#~ msgid "Alternative output device:"
+#~ msgstr "התקן אודיו יוצא"
+
+#, fuzzy
+#~ msgid "Select an alternative audio output device to use for sound events"
+#~ msgstr "בחר את התקן הקול היוצא להשתמש בשביל צליל הצלצול"
+
+#, fuzzy
+#~ msgid "Listen on:"
+#~ msgstr "שער האזנה"
+
+#~ msgid "Audio Plugin"
+#~ msgstr "תוספי אודיו"
+
+#~ msgid "Audio plugin:"
+#~ msgstr "תוספי אודיו:"
+
+#~ msgid ""
+#~ "The audio plugin that will be used to detect the devices and manage them."
+#~ msgstr "תוסף האודיו אשר ישמש לגילוי ההתקנים ויטפל בהם."
+
+#~ msgid "Video Plugin"
+#~ msgstr "תוסף וידאו"
+
+#~ msgid "Video plugin:"
+#~ msgstr "תוסף וידאו:"
+
+#~ msgid "Account _number:"
+#~ msgstr "מספר _חשבון:"
+
+#~ msgid "First name"
+#~ msgstr "First name"
+
+#~ msgid "Last name"
+#~ msgstr "Last name"
+
+#~ msgid ""
+#~ "Select the contact status: 0 (Online), 1 (Offline), 2 (Unknown), 3 "
+#~ "(Away), 4 (DND), 5 (Free For Chat), 6 (Invisible)"
+#~ msgstr ""
+#~ "Select the contact status: 0 (Online), 1 (Offline), 2 (Unknown), 3 "
+#~ "(Away), 4 (DND), 5 (Free For Chat), 6 (Invisible)"
+
+#~ msgid "Delete"
+#~ msgstr "מחק"
+
+#~ msgid "Personal Information - page %d/%d"
+#~ msgstr "פרטים אישיים - דף %d/%d"
+
+#~ msgid "Audio Devices - page %d/%d"
+#~ msgstr "התקני אודיו - דף %d/%d"
+
+#~ msgid "Test Settings"
+#~ msgstr "בדוק הגדרות"
+
+#~ msgid "Video Manager - page %d/%d"
+#~ msgstr "מנהל הוידאו - דף %d/%d"
+
+#, fuzzy
+#~ msgid ""
+#~ "You have now finished the Ekiga configuration. All the settings can be "
+#~ "changed in the Ekiga preferences. Enjoy!\n"
+#~ "\n"
+#~ "\n"
+#~ "Configuration summary:\n"
+#~ "\n"
+#~ "Username: %s\n"
+#~ "Connection type: %s\n"
+#~ "Audio manager: %s\n"
+#~ "Audio player: %s\n"
+#~ "Audio recorder: %s\n"
+#~ "Video manager: %s\n"
+#~ "Video input: %s\n"
+#~ "SIP URI: %s\n"
+#~ msgstr ""
+#~ "סיימת את שלב הגדרת GnomeMeeting. את כל ההגדרות ניתן לשנות בחלון ההגדרות "
+#~ "בGnomeMeeting. תהנו!\n"
+#~ "\n"
+#~ "\n"
+#~ "סיכום הגדרות:\n"
+#~ "\n"
+#~ "שם משתמש:  %s\n"
+#~ "סוג החיבור:  %s\n"
+#~ "מנהל אודיו: %s\n"
+#~ "נגן אודיו:  %s\n"
+#~ "מקליט אודיו:  %s\n"
+#~ "מנהל הוידאו: %s\n"
+#~ "כניסת וידאו: %s\n"
+#~ "כתובת התקשרות: %s\n"
+
+#~ msgid "_First name:"
+#~ msgstr "_שם פרטי:"
+
+#~ msgid "Sur_name:"
+#~ msgstr "שם _משפחה:"
+
+#~ msgid "Enter your surname"
+#~ msgstr "הכנס/י את שם המשפחה"
+
+#~ msgid ""
+#~ "Automatically switch to fullscreen for images displayed in the main GUI "
+#~ "at the beginning of the call"
+#~ msgstr ""
+#~ "Automatically switch to fullscreen for images displayed in the main GUI "
+#~ "at the beginning of the call"
+
+#~ msgid "Change the view mode of the UI"
+#~ msgstr "Change the view mode of the UI"
+
+#~ msgid "Change the view mode of the UI (softphone, videophone, full view)"
+#~ msgstr "Change the view mode of the UI (softphone, videophone, full view)"
+
+#~ msgid "Clear inactive calls"
+#~ msgstr "Clear inactive calls"
+
+#~ msgid "Enable bilinear filtering on displayed video"
+#~ msgstr "Enable bilinear filtering on displayed video"
+
+#~ msgid ""
+#~ "Enable or disable bilinear interpolation when rendering video images "
+#~ "(this has no effect in fullscreen mode)"
+#~ msgstr ""
+#~ "Enable or disable bilinear interpolation when rendering video images "
+#~ "(this has no effect in fullscreen mode)"
+
+#~ msgid ""
+#~ "If enabled, calls for which no audio and video has been received in the "
+#~ "last 30 seconds are automatically cleared"
+#~ msgstr ""
+#~ "If enabled, calls for which no audio and video has been received in the "
+#~ "last 30 seconds are automatically cleared"
+
+#~ msgid "Incoming call mode"
+#~ msgstr "Incoming call mode"
+
+#~ msgid "Minimum transmitted video quality"
+#~ msgstr "Minimum transmitted video quality"
+
+#~ msgid "Missed calls history"
+#~ msgstr "Missed calls history"
+
+#~ msgid "Placed calls history"
+#~ msgstr "היסטורית שיחות שחויגו"
+
+#~ msgid "Position on the screen of the calls history window"
+#~ msgstr "מיקום חלון היסטורית שיחות על המסך"
+
+#~ msgid "Received calls history"
+#~ msgstr "היסטורית שיחות נכנסות"
+
+#~ msgid "Size of the calls history window"
+#~ msgstr "גודל חלון היסטוריית שיחות"
+
+#~ msgid "The history of the last 100 missed calls"
+#~ msgstr "היסטוריית 100 שיחות אחרונות שלא נענו"
+
+#~ msgid "The history of the last 100 received calls"
+#~ msgstr "היסטוריית 100 השיחות האחרונות שהתקבלו"
+
+#~ msgid "The local zoom value"
+#~ msgstr "ערך התקריב המקומי"
+
+#~ msgid ""
+#~ "The minimum transmitted video quality to keep when trying to minimize the "
+#~ "used bandwidth: choose 100% on a LAN for the best quality, 1% being the "
+#~ "worst quality"
+#~ msgstr ""
+#~ "מינימום איכות הוידאו המעוברת כדי לשמור על שימוש מינימלי ברוחב הפס: בחר "
+#~ "100% בחיבור LAN לאיכות מקסימלית, או 1% לאיכות הכי גרועה"
+
+#~ msgid "The remote zoom value"
+#~ msgstr "ערך התקריב המרוחק"
+
+#~ msgid ""
+#~ "The way to react to incoming calls: 0 displays a popup, 1 automatically "
+#~ "answers the call, 2 automatically rejects the call and 3 forwards the "
+#~ "call to the given URL, if any"
+#~ msgstr ""
+#~ "הדרך לענות לשיחות נכנסות: 0 הקפץ חלון, 1 מענה אוטומטי של שיחות, 2 דחייה "
+#~ "אוטומטית של שיחות, 3 העבר את כל השיחות לכתובת הנתונה, אם יש"
+
+#~ msgid ""
+#~ "The zoom value to apply to images displayed in the local video window "
+#~ "(can be 0.50, 1.00, or 2.00)"
+#~ msgstr ""
+#~ "ערך התקריב ליישם על תמונות אשר מוצגות בחלון הוידאו שלי (יכול להיות 0.50, "
+#~ "1.00 או 2.00)"
+
+#~ msgid ""
+#~ "The zoom value to apply to images displayed in the remote video window "
+#~ "(can be 0.50, 1.00, or 2.00)"
+#~ msgstr ""
+#~ "ערך התקריב שיש ליישם על תמונות אשר מוצגות בחלון הוידאו המרוחק (יכול להיות "
+#~ "0.50, 1.00 או 2.00)"
+
+#~ msgid ""
+#~ "An error has happened in the configuration backend.\n"
+#~ "Maybe some of your settings won't be saved."
+#~ msgstr ""
+#~ "ארעה שגיאה באשף ההגדרות.\n"
+#~ "אולי חלק מההגדרות שלך לא ישמרו."
+
+#~ msgid "On This Computer"
+#~ msgstr "במחשב זה"
+
+#~ msgid "Personal"
+#~ msgstr "אישי"
+
+#~ msgid ""
+#~ "Please provide your first name and e-mail in the Personal Data section in "
+#~ "order to be able to register to the users directory."
+#~ msgstr ""
+#~ "אנא ספק את שמך ואת דואר האלקטרוני שלך בסעיף מידע אישי כדי להירשם לספריית "
+#~ "המשתמשים."
+
+#~ msgid "Invalid users directory"
+#~ msgstr "ספריית משתמשים לא חוקית"
+
+#~ msgid "Operation impossible since there is no users directory specified."
+#~ msgstr "הפעולה לא אפשרית כוון שאינך ציינת ספריית משתמשים."
+
+#~ msgid "Failed to parse XML file"
+#~ msgstr "נכשל בנסיון לעבד קובץ XML"
+
+#~ msgid ""
+#~ "There was an error while parsing the XML file. Please make sure that it "
+#~ "is correctly installed in your system."
+#~ msgstr ""
+#~ "ארעה שגיאה בניסיון לעבד קובץ XML. אנא וודא שהוא מותקן היטב במערכת שלך."
+
+#~ msgid "Bad information"
+#~ msgstr "אינפורמציה לא חוקית"
+
+#~ msgid "Bad LDAP information from XML file: %s."
+#~ msgstr "אינפורמציית LDAP לא חוקית מקובץ XML: %s."
+
+#~ msgid "ILS registration failed: unable to connect to %s"
+#~ msgstr "רישום ILS נכשל: לא ניתן להתחבר אל %s"
+
+#~ msgid "ILS registration failed: unable to set time limit on operations"
+#~ msgstr "רישום ILS נכשל: לא ניתן לקבוע גבול זמן על הפעולות"
+
+#~ msgid "ILS registration failed: failed to bind to %s"
+#~ msgstr "רישום ILS נכשל: נכשל בקשירת %s"
+
+#~ msgid "Updated information on %s"
+#~ msgstr "מעדכן אינפורמציה על %s"
+
+#~ msgid "Unregistered from %s"
+#~ msgstr "לא רשום ב %s"
+
+#~ msgid "STUN server set to %s"
+#~ msgstr "שרת STUN נקבע ל-%s"
+
+#~ msgid "Removed STUN server"
+#~ msgstr "שרת STUN הוסר"
+
+#~ msgid "Set STUN server to %s (%s)"
+#~ msgstr "קובע שרת STUN ל %s (%s)"
+
+#, fuzzy
+#~ msgid "Ignored STUN server (%s)"
+#~ msgstr "קובע שרת STUN ל %s (%s)"
+
+#~ msgid "Cannot run Ekiga"
+#~ msgstr "לא ניתן להריץ את Ekiga"
+
+#~ msgid ""
+#~ "Ekiga is already running, if you want it to call a given SIP, H.323, or "
+#~ "callto address, please use \"ekiga -c address\"."
+#~ msgstr ""
+#~ "‏‏Ekiga כבר פועלת, אם אתה רוצה להתקשר למספר מסויים או כתובת H.323, אנא "
+#~ "השתמש בפקודה \"ekiga -c כתובת\"."
+
+#~ msgid ""
+#~ "It appears that you do not have ekiga.server installed in a valid "
+#~ "location. Factory mode disabled.\n"
+#~ msgstr "ניראה שאין לך ekiga.server מותקן במיקום הגיוני. מצב מפעל מבוטל.\n"
+
+#~ msgid ""
+#~ "Error registering Ekiga with the activation service; factory mode "
+#~ "disabled.\n"
+#~ msgstr "שגיאה ברישום Ekiga עם שרת האקטיבציה; מצב מפעל מבוטל.\n"
+
+#~ msgid "Failed to retrieve Ekiga server from activation server\n"
+#~ msgstr "שגיאה במציאת שרת Ekiga משרת האקטיבציה\n"
+
+#~ msgid "Opening video device %s with plugin %s"
+#~ msgstr "פותח התקן וידאו %s עם תוסף %s"
+
+#~ msgid "Successfully opened video device %s, channel %d"
+#~ msgstr "התקן הוידאו %s, ערוץ %d נפתח בהצלחה"
+
+#~ msgid "Couldn't open the video device"
+#~ msgstr "לא ניתן לפתוח את התקן הוידאו"
+
+#~ msgid "Opened the video device using the \"Picture\" video plugin"
+#~ msgstr "פותח את התקן הוידאו בעזרת תוסף הוידאו \"Picture\""
+
+#, fuzzy
+#~ msgid "Registration of %s to %s failed"
+#~ msgstr "עיון מחדש בקובץ התכנית"
+
+#, fuzzy
+#~ msgid "Registration failed"
+#~ msgstr "פסק-זמן הרישום"
+
+#, fuzzy
+#~ msgid "Unregistering"
+#~ msgstr "אפשר רישום"
+
+#~ msgid "Gatekeeper registration failed: duplicate alias"
+#~ msgstr "רישום Gatekeeper נכשל: כינוי כפול"
+
+#, fuzzy
+#~ msgid "Gatekeeper registration failed: bad username/password"
+#~ msgstr "רישום Gatekeeper נכשל: שם משתמש/ססמה שגויים"
+
+#~ msgid "Gatekeeper registration failed: transport error"
+#~ msgstr "רישום Gatekeeper נכשל: העברה נכשלה"
+
+#~ msgid "Gatekeeper registration failed"
+#~ msgstr "רישום לGatekeeper נכשל"
+
+#~ msgid "Answering incoming call"
+#~ msgstr "עונה לשיחות נכנסות"
+
+#~ msgid "Started Ekiga %d.%d.%d for user %s"
+#~ msgstr "התחל Ekiga %d.%d.%d בשביל המשתמש %s"
+
+#~ msgid "Forwarding call to %s"
+#~ msgstr "מעביר שיחה ל %s"
+
+#~ msgid "Rejecting incoming call"
+#~ msgstr "מסרב לשיחה נכנסת"
+
+#~ msgid "Rejecting incoming call from %s"
+#~ msgstr "דוחה שיחה נכנסתמ-%s"
+
+#~ msgid "Forwarding incoming call"
+#~ msgstr "מעביר שיחה נכנסת"
+
+#~ msgid "Forwarding incoming call from %s to %s"
+#~ msgstr "מעביר שיחה נכנסת מ-%s ל-%s"
+
+#~ msgid "Auto-Answering incoming call"
+#~ msgstr "עונה אוטומטית לשיחה נכנסת"
+
+#~ msgid "Auto-Answering incoming call from %s"
+#~ msgstr "עונה אוטומטית לשיחה נכנסת מ-%s"
+
+#~ msgid "Connected with %s using %s"
+#~ msgstr "מחובר עם %s בעזרת %s"
+
+#~ msgid "Call not answered in the required time"
+#~ msgstr "השיחה לא נענתה בזמן הנדרש"
+
+#, fuzzy
+#~ msgid "Error while starting the listener for the H.323 protocol"
+#~ msgstr "שגיאה באתחול הlistener"
+
+#, fuzzy
+#~ msgid ""
+#~ "You will not be able to receive incoming H.323 calls. Please check that "
+#~ "no other program is already running on the port used by Ekiga."
+#~ msgstr ""
+#~ "את/ה לא תוכל/י לקבל שיחות נכנסות. אנא בדק/י שאין תוכנה אחרת אשר משתמשת "
+#~ "בשער (PORT) שGnomeMeeting משתמש."
+
+#, fuzzy
+#~ msgid "Error while starting the listener for the SIP protocol"
+#~ msgstr "שגיאה באתחול הlistener"
+
+#, fuzzy
+#~ msgid ""
+#~ "You will not be able to receive incoming SIP calls. Please check that no "
+#~ "other program is already running on the port used by Ekiga."
+#~ msgstr ""
+#~ "את/ה לא תוכל/י לקבל שיחות נכנסות. אנא בדק/י שאין תוכנה אחרת אשר משתמשת "
+#~ "בשער (PORT) שGnomeMeeting משתמש."
+
+#~ msgid "Opened codec %s for transmission"
+#~ msgstr "פותח מקודד %s להעברה"
+
+#~ msgid "Closed codec %s which was opened for transmission"
+#~ msgstr "פותח מקודד %s אשר נפתח להעברה"
+
+#~ msgid "Opened codec %s for reception"
+#~ msgstr "פותח מקודד %s לקבלה"
+
+#~ msgid "Closed codec %s which was opened for reception"
+#~ msgstr "סוגר מקודד %s אשר נפתח לקבלה"
+
+#~ msgid "%.2ld:%.2ld:%.2ld  A:%.2f/%.2f   V:%.2f/%.2f"
+#~ msgstr "%.2ld:%.2ld:%.2ld  A:%.2f/%.2f   V:%.2f/%.2f"
+
+#~ msgid "Opened %s for recording with plugin %s"
+#~ msgstr "פותח את %s כדי להקליט עם תוסף %s"
+
+#~ msgid "Opened %s for playing with plugin %s"
+#~ msgstr "פותח את %s כדי לנגן עם תוסף %s"
+
+#, fuzzy
+#~ msgid "Registration failed: %s"
+#~ msgstr "פסק-זמן הרישום"
+
+#, fuzzy
+#~ msgid "Unregistration failed: %s"
+#~ msgstr "רישום לGatekeeper נכשל"
+
+#, fuzzy
+#~ msgid "Unregistration failed"
+#~ msgstr "רישום לGatekeeper נכשל"
+
+#, fuzzy
+#~ msgid "Error: User not found"
+#~ msgstr "משתמש לא נמצא"
+
+#~ msgid "Error: User offline"
+#~ msgstr "שגיאה: המשתמש מנותק"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please make sure to provide a valid account name, host name, and user "
+#~ "name."
+#~ msgstr "אנא בדוק שסיפקת לפחות שם או כתובת בשביל איש הקשר."
+
+#~ msgid "Contact collision"
+#~ msgstr "התנגשות אנשי קשר"
+
+#~ msgid ""
+#~ "Another contact with the same speed dial already exists in your address "
+#~ "book:\n"
+#~ "\n"
+#~ "<b>Name</b>: %s\n"
+#~ "<b>URL</b>: %s\n"
+#~ "<b>Speed Dial</b>: %s\n"
+#~ msgstr ""
+#~ "איש קשר עם אותו חיוג מהיר קיים כבר בספר הכתובות שלך:\n"
+#~ "\n"
+#~ "‏<b>שם</b>: %s\n"
+#~ "‏<b>כתובת</b>: %s\n"
+#~ "‏<b>חיוג מהיר</b>: %s\n"
+
+#~ msgid ""
+#~ "Another contact with similar information already exists in your address "
+#~ "book:\n"
+#~ "\n"
+#~ "<b>Name</b>: %s\n"
+#~ "<b>URL</b>: %s\n"
+#~ "<b>Speed Dial</b>: %s\n"
+#~ "\n"
+#~ "Do you still want to add the contact?"
+#~ msgstr ""
+#~ "איש קשר עם מידע דומה קיים כבר בספר הכתובות שלך:\n"
+#~ "\n"
+#~ "‏<b>שם</b>: %s\n"
+#~ "‏<b>כתובת</b>: %s\n"
+#~ "‏<b>חיוג מהיר</b>: %s\n"
+#~ "\n"
+#~ "את/ה עדיין רוצה להוסיף את איש הקשר?"
+
+#~ msgid "S"
+#~ msgstr "ס"
+
+#~ msgid "Comment"
+#~ msgstr "הערה"
+
+#~ msgid "Software"
+#~ msgstr "תוכנה"
+
+#~ msgid "E-Mail"
+#~ msgstr "דוא\"ל"
+
+#~ msgid "Location"
+#~ msgstr "מיקום"
+
+#~ msgid "Speed Dial"
+#~ msgstr "חיוג מהיר"
+
+#~ msgid "Name contains"
+#~ msgstr "שם מכיל"
+
+#~ msgid "URL contains"
+#~ msgstr "‏כתובת מכילה"
+
+#~ msgid "Belongs to category"
+#~ msgstr "שייך לקטגוריה"
+
+#, fuzzy
+#~ msgid "_Copy URL to Clipboard"
+#~ msgstr "_העתק כתובת ללוח העריכה"
+
+#~ msgid "_Write e-Mail"
+#~ msgstr "כתוב _דוא\"ל"
+
+#~ msgid "Error while fetching users list from %s"
+#~ msgstr "שגיאה בזמן שליפת רשימת המשתמשים מ %s"
+
+#~ msgid "Found %d user in %s"
+#~ msgid_plural "Found %d users in %s"
+#~ msgstr[0] "נמצא %d משתמש ב %s"
+#~ msgstr[1] "נמצאו %d משתמשים ב %s"
+
+#~ msgid "Found %d user in %s for a total of %d users"
+#~ msgid_plural "Found %d users in %s for a total of %d users"
+#~ msgstr[0] "נמצא %d משתמש ב %s של סך כל %d המשתמשים"
+#~ msgstr[1] "נמצאו %d משתמשים ב %s של סך כל %d המשתמשים"
+
+#~ msgid "New _Address Book"
+#~ msgstr "ספר כתובות חדש"
+
+#~ msgid "_Close"
+#~ msgstr "_סגור"
+
+#~ msgid "Email:"
+#~ msgstr "דוא\"ל:"
+
+#~ msgid "Speed Dial:"
+#~ msgstr "חיוג מהיר:"
+
+#~ msgid "Categories:"
+#~ msgstr "קטגוריות:"
+
+#~ msgid "Local Addressbook:"
+#~ msgstr "ספר כתובות מקומי:"
+
+#~ msgid ""
+#~ "Please make sure to provide at least a full name or an URL for the "
+#~ "contact."
+#~ msgstr "אנא בדוק שסיפקת לפחות שם או כתובת בשביל איש הקשר."
+
+#~ msgid "Edit an address book"
+#~ msgstr "ערוך ספר כתובות"
+
+#~ msgid "Type:"
+#~ msgstr "סוג:"
+
+#~ msgid "Local"
+#~ msgstr "מקומי"
+
+#~ msgid "Remote LDAP"
+#~ msgstr "LDAP מרוחק"
+
+#~ msgid "Remote ILS"
+#~ msgstr "ILS מרוחק"
+
+#~ msgid "Search Scope:"
+#~ msgstr "טווח החיפוש:"
+
+#~ msgid "Please make sure you fill in all required fields."
+#~ msgstr "אנא ודא שכל שדות החובה מולאו."
+
+#~ msgid "Are you sure you want to delete %s and all its contacts?"
+#~ msgstr "אתה בטוח שאתה רוצה למחוק את %s ואת כל אנשי הקשר?"
+
+#~ msgid "Disconnecting..."
+#~ msgstr "מתנתק..."
+
+#~ msgid "Date"
+#~ msgstr "תאריך"
+
+#~ msgid "Remote User"
+#~ msgstr "משתמש מרוחק"
+
+#~ msgid "Call End Reason"
+#~ msgstr "סיבת סיום השיחה"
+
+#~ msgid "Hang _up"
+#~ msgstr "_נתק"
+
+#~ msgid "Call this user"
+#~ msgstr "התקשר למשתמש זה"
+
+#~ msgid "_Open URL"
+#~ msgstr "פתח _כתובת"
+
+#~ msgid "You"
+#~ msgstr "אתה"
+
+#~ msgid "New Remote User"
+#~ msgstr "משתמש מרוחק חדש"
+
+#~ msgid "Changing this setting will only affect new calls"
+#~ msgstr "שינוי הגדרות הללו ישפיע על שיחות נכנסות חדשות בלבד"
+
+#, fuzzy
+#~ msgid ""
+#~ "Ekiga cannot apply one or more changes to the current call. Your new "
+#~ "settings will take effect for the next call."
+#~ msgstr ""
+#~ "שינית הגדרה אשר איננה מאפשרת לGnomeMeeting ליישם את ההגדרות על השיחה "
+#~ "הנוכחית. ההגדרות החדשות יכנסו לתוקף רק בפעם הבאה שתבצע שיחה."
+
+#~ msgid "H.245 Tunneling disabled"
+#~ msgstr "מנהרת H.245 מבוטלת"
+
+#~ msgid "H.245 Tunneling enabled"
+#~ msgstr "מנהרת H.245 מופעלת"
+
+#~ msgid "Early H.245 disabled"
+#~ msgstr "תמיכת H.245 ישן מבוטלת"
+
+#~ msgid "Early H.245 enabled"
+#~ msgstr "תמיכת H.245 ישן מופעלת"
+
+#~ msgid "Fast Start disabled"
+#~ msgstr "Fast Start מבוטל"
+
+#~ msgid "Fast Start enabled"
+#~ msgstr "Fast Start מופעל"
+
+#~ msgid "Enabled silence detection"
+#~ msgstr "הפעלת גילוי דממה"
+
+#~ msgid "Disabled silence detection"
+#~ msgstr "ביטול גילוי דממה"
+
+#, fuzzy
+#~ msgid "Enabled echo cancelation"
+#~ msgstr "ביטול _הד:"
+
+#~ msgid "NAT Type - page %d/%d"
+#~ msgstr "סוג NAT - דף %d/%d"
+
+#~ msgid "Click here to detect your NAT Type:"
+#~ msgstr "לחץ/י כאן לגילוי סוג הNAT שלך:"
+
+#~ msgid "Detect NAT Type"
+#~ msgstr "גלה את סוג הNAT"
+
+#, fuzzy
+#~ msgid ""
+#~ "The NAT type detection will permit to assist you in configuring your NAT "
+#~ "router to be able to do calls with Ekiga."
+#~ msgstr ""
+#~ "גילוי סוג הNAT עוזר בהגדרת נתב הNAT ככ שתוכל/י לבצע שיחות עם GnomeMeeting."
+
+#~ msgid "Video Devices - page %d/%d"
+#~ msgstr "התקני הוידאו - דף %d/%d"
+
+#~ msgid "General History"
+#~ msgstr "היסטוריית שיחות כללית"
+
+#~ msgid "Open text chat"
+#~ msgstr "פתח צ'ט"
+
+#~ msgid "Open address book"
+#~ msgstr "פתח ספר כתובות"
+
+#~ msgid ""
+#~ "Audio transmission status. During a call, click here to suspend or resume "
+#~ "the audio transmission."
+#~ msgstr ""
+#~ "מצב העברת האודיו. במשך שיחה, לחץ כאן להשהות או לחדש את שידור האודיו."
+
+#~ msgid ""
+#~ "Video transmission status. During a call, click here to suspend or resume "
+#~ "the video transmission."
+#~ msgstr ""
+#~ "מצב העברת הוידאו. במשך שיחה, לחץ כאן להשהות או לחדש את שידור הוידאו."
+
+#~ msgid "Display a popup to accept the call"
+#~ msgstr "הצג חלון קופץ כדי לקבל את השיחה"
+
+#~ msgid "Auto answer calls"
+#~ msgstr "מענה אוטומטי לשיחות"
+
+#~ msgid "Reject calls"
+#~ msgstr "דחה שיחות"
+
+#~ msgid "Forward calls"
+#~ msgstr "העבר שיחות"
+
+#~ msgid "Speed dials"
+#~ msgstr "חיוג מהיר"
+
+#~ msgid "_Save Current Picture"
+#~ msgstr "_שמור תמונה נוכחית"
+
+#~ msgid "Quit Ekiga"
+#~ msgstr "צא מ-Ekiga"
+
+#, fuzzy
+#~ msgid "View _Mode"
+#~ msgstr "מקודדי וידאו"
+
+#, fuzzy
+#~ msgid "Show the videophone view"
+#~ msgstr "ברירת המחדל של תצוגת הוידאו"
+
+#, fuzzy
+#~ msgid "View all components"
+#~ msgstr "שיחה הסתיימה"
+
+#~ msgid "Control Panel"
+#~ msgstr "לוח הבקרה"
+
+#~ msgid "View audio settings"
+#~ msgstr "הצג הגדרות אודיו"
+
+#~ msgid "View video settings"
+#~ msgstr "הצג הגדרות וידאו"
+
+#~ msgid "Statistics"
+#~ msgstr "סטטיסטיקות"
+
+#~ msgid "View audio/video transmission and reception statistics"
+#~ msgstr "הצג סטטיסטיקות קבלת שידורי אודיו/וידאו"
+
+#~ msgid "Both (Side-by-Side)"
+#~ msgstr "שניהם (אחד-ליד-השני)"
+
+#~ msgid "Both (Both in New Windows)"
+#~ msgstr "שניהם (שניהם בחלונות חדשים)"
+
+#~ msgid "Zoom In"
+#~ msgstr "התקרב"
+
+#~ msgid "Zoom Out"
+#~ msgstr "התרחק"
+
+#~ msgid "Normal Size"
+#~ msgstr "גודל נורמאלי"
+
+#~ msgid "Open the address book"
+#~ msgstr "פתח את ספר הכתובות"
+
+#, fuzzy
+#~ msgid "C_hat Window"
+#~ msgstr "הראה חלון צ'ט"
+
+#, fuzzy
+#~ msgid "Open the chat window"
+#~ msgstr "הראה חלון צ'ט"
+
+#~ msgid "Notification area not detected"
+#~ msgstr "אזור ההתרעה לא התגלה"
+
+#, fuzzy
+#~ msgid ""
+#~ "The notification area is not present in your panel, so Ekiga cannot start "
+#~ "hidden."
+#~ msgstr ""
+#~ "החלטת להתחיל את GnomeMeeting ממוזער, בכול אופן אזור ההתרעה לא קיים על "
+#~ "הלוח שלך, GnomeMeeting לא תוכל להתחיל ממוזערת."
+
+#, fuzzy
+#~ msgid "Sent DTMF %c"
+#~ msgstr "שלח DTMF %s"
+
+#, fuzzy
+#~ msgid "Registered accounts:"
+#~ msgstr "טען את החשבון"
+
+#~ msgid "Gconf key error"
+#~ msgstr "Gconf key error"
+
+#~ msgid "Bandwidth"
+#~ msgstr "רוחב פס"
+
+#~ msgid "E-_mail address:"
+#~ msgstr "כתובת דוא_\"ל:"
+
+#~ msgid "Enter your e-mail address"
+#~ msgstr "הכנס/י את כתובת הדוא\"ל"
+
+#~ msgid "_Comment:"
+#~ msgstr "_הערות:"
+
+#~ msgid "Enter a comment about yourself"
+#~ msgstr "הכנס הערה על עצמך"
+
+#~ msgid "Enter your country or city"
+#~ msgstr "הכנס את הארץ או העיר"
+
+#~ msgid "Users Directory"
+#~ msgstr "ספריית המשתמשים"
+
+#~ msgid "Users directory:"
+#~ msgstr "ספריית המשתמשים:"
+
+#~ msgid "The users directory server to register with"
+#~ msgstr "שרת ספריית המשתמשים להרשמה"
+
+#~ msgid "Enable _registering"
+#~ msgstr "אפשר רישו_ם"
+
+#~ msgid "If enabled, register with the selected users directory"
+#~ msgstr "בחירת האופציה תרשום אותך עם ספריית המשתמשים הנבחרת"
+
+#~ msgid "_Publish my details in the users directory when registering"
+#~ msgstr "_הצג את הפרטים שלי בספריית המשתמשים כאשר נרשמים"
+
+#~ msgid ""
+#~ "If enabled, your details are shown to people browsing the users "
+#~ "directory. If disabled, you are not visible to users browsing the users "
+#~ "directory, but they can still use the callto URL to call you."
+#~ msgstr ""
+#~ "בחירת האפשרות תציג את פרטייך לאנשים בספריית המשתמשים. ביטול האפשרות תביא "
+#~ "לכך שמשתמשים לא יוכלו לראות אותך בספריית המשתמשים, אך יוכלו עדיין להתקשר "
+#~ "אליך בעזרת כתובת קבלת השיחות שלך."
+
+#~ msgid "Automatically _clear calls after 30 seconds of inactivity"
+#~ msgstr "נק_ה שיחות אוטומטית אחרי 30 שניות של חוסר פעילות"
+
+#, fuzzy
+#~ msgid ""
+#~ "This permits to set the mode for DTMFs sending. The values can be \"String"
+#~ "\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+#~ "\"). Choosing other values than \"String\" disables the Text Chat."
+#~ msgstr ""
+#~ "זה מאפשר הגדרת מצב בשביל שליחת DTMF. הערכים יכולים להיות \"הכול\" (0), "
+#~ "\"כלום\" (1), \"rfc2833\" (2), \"Signal\" (3) or \"String\" (4) (ברירת "
+#~ "מחדל \"הכול\"). בחירת ערך אחר חוץ מ \"הכול\", \"String\" או \"rfc2833\" "
+#~ "יבטלו את הצ'ט."
+
+#~ msgid "Click here to refresh the devices list"
+#~ msgstr "לחץ/י כאן כדי לרענן את רשימת ההתקנים"
+
+#, fuzzy
+#~ msgid "Normal"
+#~ msgstr "גודל נורמאלי"
+
+#~ msgid "Large"
+#~ msgstr "גדול"
+
+#, fuzzy
+#~ msgid ""
+#~ "Select the transmitted video size: Normal (QCIF 176x144) or Large (CIF "
+#~ "352x288)"
+#~ msgstr "בחר את גודל הוידאו המעובר: קטן (QCIF 176x144) או גדול (CIF 352x288)"
+
+#~ msgid "Available Audio Codecs"
+#~ msgstr "מקודדי אודיו זמינים"
+
+#~ msgid "Audio Codecs Settings"
+#~ msgstr "הגדרות מקודדי אודיו"
+
+#~ msgid "Automatically adjust _jitter buffer between"
+#~ msgstr "התאם אוטומטית _jitter buffer בין"
+
+#~ msgid "and"
+#~ msgstr "ו"
+
+#~ msgid "ms"
+#~ msgstr "מילי-שנייה"
+
+#~ msgid "The minimum jitter buffer size for audio reception (in ms)."
+#~ msgstr "מינימום גודל jitter buffer לקבלת אודיו (במילי-שנייה)"
+
+#, fuzzy
+#~ msgid "Enable _video support"
+#~ msgstr "אפשר תמיכת _STUN"
+
+#, fuzzy
+#~ msgid "If enabled, allows video during calls."
+#~ msgstr "אם מופעל, וידאו יתקבל בזמן השיחה."
+
+#~ msgid "Bandwidth Control"
+#~ msgstr "בקרת רוחב פס"
+
+#~ msgid "Advanced Quality Settings"
+#~ msgstr "הגדרת איכות מתקדמת"
+
+#~ msgid "Directory Settings"
+#~ msgstr "הגדרות ספרייה"
+
+#~ msgid "Audio Codecs"
+#~ msgstr "מקודדי אודיו"
+
+#~ msgid "Video Codecs"
+#~ msgstr "מקודדי וידאו"
+
+#~ msgid "Credits"
+#~ msgstr "תודות"
+
+#~ msgid "Written by"
+#~ msgstr "נכתב על ידי"
+
+#~ msgid "Documented by"
+#~ msgstr "תועד על ידי"
+
+#~ msgid "Translated by"
+#~ msgstr "תורגם על ידי"
+
+#~ msgid "C_redits"
+#~ msgstr "_תודות"
+
+#~ msgid "Authors"
+#~ msgstr "כותבים"
+
+#~ msgid "Documenter entry"
+#~ msgstr "ערך המתעד"
+
+#~ msgid "A single documenter entry"
+#~ msgstr "ערך יחיד של המתעד"
+
+#~ msgid "About %s"
+#~ msgstr "על %s"
+
+#~ msgid "GnomeMeeting"
+#~ msgstr "‏GnomeMeeting"
+
+#~ msgid "Videoconferencing"
+#~ msgstr "שיחת ועידה בוידאו"
+
+#~ msgid "Automatically clear the text chat at the end of calls"
+#~ msgstr "מחיקה אוטומטית של תוכן הצ'ט בסיום שיחות"
+
+#~ msgid ""
+#~ "Change the control panel section (4 means that the control panel is off)"
+#~ msgstr "שנה את סעיף לוח הבקרה (4 מציין שלוח הבקרה מבוטל)"
+
+#~ msgid ""
+#~ "Choose the number of blocks (that have not changed) transmitted with each "
+#~ "frame. These blocks fill in the background"
+#~ msgstr ""
+#~ "שנה את מספר הבלוקים (אשר לא השתנו) שהועברו בכל פריים. בלוקים אלו ממולאים "
+#~ "ברקע"
+
+#~ msgid "E-mail address"
+#~ msgstr "כתובת דוא\"ל"
+
+#~ msgid "Enable IP translation"
+#~ msgstr "אפשר תרגום IP"
+
+#~ msgid "Enable video reception"
+#~ msgstr "אפשר קבלת וידאו"
+
+#~ msgid "Enable video transmission"
+#~ msgstr "אפשר שליחת וידאו"
+
+#~ msgid "Enter a comment about yourself for the user directory"
+#~ msgstr "הכנס הערה על עצמך בשביל ספריית המשתמשים"
+
+#~ msgid ""
+#~ "Enter the public IP of your NAT/PAT router if you want to use IP "
+#~ "translation. If you are registered to ils.seconix.com, GnomeMeeting will "
+#~ "automatically fetch the public IP using the ILS service"
+#~ msgstr ""
+#~ "הכנס את כתובת הIP של ראוטר הNAT/PAT שלך אם ברצונך להשתמש בתרגום IP. אם "
+#~ "אתה רשום בils.seconix.com, GnomeMeeting אוטומטית ישיג את הIP הציבורי "
+#~ "בעזרת שירות הILS"
+
+#~ msgid "Enter your location (country or city) for the user directory"
+#~ msgstr "הכנס/י את מיקומך (ארץ או עיר) בשביל ספריית המשתמשים"
+
+#~ msgid "Gatekeeper ID"
+#~ msgstr "Gatekeeper זהות"
+
+#~ msgid "Gatekeeper alias"
+#~ msgstr "Gatekeeper כינוי"
+
+#~ msgid "Gatekeeper alias as primary alias"
+#~ msgstr "Gatekeeper כינוי ככינוי ראשי"
+
+#~ msgid "Gatekeeper host"
+#~ msgstr "מארח Gatekeeper"
+
+#~ msgid "Gatekeeper password"
+#~ msgstr "Gatekeeper סיסמת"
+
+#~ msgid "If enabled, register with the selected user directory"
+#~ msgstr "בחירת האפשרות תגרום לרישום ספריית המשתמשים הנבחרת"
+
+#~ msgid ""
+#~ "If enabled, the splash screen will be displayed when GnomeMeeting starts"
+#~ msgstr "בחירת האפשרות תגרום להצגת מסך פתיחה כאשר GnomeMeeting נפתח"
+
+#~ msgid ""
+#~ "If enabled, the text chat will automatically be cleared at the end of "
+#~ "calls"
+#~ msgstr "בחירת האפשרות תמחק אוטומטית את תוכן הכתב בצ'ט בסיום השיחות"
+
+#~ msgid "If enabled, video is transmitted during a call"
+#~ msgstr "בחירת האפשרות תגרום להעברת וידאו במהלך השיחה"
+
+#~ msgid ""
+#~ "If enabled, your details are shown to people browsing the user directory. "
+#~ "If disabled, you are not visible to users browsing the user directory, "
+#~ "but they can still use the callto URL to call you"
+#~ msgstr ""
+#~ "בחירת האפשרות תגרום להצגת פרטייך האישיים לספריית המשתמשים. ביטול האפשרות "
+#~ "תגרום לכך שתהיה בלתי נראה לאנשים אשר מדפדפים ברשימת המשתמשים בספרייה, אבל "
+#~ "עדיין יוכלו להתקשר בעזרת כתובת ה-callto"
+
+#~ msgid "Show my details to other registered users"
+#~ msgstr "הראה את פרטי למשתמשים רשומים אחרים"
+
+#~ msgid "Show splash screen at startup"
+#~ msgstr "הראה מסך פתיחה בהתחלה"
+
+#~ msgid "Show the chat window in the main window"
+#~ msgstr "הראה את חלון הצ'ט בחלון הראשי"
+
+#~ msgid ""
+#~ "The Gatekeeper alias to use when registering (string, or E164 ID if only "
+#~ "0123456789#)"
+#~ msgstr ""
+#~ "כינוי הGatekeeper לשימוש כאשר נרשמים (מחרוזת, או E164 ID אם רק "
+#~ "0123456789#)"
+
+#~ msgid "The Gatekeeper host to register with"
+#~ msgstr "שרת הGatekeeper לרישום"
+
+#~ msgid "The Gatekeeper identifier to register with"
+#~ msgstr "זהות הGatekeeper לרישום"
+
+#~ msgid ""
+#~ "The Gatekeeper password to use for H.235 authentication to the Gatekeeper"
+#~ msgstr "סיסמת הGatekeeper לאימות בשביל H.235 לGatekeeper"
+
+#~ msgid ""
+#~ "The range of UDP ports that GnomeMeeting will use for RTP (audio and "
+#~ "video communication channels). You can change the UDP port range if you "
+#~ "are using IP translation and if you need to have several GnomeMeeting "
+#~ "running behind your NAT/PAT router. GnomeMeeting needs to be restarted "
+#~ "for the new values to take effect."
+#~ msgstr ""
+#~ "טווח השערי UDP שGnomeMeeting ישתמש בשביל ערוצי וידאו ואודיו. (RTP - audio "
+#~ "and video communication channels) ניתן לשנות את טווח שערי הUDP אם אתה "
+#~ "משתמש בתרגום IP ואם יש צורך בהרצת כמה GnomeMeeting בו זמנית מאחורי נתב "
+#~ "הNAT/PAT. התחל מחדש את GnomeMeeting כדי שההגדרות החדשות יכנסו לתוקף."
+
+#~ msgid ""
+#~ "The range of UDP ports that GnomeMeeting will use when registering to "
+#~ "gatekeepers. You can change the UDP port range if you are using IP "
+#~ "translation and if you need to have several GnomeMeeting running behind "
+#~ "your NAT/PAT router. GnomeMeeting needs to be restarted for the new "
+#~ "values to take effect. This port range has no effect if you are not "
+#~ "registering to a gatekeeper."
+#~ msgstr ""
+#~ "טווח השערי UDP שGnomeMeeting ישתמש בשביל לרשום משתמש בGatekeeper. ניתן "
+#~ "לשנות את טווח שערי הUDP אם אתה משתמש בתרגום IP ואם יש צורך בהרצת כמה "
+#~ "GnomeMeeting בו זמנית מאחורי ראוטר הNAT/PAT. התחל מחדש את GnomeMeeting "
+#~ "כדי שההגדרות החדשות יכנסו לתוקף. אין השפעה לטווחי השערים הללו אם אינך "
+#~ "נרשם לGatekeeper."
+
+#~ msgid "The registering method to use"
+#~ msgstr "שיטת הרישום לשימוש"
+
+#~ msgid "The user directory server to register with"
+#~ msgstr "שרת ספריית המשתמשים להרשמה"
+
+#~ msgid ""
+#~ "This enables H.245 Tunnelling mode. In H.245 Tunnelling mode H.245 "
+#~ "messages are encapsulated into the the H.225 channel (port 1720). This "
+#~ "saves one TCP connection during calls. H.245 Tunnelling was introduced in "
+#~ "H.323v2 and Netmeeting does not support it. Using both Fast Start and "
+#~ "H.245 Tunnelling can crash some versions of Netmeeting."
+#~ msgstr ""
+#~ "זה מאפשר את מצב tunneling H.245. במצב תעלת H.245 הודעות H.245 מעטפות מחדש "
+#~ "כערוץ H.225 (שער 1720). זה חוסך חיבור TCP אחד במשך השיחה. תעלת H.245 "
+#~ "הוצגה בH.323v2 ונטמיטינג לא תומכת בו. שימוש בFast Start ותעלת H.245 יכול "
+#~ "לגרום לקריסת כמה גרסאות של נטמיטינג."
+
+#~ msgid ""
+#~ "This enables IP checking from seconix.com and fills the IP in the public "
+#~ "IP of the NAT/PAT gateway field of GnomeMeeting. The returned IP is only "
+#~ "used when IP Translation is enabled. If you disable IP checking, you will "
+#~ "have to manually enter the IP of your gateway in the GnomeMeeting "
+#~ "preferences"
+#~ msgstr ""
+#~ "זה מאפשר בדיקת IP מseconix.com וממלא את שדה הIP בIP הציבורי של שער הNAT/"
+#~ "PAT שלך. שימוש בIP המוחזר מתאפשר רק כאשר מאפשרים תרגום כתובות IP. אם את/ה "
+#~ "מבטל את בדיקת כתובות הIP, את/ה צריך להכניס אותו ידנית לתוך הגדרת השער "
+#~ "בהגדרות הGnomeMeeting"
+
+#~ msgid ""
+#~ "This enables IP translation. IP translation is useful if GnomeMeeting is "
+#~ "running behind a NAT/PAT router. You have to put the public IP of the "
+#~ "router in the field below. If you are registered to ils.seconix.com, "
+#~ "GnomeMeeting will automatically fetch the public IP using the ILS "
+#~ "service. If your router natively supports H.323, you can disable thisThis "
+#~ "enables STUN Support. STUN is a technic that permits to go through some "
+#~ "types of NAT gateways."
+#~ msgstr ""
+#~ "מאפשר תרגום כתובות IP. תרגום כתובות IP חיוני אם GnomeMeeting פועל מאחורי "
+#~ "נתב NAT/PAT. את/ה חייבים לציין את כתובת הIP הציבורית של הראוטר בשדה למטה. "
+#~ "אם את/ה נרשם לils.seconix.com, GnomeMeeting ישיג אוטומטית את כתובת הIP "
+#~ "הציבורית בעזרת שרותי ILS. אם הנתב שלך תומך בH.323, את/ה יכולים לבטל הגדרה "
+#~ "זו.שרת הSTUN לשימוש בתמיכת STUN. STUN הוא שימוש טכנולוגי אשר מאפשר גישה "
+#~ "לסוגים מסוימים של שערי NAT."
+
+#~ msgid "Transmitted background blocks"
+#~ msgstr "העבר בלוקי רקע"
+
+#~ msgid "Use the specified gateway to do calls"
+#~ msgstr "השתמש בשער המצוין להתקשרות"
+
+#~ msgid ""
+#~ "Use this option to ensure the above alias is used as the primary alias "
+#~ "when registering with a gatekeeper. This may be required if your "
+#~ "gatekeeper can only perform authentication using the first alias in the "
+#~ "list"
+#~ msgstr ""
+#~ "השתמש בהגדרה זו כדי להבטיח שהכינוי למעלה ישמש ככינוי הראשי כאשר נרשמים "
+#~ "לGatekeeper. זה יידרש אם הGatekeeper שלך יכול לבצע אימות עם הכינוי הראשון "
+#~ "ברשימה"
+
+#~ msgid "Total: %.2f MB"
+#~ msgstr "סך הכול: %.2f MB"
+
+#~ msgid "URL"
+#~ msgstr "כתובת"
+
+#~ msgid "Code contributors:"
+#~ msgstr "תורמי קוד:"
+
+#~ msgid "---- Call begins at %s\n"
+#~ msgstr "---- שיחה התחילה ב%s\n"
+
+#~ msgid "---- Call ends at %s\n"
+#~ msgstr "---- שיחה הסתיימה ב%s\n"
+
+#~ msgid "Copy Link Location"
+#~ msgstr "העתק מיקום קישור"
+
+#~ msgid "Connect to"
+#~ msgstr "התחבר אל"
+
+#~ msgid "Add to Address Book"
+#~ msgstr "הוסף לספר הכתובות"
+
+#~ msgid "YES"
+#~ msgstr "כן"
+
+#~ msgid "Sorry, this script won't work while GnomeMeeting is running"
+#~ msgstr "מצטער, סקריפט זה אינו עובד כאשר GnomeMeeting פעילה"
+
+#~ msgid "  WARNING!!!"
+#~ msgstr "  אזהרה!!!"
+
+#~ msgid ""
+#~ "  This script will delete all user GnomeMeeting configuration,\n"
+#~ "  including preferences that may be important! \n"
+#~ "  The GConf daemon will be shut down, so make sure you have no\n"
+#~ "  applications depending on it running.\n"
+#~ "\n"
+#~ "  Do you really want to do this?\n"
+#~ "\n"
+#~ "  If so, say \"YES\".\n"
+#~ "\n"
+#~ msgstr ""
+#~ "  This script will delete all user GnomeMeeting configuration,\n"
+#~ "  including preferences that may be important! \n"
+#~ "  The GConf daemon will be shut down, so make sure you have no\n"
+#~ "  applications depending on it running.\n"
+#~ "\n"
+#~ "  Do you really want to do this?\n"
+#~ "\n"
+#~ "  If so, say \"YES\".\n"
+#~ "\n"
+
+#~ msgid "Removing $HOME/.gconf/apps/gnomemeeting"
+#~ msgstr "מסיר את $HOME/.gconf/apps/gnomemeeting"
+
+#~ msgid "Shutting down GConf daemon"
+#~ msgstr "מנתק את שרת GConf"
+
+#~ msgid "...Done."
+#~ msgstr "...סיום."
+
+#~ msgid "Leaving configuration alone."
+#~ msgstr "השאר הגדרות כמו שהם."
+
+#~ msgid "Have a nice day."
+#~ msgstr "שיהיה לך יום נפלא."
+
+#~ msgid ""
+#~ "  The GConf daemon will be shut down, so make sure you have no\n"
+#~ "  applications depending on it running.\n"
+#~ "\n"
+#~ "  Do you really want to do this?\n"
+#~ "\n"
+#~ "  If so, say \"YES\".\n"
+#~ "\n"
+#~ msgstr ""
+#~ "  שרת הGconf עומד להסגר, אנא וודא שאין לך\n"
+#~ "  תכנות אשר תלויות בו.\n"
+#~ "\n"
+#~ "  האם את/ה בטוח שאת/ה רוצה לעשות את זה?\n"
+#~ "\n"
+#~ "  אם כן, כתוב \"YES\".\n"
+#~ "\n"
+
+#~ msgid "Removing schemas"
+#~ msgstr "מסיר סכמות"
+
+#~ msgid "Installing schemas"
+#~ msgstr "מתקין סכמות"
+
+#~ msgid ""
+#~ "CRITICAL ERROR -- Schema installation failed.\n"
+#~ "Most probably you have the GConf daemon running as root.\n"
+#~ "\n"
+#~ "Run \"gnomemeeting-config-tool --install-schemas\" as root.\n"
+#~ msgstr ""
+#~ "CRITICAL ERROR -- Schema installation failed.\n"
+#~ "Most probably you have the GConf daemon running as root.\n"
+#~ "\n"
+#~ "Run \"gnomemeeting-config-tool --install-schemas\" as root.\n"
+
+#~ msgid "Usage:  gnomemeeting-config-tool OPTION"
+#~ msgstr "Usage:  gnomemeeting-config-tool OPTION"
+
+#~ msgid "Fixes problems with the GnomeMeeting settings"
+#~ msgstr "מתקן בעיות בהגדרות GnomeMeeting"
+
+#~ msgid "  --clean                remove all user settings"
+#~ msgstr "  --clean                remove all user settings"
+
+#~ msgid ""
+#~ "  --install-schemas      install schemas with default settings (run as "
+#~ "root)"
+#~ msgstr ""
+#~ "  --install-schemas      install schemas with default settings (run as "
+#~ "root)"
+
+#~ msgid ""
+#~ "  --clean-schemas        remove schemas with default settings (run as "
+#~ "root)"
+#~ msgstr ""
+#~ "  --clean-schemas        remove schemas with default settings (run as "
+#~ "root)"
+
+#~ msgid ""
+#~ "  --fix-permissions      fix permissions of GConf repository (run as root)"
+#~ msgstr ""
+#~ "  --fix-permissions      fix permissions of GConf repository (run as root)"
+
+#~ msgid "No gateway or proxy specified"
+#~ msgstr "שער או מתווך לא מצוינים"
+
+#~ msgid "Forward URL not specified"
+#~ msgstr "כתובת העברה לא מצוינת"
+
+#~ msgid ""
+#~ "You need to specify an URL where to forward calls in the call forwarding "
+#~ "section of the preferences!\n"
+#~ "\n"
+#~ "Disabling forwarding."
+#~ msgstr ""
+#~ "את/ה צריך/ה לציין כתובת להעברת שיחות בסעיף העברת שיחות ממסך ההגדרות!\n"
+#~ "\n"
+#~ "מבטל העברה."
+
+#~ msgid "Failure opening %s for transmission, will try with next common codec"
+#~ msgstr "שגיאה בפתיחת %s בזמן העברה, אני ינסה עם מקודד מצוי אחר"
+
+#~ msgid "Failure opening %s for reception, will try with next common codec"
+#~ msgstr "שגיאה בפתיחת %s בזמן הקבלה, אני ינסה עם מקודד מצוי אחר"
+
+#~ msgid "Call transfer failed"
+#~ msgstr "העברת השיחה נכשלה"
+
+#~ msgid ""
+#~ "The remote user tried to transfer your call to another user, but it "
+#~ "failed."
+#~ msgstr "המשתמש המרוחק ניסה להעביר את השיחה שלך למשתמש אחר, אבל היא נכשלה"
+
+#~ msgid "Callto URL - page %d/%d"
+#~ msgstr "כתובת קבלת שיחות - דף %d/%d"
+
+#~ msgid ""
+#~ "Your e-mail address is used when registering to the GnomeMeeting users "
+#~ "directory. It is used to create a callto address permitting your contacts "
+#~ "to easily call you wherever you are."
+#~ msgstr ""
+#~ "כתובת הדוא\"ל שלך משומשת בזמן הרישום בספריית המשתמשים של GnomeMeeting. "
+#~ "השימוש בה נועד ליצירת כתובת קבלת שיחות המאפשרת לאנשי הקשר שלך לצלצל אליך "
+#~ "היכן שאת/ה נמצא/ת"
+
+#~ msgid ""
+#~ "I don't want to register to the GnomeMeeting users directory and get a "
+#~ "callto address"
+#~ msgstr ""
+#~ "אני לא רוצה להירשם בספריית המשתמשים של GnomeMeeting ולקבל כתובת קבלת "
+#~ "שיחות."
+
+#~ msgid "Forwarding call from %s to %s (Forward all calls)"
+#~ msgstr "העבר שיחות מ %s אל %s (העבר את כל השיחות)"
+
+#~ msgid "Rejecting call from %s (Do Not Disturb)"
+#~ msgstr "דחה שיחות מ%s (נא לא להפריע)"
+
+#~ msgid "Accepting call from %s (Auto Answer)"
+#~ msgstr "קבל שיחות מ %s (מענה אוטומטי)"
+
+#~ msgid "Call automatically answered"
+#~ msgstr "שיחה נענתה אוטומטית"
+
+#~ msgid "Error while forwarding call to %s"
+#~ msgstr "שגיאה בהעברת השיחה אל %s"
+
+#~ msgid "There was an error when forwarding the call to the given host."
+#~ msgstr "קרתה שגיאה במהלך העברת השיחה אל השרת הנתון."
+
+#~ msgid "Connected"
+#~ msgstr "מחובר"
+
+#~ msgid "Remote user did not accept the call"
+#~ msgstr "המשתמש המרוחק לא קיבל את השיחה"
+
+#~ msgid "Attaching lid hardware to codec"
+#~ msgstr "מחבר חומרת LID עם המקודד"
+
+#~ msgid "Forwarding Call to %s (No Answer)"
+#~ msgstr "העברת שיחות אל %s (אין תשובה)"
+
+#~ msgid "Unregistered from gatekeeper %s"
+#~ msgstr "בוטל רישום מGatekeeper %s"
+
+#~ msgid "Invalid gatekeeper hostname"
+#~ msgstr "שם שרת Gatekeeper שגוי"
+
+#~ msgid "Please provide a hostname to use for the gatekeeper."
+#~ msgstr "אנא קבע שם שרת לשימוש בשביל Gatekeeper."
+
+#~ msgid "Invalid gatekeeper ID"
+#~ msgstr "זהות Gatekeeper שגויה"
+
+#~ msgid "Please provide a valid ID for the gatekeeper."
+#~ msgstr "אנא קבע זהות Gatekeeper תקינה."
+
+#~ msgid "Gatekeeper set to %s"
+#~ msgstr "Gatekeeper נקבע ל %s"
+
+#~ msgid "Trying to stop calling"
+#~ msgstr "מנסה לעצור את החיוג"
+
+#~ msgid "Stopping current call"
+#~ msgstr "עוצר שיחה נוכחית"
+
+#~ msgid "Opened Quicknet device %s"
+#~ msgstr "פותח התקן Quicknet %s"
+
+#~ msgid "Error while opening the Quicknet device."
+#~ msgstr "שגיאה בזמן פתיחת התקן Quicknet."
+
+#~ msgid ""
+#~ "Please check that your driver is correctly installed and that the device "
+#~ "is working correctly."
+#~ msgstr "אנא בדוק שהמנהל ההתקנים שלך מותקן כהלכה ושההתקן עובד כראוי."
+
+#~ msgid "Closed Quicknet device %s"
+#~ msgstr "סוגר את התקן Quicknet %s"
+
+#~ msgid "Phone is off hook"
+#~ msgstr "הטלפון מנותק"
+
+#~ msgid "Phone is on hook"
+#~ msgstr "הטלפון מחובר"
+
+#~ msgid "Open control panel"
+#~ msgstr "פתח לוח בקרה"
+
+#~ msgid "C_onnect"
+#~ msgstr "התח_בר"
+
+#~ msgid "Create a new connection"
+#~ msgstr "צור התקשרות חדשה"
+
+#~ msgid "Close the current connection"
+#~ msgstr "סגור את החיבור הנוכחי"
+
+#~ msgid "Quit GnomeMeeting"
+#~ msgstr "צא מ-GnomeMeeting"
+
+#~ msgid "Text Chat"
+#~ msgstr "צ'ט"
+
+#~ msgid "View/Hide the text chat window"
+#~ msgstr "הראה/החבא את חלון הצ'ט"
+
+#~ msgid "_Clear Text Chat"
+#~ msgstr "_נקה כתב הצ'ט"
+
+#~ msgid "Clear the text chat"
+#~ msgstr "מנקה את הכתב בצ'ט"
+
+#~ msgid ""
+#~ "Lost packets:\n"
+#~ "Late packets:\n"
+#~ "Round-trip delay:\n"
+#~ "Jitter buffer:"
+#~ msgstr ""
+#~ "חבילות שאבדו:\n"
+#~ "חבילות שאוחרו:\n"
+#~ "עיכוב מחזור טעות:\n"
+#~ "Jitter buffer:"
+
+#~ msgid "Click to clear"
+#~ msgstr "לחץ/י לניקוי"
+
+#~ msgid "Generic error"
+#~ msgstr "שגיאה כללית"
+
+#~ msgid "GnomeMeeting GUI"
+#~ msgstr "ממשק GnomeMeeting"
+
+#~ msgid "_Show splash screen"
+#~ msgstr "_הראה מסך פתיחה"
+
+#~ msgid "Forward calls to _host:"
+#~ msgstr "העבר שיחות לשר_ת:"
+
+#~ msgid ""
+#~ "If enabled, all incoming calls will be forwarded to the host that is "
+#~ "specified in the field above"
+#~ msgstr ""
+#~ "בחירת האפשרות תגרום לכל השיחות הנכנסות לעבור למארח המצוין בשדה למעלה"
+
+#~ msgid ""
+#~ "If enabled, all incoming calls will be forwarded to the host that is "
+#~ "specified in the field above if you do not answer the call"
+#~ msgstr ""
+#~ "בחירת האפשרות תגרום לכל השיחות הנכנסות לעבור למארח המצוין בשדה למעלה אם "
+#~ "אינך עונה לשיחה"
+
+#~ msgid ""
+#~ "If enabled, all incoming calls will be forwarded to the host that is "
+#~ "specified in the field above if you already are in a call or if you are "
+#~ "in Do Not Disturb mode"
+#~ msgstr ""
+#~ "בחירת האפשרות תגרום לכל השיחות הנכנסות לעבור למארח המצוין בשדה למעלה אם "
+#~ "את/ה בשיחה או שאת/ה במצב של נא לא להפריע"
+
+#~ msgid "seconds"
+#~ msgstr "שניות"
+
+#~ msgid "GnomeMeeting Sound Events"
+#~ msgstr "ערכות קול של GnomeMeeting"
+
+#~ msgid "Sound to play:"
+#~ msgstr "צליל לניגון:"
+
+#~ msgid "All"
+#~ msgstr "הכול"
+
+#~ msgid "rfc2833"
+#~ msgstr "rfc2833"
+
+#~ msgid "Signal"
+#~ msgstr "אות"
+
+#~ msgid "H.323 Version 2 Settings"
+#~ msgstr "הגדרות H.323 גרסה 2"
+
+#~ msgid "DTMF Sending"
+#~ msgstr "שליחת DTMF"
+
+#~ msgid ""
+#~ "This permits to set the mode for DTMFs sending. The values can be \"All"
+#~ "\", \"None\", \"rfc2833\", \"Signal\" or \"String\" (default is \"All\"). "
+#~ "Choosing other values than \"All\", \"String\" or \"rfc2833\" disables "
+#~ "the Text Chat."
+#~ msgstr ""
+#~ "זה מאפשר לקבוע מצב לשליחת DTMFs. הערכים יכולים להיות \"All\", \"None\", "
+#~ "\"rfc2833\", \"Signal\" או \"String\" (ברירת המחדל היא \"All\"). בחירה "
+#~ "אחרת חוץ מ \"All\", \"String\" או \"rfc2833\" מבטל את הצ'ט."
+
+#~ msgid "Automatically discover"
+#~ msgstr "גלה אוטומטית"
+
+#~ msgid "Gatekeeper _host:"
+#~ msgstr "_מארח Gatekeeper:"
+
+#~ msgid "Gatekeeper _alias:"
+#~ msgstr "_כינוי Gatekeeper:"
+
+#~ msgid "Gatekeeper _password:"
+#~ msgstr "_סיסמה Gatekeeper:"
+
+#~ msgid "Registration timeout of"
+#~ msgstr "פסק זמן הרישום של"
+
+#~ msgid "minutes"
+#~ msgstr "דקות"
+
+#~ msgid "Register this alias as the primary alias with the gatekeeper"
+#~ msgstr "הרשם/י בכינוי הזה בתור הכינוי הראשי עם Gatekeeper"
+
+#~ msgid ""
+#~ "Use this option to ensure the above alias is used as the primary alias "
+#~ "when registering with a gatekeeper. This may be required if your "
+#~ "gatekeeper can only perform authentication using the first alias in the "
+#~ "list."
+#~ msgstr ""
+#~ "השתמש/י באפשרות זאת כדי להבטיח שהכינוי העליון הוא הכינוי הראשי כאשר "
+#~ "נרשמים בGatekeeper. זה אולי נדרש כאשר הGatekeeper שלך יכול לבצע רק אימות "
+#~ "עם הכינוי הראשון ברשימה."
+
+#~ msgid "Registering method:"
+#~ msgstr "שיטת רישום:"
+
+#~ msgid "Click here to update your Gatekeeper settings"
+#~ msgstr "לחץ/י כאן לעדכון הגדרות הGatekeeper שלך"
+
+#~ msgid "Gateway/Proxy"
+#~ msgstr "שער/מתווך"
+
+#~ msgid "Gateway / Proxy host:"
+#~ msgstr "מארח שער / מתווך"
+
+#~ msgid "Enable IP _translation"
+#~ msgstr "אפשר תרגום כתובות _IP"
+
+#~ msgid ""
+#~ "This enables IP translation. IP translation is useful if GnomeMeeting is "
+#~ "running behind a NAT/PAT router. You have to put the public IP of the "
+#~ "router in the field below. If you are registered to ils.seconix.com, "
+#~ "GnomeMeeting will automatically fetch the public IP using the ILS "
+#~ "service. If your router natively supports H.323, you can disable this."
+#~ msgstr ""
+#~ "מאפשר תרגום כתובות IP. תרגום כתובות IP חיוני אם GnomeMeeting פועל מאחורי "
+#~ "נתב NAT/PAT. את/ה חייבים לציין את כתובת הIP הציבורית של הנתב בשדה למטה. "
+#~ "אם את/ה נרשם לils.seconix.com, GnomeMeeting ישיג אוטומטית את כתובת הIP "
+#~ "הציבורית בעזרת שרותי ILS. אם הנתב שלך תומך בH.323, את/ה יכול/ה לבטל הגדרה "
+#~ "זו."
+
+#~ msgid "Enable _automatic IP checking"
+#~ msgstr "אפשר בדיקת IP או_טומטית"
+
+#~ msgid ""
+#~ "This enables IP checking from seconix.com and fills the IP in the public "
+#~ "IP of the NAT/PAT gateway field of GnomeMeeting. The returned IP is only "
+#~ "used when IP Translation is enabled. If you disable IP checking, you will "
+#~ "have to manually enter the IP of your gateway in the GnomeMeeting "
+#~ "preferences."
+#~ msgstr ""
+#~ "מאפשר בדיקת כתובת IP מseconix.com וממלא את השדה בGnomeMeeting בכתובת הIP "
+#~ "הציבורית עם שער הNAT/PAT. הכתובת הIP המוחזרת מושמשת אך ורק כאשר תרגום "
+#~ "כתובות IP פועל. אם תבטל/י בדיקת כתובת IP של השער שלך, תצתרך/י להוסיפו "
+#~ "ידנית בהגדרות הGnomeMeeting."
+
+#~ msgid "Public _IP of the NAT/PAT router:"
+#~ msgstr "כתובת IP ציבורית של ראוטר NAT/PAT:"
+
+#~ msgid "STUN Support"
+#~ msgstr "תמיכת STUN"
+
+#~ msgid "Low"
+#~ msgstr "נמוך"
+
+#~ msgid "Medium"
+#~ msgstr "בינוני"
+
+#~ msgid "High"
+#~ msgstr "גבוה"
+
+#~ msgid "Headset"
+#~ msgstr "אזניות"
+
+#~ msgid "Quicknet Hardware"
+#~ msgstr "חומרת Quicknet"
+
+#~ msgid "Output device type:"
+#~ msgstr "סוג התקן יציאה:"
+
+#~ msgid "Country _code:"
+#~ msgstr "קוד _מדינה:"
+
+#~ msgid ""
+#~ "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)."
+#~ msgstr "שתי אותיות מדינתך (BE, UK, FR, DE, IL, וכו...)."
+
+#~ msgid "Small"
+#~ msgstr "קטן"
+
+#~ msgid "Enable video _transmission"
+#~ msgstr "אפשר _שליחת וידאו"
+
+#~ msgid "If enabled, video is transmitted during a call."
+#~ msgstr "אם מופעל, וידאו יעובר בזמן השיחה."
+
+#~ msgid "Enable video _reception"
+#~ msgstr "אפשר קב_לת וידאו"
+
+#~ msgid "Transmit"
+#~ msgstr "מעביר"
+
+#~ msgid ""
+#~ "Choose the number of blocks (that have not changed) transmitted with each "
+#~ "frame. These blocks fill in the background."
+#~ msgstr ""
+#~ "שנה את מספר הבלוקים (אשר לא השתנו) שהועברו בכל פריים. בלוקים אלו ממלאים "
+#~ "ברקע."
+
+#~ msgid "background _blocks with each frame"
+#~ msgstr "בלוקי ר_קע עם כל פריים"
+
+#~ msgid "GnomeMeeting Preferences"
+#~ msgstr "הגדרות GnomeMeeting"
+
+#~ msgid "Gatekeeper Settings"
+#~ msgstr "הגדרות Gatekeeper"
+
+#~ msgid "Gateway / Proxy Settings"
+#~ msgstr "הגדרות שער / מתווך"
+
+#~ msgid "The type of NAT was successfully detected"
+#~ msgstr "סוג הNAT התגלה בהצלחה"
+
+#~ msgid "Use your MicroTelco account number"
+#~ msgstr "השתמש בחשבון הMicroTelco שלך"
+
+#~ msgid "Use your MicroTelco PIN"
+#~ msgstr "השתמש MicroTelco PIN שלך"
+
+#~ msgid "GnomeMeeting Tray Icon"
+#~ msgstr "סמל מגש מערכת של GnomeMeeting"
+
+#~ msgid "_Connect"
+#~ msgstr "_התחבר"
+
+#~ msgid ""
+#~ "The call transfer failed, the user was either unreachable, or simply busy "
+#~ "when he received the call transfer request."
+#~ msgstr ""
+#~ "העברת השיחה נכשלה, המשתמש היה או לא זמין, או פשוט עסוק כאשר הוא קיבל את "
+#~ "השיחה"
+
+#~ msgid "No contact with speed dial %s# found, will call number %s instead"
+#~ msgstr "לא נמצאו אנשי קשר עם החיוג המהיר הזה %s# יתקשר למספר %s במקום"
+
+#~ msgid "Found %d users in %s"
+#~ msgstr "Found %d users in %s"
+
+#~ msgid "Found %d users in %s for a total of %d users"
+#~ msgstr "Found %d users in %s for a total of %d users"
+
+#~ msgid "Missed %d calls"
+#~ msgstr "Missed %d calls"

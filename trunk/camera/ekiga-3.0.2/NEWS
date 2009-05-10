@@ -1,0 +1,100 @@
+                          -*- mode: outline -*-
+* Changes in ekiga 3.0.2 (2009-01-12)
+- Make sure sound events are played through the correct devices. (#564370)
+- Fixed crash on missed call.
+- Do not show the assistant after an upgrade for which Ekiga was already successfully setup.  
+- Added settings migration from Ekiga 2.0.x.
+- Allow answering/rejecting calls from the main window even if we use notifications.
+- Do not try refreshing SUBSCRIBE requests for which the 200 OK contains an expire time of 0. 
+- Fixed sending ACK request to incorrect address when particular types of proxies are being used.
+- Fixed test for CANCEL receipt on INVITE clearing call.
+- Ignore multiple forked CANCEL messages.
+- Fixed issue with registration to a non-standard port.
+- Fixed restarting timers if get pathological response to a transaction with incorrect Cseq header field.
+- Fixed missing route set on SIP commands in a dialog when using outbound proxy.
+
+* Changes in ekiga 3.0.1 (2008-10-20)
+** Windows build
+- Fixed crash when echo cancellation is active
+- Improved GTK installation by providing our own libraries
+- Fixed crash when clicking the status bar
+- Fixed crash when the only available accelerated surface is already taken
+- Fixed playing of audio files with samplerate != 8000Hz
+- Fixed possible crash when quickly deleting and creating threads
+- Fixed flickering in Picture-in-Picture mode
+** GUI
+- Fixed overlapping issue of font/smiley buttons in the chat window
+- Fixed possible flickering issues on XV
+- Fixed possible X timing issue
+- Fixed message box when device is unplugged in out-of-call state
+- Fixed crash when closing various windows using the window manager
+- Fixed crash in the configuration assistant when unplugging the active device
+- Do not display localhost users in the neighbours
+- Fixed Ekiga not able to resolve DNS names when being used with a
+  Turkish locale
+- Allow using '&' as name in the roster
+- Fixed 'Search Scope' field alignment in the form
+** SIP
+- Fixed behavior in case of Open NAT
+- Fixed SIP REGISTER and INVITE behaviors when Ekiga listens to
+  multiple interfaces in the same subnet
+- Fixed response code when receiving a BYE for a call that is already released
+- Fixed numerous retries using the same authentication credentials
+- Fixed interoperability issues with Cisco Call Manager
+- Fixed default status when receiving a NOTIFY with an empty body to
+  offline instead of unknown
+- Fixed parsing of URIs quoted with <> but without ""
+- Fixed INVITE loop detection when forked INVITE requets arrive over
+  multiple paths
+** H.323
+- Fixed inclusion of RFC2833 using H.323
+** Misc
+- Made the libnotify dependancy optional
+- Fixed POTFILE.in file
+
+* Major changes in ekiga 3.0.0 (2008-09-23)
+** Graphical User Interface
+- New user interface with a buddy list
+- Accelerated video display (Unix: XVideo, Windows: DirectDraw)
+- Nice incoming call notifications
+- Easier configuration assistant
+- New quality meter in the status bar
+- Buddy list with extended status information
+- Displays network neighbours in the buddy list
+- Better keyboard shortcuts
+- Automatic account completion in the URL bar
+- New chat window
+- New address book supporting Evolution contacts, LDAP contacts and more
+- New account window allowing easier account creation
+- New call panel
+** Codecs
+- H.263+
+- H.264
+- THEORA
+- MPEG4
+- Framerate up to 30 FPS
+- Resolutions (up to 704x576) (at best it is DVD quality)
+- Audio and video codecs as plugins
+- Support for Intel IPP codecs
+** SIP Support
+- SIP/SIMPLE presence support
+- Line monitoring with software like Asterisk
+- Custom presence message support
+- Dynamic detection of network interfaces
+- Register/unregister accounts on interfaces going up and down
+- Better NAT traversal
+- SIP requests originated from a unique port
+- Support for several network interfaces at the same time (e.g. VPN
+  and normal network)
+- Full SIP capabilties exchange for codecs (unique in the Open Source world)
+- SIP INFO DTMF support
+- Possibility to send SMS using the Ekiga Call Out account
+- Many compliance fixes
+** Hotplug Support
+- Hotplug support for audio and video devices (even when being in a call)
+- Hotplug support for network interfaces
+** For Developers and Packagers
+- Brand new Ekiga Engine, fully separated from the GUI and reusable in
+  other projects
+- Reworked WIN32 build
+- Better autoconf support for OPAL
