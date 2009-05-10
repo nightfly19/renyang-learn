@@ -55,38 +55,58 @@ class Phone: public QObject {
 public:
 
 	enum recorder_status {
+		// renyang - 表示要持續接收由麥克風接收音訊, 並傳送封包
 		RECORDER_STATUS_RUNNING = 0,
+		// renyang - 開始傳送由麥克風擷取到的封包
 		RECORDER_STATUS_START,
+		// renyang - 有一點像是暫時停止, 準備再啟動
 		RECORDER_STATUS_STOP,
+		// renyang - 停止recorder的擷取封包
 		RECORDER_STATUS_WAITING,
+		// renyang - 表示不傳送資料到對方
 		RECORDER_STATUS_MUTE
 	};
 
 	enum player_status {
+		// renyang - 開始放出音量
 		PLAYER_STATUS_RUNNING = 0,
+		// renyang - 停止player
 		PLAYER_STATUS_STOP,
+		// renyang - 靜音
 		PLAYER_STATUS_MUTE
 	};
 
 	Phone(int);
 	~Phone();
 
+	// renyang - 重新設定call index的順序
 	void resize(int);
 	// renyang - 等待別人連線
 	void waitCalls(int, bool, bool);
 	// renyang - 與server端建立連線
 	void call(int, QString, int, int);
+	// renyang - 此id的call接受別人打過來的電話
 	void answerCall(int);
+	// renyang - 結束所有call
 	void endAll();
+	// renyang - 結束目前這一個call
 	void endCall(int);
+	// renyang - 異常停止所有的call
 	void abortAll();
+	// renyang - 把所有的server(等待別人打電話過來的socket filedescriptor, notifier均刪掉)
 	void stopWaiting();
+	// renyang - 建立一個新的Call, 有必要時會建立call的整個物件
 	int createCall();
+	// renyang - 尋找空的call index, 並指向建立的call物件
 	int newCall();
+	// renyang - 刪掉指定的call id
 	void deleteCall(int);
+	// renyang - 設定某一個call id是否響鈴
 	void ring(int, bool);
+	// renyang - 當有電話進來時, 要啟動player
 	void receivedCall(int);
 
+	// renyang - 把音訊傳給目前正在使用的call
 	void send(float*, int);
 	// renyang - 傳送音訊資料
 	void sendAudioData(float *, int);
@@ -134,7 +154,9 @@ public:
 
 	// renyang - 尋找出最大音量, 來確認是有在說話
 	bool isSpeaking(float*, int);
+	// renyang - 尋找目前所有的call index中沒有在使用的
 	int findFreeId();
+	// renyang - 尋找目前所有存在的Call, 但是確沒有在使用的
 	int findFreeCall();
 	void checkSound();
 	bool isListening();
@@ -147,6 +169,7 @@ private:
 	// renyang - RECORDER_STATUS_WAITING, RECORDER_STATUS_START, RECORDER_STATUS_RUNNING
 	// renyang - RECORDER_STATUS_MUTE, RECORDER_STATUS_STOP
 	recorder_status rec_status;
+	// renyang - 記錄player的狀態
 	player_status play_status;
 
 	Recorder *recorder;
@@ -196,6 +219,7 @@ private:
 	int frame_size;
 	int ready;
 	int stoptx;
+	// renyang - 是否擷取到的音量有超過threadhold
 	int speak;
 	int rate;
 	float threshold;
