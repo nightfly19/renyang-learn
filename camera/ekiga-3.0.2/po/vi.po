@@ -1,0 +1,3052 @@
+# Vietnamese translation for Ekiga.
+# Copyright © 2008 Gnome i18n Project for Vietnamese.
+# Nguyễn Thái Ngọc Duy <pclouds@gmx.net>, 2002-2004.
+# Clytie Siddall <clytie@riverland.net.au>, 2005-2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Ekiga GNOME TRUNK\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-02 20:14+0000\n"
+"PO-Revision-Date: 2008-06-03 23:26+0930\n"
+"Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
+"Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: LocFactoryEditor 1.7b3\n"
+
+#: ../ekiga.desktop.in.in.h:1
+msgid "Ekiga Softphone"
+msgstr "Điện thoại mềm Ekiga"
+
+#: ../ekiga.desktop.in.in.h:2
+msgid "IP Telephony, VoIP and Video Conferencing"
+msgstr "Điện thoại IP, VoIP và hội thảo ảnh động"
+
+#: ../ekiga.desktop.in.in.h:3
+msgid "Talk to people over the Internet"
+msgstr "Nói chuyện với người qua Internet"
+
+#: ../ekiga.schemas.in.in.h:1
+msgid "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+msgstr "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Riêng"
+
+#: ../ekiga.schemas.in.in.h:2
+msgid ""
+"Allow Ekiga to fall back to software scaling the picture-in-picture if "
+"hardware support is not available. If this is set to false, Ekiga will not "
+"try to open the PIP if hardware support is not available."
+msgstr ""
+"Cho phép Ekiga phục hồi phần mềm co giãn ảnh-bên-trong-ảnh nếu không có sẵn "
+"hỗ trợ phần cứng. Đặt tùy chọn này thành sai (false) thì Ekiga sẽ không thử "
+"mở PIP nếu hỗ trợ phần cứng không sẵn sàng."
+
+#: ../ekiga.schemas.in.in.h:3
+msgid "Allow picture-in-picture software scaling"
+msgstr "Cho phép phần mềm co giãn ảnh-bên-trong-ảnh"
+
+#: ../ekiga.schemas.in.in.h:4
+msgid "Alternative audio output device"
+msgstr "Thiết bị xuất âm thanh thay thế"
+
+#: ../ekiga.schemas.in.in.h:5
+msgid "Always forward calls to the given host"
+msgstr "Luôn chuyển tiếp cuộc gọi đến máy đã chọn"
+
+#: ../ekiga.schemas.in.in.h:6
+msgid "Audio input device"
+msgstr "Thiết bị nhập âm thanh"
+
+#: ../ekiga.schemas.in.in.h:7
+msgid "Audio output device"
+msgstr "Thiết bị xuất âm thanh"
+
+#: ../ekiga.schemas.in.in.h:8
+msgid "Auto Away Timeout"
+msgstr "Quá hạn tự động vắng mặt"
+
+#: ../ekiga.schemas.in.in.h:9
+msgid "Automatic echo cancellation"
+msgstr "Tự động hủy bỏ tiếng vọng"
+
+#: ../ekiga.schemas.in.in.h:10 ../src/gui/preferences.cpp:446
+msgid ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+msgstr ""
+"Tự động từ chối hay chuyển tiếp các cuộc gọi được gửi đến nếu không có trả "
+"lời trong vòng được lập (theo giây)."
+
+#: ../ekiga.schemas.in.in.h:11
+msgid "Calls history"
+msgstr "Lược sử cuộc gọi"
+
+#: ../ekiga.schemas.in.in.h:12
+msgid "Change the main window panel section"
+msgstr "Đổi phần bảng điều khiển của cửa sổ chính"
+
+#: ../ekiga.schemas.in.in.h:13
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+msgstr ""
+"Kết nối sẽ được thiết lập ở chế độ Sở khởi Nhanh. Sở khởi Nhanh là một "
+"phương pháp sở khơi nhanh cuộc gọi được giới thiệu trong H.323v2. Nó không "
+"phải được Netmeeting hỗ trợ, và trường hợp chạy cả hai Sở khởi Nhanh và "
+"Đường hầm H.245 có thể gây ra một số phiên bản Netmeeting sụp đổ."
+
+#: ../ekiga.schemas.in.in.h:14
+msgid "Contact long status"
+msgstr "Trạng thái liên lạc dài"
+
+#: ../ekiga.schemas.in.in.h:15
+msgid "Contact short status"
+msgstr "Trạng thái liên lạc ngắn"
+
+#: ../ekiga.schemas.in.in.h:16
+msgid "Country code"
+msgstr "Mã quốc gia"
+
+#: ../ekiga.schemas.in.in.h:17
+msgid "DTMF sending"
+msgstr "Gửi DTMF"
+
+#: ../ekiga.schemas.in.in.h:18
+msgid "Disable video hardware acceleration"
+msgstr "Tắt chức năng tăng tốc phần cứng ảnh động"
+
+#: ../ekiga.schemas.in.in.h:19
+msgid "Display a popup window when receiving a call"
+msgstr "Cửa sổ tự mở khi nhận cuộc gọi"
+
+#: ../ekiga.schemas.in.in.h:20
+msgid "Enable 'Fast Start'"
+msgstr "Bật « Sở khởi nhanh »"
+
+#: ../ekiga.schemas.in.in.h:21
+msgid "Enable H.245 tunneling"
+msgstr "Bật đường hầm H.245"
+
+#: ../ekiga.schemas.in.in.h:22
+msgid "Enable early H.245"
+msgstr "Bật H.245 sớm"
+
+#: ../ekiga.schemas.in.in.h:23
+msgid "Enable echo cancelation"
+msgstr "Bật hủy tiếng vọng"
+
+#: ../ekiga.schemas.in.in.h:24
+msgid "Enable silence detection"
+msgstr "Bật phát hiện im lặng"
+
+#: ../ekiga.schemas.in.in.h:25
+msgid "Enable video support"
+msgstr "Bật hỗ trợ ảnh động"
+
+#: ../ekiga.schemas.in.in.h:26
+msgid ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+msgstr ""
+"Hãy gõ số giây sau đó Ekiga nên thử cập nhật tổ hợp NAT khi sử dụng STUN."
+
+#: ../ekiga.schemas.in.in.h:27
+msgid "Enter your full name"
+msgstr "Gõ họ tên của bạn"
+
+#: ../ekiga.schemas.in.in.h:28
+msgid "Forward calls to host"
+msgstr "Chuyển tiếp cuộc gọi cho máy"
+
+#: ../ekiga.schemas.in.in.h:29
+msgid "Forward calls to the given host if busy"
+msgstr "Chuyển tiếp cuộc gọi đến máy cho trước nếu bận"
+
+#: ../ekiga.schemas.in.in.h:30
+msgid "Forward calls to the given host if no answer"
+msgstr "Chuyển tiếp cuộc gọi đến máy cho trước nếu không có trả lời"
+
+#: ../ekiga.schemas.in.in.h:31 ../src/gui/preferences.cpp:1014
+msgid "Frame Rate"
+msgstr "Tỷ lệ khung"
+
+#: ../ekiga.schemas.in.in.h:32
+msgid "Full name"
+msgstr "Tên đầy đủ"
+
+#: ../ekiga.schemas.in.in.h:33 ../src/gui/preferences.cpp:407
+msgid ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+msgstr ""
+"Bật thì Ekiga sẽ khởi chạy bị ẩn, miễn là vùng thông báo ở bảng điều khiển "
+"GNOME."
+
+#: ../ekiga.schemas.in.in.h:34
+msgid ""
+"If enabled, a popup window will be displayed when receiving an incoming call"
+msgstr "Bật thì cửa sổ tự mở khi nhận được cuộc gọi được gửi đến"
+
+#: ../ekiga.schemas.in.in.h:35
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+msgstr ""
+"Bật thì mọi cuộc gọi được gửi đến sẽ được chuyển tiếp đến máy được xác định "
+"trong trường bên dưới"
+
+#: ../ekiga.schemas.in.in.h:36
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+msgstr ""
+"Bật thì mọi cuộc gọi được gửi đến sẽ được chuyển tiếp đến máy được xác định "
+"trong trường bên dưới nếu bạn ở cuộc gọi khác, hoặc nếu bạn ở chế độ Đừng "
+"Làm Phiền"
+
+#: ../ekiga.schemas.in.in.h:37
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+msgstr ""
+"Bật thì mọi cuộc gọi được gửi đến sẽ được chuyển tiếp đến máy được xác định "
+"trong trường bên dưới nếu bạn không trả lời cuộc gọi"
+
+#: ../ekiga.schemas.in.in.h:38
+msgid "If enabled, allows video during calls"
+msgstr "Bật thì cho phép hiển thị ảnh động trong cuộc gọi"
+
+#: ../ekiga.schemas.in.in.h:39 ../src/gui/preferences.cpp:409
+msgid "If enabled, offline contacts will be shown in the roster"
+msgstr "Bật thì các liên kết ngoại tuyến cũng được hiển thị trên bản liệt kê."
+
+#: ../ekiga.schemas.in.in.h:40
+msgid "If enabled, use echo cancelation"
+msgstr "Bật thì hủy bỏ tiếng vòng"
+
+#: ../ekiga.schemas.in.in.h:41
+msgid "If enabled, use silence detection with the codecs supporting it"
+msgstr "Bật thì phát hiện im lặng bằng các codec hỗ trợ"
+
+#: ../ekiga.schemas.in.in.h:42
+msgid "Kind of network selected in the druid"
+msgstr "Loại mạng được chọn trong trợ lý"
+
+#: ../ekiga.schemas.in.in.h:43
+msgid "List of folded groups in the roster"
+msgstr "Danh sách các nhóm đã gấp trong bản liệt kê"
+
+#: ../ekiga.schemas.in.in.h:44
+msgid "Listen port"
+msgstr "Cổng lắng nghe"
+
+#: ../ekiga.schemas.in.in.h:45
+msgid "Local video window size"
+msgstr "Cỡ cửa sổ ảnh động cục bộ"
+
+#: ../ekiga.schemas.in.in.h:46
+msgid "Maximum RX video bitrate"
+msgstr "Tỷ lệ bit ảnh động RX tối đa"
+
+#: ../ekiga.schemas.in.in.h:47
+msgid "Maximum TX video bitrate"
+msgstr "Tỷ lệ bit ảnh động TX tối đa"
+
+#: ../ekiga.schemas.in.in.h:48
+msgid "Maximum jitter buffer"
+msgstr "Vùng đệm tối đa biến đổi tính thời gian ngẫu nhiên"
+
+#: ../ekiga.schemas.in.in.h:49
+msgid "NAT Binding Timeout"
+msgstr "Thời hạn tổ hợp NAT"
+
+#: ../ekiga.schemas.in.in.h:50
+msgid "No answer timeout"
+msgstr "Thời hạn không trả lời"
+
+#: ../ekiga.schemas.in.in.h:51
+msgid "Number of frames for G.711"
+msgstr "Số khung cho G.711"
+
+#: ../ekiga.schemas.in.in.h:52
+msgid "Number of frames for GSM"
+msgstr "Số khung cho GSM"
+
+#: ../ekiga.schemas.in.in.h:53
+msgid "Number of frames transmitted in each packet for the G.711 codec"
+msgstr "Số khung hình được gửi trong mỗi gói tin cho codec G.711."
+
+#: ../ekiga.schemas.in.in.h:54
+msgid "Number of frames transmitted in each packet for the GSM codec"
+msgstr "Số khung hình được trong mỗi gói tin cho codec GSM."
+
+#: ../ekiga.schemas.in.in.h:55
+msgid "Outbound Proxy"
+msgstr "Ủy nhiệm đi ra"
+
+#: ../ekiga.schemas.in.in.h:56
+msgid "Output device type"
+msgstr "Kiểu thiết bị xuất âm thanh"
+
+#: ../ekiga.schemas.in.in.h:57 ../src/gui/preferences.cpp:416
+msgid "Place windows displaying video above other windows during calls"
+msgstr "Để cửa sổ hiển thị ảnh động trên mọi cửa sổ khác trong suốt cuộc gọi."
+
+#: ../ekiga.schemas.in.in.h:58 ../src/gui/preferences.cpp:1405
+msgid "Play busy tone"
+msgstr "Phát tiếng bận"
+
+#: ../ekiga.schemas.in.in.h:59 ../src/gui/preferences.cpp:1396
+msgid "Play ring tone"
+msgstr "Phát tiếng chuông"
+
+#: ../ekiga.schemas.in.in.h:60 ../src/gui/preferences.cpp:1387
+msgid "Play sound on incoming calls"
+msgstr "Phát âm thanh khi nhận cuộc gọi mới"
+
+#: ../ekiga.schemas.in.in.h:61
+msgid "Play sound on new message"
+msgstr "Phát âm thanh khi nhận tin nhắn mới"
+
+#: ../ekiga.schemas.in.in.h:62
+msgid "Play sound on new voice mail"
+msgstr "Phát âm thanh khi nhận thư thoại mới"
+
+#: ../ekiga.schemas.in.in.h:63
+msgid "Position of the local video window"
+msgstr "Vị trí cửa sổ ảnh động cục bộ"
+
+#: ../ekiga.schemas.in.in.h:64
+msgid "Position on the screen of the PC-To-Phone window"
+msgstr "Vị trí cửa sổ Máy-đến-điện thoại"
+
+#: ../ekiga.schemas.in.in.h:65
+msgid "Position on the screen of the address book window"
+msgstr "Vị trí cửa sổ Sổ địa chỉ"
+
+#: ../ekiga.schemas.in.in.h:66
+msgid "Position on the screen of the audio settings window"
+msgstr "Vị trí cửa sổ thiết lập âm thanh trên màn hình"
+
+#: ../ekiga.schemas.in.in.h:67
+msgid "Position on the screen of the chat window"
+msgstr "Vị trí trên màn hình của cửa sổ trò chuyện"
+
+#: ../ekiga.schemas.in.in.h:68
+msgid "Position on the screen of the druid window"
+msgstr "Vị trí cửa sổ trợ lý"
+
+#: ../ekiga.schemas.in.in.h:69
+msgid "Position on the screen of the log window"
+msgstr "Vị trí cửa sổ bản ghi"
+
+#: ../ekiga.schemas.in.in.h:70
+msgid "Position on the screen of the main window"
+msgstr "Vị trí cửa sổ chính"
+
+#: ../ekiga.schemas.in.in.h:71
+msgid "Position on the screen of the preferences window"
+msgstr "Vị trí cửa sổ tùy thích"
+
+#: ../ekiga.schemas.in.in.h:72
+msgid "Position on the screen of the video settings window"
+msgstr "Vị trí cửa sổ thiết lập ảnh động trên màn hình"
+
+#: ../ekiga.schemas.in.in.h:73
+msgid "Registration timeout"
+msgstr "Thời hạn đăng ký"
+
+#: ../ekiga.schemas.in.in.h:74
+msgid "Remote video window position"
+msgstr "Vị trí cửa sổ ảnh động từ xa"
+
+#: ../ekiga.schemas.in.in.h:75
+msgid "Remote video window size"
+msgstr "Cỡ cửa sổ ảnh động từ xa"
+
+#: ../ekiga.schemas.in.in.h:76
+msgid "Revision of the schema file"
+msgstr "Bản sửa đổi tập tin giản đồ"
+
+#: ../ekiga.schemas.in.in.h:77
+msgid "Roster view saving group status"
+msgstr "Ô xem bản liệt kê, lưu trạng thái về nhóm"
+
+#: ../ekiga.schemas.in.in.h:78
+msgid "Select an alternative audio output device to use for sound events."
+msgstr "Chọn thiết bị xuất âm thanh thay thế cần dùng cho dữ kiện âm thanh."
+
+#: ../ekiga.schemas.in.in.h:79 ../src/gui/preferences.cpp:725
+msgid "Select the audio input device to use"
+msgstr "Chọn thiết bị nhập âm thanh cần dùng"
+
+#: ../ekiga.schemas.in.in.h:80 ../src/gui/preferences.cpp:718
+msgid "Select the audio output device to use"
+msgstr "Chọn thiết bị xuất âm thanh cần dùng"
+
+#: ../ekiga.schemas.in.in.h:81 ../src/gui/preferences.cpp:881
+msgid ""
+"Select the format for video cameras (does not apply to most USB cameras)"
+msgstr ""
+"Chọn định dạng cho máy ảnh động (không áp dụng vào phần lớn máy ảnh USB)"
+
+#: ../ekiga.schemas.in.in.h:82
+msgid ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"Chọn kích thước ảnh động gửi đi: Nhỏ (QCIF 176×144) hay Lớn (CIF 352×288)."
+
+#: ../ekiga.schemas.in.in.h:83 ../src/gui/preferences.cpp:873
+msgid ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+msgstr ""
+"Chọn thiết bị nhập ảnh động cần dùng. Sử dụng thiết bị này và gặp lỗi thì "
+"truyền ảnh thử."
+
+#: ../ekiga.schemas.in.in.h:84
+msgid "Show offline contacts"
+msgstr "Hiện liên lạc ngoại tuyến"
+
+#: ../ekiga.schemas.in.in.h:85 ../src/gui/main.cpp:1614
+msgid "Show the call panel"
+msgstr "Hiện bảng cuộc thoại"
+
+#: ../ekiga.schemas.in.in.h:86
+msgid "Size of the PC-To-Phone window"
+msgstr "Kích cỡ cửa sổ Máy-đến-điện thoại"
+
+#: ../ekiga.schemas.in.in.h:87
+msgid "Size of the address book window"
+msgstr "Kích cỡ cửa sổ của sổ địa chỉ"
+
+#: ../ekiga.schemas.in.in.h:88
+msgid "Size of the audio settings window"
+msgstr "Kích cỡ cửa sổ thiết lập âm thanh"
+
+#: ../ekiga.schemas.in.in.h:89
+msgid "Size of the chat window"
+msgstr "Kích cỡ cửa sổ trò chuyện"
+
+#: ../ekiga.schemas.in.in.h:90
+msgid "Size of the druid window"
+msgstr "Kích cỡ cửa sổ trợ lý"
+
+#: ../ekiga.schemas.in.in.h:91
+msgid "Size of the preferences window"
+msgstr "Kích cỡ cửa sổ tùy thích"
+
+#: ../ekiga.schemas.in.in.h:92
+msgid "Size of the video settings window"
+msgstr "Kích cỡ cửa sổ thiết lập ảnh động"
+
+#: ../ekiga.schemas.in.in.h:93
+msgid "Specify the software scaling algorithm"
+msgstr "Ghi rõ thuật toán co giãn phần mềm"
+
+#: ../ekiga.schemas.in.in.h:94
+msgid ""
+"Specify the software scaling algorithm: 0: nearest neighbor, 1: nearest "
+"neighbor with box filter, 2: bilinear filtering, 3: hyperbolic filtering. "
+"Does not apply on windows systems."
+msgstr ""
+"Ghi rõ thuật toán cogiãn phần mềm:\n"
+" • 0\t\thàng xóm gần nhất\n"
+" • 1\t\thàng xóm gần nhất có bộ lọc hộp\n"
+" • 2\t\tlọc tuyến kép\n"
+" • 3\t\tlọc hyperbolic\n"
+"(Không có hiệu lực trên hệ thống Windows.)"
+
+#: ../ekiga.schemas.in.in.h:95
+msgid "Start hidden"
+msgstr "Khởi chạy ẩn"
+
+#: ../ekiga.schemas.in.in.h:96
+msgid "TCP port range"
+msgstr "Phạm vi cổng TCP"
+
+#: ../ekiga.schemas.in.in.h:97
+msgid "Temporal Spatial Trade Off"
+msgstr "Thỏa hiệp Không giản Thời gian"
+
+#: ../ekiga.schemas.in.in.h:98
+msgid "The Audio Codecs List"
+msgstr "Danh Sách Codec Âm Thanh"
+
+#: ../ekiga.schemas.in.in.h:99
+msgid ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+msgstr ""
+"Cấp Tự động Hủy bỏ Tiếng vọng: Tắt, Thấp, Vừa, Cao, Tự động bù khuếch đại. "
+"Chọn « Tự động bù khuếch đại » thì chuyển giọng âm lượng cho mức chất lượng "
+"âm thanh tốt nhất."
+
+#: ../ekiga.schemas.in.in.h:100 ../src/gui/preferences.cpp:675
+msgid "The SIP Outbound Proxy to use for outgoing calls"
+msgstr "Ủy nhiệm đi ra SIP cần dùng khi gọi ra"
+
+#: ../ekiga.schemas.in.in.h:101
+msgid "The STUN Server"
+msgstr "Máy phục vụ STUN"
+
+#: ../ekiga.schemas.in.in.h:102
+msgid ""
+"The STUN server to use for STUN Support. STUN is a technology that permits "
+"passage through some types of NAT gateway"
+msgstr ""
+"Máy phục vụ STUN cần dùng để hỗ trợ STUN.\n"
+"STUN là một kỹ thuật cho phép đi qua một số kiểu cổng ra NAT."
+
+#: ../ekiga.schemas.in.in.h:103
+msgid "The Video Codecs List"
+msgstr "Danh Sách Codec Ảnh Động"
+
+#: ../ekiga.schemas.in.in.h:104
+msgid "The accounts list"
+msgstr "Danh sách tài khoản"
+
+#: ../ekiga.schemas.in.in.h:105
+msgid "The audio codecs list"
+msgstr "Danh sách các codec âm thanh"
+
+#: ../ekiga.schemas.in.in.h:106
+msgid "The busy tone sound"
+msgstr "Âm thanh cho tiếng bận"
+
+#: ../ekiga.schemas.in.in.h:107
+msgid ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+msgstr "Bật thì phát âm thanh đã chọn khi kết thúc gọi hay gọi người bận"
+
+#: ../ekiga.schemas.in.in.h:108
+msgid "The chosen sound will be played on incoming calls, if enabled"
+msgstr "Bật thì phát âm thanh đã chọn khi nhận được cuộc gọi"
+
+#: ../ekiga.schemas.in.in.h:109
+msgid ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+msgstr "Bật thì phát âm thanh khi nhận được tin nhắn mới"
+
+#: ../ekiga.schemas.in.in.h:110
+msgid ""
+"The chosen sound will be played when a new voice mail is received, if enabled"
+msgstr "Bật thì phát âm thanh khi nhận được thư thoại mới"
+
+#: ../ekiga.schemas.in.in.h:111
+msgid "The chosen sound will be played when calling somebody, if enabled"
+msgstr "Bật thì phát âm thanh khi gọi ra"
+
+#: ../ekiga.schemas.in.in.h:112
+msgid "The default video view"
+msgstr "Ô xem ảnh động mặc định"
+
+#: ../ekiga.schemas.in.in.h:113
+msgid ""
+"The default video view (0: Local, 1: Remote, 2: Both layered, 3: Both with "
+"local video in a separate window, 4: Both)"
+msgstr ""
+"Ô xem ảnh động mặc định:\n"
+" 0\tCục bộ\n"
+" 1\tTừ xa\n"
+" 2\tCả hai đã sắp từng tầng\n"
+" 3\tCả hai với ảnh động cục bộ trong một cửa sổ riêng\n"
+" 4\tCả hai"
+
+#: ../ekiga.schemas.in.in.h:114
+msgid "The dial tone sound"
+msgstr "Tiếng chuông gọi"
+
+#: ../ekiga.schemas.in.in.h:115
+msgid "The history of the 100 last calls"
+msgstr "Lược sử của 100 cuộc gọi cuối cùng"
+
+#: ../ekiga.schemas.in.in.h:116 ../src/gui/preferences.cpp:624
+#: ../src/gui/preferences.cpp:678
+msgid "The host where calls should be forwarded if call forwarding is enabled"
+msgstr ""
+"Máy đến đó cần chuyển tiếp cuộc gọi, nếu khả năng chuyển tiếp cuộc gọi đã "
+"được hiệu lực"
+
+#: ../ekiga.schemas.in.in.h:117
+msgid ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+msgstr ""
+"Ảnh cần truyền nếu « Ảnh » được chọn như Phần bổ sung Ảnh động, hay nếu không "
+"mở thiết bị được. Bỏ rỗng để sử dụng biểu hình Ekiga mặc định."
+
+#: ../ekiga.schemas.in.in.h:118
+msgid "The incoming call sound"
+msgstr "Âm thanh cuộc gọi đến"
+
+#: ../ekiga.schemas.in.in.h:119
+msgid "The list of accounts to which Ekiga should register"
+msgstr "Danh sách các tài khoàn mà Ekiga nên đăng ký"
+
+#: ../ekiga.schemas.in.in.h:120
+msgid "The long status information"
+msgstr "Thông tin chi tiết về liên lạc"
+
+#: ../ekiga.schemas.in.in.h:121
+msgid ""
+"The maximum RX video bitrate in kbit/s. This value will be signaled to the "
+"peer endpoint that can adjust (if it supports it) its TX bitrate if it is "
+"above the signaled value"
+msgstr ""
+"Tỷ lệ bit ảnh động RX tối đa, theo kbit/giây. Giá trị này sẽ được báo hiệu "
+"cho điểm cuối ngang hàng có thể điều chỉnh (nếu hỗ trợ) tỷ lệ TX bên trên "
+"giá trị đã báo hiệu."
+
+#: ../ekiga.schemas.in.in.h:122
+msgid ""
+"The maximum TX video bitrate in kbit/s. The video quality and the number of "
+"transmitted frames per second (depends on selected codec) will be "
+"dynamically adjusted above their minimum during calls to try to minimize the "
+"bandwidth to the given value"
+msgstr ""
+"Tỷ lệ bit ảnh động TX tối đa, theo kbit/giây. Mức chất lượng của ảnh động và "
+"số khung được truyền mỗi giây (phụ thuộc vào codec đã chọn) sẽ được điều "
+"chỉnh động bên trên giá trị tối thiểu trong cuộc gọi, để thử cực đại hoá "
+"băng thông thành giá trị đã cho."
+
+#: ../ekiga.schemas.in.in.h:123
+msgid "The maximum jitter buffer size for audio reception (in ms)"
+msgstr ""
+"Kích cỡ vùng đệm tối đa biến đổi tính thời gian ngẫu nhiên, để nhận âm thanh "
+"(theo mili giây)"
+
+#: ../ekiga.schemas.in.in.h:124
+msgid ""
+"The maximum transmitted frame rate in frames/s. This rate may not be reached "
+"in case a minimum quality was configure via a TSTO value smaller than 31 and "
+"the bitrate selected is not sufficient to support this minimum quality"
+msgstr ""
+"Tỷ lệ khung tối đa đã truyền, theo khung/giây. Tỷ lệ này có thể không tới "
+"được trong trường hợp mức chất lượng tối thiểu được cấu hình thông qua giá "
+"trị TSTO nhỏ hơn 31 và tỷ lệ bit được chọn không đủ để hỗ trợ mức chất lượng "
+"tối thiểu này."
+
+#: ../ekiga.schemas.in.in.h:125
+msgid "The new instant message sound"
+msgstr "Âm thanh tin nhắn tức khắc mới"
+
+#: ../ekiga.schemas.in.in.h:126
+msgid "The new voice mail sound"
+msgstr "Âm thanh thư thoại mới"
+
+#: ../ekiga.schemas.in.in.h:127
+msgid ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+msgstr ""
+"Kiểu thiết bị xuất là kiểu thiết bị được kết nối đến bo mạch Quicknet của "
+"bạn. Có thể là hoặc POTS (Plain Old Telephone System: hệ thống điện thoại "
+"thô cũ) hoặc một bộ ống nghe."
+
+#: ../ekiga.schemas.in.in.h:128
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+msgstr ""
+"Cổng dùng để lắng nghe cuộc gọi đến. Ekiga cần được khởi chạy lại để giá trị "
+"mới có tác dụng"
+
+#: ../ekiga.schemas.in.in.h:129
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+msgstr ""
+"Cổng dùng để lắng nghe cuộc gọi đến. Ekiga cần được khởi chạy lại để giá trị "
+"mới có tác dụng."
+
+#: ../ekiga.schemas.in.in.h:130
+msgid "The position of the local video window"
+msgstr "Vị trí cửa sổ ảnh động cục bộ"
+
+#: ../ekiga.schemas.in.in.h:131
+msgid "The position of the remote video window"
+msgstr "Vị trí cửa sổ ảnh động từ xa"
+
+#: ../ekiga.schemas.in.in.h:132
+msgid ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+msgstr ""
+"Tiền tố được dùng để lưu ảnh của cuộc thoại. Tiền tố này có số thứ tự ảnh "
+"chụp theo sau."
+
+#: ../ekiga.schemas.in.in.h:133
+msgid ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. This "
+"port range has no effect if both participants to the conference are using "
+"H.245 Tunneling."
+msgstr ""
+"Phạm vi các cổng TCP mà Ekiga dùng cho kênh H.323 H.245. Phạm vi cổng này "
+"không có tác dụng nếu cả hai tham gia hội thoại bằng Đường hầm H.245."
+
+#: ../ekiga.schemas.in.in.h:134
+msgid "The range of UDP ports that Ekiga will use."
+msgstr "Phạm vi các cổng UDP mà Ekiga sẽ dùng."
+
+#: ../ekiga.schemas.in.in.h:135
+msgid "The save prefix"
+msgstr "Tiền tố lưu"
+
+#: ../ekiga.schemas.in.in.h:136
+msgid "The short status information"
+msgstr "Thông tin ngắn về liên lạc"
+
+#: ../ekiga.schemas.in.in.h:137
+msgid "The size of the local video window"
+msgstr "Cỡ cửa sổ ảnh động cục bộ"
+
+#: ../ekiga.schemas.in.in.h:138
+msgid "The size of the remote video window"
+msgstr "Cỡ cửa sổ ảnh động từ xa"
+
+#: ../ekiga.schemas.in.in.h:139
+msgid ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+msgstr "Bật thì tiếng cần phát tại kết thúc gọi, hoặc khi gọi người bận"
+
+#: ../ekiga.schemas.in.in.h:140
+msgid "The sound that will be played on incoming calls, if enabled"
+msgstr "Bật thì tiếng cần phát khi nhận được cuộc gọi"
+
+#: ../ekiga.schemas.in.in.h:141
+msgid "The sound that will be played when calling somebody, if enabled"
+msgstr "Bật thì tiếng cần phát khi gọi ra"
+
+#: ../ekiga.schemas.in.in.h:142
+msgid ""
+"The sound that will be played when there is a new instant message, if enabled"
+msgstr "Bật thì tiếng cần phát khi nhận được tin nhắn tức khắc mới"
+
+#: ../ekiga.schemas.in.in.h:143
+msgid ""
+"The sound that will be played when there is a new voice mail, if enabled"
+msgstr "Bật thì tiếng cần phát khi nhận được thư nói mới"
+
+#: ../ekiga.schemas.in.in.h:144
+msgid ""
+"The time after which Ekiga will renew its registration with the registrar"
+msgstr "Khoảng thời gian giữa hai lần Ekiga đăng ký với bộ đăng ký"
+
+#: ../ekiga.schemas.in.in.h:145
+msgid "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+msgstr "Mã quốc gia (hai ký tự). Ví dụ: BE, UK, FR, DE, VI ..."
+
+#: ../ekiga.schemas.in.in.h:146 ../src/gui/preferences.cpp:877
+msgid "The video channel number to use (to select camera, tv or other sources)"
+msgstr ""
+"Số hiệu kênh ảnh động cần dùng (để chọn máy ảnh, TV hoặc các nguồn khác)."
+
+#: ../ekiga.schemas.in.in.h:147
+msgid "The video codecs list"
+msgstr "Danh sách các coden ảnh động"
+
+#: ../ekiga.schemas.in.in.h:148
+msgid "The video view before having switched to fullscreen"
+msgstr "Ô xem ảnh động trước khi chuyển đổi sang toàn màn hình"
+
+#: ../ekiga.schemas.in.in.h:149
+msgid ""
+"The video view before having switched to fullscreen (same values as "
+"video_view)"
+msgstr ""
+"Ô xem ảnh động trước khi chuyển đổi sang toàn màn hình (cùng những giá trị "
+"với « video_view »)"
+
+#: ../ekiga.schemas.in.in.h:150
+msgid "The zoom value"
+msgstr "Giá trị thu/phóng"
+
+#: ../ekiga.schemas.in.in.h:151
+msgid ""
+"The zoom value in percent to apply to images displayed in the main GUI (can "
+"be 50, 100, or 200)"
+msgstr ""
+"Giá trị thu/phóng (theo phần trăm) cần áp dụng cho ảnh được hiển thị trong "
+"giao diện đồ họa người dùng chính (có thể là 50, 100 hay 200)"
+
+#: ../ekiga.schemas.in.in.h:152
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be "
+"\"RFC2833\" (0), \"INFO\" (1)"
+msgstr ""
+"Tùy chọn này cho phép đặt chế độ gửi DTMF. Giá trị chỉ có thể:\n"
+" • 0\t\tRFC2833\n"
+" • 1\t\tINFO"
+
+#: ../ekiga.schemas.in.in.h:153
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+msgstr ""
+"Tùy chọn này cho phép đặt chế độ gửi DTMF. Giá trị có thể:\n"
+" 0 String\tchuỗi\n"
+" 1 Tone\tgiọng\n"
+" 2 \t\tRFC2833833\n"
+" 3 \t\tQ.931\n"
+"Mặc định là String (chuỗi). Chọn giá trị khác với String thì tắt chức năng "
+"trò chuyện bằng văn bản."
+
+#: ../ekiga.schemas.in.in.h:154 ../src/gui/preferences.cpp:636
+msgid ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+msgstr ""
+"Tùy chọn này hiệu lực chế độ Đường hầm H.245 (H.245 Tunnelling). Trong chế "
+"độ Đường hầm H.245, các thông điệp H.245 được bao bọc trong kênh H.225 (cổng "
+"1720). Trường hợp này tiết kiệm một kết nối TCP trong cuộc gọi. Chức năng "
+"đường hầm H.245 được giới thiệu trong H.323v2, mà Netmeeting không hỗ trợ. "
+"Dùng cả hai Sở Khởi Nhanh và H.245 đều có thể làm hỏng một vài phiên bản "
+"Netmeeting."
+
+#: ../ekiga.schemas.in.in.h:155 ../src/gui/preferences.cpp:638
+msgid "This enables H.245 early in the setup"
+msgstr "Việc này bật H.245 trong phần đâu tiến trình thiết lập."
+
+#: ../ekiga.schemas.in.in.h:156
+msgid ""
+"This key disables DirectX (on win32) and XVideo (on Linux) video hardware "
+"acceleration"
+msgstr ""
+"Khoá này tắt chức năng tăng tốc phần cứng ảnh động kiểu DirectX (trên win32) "
+"và XVideo (trên Linux)"
+
+#: ../ekiga.schemas.in.in.h:157
+msgid "Timeout after which the user is automatically set as away"
+msgstr "Quá hạn sau đó tự động đặt người dùng là « vắng mặt »"
+
+#: ../ekiga.schemas.in.in.h:158
+msgid "UDP port range"
+msgstr "Phạm vi cổng UDP"
+
+#: ../ekiga.schemas.in.in.h:159
+msgid "User directory"
+msgstr "Sách chỉ dẫn người dùng"
+
+#: ../ekiga.schemas.in.in.h:160
+msgid "Version"
+msgstr "Phiên bản"
+
+#: ../ekiga.schemas.in.in.h:161
+msgid "Video channel"
+msgstr "Kênh ảnh động"
+
+#: ../ekiga.schemas.in.in.h:162
+msgid "Video format"
+msgstr "Định dạng ảnh động"
+
+#: ../ekiga.schemas.in.in.h:163
+msgid "Video image"
+msgstr "Ảnh động"
+
+#: ../ekiga.schemas.in.in.h:164 ../src/gui/assistant.cpp:819
+msgid "Video input device"
+msgstr "Thiết bị nhập ảnh động"
+
+#: ../ekiga.schemas.in.in.h:165
+msgid "Video preview"
+msgstr "Xem thử ảnh động"
+
+#: ../ekiga.schemas.in.in.h:166
+msgid "Video size"
+msgstr "Cỡ ảnh động"
+
+#: ../ekiga.schemas.in.in.h:167
+msgid ""
+"Whether to prefer to sustain the max. frame rate or lower it possibly in "
+"order to keep a minimum level of (spatial) quality for all frames. 0: "
+"Highest minimal quality, 31: lowest minimal quality"
+msgstr ""
+"Có nên bảo tồn tỷ lệ khung tối đa, hoặc giảm nó có thể để giữ lại mức chất "
+"lượng (không gian) tối đa cho mọi khung:\n"
+" • 0\t\tmức chất lượng tối thiểu cao nhất\n"
+" • 1\t\tmức chất lượng tối thiểu thấp nhất"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:231
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:291
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:196
+msgid "_Remove"
+msgstr "_Bỏ"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:233
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:194
+#: ../src/gui/main.cpp:1571
+msgid "_Edit"
+msgstr "_Sửa"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:321
+msgid "Edit contact"
+msgstr "Sửa liên lạc"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:323
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:303
+msgid "Please update the following fields:"
+msgstr "Hãy cập nhật những trường này:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:325
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:220
+#: ../lib/engine/presence/local-roster/local-heap.cpp:157
+msgid "Name:"
+msgstr "Tên:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:334
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:306
+msgid "VoIP _URI:"
+msgstr "_URI VoIP:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:335
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:307
+msgid "_Home phone:"
+msgstr "Điện t_hoại ở nhà:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:336
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:308
+msgid "_Office phone:"
+msgstr "Điện th_oại chỗ làm:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:337
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:309
+msgid "_Cell phone:"
+msgstr "Điện thoại _di động:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:338
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:310
+msgid "_Pager:"
+msgstr "_Máy nhắn tin:"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:88
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:548
+msgid "user found"
+msgid_plural "users found"
+msgstr[0] "người dùng đã tìm"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:255
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:288
+msgid "_Refresh"
+msgstr "Cậ_p nhật"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:258
+msgid "New _Contact"
+msgstr "Liên lạ_c mới"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:301
+#: ../lib/engine/presence/local-roster/local-heap.cpp:108
+msgid "New contact"
+msgstr "Liên lạc mới"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:305
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:148
+msgid "_Name:"
+msgstr "Tê_n:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:133
+msgid "Add an LDAP addressbook"
+msgstr "Thêm một sổ địa chỉ LDAP"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:144
+msgid "Create LDAP directory"
+msgstr "Tạo thư mục LDAP"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:146
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:564
+msgid "Please edit the following fields"
+msgstr "Hãy chỉnh sửa những trường này"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:149
+msgid "_Hostname:"
+msgstr "Tên _máy:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:150
+msgid "_Port:"
+msgstr "_Cổng:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:151
+msgid "_Base DN:"
+msgstr "Tên miền cơ _bản:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:155
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:580
+msgid "_Subtree"
+msgstr "Câ_y con"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:156
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:581
+msgid "Single _Level"
+msgstr "_Cấp đơn"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:157
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:582
+msgid "_Scope"
+msgstr "_Phạm vi"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:160
+msgid "Call _Attribute:"
+msgstr "Th_uộc tính cuộc gọi:"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:293
+msgid "_Properties"
+msgstr "Th_uộc tính"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:351
+msgid "Refreshing"
+msgstr "Đang cập nhật"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:359
+msgid "Could not initialize server"
+msgstr "Không thể sơ khởi máy phục vụ"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:377
+msgid "Could not contact server"
+msgstr "Không thể liên lạc với máy phục vụ"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:385
+msgid "Contacted server"
+msgstr "Máy phục vụ đã liên lạc"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:422
+msgid "Could not connect to server"
+msgstr "Không thể kết nối tới máy phục vụ"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:472
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:519
+msgid "Could not search"
+msgstr "Không thể tìm kiếm"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:480
+msgid "Waiting for search results"
+msgstr "Đang đợi kết quả tìm kiếm"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:562
+msgid "Edit LDAP directory"
+msgstr "Sửa thư mục LDAP"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:566
+msgid "_Name"
+msgstr "Tê_n"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:567
+msgid "_Hostname"
+msgstr "Tên _máy"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:573
+msgid "_Port"
+msgstr "_Cổng"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:575
+msgid "_Base DN"
+msgstr "Tên miền cơ _bản"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:585
+msgid "Call _Attribute"
+msgstr "Th_uộc tính gọi"
+
+#: ../lib/engine/addressbook/skel/contact-core.cpp:60
+msgid "_Find"
+msgstr "_Tìm"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:644
+msgid "Address Book"
+msgstr "Sổ địa chỉ"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:657
+msgid "Address _Book"
+msgstr "_Sổ địa chỉ"
+
+#. This will add static and dynamic actions
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:666
+msgid "_Action"
+msgstr "_Hành động"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:711
+msgid "Address Books"
+msgstr "Sổ địa chỉ"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:647
+msgid "Full Name"
+msgstr "Tên đầy đủ"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:657
+msgid "VoIP URI"
+msgstr "URI VoIP"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:689
+msgid "_Search Filter:"
+msgstr "Bộ _lọc tìm kiếm:"
+
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:609
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:645
+msgid "Unsorted"
+msgstr "Chưa sắp xếp"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:752
+msgid "_Send"
+msgstr "_Gửi"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:963
+#, c-format
+msgid "You say:\n"
+msgstr "Bạn nói:\n"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:968
+msgid "says:"
+msgstr "nói:"
+
+#. The window
+#: ../lib/engine/gui/gtk-frontend/chat-window.cpp:559
+msgid "Chat Window"
+msgstr "Cửa sổ trò chuyện"
+
+#: ../lib/engine/gui/gtk-frontend/call-history-view-gtk.cpp:164
+#: ../src/gui/statusmenu.cpp:541
+msgid "Clear"
+msgstr "Dọn"
+
+#: ../lib/engine/presence/avahi/avahi-presentity.cpp:47
+msgid "Neighbours"
+msgstr "Hàng xóm"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:217
+msgid "Edit roster element"
+msgstr "Sửa phần tử bản liệt kê"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:218
+msgid ""
+"Please fill in this form to change an existing element of ekiga's internal "
+"roster"
+msgstr ""
+"Hãy điền vào đơn này để thay đổi yếu tố đã tồn tại của bản liệt kê nội bộ "
+"của Ekiga"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:222
+msgid "Choose groups:"
+msgstr "Chọn nhóm:"
+
+#: ../lib/engine/presence/local-roster/local-roster-bridge.cpp:100
+#: ../lib/engine/presence/local-roster/local-heap.cpp:154
+msgid "Add to local roster"
+msgstr "Thêm vào bản liệt kê cục bộ"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:101
+msgid "Local roster"
+msgstr "Bản liệt kê cục bộ"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:155
+msgid ""
+"Please fill in this form to add a new contact to ekiga's internal roster"
+msgstr ""
+"Hãy điền vào đơn này để thêm một liên lạc mới vào bản liệt kê nội bộ của "
+"Ekiga"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:165
+msgid "Address:"
+msgstr "Địa chỉ:"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:169
+msgid "Put contact in groups:"
+msgstr "Để liên lạc vào nhóm:"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:272
+msgid "You supplied an unsupported address"
+msgstr "Bạn đã cung cấp một địa chỉ không được hỗ trợ"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:274
+msgid "You already have a contact with this address!"
+msgstr "Bạn đã có một liên lạc với địa chỉ này !"
+
+#: ../lib/gui/codecsbox.cpp:479
+msgid "Move selected codec priority upwards"
+msgstr "Nâng lên ưu tiên codec đã chọn"
+
+#: ../lib/gui/codecsbox.cpp:490
+msgid "Move selected codec priority downwards"
+msgstr "Hạ thấp ưu tiên codec đã chọn"
+
+#: ../lib/gui/gmdialog.c:474
+msgid "Do not show this dialog again"
+msgstr "Đừng hiện hộp thoại này lần nữa"
+
+#: ../src/devices/audio.cpp:281
+msgid "Opening device for playing"
+msgstr "Đang mở thiết bị để phát"
+
+#: ../src/devices/audio.cpp:283
+msgid "Opening device for recording"
+msgstr "Đang mở thiết bị để thu"
+
+#: ../src/devices/audio.cpp:294 ../src/devices/audio.cpp:296
+msgid "Failed to open the device"
+msgstr "Lỗi mở thiết bị"
+
+#: ../src/devices/audio.cpp:294
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for recording. Please "
+"check your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Không thể mở thiết bị âm thanh đã chọn (%s) để thu. Hãy kiểm tra xem thiết "
+"lập âm thanh và quyền hạn là đúng, và thiết bị không đang bận."
+
+#: ../src/devices/audio.cpp:296
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for playing. Please check "
+"your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Không thể mở thiết bị âm thanh đã chọn (%s) để phát. Hãy kiểm tra xem thiết "
+"lập âm thanh và quyền hạn là đúng, và thiết bị không đang bận."
+
+#: ../src/devices/audio.cpp:312 ../src/devices/audio.cpp:381
+msgid "Cannot use the audio device"
+msgstr "Không thể dùng thiết bị âm thanh"
+
+#: ../src/devices/audio.cpp:312
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to read data from this device. Please check your audio setup."
+msgstr ""
+"Thiết bị âm thanh đã chọn (%s) đã được mở, nhưng không thể đọc dữ liệu từ "
+"nó. Hãy kiểm tra xem thiết lập âm thanh là đúng."
+
+#: ../src/devices/audio.cpp:321
+msgid "Recording your voice"
+msgstr "Đang thu tiếng nói của bạn"
+
+#: ../src/devices/audio.cpp:360
+msgid "Recording and playing back"
+msgstr "Đang thu và phát lại"
+
+#: ../src/devices/audio.cpp:381
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to write data to this device. Please check your audio setup."
+msgstr ""
+"Thiết bị âm thanh đã chọn (%s) đã được mở, nhưng không thể ghi dữ liệu vào "
+"nó. Hãy kiểm tra xem thiết lập âm thanh là đúng."
+
+#: ../src/devices/audio.cpp:476 ../src/devices/audio.cpp:477
+#: ../src/gui/assistant.cpp:894 ../src/gui/assistant.cpp:917
+#: ../src/gui/assistant.cpp:940 ../src/gui/preferences.cpp:752
+#: ../src/gui/preferences.cpp:776 ../src/gui/preferences.cpp:799
+msgid "No device found"
+msgstr "Không tìm thấy thiết bị"
+
+#: ../src/devices/audio.cpp:495
+#, c-format
+msgid ""
+"Ekiga is now recording from %s and playing back to %s. Please say \"1, 2, 3, "
+"Ekiga rocks!\" in your microphone. You should hear yourself from the "
+"speakers after a four-second delay."
+msgstr ""
+"Ekiga đang thu từ %s và phát lại vào %s. Vui lòng nói « 1 2 3 » vào cái máy "
+"vi âm, rồi bạn sẽ nghe chính bạn từ loa trong vòng 4 giây."
+
+#: ../src/endpoints/h323.cpp:126 ../src/endpoints/sip.cpp:148
+msgid "Call"
+msgstr "Gọi"
+
+#: ../src/endpoints/h323.cpp:291
+msgid "Duplicate alias"
+msgstr "Nhân đôi bí danh"
+
+#: ../src/endpoints/h323.cpp:294
+msgid "Bad username/password"
+msgstr "Tên người dùng / mật khẩu sai"
+
+#: ../src/endpoints/h323.cpp:297
+msgid "Transport error"
+msgstr "Lỗi truyền"
+
+#: ../src/endpoints/h323.cpp:308 ../src/endpoints/h323.cpp:313
+#: ../src/endpoints/sip.cpp:731
+msgid "Failed"
+msgstr "Bị lỗi"
+
+#: ../src/endpoints/opal-call.cpp:348
+msgid "Local user cleared the call"
+msgstr "Người dùng cục bộ đã xóa cuộc gọi"
+
+#: ../src/endpoints/opal-call.cpp:351 ../src/endpoints/opal-call.cpp:354
+msgid "Local user rejected the call"
+msgstr "Người dùng cục bộ đã từ chối cuộc gọi"
+
+#: ../src/endpoints/opal-call.cpp:357
+msgid "Remote user cleared the call"
+msgstr "Người dùng từ xa đã xóa cuộc gọi"
+
+#: ../src/endpoints/opal-call.cpp:360
+msgid "Remote user rejected the call"
+msgstr "Người dùng từ xa đã từ chối cuộc gọi"
+
+#: ../src/endpoints/opal-call.cpp:363
+msgid "Remote user has stopped calling"
+msgstr "Người dùng từ xa đã ngừng gọi"
+
+#: ../src/endpoints/opal-call.cpp:366
+msgid "Abnormal call termination"
+msgstr "Cuộc gọi bị kết thúc bằng cách bất thường"
+
+#: ../src/endpoints/opal-call.cpp:369
+msgid "Could not connect to remote host"
+msgstr "Không kết nối được đến máy từ xa"
+
+#: ../src/endpoints/opal-call.cpp:372
+msgid "The Gatekeeper cleared the call"
+msgstr "Bộ bảo quản cổng ra đã xóa cuộc gọi"
+
+#: ../src/endpoints/opal-call.cpp:375
+msgid "User not found"
+msgstr "Không tìm thấy người dùng"
+
+#: ../src/endpoints/opal-call.cpp:378
+msgid "Insufficient bandwidth"
+msgstr "Không đủ băng thông"
+
+#: ../src/endpoints/opal-call.cpp:381
+msgid "No common codec"
+msgstr "Không có codec dùng chung"
+
+#: ../src/endpoints/opal-call.cpp:384
+msgid "Call forwarded"
+msgstr "Cuộc gọi bị chuyển tiếp"
+
+#: ../src/endpoints/opal-call.cpp:387
+msgid "Security check failed"
+msgstr "Lỗi kiểm tra bảo mật"
+
+#: ../src/endpoints/opal-call.cpp:390
+msgid "Local user is busy"
+msgstr "Người dùng cục bộ đang bận"
+
+#: ../src/endpoints/opal-call.cpp:393 ../src/endpoints/opal-call.cpp:399
+msgid "Congested link to remote party"
+msgstr "Liên kết đông nghịt tới người ở xa"
+
+#: ../src/endpoints/opal-call.cpp:396
+msgid "Remote user is busy"
+msgstr "Người dùng ở xa đang bận"
+
+#: ../src/endpoints/opal-call.cpp:402
+msgid "Remote host is offline"
+msgstr "Máy ở xa đang ngoại tuyến"
+
+#: ../src/endpoints/opal-call.cpp:409
+msgid "Remote user is not available"
+msgstr "Người dùng từ xa không sẵn sàng"
+
+#: ../src/endpoints/opal-call.cpp:411
+msgid "Local user is not available"
+msgstr "Người dùng cục bộ không sẵn sàng"
+
+#: ../src/endpoints/opal-call.cpp:424
+msgid "Call completed"
+msgstr "Hoàn tất cuộc gọi"
+
+#: ../src/endpoints/sip.cpp:163
+msgid "Message"
+msgstr "Tin nhắn"
+
+#: ../src/endpoints/sip.cpp:544
+msgid "Bad request"
+msgstr "Yêu cầu sai"
+
+#: ../src/endpoints/sip.cpp:548
+msgid "Payment required"
+msgstr "Cần trả tiền"
+
+#: ../src/endpoints/sip.cpp:552
+msgid "Unauthorized"
+msgstr "Không cho phép"
+
+#: ../src/endpoints/sip.cpp:556
+msgid "Forbidden"
+msgstr "Cấm"
+
+#: ../src/endpoints/sip.cpp:560
+msgid "Timeout"
+msgstr "Quá thời"
+
+#: ../src/endpoints/sip.cpp:564
+msgid "Conflict"
+msgstr "Xung đột"
+
+#: ../src/endpoints/sip.cpp:568
+msgid "Temporarily unavailable"
+msgstr "Tạm thời không có"
+
+#: ../src/endpoints/sip.cpp:572
+msgid "Not acceptable"
+msgstr "Không thích hợp"
+
+#: ../src/endpoints/sip.cpp:576
+msgid "Illegal status code"
+msgstr "Mã trạng thái sai"
+
+#: ../src/endpoints/sip.cpp:580
+msgid "Multiple choices"
+msgstr "Nhiều tùy chọn"
+
+#: ../src/endpoints/sip.cpp:584
+msgid "Moved permanently"
+msgstr "Đã chuyển lâu dài"
+
+#: ../src/endpoints/sip.cpp:588
+msgid "Moved temporarily"
+msgstr "Đã chuyển tạm thời"
+
+#: ../src/endpoints/sip.cpp:592
+msgid "Use proxy"
+msgstr "Dùng ủy nhiệm"
+
+#: ../src/endpoints/sip.cpp:596
+msgid "Alternative service"
+msgstr "Dịch vụ xen kẽ"
+
+#: ../src/endpoints/sip.cpp:600
+msgid "Not found"
+msgstr "Không tìm thấy"
+
+#: ../src/endpoints/sip.cpp:604
+msgid "Method not allowed"
+msgstr "Phương pháp không cho phép"
+
+#: ../src/endpoints/sip.cpp:608
+msgid "Proxy auth. required"
+msgstr "Cần xác thực ủy nhiệm"
+
+#: ../src/endpoints/sip.cpp:612
+msgid "Length required"
+msgstr "Độ dài mong đợi"
+
+#: ../src/endpoints/sip.cpp:616
+msgid "Request entity too big"
+msgstr "Thực thể yêu cầy quá lớn"
+
+#: ../src/endpoints/sip.cpp:620
+msgid "Request URI too long"
+msgstr "URI yêu cầu quá dài"
+
+#: ../src/endpoints/sip.cpp:624
+msgid "Unsupported media type"
+msgstr "Kiểu vật chứa không được hỗ trợ"
+
+#: ../src/endpoints/sip.cpp:628
+msgid "Unsupported URI scheme"
+msgstr "Lược đồ URI không được hỗ trợ"
+
+#: ../src/endpoints/sip.cpp:632
+msgid "Bad extension"
+msgstr "Phần mở rộng sai"
+
+#: ../src/endpoints/sip.cpp:636
+msgid "Extension required"
+msgstr "Cần phần mở rộng"
+
+#: ../src/endpoints/sip.cpp:640
+msgid "Interval too brief"
+msgstr "Khoảng quá ngắn"
+
+#: ../src/endpoints/sip.cpp:644
+msgid "Loop detected"
+msgstr "Gặp vòng lặp"
+
+#: ../src/endpoints/sip.cpp:648
+msgid "Too many hops"
+msgstr "Quá nhiều bước"
+
+#: ../src/endpoints/sip.cpp:652
+msgid "Address incomplete"
+msgstr "Địa chỉ chưa hoàn tất"
+
+#: ../src/endpoints/sip.cpp:656
+msgid "Ambiguous"
+msgstr "Mơ hồ"
+
+#: ../src/endpoints/sip.cpp:660
+msgid "Busy Here"
+msgstr "Bận ở đây"
+
+#: ../src/endpoints/sip.cpp:664
+msgid "Request terminated"
+msgstr "Yêu cầu bị chấm dứt"
+
+#: ../src/endpoints/sip.cpp:668
+msgid "Not acceptable here"
+msgstr "Không thích hợp ở đây"
+
+#: ../src/endpoints/sip.cpp:672
+msgid "Bad event"
+msgstr "Sự kiện sai"
+
+#: ../src/endpoints/sip.cpp:676
+msgid "Request pending"
+msgstr "Yêu cầu bị hoãn"
+
+#: ../src/endpoints/sip.cpp:680
+msgid "Undecipherable"
+msgstr "Không thể đọc"
+
+#: ../src/endpoints/sip.cpp:684
+msgid "Internal server error"
+msgstr "Lỗi trình phục vụ nội bộ"
+
+#: ../src/endpoints/sip.cpp:688
+msgid "Not implemented"
+msgstr "Chưa thực hiện"
+
+#: ../src/endpoints/sip.cpp:692
+msgid "Bad gateway"
+msgstr "Cổng ra sai"
+
+#: ../src/endpoints/sip.cpp:696
+msgid "Service unavailable"
+msgstr "Dịch vụ không sẵn sàng"
+
+#: ../src/endpoints/sip.cpp:700
+msgid "Server timeout"
+msgstr "Máy phục vụ quá hạn"
+
+#: ../src/endpoints/sip.cpp:704
+msgid "SIP version not supp."
+msgstr "Không đưa ra phiên bản SIP"
+
+#: ../src/endpoints/sip.cpp:708
+msgid "Message too large"
+msgstr "Tin nhẳn quá lớn"
+
+#: ../src/endpoints/sip.cpp:712
+msgid "Busy everywhere"
+msgstr "Bận ở khắp nơi"
+
+#: ../src/endpoints/sip.cpp:716
+msgid "Decline"
+msgstr "Từ chối"
+
+#: ../src/endpoints/sip.cpp:720
+msgid "Does not exist anymore"
+msgstr "Không còn có lại"
+
+#: ../src/endpoints/sip.cpp:724
+msgid "Globally not acceptable"
+msgstr "Không thích hợp toàn cục"
+
+#: ../src/endpoints/sip.cpp:830
+msgid "Could not send message"
+msgstr "Không thể gửi tin nhắn"
+
+#: ../src/gui/accounts.cpp:407
+msgid "Edit the Account Information"
+msgstr "Sửa thông tin tài khoản"
+
+#. Account Name
+#: ../src/gui/accounts.cpp:431
+msgid "Account Name:"
+msgstr "Tên tài khoản:"
+
+#: ../src/gui/accounts.cpp:445
+msgid "Protocol:"
+msgstr "Giao thức:"
+
+#: ../src/gui/accounts.cpp:469 ../src/gui/accounts.cpp:998
+msgid "Registrar:"
+msgstr "Bộ đăng ký:"
+
+#: ../src/gui/accounts.cpp:471 ../src/gui/accounts.cpp:1007
+msgid "Gatekeeper:"
+msgstr "Bộ bảo quản cổng ra:"
+
+#. User
+#: ../src/gui/accounts.cpp:485
+msgid "User:"
+msgstr "Người dùng:"
+
+#. Password
+#: ../src/gui/accounts.cpp:500
+msgid "Password:"
+msgstr "Mật khẩu :"
+
+#. Advanced Options
+#: ../src/gui/accounts.cpp:517
+msgid "More _Options"
+msgstr "Tù_y chọn thêm"
+
+#: ../src/gui/accounts.cpp:531
+msgid "Authentication Login:"
+msgstr "Đăng nhập xác thực:"
+
+#: ../src/gui/accounts.cpp:553 ../src/gui/accounts.cpp:1008
+msgid "Gatekeeper ID:"
+msgstr "ID bộ bảo quản cổng ra:"
+
+#. Timeout
+#: ../src/gui/accounts.cpp:577
+msgid "Registration Timeout:"
+msgstr "Thời hạn đăng ký:"
+
+#. !valid
+#: ../src/gui/accounts.cpp:685
+msgid "Missing or wrong information"
+msgstr "Thông tin bị thiếu hay không đúng"
+
+#: ../src/gui/accounts.cpp:686
+msgid ""
+"Please make sure to provide at least an <b>account name</b>, a <b>username</"
+"b> and a valid <b>timeout in seconds</b>."
+msgstr ""
+"Hãy kiểm tra bạn đã cung cấp ít nhất <b>tên tài khoản</b>, <b>tên người "
+"dùng</b> và <b>quá hạn theo giây</b> mà hợp lệ."
+
+#: ../src/gui/accounts.cpp:716
+#, c-format
+msgid "Are you sure you want to delete account %s?"
+msgstr "Bạn có chắc muốn xóa tài khoản %s không?"
+
+#: ../src/gui/accounts.cpp:805
+msgid "Registered"
+msgstr "Đã đăng ký"
+
+#: ../src/gui/accounts.cpp:809
+msgid "Unregistered"
+msgstr "Đã hủy đăng ký"
+
+#: ../src/gui/accounts.cpp:813
+msgid "Could not unregister"
+msgstr "Không thể hủy đăng ký"
+
+#: ../src/gui/accounts.cpp:819
+msgid "Could not register"
+msgstr "Không thể đăng ký"
+
+#: ../src/gui/accounts.cpp:825
+msgid "Processing..."
+msgstr "Đang xử lý..."
+
+#: ../src/gui/accounts.cpp:999
+msgid "Realm/Domain:"
+msgstr "Miền:"
+
+#: ../src/gui/accounts.cpp:1526
+msgid "Account Name"
+msgstr "Tên tài khoản"
+
+#: ../src/gui/accounts.cpp:1527
+msgid "Protocol"
+msgstr "Giao thức"
+
+#: ../src/gui/accounts.cpp:1536
+msgid "Voice Mails"
+msgstr "Thư thoại"
+
+#: ../src/gui/accounts.cpp:1537
+msgid "Status"
+msgstr "Trạng thái"
+
+#: ../src/gui/accounts.cpp:1548 ../src/gui/accounts.cpp:1583
+msgid "Accounts"
+msgstr "Tài khoản"
+
+#: ../src/gui/accounts.cpp:1586 ../src/gui/preferences.cpp:515
+msgid "A"
+msgstr "A"
+
+#: ../src/gui/accounts.cpp:1686
+msgid "_Default"
+msgstr "_Mặc định"
+
+#: ../src/gui/assistant.cpp:249
+msgid ""
+"This is the Ekiga general configuration assistant. The following steps will "
+"set up Ekiga by asking a few simple questions.\n"
+"\n"
+"Once you have completed these steps, you can always change them later by "
+"selecting Preferences in the Edit menu."
+msgstr ""
+"Đây là trợ lý cấu hình chung của Ekiga. Các bước sau sẽ thiết lập trình "
+"Ekiga cho bạn bằng cách hỏi vài câu đơn giản.\n"
+"\n"
+"Một khi bạn đã hoàn tất những bước này, bạn vẫn có thể sửa lại lần sau bằng "
+"cách chọn Tùy thích trong trình đơn Sửa."
+
+#: ../src/gui/assistant.cpp:257
+msgid "Welcome in Ekiga"
+msgstr "Chào mừng dùng Ekiga"
+
+#: ../src/gui/assistant.cpp:294 ../src/gui/preferences.cpp:381
+msgid "Personal Information"
+msgstr "Thông tin cá nhân"
+
+#. The user fields
+#: ../src/gui/assistant.cpp:297
+msgid "Please enter your first name and your surname:"
+msgstr "Hãy gõ tên và họ của bạn:"
+
+#: ../src/gui/assistant.cpp:306
+msgid ""
+"Your first name and surname will be used when connecting to other VoIP and "
+"videoconferencing software."
+msgstr ""
+"Tên và họ của bạn được dùng khi kết nối đến phần mềm Tiếng nói qua IP (VoIP) "
+"và hội thảo ảnh động khác."
+
+#: ../src/gui/assistant.cpp:382
+msgid "ekiga.net Account"
+msgstr "Tài khoản ekiga.net"
+
+#: ../src/gui/assistant.cpp:384
+msgid "Please enter your username:"
+msgstr "Hãy gõ tên người dùng của bạn:"
+
+#: ../src/gui/assistant.cpp:392
+msgid "Please enter your password:"
+msgstr "Hãy gõ mật khẩu của bạn:"
+
+#: ../src/gui/assistant.cpp:402
+msgid ""
+"The username and password are used to login to your existing account at the "
+"ekiga.net free SIP service. If you do not have an ekiga.net SIP address yet, "
+"you may first create an account below. This will provide a SIP address that "
+"allows people to call you.\n"
+"\n"
+"You may skip this step if you use an alternative SIP service, or if you "
+"would prefer to specify the login details later."
+msgstr ""
+"Tên người dùng và mật khẩu được dùng để đăng nhập vào tài khoản của bạn đã "
+"có tại dịch vụ SIP miễn phí ekiga.net. Chưa có địa chỉ SIP ekiga.net thì "
+"trước tiên bạn có thể tạo tài khoản bên dưới. Hành động này sẽ tạo một địa "
+"chỉ SIP riêng cho phép người khác điện thoại cho bạn.\n"
+"\n"
+"Có thể bỏ qua bước này nếu bạn sử dụng một dịch vụ SIP xen kẽ, hoặc nếu bạn "
+"muốn ghi rõ chi tiết đăng nhập lần sau."
+
+#: ../src/gui/assistant.cpp:419
+msgid "Get an ekiga.net SIP account"
+msgstr "Lấy một tài khoản SIP ekiga.net"
+
+#: ../src/gui/assistant.cpp:429
+msgid "I do not want to sign up for the ekiga.net free service"
+msgstr "Tôi không muốn đang ký với dịch vụ miễn phí ekiga.net"
+
+#: ../src/gui/assistant.cpp:534
+msgid "Connection Type"
+msgstr "Kiểu kết nối"
+
+#. The connection type
+#: ../src/gui/assistant.cpp:537
+msgid "Please choose your connection type:"
+msgstr "Hãy chọn kiểu kết nối:"
+
+#: ../src/gui/assistant.cpp:554
+msgid "56k Modem"
+msgstr "Bộ điều giải 56k"
+
+#: ../src/gui/assistant.cpp:559
+msgid "ISDN"
+msgstr "ISDN"
+
+#: ../src/gui/assistant.cpp:564
+msgid "xDSL/Cable"
+msgstr "xDSL/Cáp"
+
+#: ../src/gui/assistant.cpp:569
+msgid "T1/LAN"
+msgstr "T1/mạng cục bộ"
+
+#: ../src/gui/assistant.cpp:574
+msgid "Keep current settings"
+msgstr "Giữ các thiết lập hiện thời"
+
+#: ../src/gui/assistant.cpp:579
+msgid ""
+"The connection type will permit determining the best quality settings that "
+"Ekiga will use during calls. You can later change the settings individually "
+"in the preferences window."
+msgstr ""
+"Kiểu kết nối sẽ cho phép trình này quyết định các thiết lập tốt nhất mà "
+"Ekiga sẽ dùng trong suốt cuộc gọi. Bạn cũng có thể thay đổi mỗi thiết lập về "
+"sau trong cửa sổ Tùy thích."
+
+#: ../src/gui/assistant.cpp:671 ../src/gui/preferences.cpp:708
+msgid "Audio Devices"
+msgstr "Thiết bị âm thanh"
+
+#: ../src/gui/assistant.cpp:673
+msgid "Please choose the audio ringing device:"
+msgstr "Hãy chọn thiết bị réo chuông:"
+
+#: ../src/gui/assistant.cpp:681
+msgid ""
+"The audio ringing device is the device  managed by the audio manager that "
+"will be used to play the ringing sound."
+msgstr ""
+"Thiết bị réo chuông là thiết bị được bộ quản lý âm thanh quản lý mà được "
+"dùng để phát tiếng réo chuông."
+
+#. ---
+#: ../src/gui/assistant.cpp:694
+msgid "Please choose the audio output device:"
+msgstr "Hãy chọn thiết bị xuất âm thanh:"
+
+#: ../src/gui/assistant.cpp:702
+msgid ""
+"The audio output device is the device  managed by the audio manager that "
+"will be used to play audio."
+msgstr ""
+"Thiết bị xuất âm thanh là thiết bị được bộ quản lý âm thanh quản lý mà được "
+"dùng để phát âm thanh."
+
+#. ---
+#: ../src/gui/assistant.cpp:715
+msgid "Please choose the audio input device:"
+msgstr "Hãy chọn thiết bị nhập âm thanh:"
+
+#: ../src/gui/assistant.cpp:723
+msgid ""
+"The audio input device is the device managed by the audio manager that will "
+"be used to record your voice."
+msgstr ""
+"Bộ quản lý âm thanh sẽ dùng thiết bị nhập âm thanh này để thu tiếng nói của "
+"bạn."
+
+#: ../src/gui/assistant.cpp:821
+msgid "Please choose your video input device:"
+msgstr "Hãy chọn thiết bị nhập ảnh động:"
+
+#: ../src/gui/assistant.cpp:829
+msgid ""
+"The video manager is the plugin that will manage your video devices, "
+"Video4Linux is the most common choice if you own a webcam."
+msgstr ""
+"Bộ quản lý ảnh động là phần bổ sung sẽ quản lý các thiết bị ảnh động của "
+"bạn. « Video4Linux » là sự chọn thường nhất, nếu bạn có một máy ảnh Web."
+
+#: ../src/gui/assistant.cpp:974
+msgid "Configuration Complete"
+msgstr "Hoàn tất cấu hình"
+
+#: ../src/gui/assistant.cpp:976
+msgid ""
+"You have now finished the Ekiga configuration. All the settings can be "
+"changed in the Ekiga preferences. Enjoy!"
+msgstr ""
+"Bạn vừa mới hoàn thánh cấu hình chương trình Ekiga. Mọi thiết lập vẫn còn có "
+"thể được điều chỉnh trong Tùy thích Ekiga. Chúc bạn sử dụng vui vẻ !"
+
+#: ../src/gui/assistant.cpp:983
+msgid "Configuration summary:"
+msgstr "Tóm tắt Cấu hình:"
+
+#: ../src/gui/assistant.cpp:1146
+#, c-format
+msgid "Ekiga Configuration Assistant (%d of %d)"
+msgstr "Trợ lý Cấu hình Ekiga (%d trên %d)"
+
+#: ../src/gui/callbacks.cpp:129
+msgid "Contributors:"
+msgstr "Người đóng góp:"
+
+#: ../src/gui/callbacks.cpp:139
+msgid "Artwork:"
+msgstr "Nghệ thuật:"
+
+#: ../src/gui/callbacks.cpp:146
+msgid "See AUTHORS file for full credits"
+msgstr "Xem tập tin AUTHORS (các tác giả) để tìm công trạng đầy đủ."
+
+#: ../src/gui/callbacks.cpp:162
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version. "
+msgstr ""
+"Chương trình này là phần mềm tự do; bạn có thể phát hành lại nó và/hoặc sửa "
+"đổi nó với điều kiện của Giấy Phép Công Cộng GNU như được xuất bản bởi Tổ "
+"Chức Phần Mềm Tự Do; hoặc phiên bản 2 của Giấy Phép này, hoặc (tùy chọn) bất "
+"kỳ phiên bản sau nào.\n"
+"\n"
+"[Xem thêm bản dịch không chính thức ở Wikisource: http://vi.wikisource.org/"
+"wiki/GPL]"
+
+#: ../src/gui/callbacks.cpp:166
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details. You should have received a copy of the GNU General Public "
+"License along with this program; if not, write to the Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+msgstr ""
+"Chương trình này được phát hành vì mong muốn nó có ích, nhưng KHÔNG CÓ BẢO "
+"HÀNH GÌ CẢ, THẬM CHÍ KHÔNG CÓ BẢO ĐẢM ĐƯỢC NGỤ Ý KHẢ NĂNG BÁN HAY KHẢ NĂNG "
+"LÀM ĐƯỢC VIỆC DỨT KHOÁT. Xem Giấy Phép Công Cộng GNU để biết thêm chi tiết.\n"
+"\n"
+"Bạn đã nhận một bản sao của Giấy Phép Công Cộng GNU cùng với chương trình "
+"này; nếu không, hãy viết thư cho Tổ Chức Phần Mềm Tự Do,\n"
+"Free Software Foundation, Inc.,\n"
+"51 Franklin Street, Fifth Floor,\n"
+"Boston, MA  02110-1301, USA (Mỹ)."
+
+#: ../src/gui/callbacks.cpp:173
+msgid ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+msgstr ""
+"Chương trình Ekiga được cấp phép dưới Giấy Phép Công Cộng GNU (GPL), và tùy "
+"theo một ngoại lệ đặc biệt bạn có quyền liên kết hay tổ hợp chương trình này "
+"bằng cách khác với những chương trình OPAL, OpenH323 và PWLIB, và phân phối "
+"tổ hợp này, mà không áp dụng các điều kiện của giấy phép GPL cho các chương "
+"trình OPAL, OpenH323 và PWLIB, miễn là bạn có phải tùy theo các điều kiện "
+"của giấy phép GPL đối với tất cả các phần phần mềm còn lại trong tổ hợp đó."
+
+#. Translators: Please write translator credits here, and
+#. * separate names with \n
+#: ../src/gui/callbacks.cpp:185
+msgid "translator-credits"
+msgstr "Nhóm Việt hoá GNOME (http://gnomevi.sourceforge.net)"
+
+#: ../src/gui/callbacks.cpp:190
+msgid ""
+"Ekiga is full-featured SIP and H.323 compatible VoIP, IP-Telephony and "
+"Videoconferencing application that allows you to make audio and video calls "
+"to remote users with SIP and H.323 hardware or software."
+msgstr ""
+"Trình Ekiga là một ứng dụng đầy đủ tính năng điện thoại IP, tiếng nói qua IP "
+"(VoIP) và hội thảo ảnh động tương thích với SIP và H.323 mà cho bạn có khả "
+"năng gọi người dùng từ xa có phần cứng hay phần mềm SIP và H.323, cung cấp "
+"cả hai âm thanh và ảnh động."
+
+#: ../src/gui/dialpad.cpp:59
+msgid "abc"
+msgstr "abc"
+
+#: ../src/gui/dialpad.cpp:60
+msgid "def"
+msgstr "def"
+
+#: ../src/gui/dialpad.cpp:61
+msgid "ghi"
+msgstr "ghi"
+
+#: ../src/gui/dialpad.cpp:62
+msgid "jkl"
+msgstr "jkl"
+
+#: ../src/gui/dialpad.cpp:63
+msgid "mno"
+msgstr "mno"
+
+#: ../src/gui/dialpad.cpp:64
+msgid "pqrs"
+msgstr "pqrs"
+
+#: ../src/gui/dialpad.cpp:65
+msgid "tuv"
+msgstr "tuv"
+
+#: ../src/gui/dialpad.cpp:66
+msgid "wxyz"
+msgstr "wxyz"
+
+#. Translators: Is displayed once an account "%s" is registered.
+#: ../src/gui/main.cpp:595
+#, c-format
+msgid "Registered %s"
+msgstr "Đã đăng ký %s"
+
+#. Translators: Is displayed once an account "%s" is unregistered.
+#: ../src/gui/main.cpp:600
+#, c-format
+msgid "Unregistered %s"
+msgstr "Đã hủy đăng ký %s"
+
+#: ../src/gui/main.cpp:604
+#, c-format
+msgid "Could not unregister %s"
+msgstr "Không thể hủy đăng ký %s"
+
+#: ../src/gui/main.cpp:608
+#, c-format
+msgid "Could not register %s"
+msgstr "Không thể đăng ký %s"
+
+#: ../src/gui/main.cpp:664
+#, c-format
+msgid "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+msgstr "Âm:%.1f/%.1f   Ảnh:%.1f/%.1f   Khung:%d/%d"
+
+#: ../src/gui/main.cpp:702
+msgid "Connected with"
+msgstr "Đã kết nối với"
+
+#: ../src/gui/main.cpp:732 ../src/gui/main.cpp:2126
+msgid "Standby"
+msgstr "Tạm nghỉ"
+
+#: ../src/gui/main.cpp:789
+msgid "Call on hold"
+msgstr "Cuộc gọi đang chờ"
+
+#: ../src/gui/main.cpp:802
+msgid "Call retrieved"
+msgstr "Cuộc gọi đã lấy"
+
+#: ../src/gui/main.cpp:821
+msgid "Missed call from"
+msgstr "Cuộc gọi nhỡ từ"
+
+#: ../src/gui/main.cpp:1077
+#, c-format
+msgid "Error while accessing video device %s"
+msgstr "Gặp lỗi khi truy cập đến thiết bị ảnh động %s"
+
+#: ../src/gui/main.cpp:1080
+msgid ""
+"A moving logo will be transmitted during calls. Notice that you can always "
+"transmit a given image or the moving logo by choosing \"Picture\" as video "
+"plugin and \"Moving logo\" or \"Static picture\" as device."
+msgstr ""
+"Một biểu hình di động sẽ được truyền trong suốt cuộc gọi. Ghi chú rằng bạn "
+"cũng có thể truyền một ảnh hay một biểu hình di động mà bạn đã chọn riêng, "
+"bằng cách chọn « Picture » (ảnh) là Phần bổ sung Ảnh động và « MovingLogo "
+"» (biểu hình di động) hay « StaticPicture » (ảnh tĩnh) là thiết bị."
+
+#: ../src/gui/main.cpp:1084
+msgid ""
+"There was an error while opening the device. In case it is a pluggable "
+"device it may be sufficient to reconnect it. If not, or if it still is not "
+"accessible, please check your permissions and make sure that the appropriate "
+"driver is loaded."
+msgstr ""
+"Gặp lỗi khi mở thiết bị. Trong trường hợp mà nó là một thiết bị có thể cắm "
+"nóng, có thể đủ để tái kết nối. Nếu không, hoặc nếu nó vẫn còn không truy "
+"cập được, hãy kiểm tra xem quyền hạn là đúng, và trình điều khiển thích hợp "
+"đã được nạp."
+
+#: ../src/gui/main.cpp:1088
+msgid "Your video driver doesn't support the requested video format."
+msgstr ""
+"Trình điều khiển thiết bị ảnh động không hỗ trợ định dạng ảnh động yêu cầu."
+
+#: ../src/gui/main.cpp:1092
+msgid "Could not open the chosen channel."
+msgstr "Không mở được kênh đã chọn."
+
+#: ../src/gui/main.cpp:1096
+msgid ""
+"Your driver doesn't seem to support any of the color formats supported by "
+"Ekiga.\n"
+" Please check your kernel driver documentation in order to determine which "
+"Palette is supported."
+msgstr ""
+"Có vẻ là trình điều khiển không hỗ trợ bất cứ định dạng màu nào được trình "
+"Ekiga hỗ trợ.\n"
+"Hãy kiểm tra tài liệu hướng dẫn về trình điều khiển hạt nhân để xác định "
+"Bảng chọn (Palette) nào được hỗ trợ."
+
+#: ../src/gui/main.cpp:1100
+msgid "Error while setting the frame rate."
+msgstr "Gặp lỗi khi đặt tỷ lệ khung."
+
+#: ../src/gui/main.cpp:1104
+msgid "Error while setting the frame size."
+msgstr "Gặp lỗi khi đặt kích cỡ khung."
+
+#: ../src/gui/main.cpp:1109 ../src/gui/main.cpp:1181 ../src/gui/main.cpp:1266
+msgid "Unknown error."
+msgstr "Lỗi không rõ."
+
+#: ../src/gui/main.cpp:1165
+#, c-format
+msgid "Error while opening audio input device %s"
+msgstr "Gặp lỗi khi mở thiết bị nhập âm thanh %s"
+
+#: ../src/gui/main.cpp:1168
+msgid "Only silence will be transmitted."
+msgstr "Không có âm thanh sẽ được truyền."
+
+#: ../src/gui/main.cpp:1172
+msgid ""
+"Unable to open the selected audio device for recording. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Không thể mở thiết bị âm thanh đã chọn để thu. Trong trường hợp mà nó là một "
+"thiết bị có thể cắm nóng, có thể đủ để tái kết nối. Nếu không, hoặc nếu nó "
+"vẫn còn không truy cập được, hãy kiểm tra lại thiết lập âm thanh, các quyền "
+"hạn, và thiết bị không bận."
+
+#: ../src/gui/main.cpp:1176
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"read data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Thiết bị âm thanh đã chọn đã được mở, nhưng không thể đọc dữ liệu từ nó. "
+"Trong trường hợp mà nó là một thiết bị có thể cắm nóng, có thể đủ để tái kết "
+"nối. Nếu không, hoặc nếu nó vẫn còn không truy cập được, hãy kiểm tra lại "
+"thiết lập âm thanh."
+
+#: ../src/gui/main.cpp:1250
+#, c-format
+msgid "Error while opening audio output device %s"
+msgstr "Gặp lỗi khi mở thiết bị xuất âm thanh %s"
+
+#: ../src/gui/main.cpp:1253
+msgid "No incoming sound will be played."
+msgstr "Không có âm thanh gửi đến sẽ được phát."
+
+#: ../src/gui/main.cpp:1257
+msgid ""
+"Unable to open the selected audio device for playing. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Không thể mở thiết bị âm thanh đã chọn để phát. Trong trường hợp mà nó là "
+"một thiết bị có thể cắm nóng, có thể đủ để tái kết nối. Nếu không, hoặc nếu "
+"nó vẫn còn không truy cập được, hãy kiểm tra lại thiết lập âm thanh, các "
+"quyền hạn, và thiết bị không bận."
+
+#: ../src/gui/main.cpp:1261
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"write data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Thiết bị âm thanh đã chọn đã được mở, nhưng không thể ghi dữ liệu vào nó. "
+"Trong trường hợp mà nó là một thiết bị có thể cắm nóng, có thể đủ để tái kết "
+"nối. Nếu không, hoặc nếu nó vẫn còn không truy cập được, hãy kiểm tra lại "
+"thiết lập âm thanh."
+
+#: ../src/gui/main.cpp:1434
+msgid "Enter a URI on the left, and click this button to place a call"
+msgstr "Hãy nhập vào bên trái một địa chỉ URL, rồi nhấn vào cái nút này để gọi"
+
+#: ../src/gui/main.cpp:1517
+msgid "C_hat"
+msgstr "C_hát"
+
+#: ../src/gui/main.cpp:1519
+msgid "Ca_ll"
+msgstr "Gọ_i"
+
+#: ../src/gui/main.cpp:1519
+msgid "Place a new call"
+msgstr "Gọi mới"
+
+#: ../src/gui/main.cpp:1522
+msgid "_Hang up"
+msgstr "N_gừng"
+
+#: ../src/gui/main.cpp:1523
+msgid "Terminate the current call"
+msgstr "Ngừng cuộc gọi hiện thời"
+
+#: ../src/gui/main.cpp:1529
+msgid "_Add Contact"
+msgstr "Thê_m liên lạc"
+
+#: ../src/gui/main.cpp:1529
+msgid "Add a contact to the roster"
+msgstr "Thêm một liên lạc vào bản liệt kê"
+
+#: ../src/gui/main.cpp:1535 ../src/gui/main.cpp:3016
+msgid "_Hold Call"
+msgstr "_Giữ cuộc gọi"
+
+#: ../src/gui/main.cpp:1535 ../src/gui/main.cpp:2225
+msgid "Hold the current call"
+msgstr "Giữ cuộc gọi hiện thời"
+
+#: ../src/gui/main.cpp:1539
+msgid "_Transfer Call"
+msgstr "Chuyển đổ_i cuộc gọi"
+
+#: ../src/gui/main.cpp:1540
+msgid "Transfer the current call"
+msgstr "Chuyển cuộc gọi hiện thời"
+
+#: ../src/gui/main.cpp:1547 ../src/gui/main.cpp:3055
+msgid "Suspend _Audio"
+msgstr "Tạm n_gừng âm"
+
+#: ../src/gui/main.cpp:1548
+msgid "Suspend or resume the audio transmission"
+msgstr "Tạm ngừng hoặc tiếp tục lại truyền âm thanh"
+
+#: ../src/gui/main.cpp:1552 ../src/gui/main.cpp:3057
+msgid "Suspend _Video"
+msgstr "Tạm _ngừng ảnh"
+
+#: ../src/gui/main.cpp:1553
+msgid "Suspend or resume the video transmission"
+msgstr "Tạm ngừng hoặc tiếp tục lại truyền ảnh động"
+
+#: ../src/gui/main.cpp:1560
+msgid "Close the Ekiga window"
+msgstr "Đóng cửa sổ Ekiga"
+
+#: ../src/gui/main.cpp:1567 ../src/gui/statusicon.cpp:446
+msgid "Quit"
+msgstr "Thoát"
+
+#: ../src/gui/main.cpp:1573
+msgid "Configuration Assistant"
+msgstr "Trợ lý Cấu hình"
+
+#: ../src/gui/main.cpp:1574
+msgid "Run the configuration assistant"
+msgstr "Chạy Trợ lý Cấu hình"
+
+#: ../src/gui/main.cpp:1581
+msgid "_Accounts"
+msgstr "_Tài khoản"
+
+#: ../src/gui/main.cpp:1582
+msgid "Edit your accounts"
+msgstr "Sửa tài khoản của bạn"
+
+#: ../src/gui/main.cpp:1588
+msgid "Change your preferences"
+msgstr "Thay đổi tùy thích của bạn"
+
+#: ../src/gui/main.cpp:1593
+msgid "_View"
+msgstr "_Xem"
+
+#: ../src/gui/main.cpp:1595
+msgid "Con_tacts"
+msgstr "_Liên lạc"
+
+#: ../src/gui/main.cpp:1595
+msgid "View the contacts list"
+msgstr "Xem danh sách liên lạc"
+
+#: ../src/gui/main.cpp:1600
+msgid "_Dialpad"
+msgstr "Vùng _quay số"
+
+#: ../src/gui/main.cpp:1600
+msgid "View the dialpad"
+msgstr "Xem vùng quay số"
+
+#: ../src/gui/main.cpp:1605
+msgid "_Call History"
+msgstr "Lượ_c sử cuộc gọi"
+
+#: ../src/gui/main.cpp:1605
+msgid "View the call history"
+msgstr "Xem lược sử cuộc gọi"
+
+#: ../src/gui/main.cpp:1614
+msgid "Show Call Panel"
+msgstr "Hiện Bảng Gọi"
+
+#: ../src/gui/main.cpp:1622
+msgid "Local Video"
+msgstr "Ảnh động cục bộ"
+
+#: ../src/gui/main.cpp:1623
+msgid "Local video image"
+msgstr "Hình ảnh động cục bộ"
+
+#: ../src/gui/main.cpp:1628
+msgid "Remote Video"
+msgstr "Ảnh động từ xa"
+
+#: ../src/gui/main.cpp:1629
+msgid "Remote video image"
+msgstr "Hình ảnh động từ xa"
+
+#: ../src/gui/main.cpp:1634
+msgid "Picture-in-Picture"
+msgstr "Ảnh-trong-Ảnh"
+
+#: ../src/gui/main.cpp:1635 ../src/gui/main.cpp:1641
+msgid "Both video images"
+msgstr "Cả hai hình ảnh động"
+
+#: ../src/gui/main.cpp:1640
+msgid "Picture-in-Picture in Separate Window"
+msgstr "Ảnh-trong-Ảnh trong cửa sổ riêng"
+
+#: ../src/gui/main.cpp:1648
+msgid "Zoom in"
+msgstr "Phóng to"
+
+#: ../src/gui/main.cpp:1652
+msgid "Zoom out"
+msgstr "Thu nhỏ"
+
+#: ../src/gui/main.cpp:1656
+msgid "Normal size"
+msgstr "Kích cỡ bình thường"
+
+#: ../src/gui/main.cpp:1660
+msgid "Fullscreen"
+msgstr "Toàn màn hình"
+
+#: ../src/gui/main.cpp:1660
+msgid "Switch to fullscreen"
+msgstr "Chuyển đổi sang toàn màn hình"
+
+#: ../src/gui/main.cpp:1665
+msgid "_Tools"
+msgstr "_Công cụ"
+
+#: ../src/gui/main.cpp:1667
+msgid "_Find Contacts"
+msgstr "_Tìm liên lạc"
+
+#: ../src/gui/main.cpp:1668
+msgid "Find contacts"
+msgstr "Tìm liên lạc"
+
+#: ../src/gui/main.cpp:1675
+msgid "PC-To-Phone Account"
+msgstr "Tài khoản Máy-đến-điện_thoại"
+
+#: ../src/gui/main.cpp:1676
+msgid "Manage your PC-To-Phone account"
+msgstr "Quản lý tài khoản Máy-đến-tài khoản của bạn"
+
+#: ../src/gui/main.cpp:1681
+msgid "_Help"
+msgstr "Trợ g_iúp"
+
+#: ../src/gui/main.cpp:1684 ../src/gui/statusicon.cpp:423
+#: ../src/gui/statusicon.cpp:434
+msgid "Get help by reading the Ekiga manual"
+msgstr "Hãy tìm trợ giúp trong hướng dẫn Ekiga"
+
+#: ../src/gui/main.cpp:1689 ../src/gui/statusicon.cpp:428
+#: ../src/gui/statusicon.cpp:439
+msgid "View information about Ekiga"
+msgstr "Xem thông tin về Ekiga"
+
+#: ../src/gui/main.cpp:1725
+msgid "Contacts"
+msgstr "Liên lạc"
+
+#: ../src/gui/main.cpp:1750
+msgid "Dialpad"
+msgstr "Vùng quay số"
+
+#: ../src/gui/main.cpp:1786
+msgid "Video Settings"
+msgstr "Thiết lập ảnh động"
+
+#: ../src/gui/main.cpp:1814
+msgid "Adjust brightness"
+msgstr "Chỉnh độ sáng"
+
+#: ../src/gui/main.cpp:1836
+msgid "Adjust whiteness"
+msgstr "Chỉng độ trắng"
+
+#: ../src/gui/main.cpp:1858
+msgid "Adjust color"
+msgstr "Chỉnh màu"
+
+#: ../src/gui/main.cpp:1880
+msgid "Adjust contrast"
+msgstr "Chỉnh độ tương phản"
+
+#: ../src/gui/main.cpp:1934
+msgid "Audio Settings"
+msgstr "Thiết lập âm thanh"
+
+#: ../src/gui/main.cpp:2160
+msgid "Change the volume of your soundcard"
+msgstr "Điều chỉnh âm lượng của bo mạch âm thanh"
+
+#: ../src/gui/main.cpp:2183
+msgid "Change the color settings of your video device"
+msgstr "Điều chỉnh thiết lập màu sắc của thiết bị ảnh động"
+
+#: ../src/gui/main.cpp:2204
+msgid "Display images from your camera device"
+msgstr "Hiện ảnh từ thiết bị máy ảnh của bạn."
+
+#: ../src/gui/main.cpp:2256
+msgid "Call history"
+msgstr "Lược sử cuộc gọi"
+
+#: ../src/gui/main.cpp:3003
+msgid "_Retrieve Call"
+msgstr "_Lấy cuộc gọi"
+
+#: ../src/gui/main.cpp:3059
+msgid "Resume _Audio"
+msgstr "T_iếp tục truyền âm"
+
+#: ../src/gui/main.cpp:3061
+msgid "Resume _Video"
+msgstr "_Tiếp tục truyền ảnh"
+
+#: ../src/gui/main.cpp:3479
+#, c-format
+msgid "Call Duration: %s\n"
+msgstr "Thời lượng gọi: %s\n"
+
+#: ../src/gui/main.cpp:3516
+msgid "Transfer call to:"
+msgstr "Chuyển cuộc gọi tới:"
+
+#: ../src/gui/main.cpp:3517
+msgid "Transfer"
+msgstr "Chuyển"
+
+#: ../src/gui/main.cpp:3580
+msgid "Reject"
+msgstr "Từ chối"
+
+#: ../src/gui/main.cpp:3582
+msgid "Accept"
+msgstr "Chấp nhận"
+
+#: ../src/gui/main.cpp:3589
+msgid "Incoming call from"
+msgstr "Cuộc gọi đến từ"
+
+#: ../src/gui/main.cpp:3602
+msgid "Remote URI:"
+msgstr "URI từ xa:"
+
+#: ../src/gui/main.cpp:3614
+msgid "Remote Application:"
+msgstr "Ứng dụng từ xa:"
+
+# Name: don't translate/Tên: đừng dịch
+#. Add title
+#: ../src/gui/main.cpp:3665 ../src/gui/main.cpp:3773
+msgid "Ekiga"
+msgstr "Ekiga"
+
+#: ../src/gui/main.cpp:3941
+#, c-format
+msgid "Missed calls: %d - Voice Mails: %d"
+msgstr "Cuộc gọi nhỡ : %d — Thư thoại: %d"
+
+#: ../src/gui/main.cpp:4100
+#, c-format
+msgid "TX: %dx%d "
+msgstr "TX: %dx%d "
+
+#: ../src/gui/main.cpp:4103
+#, c-format
+msgid "RX: %dx%d "
+msgstr "RX: %dx%d "
+
+#: ../src/gui/main.cpp:4105
+#, c-format
+msgid ""
+"Lost packets: %.1f %%\n"
+"Late packets: %.1f %%\n"
+"Out of order packets: %.1f %%\n"
+"Jitter buffer: %d ms%s%s%s"
+msgstr ""
+"Gói tin mất: %.1f %%\n"
+"Gói tin trễ: %.1f %%\n"
+"Gói tin sai thứ tự : %.1f %%\n"
+"Vùng đệm Jitter: %d ms%s%s%s"
+
+#: ../src/gui/main.cpp:4257
+msgid "Prints debug messages in the console (level between 1 and 5)"
+msgstr "In thông tin gỡ lỗi ra bàn giao tiếp (cấp giữa 1 và 5)"
+
+#: ../src/gui/main.cpp:4262
+msgid "Prints user plane debug messages in the console (level between 1 and 4)"
+msgstr ""
+"In thông tin gỡ lỗi ở lớp người dùng ra bàn giao tiếp (cấp giữa 1 và 4)"
+
+#: ../src/gui/main.cpp:4267
+msgid "Makes Ekiga call the given URI"
+msgstr "Khiến trình Ekiga gọi địa chỉ URI đưa ra"
+
+#: ../src/gui/main.cpp:4380
+msgid "No usable audio plugin detected"
+msgstr "Không phát hiện phần bổ sung âm thanh có thể sử dụng"
+
+#: ../src/gui/main.cpp:4381
+msgid ""
+"Ekiga didn't find any usable audio plugin. Make sure that your installation "
+"is correct."
+msgstr ""
+"Trình Ekiga chưa tìm phần bổ sung âm thanh hữu dụng. Hãy kiểm tra xem bản "
+"cài đặt là đúng."
+
+#: ../src/gui/main.cpp:4384
+msgid "No usable audio codecs detected"
+msgstr "Không phát hiện codec âm thanh có thể sử dụng"
+
+#: ../src/gui/main.cpp:4385
+msgid ""
+"Ekiga didn't find any usable audio codec. Make sure that your installation "
+"is correct."
+msgstr ""
+"Trình Ekiga chưa tìm codec âm thanh hữu dụng. Hãy kiểm tra xem bản cài đặt "
+"là đúng."
+
+#: ../src/gui/main.cpp:4391
+msgid "Configuration database corruption"
+msgstr "Cơ sở dữ liệu cấu hình bị hỏng"
+
+#: ../src/gui/main.cpp:4392
+#, c-format
+msgid ""
+"Ekiga got an invalid value for the configuration key %s.\n"
+"\n"
+"It probably means that your configuration schemas have not been correctly "
+"installed or that the permissions are not correct.\n"
+"\n"
+"Please check the FAQ (http://www.ekiga.org/), the troubleshooting section of "
+"the GConf site (http://www.gnome.org/projects/gconf/) or the mailing list "
+"archives for more information (http://mail.gnome.org) about this problem."
+msgstr ""
+"Trình Ekiga đã nhận một giá trị không hợp lệ đối với khoá cấu hình %s.\n"
+"\n"
+"Rất có thể nghĩa là các giản đồ cấu hình của bạn không được cài đặt đúng "
+"hoặc quyền truy cập không đúng.\n"
+"\n"
+"Xem Hỏi Đáp (FAQ: http://www.ekiga.org/), phần Troubleshooting (tháo gỡ trục "
+"trặc) của địa chỉ Web GConf (http://www.gnome.org/projects/gconf/) hoặc kho "
+"lưu hộp thư chung (http://mail.gnome.org) để biết thêm thông tin về vấn đề "
+"này."
+
+#: ../src/gui/misc.cpp:94
+msgid "Error"
+msgstr "Lỗi"
+
+#: ../src/gui/preferences.cpp:384
+msgid "_Full name:"
+msgstr "Tên đầ_y đủ :"
+
+#: ../src/gui/preferences.cpp:386
+msgid "Enter your first name"
+msgstr "Gõ tên của bạn"
+
+#. Add the update button
+#: ../src/gui/preferences.cpp:391
+msgid "_Apply"
+msgstr "Á_p dụng"
+
+#: ../src/gui/preferences.cpp:391
+msgid ""
+"Click here to update the users directory you are registered to with the new "
+"First Name, Last Name, E-Mail, Comment and Location"
+msgstr ""
+"Nhấn vào đây để cập nhật sổ đăng ký người dùng với đó bạn đã đăng ký, với "
+"Tên, Họ, Đia chỉ thư, Ghi chú và Địa điểm mới."
+
+#: ../src/gui/preferences.cpp:405
+msgid "User Interface"
+msgstr "Giao diện Người dùng"
+
+#: ../src/gui/preferences.cpp:407
+msgid "Start _hidden"
+msgstr "K_hởi chạy ẩn"
+
+#: ../src/gui/preferences.cpp:409
+msgid "Show offline _contacts"
+msgstr "Hiện liên lạ_c ngoại tuyến"
+
+#: ../src/gui/preferences.cpp:414
+msgid "Video Display"
+msgstr "Trình bày ảnh động"
+
+#: ../src/gui/preferences.cpp:416
+msgid "Place windows displaying video _above other windows"
+msgstr "Hiển thị mọi cử_a sổ ảnh động trên các cửa sổ khác."
+
+#: ../src/gui/preferences.cpp:421
+msgid "Auto Away"
+msgstr "Tự động vắng mặt"
+
+#: ../src/gui/preferences.cpp:423
+msgid "Timeout after which the user is automatically set as away (in minutes):"
+msgstr "Quá hạn sau đó tự động đặt người dùng là « vắng mặt » (theo phút):"
+
+#: ../src/gui/preferences.cpp:423
+msgid ""
+"Automatically set the user as away after the timeout has elapsed (in minutes)"
+msgstr "Tự động đặt người dùng là « vắng mặt » sau khi quá hạn (theo phút)"
+
+#: ../src/gui/preferences.cpp:433
+msgid "Call Forwarding"
+msgstr "Chuyển tiếp cuộc gọi"
+
+#: ../src/gui/preferences.cpp:435
+msgid "_Always forward calls to the given host"
+msgstr "_Luôn chuyển tiếp cuộc gọi đến máy đã chọn"
+
+#: ../src/gui/preferences.cpp:435
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings"
+msgstr ""
+"Bật thì mọi cuộc gọi đến sẽ được chuyển tiếp tới máy xác định trong thiết "
+"lập giao thức"
+
+#: ../src/gui/preferences.cpp:437
+msgid "Forward calls to the given host if _no answer"
+msgstr "Khô_ng trả lời nên chuyển tiếp cuộc gọi tới máy đưa ra"
+
+#: ../src/gui/preferences.cpp:437
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you do not answer the call"
+msgstr ""
+"Bật thì mọi cuộc gọi đến sẽ được chuyển tiếp tới máy xác định trong thiết "
+"lập giao thức, nếu bạn không trả lời cuộc gọi."
+
+#: ../src/gui/preferences.cpp:439
+msgid "Forward calls to the given host if _busy"
+msgstr "_Bận nên chuyển tiếp cuộc gọi tới máy đưa ra"
+
+#: ../src/gui/preferences.cpp:439
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you already are in a call or if you "
+"are in Do Not Disturb mode"
+msgstr ""
+"Bật thì mọi cuộc gọi đến sẽ được chuyển tiếp tới máy xác định trong thiết "
+"lập giao thức, nếu bạn đang gọi hoặc nếu bạn đang ở chế độ Đừng làm phiền."
+
+#: ../src/gui/preferences.cpp:443 ../src/gui/preferences.cpp:1480
+msgid "Call Options"
+msgstr "Tùy chọn gọi"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:446
+msgid "Timeout to reject or forward unanswered incoming calls (in seconds):"
+msgstr ""
+"Thời hạn sau đó cần từ chối hoặc chuyển tiếp cuộc gọi đến chưa được trả lời "
+"(theo giây):"
+
+#: ../src/gui/preferences.cpp:478
+msgid "Ekiga Sound Events"
+msgstr "Dữ kiện âm thanh Ekiga"
+
+#: ../src/gui/preferences.cpp:527 ../src/gui/preferences.cpp:536
+#: ../src/gui/preferences.cpp:545
+msgid "Event"
+msgstr "Dữ kiện"
+
+#: ../src/gui/preferences.cpp:557
+msgid "Choose a sound"
+msgstr "Chọn âm thanh"
+
+#: ../src/gui/preferences.cpp:563
+msgid "Wavefiles"
+msgstr "Tập tin WAV"
+
+#: ../src/gui/preferences.cpp:572 ../src/gui/preferences.cpp:591
+msgid "Play"
+msgstr "Phát"
+
+#: ../src/gui/preferences.cpp:612
+msgid "String"
+msgstr "Chuỗi"
+
+#: ../src/gui/preferences.cpp:613
+msgid "Tone"
+msgstr "Giọng"
+
+#: ../src/gui/preferences.cpp:614 ../src/gui/preferences.cpp:663
+msgid "RFC2833"
+msgstr "RFC2833"
+
+#: ../src/gui/preferences.cpp:615
+msgid "Q.931"
+msgstr "Q.931"
+
+#: ../src/gui/preferences.cpp:621 ../src/gui/preferences.cpp:673
+msgid "Misc Settings"
+msgstr "Thiết lập lặt vặt"
+
+#: ../src/gui/preferences.cpp:624 ../src/gui/preferences.cpp:678
+msgid "Forward _URI:"
+msgstr "_URI chuyển tiếp:"
+
+#: ../src/gui/preferences.cpp:633
+msgid "Advanced Settings"
+msgstr "Thiết lập cấp cao"
+
+#. The toggles
+#: ../src/gui/preferences.cpp:636
+msgid "Enable H.245 _tunneling"
+msgstr "Bậ_t đường hầm H.245"
+
+#: ../src/gui/preferences.cpp:638
+msgid "Enable _early H.245"
+msgstr "Bật H.245 _sớm"
+
+#: ../src/gui/preferences.cpp:640
+msgid "Enable fast _start procedure"
+msgstr "Bật thủ tục _sở khởi nhanh"
+
+#: ../src/gui/preferences.cpp:640
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting."
+msgstr ""
+"Kết nối sẽ được thiết lập ở chế độ sở khởi nhanh. Sở khởi nhanh là cách mới "
+"để sở khởi cuộc gọi một cách nhanh hơn so với cách được giới thiệu trong "
+"H.323v2. Netmeeting không hỗ trợ, và dùng cả sở khởi nhanh với đường hầm "
+"H.245 có thể làm hỏng một vài phiên bản Netmeeting."
+
+#: ../src/gui/preferences.cpp:646 ../src/gui/preferences.cpp:686
+msgid "DTMF Mode"
+msgstr "Chế độ DTMF"
+
+#: ../src/gui/preferences.cpp:648 ../src/gui/preferences.cpp:688
+msgid "_Send DTMF as:"
+msgstr "_Gởi DTMF dạng:"
+
+#: ../src/gui/preferences.cpp:648 ../src/gui/preferences.cpp:688
+msgid "This allows you to set the mode for DTMFs sending."
+msgstr "Tùy chọn này cho phép đặt chế độ gửi DTMF."
+
+#: ../src/gui/preferences.cpp:664
+msgid "INFO"
+msgstr "INFO"
+
+#: ../src/gui/preferences.cpp:675
+msgid "_Outbound Proxy:"
+msgstr "Ủy nhiệm đi _ra:"
+
+#: ../src/gui/preferences.cpp:716
+msgid "Ringing Device"
+msgstr "Thiết bị réo chuông"
+
+#: ../src/gui/preferences.cpp:716
+msgid "Select the ringing audio device to use"
+msgstr "Chọn thiết bị réo chuông cần dùng"
+
+#: ../src/gui/preferences.cpp:718
+msgid "Output device:"
+msgstr "Thiết bị xuất:"
+
+#: ../src/gui/preferences.cpp:725 ../src/gui/preferences.cpp:873
+msgid "Input device:"
+msgstr "Thiết bị nhập:"
+
+#. That button will refresh the device list
+#: ../src/gui/preferences.cpp:730 ../src/gui/preferences.cpp:937
+msgid "_Detect devices"
+msgstr "_Dò tìm Thiết bị"
+
+#: ../src/gui/preferences.cpp:730 ../src/gui/preferences.cpp:937
+msgid "Click here to refresh the device list."
+msgstr "Nhấn vào đây để cập nhật danh sách các thiết bị."
+
+#: ../src/gui/preferences.cpp:851
+msgid "PAL (Europe)"
+msgstr "PAL (Châu Âu, Châu Úc)"
+
+#: ../src/gui/preferences.cpp:852
+msgid "NTSC (America)"
+msgstr "NTSC (Mỹ)"
+
+#: ../src/gui/preferences.cpp:853
+msgid "SECAM (France)"
+msgstr "SECAM (Pháp)"
+
+#: ../src/gui/preferences.cpp:854
+msgid "Auto"
+msgstr "Tự động"
+
+#: ../src/gui/preferences.cpp:866
+msgid "Video Devices"
+msgstr "Thiết bị ảnh động"
+
+#. Video Channel
+#: ../src/gui/preferences.cpp:877
+msgid "Channel:"
+msgstr "Kênh:"
+
+#: ../src/gui/preferences.cpp:879
+msgid "Size:"
+msgstr "Cỡ :"
+
+#: ../src/gui/preferences.cpp:879
+msgid "Select the transmitted video size"
+msgstr "Chọn kích cỡ ảnh động đã truyền"
+
+#: ../src/gui/preferences.cpp:881
+msgid "Format:"
+msgstr "Định dạng:"
+
+#. The file selector button
+#: ../src/gui/preferences.cpp:884
+msgid "Image:"
+msgstr "Ảnh:"
+
+#: ../src/gui/preferences.cpp:887
+msgid "Choose a Picture"
+msgstr "Chọn ảnh"
+
+#: ../src/gui/preferences.cpp:891
+msgid "Preview"
+msgstr "Xem thử"
+
+#: ../src/gui/preferences.cpp:901
+msgid "Images"
+msgstr "Ảnh"
+
+#: ../src/gui/preferences.cpp:961 ../src/gui/preferences.cpp:998
+#: ../src/gui/preferences.cpp:1505 ../src/gui/preferences.cpp:1515
+msgid "Codecs"
+msgstr "Codec"
+
+#: ../src/gui/preferences.cpp:974 ../src/gui/preferences.cpp:1011
+msgid "Settings"
+msgstr "Thiết lập"
+
+#. Translators: the full sentence is Automatically adjust jitter buffer
+#. between X and Y ms
+#: ../src/gui/preferences.cpp:978
+msgid "Enable silence _detection"
+msgstr "Bật phát hiện _im lặng"
+
+#: ../src/gui/preferences.cpp:978
+msgid "If enabled, use silence detection with the codecs supporting it."
+msgstr "Bật thì phát hiện im lặng bằng các codec hỗ trợ."
+
+#: ../src/gui/preferences.cpp:980
+msgid "Enable echo can_celation"
+msgstr "Bật _hủy tiếng vọng"
+
+#: ../src/gui/preferences.cpp:980
+msgid "If enabled, use echo cancelation."
+msgstr "Bật thì hủy bỏ tiếng vọng."
+
+#. Translators: the full sentence is Keep a minimum video quality of X %
+#: ../src/gui/preferences.cpp:1014
+msgid "Picture Quality"
+msgstr "Chất lượng ảnh"
+
+#: ../src/gui/preferences.cpp:1014
+msgid ""
+"Choose if you want to favour frame rate or quality for the transmitted video."
+msgstr ""
+"Hãy chọn cái nào là quan trọng hơn cho ảnh động đã truyền: tỷ lệ khung hay "
+"mức chất lượng."
+
+#: ../src/gui/preferences.cpp:1016
+msgid "Maximum video _bitrate (in kbits/s):"
+msgstr "Tỷ lệ _bit ảnh động tối đa (theo kbit/giây):"
+
+#: ../src/gui/preferences.cpp:1016
+msgid ""
+"The maximum video bitrate in kbits/s. The video quality and the number of "
+"transmitted frames per second (depends on codec) will be dynamically "
+"adjusted above their minimum during calls to try to minimize the bandwidth "
+"to the given value."
+msgstr ""
+"Tỷ lệ bit ảnh động tối đa theo kilobit/giây. Cả hai mức chất lượng ảnh động "
+"và số khung được truyền trong mỗi giây (phụ thuộc vào codec) đều sẽ được "
+"chỉnh một cách động tại một cấp cao hơn giá trị tối thiểu trong suốt cuộc "
+"gọi, để giảm tối thiểu băng thông thành giá trị đã cho."
+
+#: ../src/gui/preferences.cpp:1414
+msgid "Play sound for new voice mails"
+msgstr "Phát tiếng khi nhận thư thoại mới"
+
+#: ../src/gui/preferences.cpp:1423
+msgid "Play sound for new instant messages"
+msgstr "Phát tiếng khi nhận tin nhắn tức khắc mới"
+
+#: ../src/gui/preferences.cpp:1452
+msgid "Ekiga Preferences"
+msgstr "Tùy thích Ekiga"
+
+#: ../src/gui/preferences.cpp:1470
+msgid "General"
+msgstr "Chung"
+
+#: ../src/gui/preferences.cpp:1471
+msgid "Personal Data"
+msgstr "Dữ liệu cá nhân"
+
+#: ../src/gui/preferences.cpp:1476
+msgid "General Settings"
+msgstr "Thiết lập chung"
+
+#: ../src/gui/preferences.cpp:1485
+msgid "Sound Events"
+msgstr "Dữ kiện âm thanh"
+
+#: ../src/gui/preferences.cpp:1489
+msgid "Protocols"
+msgstr "Giao thức"
+
+#: ../src/gui/preferences.cpp:1491
+msgid "SIP Settings"
+msgstr "Thiết lập SIP"
+
+#: ../src/gui/preferences.cpp:1496
+msgid "H.323 Settings"
+msgstr "Thiết lập H.323"
+
+#: ../src/gui/preferences.cpp:1500
+msgid "Audio"
+msgstr "Âm thanh"
+
+#: ../src/gui/preferences.cpp:1501 ../src/gui/preferences.cpp:1511
+msgid "Devices"
+msgstr "Thiết bị"
+
+#: ../src/gui/preferences.cpp:1510
+msgid "Video"
+msgstr "Ảnh động"
+
+#: ../src/gui/tools.cpp:179
+msgid "Invalid parameters"
+msgstr "Tham số không hợp lệ"
+
+#: ../src/gui/tools.cpp:179
+msgid ""
+"Please provide your username and password in order to be able to use the PC-"
+"To-Phone service."
+msgstr ""
+"Hãy cung cấp tên người dùng và mật khẩu để có khả năng sử dụng dịch vụ Máy-"
+"đến-điện-thoại."
+
+#: ../src/gui/tools.cpp:315 ../src/gui/tools.cpp:329
+msgid "PC-To-Phone Settings"
+msgstr "Thiết lập Máy-đến-điện thoại"
+
+#. Introduction label
+#: ../src/gui/tools.cpp:320
+msgid ""
+"You can make calls to regular phones and cell numbers worldwide using Ekiga. "
+"To enable this, you need to do three things. First create an account at the "
+"URL below. Then enter your account ID and PIN code. Finally, activate the "
+"registration below.\n"
+"\n"
+"The service will work only if your account is created using the URL in this "
+"dialog."
+msgstr ""
+"Bạn có thể gọi cho điện thoại cố định và điện thoại di động trên khắp thế "
+"giới bằng trình Ekiga. Để bật khả năng này, bạn hãy làm ba hành động:\n"
+" 1. Tạo một tài khoản tại địa chỉ URL bên dưới đây,\n"
+" 2. Gõ mã số tài khoản và mật khẩu riêng của bạn, và\n"
+" 3. Kích hoạt sự đăng ký bên dưới.\n"
+"\n"
+"Dịch vụ sẽ hoạt động được chỉ nếu tài khoản của bạn được tạo bằng địa chỉ "
+"URL trong hộp thoại này."
+
+#: ../src/gui/tools.cpp:331
+msgid "Account _ID:"
+msgstr "Mã số tà_i khoản:"
+
+#: ../src/gui/tools.cpp:348
+msgid "_PIN code:"
+msgstr "Mã _PIN:"
+
+#: ../src/gui/tools.cpp:367
+msgid "Use PC-To-Phone service"
+msgstr "Dùng dịch vụ Máy-đến-điện-thoại"
+
+#: ../src/gui/tools.cpp:379
+msgid ""
+"Click on one of the following links to get more information about your "
+"existing Ekiga PC-To-Phone account, or to create a new account."
+msgstr ""
+"Nhấn vào một của những liên kết theo đây để tìm thêm thông tin về tài khoản "
+"Máy-đến-điện-thoại Ekiga đã tồn tại của bạn, hoặc để tạo một tài khoản mới."
+
+#: ../src/gui/tools.cpp:387
+msgid "Get an Ekiga PC-To-Phone account"
+msgstr "Lấy một tài khoản Máy-đến-điện-thoại Ekiga"
+
+#: ../src/gui/tools.cpp:401
+msgid "Recharge the account"
+msgstr "Tái sác tài khoản"
+
+#: ../src/gui/tools.cpp:415
+msgid "Consult the balance history"
+msgstr "Xem lược sử số còn lại"
+
+#: ../src/gui/tools.cpp:429
+msgid "Consult the calls history"
+msgstr "Xem lược sử cuộc gọi"
+
+#: ../src/gui/statusicon.cpp:349
+#, c-format
+msgid "You have %d messages"
+msgstr "Bạn có %d tin nhắn"
+
+#: ../src/gui/statusicon.cpp:350
+#, c-format
+msgid "You have %d message"
+msgstr "Bạn có %d tin nhắn"
+
+#: ../src/gui/statusicon.cpp:433
+msgid "_Contents"
+msgstr "Mụ_c lục"
+
+#: ../src/gui/statusicon.cpp:438
+msgid "_About"
+msgstr "_Giới thiệu"
+
+#: ../src/gui/statusmenu.cpp:90
+msgid "Online"
+msgstr "Trực tuyến"
+
+#: ../src/gui/statusmenu.cpp:91
+msgid "Away"
+msgstr "Vắng mặt"
+
+#: ../src/gui/statusmenu.cpp:92
+msgid "Do Not Disturb"
+msgstr "Đừng quấy rầy"
+
+#: ../src/gui/statusmenu.cpp:506
+msgid "Custom message..."
+msgstr "Tin nhẳn tự chọn..."
+
+#: ../src/gui/statusmenu.cpp:616 ../src/gui/statusmenu.cpp:751
+msgid "Custom Message"
+msgstr "Tin nhẳn tự chọn"
+
+#: ../src/gui/statusmenu.cpp:632
+msgid "Delete custom messages:"
+msgstr "Xoá các tin nhẳn tự chọn:"
+
+#: ../src/gui/statusmenu.cpp:772
+msgid "Define a custom message:"
+msgstr "Xác định một tin nhẳn tự chọn:"

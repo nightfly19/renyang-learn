@@ -1,0 +1,29 @@
+#include "config.h"
+
+1 VERSIONINFO
+FILEVERSION MAJOR_VERSION, MINOR_VERSION, BUILD_NUMBER, 0
+PRODUCTVERSION MAJOR_VERSION, MINOR_VERSION, BUILD_NUMBER, 0
+FILEFLAGSMASK 0
+FILEOS 0x40000
+FILETYPE 1
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "040904E4"
+  {
+   VALUE "CompanyName", "see www.ekiga.org"
+   VALUE "FileDescription", "Ekiga is a free Voice over IP phone"
+   VALUE "FileVersion", VERSION
+   VALUE "InternalName", "Ekiga"
+   VALUE "LegalCopyright", "2000 -2006 Damien Sandras"
+   VALUE "ProductName", "Ekiga"
+   VALUE "OriginalFilename", "ekiga.exe"
+   VALUE "ProductVersion", PACKAGE_VERSION
+#ifdef CVS_VERSION
+   VALUE "SpecialBuild", CVS_VERSION
+#endif
+  }
+ }
+}
+
+2 ICON DISCARDABLE "ico/ekiga.ico"

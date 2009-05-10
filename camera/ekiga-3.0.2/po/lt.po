@@ -1,0 +1,3847 @@
+# translation of lt.po to Lithuanian
+# Lithuanian translation of Ekiga.
+# Copyright (C) 2003-2006, 2007, 2008 Free Software Foundation, Inc.
+#
+#
+# Tomas Kuliavas <tokul@users.sourceforge.net>, 2003-2004.
+# Žygimantas Beručka <zygis@gnome.org>, 2004-2006.
+# Gintautas Miliauskas <gintas@akl.lt>, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: lt\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-02 15:46+0200\n"
+"PO-Revision-Date: 2008-03-02 15:46+0200\n"
+"Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
+"Language-Team: Lithuanian <gnome-lt@lists.akl.lt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../ekiga.desktop.in.in.h:1
+msgid "Ekiga Softphone"
+msgstr "Ekiga programinis telefonas"
+
+#: ../ekiga.desktop.in.in.h:2
+msgid "IP Telephony, VoIP and Video Conferencing"
+msgstr "IP telefonija, VoIP ir vaizdo konferencijos"
+
+#: ../ekiga.desktop.in.in.h:3
+msgid "Talk to people over the Internet"
+msgstr "Kalbėkitės su kitais žmonėmis per Internetą"
+
+#: ../ekiga.schemas.in.in.h:1
+msgid "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+msgstr "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: kitas"
+
+#: ../ekiga.schemas.in.in.h:2
+msgid "Address of public IP detector"
+msgstr "Viešojo IP detektoriaus adresas"
+
+#: ../ekiga.schemas.in.in.h:3
+msgid "Alternative audio output device"
+msgstr "Alternatyvus garso išvesties įrenginys"
+
+#: ../ekiga.schemas.in.in.h:4
+msgid "Always forward calls to the given host"
+msgstr "Visada nukreipti skambučius į nurodytą kompiuterį"
+
+#: ../ekiga.schemas.in.in.h:5
+msgid "Audio input device"
+msgstr "Garso įvedimo įrenginys"
+
+#: ../ekiga.schemas.in.in.h:6
+msgid "Audio output device"
+msgstr "Garso išvedimo įrenginys"
+
+#: ../ekiga.schemas.in.in.h:7
+msgid "Audio plugin"
+msgstr "Garso įskiepis"
+
+#: ../ekiga.schemas.in.in.h:8
+msgid "Automatic echo cancellation"
+msgstr "Automatinis aido atšaukimas"
+
+#: ../ekiga.schemas.in.in.h:9 ../src/gui/preferences.cpp:740
+msgid ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+msgstr ""
+"Automatiškai atmesti arba nukreipti įeinančius skambučius jeigu neatsakoma "
+"per nurodytą laiko tarpą (sekundėmis)."
+
+#: ../ekiga.schemas.in.in.h:10
+msgid ""
+"Automatically switch to fullscreen for images displayed in the main GUI at "
+"the beginning of the call"
+msgstr ""
+"Automatiškai persijungti į vaizdų išvedimą pilnaekraniame režime prasidėjus "
+"pokalbiui."
+
+#: ../ekiga.schemas.in.in.h:11
+msgid "Change the control panel section"
+msgstr "Keisti valdymo centro sekciją"
+
+#: ../ekiga.schemas.in.in.h:12
+msgid "Change the view mode of the UI"
+msgstr "Keisti UI rodymo režimą"
+
+#: ../ekiga.schemas.in.in.h:13
+msgid "Change the view mode of the UI (softphone, videophone, full view)"
+msgstr ""
+"Keisti UI rodymo režimą (programinis telefonas, video telefonas, visas "
+"vaizdas)"
+
+#: ../ekiga.schemas.in.in.h:14
+msgid "Clear inactive calls"
+msgstr "Ištrinti nevykdomus skambučius"
+
+#: ../ekiga.schemas.in.in.h:15
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+msgstr ""
+"Prisijungimas bus sukurtas Greitojo starto režime. Greitasis startas yra "
+"naujas būdas pradėti pokalbius greičiau, atsiradęs H.323v2. Šis darbo "
+"režimas nėra palaikomas Netmeeting programos, o naudojant Greitąjį startą "
+"bei H.245 tuneliavimą gali nulūžti kai kurios Netmeeting versijos"
+
+#: ../ekiga.schemas.in.in.h:16
+msgid "Country code"
+msgstr "Šalies kodas"
+
+#: ../ekiga.schemas.in.in.h:17
+msgid "DTMF sending"
+msgstr "Siunčiamas DTMF"
+
+#: ../ekiga.schemas.in.in.h:18
+msgid "Display a popup window when receiving a call"
+msgstr "Atėjus pokalbio kvietimui parodyti kvietimo langą"
+
+#: ../ekiga.schemas.in.in.h:19
+msgid "Enable 'Fast Start'"
+msgstr "Naudoti 'Greitą Startą'"
+
+#: ../ekiga.schemas.in.in.h:20
+msgid "Enable H.245 tunneling"
+msgstr "Naudoti H.245 tuneliavimą"
+
+#: ../ekiga.schemas.in.in.h:21
+msgid "Enable IP checking"
+msgstr "Naudoti IP tikrinimą"
+
+#: ../ekiga.schemas.in.in.h:22
+msgid "Enable bilinear filtering on displayed video"
+msgstr "Išvedant vaizdą naudoti bilinear filtrus"
+
+#: ../ekiga.schemas.in.in.h:23
+msgid "Enable early H.245"
+msgstr "Naudoti ankstyvą H.245"
+
+#: ../ekiga.schemas.in.in.h:24
+msgid "Enable echo cancelation"
+msgstr "Įjungti aido panaikinimą"
+
+#: ../ekiga.schemas.in.in.h:25
+msgid ""
+"Enable or disable bilinear interpolation when rendering video images (this "
+"has no effect in fullscreen mode)"
+msgstr ""
+"Įjungia arba išjungia dvilinijinę (bilinear) interpoliaciją, kai geruojami "
+"video paveikslėliai (neturi jokios įtakos pilnaekraniame režime)"
+
+#: ../ekiga.schemas.in.in.h:26
+msgid "Enable silence detection"
+msgstr "Įjungti tylos atpažinimą"
+
+#: ../ekiga.schemas.in.in.h:27
+msgid "Enable video support"
+msgstr "Įjungti vaizdo palaikymą"
+
+#: ../ekiga.schemas.in.in.h:28
+msgid ""
+"Enter a valid URL to connect to a web application that outputs the public IP "
+"of your host"
+msgstr ""
+"Įveskite tinkamą URL kuriuo prisijungti prie web programos, išvedančio Jūsų "
+"kompiuterio viešą IP"
+
+#: ../ekiga.schemas.in.in.h:29
+msgid ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+msgstr ""
+"Įveskite laiko tarpą sekundėmis po kurio Ekiga turėtų bandyti atnaujinti NAT "
+"susiejimą, kai naudojamas STUN"
+
+#: ../ekiga.schemas.in.in.h:30
+msgid ""
+"Enter the public IP of your NAT/PAT router if you want to use IP translation"
+msgstr ""
+"Įveskite Jūsų NAT/PAT maršrutizatoriaus viešą IP adresą, jei norite IP "
+"transliacijos"
+
+#: ../ekiga.schemas.in.in.h:31 ../src/gui/preferences.cpp:635
+msgid "Enter your first name"
+msgstr "Įveskite savo vardą"
+
+#: ../ekiga.schemas.in.in.h:32
+msgid "Enter your last name"
+msgstr "Įveskite savo pavardę"
+
+#: ../ekiga.schemas.in.in.h:33
+msgid "First name"
+msgstr "Vardas"
+
+#: ../ekiga.schemas.in.in.h:34
+msgid "Forward calls to host"
+msgstr "Nukreipti skambučius į kitą kompiuterį"
+
+#: ../ekiga.schemas.in.in.h:35
+msgid "Forward calls to the given host if busy"
+msgstr ""
+"Nukreipti skambučius į nurodytą kompiuterį, jei esamas kompiuteris užimtas"
+
+#: ../ekiga.schemas.in.in.h:36
+msgid "Forward calls to the given host if no answer"
+msgstr "Nukreipti skambučius į nurodytą kompiuterį, jei niekas neatsako"
+
+#: ../ekiga.schemas.in.in.h:37
+msgid "Gateway/proxy host"
+msgstr "Šliuzo/tarpinės stoties hostas"
+
+#: ../ekiga.schemas.in.in.h:38 ../src/gui/preferences.cpp:685
+msgid ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+msgstr ""
+"Jeigu įjungta, Ekiga pasileis paslėpta, jei GNOME skydelyje bus pranešimų "
+"vieta"
+
+#: ../ekiga.schemas.in.in.h:39
+msgid ""
+"If enabled, a popup window will be displayed when receiving an incoming call"
+msgstr "Jeigu įjungta, gavus įeinantį skambutį bus parodomas iššokantis langas"
+
+#: ../ekiga.schemas.in.in.h:40
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+msgstr ""
+"Jei įjungta, visi ateinantys pokalbių kvietimai bus nukreipiami į žemiau "
+"esančiame lauke nurodytą hostą"
+
+#: ../ekiga.schemas.in.in.h:41
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+msgstr ""
+"Įjungus visi įeinantys skambučiai bus nukreipti į žemiau esančiame lauke "
+"nurodytą kompiuterį, jei Jūs jau kalbate arba esate „Netrukdyti“ režime"
+
+#: ../ekiga.schemas.in.in.h:42
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+msgstr ""
+"Įjungus visi ateinantys skambučiai bus nukreipti į žemiau esančiame lauke "
+"nurodytą kompiuterį, jei Jūs neatsakysite į kvietimą"
+
+#: ../ekiga.schemas.in.in.h:43
+msgid "If enabled, allows video during calls"
+msgstr "Jeigu įjungta, skambučių metu įjungia vaizdą"
+
+#: ../ekiga.schemas.in.in.h:44 ../src/gui/preferences.cpp:738
+msgid ""
+"If enabled, calls for which no audio and video has been received in the last "
+"30 seconds are automatically cleared"
+msgstr ""
+"Jei įjungta, skambučiai, iš kurių per 30 sekundžių negauta nei video, nei "
+"audio informacijos, yra automatiškai pašalinami"
+
+#: ../ekiga.schemas.in.in.h:45
+msgid "If enabled, use echo cancelation"
+msgstr "Jeigu įjungta, naudoti aido panaikinimą"
+
+#: ../ekiga.schemas.in.in.h:46
+msgid "If enabled, use silence detection with the codecs supporting it"
+msgstr "Jei įjungta, naudoti tylos atpažinimą su kodekais, kurie tai palaiko"
+
+#: ../ekiga.schemas.in.in.h:47
+msgid "Incoming call mode"
+msgstr "Skambučio laukimo režimas"
+
+#: ../ekiga.schemas.in.in.h:48
+msgid "Kind of network selected in the druid"
+msgstr "Pasirinktas tinklinio ryšio tipas"
+
+#: ../ekiga.schemas.in.in.h:49
+msgid "Last name"
+msgstr "Pavardė"
+
+#: ../ekiga.schemas.in.in.h:50
+msgid "Listen port"
+msgstr "Klausymo prievadas"
+
+#: ../ekiga.schemas.in.in.h:51
+msgid "Local video window size"
+msgstr "Vietinio vaizdo lango dydis"
+
+#: ../ekiga.schemas.in.in.h:52
+msgid "Maximum jitter buffer"
+msgstr "Maksimalus sklaidos buferis"
+
+#: ../ekiga.schemas.in.in.h:53
+msgid "Maximum video bandwidth"
+msgstr "Maksimalus vaizdo srauto greitis"
+
+#: ../ekiga.schemas.in.in.h:54
+msgid "Minimum jitter buffer"
+msgstr "Minimalus sklaidos buferis"
+
+#: ../ekiga.schemas.in.in.h:55
+msgid "Minimum transmitted video quality"
+msgstr "Minimali perduodamo vaizdo kokybė"
+
+#: ../ekiga.schemas.in.in.h:56
+msgid "Missed calls history"
+msgstr "Praleistų skambučių atmintinė"
+
+#: ../ekiga.schemas.in.in.h:57
+msgid "NAT Binding Timeout"
+msgstr "NAT susiejimo laiko pabaiga"
+
+#: ../ekiga.schemas.in.in.h:58
+msgid "No answer timeout"
+msgstr "Neatsakymo laiko limitas"
+
+#: ../ekiga.schemas.in.in.h:59
+msgid "Number of frames for G.711"
+msgstr "Kadrų skaičius G.711 protokole"
+
+#: ../ekiga.schemas.in.in.h:60
+msgid "Number of frames for GSM"
+msgstr "Kadrų skaičius GSM protokole"
+
+#: ../ekiga.schemas.in.in.h:61
+msgid "Number of frames transmitted in each packet for the G.711 codec"
+msgstr ""
+"Kadrų skaičius, kuris bus perduodamas su kiekvienu paketu naudojant G.711 "
+"kodeką"
+
+#: ../ekiga.schemas.in.in.h:62
+msgid "Number of frames transmitted in each packet for the GSM codec"
+msgstr ""
+"Kadrų kiekis, kuris bus perduodamas su kiekvienu paketu naudojant GSM kodeką"
+
+#: ../ekiga.schemas.in.in.h:63
+msgid "Outbound Proxy"
+msgstr "Išsiuntimo tarpinis serveris"
+
+#: ../ekiga.schemas.in.in.h:64
+msgid "Output device type"
+msgstr "Išvedimo įrenginio tipas"
+
+#: ../ekiga.schemas.in.in.h:65 ../src/gui/preferences.cpp:693
+msgid "Place windows displaying video above other windows during calls"
+msgstr "Skambučių metu langus rodančius video rodyti aukščiau kitų langų"
+
+#: ../ekiga.schemas.in.in.h:66
+msgid "Placed calls history"
+msgstr "Vykdytų skambučių atmintinė"
+
+#: ../ekiga.schemas.in.in.h:67 ../src/gui/preferences.cpp:1898
+msgid "Play busy tone"
+msgstr "Groti užimtumo signalą"
+
+#: ../ekiga.schemas.in.in.h:68 ../src/gui/preferences.cpp:1889
+msgid "Play ring tone"
+msgstr "Skambučio signalas"
+
+#: ../ekiga.schemas.in.in.h:69 ../src/gui/preferences.cpp:1880
+msgid "Play sound on incoming calls"
+msgstr "Sulaukus skambučio groti garsus"
+
+#: ../ekiga.schemas.in.in.h:70
+msgid "Play sound on new message"
+msgstr "Gavus naują pranešimą sugroti garsą"
+
+#: ../ekiga.schemas.in.in.h:71
+msgid "Play sound on new voice mail"
+msgstr "Gavus naują balso pranešimą sugroti garsą"
+
+#: ../ekiga.schemas.in.in.h:72
+msgid "Position of the local video window"
+msgstr "Vietinio vaizdo lango padėtis"
+
+#: ../ekiga.schemas.in.in.h:73
+msgid "Position on the screen of the PC-To-Phone window"
+msgstr "PC-To-Phone lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:74
+msgid "Position on the screen of the address book window"
+msgstr "Adresų knygos lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:75
+msgid "Position on the screen of the calls history window"
+msgstr "Skambučių atmintinės lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:76
+msgid "Position on the screen of the chat window"
+msgstr "Pokalbio lango lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:77
+msgid "Position on the screen of the druid window"
+msgstr "Vedlio lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:78
+msgid "Position on the screen of the log window"
+msgstr "Žurnalo lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:79
+msgid "Position on the screen of the main window"
+msgstr "Pagrindinio lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:80
+msgid "Position on the screen of the preferences window"
+msgstr "Nustatymų lango padėtis ekrane"
+
+#: ../ekiga.schemas.in.in.h:81
+msgid "Public IP of the NAT/PAT router"
+msgstr "Išorinis NAT/PAT maršrutizatoriaus adresas"
+
+#: ../ekiga.schemas.in.in.h:82
+msgid "Received calls history"
+msgstr "Sulauktų skambučių atmintinė"
+
+#: ../ekiga.schemas.in.in.h:83
+msgid "Registration timeout"
+msgstr "Registracijos pertrauka"
+
+#: ../ekiga.schemas.in.in.h:84
+msgid "Remote video window position"
+msgstr "Nutolusio vaizdo lango padėtis"
+
+#: ../ekiga.schemas.in.in.h:85
+msgid "Remote video window size"
+msgstr "Nutolusio vaizdo lango dydis"
+
+#: ../ekiga.schemas.in.in.h:86
+msgid "Revision of the schema file"
+msgstr "Schemos rinkmenos versija"
+
+#: ../ekiga.schemas.in.in.h:87
+msgid "Select an alternative audio output device to use for sound events."
+msgstr ""
+"Pasirinkite alternatyvų garso išvesties įrenginį naudojamą garsiniams "
+"įvykiams."
+
+#: ../ekiga.schemas.in.in.h:88 ../src/gui/preferences.cpp:1095
+msgid "Select the audio input device to use"
+msgstr "Pasirinkit naudojamą garso įvedimo įrenginį"
+
+#: ../ekiga.schemas.in.in.h:89 ../src/gui/preferences.cpp:1088
+msgid "Select the audio output device to use"
+msgstr "Pasirinkit naudojamą garso išvedimo įrenginį"
+
+#: ../ekiga.schemas.in.in.h:90 ../src/gui/preferences.cpp:959
+msgid ""
+"Select the desired method for NAT traversal (STUN is strongly suggested)"
+msgstr "Pasirinkite norimą NAT kirtimo metodą (rekomenduojamas STUN)"
+
+#: ../ekiga.schemas.in.in.h:91 ../src/gui/preferences.cpp:1178
+msgid ""
+"Select the format for video cameras (does not apply to most USB cameras)"
+msgstr "Pasirinkite vaizdo kamerų formatą (negalioja daugumai USB kamerų)"
+
+#: ../ekiga.schemas.in.in.h:92
+msgid ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"Pasirinkite perduodamo vaizdo dydį: mažas (QCIF 176x144) ar didelis (CIF "
+"352x288)"
+
+#: ../ekiga.schemas.in.in.h:93 ../src/gui/preferences.cpp:1168
+msgid ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+msgstr ""
+"Pasirinkite naudojamą vaizdo įvedimo įrenginį. Jei naudojant šį įrenginį "
+"įvyks klaida, bus perduodamas bandomasis paveikslėlis."
+
+#: ../ekiga.schemas.in.in.h:94
+msgid "Size of the PC-To-Phone window"
+msgstr "PC-To-Phone lango dydis"
+
+#: ../ekiga.schemas.in.in.h:95
+msgid "Size of the address book window"
+msgstr "Adresų knygos lango dydis"
+
+#: ../ekiga.schemas.in.in.h:96
+msgid "Size of the calls history window"
+msgstr "Ankstesnių skambučių lango dydis"
+
+#: ../ekiga.schemas.in.in.h:97
+msgid "Size of the chat window"
+msgstr "Pokalbio lango dydis"
+
+#: ../ekiga.schemas.in.in.h:98
+msgid "Size of the druid window"
+msgstr "Vedlio lango dydis"
+
+#: ../ekiga.schemas.in.in.h:99
+msgid "Size of the log window"
+msgstr "Žurnalo lango dydis"
+
+#: ../ekiga.schemas.in.in.h:100
+msgid "Size of the preferences window"
+msgstr "Nustatymų lango dydis"
+
+#: ../ekiga.schemas.in.in.h:101
+msgid "Start hidden"
+msgstr "Pasileisti pasislėpus"
+
+#: ../ekiga.schemas.in.in.h:102 ../src/gui/main.cpp:1109
+#: ../src/gui/main.cpp:1587 ../src/gui/main.cpp:1612
+msgid "Switch to fullscreen"
+msgstr "Pilnaekranis vaizdas"
+
+#: ../ekiga.schemas.in.in.h:103
+msgid "TCP port range"
+msgstr "TCP prievadų sritis"
+
+#: ../ekiga.schemas.in.in.h:104
+msgid "The Audio Codecs List"
+msgstr "Garso kodekų sąrašas"
+
+#: ../ekiga.schemas.in.in.h:105
+msgid ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+msgstr ""
+"Automatinis aido slopinimo lygis: Atjungta, Žemas, Vidutis: Aukštas, "
+"Automatinis reguliavimas. Pasirinkus automatinį reguliavimą sistema derina "
+"garso lygį siekdama išgauti geriausią kokybę."
+
+#: ../ekiga.schemas.in.in.h:106 ../src/gui/preferences.cpp:986
+msgid ""
+"The Gateway host is the host to use to do H.323 calls through a gateway that "
+"will relay calls"
+msgstr ""
+"Šliuzo hostas yra hostas naudojamas daryti H.323 skambučiams per šliuzą, "
+"kuris transliuos skambučius"
+
+#: ../ekiga.schemas.in.in.h:107
+msgid "The NAT method"
+msgstr "NAT metodas"
+
+#: ../ekiga.schemas.in.in.h:108 ../src/gui/preferences.cpp:1037
+msgid "The SIP Outbound Proxy to use for outgoing calls"
+msgstr "Išeinantiems skambučiams naudotinas SIP išsiuntimo tarpinis serveris"
+
+#: ../ekiga.schemas.in.in.h:109
+msgid "The STUN Server"
+msgstr "STUN serveris"
+
+#: ../ekiga.schemas.in.in.h:110
+msgid ""
+"The STUN server to use for STUN Support. STUN is a technic that permits to "
+"go through some types of NAT gateways"
+msgstr ""
+"STUN serveris naudojamas STUN palaikymui. STUN yra technika leidžianti "
+"perduoti duomenis per kai kurių tipų NAT šliuzus"
+
+#: ../ekiga.schemas.in.in.h:111
+msgid "The accounts list"
+msgstr "Abonementų sąrašas"
+
+#: ../ekiga.schemas.in.in.h:112
+msgid ""
+"The audio plugin that will be used to detect the devices and manage them"
+msgstr "Audio įskiepis, kuris bus naudojamas atpažinti ir valdyti įrenginius"
+
+#: ../ekiga.schemas.in.in.h:113
+msgid "The busy tone sound"
+msgstr "Užimtumo signalas"
+
+#: ../ekiga.schemas.in.in.h:114
+msgid ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+msgstr ""
+"Jei įjunta, pasirinktas garsas bus grojamas pokalbiams pasibaigus arba "
+"bandant susisiekti su užsiėmusiu adresatu"
+
+#: ../ekiga.schemas.in.in.h:115
+msgid "The chosen sound will be played on incoming calls, if enabled"
+msgstr "Jei įjungta, gavus skambučius bus sugrotas pasirinktas garsas"
+
+#: ../ekiga.schemas.in.in.h:116
+msgid ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+msgstr "Jei įjungta, gavus naują pranešimą bus sugrotas pasirinktas garsas"
+
+#: ../ekiga.schemas.in.in.h:117
+msgid ""
+"The chosen sound will be played when a new voice mail is received, if enabled"
+msgstr "Jei įjungta, gavus naują balso paštą bus sugrotas pasirinktas garsas"
+
+#: ../ekiga.schemas.in.in.h:118
+msgid "The chosen sound will be played when calling somebody, if enabled"
+msgstr ""
+"Jei įjungta, pasirinktas garsas bus grojamas, bandant kam nors paskambinti"
+
+#: ../ekiga.schemas.in.in.h:119
+msgid "The default video view"
+msgstr "Įprastas vaizdo režimas"
+
+#: ../ekiga.schemas.in.in.h:120
+msgid ""
+"The default video view (0: Local, 1: Remote, 2: Both incrusted, 3: Both with "
+"local video in a separate window, 4: Both)"
+msgstr ""
+"Įprastas vaizdo režimas (0: Nuosavas, 1: Nutolęs, 2: Abu įrėminti, 3: Abu su "
+"nuosavu video atskirame lange, 4: Abu)"
+
+#: ../ekiga.schemas.in.in.h:121
+msgid "The dial tone sound"
+msgstr "Rinkimo tono garsas"
+
+#: ../ekiga.schemas.in.in.h:122
+msgid "The history of the last 100 missed calls"
+msgstr "Paskutinių 100 praleistų skambučių atmintinė"
+
+#: ../ekiga.schemas.in.in.h:123
+msgid "The history of the last 100 placed calls"
+msgstr "Paskutinių 100 vykdytų skambučių atmintinė"
+
+#: ../ekiga.schemas.in.in.h:124
+msgid "The history of the last 100 received calls"
+msgstr "Paskutinių 100 gautų skambučių atmintinė"
+
+#: ../ekiga.schemas.in.in.h:125 ../src/gui/preferences.cpp:989
+#: ../src/gui/preferences.cpp:1040
+msgid "The host where calls should be forwarded if call forwarding is enabled"
+msgstr ""
+"Hostas, į kurį turi būti persiųsti skambučiai, jei persiuntimas įjungtas"
+
+#: ../ekiga.schemas.in.in.h:126
+msgid ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+msgstr ""
+"Paveikslėlis, siunčiamas, jei pasirinktas vaizdo įskiepis - „Paveikslėlis“ "
+"arba jei nepavyksta atverti vaizdo įrenginio. Jei nenurodysite, bus "
+"naudojamas Ekiga logotipas."
+
+#: ../ekiga.schemas.in.in.h:127
+msgid "The incoming call sound"
+msgstr "Įeinančio skambučio garsas"
+
+#: ../ekiga.schemas.in.in.h:128
+msgid "The list of accounts to which Ekiga should register"
+msgstr "Abonementų sąrašas, kuriuos Ekiga turėtų priregistruoti"
+
+#: ../ekiga.schemas.in.in.h:129
+msgid "The local zoom value"
+msgstr "Vietinio mastelio reikšmė"
+
+#: ../ekiga.schemas.in.in.h:130
+msgid "The maximum jitter buffer size for audio reception (in ms)"
+msgstr "Didžiausias garso signalo priėmimo buferio dydis (milisekundėmis)"
+
+#: ../ekiga.schemas.in.in.h:131
+msgid ""
+"The maximum video bandwidth in kbytes/s. The video quality and the number of "
+"transmitted frames per second will be dynamically adjusted above their "
+"minimum during calls to try to minimize the bandwidth to the given value"
+msgstr ""
+"Leistinas vaizdo srauto dydis kbaitai/s. Vaizdo kokybė ir perduodamų kadrų "
+"per sekundę skaičius bus automatiškai koreguojamas virš minimalios vertės, "
+"pokalbių metu siekiant sumažinti naudojamą srautą iki nurodytos vertės"
+
+#: ../ekiga.schemas.in.in.h:132
+msgid "The minimum jitter buffer size for audio reception (in ms)"
+msgstr "Mažiausias garso signalo priėmimo buferio dydis (milisekundėmis)"
+
+#: ../ekiga.schemas.in.in.h:134
+#, no-c-format
+msgid ""
+"The minimum transmitted video quality to keep when trying to minimize the "
+"used bandwidth: choose 100% on a LAN for the best quality, 1% being the "
+"worst quality"
+msgstr ""
+"Mažiausia leistina vaizdo signalo kokybė, kurią būtina išsaugoti mažinant "
+"panaudojamą srautą: pasirinkite 100% norėdami vietiniame tinkle išsaugoti "
+"geriausią kokybę, 1% nustato prasčiausios kokybės signalą"
+
+#: ../ekiga.schemas.in.in.h:135
+msgid "The network interface"
+msgstr "Tinklo sąsaja"
+
+#: ../ekiga.schemas.in.in.h:136 ../src/gui/preferences.cpp:950
+msgid "The network interface to listen on"
+msgstr "Tinklo sąsaja, kurioje klausytis"
+
+#: ../ekiga.schemas.in.in.h:137
+msgid "The new instant message sound"
+msgstr "Naujos greitos žinutės garsas"
+
+#: ../ekiga.schemas.in.in.h:138
+msgid "The new voice mail sound"
+msgstr "Naujo balso pašto garsas"
+
+#: ../ekiga.schemas.in.in.h:139
+msgid ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+msgstr ""
+"Išvesties įrenginio tipas, tai įrenginio prijungto prie Jūsų Quicknet kortos "
+"tipas. Tai gali būti arba POTS (standartinis telefoninis įrenginys) arba "
+"ausinės."
+
+#: ../ekiga.schemas.in.in.h:140
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+msgstr ""
+"Prievadas, kuriuo laukiama įeinančių skambučių. Norint, kad pakeista reikšmė "
+"įsigaliotų, Ekiga turi būti paleista iš naujo"
+
+#: ../ekiga.schemas.in.in.h:141
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+msgstr ""
+"Prievadas, kuriuo laukiama įeinančių skambučių. Norint, kad pakeista reikšmė "
+"įsigaliotų, Ekiga turi būti paleista iš naujo."
+
+#: ../ekiga.schemas.in.in.h:142
+msgid "The position of the local video window"
+msgstr "Vietinio vaizdo lango padėtis"
+
+#: ../ekiga.schemas.in.in.h:143
+msgid "The position of the remote video window"
+msgstr "Nutolusio vaizdo lango padėtis"
+
+#: ../ekiga.schemas.in.in.h:144
+msgid ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+msgstr ""
+"Priešdėlis, kuris bus naudojamas išsaugant pokalbio atvaizdus. Saugant prie "
+"jo bus pridėtas atvaizdo numeris."
+
+#: ../ekiga.schemas.in.in.h:145
+msgid ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. "
+"Ekiga needs to be restarted for the new values to take effect. This port "
+"range has no effect if both participants to the conference are using H.245 "
+"Tunneling."
+msgstr ""
+"TCP prievadų, kuriuos Ekiga naudos H.323 H.245 kanalui, intervalas. Norint, "
+"kad pakeista reikšmė įsigaliotų, Ekiga turi būti paleista iš naujo. Šis "
+"adresų intervalas nesvarbus kai abu pokalbio dalyviai naudoja H.245 "
+"tuneliavimą."
+
+#: ../ekiga.schemas.in.in.h:146
+msgid ""
+"The range of UDP ports that Ekiga will use for RTP (audio and video "
+"communication channels). Ekiga needs to be restarted for the new values to "
+"take effect."
+msgstr ""
+"UDP prievadų, kuriuos Ekiga naudos RTP (garsinio ir vaizdinio bendravimo "
+"kanalams), intervalas. Norint, kad pakeista reikšmė įsigaliotų, Ekiga turi "
+"būti paleista iš naujo."
+
+#: ../ekiga.schemas.in.in.h:147
+msgid ""
+"The range of UDP ports that Ekiga will use for SIP signaling and when "
+"registering to gatekeepers. Ekiga needs to be restarted for the new values "
+"to take effect."
+msgstr ""
+"UDP prievadų, kuriuos Ekiga naudos SIP signalizavimui bei registracijai su "
+"šliuzais, intervalas. Norint, kad pakeista reikšmė įsigaliotų, Ekiga turi "
+"būti paleista iš naujo."
+
+#: ../ekiga.schemas.in.in.h:148
+msgid "The remote zoom value"
+msgstr "Nutolusio mastelio reikšmė"
+
+#: ../ekiga.schemas.in.in.h:149
+msgid "The save prefix"
+msgstr "Išsaugojimo priešdėlis"
+
+#: ../ekiga.schemas.in.in.h:150
+msgid "The size of the local video window"
+msgstr "Vietinio vaizdo lango dydis"
+
+#: ../ekiga.schemas.in.in.h:151
+msgid "The size of the remote video window"
+msgstr "Nutolusio vaizdo lango dydis"
+
+#: ../ekiga.schemas.in.in.h:152
+msgid ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+msgstr ""
+"Jei įjungta, garsas, kuris bus grojamas pokalbiams pasibaigus arba bandant "
+"prisiskambinti užsiėmusiam adresatui"
+
+#: ../ekiga.schemas.in.in.h:153
+msgid "The sound that will be played on incoming calls, if enabled"
+msgstr "Jeį įjungta, gavus skambutį bus grojamas garsas"
+
+#: ../ekiga.schemas.in.in.h:154
+msgid "The sound that will be played when calling somebody, if enabled"
+msgstr "Jei įjungta, kam nors skambinant bus grojamas garsas"
+
+#: ../ekiga.schemas.in.in.h:155
+msgid ""
+"The sound that will be played when there is a new instant message, if enabled"
+msgstr "Jei įjungta, garsas, kuris bus grojamas gavus naują greitą žinutę"
+
+#: ../ekiga.schemas.in.in.h:156
+msgid ""
+"The sound that will be played when there is a new voice mail, if enabled"
+msgstr "Jei įjungta, garsas, kuris bus bus grojamas gavus naują balso paštą"
+
+#: ../ekiga.schemas.in.in.h:157
+msgid ""
+"The time after which Ekiga will renew its registration with the registrar"
+msgstr ""
+"Laikas, kuriam pasibaigus Ekiga atnaujins savo registraciją su "
+"registratoriumi"
+
+#: ../ekiga.schemas.in.in.h:158
+msgid "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+msgstr "Dviejų raidžių Jūsų šalies kodas (pvz.: LT, UK, FR, DE, ...)"
+
+#: ../ekiga.schemas.in.in.h:159 ../src/gui/preferences.cpp:1172
+msgid "The video channel number to use (to select camera, tv or other sources)"
+msgstr ""
+"Naudotinas vaizdo kanalo numeris (kameros, tv ar kito šaltinio pasirinkimui)"
+
+#: ../ekiga.schemas.in.in.h:160 ../src/gui/preferences.cpp:1156
+msgid ""
+"The video plugin that will be used to detect the devices and manage them"
+msgstr "Vaizdo įskiepis, kuris bus naudojamas atpažinti ir tvarkyti įrenginius"
+
+#: ../ekiga.schemas.in.in.h:161
+msgid ""
+"The way to react to incoming calls: 0 displays a popup, 1 automatically "
+"answers the call, 2 automatically rejects the call and 3 forwards the call "
+"to the given URL, if any"
+msgstr ""
+"Kaip reaguoti į sulauktus skambučius: 0 rodyti užklausimo langą, 1 "
+"automatiškai atsakyti, 2 automatiškai atmesti skambutį ar 3 permesti "
+"skambutį nurodytu adresu, jei toks yra"
+
+#: ../ekiga.schemas.in.in.h:162
+msgid "The zoom value"
+msgstr "Mastelio reikšmė"
+
+#: ../ekiga.schemas.in.in.h:163
+msgid ""
+"The zoom value to apply to images displayed in the local video window (can "
+"be 0.50, 1.00, or 2.00)"
+msgstr ""
+"Mastelis naudojamas išvedant paveikslėlius vietiniame vaizdo lange (gali "
+"būti 0.50, 1.00 arba 2.00)"
+
+#: ../ekiga.schemas.in.in.h:164
+msgid ""
+"The zoom value to apply to images displayed in the main GUI (can be 0.50, "
+"1.00, or 2.00)"
+msgstr ""
+"Mastelis naudojamas išvedant paveikslėlius pagrindiniame lange (gali būti "
+"0.50, 1.00 arba 2.00)"
+
+#: ../ekiga.schemas.in.in.h:165
+msgid ""
+"The zoom value to apply to images displayed in the remote video window (can "
+"be 0.50, 1.00, or 2.00)"
+msgstr ""
+"Mastelis naudojamas išvedant paveikslėlius nutolusiame vaizdo lange (gali "
+"būti 0.50, 1.00 arba 2.00)"
+
+#: ../ekiga.schemas.in.in.h:166 ../src/gui/preferences.cpp:1001
+msgid ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+msgstr ""
+"Čia įjungiamas H.245 tunelių režimas. Naudojant H.245 tunelius H.245 "
+"pranešimai yra patalpinami H.225 kanale (1720 prievadas). Tai sutaupo vieną "
+"TCP jungtį vykdant skambučius. H.245 tuneliai buvo įvesti H.323v2 "
+"specifikacijoje ir NetMeeting jų nepalaiko. Tuo pat metu įjungti greito "
+"starto ir H.245 tunelių režimai gali sutrikdyti dalies NetMeeting versijų "
+"darbą."
+
+#: ../ekiga.schemas.in.in.h:167 ../src/gui/preferences.cpp:1003
+msgid "This enables H.245 early in the setup"
+msgstr "Tai anksti įjungia H.245 naudojimą"
+
+#: ../ekiga.schemas.in.in.h:168
+msgid ""
+"This enables IP checking from ekiga.com. The returned IP is only used when "
+"IP Translation is enabled."
+msgstr ""
+"Čia įjungiamas IP tikrinimas iš ekiga.com. Grąžintas IP naudojamas tik, kai "
+"įjungta IP transliacija."
+
+#: ../ekiga.schemas.in.in.h:169
+msgid ""
+"This permits to set the mode for DTMFs sending. The value can be \"RFC2833"
+"\" (0) only"
+msgstr ""
+"Čia leidžiama nustatyti DTMF siuntimo režimą. Reikšmė gali būti tik „RFC2833“"
+
+#: ../ekiga.schemas.in.in.h:170
+msgid ""
+"This permits to set the mode for DTMFs sending. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+msgstr ""
+"Čia galima nustatyti DTMF siuntimo režimą. Galimos reikšmės yra "
+"„String“ (0), „Tone“ (1), „RFC2833“ (2), „Q.931“ (3) (numatytoji yra "
+"„String“). Pasirinkus kitas reikšmes nei „String“ bus išjungtas tekstinis "
+"pokalbis"
+
+#: ../ekiga.schemas.in.in.h:171
+msgid "UDP port range"
+msgstr "UDP prievadų sritis"
+
+#: ../ekiga.schemas.in.in.h:172
+msgid "User directory"
+msgstr "Naudotojų katalogas"
+
+#: ../ekiga.schemas.in.in.h:173
+msgid "Version"
+msgstr "Versija"
+
+#: ../ekiga.schemas.in.in.h:174
+msgid "Video channel"
+msgstr "Vaizdo kanalas"
+
+#: ../ekiga.schemas.in.in.h:175
+msgid "Video format"
+msgstr "Vaizdo formatas"
+
+#: ../ekiga.schemas.in.in.h:176
+msgid "Video image"
+msgstr "Vaizdo paveikslėlis"
+
+#: ../ekiga.schemas.in.in.h:177
+msgid "Video input device"
+msgstr "Vaizdo įvedimo įrenginys"
+
+#: ../ekiga.schemas.in.in.h:178
+msgid "Video plugin"
+msgstr "Vaizdo priedas"
+
+#: ../ekiga.schemas.in.in.h:179
+msgid "Video preview"
+msgstr "Vaizdo peržiūra"
+
+#: ../ekiga.schemas.in.in.h:180
+msgid "Video size"
+msgstr "Vaizdo dydis"
+
+#: ../lib/gmconf/gmconf-gconf.c:155
+msgid ""
+"An error has happened in the configuration backend.\n"
+"Maybe some of your settings won't be saved."
+msgstr ""
+"Įvyko klaida dirbant su nustatymų posisteme.\n"
+"Gali būti, kad dalis nustatymų nebus išsaugoti."
+
+#: ../lib/gmcontacts/gmcontacts-avahi.cpp:285
+msgid "Contacts Near Me"
+msgstr "Adresatai arti manęs"
+
+#. Init the address book
+#: ../lib/gmcontacts/gmcontacts-eds.cpp:304 ../src/endpoints/ekiga.cpp:500
+msgid "On This Computer"
+msgstr "Šiame kompiuteryje"
+
+#: ../lib/gmcontacts/gmcontacts-eds.cpp:308 ../src/endpoints/ekiga.cpp:500
+#: ../src/gui/addressbook.cpp:3041
+msgid "Personal"
+msgstr "Asmeniniai"
+
+#: ../lib/gui/gmdialog.c:487
+msgid "Do not show this dialog again"
+msgstr "Nerodyti šio dialogo kitą kartą"
+
+#: ../lib/gui/gmtray/eggtrayicon.c:133
+msgid "Orientation"
+msgstr "Orientacija"
+
+#: ../lib/gui/gmtray/eggtrayicon.c:134
+msgid "The orientation of the tray."
+msgstr "Skydelio orientacija."
+
+#: ../src/clients/stun.cpp:104
+#, c-format
+msgid "STUN server set to %s"
+msgstr "STUN serveris nustatytas į %s"
+
+#: ../src/clients/stun.cpp:113
+msgid "Removed STUN server"
+msgstr "Pašalintas STUN serveris"
+
+#: ../src/clients/stun.cpp:142
+#, c-format
+msgid ""
+"STUN test result: %s.\n"
+"\n"
+"Ekiga could not detect the type of NAT you are using. The most appropriate "
+"method, if your router does not natively support SIP or H.323, is probably "
+"to forward the required ports to your internal machine and use IP "
+"translation if you are behind a NAT router. Please also make sure you are "
+"not running a local firewall."
+msgstr ""
+"STUN bandymo rezultatai: %s.\n"
+"\n"
+"Ekiga nepavyko aptikti Jūsų naudojamo NAT tipo. Tinkamiausias metodas, jei "
+"Jūsų maršrutizatorius įgimtai nepalaiko H.323, tikriausiai yra nukreipti "
+"reikiamus prievadus į Jūsų vidinį kompiuterį bei naudoti IP vertimą, jeigu "
+"esate už NAT maršrutizatoriaus. Taip pat įsitikinkite, kad naudojate vietinę "
+"ugniasienę."
+
+#: ../src/clients/stun.cpp:148
+#, c-format
+msgid ""
+"STUN test result: %s.\n"
+"\n"
+"Your system does not need any specific configuration as long as you do not "
+"have a local firewall blocking the ports required by Ekiga."
+msgstr ""
+"STUN bandymo rezultatai: %s.\n"
+"\n"
+"Jūsų sistemai nereikia jokios specifinės konfigūracijos tol kol Jūs neturite "
+"vietinės ugniasienės, blokuojančios prievadus reikalingus Ekiga."
+
+#: ../src/clients/stun.cpp:153
+#, c-format
+msgid ""
+"Ekiga detected Symmetric NAT. The most appropriate method, if your router "
+"does not natively support SIP or H.323, is to forward the required ports to "
+"your internal machine in order to change your Symmetric NAT into Cone NAT. "
+"If you run this test again after the port forwarding has been done, it "
+"should report Cone NAT. This should allow Ekiga to be used with STUN support "
+"enabled. If it does not report Cone NAT, then it means that there is a "
+"problem in your forwarding rules."
+msgstr ""
+"Ekiga aptiko Simetrišką NAT. Tinkamiausias metodas, jeigu Jūsų "
+"maršrutizatorius įgimtai nepalaiko SIP arba H.323, yra persiųsti reikalingus "
+"prievadus į Jūsų vietinį kompiuterį tam, kad Jūsų Simetriškas NAT būtų "
+"pakeistas į Kūginį NAT. Pakartojus šį testą, atlikus šiuos pakeitimus, "
+"turėtų pranešti apie Kūginį NAT. Tai turėtų leisti naudoti Ekiga su įjungtu "
+"STUN palaikymu. Jei po testo nepranešama apie Kūginį NAT, reiškia, kad "
+"problema yra Jūsų ugniasienės prievadų persiuntimo taisyklėse."
+
+#: ../src/clients/stun.cpp:157
+#, c-format
+msgid ""
+"STUN test result: %s.\n"
+"\n"
+"You do not seem to be using a NAT router. STUN support is not required."
+msgstr ""
+"STUN bandymo rezultatas: %s.\n"
+"\n"
+"Nepanašu, kad Jūs naudojate NAT maršrutizatorių. STUN palaikymas "
+"nereikalingas."
+
+#: ../src/clients/stun.cpp:162
+#, c-format
+msgid ""
+"STUN test result: %s.\n"
+"\n"
+"Using a STUN server is most probably the most appropriate method if your "
+"router does not natively support SIP or H.323.\n"
+"\n"
+"Enable STUN Support?"
+msgstr ""
+"STUN bandymo rezultatas: %s.\n"
+"\n"
+"STUN serverio naudojimas yra tikriausiai tinkamiausias metodas, jeigu Jūsų "
+"maršrutizatorius įgimtai nepalaiko SIP arba H.323.\n"
+"\n"
+"Įjungti STUN palaikymą?"
+
+#: ../src/clients/stun.cpp:170 ../src/clients/stun.cpp:183
+msgid "NAT Detection Finished"
+msgstr "NAT aptikimas baigtas"
+
+#: ../src/clients/stun.cpp:194
+msgid "The detection of your NAT type is finished"
+msgstr "NAT tipo aptikimas baigtas"
+
+#: ../src/clients/stun.cpp:261
+msgid "Unknown NAT"
+msgstr "Nežinomas NAT"
+
+#: ../src/clients/stun.cpp:262
+msgid "Open NAT"
+msgstr "Atviras NAT"
+
+#: ../src/clients/stun.cpp:263
+msgid "Cone NAT"
+msgstr "Kūginis NAT"
+
+#: ../src/clients/stun.cpp:264
+msgid "Restricted NAT"
+msgstr "Apribotas NAT"
+
+#: ../src/clients/stun.cpp:265
+msgid "Port Restricted NAT"
+msgstr "Prievadus ribojantis NAT"
+
+#: ../src/clients/stun.cpp:266
+msgid "Symmetric NAT"
+msgstr "Simetriškas NAT"
+
+#: ../src/clients/stun.cpp:267
+msgid "Symmetric Firewall"
+msgstr "Simetriška ugniasienė"
+
+#: ../src/clients/stun.cpp:268
+msgid "Blocked"
+msgstr "Užblokuota"
+
+#: ../src/clients/stun.cpp:269
+msgid "Partially Blocked"
+msgstr "Dalinai užblokuota"
+
+#: ../src/clients/stun.cpp:270
+msgid "No NAT"
+msgstr "Nėra NAT"
+
+#: ../src/clients/stun.cpp:321
+msgid "Detection in progress"
+msgstr "Bandoma aptikti"
+
+#: ../src/clients/stun.cpp:322
+msgid "Please wait while your type of NAT is being detected."
+msgstr "Palaukite kol bus aptiktas Jūsų NAT tipas. "
+
+#: ../src/clients/stun.cpp:373
+#, c-format
+msgid "Set STUN server to %s (%s)"
+msgstr "Nustatyti STUN serverį į %s (%s)"
+
+#: ../src/clients/stun.cpp:375
+#, c-format
+msgid "Ignored STUN server (%s)"
+msgstr "Ignoruotas STUN serveris (%s)"
+
+#: ../src/components/bonobo.cpp:117
+msgid "Cannot run Ekiga"
+msgstr "Nepavyko paleisti Ekiga"
+
+#: ../src/components/bonobo.cpp:117
+msgid ""
+"Ekiga is already running, if you want it to call a given SIP, H.323, or "
+"callto address, please use \"ekiga -c address\"."
+msgstr ""
+"Ekiga jau paleista, jei norite paskambinti nurodytu SIP, H323 ar callto "
+"adresu, naudokite komandą „ekiga -c adresas“."
+
+#: ../src/components/bonobo.cpp:170
+#, c-format
+msgid ""
+"It appears that you do not have ekiga.server installed in a valid location. "
+"Factory mode disabled.\n"
+msgstr ""
+"Panašu, kad ekiga.server rinkmena nėra įdiegta tinkamoje vietoje. Gamyklos "
+"režimas atjungtas.\n"
+
+#: ../src/components/bonobo.cpp:174
+#, c-format
+msgid ""
+"Error registering Ekiga with the activation service; factory mode disabled.\n"
+msgstr ""
+"Klaida registruojant Ekiga aktyvavimo paslaugoje; gamyklos režimas "
+"atjungtas.\n"
+
+#: ../src/components/bonobo.cpp:214
+#, c-format
+msgid "Failed to retrieve Ekiga server from activation server\n"
+msgstr "Nepavyko gauti Ekiga serverio iš aktyvavimo serverio\n"
+
+#: ../src/devices/audio.cpp:285
+msgid "Opening device for playing"
+msgstr "Atveriamas įrenginys išvedimui"
+
+#: ../src/devices/audio.cpp:287
+msgid "Opening device for recording"
+msgstr "Atveriamas įrenginys įrašymui"
+
+#: ../src/devices/audio.cpp:298 ../src/devices/audio.cpp:300
+#: ../src/devices/videoinput.cpp:708
+msgid "Failed to open the device"
+msgstr "Nepavyko atverti įrenginio"
+
+#: ../src/devices/audio.cpp:298
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for recording. Please "
+"check your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Nepavyko įrašyti garso iš pasirinkto garso įrenginio (%s). Patikrinkite "
+"programos garso nustatymus, priėjimo prie įrenginio teises ir ar įrenginys "
+"nėra užimtas."
+
+#: ../src/devices/audio.cpp:300
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for playing. Please check "
+"your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Nepavyko išvesti garso į pasirinktą garso įrenginį (%s). Patikrinkite "
+"programos garso nustatymus, priėjimo teises ir ar įrenginys nėra užimtas."
+
+#: ../src/devices/audio.cpp:316 ../src/devices/audio.cpp:385
+msgid "Cannot use the audio device"
+msgstr "Nepavyko panaudoti garso įrenginio"
+
+#: ../src/devices/audio.cpp:316
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to read data from this device. Please check your audio setup."
+msgstr ""
+"Pasirinktas garso įrenginys (%s) buvo sėkmingai atidarytas, tačiau iš "
+"įrenginio nepavyko gauti jokių duomenų. Patikrinkite savo garso nustatymus."
+
+#: ../src/devices/audio.cpp:325
+msgid "Recording your voice"
+msgstr "Įrašomas Jūsų balsas"
+
+#: ../src/devices/audio.cpp:364
+msgid "Recording and playing back"
+msgstr "Įrašoma ir išvedama vienu metu"
+
+#: ../src/devices/audio.cpp:385
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to write data to this device. Please check your audio setup."
+msgstr ""
+"Pasirinktas garso įrenginys (%s) buvo sėkmingai atidarytas, tačiau į jį "
+"nepavyko įrašyti jokių duomenų. Patikrinkite savo garso nustatymus."
+
+#: ../src/devices/audio.cpp:481 ../src/devices/audio.cpp:482
+#: ../src/devices/videoinput.cpp:310 ../src/devices/videoinput.cpp:585
+#: ../src/endpoints/ekiga.cpp:351 ../src/endpoints/ekiga.cpp:353
+#: ../src/endpoints/ekiga.cpp:355 ../src/endpoints/pcss.cpp:198
+#: ../src/gui/druid.cpp:1784 ../src/gui/druid.cpp:1796
+#: ../src/gui/druid.cpp:1854
+msgid "No device found"
+msgstr "Nerastas joks įrenginys"
+
+#: ../src/devices/audio.cpp:500
+#, c-format
+msgid ""
+"Ekiga is now recording from %s and playing back to %s. Please say \"1, 2, 3, "
+"Ekiga rocks!\" in your microphone. You should hear yourself back into the "
+"speakers with a four-second delay."
+msgstr ""
+"Ekiga šiuo metu įrašinėja iš %s ir išveda garsą į %s. Pasakykite į Jūsų "
+"mikrofoną „1, 2, 3, Ekiga veža!“. Po 4 sekundžių turėtumėte išgirsti save "
+"garsiakalbiuose."
+
+#: ../src/devices/videoinput.cpp:319
+#, c-format
+msgid "Opening video device %s with plugin %s"
+msgstr "Atveriamas vaizdo įrenginys %s su įskiepiu %s"
+
+#: ../src/devices/videoinput.cpp:347
+#, c-format
+msgid "Successfully opened video device %s, channel %d"
+msgstr "Sėkmingai atvertas vaizdo įrenginio %s kanalas %d"
+
+#: ../src/devices/videoinput.cpp:358
+#, c-format
+msgid "Error while opening video device %s"
+msgstr "Įvyko klaida atveriant vaizdo įrenginį %s"
+
+#. Translators: Do not translate MovingLogo and Picture
+#: ../src/devices/videoinput.cpp:362
+msgid ""
+"A moving logo will be transmitted during calls. Notice that you can always "
+"transmit a given image or the moving logo by choosing \"Picture\" as video "
+"plugin and \"MovingLogo\" or \"StaticPicture\" as device."
+msgstr ""
+"Skambučių metu bus perduodamas judantis logotipas. Turėkite omenyje, kad "
+"visada galite perduoti pasirinktą paveikslėlį arba judantį logotipą, "
+"pasirinkdami vaizdo įskiepį „Paveikslėlis“ ir įrenginį „Judantis logotipas“ "
+"arba „Statinis paveikslėlis“."
+
+#: ../src/devices/videoinput.cpp:364
+msgid "Couldn't open the video device"
+msgstr "Nepavyko atidaryti vaizdo įrenginio"
+
+#: ../src/devices/videoinput.cpp:368
+msgid ""
+"There was an error while opening the device. Please check your permissions "
+"and make sure that the appropriate driver is loaded."
+msgstr ""
+"Įvyko klaida atidarant įrenginį. Patikrinkite įrenginio priėjimo teises ir "
+"įsitikinkite, kad atitinkama tvarkyklė yra paleista."
+
+#: ../src/devices/videoinput.cpp:372 ../src/devices/videoinput.cpp:686
+#, c-format
+msgid "Your video driver doesn't support the requested video format."
+msgstr "Jūsų vaizdo tvarkyklė nepalaiko pasirinko vaizdo formato."
+
+#: ../src/devices/videoinput.cpp:376
+msgid "Could not open the chosen channel."
+msgstr "Nepavyko atidaryti pasirinkto kanalo."
+
+#: ../src/devices/videoinput.cpp:380
+msgid ""
+"Your driver doesn't seem to support any of the color formats supported by "
+"Ekiga.\n"
+" Please check your kernel driver documentation in order to determine which "
+"Palette is supported."
+msgstr ""
+"Jūsų tvarkyklė nepalaiko nei vieno Ekiga palaikomo spalvų formato.\n"
+"Pažiūrėkite Jūsų branduolio tvarkyklės dokumentacijoje kaip nustatyti kokia "
+"spalvų paletė palaikoma."
+
+#: ../src/devices/videoinput.cpp:384
+msgid "Error while setting the frame rate."
+msgstr "Nepavyko nustatyti kadrų skaičiaus."
+
+#: ../src/devices/videoinput.cpp:388
+msgid "Error while setting the frame size."
+msgstr "Nepavyko nustatyti kadrų dydžio."
+
+#: ../src/devices/videoinput.cpp:428
+msgid "Opened the video device using the \"Picture\" video plugin"
+msgstr "Atvertas vaizdo įrenginys naudojant „Paveikslėlio“ vaizdo įskiepį"
+
+#: ../src/devices/videoinput.cpp:586
+msgid "Picture"
+msgstr "Paveikslėlis"
+
+#: ../src/devices/videoinput.cpp:598
+#, c-format
+msgid ""
+"Ekiga is now testing the %s video device. If you experience machine crashes, "
+"then report a bug to the video driver author."
+msgstr ""
+"Ekiga šiuo metu tikrina vaizdo įrenginį %s. Jei Jūsų kompiuterio darbas "
+"sutrinka, praneškite apie klaidą vaizdo tvarkyklės autoriui."
+
+#: ../src/devices/videoinput.cpp:660
+#, c-format
+msgid "Test %d done"
+msgstr "Testas %d baigtas"
+
+#: ../src/devices/videoinput.cpp:662
+#, c-format
+msgid "Test %d failed"
+msgstr "Testas %d nepavyko"
+
+#: ../src/devices/videoinput.cpp:681
+#, c-format
+msgid "Error while opening %s."
+msgstr "Įvyko klaida atveriant %s."
+
+#: ../src/devices/videoinput.cpp:690
+#, c-format
+msgid "Could not open the chosen channel with the chosen video format."
+msgstr "Nepavyko atverti nurodyto vaizdo kanalo pasirinktu vaizdo formatu."
+
+#: ../src/devices/videoinput.cpp:694
+#, c-format
+msgid "Your driver doesn't support any of the color formats tried by Ekiga"
+msgstr ""
+"Jūsų tvarkyklė nepalaiko nei vieno spalvų formatų, kuriuos Ekiga išbandė"
+
+#: ../src/devices/videoinput.cpp:698
+#, c-format
+msgid "Error with the frame rate."
+msgstr "Nepriimtinas kadrų skaičius."
+
+#: ../src/devices/videoinput.cpp:702
+#, c-format
+msgid "Error with the frame size."
+msgstr "Nepriimtinas kadro dydis."
+
+#: ../src/endpoints/accountshandler.cpp:186
+#: ../src/endpoints/accountshandler.cpp:270
+msgid "Registering"
+msgstr "Registruojamasi"
+
+#: ../src/endpoints/accountshandler.cpp:200
+#, c-format
+msgid "Registration of %s to %s failed"
+msgstr "Nepavyko %s priregistruoti prie %s"
+
+#: ../src/endpoints/accountshandler.cpp:211
+#: ../src/endpoints/accountshandler.cpp:323 ../src/endpoints/sip.cpp:317
+#: ../src/endpoints/sip.cpp:329
+msgid "Registration failed"
+msgstr "Nepavyko prisiregistruoti"
+
+#: ../src/endpoints/accountshandler.cpp:225
+#: ../src/endpoints/accountshandler.cpp:338
+msgid "Unregistering"
+msgstr "Išsiregistruojama"
+
+#: ../src/endpoints/accountshandler.cpp:294
+msgid "Gatekeeper registration failed: duplicate alias"
+msgstr "GateKeeper registracija nepavyko: dublikuotas aliasas"
+
+#: ../src/endpoints/accountshandler.cpp:298
+msgid "Gatekeeper registration failed: bad username/password"
+msgstr "Gatekeeper registracija nepavyko: blogas naudotojo vardas/slaptažodis"
+
+#: ../src/endpoints/accountshandler.cpp:301
+msgid "Gatekeeper registration failed: transport error"
+msgstr "Gatekeeper registracija nepavyko: transporto klaida"
+
+#: ../src/endpoints/accountshandler.cpp:304
+#: ../src/endpoints/accountshandler.cpp:309
+msgid "Gatekeeper registration failed"
+msgstr "Gatekeeper registracija nepavyko"
+
+#: ../src/endpoints/accountshandler.cpp:312 ../src/endpoints/sip.cpp:225
+#, c-format
+msgid "Registered to %s"
+msgstr "Prisiregistruota prie %s"
+
+#: ../src/endpoints/accountshandler.cpp:322 ../src/endpoints/sip.cpp:231
+msgid "Registered"
+msgstr "Prisiregistruota"
+
+#: ../src/endpoints/accountshandler.cpp:332 ../src/endpoints/sip.cpp:236
+#, c-format
+msgid "Unregistered from %s"
+msgstr "Išsiregistruota iš %s"
+
+#: ../src/endpoints/accountshandler.cpp:352 ../src/endpoints/sip.cpp:242
+msgid "Unregistered"
+msgstr "Išsiregistruota"
+
+#: ../src/endpoints/ekiga.cpp:105
+msgid "Answering incoming call"
+msgstr "Atsakoma į įeinantį skambutį"
+
+#: ../src/endpoints/ekiga.cpp:529
+#, c-format
+msgid "Started Ekiga %d.%d.%d for user %s"
+msgstr "Paleista Ekiga %d.%d.%d naudotojui %s"
+
+#: ../src/endpoints/manager.cpp:672
+#, c-format
+msgid "Forwarding call to %s"
+msgstr "Skambutis persiunčiamas į %s"
+
+#. Update the log and status bar
+#: ../src/endpoints/manager.cpp:826
+#, c-format
+msgid "Call from %s"
+msgstr "Skambutis nuo %s"
+
+#: ../src/endpoints/manager.cpp:840
+msgid "Rejecting incoming call"
+msgstr "Atmetamas įeinantis skambutis"
+
+#: ../src/endpoints/manager.cpp:842
+#, c-format
+msgid "Rejecting incoming call from %s"
+msgstr "Atmetamas įeinantis skambutis iš %s"
+
+#: ../src/endpoints/manager.cpp:848
+msgid "Forwarding incoming call"
+msgstr "Persiunčiamas įeinantis skambutis"
+
+#: ../src/endpoints/manager.cpp:850
+#, c-format
+msgid "Forwarding incoming call from %s to %s"
+msgstr "Persiunčiamas įeinantis skambutis iš %s į %s"
+
+#: ../src/endpoints/manager.cpp:856
+msgid "Auto-Answering incoming call"
+msgstr "Automatiškai atsakoma į įeinantį skambutį"
+
+#: ../src/endpoints/manager.cpp:857
+#, c-format
+msgid "Auto-Answering incoming call from %s"
+msgstr "Automatiškai atsakoma į įeinantį skambutį iš %s"
+
+#: ../src/endpoints/manager.cpp:1012
+#, c-format
+msgid "Connected with %s using %s"
+msgstr "Susijungta su %s naudojant %s"
+
+#: ../src/endpoints/manager.cpp:1014
+#, c-format
+msgid "Connected with %s"
+msgstr "Susijungta su %s"
+
+#: ../src/endpoints/manager.cpp:1124 ../src/gui/main.cpp:4157
+msgid "Standby"
+msgstr "Užmigdyti"
+
+#: ../src/endpoints/manager.cpp:1189
+msgid "Local user cleared the call"
+msgstr "Vietinis naudotojas nutraukė pokalbį"
+
+#: ../src/endpoints/manager.cpp:1192 ../src/endpoints/manager.cpp:1195
+msgid "Local user rejected the call"
+msgstr "Vietinis naudotojas atmetė pokalbį"
+
+#: ../src/endpoints/manager.cpp:1198
+msgid "Remote user cleared the call"
+msgstr "Nutolęs naudotojas nutraukė pokalbį"
+
+#: ../src/endpoints/manager.cpp:1201
+msgid "Remote user rejected the call"
+msgstr "Nutolęs naudotojas atmetė pokalbį"
+
+#: ../src/endpoints/manager.cpp:1204
+msgid "Call not answered in the required time"
+msgstr "Skambutis per reikiamą laiko tarpą buvo neatsakytas"
+
+#: ../src/endpoints/manager.cpp:1207
+msgid "Remote user has stopped calling"
+msgstr "Nutolęs naudotojas liovėsi skambinti"
+
+#: ../src/endpoints/manager.cpp:1210
+msgid "Abnormal call termination"
+msgstr "Nenormalus skambučio nutraukimas"
+
+#: ../src/endpoints/manager.cpp:1213
+msgid "Could not connect to remote host"
+msgstr "Nepavyko prisijungti prie nutolusio kompiuterio"
+
+#: ../src/endpoints/manager.cpp:1216
+msgid "The Gatekeeper cleared the call"
+msgstr "Tarpinis serveris nutraukė pokalbį"
+
+#: ../src/endpoints/manager.cpp:1219 ../src/endpoints/urlhandler.cpp:530
+#: ../src/endpoints/urlhandler.cpp:535
+msgid "User not found"
+msgstr "Vartotojas nerastas"
+
+#: ../src/endpoints/manager.cpp:1222
+msgid "Insufficient bandwidth"
+msgstr "Nepakanka turimos ryšio linijos"
+
+#: ../src/endpoints/manager.cpp:1225
+msgid "No common codec"
+msgstr "Nerastas bendras kodekas"
+
+#: ../src/endpoints/manager.cpp:1228
+msgid "Call forwarded"
+msgstr "Skambutis persiųstas"
+
+#: ../src/endpoints/manager.cpp:1231
+msgid "Security check failed"
+msgstr "Saugumo testas nepavyko"
+
+#: ../src/endpoints/manager.cpp:1234
+msgid "Local user is busy"
+msgstr "Vietinis naudotojas užsiėmęs"
+
+#: ../src/endpoints/manager.cpp:1237 ../src/endpoints/manager.cpp:1243
+msgid "Congested link to remote party"
+msgstr "Perkrauta linija iki nutolusio vartotojo"
+
+#: ../src/endpoints/manager.cpp:1240
+msgid "Remote user is busy"
+msgstr "Nutolęs naudotojas užsiėmęs"
+
+#: ../src/endpoints/manager.cpp:1246
+msgid "Remote host is offline"
+msgstr "Nutolęs kompiuteris neturi ryšio"
+
+#: ../src/endpoints/manager.cpp:1251
+msgid "Remote user is unreachable"
+msgstr "Nutolęs naudotojas nepasiekimas"
+
+#: ../src/endpoints/manager.cpp:1255
+msgid "Call completed"
+msgstr "Skambutis baigtas"
+
+#: ../src/endpoints/manager.cpp:1609
+msgid "Error while starting the listener for the H.323 protocol"
+msgstr "Paleidžiant H.323 protokolo besiklausančią programą įvyko klaida"
+
+#: ../src/endpoints/manager.cpp:1609
+msgid ""
+"You will not be able to receive incoming H.323 calls. Please check that no "
+"other program is already running on the port used by Ekiga."
+msgstr ""
+"Jūs negalėsite priimti įeinančių H.323 skambučių. Įsitikinkite, kad jokia "
+"kita programa nenaudoja prievado naudojamo Ekiga."
+
+#: ../src/endpoints/manager.cpp:1626
+msgid "Error while starting the listener for the SIP protocol"
+msgstr "Paleidžiant SIP protokolo besiklausančią programą įvyko klaida"
+
+#: ../src/endpoints/manager.cpp:1626
+msgid ""
+"You will not be able to receive incoming SIP calls. Please check that no "
+"other program is already running on the port used by Ekiga."
+msgstr ""
+"Jūs negalėsite priimti įeinančių SIP skambučių. Įsitikinkite, kad jokia kita "
+"programa nenaudoja prievado naudojamo Ekiga."
+
+#: ../src/endpoints/manager.cpp:1873
+#, c-format
+msgid "Opened codec %s for transmission"
+msgstr "Atvertas kodekas %s skirtas perdavimui"
+
+#: ../src/endpoints/manager.cpp:1884
+#, c-format
+msgid "Closed codec %s which was opened for transmission"
+msgstr "Uždarytas kodekas %s, kuris buvo panaudotas perdavimui"
+
+#: ../src/endpoints/manager.cpp:1898
+#, c-format
+msgid "Opened codec %s for reception"
+msgstr "Atvertas kodekas %s skirtas priėminui"
+
+#: ../src/endpoints/manager.cpp:1909
+#, c-format
+msgid "Closed codec %s which was opened for reception"
+msgstr "Uždarytas kodetas %s, kuris buvo naudojamas gavimui"
+
+#: ../src/endpoints/manager.cpp:2095
+#, c-format
+msgid "%.2ld:%.2ld:%.2ld  A:%.2f/%.2f   V:%.2f/%.2f"
+msgstr "%.2ld:%.2ld:%.2ld  A:%.2f/%.2f   V:%.2f/%.2f"
+
+#: ../src/endpoints/pcss.cpp:222
+#, c-format
+msgid "Opened %s for recording with plugin %s"
+msgstr "Atvertas %s rašymui su priedu %s"
+
+#: ../src/endpoints/pcss.cpp:223
+#, c-format
+msgid "Opened %s for playing with plugin %s"
+msgstr "Atvertas %s grojimui su priedu %s"
+
+#: ../src/endpoints/pcss.cpp:241
+msgid "Could not open audio channel for audio transmission"
+msgstr "Nepavyko atidaryti garso kanalo tam, kad perduoti garso duomenis"
+
+#: ../src/endpoints/pcss.cpp:241
+msgid ""
+"An error occured while trying to record from the soundcard for the audio "
+"transmission. Please check that your soundcard is not busy and that your "
+"driver supports full-duplex.\n"
+"The audio transmission has been disabled."
+msgstr ""
+"Įvyko klaida bandant gauti perdavimui skirtus duomenis iš garso plokštės. "
+"Įsitikinkite, kad plokštė nėra užimta ir kad Jūsų garso valdiklis gali "
+"dirbti pilno duplekso režimu.\n"
+"Garso perdavimas atjungtas."
+
+#: ../src/endpoints/pcss.cpp:243
+msgid "Could not open audio channel for audio reception"
+msgstr "Nepavyko atidaryti garso kanalo tam, kad gauti garso duomenis"
+
+#: ../src/endpoints/pcss.cpp:243
+msgid ""
+"An error occured while trying to play audio to the soundcard for the audio "
+"reception. Please check that your soundcard is not busy and that your driver "
+"supports full-duplex.\n"
+"The audio reception has been disabled."
+msgstr ""
+"Įvyko klaida bandant išvesti gautus garso duomenis į garso plokštę. "
+"Įsitikinkite, kad plokštė nėra užimta ir kad Jūsų garso valdiklis gali "
+"dirbti pilno duplekso režimu.\n"
+"Garso gavimas atjungtas."
+
+#: ../src/endpoints/sip.cpp:288
+msgid "Bad request"
+msgstr "Bloga užklausa"
+
+#: ../src/endpoints/sip.cpp:292
+msgid "Payment required"
+msgstr "Būtinas apmokėjimas"
+
+#: ../src/endpoints/sip.cpp:297
+msgid "Forbidden"
+msgstr "Uždrausta"
+
+#: ../src/endpoints/sip.cpp:301
+msgid "Timeout"
+msgstr "Baigėsi skirtas laikas"
+
+#: ../src/endpoints/sip.cpp:305
+msgid "Conflict"
+msgstr "Konfliktas"
+
+#: ../src/endpoints/sip.cpp:309
+msgid "Temporarily unavailable"
+msgstr "Laikinai neprieinama"
+
+#: ../src/endpoints/sip.cpp:313
+msgid "Not Acceptable"
+msgstr "Nepriimtina"
+
+#: ../src/endpoints/sip.cpp:322
+#, c-format
+msgid "Registration failed: %s"
+msgstr "Prisiregistruoti nepavyko: %s"
+
+#: ../src/endpoints/sip.cpp:334
+#, c-format
+msgid "Unregistration failed: %s"
+msgstr "Išsiregistruoti nepavyko: %s"
+
+#: ../src/endpoints/sip.cpp:341
+msgid "Unregistration failed"
+msgstr "Išsiregistruoti nepavyko"
+
+#: ../src/endpoints/sip.cpp:542
+msgid "Error: User not found"
+msgstr "Klaida: naudotojas nerastas"
+
+#: ../src/endpoints/sip.cpp:546
+msgid "Error: User offline"
+msgstr "Klaida: naudotojas atsijungęs"
+
+#: ../src/endpoints/sip.cpp:551
+msgid "Error: Forbidden"
+msgstr "Klaida: uždrausta"
+
+#: ../src/endpoints/sip.cpp:555
+msgid "Error: Timeout"
+msgstr "Klaida: baigėsi laiko limitas"
+
+#: ../src/endpoints/sip.cpp:559 ../src/gui/chat.cpp:1031
+msgid "Error: Failed to transmit message"
+msgstr "Klaida: nepavyko perduoti pranešimo"
+
+#: ../src/endpoints/urlhandler.cpp:441
+msgid "Invalid URL handler"
+msgstr "Netinkama adresą apdorojanti programa "
+
+#: ../src/endpoints/urlhandler.cpp:441
+msgid ""
+"Please specify a valid URL handler. Currently both h323: and callto: are "
+"supported."
+msgstr ""
+"Nurodykite tinkamą adreso rodyklę. Šiuo metu palaikoma tiek h323:, tiek "
+"callto:."
+
+#: ../src/endpoints/urlhandler.cpp:469
+#, c-format
+msgid "Calling %s"
+msgstr "Skambinama %s"
+
+#: ../src/endpoints/urlhandler.cpp:472
+#, c-format
+msgid "Transferring call to %s"
+msgstr "Skambutis nukreipiamas į %s"
+
+#: ../src/endpoints/urlhandler.cpp:541 ../src/endpoints/urlhandler.cpp:546
+msgid "Failed to call user"
+msgstr "Nepavyko prisiskambinti naudotojui"
+
+#: ../src/gui/accounts.cpp:410
+msgid "Edit the Account Information"
+msgstr "Keisti abonemento informaciją"
+
+#. Account Name
+#: ../src/gui/accounts.cpp:434
+msgid "Account Name:"
+msgstr "Abonemento vardas:"
+
+#: ../src/gui/accounts.cpp:448
+msgid "Protocol:"
+msgstr "Protokolas:"
+
+#: ../src/gui/accounts.cpp:472 ../src/gui/accounts.cpp:993
+msgid "Registrar:"
+msgstr "Registratorius:"
+
+#: ../src/gui/accounts.cpp:474 ../src/gui/accounts.cpp:1002
+msgid "Gatekeeper:"
+msgstr "Gatekeeper:"
+
+#. User
+#: ../src/gui/accounts.cpp:488
+msgid "User:"
+msgstr "Naudotojas:"
+
+#. Password
+#: ../src/gui/accounts.cpp:503
+msgid "Password:"
+msgstr "Slaptažodis:"
+
+#. Advanced Options
+#: ../src/gui/accounts.cpp:520
+msgid "More _Options"
+msgstr "Daugiau _nustatymų"
+
+#: ../src/gui/accounts.cpp:534
+msgid "Authentication Login:"
+msgstr "Autentikacijos prisijungimas:"
+
+#: ../src/gui/accounts.cpp:556 ../src/gui/accounts.cpp:1003
+msgid "Gatekeeper ID:"
+msgstr "Gatekeeper ID:"
+
+#. Timeout
+#: ../src/gui/accounts.cpp:580
+msgid "Registration Timeout:"
+msgstr "Registracijai skirtas laikas:"
+
+#. FIXME change strings after stringfreeze to something more useful - js
+#: ../src/gui/accounts.cpp:630 ../src/gui/accounts.cpp:637
+#: ../src/gui/accounts.cpp:649 ../src/gui/addressbook.cpp:3113
+#: ../src/gui/addressbook.cpp:3592
+msgid "Missing information"
+msgstr "Trūkstama informacija"
+
+#: ../src/gui/accounts.cpp:631 ../src/gui/accounts.cpp:638
+msgid ""
+"Please make sure to provide a valid account name, host name, and user name."
+msgstr ""
+"Įsitikinkite, kad nurodėte tinkamą abonemento vardą, kompiuterio vardą bei "
+"naudotojo vardą."
+
+#: ../src/gui/accounts.cpp:650
+msgid ""
+"Please make sure to provide a valid account name, host name and registration "
+"timeout."
+msgstr ""
+"Įsitikinkite, kad nurodėte tinkamą abonemento vardą, kompiuterio vardą bei "
+"registracijai skirtą laiką."
+
+#: ../src/gui/accounts.cpp:736
+#, c-format
+msgid "Are you sure you want to delete account %s?"
+msgstr "Ar tikrai norite ištrinti abonementą %s?"
+
+#: ../src/gui/accounts.cpp:994
+msgid "Realm/Domain:"
+msgstr "Sritis:"
+
+#: ../src/gui/accounts.cpp:1517
+msgid "Account Name"
+msgstr "Abonemento vardas"
+
+#: ../src/gui/accounts.cpp:1518
+msgid "Protocol"
+msgstr "Protokolas"
+
+#: ../src/gui/accounts.cpp:1527
+msgid "Voice Mails"
+msgstr "Balso paštas"
+
+#: ../src/gui/accounts.cpp:1528
+msgid "Status"
+msgstr "Būsena"
+
+#: ../src/gui/accounts.cpp:1539
+msgid "Accounts"
+msgstr "Abonementai"
+
+#: ../src/gui/accounts.cpp:1575 ../src/gui/preferences.cpp:474
+#: ../src/gui/preferences.cpp:817
+msgid "A"
+msgstr "G"
+
+#: ../src/gui/accounts.cpp:1675
+msgid "_Default"
+msgstr "_Numatytasis"
+
+#: ../src/gui/addressbook.cpp:819
+msgid "Contact collision"
+msgstr "Adresatų kolizija"
+
+#: ../src/gui/addressbook.cpp:821
+#, c-format
+msgid ""
+"Another contact with the same speed dial already exists in your address "
+"book:\n"
+"\n"
+"<b>Name</b>: %s\n"
+"<b>URL</b>: %s\n"
+"<b>Speed Dial</b>: %s\n"
+msgstr ""
+"Jūsų adresų knygoje jau yra kitas adresatas turintis tokį pat greitą "
+"numerį:\n"
+"\n"
+"<b>Vardas</b>: %s\n"
+"<b>Adresas</b>: %s\n"
+"<b>Greitas numeris</b>: %s\n"
+
+#: ../src/gui/addressbook.cpp:821 ../src/gui/addressbook.cpp:823
+#: ../src/gui/druid.cpp:1916 ../src/gui/preferences.cpp:930
+msgid "None"
+msgstr "Nėra"
+
+#: ../src/gui/addressbook.cpp:823
+#, c-format
+msgid ""
+"Another contact with similar information already exists in your address "
+"book:\n"
+"\n"
+"<b>Name</b>: %s\n"
+"<b>URL</b>: %s\n"
+"<b>Speed Dial</b>: %s\n"
+"\n"
+"Do you still want to add the contact?"
+msgstr ""
+"Jūsų adresų knygoje jau yra adresatas turintis panašią informaciją:\n"
+"\n"
+"<b>Vardas</b>: %s\n"
+"<b>Adresas</b>: %s\n"
+"<b>Greitas numeris</b>: %s\n"
+"\n"
+"Vistiek norite pridėti šį adresatą?"
+
+#. Translators: This is "S" as in "Status"
+#: ../src/gui/addressbook.cpp:991
+msgid "S"
+msgstr "B"
+
+#: ../src/gui/addressbook.cpp:1002 ../src/gui/preferences.cpp:488
+msgid "Name"
+msgstr "Vardas"
+
+#: ../src/gui/addressbook.cpp:1017
+msgid "Comment"
+msgstr "Pastaba"
+
+#: ../src/gui/addressbook.cpp:1032 ../src/gui/callshistory.cpp:755
+msgid "Software"
+msgstr "Programa"
+
+#: ../src/gui/addressbook.cpp:1046
+msgid "VoIP URL"
+msgstr "VoIP URL"
+
+#: ../src/gui/addressbook.cpp:1062
+msgid "E-Mail"
+msgstr "El.paštas"
+
+#: ../src/gui/addressbook.cpp:1076
+msgid "Location"
+msgstr "Vieta"
+
+#: ../src/gui/addressbook.cpp:1090
+msgid "Categories"
+msgstr "Kategorijos"
+
+#: ../src/gui/addressbook.cpp:1103
+msgid "Speed Dial"
+msgstr "Greitas numeris"
+
+#: ../src/gui/addressbook.cpp:1132
+msgid "Name contains"
+msgstr "Varde yra"
+
+#: ../src/gui/addressbook.cpp:1133
+msgid "URL contains"
+msgstr "Adrese yra"
+
+#: ../src/gui/addressbook.cpp:1135
+msgid "Belongs to category"
+msgstr "Priklauso kategorijai"
+
+#: ../src/gui/addressbook.cpp:1137
+msgid "Location contains"
+msgstr "Vietoje yra"
+
+#. call a contact, usage: general
+#: ../src/gui/addressbook.cpp:1552 ../src/gui/addressbook.cpp:2585
+#: ../src/gui/callshistory.cpp:295 ../src/gui/chat.cpp:682
+msgid "C_all Contact"
+msgstr "Sk_ambinti adresatui"
+
+#. copy a contact's URL to clipboard, usage: general
+#: ../src/gui/addressbook.cpp:1559 ../src/gui/addressbook.cpp:2595
+#: ../src/gui/chat.cpp:677 ../src/gui/chat.cpp:682
+msgid "_Copy URL to Clipboard"
+msgstr "Nu_kopijuoti URL į atmintinę"
+
+#: ../src/gui/addressbook.cpp:1565 ../src/gui/addressbook.cpp:2600
+msgid "_Write e-Mail"
+msgstr "_Rašyti el. laišką"
+
+#. add a contact to the local addressbook, usage: remote contacts only
+#: ../src/gui/addressbook.cpp:1572 ../src/gui/addressbook.cpp:2612
+#: ../src/gui/callshistory.cpp:302 ../src/gui/chat.cpp:682
+msgid "Add Contact to _Address Book"
+msgstr "Įtraukti kontaktą į _adresų knygą"
+
+#. send a contact a (SIP!) message, usage: SIP contacts only
+#: ../src/gui/addressbook.cpp:1579 ../src/gui/addressbook.cpp:2590
+msgid "_Send Message"
+msgstr "_Siųsti žinutę"
+
+#. edit a local contact's addressbook entry, usage: local contacts
+#: ../src/gui/addressbook.cpp:1586 ../src/gui/addressbook.cpp:1723
+#: ../src/gui/addressbook.cpp:2571
+msgid "_Properties"
+msgstr "_Savybės"
+
+#. delete a local contact entry, usage: local contacts
+#: ../src/gui/addressbook.cpp:1593 ../src/gui/addressbook.cpp:1730
+#: ../src/gui/addressbook.cpp:2566
+msgid "_Delete"
+msgstr "_Trinti"
+
+#. "new contact" dialog, usage: local context
+#: ../src/gui/addressbook.cpp:1600 ../src/gui/addressbook.cpp:2607
+msgid "New _Contact"
+msgstr "Naujas _adresatas"
+
+#: ../src/gui/addressbook.cpp:2027
+#, c-format
+msgid "Error while fetching users list from %s"
+msgstr "Iš %s gaunant naudotojų sąrašą įvyko klaida"
+
+#: ../src/gui/addressbook.cpp:2031
+#, c-format
+msgid "Found %d user in %s"
+msgid_plural "Found %d users in %s"
+msgstr[0] "%2$s rastas %1$d naudotojas"
+msgstr[1] "%2$s rasti %1$d naudotojai"
+msgstr[2] "%2$s rasta %1$d naudotojų"
+
+#: ../src/gui/addressbook.cpp:2035
+#, c-format
+msgid "Found %d user in %s for a total of %d users"
+msgid_plural "Found %d users in %s for a total of %d users"
+msgstr[0] "%2$s rastas %1$d naudotojas iš viso %3$d"
+msgstr[1] "%2$s rastas %1$d naudotojai iš viso %3$d"
+msgstr[2] "%2$s rasta %1$d naudotojų iš viso %3$d"
+
+#: ../src/gui/addressbook.cpp:2522
+msgid "Address Book"
+msgstr "Adresų knyga"
+
+#: ../src/gui/addressbook.cpp:2557
+msgid "_File"
+msgstr "_Rinkmena"
+
+#: ../src/gui/addressbook.cpp:2559
+msgid "New _Address Book"
+msgstr "Nauja _adresų knyga"
+
+#: ../src/gui/addressbook.cpp:2578 ../src/gui/main.cpp:975
+msgid "_Close"
+msgstr "_Uždaryti"
+
+#: ../src/gui/addressbook.cpp:2583
+msgid "C_ontact"
+msgstr "_Adresas"
+
+#: ../src/gui/addressbook.cpp:2685
+msgid "Remote Contacts"
+msgstr "Nutolę adresatai"
+
+#: ../src/gui/addressbook.cpp:2693
+msgid "Local Contacts"
+msgstr "Vietiniai adresatai"
+
+#: ../src/gui/addressbook.cpp:2816
+msgid "Edit the Contact Information"
+msgstr "Keisti kontaktinę informaciją"
+
+#: ../src/gui/addressbook.cpp:2837 ../src/gui/addressbook.cpp:3307
+msgid "Name:"
+msgstr "Vardas:"
+
+#: ../src/gui/addressbook.cpp:2857
+msgid "VoIP URL:"
+msgstr "VoIP URL:"
+
+#: ../src/gui/addressbook.cpp:2879
+msgid "Email:"
+msgstr "El. paštas:"
+
+#: ../src/gui/addressbook.cpp:2900
+msgid "Speed Dial:"
+msgstr "Greitas numeris:"
+
+#: ../src/gui/addressbook.cpp:2922
+msgid "Categories:"
+msgstr "Kategorijos:"
+
+#: ../src/gui/addressbook.cpp:2947
+msgid "Local Addressbook:"
+msgstr "Vietinė adresų knyga:"
+
+#: ../src/gui/addressbook.cpp:3113
+msgid ""
+"Please make sure to provide at least a full name or an URL for the contact."
+msgstr ""
+"Prašau įsitikinti, kad nurodėte bent jau pilną adresato vardą arba URL."
+
+#: ../src/gui/addressbook.cpp:3160
+#, c-format
+msgid "Are you sure you want to delete %s from %s?"
+msgstr "Ar tikrai norite ištrinti %s iš %s?"
+
+#: ../src/gui/addressbook.cpp:3286
+msgid "Edit an address book"
+msgstr "Keisti adresų knygą"
+
+#: ../src/gui/addressbook.cpp:3287
+msgid "Add an address book"
+msgstr "Pridėti adresų knygą"
+
+#: ../src/gui/addressbook.cpp:3332
+msgid "Type:"
+msgstr "Tipas:"
+
+#: ../src/gui/addressbook.cpp:3338
+msgid "Local"
+msgstr "Vietinis"
+
+#: ../src/gui/addressbook.cpp:3339
+msgid "Remote LDAP"
+msgstr "Nutolęs LDAP"
+
+#: ../src/gui/addressbook.cpp:3340
+msgid "Remote ILS"
+msgstr "Nutolęs ILS"
+
+#: ../src/gui/addressbook.cpp:3371
+msgid "Hostname:"
+msgstr "Kompiuterio vardas:"
+
+#: ../src/gui/addressbook.cpp:3394
+msgid "Port:"
+msgstr "Prievadas:"
+
+#: ../src/gui/addressbook.cpp:3419
+msgid "Base DN:"
+msgstr "Pagrindinis DN:"
+
+#: ../src/gui/addressbook.cpp:3442
+msgid "Search Scope:"
+msgstr "Paieškos sritis"
+
+#: ../src/gui/addressbook.cpp:3448
+msgid "Subtree"
+msgstr "Medžio atšaka"
+
+#: ../src/gui/addressbook.cpp:3449
+msgid "One Level"
+msgstr "Vienas lygis"
+
+#: ../src/gui/addressbook.cpp:3479
+msgid "Search Attribute:"
+msgstr "Paieškos atributas:"
+
+#: ../src/gui/addressbook.cpp:3592
+msgid "Please make sure you fill in all required fields."
+msgstr "Įsitikinkite, kad užpildėte visus reikalingus laukelius."
+
+#: ../src/gui/addressbook.cpp:3638
+#, c-format
+msgid "Are you sure you want to delete %s and all its contacts?"
+msgstr "Ar tikrai norite ištrinti %s ir visus joje esančius kontaktus?"
+
+#: ../src/gui/callbacks.cpp:124
+msgid "Disconnecting..."
+msgstr "Atsijungiama..."
+
+#: ../src/gui/callbacks.cpp:139
+msgid "Contributors:"
+msgstr "Pagalbininkai:"
+
+#: ../src/gui/callbacks.cpp:146
+msgid "Artwork:"
+msgstr "Grafika:"
+
+#: ../src/gui/callbacks.cpp:152
+msgid "See AUTHORS file for full credits"
+msgstr "Visas padėkas žr. AUTHORS rinkmenoje"
+
+#. Translators: Please write translator credits here, and
+#. * separate names with \n
+#: ../src/gui/callbacks.cpp:190
+msgid "translator-credits"
+msgstr ""
+"Paskutinysis vertėjas:\n"
+"Žygimantas Beručka <zygis@gnome.org>\n"
+"\n"
+"Ankstesnysis vertėjas:\n"
+"Tomas Kuliavas <tokul@users.sourceforge.net>"
+
+#: ../src/gui/callbacks.cpp:195
+msgid ""
+"Ekiga is full-featured SIP and H.323 compatible VoIP, IP-Telephony and "
+"Videoconferencing application that allows you to make audio and video calls "
+"to remote users with SIP and H.323 hardware or software."
+msgstr ""
+"Ekiga yra pilnavertė SIP ir su H.323 suderinama VoIP, IP-telefonijos bei "
+"vaizdo konferencijų programa, leidžianti perduoti garso ir vaizdo skambučius "
+"nutolusiems naudotojams, naudojantiems SIP ir H.323 įrangą ar programas."
+
+#: ../src/gui/callshistory.cpp:664
+msgid "Received Calls"
+msgstr "Gauti skambučiai"
+
+#: ../src/gui/callshistory.cpp:664
+msgid "Placed Calls"
+msgstr "Įvykdyti skambučiai"
+
+#: ../src/gui/callshistory.cpp:664
+msgid "Missed Calls"
+msgstr "Praleisti skambučiai"
+
+#: ../src/gui/callshistory.cpp:676 ../src/gui/statusicon.cpp:144
+msgid "Calls History"
+msgstr "Skambučių atmintinė"
+
+#: ../src/gui/callshistory.cpp:719
+msgid "Date"
+msgstr "Data"
+
+#: ../src/gui/callshistory.cpp:727
+msgid "Remote User"
+msgstr "Nutolęs naudotojas"
+
+#: ../src/gui/callshistory.cpp:736
+msgid "Call Duration"
+msgstr "Skambučio trukmė"
+
+#: ../src/gui/callshistory.cpp:746
+msgid "Call End Reason"
+msgstr "Skambučio nutraukimo priežastis"
+
+#: ../src/gui/chat.cpp:625
+msgid "Hang _up"
+msgstr "Padėti ra_gelį"
+
+#: ../src/gui/chat.cpp:626 ../src/gui/statusicon.cpp:100
+msgid "_Call"
+msgstr "_Skambinti"
+
+#: ../src/gui/chat.cpp:627
+msgid "Call this user"
+msgstr "Skambinti šiam naudotojui"
+
+#: ../src/gui/chat.cpp:635
+msgid "_Send"
+msgstr "_Siųsti"
+
+#: ../src/gui/chat.cpp:640
+msgid "Send message"
+msgstr "Siųsti žinutę"
+
+#: ../src/gui/chat.cpp:677
+msgid "_Open URL"
+msgstr "_Atverti URL"
+
+#: ../src/gui/chat.cpp:705
+msgid "_Copy Equation"
+msgstr "_Kopijuoti lygtį"
+
+#: ../src/gui/chat.cpp:1325
+msgid "Chat Window"
+msgstr "Pokalbio langas"
+
+#: ../src/gui/chat.cpp:1450
+msgid "You"
+msgstr "Jūs"
+
+#. Translators: "He says", "You say"
+#: ../src/gui/chat.cpp:1452
+msgid "says:"
+msgstr "sako:"
+
+#: ../src/gui/chat.cpp:1452
+msgid "say:"
+msgstr "sakote:"
+
+#: ../src/gui/chat.cpp:1524
+msgid "New Remote User"
+msgstr "Naujas nutolęs naudotojas"
+
+#: ../src/gui/config.cpp:236
+msgid "Changing this setting will only affect new calls"
+msgstr "Šis nustatymas galioja tik naujiems skambučiams"
+
+#: ../src/gui/config.cpp:237
+msgid ""
+"Ekiga cannot apply one or more changes to the current call. Your new "
+"settings will take effect for the next call."
+msgstr ""
+"Ekiga negali pritaikyti vieno ar daugiau pakeitimų esamam skambučiui. Nauji "
+"nustatymai įsigalios kitam skambučiui."
+
+#: ../src/gui/config.cpp:331
+msgid "H.245 Tunneling disabled"
+msgstr "H.245 Tuneliai nenaudojami"
+
+#: ../src/gui/config.cpp:332
+msgid "H.245 Tunneling enabled"
+msgstr "H.245 tuneliai įjungti"
+
+#: ../src/gui/config.cpp:364
+msgid "Early H.245 disabled"
+msgstr "Ankstyvas H.245 atjungtas"
+
+#: ../src/gui/config.cpp:365
+msgid "Early H.245 enabled"
+msgstr "Ankstyvas H.245 įjungtas"
+
+#: ../src/gui/config.cpp:398
+msgid "Fast Start disabled"
+msgstr "Greitas Paleidimas atjungtas"
+
+#: ../src/gui/config.cpp:399
+msgid "Fast Start enabled"
+msgstr "Greitas Paleidimas įjungtas"
+
+#: ../src/gui/config.cpp:506
+msgid "Enabled silence detection"
+msgstr "Įjungtas tylos atpažinimas"
+
+#: ../src/gui/config.cpp:512
+msgid "Disabled silence detection"
+msgstr "Atjungtas tylos atpažinimas"
+
+#: ../src/gui/config.cpp:571
+msgid "Enabled echo cancelation"
+msgstr "Įjungti aido panaikinimą"
+
+#: ../src/gui/config.cpp:577
+msgid "Disabled echo cancelation"
+msgstr "Išjungti aido panaikinimą"
+
+#: ../src/gui/druid.cpp:610
+msgid ""
+"This is the Ekiga general configuration assistant. The following steps will "
+"set up Ekiga by asking a few simple questions.\n"
+"\n"
+"Once you have completed these steps, you can always change them later by "
+"selecting Preferences in the Edit menu."
+msgstr ""
+"Tai Ekiga bendrųjų nustatymų pagalbininkas. Sekančiuose žingsneliuose "
+"galėsite sukonfigūruoti Ekiga atsakydami į keletą paprastų klausimų.\n"
+"\n"
+"Kartą praėję šiuos žingsnelius, Jūs bet kada galite pakeisti nustatymus "
+"pasirinkę punktą „Nustatymai“ meniu „Keisti“."
+
+#: ../src/gui/druid.cpp:622
+#, c-format
+msgid "Configuration Assistant - page 1/%d"
+msgstr "Konfigūravimo pagalbininkas - puslapis 1/%d"
+
+#: ../src/gui/druid.cpp:664
+#, c-format
+msgid "Personal Information - page %d/%d"
+msgstr "Asmeninė informacija - puslapis %d/%d"
+
+#. The user fields
+#: ../src/gui/druid.cpp:677
+msgid "Please enter your first name and your surname:"
+msgstr "Įveskite savo vardą ir pavardę:"
+
+#: ../src/gui/druid.cpp:686
+msgid ""
+"Your first name and surname will be used when connecting to other VoIP and "
+"videoconferencing software."
+msgstr ""
+"Jūsų vardas ir pavardė bus naudojami jungiantis prie kitų VoIP ir vaizdo "
+"konferencinių programų."
+
+#: ../src/gui/druid.cpp:732
+#, c-format
+msgid "ekiga.net Account - page %d/%d"
+msgstr "ekiga.net abonementas - puslapis %d/%d"
+
+#: ../src/gui/druid.cpp:743
+msgid "Please enter your username:"
+msgstr "Įveskite savo naudotojo vardą:"
+
+#: ../src/gui/druid.cpp:751
+msgid "Please enter your password:"
+msgstr "Įveskite savo slaptažodį:"
+
+#: ../src/gui/druid.cpp:762
+msgid ""
+"The username and password are used to login to your existing account at the "
+"ekiga.net free SIP service. If you do not have an ekiga.net SIP address yet, "
+"you may first create an account below. This will provide a SIP address that "
+"allows people to call you.\n"
+"\n"
+"You may skip this step if you use an alternative SIP service, or if you "
+"would prefer to specify the login details later."
+msgstr ""
+"Naudotojo vardas ir slaptažodis yra naudojami prisijungti prie esamo Jūsų "
+"nemokamos ekiga.net SIP paslaugos abonemento. Jeigu dar neturite ekiga.net "
+"SIP adreso, pirma galite žemiau susikurti abonementą. Taip Jūs gausite SIP "
+"adresą, kurio pagalbą kiti žmonės galės Jums skambinti.\n"
+"\n"
+"Galite praleisti šį žingsnį, jei naudojate alternatyvią SIP paslaugą, arba "
+"jei norite nurodyti prisijungimo detales vėliau."
+
+#: ../src/gui/druid.cpp:772
+msgid "Get an ekiga.net SIP account"
+msgstr "Gauti ekiga.net SIP abonementą"
+
+#: ../src/gui/druid.cpp:782
+msgid "I do not want to sign up for the ekiga.net free service"
+msgstr "Aš nenoriu užsiregistruoti nemokamos ekiga.net paslaugos"
+
+#: ../src/gui/druid.cpp:835
+#, c-format
+msgid "Connection Type - page %d/%d"
+msgstr "Prisijungimo tipas - puslapis %d/%d"
+
+#. The connection type
+#: ../src/gui/druid.cpp:847
+msgid "Please choose your connection type:"
+msgstr "Pasirinkite Jūsų prisijungimo tipą:"
+
+#: ../src/gui/druid.cpp:855
+msgid ""
+"The connection type will permit determining the best quality settings that "
+"Ekiga will use during calls. You can later change the settings individually "
+"in the preferences window."
+msgstr ""
+"Prisijungimo tipo nustatymas leidžia Ekiga teisingiau parinkti perdavimo "
+"kokybės nustatymus naudojamus pokalbių metu. Vėliau galite nustatymus "
+"pakeisti programos nustatymų lange."
+
+#: ../src/gui/druid.cpp:893
+#, c-format
+msgid "NAT Type - page %d/%d"
+msgstr "NAT tipas - puslapis %d/%d"
+
+#: ../src/gui/druid.cpp:903
+msgid "Click here to detect your NAT Type:"
+msgstr "Norėdami aptikti Jūsų NAT tipą, spauskite čia:"
+
+#: ../src/gui/druid.cpp:907
+msgid "Detect NAT Type"
+msgstr "Aptikti NAT tipą"
+
+#: ../src/gui/druid.cpp:911
+msgid ""
+"The NAT type detection will permit to assist you in configuring your NAT "
+"router to be able to do calls with Ekiga."
+msgstr ""
+"NAT tipo aptikimas sudarys galimybę padėti Jums sukonfigūruoti Jūsų NAT "
+"maršrutizatorių, kad galėtumėte skambinti su Ekiga."
+
+#: ../src/gui/druid.cpp:956
+#, c-format
+msgid "Audio Manager - page %d/%d"
+msgstr "Garso tvarkyklė - puslapis %d/%d"
+
+#. The Audio devices
+#: ../src/gui/druid.cpp:968
+msgid "Please choose your audio manager:"
+msgstr "Pasirinkite Jūsų garso tvarkyklę:"
+
+#: ../src/gui/druid.cpp:977
+msgid ""
+"The audio manager is the plugin that will manage your audio devices. "
+"WindowsMultimedia is probably the best choice when available."
+msgstr ""
+"Garso tvarkyklė yra įskiepis, kuris valdys Jūsų garso įrenginius. "
+"WindowsMultimedia turėtų būti geriausias pasirinkimas."
+
+#: ../src/gui/druid.cpp:979
+msgid ""
+"The audio manager is the plugin that will manage your audio devices. ALSA is "
+"probably the best choice when available."
+msgstr ""
+"Garso tvarkyklė yra įskiepis, kuris valdys Jūsų garso įrenginius. ALSA "
+"turėtų būti geriausias pasirinkimas, kai jis prieinamas."
+
+#: ../src/gui/druid.cpp:1019
+#, c-format
+msgid "Audio Devices - page %d/%d"
+msgstr "Garso įrenginiai - puslapis %d/%d"
+
+#. The Audio devices
+#: ../src/gui/druid.cpp:1031
+msgid "Please choose the audio output device:"
+msgstr "Pasirinkite garso išvedimo įrenginį:"
+
+#: ../src/gui/druid.cpp:1039
+msgid ""
+"The audio output device is the device managed by the audio manager that will "
+"be used to play audio."
+msgstr ""
+"Garso išvedimo įrenginys yra įrenginys, kurį garso tvarkyklė naudos "
+"išvesdama garsą į garsiakalbius."
+
+#: ../src/gui/druid.cpp:1049
+msgid "Please choose the audio input device:"
+msgstr "Pasirinkite garso įvedimo įrenginį:"
+
+#: ../src/gui/druid.cpp:1057
+msgid ""
+"The audio input device is the device managed by the audio manager that will "
+"be used to record your voice."
+msgstr ""
+"Garso įvedimo įrenginys yra įrenginys, kurį garso tvarkyklė naudos įrašydama "
+"Jūsų balsą."
+
+#: ../src/gui/druid.cpp:1070 ../src/gui/druid.cpp:1204
+msgid "Test Settings"
+msgstr "Išbandyti nustatymus"
+
+#: ../src/gui/druid.cpp:1114
+#, c-format
+msgid "Video Manager - page %d/%d"
+msgstr "Vaizdo tvarkyklė - puslapis %d/%d"
+
+#. The Audio devices
+#: ../src/gui/druid.cpp:1126
+msgid "Please choose your video manager:"
+msgstr "Pasirinkite Jūsų vaizdo tvarkyklę:"
+
+#: ../src/gui/druid.cpp:1134
+msgid ""
+"The video manager is the plugin that will manage your video devices, "
+"Video4Linux is the most common choice if you own a webcam."
+msgstr ""
+"Vaizdo tvarkyklė yra priedas, kuris valdys Jūsų vaizdo įrenginius. "
+"Video4Linux yra vienas iš dažniausiai naudojamų variantų, jei Jūs turite "
+"tinklinę kamerą."
+
+#: ../src/gui/druid.cpp:1172
+#, c-format
+msgid "Video Devices - page %d/%d"
+msgstr "Vaizdo įrenginiai - puslapis %d/%d"
+
+#. The Video devices
+#: ../src/gui/druid.cpp:1184
+msgid "Please choose the video input device:"
+msgstr "Pasirinkite Jūsų vaizdo įvedimo įrenginį:"
+
+#: ../src/gui/druid.cpp:1192
+msgid ""
+"The video input device is the device managed by the video manager that will "
+"be used to capture video."
+msgstr ""
+"Vaizdo įvedimo įrenginys yra įrenginys, kuri vaizdo tvarkyklė naudos vaizdo "
+"signalo priėmimui."
+
+#: ../src/gui/druid.cpp:1240
+#, c-format
+msgid "Configuration complete - page %d/%d"
+msgstr "Konfigūravimas baigtas - puslapis %d/%d"
+
+#: ../src/gui/druid.cpp:1634
+msgid "56k Modem"
+msgstr "56K modemas"
+
+#: ../src/gui/druid.cpp:1635
+msgid "ISDN"
+msgstr "ISDN linija"
+
+#: ../src/gui/druid.cpp:1636
+msgid "xDSL/Cable"
+msgstr "xDSL/skirtinė linija"
+
+#: ../src/gui/druid.cpp:1637
+msgid "T1/LAN"
+msgstr "T1/vietinis tinklas"
+
+#: ../src/gui/druid.cpp:1638
+msgid "Keep current settings"
+msgstr "Išsaugoti esamus nustatymus"
+
+#: ../src/gui/druid.cpp:1916
+#, c-format
+msgid ""
+"You have now finished the Ekiga configuration. All the settings can be "
+"changed in the Ekiga preferences. Enjoy!\n"
+"\n"
+"\n"
+"Configuration summary:\n"
+"\n"
+"Username: %s\n"
+"Connection type: %s\n"
+"Audio manager: %s\n"
+"Audio player: %s\n"
+"Audio recorder: %s\n"
+"Video manager: %s\n"
+"Video input: %s\n"
+"SIP URL: %s\n"
+msgstr ""
+"Jūs baigėte konfigūruoti Ekiga. Visi nustatymai gali būti pakeisti Ekiga "
+"nustatymuose. Sėkmės!\n"
+"\n"
+"\n"
+"Nustatymų suvestinė:\n"
+"\n"
+"Naudotojo vardas: %s\n"
+"Prisijungimo tipas: %s\n"
+"Garso tvarkyklė: %s\n"
+"Garso grotuvas: %s\n"
+"Garso imtuvas: %s\n"
+"Vaizdo tvarkyklė: %s\n"
+"Vaizdo imtuvas: %s\n"
+"SIP URL: %s\n"
+
+#: ../src/gui/druid.cpp:1971
+msgid "First Time Configuration Assistant"
+msgstr "Pirmojo karto konfigūravimo pagalbininkas"
+
+#: ../src/gui/history.cpp:128
+msgid "General History"
+msgstr "Bendra istorija"
+
+#: ../src/gui/main.cpp:667
+msgid "Enter a URL on the left, and click this button to place a call"
+msgstr "Kairėje įveskite URL ir paspauskite šį mygtuką norėdami paskambinti"
+
+#: ../src/gui/main.cpp:711
+msgid "Open text chat"
+msgstr "Atverti tekstinį pokalbį"
+
+#: ../src/gui/main.cpp:735
+msgid "Change the view mode"
+msgstr "Keisti rodymo režimą"
+
+#: ../src/gui/main.cpp:754
+msgid "Open address book"
+msgstr "Atverti adresų knygą"
+
+#: ../src/gui/main.cpp:775
+msgid "Display images from your camera device"
+msgstr "Rodyti vaizdus iš Jūsų kameros įrenginio"
+
+#: ../src/gui/main.cpp:798
+msgid ""
+"Audio transmission status. During a call, click here to suspend or resume "
+"the audio transmission."
+msgstr ""
+"Garso perdavimo būklė. Skambučio metu paspauskite čia, kad sustabdyti ar "
+"atnaujinti garso perdavimą."
+
+#: ../src/gui/main.cpp:821
+msgid ""
+"Video transmission status. During a call, click here to suspend or resume "
+"the video transmission."
+msgstr ""
+"Vaizdo perdavimo būklė. Skambučio metu, paspauskite čia, kad sustabdyti ar "
+"atnaujinti vaizdo perdavimą."
+
+#: ../src/gui/main.cpp:901
+msgid "C_all"
+msgstr "_Skambinti"
+
+#: ../src/gui/main.cpp:903
+msgid "Ca_ll"
+msgstr "S_kambinti"
+
+#: ../src/gui/main.cpp:903 ../src/gui/statusicon.cpp:100
+msgid "Place a new call"
+msgstr "Skambinti"
+
+#: ../src/gui/main.cpp:906 ../src/gui/statusicon.cpp:103
+msgid "_Hang up"
+msgstr "_Padėti ragelį"
+
+#: ../src/gui/main.cpp:907 ../src/gui/statusicon.cpp:104
+msgid "Terminate the current call"
+msgstr "Nutraukti esamą skambutį"
+
+#: ../src/gui/main.cpp:913 ../src/gui/statusicon.cpp:110
+msgid "_Available"
+msgstr "L_aisvas"
+
+#: ../src/gui/main.cpp:914 ../src/gui/statusicon.cpp:111
+msgid "Display a popup to accept the call"
+msgstr "Pokalbio priėmimui parodyti iššokantį langą"
+
+#: ../src/gui/main.cpp:919 ../src/gui/statusicon.cpp:116
+msgid "Aut_o Answer"
+msgstr "Aut_o atsakymas"
+
+#: ../src/gui/main.cpp:920 ../src/gui/statusicon.cpp:117
+msgid "Auto answer calls"
+msgstr "Automatiškai atsakyti į skambučius"
+
+#: ../src/gui/main.cpp:925 ../src/gui/statusicon.cpp:122
+msgid "_Do Not Disturb"
+msgstr "_Netrukdyti"
+
+#: ../src/gui/main.cpp:926 ../src/gui/statusicon.cpp:123
+msgid "Reject calls"
+msgstr "Atmesti skambučius"
+
+#: ../src/gui/main.cpp:931 ../src/gui/statusicon.cpp:128
+msgid "_Forward"
+msgstr "_Persiųsti"
+
+#: ../src/gui/main.cpp:931 ../src/gui/statusicon.cpp:128
+msgid "Forward calls"
+msgstr "Persiųsti skambučius"
+
+#: ../src/gui/main.cpp:939
+msgid "Speed d_ials"
+msgstr "Greiti _numeriai"
+
+#: ../src/gui/main.cpp:943 ../src/gui/main.cpp:3148
+msgid "_Hold Call"
+msgstr "_Sulaikyti skambutį"
+
+#: ../src/gui/main.cpp:943
+msgid "Hold the current call"
+msgstr "Sustabdyti esamą skambutį"
+
+#: ../src/gui/main.cpp:947
+msgid "_Transfer Call"
+msgstr "Persiųs_ti skambutį"
+
+#: ../src/gui/main.cpp:948
+msgid "Transfer the current call"
+msgstr "Permesti esamą skambutį"
+
+#: ../src/gui/main.cpp:955 ../src/gui/main.cpp:3182
+msgid "Suspend _Audio"
+msgstr "Nutildyti g_arsą"
+
+#: ../src/gui/main.cpp:956
+msgid "Suspend or resume the audio transmission"
+msgstr "Sustabdyti/atstatyti garso perdavimą"
+
+#: ../src/gui/main.cpp:960 ../src/gui/main.cpp:3184
+msgid "Suspend _Video"
+msgstr "Sustabdyti _vaizdą"
+
+#: ../src/gui/main.cpp:961
+msgid "Suspend or resume the video transmission"
+msgstr "Sustabdyti/atstatyti vaizdo perdavimą"
+
+#: ../src/gui/main.cpp:968
+msgid "_Save Current Picture"
+msgstr "_Saugoti esamą paveikslėlį"
+
+#: ../src/gui/main.cpp:969
+msgid "Save a snapshot of the current video"
+msgstr "Išsaugo dabartinio vaizdo kopiją"
+
+#: ../src/gui/main.cpp:975
+msgid "Close the Ekiga window"
+msgstr "Užverti Ekiga langą"
+
+#: ../src/gui/main.cpp:982 ../src/gui/statusicon.cpp:185
+msgid "_Quit"
+msgstr "_Baigti"
+
+#: ../src/gui/main.cpp:982 ../src/gui/statusicon.cpp:186
+msgid "Quit Ekiga"
+msgstr "Išeiti iš Ekiga"
+
+#: ../src/gui/main.cpp:986
+msgid "_Edit"
+msgstr "_Keisti"
+
+#: ../src/gui/main.cpp:988
+msgid "_Configuration Druid"
+msgstr "_Nustatymų pagalbininkas"
+
+#: ../src/gui/main.cpp:989
+msgid "Run the configuration druid"
+msgstr "Paleisti nustatymų pagalbininką"
+
+#: ../src/gui/main.cpp:996
+msgid "_Accounts"
+msgstr "_Abonementai"
+
+#: ../src/gui/main.cpp:997
+msgid "Edit your accounts"
+msgstr "Keisti Jūsų abonementus"
+
+#: ../src/gui/main.cpp:1002 ../src/gui/statusicon.cpp:152
+msgid "_Preferences"
+msgstr "_Nustatymai"
+
+#: ../src/gui/main.cpp:1003 ../src/gui/statusicon.cpp:153
+msgid "Change your preferences"
+msgstr "Pakeisti programos nustatymus"
+
+#: ../src/gui/main.cpp:1008
+msgid "_View"
+msgstr "R_odymas"
+
+#: ../src/gui/main.cpp:1010
+msgid "View _Mode"
+msgstr "Rodymo _režimas"
+
+#: ../src/gui/main.cpp:1012
+msgid "Softp_hone"
+msgstr "Programinis _telefonas"
+
+#: ../src/gui/main.cpp:1013
+msgid "Show the softphone view"
+msgstr "Rodyti programinį telefoną"
+
+#: ../src/gui/main.cpp:1018
+msgid "_Videophone"
+msgstr "_Vaizdinis telefonas"
+
+#: ../src/gui/main.cpp:1019
+msgid "Show the videophone view"
+msgstr "Rodyti vaizdinį telefoną"
+
+#: ../src/gui/main.cpp:1024
+msgid "_Full View"
+msgstr "_Visas vaizdas"
+
+#: ../src/gui/main.cpp:1025
+msgid "View all components"
+msgstr "Rodyti visus komponentus"
+
+#: ../src/gui/main.cpp:1033
+msgid "_Control Panel"
+msgstr "_Valdymo skydelis"
+
+#: ../src/gui/main.cpp:1035
+msgid "_Dialpad"
+msgstr "_Rinkiklis"
+
+#: ../src/gui/main.cpp:1035
+msgid "View the dialpad"
+msgstr "Paleisti greitų numerių rinkiklį"
+
+#: ../src/gui/main.cpp:1040
+msgid "_Audio Settings"
+msgstr "G_arso nustatymai"
+
+#: ../src/gui/main.cpp:1041
+msgid "View audio settings"
+msgstr "Peržiūrėti garso nustatymus"
+
+#: ../src/gui/main.cpp:1046
+msgid "_Video Settings"
+msgstr "_Vaizdo nustatymai"
+
+#: ../src/gui/main.cpp:1047
+msgid "View video settings"
+msgstr "Peržiūrėti vaizdo nustatymus"
+
+#: ../src/gui/main.cpp:1052
+msgid "_Statistics"
+msgstr "_Statistika"
+
+#: ../src/gui/main.cpp:1053
+msgid "View audio/video transmission and reception statistics"
+msgstr "Peržiūrėti garso/vaizdo perdavimo ir gavimo statistiką"
+
+#: ../src/gui/main.cpp:1061
+msgid "_Local Video"
+msgstr "_Vietinis vaizdas"
+
+#: ../src/gui/main.cpp:1062
+msgid "Local video image"
+msgstr "Vietinio vaizdo atvaizdas"
+
+#: ../src/gui/main.cpp:1067
+msgid "_Remote Video"
+msgstr "_Nutolęs vaizdas"
+
+#: ../src/gui/main.cpp:1068
+msgid "Remote video image"
+msgstr "Nutolusio vaizdo atvaizdas"
+
+#: ../src/gui/main.cpp:1073
+msgid "Both (_Picture-in-Picture)"
+msgstr "Abu (_paveikslėlis paveikslėlyje)"
+
+#: ../src/gui/main.cpp:1074 ../src/gui/main.cpp:1080 ../src/gui/main.cpp:1087
+msgid "Both video images"
+msgstr "Abu atvaizdai"
+
+#: ../src/gui/main.cpp:1079
+msgid "Both (_Side-by-Side)"
+msgstr "Abu (_vienas šalia kito)"
+
+#: ../src/gui/main.cpp:1086
+msgid "Both (_Both in New Windows)"
+msgstr "Abu (_abu vaizdai naujuose languose)"
+
+#: ../src/gui/main.cpp:1095
+msgid "Zoom _In"
+msgstr "_Didinti"
+
+#: ../src/gui/main.cpp:1095 ../src/gui/main.cpp:1573 ../src/gui/main.cpp:1598
+msgid "Zoom in"
+msgstr "Didinti"
+
+#: ../src/gui/main.cpp:1099
+msgid "Zoom _Out"
+msgstr "_Mažinti"
+
+#: ../src/gui/main.cpp:1099 ../src/gui/main.cpp:1577 ../src/gui/main.cpp:1602
+msgid "Zoom out"
+msgstr "Mažinti"
+
+#: ../src/gui/main.cpp:1103
+msgid "_Normal Size"
+msgstr "_Normalus dydis"
+
+#: ../src/gui/main.cpp:1103 ../src/gui/main.cpp:1581 ../src/gui/main.cpp:1606
+msgid "Normal size"
+msgstr "Normalus dydis"
+
+#: ../src/gui/main.cpp:1109
+msgid "_Fullscreen"
+msgstr "_Pilnas ekranas"
+
+#: ../src/gui/main.cpp:1115
+msgid "_Tools"
+msgstr "Įran_kiai"
+
+#: ../src/gui/main.cpp:1117 ../src/gui/statusicon.cpp:136
+msgid "Address _Book"
+msgstr "Adresų _knyga"
+
+#: ../src/gui/main.cpp:1118 ../src/gui/statusicon.cpp:137
+msgid "Open the address book"
+msgstr "Atverti adresų knygą"
+
+#: ../src/gui/main.cpp:1125
+msgid "C_hat Window"
+msgstr "_Pokalbio langas"
+
+#: ../src/gui/main.cpp:1126
+msgid "Open the chat window"
+msgstr "Atverti pokalbio langą"
+
+#: ../src/gui/main.cpp:1131
+msgid "_General History"
+msgstr "_Bendra istorija"
+
+#: ../src/gui/main.cpp:1132
+msgid "View the operations history"
+msgstr "Peržiūrėti vykdytų veiksmų istoriją"
+
+#: ../src/gui/main.cpp:1136
+msgid "_Calls History"
+msgstr "_Skambučių atmintinė"
+
+#: ../src/gui/main.cpp:1137 ../src/gui/statusicon.cpp:145
+msgid "View the calls history"
+msgstr "Peržiūrėti ankstesnių skambučių istoriją"
+
+#: ../src/gui/main.cpp:1144
+msgid "_PC-To-Phone Account"
+msgstr "_PC-To-Phone abonementas"
+
+#: ../src/gui/main.cpp:1145
+msgid "Manage your PC-To-Phone account"
+msgstr "Tvarkykite Jūsų PC-To-Phone abonementą"
+
+#: ../src/gui/main.cpp:1150
+msgid "_Help"
+msgstr "_Žinynas"
+
+#: ../src/gui/main.cpp:1152 ../src/gui/statusicon.cpp:161
+#: ../src/gui/statusicon.cpp:172
+msgid "_Contents"
+msgstr "_Turinys"
+
+#: ../src/gui/main.cpp:1153 ../src/gui/statusicon.cpp:162
+#: ../src/gui/statusicon.cpp:173
+msgid "Get help by reading the Ekiga manual"
+msgstr "Gauti pagalbą skaitydami Ekiga žinyną"
+
+#: ../src/gui/main.cpp:1157 ../src/gui/main.cpp:1163
+#: ../src/gui/statusicon.cpp:166 ../src/gui/statusicon.cpp:177
+msgid "_About"
+msgstr "_Apie"
+
+#: ../src/gui/main.cpp:1158 ../src/gui/main.cpp:1164
+#: ../src/gui/statusicon.cpp:167 ../src/gui/statusicon.cpp:178
+msgid "View information about Ekiga"
+msgstr "Parodyti informaciją apie Ekiga"
+
+#: ../src/gui/main.cpp:1232
+msgid "Statistics"
+msgstr "Statistika"
+
+#: ../src/gui/main.cpp:1315
+msgid "Dialpad"
+msgstr "Rinkiklis"
+
+#: ../src/gui/main.cpp:1368
+msgid "Adjust brightness"
+msgstr "Keisti ryškumą"
+
+#: ../src/gui/main.cpp:1390
+msgid "Adjust whiteness"
+msgstr "Keisti baltumą"
+
+#: ../src/gui/main.cpp:1412
+msgid "Adjust color"
+msgstr "Keisti spalvas"
+
+#: ../src/gui/main.cpp:1434
+msgid "Adjust contrast"
+msgstr "Keisti kontrastą"
+
+#: ../src/gui/main.cpp:1440
+msgid "Video"
+msgstr "Vaizdas"
+
+#: ../src/gui/main.cpp:1524
+msgid "Audio"
+msgstr "Garsas"
+
+#: ../src/gui/main.cpp:1573 ../src/gui/main.cpp:1598
+msgid "Zoom In"
+msgstr "Didinti"
+
+#: ../src/gui/main.cpp:1577 ../src/gui/main.cpp:1602
+msgid "Zoom Out"
+msgstr "Mažinti"
+
+#: ../src/gui/main.cpp:1581 ../src/gui/main.cpp:1606
+msgid "Normal Size"
+msgstr "Normalus Dydis"
+
+#: ../src/gui/main.cpp:1587 ../src/gui/main.cpp:1612
+msgid "Fullscreen"
+msgstr "Pilnas ekranas"
+
+#: ../src/gui/main.cpp:1775
+msgid "Notification area not detected"
+msgstr "Perspėjimų sritis nerasta"
+
+#: ../src/gui/main.cpp:1775
+msgid ""
+"The notification area is not present in your panel, so Ekiga cannot start "
+"hidden."
+msgstr ""
+"Jūsų skydelyje nėra pranešimų vietos, todėl Ekigos negalima paleisti "
+"paslėpta."
+
+#: ../src/gui/main.cpp:2088
+#, c-format
+msgid "Sent DTMF %c"
+msgstr "Nusiųstas DTMF %c"
+
+#: ../src/gui/main.cpp:2311 ../src/gui/main.cpp:4308
+#, c-format
+msgid "Missed calls: %d - Voice Mails: %s"
+msgstr "Praleisti skambučiai: %d - Balso paštas: %s"
+
+#: ../src/gui/main.cpp:3132
+msgid "_Retrieve Call"
+msgstr "P_riimti skambutį"
+
+#: ../src/gui/main.cpp:3186
+msgid "Resume _Audio"
+msgstr "Atstatyti g_arsą"
+
+#: ../src/gui/main.cpp:3188
+msgid "Resume _Video"
+msgstr "Atstatyti _vaizdą"
+
+#: ../src/gui/main.cpp:3730
+msgid "Out:"
+msgstr "Iš:"
+
+#: ../src/gui/main.cpp:3733
+msgid "In:"
+msgstr "Į:"
+
+#: ../src/gui/main.cpp:3757
+msgid "Registered accounts:"
+msgstr "Registruoti abonementai:"
+
+#: ../src/gui/main.cpp:3882
+msgid "Transfer call to:"
+msgstr "Nukreipti skambutį į:"
+
+#: ../src/gui/main.cpp:3883 ../src/gui/main.cpp:3948
+msgid "Transfer"
+msgstr "Nukreipti"
+
+#: ../src/gui/main.cpp:3946
+msgid "Reject"
+msgstr "Atmesti"
+
+#: ../src/gui/main.cpp:3950
+msgid "Accept"
+msgstr "Priimti"
+
+#: ../src/gui/main.cpp:3957
+msgid "Incoming call from"
+msgstr "Sulaukta skambučio iš"
+
+#: ../src/gui/main.cpp:3970
+msgid "Remote URL:"
+msgstr "Nutolęs adresas:"
+
+#: ../src/gui/main.cpp:3982
+msgid "Remote Application:"
+msgstr "Nutolusi programa:"
+
+#. Add the window icon and title
+#: ../src/gui/main.cpp:4050 ../src/gui/main.cpp:4238
+msgid "Ekiga"
+msgstr "Ekiga"
+
+#: ../src/gui/main.cpp:4218
+msgid "Local Video"
+msgstr "Vietinis vaizdas"
+
+#: ../src/gui/main.cpp:4225
+msgid "Remote Video"
+msgstr "Nutolęs vaizdas"
+
+#: ../src/gui/main.cpp:4476
+#, c-format
+msgid ""
+"Lost packets: %.1f %%\n"
+"Late packets: %.1f %%\n"
+"Out of order packets: %.1f %%\n"
+"Jitter buffer: %d ms"
+msgstr ""
+"Prarasti paketai: %.1f %%\n"
+"Pavėlavę paketai: %.1f %%\n"
+"Netvarkingi paketai: %.1f %%\n"
+"Garso buferis: %d ms"
+
+#: ../src/gui/main.cpp:4575
+#, c-format
+msgid ""
+"Ekiga got an invalid value for the GConf key %s.\n"
+"\n"
+"It probably means that your GConf schemas have not been correctly installed "
+"or the that permissions are not correct.\n"
+"\n"
+"Please check the FAQ (http://www.ekiga.org/), the troubleshooting section of "
+"the GConf site (http://www.gnome.org/projects/gconf/) or the mailing list "
+"archives for more information (http://mail.gnome.org) about this problem."
+msgstr ""
+"Ekiga aptiko netinkamą GConf rakto %s reikšmę.\n"
+"\n"
+"Tai greičiausiai reiškia, kad Jūsų GConf schemos nebuvo teisingai įdiegtos "
+"arba yra netinkamos priėjimo teisės.\n"
+"\n"
+"Žiūrėkite DUK (http://www.ekiga.org), GConf svetainės problemų sprendimo "
+"skyrių (http://www.gnome.org/projects/gconf/) arba pašto konferencijų "
+"archyvus (http://mail.gnome.org) norėdami rasti daugiau informacijos apie "
+"šią problemą."
+
+#: ../src/gui/main.cpp:4578
+msgid "Gconf key error"
+msgstr "GConf rakto klaida"
+
+#: ../src/gui/main.cpp:4609 ../src/gui/main.cpp:4628
+msgid "Prints debug messages in the console (level between 1 and 6)"
+msgstr "Išveda derinimo pranešimus konsolėje (lygis tap 1 ir 6)"
+
+#: ../src/gui/main.cpp:4612 ../src/gui/main.cpp:4633
+msgid "Makes Ekiga call the given URL"
+msgstr "Ekiga skambina nurodytu URL"
+
+#: ../src/gui/main.cpp:4666
+msgid "No usable audio plugin detected"
+msgstr "Nerasta tinkamų garso įskiepių"
+
+#: ../src/gui/main.cpp:4666
+msgid ""
+"Ekiga didn't find any usable audio plugin. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga nerado tinkamo garso įskiepio. Įsitikinkite, kad Jūsų instaliacija "
+"tvarkinga."
+
+#: ../src/gui/misc.cpp:115
+msgid "Error"
+msgstr "Klaida"
+
+#: ../src/gui/preferences.cpp:497
+msgid "Bandwidth"
+msgstr "Srautas"
+
+#: ../src/gui/preferences.cpp:505
+msgid "Clock Rate"
+msgstr "Laikrodžio dažnis"
+
+#: ../src/gui/preferences.cpp:630
+msgid "Personal Information"
+msgstr "Asmeninė informacija"
+
+#: ../src/gui/preferences.cpp:633
+msgid "_First name:"
+msgstr "_Vardas:"
+
+#: ../src/gui/preferences.cpp:640
+msgid "Sur_name:"
+msgstr "_Pavardė:"
+
+#: ../src/gui/preferences.cpp:642
+msgid "Enter your surname"
+msgstr "Įveskite savo pavardę"
+
+#: ../src/gui/preferences.cpp:648
+msgid "E-_mail address:"
+msgstr "E-_pašto adresas:"
+
+#: ../src/gui/preferences.cpp:650
+msgid "Enter your e-mail address"
+msgstr "Įveskite savo el.pašto adresą"
+
+#: ../src/gui/preferences.cpp:655
+msgid "_Comment:"
+msgstr "_Pastabos:"
+
+#: ../src/gui/preferences.cpp:657
+msgid "Enter a comment about yourself"
+msgstr "Įveskite komentarą apie save"
+
+#: ../src/gui/preferences.cpp:662
+msgid "_Location:"
+msgstr "_Vieta:"
+
+#: ../src/gui/preferences.cpp:664
+msgid "Enter your country or city"
+msgstr "Įveskite Jūsų šalį ar miestą"
+
+#. Add the update button
+#: ../src/gui/preferences.cpp:669 ../src/gui/preferences.cpp:963
+msgid "_Apply"
+msgstr "_Išsaugoti"
+
+#: ../src/gui/preferences.cpp:669
+msgid ""
+"Click here to update the users directory you are registered to with the new "
+"First Name, Last Name, E-Mail, Comment and Location"
+msgstr ""
+"Spragtelėkite čia norėdami atnaujinti naudotojų aplanką, kuriame esate "
+"prisiregistravę, nauju vardu, pavarde, el.pašto adresu, komentaru ir vietove"
+
+#: ../src/gui/preferences.cpp:683
+msgid "Ekiga GUI"
+msgstr "Ekiga GUI"
+
+#: ../src/gui/preferences.cpp:685
+msgid "Start _hidden"
+msgstr "Paleisti _paslėptą"
+
+#: ../src/gui/preferences.cpp:691
+msgid "Video Display"
+msgstr "Vaizdo išvedimas"
+
+#: ../src/gui/preferences.cpp:693
+msgid "Place windows displaying video _above other windows"
+msgstr "Rodyti vaizdą rodančius langus _virš kitų langų"
+
+#: ../src/gui/preferences.cpp:706
+msgid "Users Directory"
+msgstr "Naudotojų katalogas"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:710
+msgid "Users directory:"
+msgstr "Naudotojų katalogas:"
+
+#: ../src/gui/preferences.cpp:710
+msgid "The users directory server to register with"
+msgstr "Naudojamas registravimo naudotojų kataloge serveris"
+
+#: ../src/gui/preferences.cpp:712
+msgid "Enable _registering"
+msgstr "Naudoti _registraciją"
+
+#: ../src/gui/preferences.cpp:712
+msgid "If enabled, register with the selected users directory"
+msgstr "Jeigu įjungta, Jūs būsite užregistruoti naudotojų kataloge"
+
+#: ../src/gui/preferences.cpp:714
+msgid "_Publish my details in the users directory when registering"
+msgstr "_Skelbti mano duomenis naudotojų kataloge registravimosi metu"
+
+#: ../src/gui/preferences.cpp:714
+msgid ""
+"If enabled, your details are shown to people browsing the users directory. "
+"If disabled, you are not visible to users browsing the users directory, but "
+"they can still use the callto URL to call you."
+msgstr ""
+"Įjungus, informaciją apie Jus bus matoma naudotojų naršančių katalogą. "
+"Atjungus, naudotojų kataloge Jūsų nesimatys, bet kiti naudotojai vis dar "
+"galės Jums paskambinti naudodamiesi Jūsų kvietimo adresu."
+
+#: ../src/gui/preferences.cpp:725
+msgid "Call Forwarding"
+msgstr "Skambučių nukreipimas"
+
+#: ../src/gui/preferences.cpp:727
+msgid "_Always forward calls to the given host"
+msgstr "_Visada perkelti skambučius į nurodytą kompiuterį"
+
+#: ../src/gui/preferences.cpp:727
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings"
+msgstr ""
+"Jei įjungta, visi įeinantys skambučiai bus persiųsti į kompiuterį, nurodytą "
+"protokolo nustatymuose"
+
+#: ../src/gui/preferences.cpp:729
+msgid "Forward calls to the given host if _no answer"
+msgstr "Persiųsti skambučius į nurodyta kompiuterį, jei _neatsakoma"
+
+#: ../src/gui/preferences.cpp:729
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you do not answer the call"
+msgstr ""
+"Jeigu įjungta, visi įeinantys skambučiai bus persiųsti į kompiuterį, "
+"nurodytą protokolo nustatymuose, jeigu neatsakysite į skambutį"
+
+#: ../src/gui/preferences.cpp:731
+msgid "Forward calls to the given host if _busy"
+msgstr "Perkelti skambučius į nurodytą kompiuterį, jei _užimta"
+
+#: ../src/gui/preferences.cpp:731
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you already are in a call or if you "
+"are in Do Not Disturb mode"
+msgstr ""
+"Jeigu įjungta, visi įeinantys skambučiai bus persiųsti į kompiuterį nurodytą "
+"protokolo nustatymuose, jeigu Jūs jau esate prisiskambinę arba jei esate "
+"„Netrukdyti“ režime"
+
+#: ../src/gui/preferences.cpp:735 ../src/gui/preferences.cpp:1977
+msgid "Call Options"
+msgstr "Skambučio nustatymai"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:738
+msgid "Automatically _clear calls after 30 seconds of inactivity"
+msgstr "Automatiškai _išvalyti pokalbius po 30 sekunčių veikos nebuvimo"
+
+#: ../src/gui/preferences.cpp:740
+msgid "Timeout to reject or forward unanswered incoming calls (in seconds):"
+msgstr ""
+"Laikas, po kurio atmesti arba persiųsti neatsakytus įeinančius skambučius "
+"(sekundėmis):"
+
+#: ../src/gui/preferences.cpp:780
+msgid "Ekiga Sound Events"
+msgstr "Ekiga garso įvykiai"
+
+#: ../src/gui/preferences.cpp:829 ../src/gui/preferences.cpp:838
+#: ../src/gui/preferences.cpp:847
+msgid "Event"
+msgstr "Įvykis"
+
+#: ../src/gui/preferences.cpp:859
+msgid "Choose a sound"
+msgstr "Pasirinkite garsą"
+
+#: ../src/gui/preferences.cpp:865
+msgid "Wavefiles"
+msgstr "Wave rinkmenos"
+
+#: ../src/gui/preferences.cpp:874 ../src/gui/preferences.cpp:893
+msgid "Play"
+msgstr "Groti"
+
+#: ../src/gui/preferences.cpp:907
+msgid "Alternative Output Device"
+msgstr "Alternatyvus išvesties įrenginys"
+
+#: ../src/gui/preferences.cpp:913
+msgid "Alternative output device:"
+msgstr "Alternatyvus išvesties įrenginys:"
+
+#: ../src/gui/preferences.cpp:913
+msgid "Select an alternative audio output device to use for sound events"
+msgstr ""
+"Pasirinkite alternatyvų garsiniams įvykiams naudojamą garso išvedimo įrenginį"
+
+#: ../src/gui/preferences.cpp:931
+msgid "STUN"
+msgstr "STUN"
+
+#: ../src/gui/preferences.cpp:932
+msgid "IP Translation"
+msgstr "IP konversiją"
+
+#: ../src/gui/preferences.cpp:945
+msgid "Network Interface"
+msgstr "Tinklo sąsaja"
+
+#: ../src/gui/preferences.cpp:950
+msgid "Listen on:"
+msgstr "Klausytis:"
+
+#: ../src/gui/preferences.cpp:957
+msgid "NAT Settings"
+msgstr "NAT nustatymai"
+
+#: ../src/gui/preferences.cpp:959
+msgid "NAT Traversal Method:"
+msgstr "NAT kirtimo metodas:"
+
+#: ../src/gui/preferences.cpp:961
+msgid "STUN Se_rver:"
+msgstr "STUN se_rveris:"
+
+#: ../src/gui/preferences.cpp:961
+msgid "The STUN server to use for STUN Support."
+msgstr "STUN palaikymui naudotinas STUN serveris."
+
+#: ../src/gui/preferences.cpp:963
+msgid "Click here to update your NAT settings"
+msgstr "Paspauskite čia norėdami atnaujinti NAT nustatymus"
+
+#: ../src/gui/preferences.cpp:975
+msgid "String"
+msgstr "Seka"
+
+#: ../src/gui/preferences.cpp:976
+msgid "Tone"
+msgstr "Tonas"
+
+#: ../src/gui/preferences.cpp:977 ../src/gui/preferences.cpp:1027
+msgid "RFC2833"
+msgstr "RFC2833"
+
+#: ../src/gui/preferences.cpp:978
+msgid "Q.931"
+msgstr "Q.931"
+
+#: ../src/gui/preferences.cpp:984 ../src/gui/preferences.cpp:1035
+msgid "Misc Settings"
+msgstr "Įvairūs nustatymai"
+
+#: ../src/gui/preferences.cpp:986
+msgid "Default _gateway:"
+msgstr "Numatytasis šliu_zas:"
+
+#: ../src/gui/preferences.cpp:989 ../src/gui/preferences.cpp:1040
+msgid "Forward _URL:"
+msgstr "Nukreipimo _URL:"
+
+#: ../src/gui/preferences.cpp:998
+msgid "Advanced Settings"
+msgstr "Sudėtingesni nustatymai"
+
+#. The toggles
+#: ../src/gui/preferences.cpp:1001
+msgid "Enable H.245 _tunneling"
+msgstr "Naudoti H.245 _tunelius"
+
+#: ../src/gui/preferences.cpp:1003
+msgid "Enable _early H.245"
+msgstr "Nau_doti ankstyvą H.245"
+
+#: ../src/gui/preferences.cpp:1005
+msgid "Enable fast _start procedure"
+msgstr "Naudoti greito _starto režimą"
+
+#: ../src/gui/preferences.cpp:1005
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting."
+msgstr ""
+"Jungtys bus pradedamos Greito Starto režime. Greitas Startas yra naujoviškas "
+"būdas, pasirodęs H.323 protokolo antroje versijoje(H.323v2). Šis darbo "
+"režimas nėra palaikomas NetMeeting programos, o Greito Starto ir H.245 "
+"tunelių naudojimas tuo pat metu gali sutrikdyti dalies NetMeeting versijų "
+"darbą."
+
+#: ../src/gui/preferences.cpp:1011 ../src/gui/preferences.cpp:1048
+msgid "DTMF Mode"
+msgstr "DTMF režimas"
+
+#: ../src/gui/preferences.cpp:1013 ../src/gui/preferences.cpp:1050
+msgid "_Send DTMF as:"
+msgstr "_Siųsti DTMF kaip:"
+
+#: ../src/gui/preferences.cpp:1013
+msgid ""
+"This permits to set the mode for DTMFs sending. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat."
+msgstr ""
+"Tai leidžia nustatyti DTMF siuntimo režimą. Galimos reikšmės yra "
+"„String“ (0), „Tone“ (1), „RFC2833“ (2), „Q.931“ (3) (numatytoji yra "
+"„String“). Pasirinkus ne „String“ reikšmę, bus išjungtas tekstinis pokalbis."
+
+#: ../src/gui/preferences.cpp:1037
+msgid "_Outbound Proxy:"
+msgstr "_Tarpinis išsiuntimo serveris:"
+
+#: ../src/gui/preferences.cpp:1050
+msgid ""
+"This permits to set the mode for DTMFs sending. The value can be \"RFC2833"
+"\" (0) only."
+msgstr ""
+"Tai leidžia nustatyti DTMF siuntimo režimą. Reikšmė gali būti tik "
+"„RFC2833“ (0)."
+
+#: ../src/gui/preferences.cpp:1070
+msgid "Audio Plugin"
+msgstr "Garso įskiepis"
+
+#: ../src/gui/preferences.cpp:1075
+msgid "Audio plugin:"
+msgstr "Garso įskiepis:"
+
+#: ../src/gui/preferences.cpp:1075
+msgid ""
+"The audio plugin that will be used to detect the devices and manage them."
+msgstr "Garso įskiepis, kuris bus naudojamas atpažinti ir tvarkyti įrenginius."
+
+#: ../src/gui/preferences.cpp:1081 ../src/gui/preferences.cpp:2013
+msgid "Audio Devices"
+msgstr "Garso įrenginiai"
+
+#: ../src/gui/preferences.cpp:1088
+msgid "Output device:"
+msgstr "Išvedimo įrenginys"
+
+#: ../src/gui/preferences.cpp:1095 ../src/gui/preferences.cpp:1168
+msgid "Input device:"
+msgstr "Įvedimo įrenginys:"
+
+#. That button will refresh the devices list
+#: ../src/gui/preferences.cpp:1100 ../src/gui/preferences.cpp:1234
+msgid "_Detect devices"
+msgstr "_Aptikti įrenginius"
+
+#: ../src/gui/preferences.cpp:1100
+msgid "Click here to refresh the devices list"
+msgstr "Norėdami atnaujinti įrenginių sąrašą, spragtelėkite čia"
+
+#: ../src/gui/preferences.cpp:1126
+msgid "Normal"
+msgstr "Normalus"
+
+#: ../src/gui/preferences.cpp:1127
+msgid "Large"
+msgstr "Didelis"
+
+#: ../src/gui/preferences.cpp:1133
+msgid "PAL (Europe)"
+msgstr "PAL (Europos)"
+
+#: ../src/gui/preferences.cpp:1134
+msgid "NTSC (America)"
+msgstr "NTSC (Amerikos)"
+
+#: ../src/gui/preferences.cpp:1135
+msgid "SECAM (France)"
+msgstr "SECAM (Prancūzijos)"
+
+#: ../src/gui/preferences.cpp:1136
+msgid "Auto"
+msgstr "Automatinis"
+
+#: ../src/gui/preferences.cpp:1152
+msgid "Video Plugin"
+msgstr "Vaizdo Priedas"
+
+#: ../src/gui/preferences.cpp:1156
+msgid "Video plugin:"
+msgstr "Vaizdo priedas:"
+
+#: ../src/gui/preferences.cpp:1162 ../src/gui/preferences.cpp:2017
+msgid "Video Devices"
+msgstr "Vaizdo įrenginiai"
+
+#. Video Channel
+#: ../src/gui/preferences.cpp:1172
+msgid "Channel:"
+msgstr "Kanalas:"
+
+#: ../src/gui/preferences.cpp:1175
+msgid "Size:"
+msgstr "Dydis:"
+
+#: ../src/gui/preferences.cpp:1175
+msgid ""
+"Select the transmitted video size: Normal (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"Pasirinkite perduodamo vaizdo dydį: normalus (QCIF 176x144) ar didelis (CIF "
+"352x288)"
+
+#: ../src/gui/preferences.cpp:1178
+msgid "Format:"
+msgstr "Formatas:"
+
+#. The file selector button
+#: ../src/gui/preferences.cpp:1181
+msgid "Image:"
+msgstr "Paveikslėlis:"
+
+#: ../src/gui/preferences.cpp:1184
+msgid "Choose a Picture"
+msgstr "Pasirinkite paveikslėlį"
+
+#: ../src/gui/preferences.cpp:1188
+msgid "Preview"
+msgstr "Peržiūra"
+
+#: ../src/gui/preferences.cpp:1198
+msgid "Images"
+msgstr "Paveikslėliai"
+
+#: ../src/gui/preferences.cpp:1234
+msgid "Click here to refresh the devices list."
+msgstr "Spragtelėkite čia norėdami atnaujinti įrenginių sąrašą."
+
+#: ../src/gui/preferences.cpp:1257
+msgid "Available Audio Codecs"
+msgstr "Turimi garso kodekai"
+
+#: ../src/gui/preferences.cpp:1272
+msgid "Audio Codecs Settings"
+msgstr "Garso kodekų nustatymai"
+
+#. Translators: the full sentence is Automatically adjust jitter buffer
+#. between X and Y ms
+#: ../src/gui/preferences.cpp:1276
+msgid "Automatically adjust _jitter buffer between"
+msgstr "Automatiškai reguliuoti garso bu_ferį tarp"
+
+#: ../src/gui/preferences.cpp:1276
+msgid "and"
+msgstr "ir"
+
+#: ../src/gui/preferences.cpp:1276
+msgid "ms"
+msgstr "ms"
+
+#: ../src/gui/preferences.cpp:1276
+msgid "The minimum jitter buffer size for audio reception (in ms)."
+msgstr "Mažiausias garso signalo priėmimo buferio dydis (milisekundėmis)"
+
+#: ../src/gui/preferences.cpp:1276
+msgid "The maximum jitter buffer size for audio reception (in ms)."
+msgstr "Leistinas garso signalo priėmimo buferio dydis (milisekundėmis)."
+
+#: ../src/gui/preferences.cpp:1278
+msgid "Enable silence _detection"
+msgstr "Naudoti tylos _atpažinimą"
+
+#: ../src/gui/preferences.cpp:1278
+msgid "If enabled, use silence detection with the codecs supporting it."
+msgstr "Jei įjungta, naudoti tylos atpažinimą su tai palaikančiais kodekais."
+
+#: ../src/gui/preferences.cpp:1280
+msgid "Enable echo can_celation"
+msgstr "Įjungti aido _panaikinimą"
+
+#: ../src/gui/preferences.cpp:1280
+msgid "If enabled, use echo cancelation."
+msgstr "Jei įjungta, naudoti aido panaikinimą."
+
+#: ../src/gui/preferences.cpp:1293 ../src/gui/preferences.cpp:1966
+msgid "General Settings"
+msgstr "Bendri nustatymai"
+
+#: ../src/gui/preferences.cpp:1295
+msgid "Enable _video support"
+msgstr "Įjungti _vaizdo palaikymą"
+
+#: ../src/gui/preferences.cpp:1295
+msgid "If enabled, allows video during calls."
+msgstr "Jei įjungta, pokalbio metu įjungia vaizdą."
+
+#: ../src/gui/preferences.cpp:1299
+msgid "Bandwidth Control"
+msgstr "Srauto kontrolė"
+
+#: ../src/gui/preferences.cpp:1301
+msgid "Maximum video _bandwidth (in kB/s):"
+msgstr "Maksimalus vaizdo _srautas (kB/s):"
+
+#: ../src/gui/preferences.cpp:1301
+msgid ""
+"The maximum video bandwidth in kbytes/s. The video quality and the number of "
+"transmitted frames per second will be dynamically adjusted above their "
+"minimum during calls to try to minimize the bandwidth to the given value."
+msgstr ""
+"Leistinas vaizdo srauto dydis kilobaitais per sekundę. Vaizdo kokybė ir "
+"perduodamų kadrų per sekundę skaičius bus automatiškai koreguojamas virš "
+"minimalios vertės pokalbių metu siekiant sumažinti naudojamą srautą iki "
+"nurodytos vertės."
+
+#: ../src/gui/preferences.cpp:1306
+msgid "Advanced Quality Settings"
+msgstr "Sudėtingesni kokybės nustatymai"
+
+#. Translators: the full sentence is Keep a minimum video quality of X %
+#: ../src/gui/preferences.cpp:1309
+msgid "Frame Rate"
+msgstr "Kadrų dažnis"
+
+#: ../src/gui/preferences.cpp:1309
+msgid "Picture Quality"
+msgstr "Paveikslėlio kokybė"
+
+#: ../src/gui/preferences.cpp:1309
+msgid ""
+"Choose if you want to favour speed or quality for the transmitted video."
+msgstr ""
+"Pasirinkite, jeigu perduodamam vaizdui norite teikti prioritetą greičiui "
+"arba kokybei."
+
+#: ../src/gui/preferences.cpp:1907
+msgid "Play sound for new voice mails"
+msgstr "Gavus naują balso paštą sugroti garsą"
+
+#: ../src/gui/preferences.cpp:1916
+msgid "Play sound for new instant messages"
+msgstr "Gavus naują žinutę sugroti garsą"
+
+#: ../src/gui/preferences.cpp:1945
+msgid "Ekiga Preferences"
+msgstr "Ekiga nustatymai"
+
+#: ../src/gui/preferences.cpp:1960
+msgid "General"
+msgstr "Bendri"
+
+#: ../src/gui/preferences.cpp:1961
+msgid "Personal Data"
+msgstr "Asmeniniai duomenys"
+
+#: ../src/gui/preferences.cpp:1972
+msgid "Directory Settings"
+msgstr "Katalogo nustatymai"
+
+#: ../src/gui/preferences.cpp:1982
+msgid "Sound Events"
+msgstr "Garso įvykiai"
+
+#: ../src/gui/preferences.cpp:1986
+msgid "Protocols"
+msgstr "Protokolai"
+
+#: ../src/gui/preferences.cpp:1988
+msgid "Network Settings"
+msgstr "Tinklo nustatymai"
+
+#: ../src/gui/preferences.cpp:1993
+msgid "SIP Settings"
+msgstr "SIP nustatymai"
+
+#: ../src/gui/preferences.cpp:1998
+msgid "H.323 Settings"
+msgstr "H.323 nustatymai"
+
+#: ../src/gui/preferences.cpp:2002
+msgid "Codecs"
+msgstr "Kodekai"
+
+#: ../src/gui/preferences.cpp:2004
+msgid "Audio Codecs"
+msgstr "Garso kodekai"
+
+#: ../src/gui/preferences.cpp:2008
+msgid "Video Codecs"
+msgstr "Vaizdo kodekai"
+
+#: ../src/gui/preferences.cpp:2012
+msgid "Devices"
+msgstr "Įrenginiai"
+
+#: ../src/gui/tools.cpp:174
+msgid "Invalid parameters"
+msgstr "Klaidingi parametrai"
+
+#: ../src/gui/tools.cpp:174
+msgid ""
+"Please provide your username and password in order to be able to use the PC-"
+"To-Phone service."
+msgstr ""
+"Norėdami naudoti PC-To-Phone paslaugą, turite nurodyti Jūsų naudotojo vardą "
+"bei slaptažodį."
+
+#: ../src/gui/tools.cpp:312 ../src/gui/tools.cpp:331
+msgid "PC-To-Phone Settings"
+msgstr "PC-To-Phone nustatymai"
+
+#. Introduction label
+#: ../src/gui/tools.cpp:322
+msgid ""
+"You can make calls to regular phones and cell numbers worldwide using Ekiga. "
+"To enable this, you need to do three things. First create an account at the "
+"URL below. Then enter your account number and password. Finally, activate "
+"the registration below.\n"
+"\n"
+"The service will work only if your account is created using the URL in this "
+"dialog."
+msgstr ""
+"Su Ekiga galite skambinti į įprastus bei mobiliuosius telefonus visame "
+"pasaulyje. Norint tai padaryti, Jums reikalingi trys dalykai. Pirmiausiai "
+"turite susikurti abonementą, nuėję žemiau nurodytu adresu. Tada įvesti Jūsų "
+"abonemento numerį, slaptažodį. Galiausiai, žemiau aktyvuokite registraciją.\n"
+"\n"
+"Ši paslauga veiks tik tada, jei susikursite abonementą naudodami šiame lange "
+"pateiktą URL."
+
+#: ../src/gui/tools.cpp:333
+msgid "Account _number:"
+msgstr "Abonemento _numeris:"
+
+#: ../src/gui/tools.cpp:350
+msgid "_Password:"
+msgstr "_Slaptažodis:"
+
+#: ../src/gui/tools.cpp:369
+msgid "Use PC-To-Phone service"
+msgstr "Naudoti PC-To-Phone paslaugą"
+
+#: ../src/gui/tools.cpp:381
+msgid ""
+"Click on one of the following links to get more information about your "
+"existing Ekiga PC-To-Phone account, or to create a new account."
+msgstr ""
+"Spagtelėkite vieną iš sekančių nuorodų jei norite gauti daugiau informacijos "
+"apie Jūsų turimą Ekiga PC-To-Phone abonementą, arba jei norite sukurti naują "
+"abonementą."
+
+#: ../src/gui/tools.cpp:389
+msgid "Get an Ekiga PC-To-Phone account"
+msgstr "Gauti Ekiga PC-To-Phone abonementą"
+
+#: ../src/gui/tools.cpp:403
+msgid "Recharge the account"
+msgstr "Papildyti sąskaitą"
+
+#: ../src/gui/tools.cpp:417
+msgid "Consult the balance history"
+msgstr "Žiūrėti balanso istoriją"
+
+#: ../src/gui/tools.cpp:431
+msgid "Consult the calls history"
+msgstr "Žiūrėti ankstesnių skambučių istoriją"

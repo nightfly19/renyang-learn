@@ -1,0 +1,4474 @@
+# translation of tr.po to Turkish
+# Görkem Çetin <gorkem@gelecek.com.tr>, 2001.
+# Özgür Aş <thelegbra@hotmail.com>, 2002.
+# Sedat Mavuzer <XXIIXV@gmx.net>, 2003.
+# Davut Topcan <davuttopcan@yahoo.com>, 2004.
+# Baris Cicek <baris@teamforce.name.tr>, 2004, 2007.
+# Turkish translation of GnomeMeeting.
+# Copyright (C) 2001-2002, 2004, 2007 Free Software Foundation, Inc.
+msgid ""
+msgstr ""
+"Project-Id-Version: ekiga\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-25 09:56+0300\n"
+"PO-Revision-Date: 2008-09-14 19:18+0200\n"
+"Last-Translator: Deniz Koçak <deniz.kocak@linux.org.tr>\n"
+"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../ekiga.desktop.in.in.h:1
+msgid "Ekiga Softphone"
+msgstr "Ekiga Yazılımsal Telefon"
+
+#: ../ekiga.desktop.in.in.h:2
+msgid "IP Telephony, VoIP and Video Conferencing"
+msgstr "IP Telefon, VoIP ve Video Konferans"
+
+#: ../ekiga.desktop.in.in.h:3
+msgid "Talk to people over the Internet"
+msgstr "İnternet üzerinden insanlarla konuş"
+
+#: ../ekiga.schemas.in.in.h:1
+msgid "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+msgstr "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Özel"
+
+#: ../ekiga.schemas.in.in.h:2
+msgid ""
+"Allow Ekiga to fall back to software scaling the picture-in-picture if "
+"hardware support is not available. If this is set to false, Ekiga will not "
+"try to open the PIP if hardware support is not available."
+msgstr ""
+"Donanımsal destek yoksa Ekiga'nın yazılımsal resim-içinde-resim "
+"ölçeklendirmesini kullanmasına izin ver.Eğer hayır olarak belirtilmişse, "
+"donanımsal destek erişilebilir olmadığında Ekiga RİR açmaya çalışmayacaktır."
+
+#: ../ekiga.schemas.in.in.h:3
+msgid "Allow picture-in-picture software scaling"
+msgstr "Yazılımsal resim-içinde-resim ölçeklendirmeye izin ver"
+
+#: ../ekiga.schemas.in.in.h:4
+msgid "Alternative audio output device"
+msgstr "Alternatif ses çıkış aygıtı"
+
+#: ../ekiga.schemas.in.in.h:5
+msgid "Always forward calls to the given host"
+msgstr "Aramaları herzaman verilen makineye yönlendir"
+
+#: ../ekiga.schemas.in.in.h:6
+msgid "Audio input device"
+msgstr "Ses girdi aygıtı"
+
+#: ../ekiga.schemas.in.in.h:7
+msgid "Audio output device"
+msgstr "Ses çıkış aygıtı"
+
+#: ../ekiga.schemas.in.in.h:8
+msgid "Automatic echo cancellation"
+msgstr "Otomatik yankı giderici"
+
+#: ../ekiga.schemas.in.in.h:9 ../src/gui/preferences.cpp:428
+msgid ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+msgstr ""
+"Belirlenen bir süre (saniye) sonunda eğer cevap yok ise, gelen aramaları "
+"kendiliğinden reddet veya yönlendir"
+
+#: ../ekiga.schemas.in.in.h:10
+msgid "Calls history"
+msgstr "Arama geçmişi"
+
+#: ../ekiga.schemas.in.in.h:11
+msgid "Change the main window panel section"
+msgstr "Ana pencere paneli bölümünü değiştir"
+
+#: ../ekiga.schemas.in.in.h:12
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+msgstr ""
+"Bağlantı Hızlı Başlat kipinde kurulacaktır. Hızlı Başlat, aramaları daha "
+"hızlı başlatmak için H.323v2' de belirtilen yeni bir yoldur. Netmeeting "
+"tarafından desteklenmez; Hızlı Başlat ve H.245 Tünellemesini birlikte "
+"kullanmak bazı Netmeeting sürümlerinin çökmesine neden olabilir"
+
+#: ../ekiga.schemas.in.in.h:13
+msgid "Contact long status"
+msgstr "Uzun kontak durumu"
+
+#: ../ekiga.schemas.in.in.h:14
+msgid "Contact short status"
+msgstr "Kısa kontak bilgisi"
+
+#: ../ekiga.schemas.in.in.h:15
+msgid "Country code"
+msgstr "Ülke kodu"
+
+#: ../ekiga.schemas.in.in.h:16
+msgid "DTMF sending"
+msgstr "DTMF gönderme"
+
+#: ../ekiga.schemas.in.in.h:17
+msgid "Disable video hardware acceleration"
+msgstr "Donanımsal video hızlandırmayı etkisizleştir"
+
+#: ../ekiga.schemas.in.in.h:18
+msgid "Display a popup window when receiving a call"
+msgstr "Bir arama alındığında kendiliğinden açılan bir pencere aç"
+
+#: ../ekiga.schemas.in.in.h:19
+msgid "Enable 'Fast Start'"
+msgstr "'Hızlı Başlat'ı etkinleştir"
+
+#: ../ekiga.schemas.in.in.h:20
+msgid "Enable H.245 tunneling"
+msgstr "H.245 tünellemeyi etkinleştir"
+
+#: ../ekiga.schemas.in.in.h:21
+msgid "Enable early H.245"
+msgstr "Erken H.245'i etkinleştir"
+
+#: ../ekiga.schemas.in.in.h:22
+msgid "Enable echo cancelation"
+msgstr "Etkinleştirildiğinde, yankı giderme kullan"
+
+#: ../ekiga.schemas.in.in.h:23
+msgid "Enable silence detection"
+msgstr "Sessizlik algılamayı etkinleştir"
+
+#: ../ekiga.schemas.in.in.h:24
+msgid "Enable video support"
+msgstr "Görüntü desteğini etkinleştir"
+
+#: ../ekiga.schemas.in.in.h:25
+msgid ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+msgstr ""
+"STUN kullanıldığı zaman kaç saniye sonra Ekiga'nın NAT bağını tazelemesini "
+"istediğinizi girin"
+
+#: ../ekiga.schemas.in.in.h:26 ../src/gui/preferences.cpp:378
+msgid "Enter your full name"
+msgstr "Tam isminizi girin"
+
+#: ../ekiga.schemas.in.in.h:27
+msgid "Forward calls to host"
+msgstr "Aramaları makineye yönlendir"
+
+#: ../ekiga.schemas.in.in.h:28
+msgid "Forward calls to the given host if busy"
+msgstr "Aramaları, meşgulseniz belirtilen makineye yönlendir"
+
+#: ../ekiga.schemas.in.in.h:29
+msgid "Forward calls to the given host if no answer"
+msgstr "Cevapsız aramaları belirtilen makineye yönlendir"
+
+#: ../ekiga.schemas.in.in.h:30 ../src/gui/preferences.cpp:999
+msgid "Frame Rate"
+msgstr "Çerçeve Oranı"
+
+#: ../ekiga.schemas.in.in.h:31
+msgid "Full name"
+msgstr "Tam isim"
+
+#: ../ekiga.schemas.in.in.h:32 ../src/gui/preferences.cpp:396
+msgid ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+msgstr ""
+"Etkinleştirildiğinde , GNOME panel üzerinde uyarı alanı bulunduğu takdirde "
+"Ekiga gizli olarak başlayacak"
+
+#: ../ekiga.schemas.in.in.h:33
+msgid ""
+"If enabled, a popup window will be displayed when receiving an incoming call"
+msgstr ""
+"Etkinleştirildiğinde, bir arama alındığında kendiliğinden açılan bir pencere "
+"gösterilecek"
+
+#: ../ekiga.schemas.in.in.h:34
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+msgstr ""
+"Etkinleştirildiğinde, gelen aramalar kendiliğinden altta belirtilen makineye "
+"yönlendirilecek"
+
+#: ../ekiga.schemas.in.in.h:35
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+msgstr ""
+"Etkinleştirildiğinde, gelen aramalar bir aramadaysanız ya da Rahatsız Etme "
+"kipindeyseniz kendiliğinden altta belirtilen makineye yönlendirilecektir"
+
+#: ../ekiga.schemas.in.in.h:36
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+msgstr ""
+"Etkinleştirildiğinde, gelen aramalar yanıtlamadığınızda kendiliğinden altta "
+"belirtilen makineye yönlendirilecektir"
+
+#: ../ekiga.schemas.in.in.h:37
+msgid "If enabled, allows video during calls"
+msgstr ""
+"Etkinleştirildiğinde, aramalar sırasında görüntünün alınmasına izin verir"
+
+#: ../ekiga.schemas.in.in.h:38 ../src/gui/preferences.cpp:398
+msgid "If enabled, offline contacts will be shown in the roster"
+msgstr "Etkinleştirilirse, çevrimdışı kontaklar isim listesinde görünecektir"
+
+#: ../ekiga.schemas.in.in.h:39
+msgid "If enabled, use echo cancelation"
+msgstr "Etkinleştirildiğinde, yankı giderme kullan"
+
+#: ../ekiga.schemas.in.in.h:40
+msgid "If enabled, use silence detection with the codecs supporting it"
+msgstr ""
+"Etkinleştirildiğinde, destekleyen kodekler ile sessizlik algılayıcı kullan"
+
+#: ../ekiga.schemas.in.in.h:41
+msgid "Kind of network selected in the druid"
+msgstr "Sihirbazda seçilen ağ çeşidi"
+
+#: ../ekiga.schemas.in.in.h:42
+msgid "LDAP servers"
+msgstr "LDAP sunucuları"
+
+#: ../ekiga.schemas.in.in.h:43
+msgid "List of configured LDAP servers"
+msgstr "Yapılandırılmış LDAP sunucularının listesi"
+
+#: ../ekiga.schemas.in.in.h:44
+msgid "List of folded groups in the roster"
+msgstr "İsim listesindeki katlanmış grupların listesi"
+
+#: ../ekiga.schemas.in.in.h:45
+msgid "Listen port"
+msgstr "Dinlenecek Port"
+
+#: ../ekiga.schemas.in.in.h:46
+msgid "Local video window size"
+msgstr "Yerel video penceresi boyutu"
+
+#: ../ekiga.schemas.in.in.h:47
+msgid "Maximum RX video bitrate"
+msgstr "En fazla RX video bit oranı"
+
+#: ../ekiga.schemas.in.in.h:48
+msgid "Maximum TX video bitrate"
+msgstr "En fazla TX video bit oranı"
+
+#: ../ekiga.schemas.in.in.h:49
+msgid "Maximum jitter buffer"
+msgstr "En büyük stres tamponu"
+
+#: ../ekiga.schemas.in.in.h:50
+msgid "NAT Binding Timeout"
+msgstr "NAT Bağlama Zaman Aşımı"
+
+#: ../ekiga.schemas.in.in.h:51
+msgid "No answer timeout"
+msgstr "Cevap alamama zaman aşımı"
+
+#: ../ekiga.schemas.in.in.h:52
+msgid "Outbound Proxy"
+msgstr "Dışa Açılan Vekil"
+
+#: ../ekiga.schemas.in.in.h:53
+msgid "Output device type"
+msgstr "Çıkış aygıtı türü"
+
+#: ../ekiga.schemas.in.in.h:54 ../src/gui/preferences.cpp:405
+msgid "Place windows displaying video above other windows during calls"
+msgstr ""
+"Çağrılar sırasında video gösteren pencereleri diğer pencereler üzerine "
+"yerleştirir"
+
+#: ../ekiga.schemas.in.in.h:55 ../src/gui/preferences.cpp:1367
+msgid "Play busy tone"
+msgstr "Meşgul tonu çal"
+
+#: ../ekiga.schemas.in.in.h:56 ../src/gui/preferences.cpp:1358
+msgid "Play ring tone"
+msgstr "Zil tonu çal"
+
+#: ../ekiga.schemas.in.in.h:57 ../src/gui/preferences.cpp:1349
+msgid "Play sound on incoming calls"
+msgstr "Gelen aramalarda bir ses çal"
+
+#: ../ekiga.schemas.in.in.h:58
+msgid "Play sound on new message"
+msgstr "Yeni mesajda ses çal"
+
+#: ../ekiga.schemas.in.in.h:59
+msgid "Play sound on new voice mail"
+msgstr "Yeni sesli postada ses çal"
+
+#: ../ekiga.schemas.in.in.h:60
+msgid "Position of the local video window"
+msgstr "Yerel video penceresinin pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:61
+msgid "Position on the screen of the address book window"
+msgstr "Adres defteri penceresinin ekrandaki pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:62
+msgid "Position on the screen of the audio settings window"
+msgstr "Ses ayarları penceresinin ekrandaki konumu"
+
+#: ../ekiga.schemas.in.in.h:63
+msgid "Position on the screen of the chat window"
+msgstr "Sohbet penceresinin ekrandaki pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:64
+msgid "Position on the screen of the druid window"
+msgstr "Sihirbaz penceresinin ekrandaki pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:65
+msgid "Position on the screen of the log window"
+msgstr "Günlük penceresinin ekrandaki pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:66
+msgid "Position on the screen of the main window"
+msgstr "Ana pencerenin ekrandaki pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:67
+msgid "Position on the screen of the preferences window"
+msgstr "Tercihler penceresinin ekrandaki pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:68
+msgid "Position on the screen of the video settings window"
+msgstr "Video ayarları penceresinin ekrandaki konumu"
+
+#: ../ekiga.schemas.in.in.h:69
+msgid "Registration timeout"
+msgstr "Kayıt zaman aşımı"
+
+#: ../ekiga.schemas.in.in.h:70
+msgid "Remote video window position"
+msgstr "Uzaktaki video penceresinin pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:71
+msgid "Remote video window size"
+msgstr "Uzaktaki video penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:72
+msgid "Revision of the schema file"
+msgstr "Şema dosyasının düzenlemesi"
+
+#: ../ekiga.schemas.in.in.h:73
+msgid "Roster view saving group status"
+msgstr "Grup kaydedilmesi durumu liste görünümü"
+
+#: ../ekiga.schemas.in.in.h:74
+msgid "Select an alternative audio output device to use for sound events."
+msgstr "Ses olayları için kullanılacak alternatif bir ses çıkış aygıtı seçin."
+
+#: ../ekiga.schemas.in.in.h:75 ../src/gui/preferences.cpp:707
+msgid "Select the audio input device to use"
+msgstr "Kullanılacak ses girdi aygıtını seçin"
+
+#: ../ekiga.schemas.in.in.h:76 ../src/gui/preferences.cpp:700
+msgid "Select the audio output device to use"
+msgstr "Kullanılacak ses çıkış aygıtını seçin"
+
+#: ../ekiga.schemas.in.in.h:77 ../src/gui/preferences.cpp:863
+msgid ""
+"Select the format for video cameras (does not apply to most USB cameras)"
+msgstr "Video kameraları için tip seçin (Bir çok USB kameraya uygulanamaz)"
+
+#: ../ekiga.schemas.in.in.h:78
+msgid ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"İletilen video büyüklüğünü seçiniz: Küçük (QCIF 176x144) ya da Büyük (CIF "
+"352x288)"
+
+#: ../ekiga.schemas.in.in.h:79 ../src/gui/preferences.cpp:855
+msgid ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+msgstr ""
+"Kullanılacak video girdi aygıtını seçin. Eğer bu aygıtı kullanırken bir hata "
+"oluşursa, bir deneme resmi iletilecektir."
+
+#: ../ekiga.schemas.in.in.h:80
+msgid "Show offline contacts"
+msgstr "Çevrimdışı kontakları göster"
+
+#: ../ekiga.schemas.in.in.h:81 ../src/gui/main.cpp:1850
+msgid "Show the call panel"
+msgstr "Çağrı panelini göster"
+
+#: ../ekiga.schemas.in.in.h:82
+msgid "Size of the address book window"
+msgstr "Adres defteri penceresi boyutu"
+
+#: ../ekiga.schemas.in.in.h:83
+msgid "Size of the audio settings window"
+msgstr "Ses ayarları penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:84
+msgid "Size of the chat window"
+msgstr "Sohbet penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:85
+msgid "Size of the druid window"
+msgstr "Sihirbaz penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:86
+msgid "Size of the preferences window"
+msgstr "Tercihler penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:87
+msgid "Size of the video settings window"
+msgstr "Video ayarları penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:88
+msgid "Specify the software scaling algorithm"
+msgstr "Yazılım ölçekleme algoritmasını belirt"
+
+#: ../ekiga.schemas.in.in.h:89
+msgid ""
+"Specify the software scaling algorithm: 0: nearest neighbor, 1: nearest "
+"neighbor with box filter, 2: bilinear filtering, 3: hyperbolic filtering. "
+"Does not apply on windows systems."
+msgstr ""
+"Ölçeklendirme algoritmasını belirtin: 0: en yakın komşu, 1: kutu filtresi "
+"olan en yakın komşu, 2: ikidoğrusal filtreleme, 3:hiperbolik filtreleme. "
+"Windows sistemlerde uygulanmaz."
+
+#: ../ekiga.schemas.in.in.h:90
+msgid "Start hidden"
+msgstr "Gizli başlat"
+
+#: ../ekiga.schemas.in.in.h:91
+msgid "TCP port range"
+msgstr "TCP port aralığı"
+
+#: ../ekiga.schemas.in.in.h:92
+msgid "Temporal Spatial Trade Off"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:93
+msgid "The Audio Codecs List"
+msgstr "Ses Kodekleri Listesi"
+
+#: ../ekiga.schemas.in.in.h:94
+msgid ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+msgstr ""
+"Kendiliğinden Yankı Giderme seviyesi: Off (Kapalı), Low (Düşük), Medium "
+"(Orta), High (Yüksek), Automatic Gain Compensation (Kendiliğinden Kazanç "
+"Telafisi). Automatic Gain Compensation'ı seçmek sesi en iyi kalite için "
+"ayarlar."
+
+#: ../ekiga.schemas.in.in.h:95 ../src/gui/preferences.cpp:657
+msgid "The SIP Outbound Proxy to use for outgoing calls"
+msgstr "Dışarıya aramalarda kullanılacak SIP Dışa Açılan Vekil"
+
+#: ../ekiga.schemas.in.in.h:96
+msgid "The STUN Server"
+msgstr "STUN Sunucusu"
+
+#: ../ekiga.schemas.in.in.h:97
+msgid ""
+"The STUN server to use for STUN Support. STUN is a technology that permits "
+"passage through some types of NAT gateway"
+msgstr ""
+"STUN desteği için kullanılacak STUN sunucusu. STUN bazı tür NAT geçitleri "
+"üzerinden geçişi sağlayan bir teknolojidir"
+
+#: ../ekiga.schemas.in.in.h:98
+msgid "The Video Codecs List"
+msgstr "Video Kodekleri Listesi"
+
+#: ../ekiga.schemas.in.in.h:99
+msgid "The accounts list"
+msgstr "Hesaplar listesi"
+
+#: ../ekiga.schemas.in.in.h:100
+msgid "The audio codecs list"
+msgstr "Ses kodekleri listesi"
+
+#: ../ekiga.schemas.in.in.h:101
+msgid "The busy tone sound"
+msgstr "Meşgul tonu sesi"
+
+#: ../ekiga.schemas.in.in.h:102
+msgid ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+msgstr ""
+"Eğer seçiliyse, seçilen ses çağrıların sonunda veya aranan kişi meşgul ise "
+"çalınacak"
+
+#: ../ekiga.schemas.in.in.h:103
+msgid "The chosen sound will be played on incoming calls, if enabled"
+msgstr "Eğer seçiliyse, seçilen ses gelen çağrılarda çalınacak"
+
+#: ../ekiga.schemas.in.in.h:104
+msgid ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+msgstr "Etkinleştirilmişse, yeni bir anında mesaj alındığında çalacak ses"
+
+#: ../ekiga.schemas.in.in.h:105
+msgid ""
+"The chosen sound will be played when a new voice mail is received, if enabled"
+msgstr "Etkinleştirilmişse, yeni bir sesli posta alındığında çalacak ses"
+
+#: ../ekiga.schemas.in.in.h:106
+msgid "The chosen sound will be played when calling somebody, if enabled"
+msgstr "Eğer seçiliyse, seçilen ses birini ararken çalınacak"
+
+#: ../ekiga.schemas.in.in.h:107
+msgid "The default video view"
+msgstr "Öntanımlı video görünümü"
+
+#: ../ekiga.schemas.in.in.h:108
+msgid ""
+"The default video view (0: Local, 1: Remote, 2: Both layered, 3: Both with "
+"local video in a separate window, 4: Both)"
+msgstr ""
+"Öntanımlı video görünümü (0: Yerel, 1: Uzaktan, 2: İkiside katmanlı, 3: Ayrı "
+"bir pencerede yerel video ile ikisi, 4: İkisi)"
+
+#: ../ekiga.schemas.in.in.h:109
+msgid "The dial tone sound"
+msgstr "Arama tonu sesi"
+
+#: ../ekiga.schemas.in.in.h:110
+msgid "The history of the 100 last calls"
+msgstr "Son 100 çağrının geçmişi"
+
+#: ../ekiga.schemas.in.in.h:111 ../src/gui/preferences.cpp:606
+#: ../src/gui/preferences.cpp:660
+msgid "The host where calls should be forwarded if call forwarding is enabled"
+msgstr "Çağrı yönlendirme etkinleştirilmişse yönlendirmenin yapılacağı makine"
+
+#: ../ekiga.schemas.in.in.h:112
+msgid ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+msgstr ""
+"Görüntü eklentisi olarak \"Picture\" seçildiğinde ya da aygıt açılamadığında "
+"iletilecek olan görüntü. Öntanımlı Ekiga simgesini kullanmak için boş "
+"bırakın."
+
+#: ../ekiga.schemas.in.in.h:113
+msgid "The incoming call sound"
+msgstr "Gelen arama sesi"
+
+#: ../ekiga.schemas.in.in.h:114
+msgid "The list of accounts to which Ekiga should register"
+msgstr "Ekiga tarafından kaydedilecek hesapların listesi"
+
+#: ../ekiga.schemas.in.in.h:115
+msgid "The long status information"
+msgstr "Uzun durum bilgisi"
+
+#: ../ekiga.schemas.in.in.h:116
+msgid ""
+"The maximum RX video bitrate in kbit/s. This value will be signaled to the "
+"peer endpoint that can adjust (if it supports it) its TX bitrate if it is "
+"above the signaled value"
+msgstr ""
+"kbit/s olarak en fazla RX video bit oranı. Bu değer TX değeri bu değerden "
+"yüksekse ayarlama yapabilen eğer destekliyorsa) uç noktadaki alıcıya "
+"gönderilir."
+
+#: ../ekiga.schemas.in.in.h:117
+msgid ""
+"The maximum TX video bitrate in kbit/s. The video quality and the number of "
+"transmitted frames per second (depends on selected codec) will be "
+"dynamically adjusted above their minimum during calls to try to minimize the "
+"bandwidth to the given value"
+msgstr ""
+"kbit/s olarak en fazla TX video bit oranı. Video kalitesi ve saniyede "
+"aktarılan çerçeve sayısı (seçilen kodeğe göre değişir) bant genişliğini "
+"verilen değere indirgemek için dinamik olarak en düşük değerlerinin üstüne "
+"ayarlanacaktır. "
+
+#: ../ekiga.schemas.in.in.h:118
+msgid "The maximum jitter buffer size for audio reception (in ms)"
+msgstr "Ses kabulü için en fazla stres tamponu büyüklüğü (ms olarak)"
+
+#: ../ekiga.schemas.in.in.h:119
+msgid ""
+"The maximum transmitted frame rate in frames/s. This rate may not be reached "
+"in case a minimum quality was configure via a TSTO value smaller than 31 and "
+"the bitrate selected is not sufficient to support this minimum quality"
+msgstr ""
+"Çerçeve/sn olarak aktarılabilecek en fazla çerçeve oranı. Bu değere, TSTO "
+"ile 31'den az en küçük bir kalite değeri ile yapılandırılmamışsa ve seçilen "
+"bit oranı bu en az kaliteyi desteklemek için yetersizse ulaşılmayabilir."
+
+#: ../ekiga.schemas.in.in.h:120
+msgid "The new instant message sound"
+msgstr "Yeni anında mesaj sesi"
+
+#: ../ekiga.schemas.in.in.h:121
+msgid "The new voice mail sound"
+msgstr "Yeni sesli mesaj sesi"
+
+#: ../ekiga.schemas.in.in.h:122
+msgid ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+msgstr ""
+"Çıktı aygıt türü QuickNet kartınıza bağlı olan aygıt tipidir. Bir POTS (eski "
+"düz telefon seti) veya kulaklık olabilir."
+
+#: ../ekiga.schemas.in.in.h:123
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+msgstr ""
+"Gelen aramaların dinleneceği port. Yeni değerin etkili olabilmesi için "
+"Ekiga'nın yeniden başlatılması gerekir"
+
+#: ../ekiga.schemas.in.in.h:124
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+msgstr ""
+"Gelen aramaların dinleneceği port. Yeni değerin etkili olabilmesi için Ekiga "
+"yeniden başlatılmalıdır."
+
+#: ../ekiga.schemas.in.in.h:125
+msgid "The position of the local video window"
+msgstr "Yerel video penceresi pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:126
+msgid "The position of the remote video window"
+msgstr "Uzaktaki video penceresi pozisyonu"
+
+#: ../ekiga.schemas.in.in.h:127
+msgid ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+msgstr ""
+"Konuşmanın resimlerini kaydetmek için kullanıcak önek. Bu önekten sonra "
+"ekran görüntüsü numarası gelir."
+
+#: ../ekiga.schemas.in.in.h:128
+msgid ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. This "
+"port range has no effect if both participants to the conference are using "
+"H.245 Tunneling."
+msgstr ""
+"H.323 ve H.245 kanalı için Ekiga tarafından kullanılacak TCP portlarının "
+"aralığı. Konferanstaki katılımcıların tümü H.245 tünelleme kullanıyorsa bu "
+"port aralığının bir etkisi olmayacaktır."
+
+#: ../ekiga.schemas.in.in.h:129
+msgid "The range of UDP ports that Ekiga will use."
+msgstr "Ekiga'nın kullanacağı UDP portlarının aralığı."
+
+#: ../ekiga.schemas.in.in.h:130
+msgid "The save prefix"
+msgstr "Kaydetme öneki"
+
+#: ../ekiga.schemas.in.in.h:131
+msgid "The short status information"
+msgstr "Kısa durum bilgisi"
+
+#: ../ekiga.schemas.in.in.h:132
+msgid "The size of the local video window"
+msgstr "Yerel video penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:133
+msgid "The size of the remote video window"
+msgstr "Uzaktaki video penceresinin boyutu"
+
+#: ../ekiga.schemas.in.in.h:134
+msgid ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+msgstr ""
+"Eğer seçiliyse, çağrıların sonunda veya meşgul birine çağrı yaparken "
+"çalınacak ses"
+
+#: ../ekiga.schemas.in.in.h:135
+msgid "The sound that will be played on incoming calls, if enabled"
+msgstr "Eğer seçiliyse, gelen çağrılarda çalınacak ses"
+
+#: ../ekiga.schemas.in.in.h:136
+msgid "The sound that will be played when calling somebody, if enabled"
+msgstr "Eğer seçiliyse, birine çağrı yaparken çalınacak ses"
+
+#: ../ekiga.schemas.in.in.h:137
+msgid ""
+"The sound that will be played when there is a new instant message, if enabled"
+msgstr "Etkinleştirilmişse, yeni bir anında mesaj varsa çalacak ses"
+
+#: ../ekiga.schemas.in.in.h:138
+msgid ""
+"The sound that will be played when there is a new voice mail, if enabled"
+msgstr "Etkinleştirilmişse, yeni bir sesli posta varsa çalacak ses"
+
+#: ../ekiga.schemas.in.in.h:139
+msgid ""
+"The time after which Ekiga will renew its registration with the registrar"
+msgstr "Sonrasında Ekiga'nın kayıtçı ile olan kaydını yenileyeceği zaman"
+
+#: ../ekiga.schemas.in.in.h:140
+msgid "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+msgstr "Ülkenizin iki harfli ülke kodu (örnek: TR, DE, FR, ...)"
+
+#: ../ekiga.schemas.in.in.h:141 ../src/gui/preferences.cpp:859
+msgid "The video channel number to use (to select camera, tv or other sources)"
+msgstr ""
+"Kullanılacak video kanalı sayısı (kamera, tv ya da diğer kaynakları seçmek "
+"için)"
+
+#: ../ekiga.schemas.in.in.h:142
+msgid "The video codecs list"
+msgstr "Video kodekleri listesi"
+
+#: ../ekiga.schemas.in.in.h:143
+msgid "The video view before having switched to fullscreen"
+msgstr "Tam ekrana geçmeden önceki video görüntüsü"
+
+#: ../ekiga.schemas.in.in.h:144
+msgid ""
+"The video view before having switched to fullscreen (same values as "
+"video_view)"
+msgstr ""
+"Tam ekrana geçmeden önceki video görüntüsü (video_view değeri ile aynı)"
+
+#: ../ekiga.schemas.in.in.h:145
+msgid "The zoom value"
+msgstr "Büyütme değeri"
+
+#: ../ekiga.schemas.in.in.h:146
+msgid ""
+"The zoom value in percent to apply to images displayed in the main GUI (can "
+"be 50, 100, or 200)"
+msgstr ""
+"Ana GUI'de görüntülenen görüntülere uygulanacak büyütme değeri (50, 100, ya "
+"da 200 olabilir)"
+
+#: ../ekiga.schemas.in.in.h:147
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be "
+"\"RFC2833\" (0), \"INFO\" (1)"
+msgstr ""
+"DTMF gönderimi için kip seçimine izin verir. Değer olarak sadece \"RFC2833"
+"\" (0), \"INFO\" (1) alabilir "
+
+#: ../ekiga.schemas.in.in.h:148
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+msgstr ""
+"DTMF gönderimi için kip belirtmenizi sağlar. Değerler \"String\" (0), \"Tone"
+"\" (1), \"RFC2833\" (2), \"Q.931\" (3) (öntanımlı \"String\") olabilir. "
+"\"String\" seçeneğinden başka değerler seçmek Metin tabanlı Sohbeti devre "
+"dışı bırakır"
+
+#: ../ekiga.schemas.in.in.h:149 ../src/gui/preferences.cpp:618
+msgid ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+msgstr ""
+"Bu, H.245 Tünelleme kipini etkinleştirir. H.245 Tünelleme kipinde, H.245 "
+"iletileri H.225 kanalında kapsüllenir (port 1720). Bu, aramalar sırasında "
+"bir TCP bağlantısını saklar. H.245 Tünelleme H.323v2 içinde tanımlanmıştır "
+"ve Netmeeting tarafından desteklenmemektedir. Hızlı Başlangıç ve H.245 "
+"Tünellemeyi birlikte kullanmak bazı Netmeeting sürümlerinin çökmesine neden "
+"olabilir."
+
+#: ../ekiga.schemas.in.in.h:150 ../src/gui/preferences.cpp:620
+msgid "This enables H.245 early in the setup"
+msgstr "Bu erken H.245'i ayarlarda etkinleştirir"
+
+#: ../ekiga.schemas.in.in.h:151
+msgid ""
+"This key disables DirectX (on win32) and XVideo (on Linux) video hardware "
+"acceleration"
+msgstr ""
+"Bu anahtar DirectX (Win32 üstünde) ve XVideo (Linux üstünde) donanımsal "
+"video hızlandırmasını etkisizleştirir"
+
+#: ../ekiga.schemas.in.in.h:152
+msgid "UDP port range"
+msgstr "UDP port dizisi"
+
+#: ../ekiga.schemas.in.in.h:153
+msgid "Version"
+msgstr "Sürüm"
+
+#: ../ekiga.schemas.in.in.h:154
+msgid "Video channel"
+msgstr "Video kanalı"
+
+#: ../ekiga.schemas.in.in.h:155
+msgid "Video format"
+msgstr "Video biçimi"
+
+#: ../ekiga.schemas.in.in.h:156
+msgid "Video image"
+msgstr "Video görüntüsü"
+
+#: ../ekiga.schemas.in.in.h:157 ../src/gui/assistant.cpp:1045
+msgid "Video input device"
+msgstr "Video girdi aygıtı"
+
+#: ../ekiga.schemas.in.in.h:158
+msgid "Video preview"
+msgstr "Video önizleme"
+
+#: ../ekiga.schemas.in.in.h:159
+msgid "Video size"
+msgstr "Video boyutu"
+
+#: ../ekiga.schemas.in.in.h:160
+msgid ""
+"Whether to prefer to sustain the max. frame rate or lower it possibly in "
+"order to keep a minimum level of (spatial) quality for all frames. 0: "
+"Highest minimal quality, 31: lowest minimal quality"
+msgstr ""
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:148
+msgid "Received"
+msgstr "Alınan"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:151
+#, fuzzy
+msgid "Placed"
+msgstr "Engellenmiş"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:154
+msgid "Missed"
+msgstr "Cevapsız"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:234
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:194
+#: ../src/endpoints/opal-account.cpp:310 ../src/gui/main.cpp:1808
+msgid "_Edit"
+msgstr "_Düzenle"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:236
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:196
+#: ../src/endpoints/opal-account.cpp:312
+msgid "_Remove"
+msgstr "Kaldı_r"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:325
+msgid "Edit contact"
+msgstr "Kontağı düzenle"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:327
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:298
+#: ../src/endpoints/opal-account.cpp:353
+msgid "Please update the following fields:"
+msgstr "Lütfen takip eden alanları güncelleyin:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:329
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:221
+#: ../lib/engine/presence/local-roster/local-heap.cpp:177
+#: ../lib/engine/presence/local-roster/local-heap.cpp:324
+#: ../src/endpoints/opal-account.cpp:355 ../src/endpoints/opal-bank.cpp:101
+#: ../src/endpoints/opal-bank.cpp:111
+msgid "Name:"
+msgstr "İsim:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:338
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:301
+msgid "VoIP _URI:"
+msgstr "VoIP _URI:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:339
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:302
+msgid "_Home phone:"
+msgstr "_Ev telefonu:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:340
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:303
+msgid "_Office phone:"
+msgstr "_Ofis telefonu:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:341
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:304
+msgid "_Cell phone:"
+msgstr "_Cep telefonu:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:342
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:305
+#, fuzzy
+msgid "_Pager:"
+msgstr "Resim:"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:392
+msgid "Remove contact"
+msgstr "Kontağı kaldır"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:394
+#, c-format
+msgid "Are you sure you want to remove %s from the addressbook?"
+msgstr "%s kişisini adres defterinizden silmek istediğinize emin misiniz?"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:76
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:591
+#, c-format
+msgid "%d user found"
+msgid_plural "%d users found"
+msgstr[0] "%d kullanıcı bulundu"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:244
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:310
+msgid "_Refresh"
+msgstr "_Tazele"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:247
+msgid "New _Contact"
+msgstr "Yeni _Bağlantı"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:296
+#: ../lib/engine/presence/local-roster/local-heap.cpp:118
+msgid "New contact"
+msgstr "Yeni bağlantı"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:300
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:157
+msgid "_Name:"
+msgstr "_İsim:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:139
+msgid "Add an LDAP Address Book"
+msgstr "Bir LDAP Adres Defteri Ekle"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:142
+msgid "Add the Ekiga.net Directory"
+msgstr "Ekiga.net Dizini ekle"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:153
+msgid "Create LDAP directory"
+msgstr "LDA dizini oluştur"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:155
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:611
+msgid "Please edit the following fields"
+msgstr "Lütfen takip eden alanları düzenleyin"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:158
+msgid "_Hostname:"
+msgstr "_Makine adı:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:159
+msgid "_Port:"
+msgstr "_Port:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:160
+msgid "_Base DN:"
+msgstr "_Temel DN:"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:164
+msgid "_Subtree"
+msgstr "_Alt ağaç"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:165
+msgid "Single _Level"
+msgstr "_Tek Seviye"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:166
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:629
+msgid "_Scope"
+msgstr ""
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:169
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:632
+msgid "Call _Attribute"
+msgstr "Ç_ağrı Özniteliği"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:170
+msgid "Password"
+msgstr "Parola"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:188
+msgid "Ekiga.net Directory"
+msgstr "Ekiga.net Dizini"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:313
+#, fuzzy
+msgid "_Remove addressbook"
+msgstr "Adres defterini aç"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:315
+#, fuzzy
+msgid "Addressbook _properties"
+msgstr "Adres tam değil"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:380
+msgid "Refreshing"
+msgstr "Tazeliyor"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:388
+msgid "Could not initialize server"
+msgstr "Sunucu ilklendirilemedi"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:421
+msgid "Could not contact server"
+msgstr "Sunucuya bağlanılamadı"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:429
+msgid "Contacted server"
+msgstr "Bağlanılan sunucu"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:466
+msgid "Could not connect to server"
+msgstr "Sunucuya bağlanılamadı"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:516
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:564
+msgid "Could not search"
+msgstr "Aranamadı"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:524
+msgid "Waiting for search results"
+msgstr "Arama sonuçları için bekleniyor"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:609
+msgid "Edit LDAP directory"
+msgstr "LDAP dizinini düzenle"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:613
+msgid "_Name"
+msgstr "_İsim"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:614
+msgid "_Hostname"
+msgstr "_Makine adı"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:620
+msgid "_Port"
+msgstr "_Port"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:622
+msgid "_Base DN"
+msgstr "_Temel DN:"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:627
+msgid "Subtree"
+msgstr "Alt ağaç"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:628
+msgid "Single Level"
+msgstr "Tek Seviye"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:634
+msgid "_Password"
+msgstr "_Parola"
+
+#: ../lib/engine/addressbook/skel/contact-core.cpp:57
+msgid "_Find"
+msgstr "_Bul"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:659
+msgid "Address Book"
+msgstr "Adres Defteri"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:675
+#: ../src/gui/main.cpp:1757
+msgid "Address _Book"
+msgstr "Adres _Defteri"
+
+#. This will add static and dynamic actions
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:684
+msgid "_Action"
+msgstr "_Eylem"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:729
+msgid "Category"
+msgstr "Kategori"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:247
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:968
+msgid "says:"
+msgstr "diyor:"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:370
+msgid "Open link in browser"
+msgstr "Bağı yeni tarayıcıda aç"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:376
+msgid "Copy link"
+msgstr "Bağlantıyı kopyala"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:905
+msgid "_Smile..."
+msgstr ""
+
+#. The window
+#. we can't do much here since we get the Chat as reference...
+#: ../lib/engine/gui/gtk-frontend/chat-window-old.cpp:562
+#: ../lib/engine/gui/gtk-frontend/chat-window.cpp:433
+msgid "Chat Window"
+msgstr "Sohbet Penceresi"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:638
+#: ../src/gui/assistant.cpp:1253
+msgid "Full Name"
+msgstr "Tam İsim"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:649
+msgid "_Search Filter:"
+msgstr "Arama Filtre_si:"
+
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:981
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:1016
+msgid "Unsorted"
+msgstr "Sıralanmamış"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:752
+msgid "_Send"
+msgstr "_Gönder"
+
+#: ../lib/engine/gui/gtk-frontend/chat-window-page.cpp:963
+#, c-format
+msgid "You say:\n"
+msgstr "Diyorsunuz:\n"
+
+#: ../lib/engine/gui/gtk-frontend/call-history-view-gtk.cpp:163
+#: ../src/gui/statusmenu.cpp:499
+msgid "Clear"
+msgstr "Temizle"
+
+#: ../lib/engine/presence/avahi/avahi-heap.cpp:129
+#: ../lib/engine/presence/avahi/avahi-heap.cpp:315
+msgid "Neighbours"
+msgstr "Komşular"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:218
+msgid "Edit roster element"
+msgstr "İsim listesi elemanını düzenle"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:219
+msgid ""
+"Please fill in this form to change an existing element of ekiga's internal "
+"roster"
+msgstr ""
+"Ekiga'nın dahili isim listesindeki bir elemanı değiştirmek için bu lütfen bu "
+"formu doldurun"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:222
+#: ../lib/engine/presence/local-roster/local-heap.cpp:186
+#: ../lib/engine/presence/local-roster/local-heap.cpp:188
+msgid "Address:"
+msgstr "Adres:"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:224
+msgid "Choose groups:"
+msgstr "Grupları seç:"
+
+#: ../lib/engine/presence/local-roster/local-roster-bridge.cpp:94
+#: ../lib/engine/presence/local-roster/local-heap.cpp:174
+msgid "Add to local roster"
+msgstr "Yerel isim listesine ekle"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:93
+msgid "Services"
+msgstr "Servisler"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:94
+msgid "Echo test"
+msgstr "Yankı testi"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:95
+msgid "Conference room"
+msgstr "Konferans odası"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:111
+msgid "Local roster"
+msgstr "Yerel isim listesi"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:128
+msgid "Rename"
+msgstr "Yeniden Adlandır"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:175
+msgid ""
+"Please fill in this form to add a new contact to ekiga's internal roster"
+msgstr ""
+"Ekiga'nın dahili isim listesine yeni bir kontak eklemek için bu lütfen bu "
+"formu doldurun"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:192
+msgid "Put contact in groups:"
+msgstr "Kontağı gruplara yerleştir:"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:295
+msgid "You supplied an unsupported address"
+msgstr "Desteklenmeyen bir adres girdiniz"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:297
+msgid "You already have a contact with this address!"
+msgstr "Bu adreste bir kontağa zaten sahipsiniz!"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:322
+msgid "Rename group"
+msgstr "Grubu yeniden adlandır"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:323
+msgid "Please edit this group name"
+msgstr "Lütfen bu grup adını düzenleyin"
+
+#: ../lib/gui/codecsbox.cpp:477
+msgid "Move selected codec priority upwards"
+msgstr "Seçili kodek önceliğini yukarı taşı"
+
+#: ../lib/gui/codecsbox.cpp:487
+msgid "Move selected codec priority downwards"
+msgstr "Seçili kodek önceliğini aşağı taşı"
+
+#: ../lib/gui/gmdialog.c:474
+msgid "Do not show this dialog again"
+msgstr "Bu pencereyi bir daha gösterme"
+
+#: ../src/devices/audio.cpp:281
+msgid "Opening device for playing"
+msgstr "Aygıt çalma için açılıyor"
+
+#: ../src/devices/audio.cpp:283
+msgid "Opening device for recording"
+msgstr "Aygıt kayıt için açılıyor"
+
+#: ../src/devices/audio.cpp:294 ../src/devices/audio.cpp:296
+msgid "Failed to open the device"
+msgstr "Aygıt açılamadı"
+
+#: ../src/devices/audio.cpp:294
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for recording. Please "
+"check your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Kayıt için seçilen ses aygıtının (%s) açılması imkansız. Lütfen ses "
+"ayarlarınızı, izinleri ve aygıtın meşgul olup olmadığını, kontrol ediniz."
+
+#: ../src/devices/audio.cpp:296
+#, c-format
+msgid ""
+"Impossible to open the selected audio device (%s) for playing. Please check "
+"your audio setup, the permissions and that the device is not busy."
+msgstr ""
+"Çalmak için seçilen ses aygıtının (%s) açılması imkansız. Lütfen ses "
+"ayarlarınızı, izinleri ve aygıtın meşgul olup olmadığını, kontrol ediniz."
+
+#: ../src/devices/audio.cpp:312 ../src/devices/audio.cpp:381
+msgid "Cannot use the audio device"
+msgstr "Ses aygıtı kullanılamıyor"
+
+#: ../src/devices/audio.cpp:312
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to read data from this device. Please check your audio setup."
+msgstr ""
+"Seçilen ses aygıtı (%s) başarıyla açıldı, fakat bu aygıttan veri okumak "
+"imkansız. Lütfen ses ayarlarınızı kontrol ediniz."
+
+#: ../src/devices/audio.cpp:321
+msgid "Recording your voice"
+msgstr "Sesiniz kaydediliyor"
+
+#: ../src/devices/audio.cpp:360
+msgid "Recording and playing back"
+msgstr "Kaydediliyor ve geri çalıyor"
+
+#: ../src/devices/audio.cpp:381
+#, c-format
+msgid ""
+"The selected audio device (%s) was successfully opened but it is impossible "
+"to write data to this device. Please check your audio setup."
+msgstr ""
+"Seçilen ses aygıtı (%s) başarıyla açıldı, fakat bu aygıta veri yazmak "
+"imkansız. Lütfen ses ayarlarınızı kontrol ediniz."
+
+#: ../src/devices/audio.cpp:476 ../src/devices/audio.cpp:477
+#: ../src/gui/assistant.cpp:1118 ../src/gui/assistant.cpp:1141
+#: ../src/gui/assistant.cpp:1164 ../src/gui/preferences.cpp:734
+#: ../src/gui/preferences.cpp:758 ../src/gui/preferences.cpp:781
+msgid "No device found"
+msgstr "Aygıt bulunamadı"
+
+#: ../src/devices/audio.cpp:488
+msgid "Audio test running"
+msgstr "Ses testi çalışıyor"
+
+#: ../src/devices/audio.cpp:495
+#, c-format
+msgid ""
+"Ekiga is now recording from %s and playing back to %s. Please say \"1, 2, 3, "
+"Ekiga rocks!\" in your microphone. You should hear yourself from the "
+"speakers after a four-second delay."
+msgstr ""
+"Ekiga şu anda %s aygıtından kaydediyor ve %s aygıtıyla çalıyor. Lütfen "
+"mikrofonunuza \"1 2 3 Ekiga çalışıyor!\" deyin. Kendi sesinizi "
+"hoparlörlerden dört saniye gecikmeli olarak duymalısınız."
+
+#: ../src/endpoints/h323-endpoint.cpp:153
+#: ../src/endpoints/sip-endpoint.cpp:273 ../src/endpoints/sip-endpoint.cpp:277
+msgid "Call"
+msgstr "Ara"
+
+#: ../src/endpoints/h323-endpoint.cpp:156
+#: ../src/endpoints/sip-endpoint.cpp:274 ../src/endpoints/sip-endpoint.cpp:278
+#: ../src/gui/main.cpp:3878
+msgid "Transfer"
+msgstr "Aktar"
+
+#. Translators : The alias we are registering already exists : failure
+#: ../src/endpoints/h323-endpoint.cpp:319
+#, fuzzy
+msgid "Duplicate alias"
+msgstr "Eşi olan takma ad"
+
+#: ../src/endpoints/h323-endpoint.cpp:322
+msgid "Bad username/password"
+msgstr "Kötü kullanıcı adı/parola"
+
+#: ../src/endpoints/h323-endpoint.cpp:325
+#: ../src/endpoints/sip-endpoint.cpp:904
+msgid "Transport error"
+msgstr "Aktarma hatası"
+
+#: ../src/endpoints/h323-endpoint.cpp:336
+#: ../src/endpoints/h323-endpoint.cpp:341
+#: ../src/endpoints/sip-endpoint.cpp:911
+msgid "Failed"
+msgstr "Başarısız"
+
+#: ../src/endpoints/manager.cpp:708
+msgid ""
+"Ekiga did not manage to configure your network settings automatically. You "
+"can still use it, but you need to configure your network settings manually.\n"
+"\n"
+"Please see http://wiki.ekiga.org/index.php/Enable_port_forwarding_manually "
+"for instructions"
+msgstr ""
+"Ekiga ağ yapılandırmanızı otomatik olarak yapalandırmak için düzenlenmedi. "
+"Yine de kullanabilirsiniz, fakat ağ yapılandırmanızı elle yapmanız "
+"gerekmektedir.\n"
+"\n"
+"Yönergeler için lütfen http://wiki.ekiga.org/index.php/"
+"Enable_port_forwarding_manually adresine bakın."
+
+#: ../src/endpoints/opal-account.cpp:302
+msgid "_Disable"
+msgstr "_Etkisizleştir"
+
+#: ../src/endpoints/opal-account.cpp:305
+msgid "_Enable"
+msgstr "_Etkinleştir"
+
+#: ../src/endpoints/opal-account.cpp:326 ../src/gui/assistant.cpp:664
+msgid "Recharge the account"
+msgstr "Hesabı yeniden yükle"
+
+#: ../src/endpoints/opal-account.cpp:331 ../src/gui/assistant.cpp:676
+msgid "Consult the balance history"
+msgstr "Hesap geçmişine başvur"
+
+#: ../src/endpoints/opal-account.cpp:336
+msgid "Consult the call history"
+msgstr "Arama geçmişine başvur"
+
+#: ../src/endpoints/opal-account.cpp:351 ../src/endpoints/opal-bank.cpp:74
+msgid "Edit account"
+msgstr "Hesabı düzenle"
+
+#: ../src/endpoints/opal-account.cpp:357 ../src/endpoints/opal-bank.cpp:112
+msgid "Registrar:"
+msgstr "Kayıtçı:"
+
+#: ../src/endpoints/opal-account.cpp:359 ../src/endpoints/opal-bank.cpp:102
+msgid "Gatekeeper:"
+msgstr "Geçit:"
+
+#: ../src/endpoints/opal-account.cpp:360 ../src/endpoints/opal-bank.cpp:83
+#: ../src/endpoints/opal-bank.cpp:103 ../src/endpoints/opal-bank.cpp:113
+msgid "User:"
+msgstr "Kullanıcı:"
+
+#. Translators:
+#. * SIP knows two usernames: The name for the client ("User") and the name
+#. * for the authentication procedure ("Authentication User")
+#: ../src/endpoints/opal-account.cpp:365 ../src/endpoints/opal-bank.cpp:114
+msgid "Authentication User:"
+msgstr "Kimlik Doğrulama Kullanıcısı:"
+
+#: ../src/endpoints/opal-account.cpp:366 ../src/endpoints/opal-bank.cpp:85
+#: ../src/endpoints/opal-bank.cpp:105 ../src/endpoints/opal-bank.cpp:115
+msgid "Password:"
+msgstr "Parola:"
+
+#: ../src/endpoints/opal-account.cpp:367 ../src/endpoints/opal-bank.cpp:106
+#: ../src/endpoints/opal-bank.cpp:116
+msgid "Timeout:"
+msgstr "Zaman Aşımı:"
+
+#: ../src/endpoints/opal-account.cpp:368 ../src/endpoints/opal-bank.cpp:119
+msgid "Enable Account"
+msgstr "Hesabı Etkinleştir"
+
+#: ../src/endpoints/opal-account.cpp:403 ../src/endpoints/opal-bank.cpp:155
+msgid "You did not supply a name for that account."
+msgstr "Bu hesap için bir isim girmediniz."
+
+#: ../src/endpoints/opal-account.cpp:405 ../src/endpoints/opal-bank.cpp:157
+msgid "You did not supply a host to register to."
+msgstr "Kayıt olmak için bir makine girmediniz."
+
+#: ../src/endpoints/opal-account.cpp:407 ../src/endpoints/opal-bank.cpp:159
+msgid "You did not supply a user name for that account."
+msgstr "Bu hesap için bir kullanıcı adı girmediniz."
+
+#: ../src/endpoints/opal-account.cpp:409 ../src/endpoints/opal-bank.cpp:161
+msgid "The timeout should have a bigger value."
+msgstr "Zaman aşımının daha büyük bir değeri olmalı."
+
+#: ../src/endpoints/opal-bank.cpp:55
+msgid "_Add an Ekiga.net Account"
+msgstr "Bir Ekiga.net Hes_abı Ekle"
+
+#: ../src/endpoints/opal-bank.cpp:57
+msgid "_Add an Ekiga Call Out Account"
+msgstr "Bir Ekiga Dış _Arama Hesabı Ekle"
+
+#: ../src/endpoints/opal-bank.cpp:59
+msgid "_Add a SIP Account"
+msgstr "Bir SIP Hes_abı ekle"
+
+#: ../src/endpoints/opal-bank.cpp:61
+msgid "_Add an H.323 Account"
+msgstr "Bir H.323 Hes_abı ekle"
+
+#: ../src/endpoints/opal-bank.cpp:75
+msgid "Please update the following fields."
+msgstr "Lütfen takip eden alanları güncelleyin."
+
+#: ../src/endpoints/opal-bank.cpp:80 ../src/gui/assistant.cpp:540
+msgid "Get an Ekiga.net SIP account"
+msgstr "Bir Ekiga.net SIP hesabı al"
+
+#: ../src/endpoints/opal-bank.cpp:90 ../src/gui/assistant.cpp:652
+msgid "Get an Ekiga Call Out account"
+msgstr "Bir Ekiga Dış Arama hesabı al"
+
+#: ../src/endpoints/opal-bank.cpp:94 ../src/gui/main.cpp:3575
+#: ../src/gui/main.cpp:3672
+msgid "Account ID:"
+msgstr "Hesap ID:"
+
+#: ../src/endpoints/opal-bank.cpp:96
+msgid "PIN Code:"
+msgstr "PIN Kodu:"
+
+#: ../src/endpoints/opal-call.cpp:398
+msgid "Local user cleared the call"
+msgstr "Yerel kullanıcı aramayı temizledi"
+
+#: ../src/endpoints/opal-call.cpp:401 ../src/endpoints/opal-call.cpp:404
+msgid "Local user rejected the call"
+msgstr "Yerel kullanıcı aramayı reddetti"
+
+#: ../src/endpoints/opal-call.cpp:407
+msgid "Remote user cleared the call"
+msgstr "Uzaktaki kullanıcı aramayı temizledi"
+
+#: ../src/endpoints/opal-call.cpp:410
+msgid "Remote user rejected the call"
+msgstr "Uzaktaki kullanıcı aramayı reddetti"
+
+#: ../src/endpoints/opal-call.cpp:413
+msgid "Remote user has stopped calling"
+msgstr "Uzaktaki kullanıcı aramayı sonlandırdı"
+
+#: ../src/endpoints/opal-call.cpp:416
+msgid "Abnormal call termination"
+msgstr "Anormal arama sonu"
+
+#: ../src/endpoints/opal-call.cpp:419 ../src/gui/main.cpp:1542
+msgid "Could not connect to remote host"
+msgstr "Uzaktaki sunucuya bağlanılamadı"
+
+#: ../src/endpoints/opal-call.cpp:422
+msgid "The Gatekeeper cleared the call"
+msgstr "Geçit aramayı temizledi"
+
+#: ../src/endpoints/opal-call.cpp:425
+msgid "User not found"
+msgstr "Kullanıcı bulunamadı"
+
+#: ../src/endpoints/opal-call.cpp:428
+msgid "Insufficient bandwidth"
+msgstr "Yetersiz band genişliği"
+
+#: ../src/endpoints/opal-call.cpp:431
+msgid "No common codec"
+msgstr "Ortak kodek yok"
+
+#: ../src/endpoints/opal-call.cpp:434
+msgid "Call forwarded"
+msgstr "Arama yönlendirildi"
+
+#: ../src/endpoints/opal-call.cpp:437
+msgid "Security check failed"
+msgstr "Güvenlik kontrolü başarısız oldu"
+
+#: ../src/endpoints/opal-call.cpp:440
+msgid "Local user is busy"
+msgstr "Yerel kullanıcı meşgul"
+
+#: ../src/endpoints/opal-call.cpp:443 ../src/endpoints/opal-call.cpp:449
+msgid "Congested link to remote party"
+msgstr "Bağlantı uzaktaki kişiye tıkandı"
+
+#: ../src/endpoints/opal-call.cpp:446
+msgid "Remote user is busy"
+msgstr "Uzaktaki kullanıcı meşgul"
+
+#: ../src/endpoints/opal-call.cpp:452
+msgid "Remote host is offline"
+msgstr "Uzaktaki makine bağlı değil"
+
+#: ../src/endpoints/opal-call.cpp:458
+msgid "User is not available"
+msgstr "Kullanıcı ulaşılabilir değil"
+
+#: ../src/endpoints/opal-call.cpp:470
+msgid "Call completed"
+msgstr "Arama tamamlandı"
+
+#: ../src/endpoints/sip-endpoint.cpp:298 ../src/endpoints/sip-endpoint.cpp:300
+msgid "Message"
+msgstr "İleti"
+
+#: ../src/endpoints/sip-endpoint.cpp:718
+msgid "Bad request"
+msgstr "Geçersiz istek"
+
+#: ../src/endpoints/sip-endpoint.cpp:722
+msgid "Payment required"
+msgstr "Ödeme gerekli"
+
+#: ../src/endpoints/sip-endpoint.cpp:726
+msgid "Unauthorized"
+msgstr "Yetkilendirilmemiş"
+
+#: ../src/endpoints/sip-endpoint.cpp:730
+msgid "Forbidden"
+msgstr "Yasaklanmış"
+
+#: ../src/endpoints/sip-endpoint.cpp:734
+msgid "Timeout"
+msgstr "Zaman Aşımı"
+
+#: ../src/endpoints/sip-endpoint.cpp:738
+msgid "Conflict"
+msgstr "Çakışma"
+
+#: ../src/endpoints/sip-endpoint.cpp:742
+msgid "Temporarily unavailable"
+msgstr "Geçici olarak kullanılamaz"
+
+#: ../src/endpoints/sip-endpoint.cpp:746
+msgid "Not acceptable"
+msgstr "Kabul edilemez"
+
+#: ../src/endpoints/sip-endpoint.cpp:750
+msgid "Illegal status code"
+msgstr "Geçersiz durum kodu"
+
+#: ../src/endpoints/sip-endpoint.cpp:754
+msgid "Multiple choices"
+msgstr "Çoklu seçim"
+
+#: ../src/endpoints/sip-endpoint.cpp:758
+msgid "Moved permanently"
+msgstr "Kalıcı olarak taşınmış"
+
+#: ../src/endpoints/sip-endpoint.cpp:762
+msgid "Moved temporarily"
+msgstr "Geçici olarak taşınmış"
+
+#: ../src/endpoints/sip-endpoint.cpp:766
+msgid "Use proxy"
+msgstr "Vekik sunucu kullan"
+
+#: ../src/endpoints/sip-endpoint.cpp:770
+msgid "Alternative service"
+msgstr "Alternatif servis"
+
+#: ../src/endpoints/sip-endpoint.cpp:774
+msgid "Not found"
+msgstr "Bulunamadı"
+
+#: ../src/endpoints/sip-endpoint.cpp:778
+msgid "Method not allowed"
+msgstr "Yönteme izin verilmiyor"
+
+#: ../src/endpoints/sip-endpoint.cpp:782
+#, fuzzy
+msgid "Proxy authentication required"
+msgstr "Vekil sunucu kim. denet. gerekli"
+
+#: ../src/endpoints/sip-endpoint.cpp:786
+msgid "Length required"
+msgstr "Uzunluk gerekiyor"
+
+#: ../src/endpoints/sip-endpoint.cpp:790
+msgid "Request entity too big"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:794
+msgid "Request URI too long"
+msgstr "İstenilen URI çok uzun"
+
+#: ../src/endpoints/sip-endpoint.cpp:798
+msgid "Unsupported media type"
+msgstr "Desteklenmeyen ortam türü"
+
+#: ../src/endpoints/sip-endpoint.cpp:802
+msgid "Unsupported URI scheme"
+msgstr "Desteklenmeyen URI planı"
+
+#. Translators : The extension we are trying to register does not exist
+#: ../src/endpoints/sip-endpoint.cpp:807
+msgid "Bad extension"
+msgstr "Kötü uzantı"
+
+#: ../src/endpoints/sip-endpoint.cpp:811
+msgid "Extension required"
+msgstr "Uzantı gerekiyor"
+
+#: ../src/endpoints/sip-endpoint.cpp:815
+msgid "Interval too brief"
+msgstr "Aralık çok kısa"
+
+#: ../src/endpoints/sip-endpoint.cpp:819
+msgid "Loop detected"
+msgstr "Döngü tespit edildi"
+
+#: ../src/endpoints/sip-endpoint.cpp:823
+msgid "Too many hops"
+msgstr "Çok fazla sekme"
+
+#: ../src/endpoints/sip-endpoint.cpp:827
+msgid "Address incomplete"
+msgstr "Adres tam değil"
+
+#: ../src/endpoints/sip-endpoint.cpp:831
+msgid "Ambiguous"
+msgstr "Belirsiz"
+
+#: ../src/endpoints/sip-endpoint.cpp:835
+msgid "Busy Here"
+msgstr "Burada Meşgul"
+
+#: ../src/endpoints/sip-endpoint.cpp:839
+msgid "Request terminated"
+msgstr "İstek sonlandırıldı"
+
+#: ../src/endpoints/sip-endpoint.cpp:843
+msgid "Not acceptable here"
+msgstr "Burada kabul edilebilir değil"
+
+#: ../src/endpoints/sip-endpoint.cpp:847
+msgid "Bad event"
+msgstr "Geçersiz olay"
+
+#: ../src/endpoints/sip-endpoint.cpp:851
+msgid "Request pending"
+msgstr "İstek beklemede"
+
+#: ../src/endpoints/sip-endpoint.cpp:855
+#, fuzzy
+msgid "Undecipherable"
+msgstr "Şifreleme geri döndürülemez"
+
+#: ../src/endpoints/sip-endpoint.cpp:859
+msgid "Internal server error"
+msgstr "Dahili sunucu hatası"
+
+#: ../src/endpoints/sip-endpoint.cpp:863
+msgid "Not implemented"
+msgstr "Gerçeklenmemiş"
+
+#: ../src/endpoints/sip-endpoint.cpp:867
+msgid "Bad gateway"
+msgstr "Geçersiz ağ geçidi"
+
+#: ../src/endpoints/sip-endpoint.cpp:871
+msgid "Service unavailable"
+msgstr "Servise erişilemez"
+
+#: ../src/endpoints/sip-endpoint.cpp:875
+msgid "Server timeout"
+msgstr "Sunucu zaman aşımı"
+
+#: ../src/endpoints/sip-endpoint.cpp:879
+msgid "SIP version not supported"
+msgstr "SIP sürümü desteklenmiyor"
+
+#: ../src/endpoints/sip-endpoint.cpp:883
+msgid "Message too large"
+msgstr "Mesaj çok büyük"
+
+#: ../src/endpoints/sip-endpoint.cpp:887
+msgid "Busy everywhere"
+msgstr "Her yerde meşgul"
+
+#: ../src/endpoints/sip-endpoint.cpp:891
+#, fuzzy
+msgid "Decline"
+msgstr "Sil"
+
+#: ../src/endpoints/sip-endpoint.cpp:895
+msgid "Does not exist anymore"
+msgstr "Artık mevcut değil"
+
+#: ../src/endpoints/sip-endpoint.cpp:899
+msgid "Globally not acceptable"
+msgstr "Küresel olarak kabul edilmiyor"
+
+#: ../src/endpoints/sip-endpoint.cpp:1027
+msgid "Could not send message"
+msgstr "Mesaj gönderilemedi"
+
+#: ../src/gui/accounts.cpp:234
+msgid "Registered"
+msgstr "Kayıtlı"
+
+#: ../src/gui/accounts.cpp:238
+msgid "Unregistered"
+msgstr "Kayıt edilmemiş"
+
+#: ../src/gui/accounts.cpp:242
+msgid "Could not unregister"
+msgstr "Kayıt silinemedi"
+
+#: ../src/gui/accounts.cpp:248
+msgid "Could not register"
+msgstr "Kayıt olunamadı"
+
+#: ../src/gui/accounts.cpp:254
+msgid "Processing..."
+msgstr "İşleniyor..."
+
+#: ../src/gui/accounts.cpp:628
+msgid "Account Name"
+msgstr "Hesap Adı"
+
+#: ../src/gui/accounts.cpp:629
+msgid "Voice Mails"
+msgstr "Sesli Postalar"
+
+#: ../src/gui/accounts.cpp:630
+msgid "Status"
+msgstr "Durum"
+
+#: ../src/gui/accounts.cpp:641 ../src/gui/accounts.cpp:684
+msgid "Accounts"
+msgstr "Hesaplar"
+
+#: ../src/gui/accounts.cpp:655 ../src/gui/main.cpp:1818
+msgid "_Accounts"
+msgstr "_Hesaplar"
+
+#: ../src/gui/accounts.cpp:659 ../src/gui/main.cpp:1901
+msgid "_Help"
+msgstr "_Yardım"
+
+#. Translators:
+#. * The following string "A" means "activated" or "active". It's a column
+#. * description in the list of configured accounts, it shows if an account
+#. * is activated or not (a status the user can choose).
+#.
+#: ../src/gui/accounts.cpp:692 ../src/gui/preferences.cpp:497
+msgid "A"
+msgstr "A"
+
+#: ../src/gui/assistant.cpp:258
+msgid ""
+"This is the Ekiga general configuration assistant. The following steps will "
+"set up Ekiga by asking a few simple questions.\n"
+"\n"
+"Once you have completed these steps, you can always change them later by "
+"selecting Preferences in the Edit menu."
+msgstr ""
+"Bu, Ekiga için genel yapılandırma sihirbazıdır. İzleyen adımlar, birkaç soru "
+"sorarak Ekiga ayarlarını yapacak.\n"
+"\n"
+"Adımları tamamladıktan sonra, Tercihler menüsünden Düzenle'yi seçerek bu "
+"ayarları değiştirebilirsiniz."
+
+#: ../src/gui/assistant.cpp:266
+msgid "Welcome in Ekiga"
+msgstr "Ekiga'ya Hoşgeldiniz"
+
+#: ../src/gui/assistant.cpp:300 ../src/gui/preferences.cpp:373
+msgid "Personal Information"
+msgstr "Kişisel Bilgi"
+
+#. The user fields
+#: ../src/gui/assistant.cpp:303
+msgid "Please enter your first name and your surname:"
+msgstr "Lütfen adınızı ve soyadınızı giriniz:"
+
+#: ../src/gui/assistant.cpp:312
+msgid ""
+"Your first name and surname will be used when connecting to other VoIP and "
+"videoconferencing software."
+msgstr ""
+"Adınız ve soyadınız VoIP ve diğer video konferans yazılımları ile "
+"bağlanırken kullanılacak."
+
+#: ../src/gui/assistant.cpp:503
+msgid "Ekiga.net Account"
+msgstr "Ekiga.net Hesabı"
+
+#: ../src/gui/assistant.cpp:505
+msgid "Please enter your username:"
+msgstr "Lütfen kullanıcı adınızı giriniz:"
+
+#: ../src/gui/assistant.cpp:513
+msgid "Please enter your password:"
+msgstr "Lütfen parolanızı giriniz:"
+
+#: ../src/gui/assistant.cpp:523
+msgid ""
+"The username and password are used to login to your existing account at the "
+"ekiga.net free SIP service. If you do not have an ekiga.net SIP address yet, "
+"you may first create an account below. This will provide a SIP address that "
+"allows people to call you.\n"
+"\n"
+"You may skip this step if you use an alternative SIP service, or if you "
+"would prefer to specify the login details later."
+msgstr ""
+"Kullanıcı adınız ve parolanız ücretsiz ekiga.net SIP servisindeki hesabınıza "
+"giriş yapmak için kullanılacaktır. Eğer halen  bir ekiga.net SIP adresiniz "
+"yoksa öncelikle bir hesap oluşturabilirsiniz.  Bu diğer insanların sizi "
+"aramasını sağlayacak bir SIP adresi sağlayacaktır.\n"
+"\n"
+"Eğer alternatif bir SIP hesabı kullanıyorsanız veya giriş ayrıntılarını daha "
+"sonra belirtmek istiyorsanız bu adımı geçebilirsiniz."
+
+#: ../src/gui/assistant.cpp:550
+msgid "I do not want to sign up for the ekiga.net free service"
+msgstr "Ücretsiz ekiga.net servisine üye olmak istemiyorum"
+
+#: ../src/gui/assistant.cpp:617
+msgid "Ekiga Call Out Account"
+msgstr "Ekiga Dış Arama Hesabı"
+
+#: ../src/gui/assistant.cpp:619
+msgid "Please enter your account ID:"
+msgstr "Lütfen hesap ID'nizi girin:"
+
+#: ../src/gui/assistant.cpp:627
+msgid "Please enter your PIN code:"
+msgstr "Lütfen PIN kodunuzu girin:"
+
+#: ../src/gui/assistant.cpp:638
+#, fuzzy
+msgid ""
+"You can make calls to regular phones and cell numbers worldwide using "
+"Ekiga.\n"
+"\n"
+"To enable this, you need to do two things:\n"
+"- First buy an account at the URL below.\n"
+"- Then enter your account ID and PIN code.\n"
+"The service will work only if your account is created using the URL in this "
+"dialog.\n"
+msgstr ""
+"Ekiga kullanarak sabit telefonlara ve dünya çapındaki mobil telefonlara "
+"arama yapabilirsiniz.\n"
+"\n"
+"Bunu etkinleştirmek için üç şey yapmalısınız:\n"
+"- Öncelikle aşağıdaki URL'yi kullanarak bir hesap kaydı yaptırmalısınız.\n"
+"- Daha sonra hesap numaranızı ve PIN kodunuzu girmeli.\n"
+"Servis sadece, hesabınız bu iletişim kutusu içindeki URL kullanılarak "
+"oluşturulduğunda çalışacaktır.\n"
+
+#: ../src/gui/assistant.cpp:688
+msgid "Consult the calls history"
+msgstr "Arama geçmişine başvur"
+
+#: ../src/gui/assistant.cpp:698
+msgid "I do not want to sign up for the Ekiga Call Out service"
+msgstr "Ekiga Dış Arama servisine kayıt olmak istemiyorum"
+
+#: ../src/gui/assistant.cpp:767 ../src/gui/assistant.cpp:1264
+msgid "Connection Type"
+msgstr "Bağlantı Türü"
+
+#. The connection type
+#: ../src/gui/assistant.cpp:770
+msgid "Please choose your connection type:"
+msgstr "Lütfen bağlantı türünü seçin:"
+
+#: ../src/gui/assistant.cpp:787
+msgid "56k Modem"
+msgstr "56K Modem"
+
+#: ../src/gui/assistant.cpp:792
+msgid "ISDN"
+msgstr "ISDN"
+
+#: ../src/gui/assistant.cpp:797
+msgid "DSL/Cable (128 kbit/s uplink)"
+msgstr "DSL/Kablo (128 kbit/s çıkış)"
+
+#: ../src/gui/assistant.cpp:802
+msgid "DSL/Cable (512 kbit/s uplink)"
+msgstr "DSL/Kablo (512 kbit/s çıkış)"
+
+#: ../src/gui/assistant.cpp:807
+msgid "LAN"
+msgstr "LAN"
+
+#: ../src/gui/assistant.cpp:812
+msgid "Keep current settings"
+msgstr "Geçerli tercihleri koru"
+
+#: ../src/gui/assistant.cpp:817
+msgid ""
+"The connection type will permit determining the best quality settings that "
+"Ekiga will use during calls. You can later change the settings individually "
+"in the preferences window."
+msgstr ""
+"Bağlantı türü Ekiga'nın aramalar esnasında kullanılacak en kaliteli ayarları "
+"belirlemesini sağlayacak. Bu ayarların herbirini daha sonra Tercihler "
+"penceresinden değiştirebilirsiniz."
+
+#: ../src/gui/assistant.cpp:907 ../src/gui/main.cpp:3948
+#: ../src/gui/main.cpp:3952 ../src/gui/preferences.cpp:690
+msgid "Audio Devices"
+msgstr "Ses Aygıtları"
+
+#: ../src/gui/assistant.cpp:909
+msgid "Please choose the audio ringing device:"
+msgstr "Lütfen ses çalma aygıtını seçin:"
+
+#: ../src/gui/assistant.cpp:917
+msgid ""
+"The audio ringing device is the device that will be used to play the ringing "
+"sound on incoming calls."
+msgstr ""
+"Ses çalma aygıtı gelen aramalarda çalma tonunu çalmak için kullanılacak "
+"aygıttır."
+
+#. ---
+#: ../src/gui/assistant.cpp:928
+msgid "Please choose the audio output device:"
+msgstr "Lütfen ses çıkış aygıtını seçiniz:"
+
+#: ../src/gui/assistant.cpp:936
+msgid ""
+"The audio output device is the device that will be used to play audio during "
+"calls."
+msgstr ""
+"Ses çıkış aygıtı aramalar sırasında ses çalmak için kullanılan aygıttır."
+
+#. ---
+#: ../src/gui/assistant.cpp:947
+msgid "Please choose the audio input device:"
+msgstr "Lütfen ses girdi aygıtını seçiniz:"
+
+#: ../src/gui/assistant.cpp:955
+msgid ""
+"The audio input device is the device that will be used to record your voice "
+"during calls."
+msgstr ""
+"Ses girdi aygıtı aramalar sırasında sesinizi kaydetmek için kullanılan "
+"aygıttır."
+
+#: ../src/gui/assistant.cpp:1047
+msgid "Please choose your video input device:"
+msgstr "Lütfen video girdi aygıtınızı seçin:"
+
+#: ../src/gui/assistant.cpp:1055
+msgid ""
+"The video input device is the device that will be used to capture video "
+"during calls."
+msgstr ""
+"Video giriş aygıtı aramalar sırasında video yakalamak için kullanılan "
+"aygıttır."
+
+#: ../src/gui/assistant.cpp:1195
+msgid "Configuration Complete"
+msgstr "Yapılandırma Tamamlandı"
+
+#: ../src/gui/assistant.cpp:1197
+msgid ""
+"You have now finished the Ekiga configuration. All the settings can be "
+"changed in the Ekiga preferences. Enjoy!"
+msgstr ""
+"Şu an Ekiga yapılandırmasını bitirdiniz. Tüm ayarlar Ekiga tercihleri "
+"içinden değiştirilebilir. Tadını çıkarın!"
+
+#: ../src/gui/assistant.cpp:1204
+msgid "Configuration summary:"
+msgstr "Yapılandırma özeti"
+
+#: ../src/gui/assistant.cpp:1274
+msgid "Audio Ringing Device"
+msgstr "Ses Çalma Aygıtı"
+
+#: ../src/gui/assistant.cpp:1283
+msgid "Audio Output Device"
+msgstr "Ses Çıkış Aygıtı"
+
+#: ../src/gui/assistant.cpp:1292
+msgid "Audio Input Device"
+msgstr "Ses Girdi Aygıtı"
+
+#: ../src/gui/assistant.cpp:1301
+msgid "Video Input Device"
+msgstr "Video Girdi Aygıtı"
+
+#: ../src/gui/assistant.cpp:1314
+msgid "SIP URI"
+msgstr "SIP URI"
+
+#: ../src/gui/assistant.cpp:1326
+msgid "Ekiga Call Out"
+msgstr "Ekiga Dış Arama"
+
+#: ../src/gui/assistant.cpp:1368
+#, c-format
+msgid "Ekiga Configuration Assistant (%d of %d)"
+msgstr "Ekiga Yapılandırma Sihirbazı - (%2$d içinde %1$d )"
+
+#: ../src/gui/callbacks.cpp:130
+msgid "Contributors:"
+msgstr "Destekleyenler:"
+
+#: ../src/gui/callbacks.cpp:140
+msgid "Artwork:"
+msgstr "Grafikler:"
+
+#: ../src/gui/callbacks.cpp:148
+msgid "See AUTHORS file for full credits"
+msgstr "Tüm katkıda bulunanlar için AUTHORS dosyasına bakın"
+
+#: ../src/gui/callbacks.cpp:164
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version. "
+msgstr ""
+"Bu program bir özgür yazılımdır; Özgür Yazılım Vakfı tarafından yayınlanan "
+"GNU Genel Kamu Lisansı; sürüm 2 veya daha sonraki bir sürümün (sizin "
+"seçiminiz) şartları altında dağıtabilir ve/veya değiştirebilirsiniz."
+
+#: ../src/gui/callbacks.cpp:168
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details. You should have received a copy of the GNU General Public "
+"License along with this program; if not, write to the Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+msgstr ""
+
+#: ../src/gui/callbacks.cpp:175
+msgid ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+msgstr ""
+"Ekiga GPL lisansı ile lisanslanmıştır ve özel bir istisna olarak, bu "
+"programı OPAL, OpenH323 ve PWLIB programları ile linkleme veya birleştirme, "
+"birleşimin geri kalanındaki yazılımlarda GNU GPL gereksinimlerini takip "
+"ettiğiniz sürece, birleşimi dağıtma hakkına, GNU GPL gereksinimlerini OPAL, "
+"OpenH323 ve PWLIB programlarına uygulamadan sahipsiniz."
+
+#. Translators: Please write translator credits here, and
+#. * separate names with \n
+#: ../src/gui/callbacks.cpp:187
+msgid "translator-credits"
+msgstr "Deniz Koçak <deniz@gaplan.org>"
+
+#: ../src/gui/callbacks.cpp:192
+msgid ""
+"Ekiga is full-featured SIP and H.323 compatible VoIP, IP-Telephony and "
+"Videoconferencing application that allows you to make audio and video calls "
+"to remote users with SIP and H.323 hardware or software."
+msgstr ""
+"Ekiga, SIP ve H.323 donanım veya yazılımı olan uzaktaki kullanıcılarla sesli "
+"ve görüntülü arama yapmanıza olanak sağlayan tam özellikli SIP ve H.323 "
+"uyumlu video konferans, VoIP ve IP-Telefonu uygulamasıdır."
+
+#: ../src/gui/dialpad.cpp:59
+msgid "abc"
+msgstr "abc"
+
+#: ../src/gui/dialpad.cpp:60
+msgid "def"
+msgstr "def"
+
+#: ../src/gui/dialpad.cpp:61
+msgid "ghi"
+msgstr "ghi"
+
+#: ../src/gui/dialpad.cpp:62
+msgid "jkl"
+msgstr "jkl"
+
+#: ../src/gui/dialpad.cpp:63
+msgid "mno"
+msgstr "mno"
+
+#: ../src/gui/dialpad.cpp:64
+msgid "pqrs"
+msgstr "pqrs"
+
+#: ../src/gui/dialpad.cpp:65
+msgid "tuv"
+msgstr "tuv"
+
+#: ../src/gui/dialpad.cpp:66
+msgid "wxyz"
+msgstr "wxyz"
+
+#. Translators: Is displayed once an account "%s" is registered.
+#: ../src/gui/main.cpp:583
+#, c-format
+msgid "Registered %s"
+msgstr "Kayıtlı %s"
+
+#. Translators: Is displayed once an account "%s" is unregistered.
+#: ../src/gui/main.cpp:589
+#, c-format
+msgid "Unregistered %s"
+msgstr "Kaydı silinen %s"
+
+#: ../src/gui/main.cpp:594
+#, c-format
+msgid "Could not unregister %s"
+msgstr "%s kaydı silinemedi"
+
+#: ../src/gui/main.cpp:598
+#, c-format
+msgid "Could not register %s"
+msgstr "%s kayıt edilemedi"
+
+#: ../src/gui/main.cpp:663
+#, c-format
+msgid "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+msgstr "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+
+#: ../src/gui/main.cpp:708
+#, c-format
+msgid "Connected with %s"
+msgstr "%s ile bağlı"
+
+#: ../src/gui/main.cpp:744 ../src/gui/main.cpp:2339
+msgid "Standby"
+msgstr "Bekleme"
+
+#: ../src/gui/main.cpp:810
+msgid "Call on hold"
+msgstr "Arama beklemede"
+
+#: ../src/gui/main.cpp:823
+msgid "Call retrieved"
+msgstr "Arama geri alındı"
+
+#: ../src/gui/main.cpp:840
+#, c-format
+msgid "Missed call from %s"
+msgstr "%s kişisinden cevapsız arama"
+
+#: ../src/gui/main.cpp:983 ../src/gui/misc.cpp:94
+msgid "Error"
+msgstr "Hata"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1118
+#, c-format
+msgid "Added video input device %s"
+msgstr "Eklenen video giriş aygıtı %s"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1136
+#, c-format
+msgid "Removed video input device %s"
+msgstr "Kaldırılan video giriş aygıtı %s"
+
+#: ../src/gui/main.cpp:1153
+#, c-format
+msgid "Error while accessing video device %s"
+msgstr "%s video aygıtına ulaşmaya çalışılırken hata"
+
+#: ../src/gui/main.cpp:1156
+msgid ""
+"A moving logo will be transmitted during calls. Notice that you can always "
+"transmit a given image or the moving logo by choosing \"Picture\" as video "
+"plugin and \"Moving logo\" or \"Static picture\" as device."
+msgstr ""
+"Aramalar sırasında hareket eden bir Ekiga logosu iletilecek. Her zaman "
+"belirtilen bir görüntüyü ya da Ekiga simgesini, görüntü eklentisi olarak "
+"\"Picture\"  ve  \"Moving logo\"  veya  \"Static picture\" aygıtlarını "
+"seçerek iletebilirsiniz."
+
+#: ../src/gui/main.cpp:1160
+msgid ""
+"There was an error while opening the device. In case it is a pluggable "
+"device it may be sufficient to reconnect it. If not, or if it still is not "
+"accessible, please check your permissions and make sure that the appropriate "
+"driver is loaded."
+msgstr ""
+"Aygıt açılırken bir hata oluştu. Sökülüp takılabilir bir aygıtsa yeniden "
+"bağlamanız yeterlidir. Eğer değilse veya hala erişilemiyorsa lütfen "
+"izinlerinizi kontrol ediniz ve uygun sürücünün yüklendiğinden emin olunuz."
+
+#: ../src/gui/main.cpp:1164
+msgid "Your video driver doesn't support the requested video format."
+msgstr "Video sürücüsü istenen video biçimini desteklemiyor."
+
+#: ../src/gui/main.cpp:1168
+msgid "Could not open the chosen channel."
+msgstr "Seçtiğiniz kanal açılamadı."
+
+#: ../src/gui/main.cpp:1172
+msgid ""
+"Your driver doesn't seem to support any of the color formats supported by "
+"Ekiga.\n"
+" Please check your kernel driver documentation in order to determine which "
+"Palette is supported."
+msgstr ""
+"Sürücünüz Ekiga tarafından desteklenen hiçbir renk biçimini desteklemiyor.\n"
+"Lütfen hangi Paletin desteklendiğine karar vermek için çekirdek sürücü "
+"belgelerinizi kontrol edin."
+
+#: ../src/gui/main.cpp:1176
+msgid "Error while setting the frame rate."
+msgstr "Çerçeve oranı ayarlanırken hata."
+
+#: ../src/gui/main.cpp:1180
+msgid "Error while setting the frame size."
+msgstr "Çerçeve boyutu ayarlanırken hata."
+
+#: ../src/gui/main.cpp:1185 ../src/gui/main.cpp:1300 ../src/gui/main.cpp:1422
+msgid "Unknown error."
+msgstr "Bilinmeyen hata."
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1244
+#, c-format
+msgid "Added audio input device %s"
+msgstr "Eklenen ses giriş aygıtı %s"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1265
+#, c-format
+msgid "Removed audio input device %s"
+msgstr "Kaldırılan ses giriş aygıtı %s"
+
+#: ../src/gui/main.cpp:1282
+#, c-format
+msgid "Error while opening audio input device %s"
+msgstr "%s ses giriş aygıtı açılırken hata"
+
+#. Translators: This happens when there is an error with audio input:
+#. * Nothing ("silence") will be transmitted
+#: ../src/gui/main.cpp:1287
+msgid "Only silence will be transmitted."
+msgstr "Sadece sessizlik iletilebilecek."
+
+#: ../src/gui/main.cpp:1291
+msgid ""
+"Unable to open the selected audio device for recording. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Kayıt için seçilen ses aygıtı açılamıyor. Sökülüp takılabilir bir aygıtsa "
+"yeniden bağlamanız yeterlidir. Eğer değilse veya hala erişilemiyorsa lütfen "
+"ses ayarlarınızı, izinleri ve aygıtın meşgul olup olmadığını, kontrol ediniz."
+
+#: ../src/gui/main.cpp:1295
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"read data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Seçilen ses aygıt başarıyla açıldı, fakat bu aygıttan veri okumak imkansız. "
+"Sökülüp takılabilir bir aygıtsa yeniden bağlamak yeterli olacaktır. Değilse "
+"veya hala erişilemiyorsa ütfen ses ayarlarınızı kontrol edin."
+
+#: ../src/gui/main.cpp:1367
+#, c-format
+msgid "Added audio output device %s"
+msgstr "Eklenen ses çıkış aygıtı %s"
+
+#: ../src/gui/main.cpp:1385
+#, c-format
+msgid "Removed audio output device %s"
+msgstr "Kaldırılan ses çıkış aygıtı %s"
+
+#: ../src/gui/main.cpp:1406
+#, c-format
+msgid "Error while opening audio output device %s"
+msgstr "Ses çıkış aygıtı %s açılırken hata"
+
+#: ../src/gui/main.cpp:1409
+msgid "No incoming sound will be played."
+msgstr "Hiçbir gelen ses çalınmayacak."
+
+#: ../src/gui/main.cpp:1413
+msgid ""
+"Unable to open the selected audio device for playing. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Çalmak için seçilen ses aygıtı açılamıyor. Sökülüp takılabilir bir aygıtsa "
+"yeniden bağlamak yeterli olabilir. Değilse veya hala erişilemiyorsa lütfen "
+"ses ayarlarınızı, izinleri ve aygıtın meşgul olup olmadığını kontrol ediniz."
+
+#: ../src/gui/main.cpp:1417
+#, fuzzy
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"write data to this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Seçilen ses aygıtı başarıyla açıldı, fakat bu aygıttan veri yazmak imkansız. "
+"Sökülüp takılabilir bir aygıtsa cihazı yeniden bağlamanız yeterlidir. "
+"Değilse veya hala erişilemezse lütfen ses ayarlarınızı kontrol ediniz."
+
+#: ../src/gui/main.cpp:1660
+msgid "Enter a URI on the left, and click this button to place a call"
+msgstr "Bir arama yapmak için sola bir URI girin ve bu düğmeye tıklayın"
+
+#: ../src/gui/main.cpp:1741
+msgid "_Chat"
+msgstr "_Sohbet"
+
+#: ../src/gui/main.cpp:1743
+msgid "Ca_ll"
+msgstr "A_ra"
+
+#: ../src/gui/main.cpp:1743
+msgid "Place a new call"
+msgstr "Yeni bir arama yap"
+
+#: ../src/gui/main.cpp:1746
+msgid "_Hang up"
+msgstr "_Askıya al"
+
+#: ../src/gui/main.cpp:1747
+msgid "Terminate the current call"
+msgstr "Mevcut aramayı bitir"
+
+#: ../src/gui/main.cpp:1753
+msgid "A_dd Contact"
+msgstr "Kontak _Ekle"
+
+#: ../src/gui/main.cpp:1753
+msgid "Add a contact to the roster"
+msgstr "İsim listesine bir kontak ekle"
+
+#: ../src/gui/main.cpp:1758
+msgid "Find contacts"
+msgstr "Kontakları bul"
+
+#: ../src/gui/main.cpp:1765
+msgid "_Contact"
+msgstr "_Kontak"
+
+#: ../src/gui/main.cpp:1766
+msgid "Act on selected contact"
+msgstr "Seçili kontak üzerinde işlem yap"
+
+#: ../src/gui/main.cpp:1772
+msgid "H_old Call"
+msgstr "A_ramayı Beklet"
+
+#: ../src/gui/main.cpp:1772 ../src/gui/main.cpp:2435
+msgid "Hold the current call"
+msgstr "Mevcut çağrıyı beklet"
+
+#: ../src/gui/main.cpp:1776
+msgid "_Transfer Call"
+msgstr "Aramayı Ak_tar"
+
+#: ../src/gui/main.cpp:1777
+msgid "Transfer the current call"
+msgstr "Mevcut çağrıyı aktar"
+
+#: ../src/gui/main.cpp:1784 ../src/gui/main.cpp:3193
+msgid "Suspend _Audio"
+msgstr "Sesi _Askıya Al"
+
+#: ../src/gui/main.cpp:1785
+msgid "Suspend or resume the audio transmission"
+msgstr "Ses aktarımını askıya al ya da devam ettir"
+
+#: ../src/gui/main.cpp:1789 ../src/gui/main.cpp:3195
+msgid "Suspend _Video"
+msgstr "Videoyu _Askıya Al"
+
+#: ../src/gui/main.cpp:1790
+msgid "Suspend or resume the video transmission"
+msgstr "Video aktarımını askıya al ya da devam ettir"
+
+#: ../src/gui/main.cpp:1797
+msgid "Close the Ekiga window"
+msgstr "Ekiga penceresini kapat"
+
+#: ../src/gui/main.cpp:1804 ../src/gui/statusicon.cpp:426
+msgid "Quit"
+msgstr "Çık"
+
+#: ../src/gui/main.cpp:1810
+msgid "_Configuration Assistant"
+msgstr "_Yapılandırma Sihirbazı"
+
+#: ../src/gui/main.cpp:1811
+msgid "Run the configuration assistant"
+msgstr "Yapılandırma sihirbazını çalıştır"
+
+#: ../src/gui/main.cpp:1819
+msgid "Edit your accounts"
+msgstr "Hesaplarınızı düzenleyin"
+
+#: ../src/gui/main.cpp:1825
+msgid "Change your preferences"
+msgstr "Tercihlerinizi değiştirin"
+
+#: ../src/gui/main.cpp:1830
+msgid "_View"
+msgstr "_Görünüm"
+
+#: ../src/gui/main.cpp:1832
+msgid "Con_tacts"
+msgstr "Bağla_ntılar"
+
+#: ../src/gui/main.cpp:1832
+msgid "View the contacts list"
+msgstr "Bağlantılar listesini göster"
+
+#: ../src/gui/main.cpp:1837
+msgid "_Dialpad"
+msgstr "Tuş _Takımı"
+
+#: ../src/gui/main.cpp:1837
+msgid "View the dialpad"
+msgstr "Tuş takımın göster"
+
+#: ../src/gui/main.cpp:1842
+msgid "_Call History"
+msgstr "_Arama Geçmişi"
+
+#: ../src/gui/main.cpp:1842
+msgid "View the call history"
+msgstr "Arama geçmişini göster"
+
+#: ../src/gui/main.cpp:1850
+msgid "_Show Call Panel"
+msgstr "Çağrı Panelini gös_ter"
+
+#: ../src/gui/main.cpp:1858
+msgid "_Local Video"
+msgstr "Yere_l Video"
+
+#: ../src/gui/main.cpp:1859
+msgid "Local video image"
+msgstr "Yerel video görüntüsü"
+
+#: ../src/gui/main.cpp:1864
+msgid "_Remote Video"
+msgstr "_Uzaktaki Video"
+
+#: ../src/gui/main.cpp:1865
+msgid "Remote video image"
+msgstr "Uzaktaki video görüntüsü"
+
+#: ../src/gui/main.cpp:1870
+msgid "_Picture-in-Picture"
+msgstr "_Resim-içinde-Resim"
+
+#: ../src/gui/main.cpp:1871 ../src/gui/main.cpp:1877
+msgid "Both video images"
+msgstr "Her iki video görüntüsü"
+
+#: ../src/gui/main.cpp:1876
+msgid "Picture-in-Picture in Separate _Window"
+msgstr "Ayrı _Pencerede Resim-içinde-Resim"
+
+#: ../src/gui/main.cpp:1884
+msgid "Zoom in"
+msgstr "Yakınlaştır"
+
+#: ../src/gui/main.cpp:1888
+msgid "Zoom out"
+msgstr "Uzaklaştır"
+
+#: ../src/gui/main.cpp:1892
+msgid "Normal size"
+msgstr "Normal boyut"
+
+#: ../src/gui/main.cpp:1896
+msgid "_Fullscreen"
+msgstr "_Tam ekran"
+
+#: ../src/gui/main.cpp:1896
+msgid "Switch to fullscreen"
+msgstr "Tam ekrana geç"
+
+#: ../src/gui/main.cpp:1904 ../src/gui/statusicon.cpp:403
+#: ../src/gui/statusicon.cpp:414
+msgid "Get help by reading the Ekiga manual"
+msgstr "Ekiga kılavuzunu okuyarak yardım alın"
+
+#: ../src/gui/main.cpp:1909 ../src/gui/statusicon.cpp:408
+#: ../src/gui/statusicon.cpp:419
+msgid "View information about Ekiga"
+msgstr "Ekiga hakkında bilgi göster"
+
+#: ../src/gui/main.cpp:1946
+msgid "Contacts"
+msgstr "Bağlantılar"
+
+#: ../src/gui/main.cpp:1974
+msgid "Dialpad"
+msgstr "Tuş Takımı"
+
+#: ../src/gui/main.cpp:2010
+msgid "Video Settings"
+msgstr "Video Ayarları"
+
+#: ../src/gui/main.cpp:2037
+msgid "Adjust brightness"
+msgstr "Parlaklığı ayarla"
+
+#: ../src/gui/main.cpp:2058
+msgid "Adjust whiteness"
+msgstr "Beyazlığı ayarla"
+
+#: ../src/gui/main.cpp:2079
+msgid "Adjust color"
+msgstr "Rengi ayarla"
+
+#: ../src/gui/main.cpp:2100
+msgid "Adjust contrast"
+msgstr "Kontrastı ayarla"
+
+#: ../src/gui/main.cpp:2154
+msgid "Audio Settings"
+msgstr "Ses Ayarları"
+
+#: ../src/gui/main.cpp:2373
+msgid "Change the volume of your soundcard"
+msgstr "Ses kartınızın ses seviyesini değiştirin"
+
+#: ../src/gui/main.cpp:2393
+msgid "Change the color settings of your video device"
+msgstr "Video aygıtınızın renk ayarlarını değiştirin"
+
+#: ../src/gui/main.cpp:2415
+msgid "Display images from your camera device"
+msgstr "Kamera aygıtından görüntüleri göster"
+
+#: ../src/gui/main.cpp:2468
+msgid "Call history"
+msgstr "Arama geçmişi"
+
+#: ../src/gui/main.cpp:3141
+msgid "_Retrieve Call"
+msgstr "Çağrıyı T_ekrarla"
+
+#: ../src/gui/main.cpp:3154
+msgid "_Hold Call"
+msgstr "A_ramayı Beklet"
+
+#: ../src/gui/main.cpp:3197
+msgid "Resume _Audio"
+msgstr "S_esi Devam Ettir"
+
+#: ../src/gui/main.cpp:3199
+msgid "Resume _Video"
+msgstr "Videoyu _Devam Ettir"
+
+#: ../src/gui/main.cpp:3524 ../src/gui/main.cpp:3678
+msgid "Reject"
+msgstr "Reddet"
+
+#: ../src/gui/main.cpp:3526 ../src/gui/main.cpp:3677
+msgid "Accept"
+msgstr "Kabul Et"
+
+#: ../src/gui/main.cpp:3532 ../src/gui/main.cpp:3665
+msgid "Incoming call from"
+msgstr "Gelen arama"
+
+#: ../src/gui/main.cpp:3550 ../src/gui/main.cpp:3668
+msgid "Remote URI:"
+msgstr "Uzaktaki URI:"
+
+#: ../src/gui/main.cpp:3562 ../src/gui/main.cpp:3670
+msgid "Remote Application:"
+msgstr "Uzaktaki Uygulama:"
+
+#: ../src/gui/main.cpp:3583
+#, c-format
+msgid "Call from %s"
+msgstr "%s konumundan arama"
+
+#: ../src/gui/main.cpp:3840
+#, c-format
+msgid "Call Duration: %s\n"
+msgstr "Arama Süresi: %s\n"
+
+#: ../src/gui/main.cpp:3877
+msgid "Transfer call to:"
+msgstr "Aramayı aktar:"
+
+#: ../src/gui/main.cpp:3934
+msgid "No"
+msgstr "Hayır"
+
+#: ../src/gui/main.cpp:3936
+msgid "Yes"
+msgstr "Evet"
+
+#: ../src/gui/main.cpp:3947
+msgid "Detected new audio input device:"
+msgstr "Yeni ses girdi aygıtı tespit edildi:"
+
+#: ../src/gui/main.cpp:3951
+msgid "Detected new audio output device:"
+msgstr "Yeni ses çıktı aygıtı tespit edildi:"
+
+#: ../src/gui/main.cpp:3955
+msgid "Detected new video input device:"
+msgstr "Yeni video girdi aygıtı tespit edildi:"
+
+#: ../src/gui/main.cpp:3956 ../src/gui/preferences.cpp:848
+msgid "Video Devices"
+msgstr "Video Aygıtları"
+
+#: ../src/gui/main.cpp:3974
+msgid "Do you want to use it as default device?"
+msgstr "Öntanımlı aygıt olarak kullanmak istiyor musunuz?"
+
+#: ../src/gui/main.cpp:4044
+msgid "Ekiga"
+msgstr "Ekiga"
+
+#. Translators:
+#. * TX is a common abbreviation for "transmit"
+#: ../src/gui/main.cpp:4468
+#, c-format
+msgid "TX: %dx%d "
+msgstr "TX: %dx%d "
+
+#. Translators:
+#. * RX is a common abbreviation for "receive"
+#: ../src/gui/main.cpp:4473
+#, c-format
+msgid "RX: %dx%d "
+msgstr "RX: %dx%d "
+
+#: ../src/gui/main.cpp:4475
+#, c-format
+msgid ""
+"Lost packets: %.1f %%\n"
+"Late packets: %.1f %%\n"
+"Out of order packets: %.1f %%\n"
+"Jitter buffer: %d ms%s%s%s"
+msgstr ""
+"Kayıp paketler: %.1f %%\n"
+"Geciken paketler: %.1f %%\n"
+"Bozuk paketler: %.1f %%\n"
+"Stres tamponu: %d ms%s%s%s"
+
+#: ../src/gui/main.cpp:4623
+msgid "Prints debug messages in the console (level between 1 and 5)"
+msgstr "Uçbirimde hata ayıklama iletilerini yazdırır (1 ve 5 arasında seviye)"
+
+#: ../src/gui/main.cpp:4628
+msgid "Prints user plane debug messages in the console (level between 1 and 4)"
+msgstr "Uçbirimde hata ayıklama iletilerini yazdırır (1 ve 4 arasında seviye)"
+
+#: ../src/gui/main.cpp:4633
+msgid "Makes Ekiga call the given URI"
+msgstr "Ekiga'nın belirtilen URI'yi aramasını sağlar"
+
+#: ../src/gui/main.cpp:4749
+msgid "No usable audio plugin detected"
+msgstr "Kullanılabilir ses eklentisi algılanamadı"
+
+#: ../src/gui/main.cpp:4750
+msgid ""
+"Ekiga didn't find any usable audio plugin. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga kullanılabilir bir ses eklentisi bulamadı. Kurulumunuzun doğru "
+"olduğundan emin olun."
+
+#: ../src/gui/main.cpp:4753
+msgid "No usable audio codecs detected"
+msgstr "Kullanılabilir ses kodeki algılanamadı"
+
+#: ../src/gui/main.cpp:4754
+msgid ""
+"Ekiga didn't find any usable audio codec. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga kullanılabilir bir ses kodeki bulamadı. Kurulumunuzun doğru olduğundan "
+"emin olun."
+
+#: ../src/gui/main.cpp:4760
+msgid "Configuration database corruption"
+msgstr "Yapılandırma veritabanı bozukluğu"
+
+#: ../src/gui/main.cpp:4761
+#, c-format
+msgid ""
+"Ekiga got an invalid value for the configuration key %s.\n"
+"\n"
+"It probably means that your configuration schemas have not been correctly "
+"installed or that the permissions are not correct.\n"
+"\n"
+"Please check the FAQ (http://www.ekiga.org/), the troubleshooting section of "
+"the GConf site (http://www.gnome.org/projects/gconf/) or the mailing list "
+"archives for more information (http://mail.gnome.org) about this problem."
+msgstr ""
+"Ekiga yapılandırma anahtarı %s için geçersiz bir değer aldı. \n"
+"\n"
+"Muhtemelen yapılandırma şemalarınız düzgün kurulmamış veya izinler doğru "
+"değil. \n"
+"\n"
+"Bu problem ile ilgili daha fazla bilgi almak için lütfen SSS kısmına (http://"
+"www.ekiga.org/), GConf sitesinin sorun giderme kısmına (http://www.gnome.org/"
+"projects/gconf/) veya posta listesi arşivine (http://mail.gnome.org) göz "
+"atın."
+
+#: ../src/gui/preferences.cpp:376
+msgid "_Full name:"
+msgstr "Ta_m isim:"
+
+#: ../src/gui/preferences.cpp:394
+msgid "User Interface"
+msgstr "Kullanıcı Arayüzü"
+
+#: ../src/gui/preferences.cpp:396
+msgid "Start _hidden"
+msgstr "Gizli _başlat"
+
+#: ../src/gui/preferences.cpp:398
+msgid "Show offline _contacts"
+msgstr "Çevrimdışı _kontakları göster"
+
+#: ../src/gui/preferences.cpp:403
+msgid "Video Display"
+msgstr "Video Görünümü"
+
+#: ../src/gui/preferences.cpp:405
+msgid "Place windows displaying video _above other windows"
+msgstr "Görüntü gösterilen pencereleri diğer pencere üzeri_ne yerleştir"
+
+#: ../src/gui/preferences.cpp:415
+msgid "Call Forwarding"
+msgstr "Arama Yönlendirme"
+
+#: ../src/gui/preferences.cpp:417
+msgid "_Always forward calls to the given host"
+msgstr "_Aramaları herzaman belirtilen makineye yönlendir"
+
+#: ../src/gui/preferences.cpp:417
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings"
+msgstr ""
+"Etkinleştirildiğinde, tüm gelen aramalar iletişim kuralları ayarlarında "
+"belirtilen makineye yönlendirilecek"
+
+#: ../src/gui/preferences.cpp:419
+msgid "Forward calls to the given host if _no answer"
+msgstr "Cevap _verilmediğinde aramaları belirtilen makineye yönlendir"
+
+#: ../src/gui/preferences.cpp:419
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you do not answer the call"
+msgstr ""
+"Etkinleştirildiğinde, tüm gelen aramalar yanıtlamadığınızda iletişim "
+"ayarlarında belirtilen makineye yönlendirilecek"
+
+#: ../src/gui/preferences.cpp:421
+msgid "Forward calls to the given host if _busy"
+msgstr "_Meşgulse aramaları belirtilen makineye yönlendir"
+
+#: ../src/gui/preferences.cpp:421
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you already are in a call or if you "
+"are in Do Not Disturb mode"
+msgstr ""
+"Etkinleştirildiğinde, tüm gelen aramalar eğer bir arama yapıyorsanız ya da "
+"Rahatsız Etme kipinde iseniz iletişim kuralları ayarlarında belirtilen "
+"makineye yönlendirilecek"
+
+#: ../src/gui/preferences.cpp:425 ../src/gui/preferences.cpp:1442
+msgid "Call Options"
+msgstr "Arama Seçenekleri"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:428
+msgid "Timeout to reject or forward unanswered incoming calls (in seconds):"
+msgstr ""
+"Cevaplanmayan aramaların reddedilmesi veya yönlendirilmesi için zaman aşımı "
+"süresi (saniye olarak):"
+
+#: ../src/gui/preferences.cpp:460
+msgid "Ekiga Sound Events"
+msgstr "Ekiga Ses Olayları"
+
+#: ../src/gui/preferences.cpp:509 ../src/gui/preferences.cpp:518
+#: ../src/gui/preferences.cpp:527
+msgid "Event"
+msgstr "Olay"
+
+#: ../src/gui/preferences.cpp:539
+msgid "Choose a sound"
+msgstr "Bir ses seçin"
+
+#: ../src/gui/preferences.cpp:545
+msgid "Wavefiles"
+msgstr "Wave dosyaları"
+
+#: ../src/gui/preferences.cpp:554 ../src/gui/preferences.cpp:573
+msgid "Play"
+msgstr "Çal"
+
+#: ../src/gui/preferences.cpp:594
+msgid "String"
+msgstr "Dizge"
+
+#: ../src/gui/preferences.cpp:595
+msgid "Tone"
+msgstr "Ton"
+
+#: ../src/gui/preferences.cpp:596 ../src/gui/preferences.cpp:645
+msgid "RFC2833"
+msgstr "RFC2833"
+
+#: ../src/gui/preferences.cpp:597
+msgid "Q.931"
+msgstr "Q.931"
+
+#: ../src/gui/preferences.cpp:603 ../src/gui/preferences.cpp:655
+msgid "Misc Settings"
+msgstr "Çeşitli Ayarlar"
+
+#: ../src/gui/preferences.cpp:606 ../src/gui/preferences.cpp:660
+msgid "Forward _URI:"
+msgstr "_URI'yi Yönlendir:"
+
+#: ../src/gui/preferences.cpp:615
+msgid "Advanced Settings"
+msgstr "Gelişmiş Ayarlar"
+
+#. The toggles
+#: ../src/gui/preferences.cpp:618
+msgid "Enable H.245 _tunneling"
+msgstr "H.245 tünellemeyi _etkinleştir"
+
+#: ../src/gui/preferences.cpp:620
+msgid "Enable _early H.245"
+msgstr "_Erken H.245 etkinleştir"
+
+#: ../src/gui/preferences.cpp:622
+msgid "Enable fast _start procedure"
+msgstr "_Hızlı başlangıcı etkinletir"
+
+#: ../src/gui/preferences.cpp:622
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting."
+msgstr ""
+"Bağlantı hızlı başlat kipinde kurulacaktır. Hızlı başlat, aramaları "
+"H.323v2'de belirtilenden daha hızlı başlatmak için yeni bir yoldur. "
+"Netmeeting tarafından desteklenmez ve Hızlı Başlat ile H.245 Tünellemesini "
+"birlikte kullanmak bazı Netmeeting sürümlerinin çökmesine neden olabilir."
+
+#: ../src/gui/preferences.cpp:628 ../src/gui/preferences.cpp:668
+msgid "DTMF Mode"
+msgstr "DTMF Kipi"
+
+#: ../src/gui/preferences.cpp:630 ../src/gui/preferences.cpp:670
+msgid "_Send DTMF as:"
+msgstr "DTMF olarak _gönder:"
+
+#: ../src/gui/preferences.cpp:630 ../src/gui/preferences.cpp:670
+msgid "This allows you to set the mode for DTMFs sending."
+msgstr "DTMF gönderimi için kip seçimine izin verir."
+
+#: ../src/gui/preferences.cpp:646
+msgid "INFO"
+msgstr "INFO"
+
+#: ../src/gui/preferences.cpp:657
+msgid "_Outbound Proxy:"
+msgstr "_Dışa Açılan Vekil:"
+
+#: ../src/gui/preferences.cpp:698
+msgid "Ringing Device"
+msgstr "Çalma Aygıtı"
+
+#: ../src/gui/preferences.cpp:698
+msgid "Select the ringing audio device to use"
+msgstr "Kullanılacak ses çalma aygıtını seçin"
+
+#: ../src/gui/preferences.cpp:700
+msgid "Output device:"
+msgstr "Çıktı aygıtı:"
+
+#: ../src/gui/preferences.cpp:707 ../src/gui/preferences.cpp:855
+msgid "Input device:"
+msgstr "Girdi aygıtı:"
+
+#. That button will refresh the device list
+#. The file selector button
+#. FIXME disabled for now
+#. label = gtk_label_new (_("Image:"));
+#.
+#. button =
+#. gtk_file_chooser_button_new_with_backend (_("Choose a Picture"),
+#. GTK_FILE_CHOOSER_ACTION_OPEN,
+#. FILECHOOSER_BACKEND);
+#.
+#. preview_image_frame = gtk_frame_new (_("Preview"));
+#. preview_image = gtk_image_new ();
+#. gtk_container_add (GTK_CONTAINER (preview_image_frame), preview_image);
+#. gtk_widget_set_size_request (preview_image, 256, 256);
+#. gtk_widget_show (preview_image);
+#. gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER (button),
+#. preview_image_frame);
+#.
+#.
+#. filefilter = gtk_file_filter_new ();
+#. gtk_file_filter_set_name (filefilter, _("Images"));
+#. gtk_file_filter_add_pixbuf_formats (filefilter);
+#. gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (button), filefilter);
+#.
+#. g_signal_connect (G_OBJECT (button), "update-preview",
+#. G_CALLBACK (image_filename_browse_preview_cb),
+#. (gpointer) preview_image);
+#.
+#. conf_image = gm_conf_get_string (VIDEO_DEVICES_KEY "image");
+#. if (!conf_image || (!strcmp (conf_image, ""))) {
+#. g_free (conf_image);
+#. conf_image = NULL;
+#. }
+#.
+#. if (conf_image)
+#. gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (button), conf_image);
+#. g_free (conf_image);
+#.
+#. gtk_table_attach (GTK_TABLE (subsection), button, 1, 2, 4, 5,
+#. (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
+#. (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
+#. 0, GNOMEMEETING_PAD_SMALL);
+#.
+#. gtk_table_attach (GTK_TABLE (subsection), label, 0, 1, 4, 5,
+#. (GtkAttachOptions) (GTK_FILL),
+#. (GtkAttachOptions) (GTK_FILL),
+#. 0, 0);
+#.
+#. gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#. gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_LEFT);
+#.
+#. g_signal_connect_after (G_OBJECT (button), "selection-changed",
+#. G_CALLBACK (image_filename_browse_cb),
+#. (gpointer) VIDEO_DEVICES_KEY "image");
+#.
+#. That button will refresh the device list
+#: ../src/gui/preferences.cpp:712 ../src/gui/preferences.cpp:920
+msgid "_Detect devices"
+msgstr "_Aygıtları algıla"
+
+#: ../src/gui/preferences.cpp:712 ../src/gui/preferences.cpp:920
+msgid "Click here to refresh the device list."
+msgstr "Aygıt listesini tazelemek için buraya tıklayınız."
+
+#: ../src/gui/preferences.cpp:833
+msgid "PAL (Europe)"
+msgstr "PAL (Avrupa)"
+
+#: ../src/gui/preferences.cpp:834
+msgid "NTSC (America)"
+msgstr "NTSC (Amerika)"
+
+#: ../src/gui/preferences.cpp:835
+msgid "SECAM (France)"
+msgstr "SECAM (Fransa)"
+
+#: ../src/gui/preferences.cpp:836
+msgid "Auto"
+msgstr "Otomatik"
+
+#. Video Channel
+#: ../src/gui/preferences.cpp:859
+msgid "Channel:"
+msgstr "Kanal:"
+
+#: ../src/gui/preferences.cpp:861
+msgid "Size:"
+msgstr "Boyut:"
+
+#: ../src/gui/preferences.cpp:861
+msgid "Select the transmitted video size"
+msgstr "Aktarılacak video boyutunu seçin"
+
+#: ../src/gui/preferences.cpp:863
+msgid "Format:"
+msgstr "Biçim:"
+
+#: ../src/gui/preferences.cpp:944 ../src/gui/preferences.cpp:983
+#: ../src/gui/preferences.cpp:1467 ../src/gui/preferences.cpp:1477
+msgid "Codecs"
+msgstr "Kodekler"
+
+#: ../src/gui/preferences.cpp:957 ../src/gui/preferences.cpp:996
+msgid "Settings"
+msgstr "Ayarlar"
+
+#. Translators: the full sentence is Automatically adjust jitter buffer
+#. between X and Y ms
+#: ../src/gui/preferences.cpp:961
+msgid "Enable silence _detection"
+msgstr "Sessizlik _algılayıcısını etkinleştir"
+
+#: ../src/gui/preferences.cpp:961
+msgid "If enabled, use silence detection with the codecs supporting it."
+msgstr ""
+"Etkinleştirildiğinde, destekleyen kodekler ile sessizlik algılayıcısını "
+"kullanılır."
+
+#: ../src/gui/preferences.cpp:963
+msgid "Enable echo can_celation"
+msgstr "Yankı gid_ermeyi etkinleştir"
+
+#: ../src/gui/preferences.cpp:963
+msgid "If enabled, use echo cancelation."
+msgstr "Etkinleştirildiğinde, yankı giderme kullanılır."
+
+#: ../src/gui/preferences.cpp:965
+msgid "Maximum _jitter buffer (in ms):"
+msgstr "En fazla _stres tamponu (ms olarak):"
+
+#: ../src/gui/preferences.cpp:965
+msgid "The maximum jitter buffer size for audio reception (in ms)."
+msgstr "Ses alımı için en fazla stres tamponu büyüklüğü (ms olarak)."
+
+#. Translators: the full sentence is Keep a minimum video quality of X %
+#: ../src/gui/preferences.cpp:999
+msgid "Picture Quality"
+msgstr "Resim Kalitesi"
+
+#: ../src/gui/preferences.cpp:999
+msgid ""
+"Choose if you want to guarantee a minimum image quality (possibly leading to "
+"dropped frames in order not to surpass the bitrate limit) or if you prefer "
+"to keep the frame rate."
+msgstr ""
+"En az bir görüntü kalitesini garantilemek (bit oranı limitini geçmemek için "
+"düşürülen çerçevelere sebep olabilir) veya çerçeve oranını korumayı tercih "
+"ediyorsanız seçin. "
+
+#: ../src/gui/preferences.cpp:1001
+msgid "Maximum video _bitrate (in kbits/s):"
+msgstr "En fazla video _bit oranı (kbit/s olarak):"
+
+#: ../src/gui/preferences.cpp:1001
+msgid ""
+"The maximum video bitrate in kbits/s. The video quality and the effective "
+"frame rate will be dynamically adjusted to keep the bitrate at the given "
+"value."
+msgstr ""
+"kbit/s olarak en fazla video bit oranı. Video kalitesi ve etkin çerçeve "
+"oranı, bit oranını verilen değerde tutmak için aktif bir şekilde en "
+"düşüklerinin üstündekilere ayarlanacak."
+
+#: ../src/gui/preferences.cpp:1376
+msgid "Play sound for new voice mails"
+msgstr "Yeni sesli postaları için ses çal"
+
+#: ../src/gui/preferences.cpp:1385
+msgid "Play sound for new instant messages"
+msgstr "Yeni anında mesajlar için ses çal"
+
+#: ../src/gui/preferences.cpp:1414
+msgid "Ekiga Preferences"
+msgstr "Ekiga Tercihleri"
+
+#: ../src/gui/preferences.cpp:1432
+msgid "General"
+msgstr "Genel"
+
+#: ../src/gui/preferences.cpp:1433
+msgid "Personal Data"
+msgstr "Kişisel Bilgi"
+
+#: ../src/gui/preferences.cpp:1438
+msgid "General Settings"
+msgstr "Genel Ayarlar"
+
+#: ../src/gui/preferences.cpp:1447
+msgid "Sound Events"
+msgstr "Ses Olayları"
+
+#: ../src/gui/preferences.cpp:1451
+msgid "Protocols"
+msgstr "İletişim Kuralları"
+
+#: ../src/gui/preferences.cpp:1453
+msgid "SIP Settings"
+msgstr "SIP Ayarları"
+
+#: ../src/gui/preferences.cpp:1458
+msgid "H.323 Settings"
+msgstr "H.323 Ayarları"
+
+#: ../src/gui/preferences.cpp:1462
+msgid "Audio"
+msgstr "Ses"
+
+#: ../src/gui/preferences.cpp:1463 ../src/gui/preferences.cpp:1473
+msgid "Devices"
+msgstr "Aygıtlar"
+
+#: ../src/gui/preferences.cpp:1472
+msgid "Video"
+msgstr "Video"
+
+#: ../src/gui/statusicon.cpp:311
+#, c-format
+msgid "You have %d message"
+msgid_plural "You have %d messages"
+msgstr[0] "%d tane iletiniz var"
+
+#: ../src/gui/statusicon.cpp:413
+msgid "_Contents"
+msgstr "İç_indekiler"
+
+#: ../src/gui/statusicon.cpp:418
+msgid "_About"
+msgstr "_Hakkında"
+
+#: ../src/gui/statusmenu.cpp:90
+msgid "Online"
+msgstr "Çevrimiçi"
+
+#: ../src/gui/statusmenu.cpp:91
+msgid "Away"
+msgstr "Uzakta"
+
+#: ../src/gui/statusmenu.cpp:92
+msgid "Do Not Disturb"
+msgstr "Rahatsız Etmeyin"
+
+#: ../src/gui/statusmenu.cpp:456
+msgid "Custom message..."
+msgstr "Özel mesaj..."
+
+#. Build the dialog
+#: ../src/gui/statusmenu.cpp:587 ../src/gui/statusmenu.cpp:741
+msgid "Custom Message"
+msgstr "Özel Mesaj"
+
+#: ../src/gui/statusmenu.cpp:603
+msgid "Delete custom messages:"
+msgstr "Özel mesajları sil:"
+
+#: ../src/gui/statusmenu.cpp:762
+msgid "Define a custom message:"
+msgstr "Özel bir mesaj tanımla:"
+
+#~ msgid "Position on the screen of the PC-To-Phone window"
+#~ msgstr "PC-Den-Telefona penceresinin ekrandaki pozisyonu"
+
+#~ msgid "Size of the PC-To-Phone window"
+#~ msgstr "PC-Den-Telefona penceresinin boyutu"
+
+#~ msgid "_Properties"
+#~ msgstr "Ö_zellikler"
+
+#~ msgid "Address of public IP detector"
+#~ msgstr "Genel IP tarayıcısının adresi"
+
+#~ msgid "Audio plugin"
+#~ msgstr "Ses eklentisi"
+
+#~ msgid ""
+#~ "Automatically switch to fullscreen for images displayed in the main GUI "
+#~ "at the beginning of the call"
+#~ msgstr ""
+#~ "Aramanın başlangıcında ana GUI içinde gösterilen resimler için "
+#~ "kendiliğinden tam ekran kipine geç"
+
+#~ msgid "Clear inactive calls"
+#~ msgstr "Aktif olmayan aramaları temizle"
+
+#~ msgid "Enable IP checking"
+#~ msgstr "IP kontrolünü etkinleştir"
+
+#~ msgid "Enable bilinear filtering on displayed video"
+#~ msgstr "Görüntülenen videoda çiftçizgisel süzmeyi etkinleştir"
+
+#~ msgid ""
+#~ "Enable or disable bilinear interpolation when rendering video images "
+#~ "(this has no effect in fullscreen mode)"
+#~ msgstr ""
+#~ "Bir video görüntüsünü sunarken çiftçizgisel iç değer biçimi etkinleştir "
+#~ "ya da devre dışı bırak (bu tam ekran kipinde etkisizdir)"
+
+#~ msgid ""
+#~ "Enter a valid URL to connect to a web application that outputs the public "
+#~ "IP of your host"
+#~ msgstr ""
+#~ "Makinenizin IP adresini verebilecek bir web uygulamasına bağlanmak için "
+#~ "geçerli bir URL girin"
+
+#~ msgid ""
+#~ "Enter the public IP of your NAT/PAT router if you want to use IP "
+#~ "translation"
+#~ msgstr ""
+#~ "IP dönüştürme kullanmak istiyorsanız NAT/PAT yönlendiricinizin genel IP "
+#~ "numarasını girin"
+
+#~ msgid "Enter your first name"
+#~ msgstr "Adınızı giriniz"
+
+#~ msgid "Gateway/proxy host"
+#~ msgstr "Geçit/vekil makinesi"
+
+#~ msgid ""
+#~ "If enabled, calls for which no audio and video has been received in the "
+#~ "last 30 seconds are automatically cleared"
+#~ msgstr ""
+#~ "Etkinleştirildiğinde, son 30 saniye içinde ses ve görüntü alınmayan "
+#~ "çağrılar otomatik olarak temizlenir"
+
+#~ msgid "Incoming call mode"
+#~ msgstr "Gelen arama kipi"
+
+#~ msgid "Last name"
+#~ msgstr "Soyadı"
+
+#~ msgid "Minimum jitter buffer"
+#~ msgstr "En düşük stres tamponu"
+
+#~ msgid "Minimum transmitted video quality"
+#~ msgstr "Aktarılan asgari video kalitesi"
+
+#~ msgid "Number of frames for G.711"
+#~ msgstr "G.711 için çerçeve sayısı"
+
+#~ msgid "Number of frames for GSM"
+#~ msgstr "GSM için çerçeve sayısı"
+
+#~ msgid "Number of frames transmitted in each packet for the G.711 codec"
+#~ msgstr "G.711 kodek için her pakette iletilen çerçeve sayısı"
+
+#~ msgid "Number of frames transmitted in each packet for the GSM codec"
+#~ msgstr "GSM kodek için her pakette iletilen çerçeve sayısı"
+
+#~ msgid "Public IP of the NAT/PAT router"
+#~ msgstr "NAT/PAT yönelticisinin genel IP'si"
+
+#~ msgid ""
+#~ "Select the desired method for NAT traversal (STUN is strongly suggested)"
+#~ msgstr "NAT dönüşümü için istenilen yöntemi seçin (STUN şiddetle önerilir)"
+
+#~ msgid "Size of the log window"
+#~ msgstr "Günlük penceresinin boyutu"
+
+#~ msgid ""
+#~ "The Gateway host is the host to use to do H.323 calls through a gateway "
+#~ "that will relay calls"
+#~ msgstr ""
+#~ "Geçit makine yayınlanacak olan çağrıların geçit üzerinden H.323 çağrıları "
+#~ "yapan sunucudur"
+
+#~ msgid "The NAT method"
+#~ msgstr "NAT yöntemi"
+
+#~ msgid ""
+#~ "The audio plugin that will be used to detect the devices and manage them"
+#~ msgstr "Aygıtları tanımak ve yönetmek için kullanılacak ses eklentisi"
+
+#~ msgid "The local zoom value"
+#~ msgstr "Yerel büyütme değeri"
+
+#~ msgid "The minimum jitter buffer size for audio reception (in ms)"
+#~ msgstr "Ses kabulü için en düşük stres tamponu büyüklüğü (ms olarak)"
+
+#~ msgid ""
+#~ "The minimum transmitted video quality to keep when trying to minimize the "
+#~ "used bandwidth: choose 100% on a LAN for the best quality, 1% being the "
+#~ "worst quality"
+#~ msgstr ""
+#~ "Band genişliği kullanımını azaltmak için iletilecek en düşük video "
+#~ "kalitesi: LAN için %100 yani en iyi kaliteyi seçin, %1 en düşük kalitedir"
+
+#~ msgid "The network interface"
+#~ msgstr "Ağ arayüzü"
+
+#~ msgid "The network interface to listen on"
+#~ msgstr "Dinlenilecek ağ arayüzü"
+
+#~ msgid ""
+#~ "The range of UDP ports that Ekiga will use for RTP (audio and video "
+#~ "communication channels). Ekiga needs to be restarted for the new values "
+#~ "to take effect."
+#~ msgstr ""
+#~ "RTP (ses ve görüntü iletişim kanalları) için Ekiga tarafından "
+#~ "kullanılacak UDP portlarının aralığı. Yeni değerlerin geçerli olabilmesi "
+#~ "için Ekiga yeniden başlatılmalıdır."
+
+#~ msgid ""
+#~ "The range of UDP ports that Ekiga will use for SIP signaling and when "
+#~ "registering to gatekeepers. Ekiga needs to be restarted for the new "
+#~ "values to take effect."
+#~ msgstr ""
+#~ "SIP sinyalleşmesi ve kapıcılara kayıt sırasında Ekiga tarafından "
+#~ "kullanılacak UDP portlarının aralığı. Yeni değerlerin geçerli olabilmesi "
+#~ "için Ekiga yeniden başlatılmalıdır."
+
+#~ msgid "The remote zoom value"
+#~ msgstr "Uzak büyütme değeri"
+
+#~ msgid ""
+#~ "The video plugin that will be used to detect the devices and manage them"
+#~ msgstr "Aygıtları tanımak ve yönetmek için kullanılacak ses eklentisi"
+
+#~ msgid ""
+#~ "The way to react to incoming calls: 0 displays a popup, 1 automatically "
+#~ "answers the call, 2 automatically rejects the call and 3 forwards the "
+#~ "call to the given URL, if any"
+#~ msgstr ""
+#~ "Gelen çağrılara tepki yöntemi: 0 bir kendiliğinden beliren pencere "
+#~ "gösterir, 1 otomatik olarak çağrıya cevap verir, 2 otomatik olarak "
+#~ "çağrıyı reddeder ve 3 çağrıyı verilen URL'ye yönlendirir"
+
+#~ msgid ""
+#~ "The zoom value to apply to images displayed in the local video window "
+#~ "(can be 0.50, 1.00, or 2.00)"
+#~ msgstr ""
+#~ "Yerel video penceresinde gösterilecek görüntülere uygulanacak büyütme "
+#~ "değeri (0.50, .1.00, ya da 2.00 olabilir)"
+
+#~ msgid ""
+#~ "The zoom value to apply to images displayed in the remote video window "
+#~ "(can be 0.50, 1.00, or 2.00)"
+#~ msgstr ""
+#~ "Uzak video penceresinde görüntülenen görüntülere uygulanacak büyütme "
+#~ "değeri (0.50, .00, ya da 2.00 olabilir)"
+
+#~ msgid ""
+#~ "This enables IP checking from ekiga.com. The returned IP is only used "
+#~ "when IP Translation is enabled."
+#~ msgstr ""
+#~ "ekiga.com için IP kontrolünü etkinleştirir. Dönen IP sadece IP çevrimi "
+#~ "etkinleştirildiği zaman kullanılır."
+
+#~ msgid "Video plugin"
+#~ msgstr "Video eklentisi"
+
+#~ msgid ""
+#~ "An error has happened in the configuration backend.\n"
+#~ "Maybe some of your settings won't be saved."
+#~ msgstr ""
+#~ "Yapılandırma omurgasında bir hata oluştu\n"
+#~ "Ayarlarınızın bazıları kaydedilmemiş olabilir."
+
+#~ msgid "On This Computer"
+#~ msgstr "Bu Bilgisayarda"
+
+#~ msgid "Personal"
+#~ msgstr "Kişisel"
+
+#~ msgid "Colleagues"
+#~ msgstr "Çalışma Arkadaşları"
+
+#~ msgid "Group"
+#~ msgstr "Grup"
+
+#~ msgid "Delete group %s?"
+#~ msgstr "%s grubu silinsin mi?"
+
+#~ msgid "Group renamed."
+#~ msgstr "Grup yeniden adlandırıldı."
+
+#~ msgid "Invalid parameters"
+#~ msgstr "Geçersiz parametreler"
+
+#~ msgid ""
+#~ "Please provide your first name and e-mail in the Personal Data section in "
+#~ "order to be able to register to the users directory."
+#~ msgstr ""
+#~ "Lütfen kullanıcı dizinine kaydolabilmek için Kişisel Bilgiler bölümüne "
+#~ "adınızı ve e-posta adresinizi giriniz."
+
+#~ msgid "Invalid users directory"
+#~ msgstr "Geçersiz kullanıcı dizini"
+
+#~ msgid "Operation impossible since there is no users directory specified."
+#~ msgstr "Hiçbir kullanıcı dizini belirtilmediğinden işlem imkansız."
+
+#~ msgid "Failed to parse XML file"
+#~ msgstr "XML dosyası ayrıştırılamadı"
+
+#~ msgid ""
+#~ "There was an error while parsing the XML file. Please make sure that it "
+#~ "is correctly installed in your system."
+#~ msgstr ""
+#~ "XML dosyası ayrıştırılırken bir hata oluştu. Lütfen bilgisayarınızda "
+#~ "düzgün bir şekilde kurulduğundan emin olun."
+
+#~ msgid "Bad information"
+#~ msgstr "Hatalı bilgi"
+
+#~ msgid "Bad LDAP information from XML file: %s."
+#~ msgstr "XML dosyasından geçersiz LDAP bilgisi: %s."
+
+#~ msgid "ILS registration failed: unable to connect to %s"
+#~ msgstr "ILS kaydı başarısız: %s konumuna bağlanılamıyor"
+
+#~ msgid "ILS registration failed: unable to set time limit on operations"
+#~ msgstr "ILS kaydı başarısız: işlemlere zaman sınırı koyulamadı"
+
+#~ msgid "ILS registration failed: failed to bind to %s"
+#~ msgstr "ILS kaydı başarısız: %s konumuna bağlama başarısız"
+
+#~ msgid "Updated information on %s"
+#~ msgstr "%s üzerinde güncellenmiş bilgi"
+
+#~ msgid "Unregistered from %s"
+#~ msgstr "%s konumundan kaydı siliniyor"
+
+#~ msgid "STUN server set to %s"
+#~ msgstr "STUN sunucusu %s olarak tanımlandı"
+
+#~ msgid "Removed STUN server"
+#~ msgstr "Çıkarılmış STUN sunucusu"
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Ekiga could not detect the type of NAT you are using. The most "
+#~ "appropriate method, if your router does not natively support SIP or "
+#~ "H.323, is probably to forward the required ports to your internal machine "
+#~ "and use IP translation if you are behind a NAT router. Please also make "
+#~ "sure you are not running a local firewall."
+#~ msgstr ""
+#~ "STUN test sonuçları: %s.\n"
+#~ "\n"
+#~ "Ekiga kullandığınız NAT türünü tespit edemedi. Eğer yönelticiniz SIP veya "
+#~ "H.323 desteklemiyorsa en uygun yöntem gerekli portları iç ağdaki "
+#~ "makinenize yönlendirmeniz ve eğer bir NAT yönelticinin arkasındaysanız IP "
+#~ "çevrimi kullanmanız olacaktır. Lütfen yerel bir güvenlik duvarı "
+#~ "çalıştırmadığınızdan emin olun."
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Your system does not need any specific configuration as long as you do "
+#~ "not have a local firewall blocking the ports required by Ekiga."
+#~ msgstr ""
+#~ "STUN test sonuçları: %s.\n"
+#~ "\n"
+#~ "Ekiga tarafından ihtiyaç duyulan portları engelleyen yerel bir güvenlik "
+#~ "duvarı olmadığı sürece sisteminizin özel bir yapılandırmaya ihtiyacı "
+#~ "yoktur."
+
+#~ msgid ""
+#~ "Ekiga detected Symmetric NAT. The most appropriate method, if your router "
+#~ "does not natively support SIP or H.323, is to forward the required ports "
+#~ "to your internal machine in order to change your Symmetric NAT into Cone "
+#~ "NAT. If you run this test again after the port forwarding has been done, "
+#~ "it should report Cone NAT. This should allow Ekiga to be used with STUN "
+#~ "support enabled. If it does not report Cone NAT, then it means that there "
+#~ "is a problem in your forwarding rules."
+#~ msgstr ""
+#~ "Ekiga Simetrik NAT tespit etti. Eğer yönelticiniz SIP veya H.323 "
+#~ "desteklemiyorsa en uygun yöntem Simetrik NAT'ı Cone NAT'a çevirmek için "
+#~ "gerekli portların iç ağdaki makinenize yönlendirilmesidir. Bu testi port "
+#~ "yönlendirmesi yapıldıktan sonra tekrarladığınızda Cone NAT bildirmelidir. "
+#~ "Eğer Cone NAT'ı bildirmezse, bu yönlendirme kurallarınızda bir sorun "
+#~ "olduğu anlamına gelir."
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "You do not seem to be using a NAT router. STUN support is not required."
+#~ msgstr ""
+#~ "STUN test sonuçları: %s.\n"
+#~ "\n"
+#~ "Bir NAT yöneltici kullanmıyor gibi görünüyorsunuz. STUN desteği gerekli "
+#~ "değil."
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Using a STUN server is most probably the most appropriate method if your "
+#~ "router does not natively support SIP or H.323.\n"
+#~ "\n"
+#~ "Enable STUN Support?"
+#~ msgstr ""
+#~ "STUN test sonuçları: %s.\n"
+#~ "\n"
+#~ "Eğer yönelticiniz SIP veya H.323 desteklemiyorsa bir STUN sunucusu "
+#~ "kullanmak en uygun yol olacaktır.\n"
+#~ "\n"
+#~ "STUN Desteği etkinleştirilsin mi?"
+
+#~ msgid "NAT Detection Finished"
+#~ msgstr "NAT Tespiti Bitti"
+
+#~ msgid "The detection of your NAT type is finished"
+#~ msgstr "NAT türünüzün tespit edilmesi bitti"
+
+#~ msgid "Open NAT"
+#~ msgstr "NAT'ı Aç"
+
+#~ msgid "Cone NAT"
+#~ msgstr "Cone NAT"
+
+#~ msgid "Restricted NAT"
+#~ msgstr "Kısıtlamalı NAT"
+
+#~ msgid "Port Restricted NAT"
+#~ msgstr "Port Kısıtlamalı NAT"
+
+#~ msgid "Symmetric NAT"
+#~ msgstr "Simetrik NAT"
+
+#~ msgid "Symmetric Firewall"
+#~ msgstr "Simetrik Güvenlik Duvarı"
+
+#~ msgid "Partially Blocked"
+#~ msgstr "Kısmen Engellenmiş"
+
+#~ msgid "No NAT"
+#~ msgstr "NAT Yok"
+
+#~ msgid "Detection in progress"
+#~ msgstr "Tespit etme devam ediyor"
+
+#~ msgid "Please wait while your type of NAT is being detected."
+#~ msgstr "NAT tipiniz belirleninceye kadar lütfen bekleyin."
+
+#~ msgid "Set STUN server to %s (%s)"
+#~ msgstr "STUN sunucusunu %s (%s) olarak tanımla"
+
+#~ msgid "Ignored STUN server (%s)"
+#~ msgstr "Yoksayılan STUN sunucusu (%s)"
+
+#~ msgid "Cannot run Ekiga"
+#~ msgstr "Ekiga çalıştırılamıyor"
+
+#~ msgid ""
+#~ "Ekiga is already running, if you want it to call a given SIP, H.323, or "
+#~ "callto address, please use \"ekiga -c address\"."
+#~ msgstr ""
+#~ "Ekiga zaten çalışıyor, verilen bir SIP, H.323 veya callto adresini "
+#~ "aramasını istiyorsanız, lütfen \"ekiga -c address\" şeklinde kullanın."
+
+#~ msgid ""
+#~ "It appears that you do not have ekiga.server installed in a valid "
+#~ "location. Factory mode disabled.\n"
+#~ msgstr ""
+#~ "Geçerli bir konumda ekiga.server kurulu değil gibi görünüyor. Üretici "
+#~ "kipi devre dışı.\n"
+
+#~ msgid ""
+#~ "Error registering Ekiga with the activation service; factory mode "
+#~ "disabled.\n"
+#~ msgstr ""
+#~ "Ekiga'da, aktifleştirme sunucusuna kaydederken hata; üretici kipi devre "
+#~ "dışı.\n"
+
+#~ msgid "Failed to retrieve Ekiga server from activation server\n"
+#~ msgstr "Ekiga sunucusu aktifleştirme sunucusundan alınamadı\n"
+
+#~ msgid "Opening video device %s with plugin %s"
+#~ msgstr "Video aygıtı %s, %s eklentisi ile açılıyor"
+
+#~ msgid "Successfully opened video device %s, channel %d"
+#~ msgstr "Video aygıtı %s başarıyla açıldı, kanal %d"
+
+#~ msgid "Couldn't open the video device"
+#~ msgstr "Video aygıtı açılamadı"
+
+#~ msgid "Opened the video device using the \"Picture\" video plugin"
+#~ msgstr "Video aygıtı \"Picture\" video eklentisini kullanarak açıldı"
+
+#~ msgid "Picture"
+#~ msgstr "Resim"
+
+#~ msgid ""
+#~ "Ekiga is now testing the %s video device. If you experience machine "
+#~ "crashes, then report a bug to the video driver author."
+#~ msgstr ""
+#~ "Ekiga şu anda %s görüntü aygıtını test ediyor. Eğer makine çökmesi ile "
+#~ "karşılaşırsanız, görüntü sürücüsü için yazarına hata bildiriminde bulunun."
+
+#~ msgid "Test %d done"
+#~ msgstr "Test %d tamamlandı"
+
+#~ msgid "Test %d failed"
+#~ msgstr "Test %d başarısız"
+
+#~ msgid "Error while opening %s."
+#~ msgstr "%s aygıtı açılırken hata."
+
+#~ msgid "Could not open the chosen channel with the chosen video format."
+#~ msgstr "Seçtiğiniz kanal istenen video biçimi ile açılamıyor."
+
+#~ msgid "Your driver doesn't support any of the color formats tried by Ekiga"
+#~ msgstr ""
+#~ "Sürücünüz Ekiga tarafından denenen hiç bir renk biçimini desteklemiyor"
+
+#~ msgid "Error with the frame rate."
+#~ msgstr "Çerçeve hızı hatası."
+
+#~ msgid "Error with the frame size."
+#~ msgstr "Çerçeve boyutu hatası."
+
+#~ msgid "Registration of %s to %s failed"
+#~ msgstr "%s hesabının %s konumuna kaydı başarısız"
+
+#~ msgid "Registration failed"
+#~ msgstr "Kayıt başarısız"
+
+#~ msgid "Unregistering"
+#~ msgstr "Kayıt siliniyor"
+
+#~ msgid "Gatekeeper registration failed: duplicate alias"
+#~ msgstr "Geçit kaydı başarısız: takma ad mevcut"
+
+#~ msgid "Gatekeeper registration failed: bad username/password"
+#~ msgstr "Geçit kaydı başarısız: geçersiz kullanıcı adı/parola"
+
+#~ msgid "Gatekeeper registration failed: transport error"
+#~ msgstr "Geçit kaydı başarısız: taşıma hatası"
+
+#~ msgid "Gatekeeper registration failed"
+#~ msgstr "Geçit kaydı başarısız"
+
+#~ msgid "Answering call..."
+#~ msgstr "Aramaya cevap veriliyor..."
+
+#~ msgid "Started Ekiga %d.%d.%d for user %s"
+#~ msgstr "%4$s kullanıcısı için Ekiga %1$d.%2$d.%3$d başlatıldı"
+
+#~ msgid "Forwarding call to %s"
+#~ msgstr "Arama %s konumuna yönlendiriliyor"
+
+#~ msgid "Rejecting incoming call"
+#~ msgstr "Gelen arama reddediliyor"
+
+#~ msgid "Rejecting incoming call from %s"
+#~ msgstr "%s konumundan gelen arama reddediliyor"
+
+#~ msgid "Forwarding incoming call"
+#~ msgstr "Gelen arama yönlendiriliyor"
+
+#~ msgid "Forwarding incoming call from %s to %s"
+#~ msgstr "%s konumundan gelen arama %s konumuna yönlendiriliyor"
+
+#~ msgid "Auto-Answering incoming call"
+#~ msgstr "Gelen arama otomatik cevaplanıyor"
+
+#~ msgid "Auto-Answering incoming call from %s"
+#~ msgstr "%s konumundan gelen arama otomatik cevaplanıyor"
+
+#~ msgid "Connected with %s using %s"
+#~ msgstr "%s ile %s kullanılarak bağlantı kuruldu"
+
+#~ msgid "Remote user is not available at this time"
+#~ msgstr "Uzaktaki kullanıcıya şu an ulaşılamıyor"
+
+#~ msgid "Error while starting the listener for the H.323 protocol"
+#~ msgstr "H.323 iletişim kuralı için dinleyici başlatılırken hata"
+
+#~ msgid ""
+#~ "You will not be able to receive incoming H.323 calls. Please check that "
+#~ "no other program is already running on the port used by Ekiga."
+#~ msgstr ""
+#~ "Gelen H.323 aramalarını alamayabilirsiniz. Lütfen başka bir programın "
+#~ "çalışmakta olan Ekiga tarafından kullanılan port ile aynı port üzerinde "
+#~ "çalışıp çalışmadığını kontrol edin."
+
+#~ msgid "Error while starting the listener for the SIP protocol"
+#~ msgstr "SIP iletişim kuralı için dinleyici başlatılırken hata"
+
+#~ msgid ""
+#~ "You will not be able to receive incoming SIP calls. Please check that no "
+#~ "other program is already running on the ports used by Ekiga."
+#~ msgstr ""
+#~ "Gelen SIP aramalarını alamayabilirsiniz. Lütfen başka bir programın Ekiga "
+#~ "tarafından kullanılan port ile aynı portu kullanmadığını kontrol edin."
+
+#~ msgid "Opened codec %s for transmission"
+#~ msgstr "İletim için %s kodeki açıldı"
+
+#~ msgid "Closed codec %s which was opened for transmission"
+#~ msgstr "İletim için açılmış olan %s kodeki kapatıldı"
+
+#~ msgid "Opened codec %s for reception"
+#~ msgstr "Alım için %s kodeki açıldı"
+
+#~ msgid "Closed codec %s which was opened for reception"
+#~ msgstr "Alım için açılmış olan %s kodeki kapatıldı"
+
+#~ msgid "Opened %s for recording with plugin %s"
+#~ msgstr "%s, %s eklentisi ile kaydetmek için açıldı"
+
+#~ msgid "Opened %s for playing with plugin %s"
+#~ msgstr "%s, %s eklentisi ile çalmak için açıldı"
+
+#~ msgid "Could not open audio channel for audio transmission"
+#~ msgstr "Ses iletimi için ses kanalı açılamadı"
+
+#~ msgid ""
+#~ "An error occurred while trying to record from the soundcard for the audio "
+#~ "transmission. Please check that your soundcard is not busy and that your "
+#~ "driver supports full-duplex.\n"
+#~ "The audio transmission has been disabled."
+#~ msgstr ""
+#~ "Ses iletimi için ses kartı üzerinden ses kaydetmeye çalışırken bir hata "
+#~ "oluştu. Lütfen ses kartınızın meşgul olmadığından ve sürücünüzün full-"
+#~ "duplex destekli olduğundan emin olun.\n"
+#~ "Ses iletimi iptal edildi."
+
+#~ msgid "Could not open audio channel for audio reception"
+#~ msgstr "Ses alımı için ses kanalı açılamadı"
+
+#~ msgid ""
+#~ "An error occurred while trying to play audio to the soundcard for the "
+#~ "audio reception. Please check that your soundcard is not busy and that "
+#~ "your driver supports full-duplex.\n"
+#~ "The audio reception has been disabled."
+#~ msgstr ""
+#~ "Ses alımı için ses kartı üzerinden ses çalmaya çalışırken bir hata "
+#~ "oluştu. Lütfen ses kartınızın meşgul olmadığından ve sürücünüzün full-"
+#~ "duplex destekli olduğundan emin olun.\n"
+#~ "Ses alımı iptal edildi."
+
+#~ msgid "Registration failed: %s"
+#~ msgstr "Kaydolma başarısız: %s"
+
+#~ msgid "Unregistration failed: %s"
+#~ msgstr "Kayıt silinmesi başarısız: %s"
+
+#~ msgid "Unregistration failed"
+#~ msgstr "Kayıt silinmesi başarısız"
+
+#~ msgid "Error: User not found"
+#~ msgstr "Hata: Kullanıcı bulunamadı"
+
+#~ msgid "Error: User offline"
+#~ msgstr "Hata: Kullanıcı çevrimdışı"
+
+#~ msgid "Error: Forbidden"
+#~ msgstr "Hata: Yasaklanmış"
+
+#~ msgid "Error: Timeout"
+#~ msgstr "Hata: Zaman Aşımı"
+
+#~ msgid "Error: Failed to transmit message"
+#~ msgstr "Hata: Mesaj iletimi başarısız"
+
+#~ msgid "Invalid URL handler"
+#~ msgstr "Geçersiz URL işleyicisi"
+
+#~ msgid ""
+#~ "Please specify a valid URL handler. Currently h323:, callto: and sip: are "
+#~ "supported."
+#~ msgstr ""
+#~ "Lütfen geçerli bir URL işleyicisi giriniz. Şimdilik h323: , callto: ve "
+#~ "sip:desteklenmektedir."
+
+#~ msgid "Calling %s"
+#~ msgstr "%s aranıyor"
+
+#~ msgid "Transferring call to %s"
+#~ msgstr "Arama %s konumuna aktarılıyor"
+
+#~ msgid "Failed to call user"
+#~ msgstr "Kullanıcı arama başarısız"
+
+#~ msgid "Edit the Account Information"
+#~ msgstr "Hesap Bilgilerini Düzenle"
+
+#~ msgid "Protocol:"
+#~ msgstr "İletişim kuralı:"
+
+#~ msgid "More _Options"
+#~ msgstr "Daha Fazla _Seçenek"
+
+#~ msgid "Gatekeeper ID:"
+#~ msgstr "Geçit ID:"
+
+#~ msgid "Registration Timeout:"
+#~ msgstr "Kayıt Zaman Aşımı:"
+
+#~ msgid "Missing information"
+#~ msgstr "Eksik bilgi"
+
+#~ msgid ""
+#~ "Please make sure to provide a valid account name, host name, and user "
+#~ "name."
+#~ msgstr ""
+#~ "Lütfen geçerli bir hesap adı, makine adı ve kullanıcı adı sağladığınızdan "
+#~ "emin olun."
+
+#~ msgid ""
+#~ "Please make sure to provide a valid account name, host name and "
+#~ "registration timeout."
+#~ msgstr ""
+#~ "Lütfen geçerli bir hesap adı, makine adı ve kayıt zaman aşımı süresi "
+#~ "belirttiğinizden emin olun."
+
+#~ msgid "Are you sure you want to delete account %s?"
+#~ msgstr "%s hesabını silmek istediğinizden emin misiniz?"
+
+#~ msgid "Realm/Domain:"
+#~ msgstr "Bölge/Alan:"
+
+#~ msgid "Protocol"
+#~ msgstr "İletişim kuralı"
+
+#~ msgid "_Default"
+#~ msgstr "Ö_ntanımlı"
+
+#~ msgid ""
+#~ "Another contact with the same speed dial already exists in your address "
+#~ "book:\n"
+#~ "\n"
+#~ "<b>Name</b>: %s\n"
+#~ "<b>URI</b>: %s\n"
+#~ "<b>Speed Dial</b>: %s\n"
+#~ msgstr ""
+#~ "Adres defterinizde aynı hızlı çevir ile başka bir bağlantı zaten mevcut:\n"
+#~ "\n"
+#~ "<b>İsim</b>: %s\n"
+#~ "<b>URI</b>: %s\n"
+#~ "<b>Hızlı Çevir</b>: %s\n"
+
+#~ msgid ""
+#~ "Another contact with similar information already exists in your address "
+#~ "book:\n"
+#~ "\n"
+#~ "<b>Name</b>: %s\n"
+#~ "<b>URI</b>: %s\n"
+#~ "<b>Speed Dial</b>: %s\n"
+#~ "\n"
+#~ "Do you still want to add the contact?"
+#~ msgstr ""
+#~ "Adres defterinizde benzer bilgilere sahip bir bağlantı zaten mevcut:\n"
+#~ "\n"
+#~ "<b>İsim</b>:·%s\n"
+#~ "<b>URI</b>:·%s\n"
+#~ "<b>Hızlı Çevir</b>:·%s\n"
+#~ "\n"
+#~ "Hala bağlantıyı eklemek istiyor musunuz?"
+
+#~ msgid "S"
+#~ msgstr "D"
+
+#~ msgid "Comment"
+#~ msgstr "Açıklama"
+
+#~ msgid "Software"
+#~ msgstr "Yazılım"
+
+#~ msgid "E-Mail"
+#~ msgstr "E-Posta"
+
+#~ msgid "Location"
+#~ msgstr "Konum"
+
+#~ msgid "Speed Dial"
+#~ msgstr "Hızlı Çevir"
+
+#~ msgid "Name contains"
+#~ msgstr "İsim içerir"
+
+#~ msgid "URI contains"
+#~ msgstr "URI içerir"
+
+#~ msgid "Belongs to category"
+#~ msgstr "Kategoriye ait"
+
+#~ msgid "Location contains"
+#~ msgstr "Konum içerir"
+
+#~ msgid "Error while fetching the user list from %s"
+#~ msgstr "%s üzerinden kullanıcı listesi alınırken hata"
+
+#~ msgid "Found %d user in %s"
+#~ msgid_plural "Found %d users in %s"
+#~ msgstr[0] "%2$s içinde %1$d kullanıcı bulundu"
+#~ msgstr[1] "%2$s içinde %1$d kullanıcı bulundu"
+
+#~ msgid "Found %d user in %s for a total of %d users"
+#~ msgid_plural "Found %d users in %s for a total of %d users"
+#~ msgstr[0] "%2$s içinde toplam %3$d kullanıcı içinden %1$d kullanıcı bulundu"
+#~ msgstr[1] "%2$s içinde toplam %3$d kullanıcı içinden %1$d kullanıcı bulundu"
+
+#~ msgid "_Copy URI to Clipboard"
+#~ msgstr "URI'yi Panoya _Kopyala"
+
+#~ msgid "_Write e-Mail"
+#~ msgstr "E-posta _Yaz"
+
+#~ msgid "Add Contact to _Address Book"
+#~ msgstr "_Adres Defterine Bağlantı Ekle"
+
+#~ msgid "New _Address Book"
+#~ msgstr "Yeni _Adres Defteri"
+
+#~ msgid "Local Contacts"
+#~ msgstr "Yerel Bağlantılar"
+
+#~ msgid "Email:"
+#~ msgstr "E-posta:"
+
+#~ msgid "Speed Dial:"
+#~ msgstr "Hızlı Çevir:"
+
+#~ msgid "Categories:"
+#~ msgstr "Kategoriler:"
+
+#~ msgid "Local Addressbook:"
+#~ msgstr "Yerel Adres Defteri:"
+
+#~ msgid ""
+#~ "Please make sure to provide at least a full name or an URI for the "
+#~ "contact."
+#~ msgstr ""
+#~ "Lütfen bağlantı için en azından bir tam isim ya da bir URI "
+#~ "belirttiğinizden emin olun."
+
+#~ msgid "Edit an address book"
+#~ msgstr "Adres defteri düzenle"
+
+#~ msgid "Type:"
+#~ msgstr "Tür:"
+
+#~ msgid "Local"
+#~ msgstr "Yerel"
+
+#~ msgid "Remote LDAP"
+#~ msgstr "Uzaktaki LDAP"
+
+#~ msgid "Remote ILS"
+#~ msgstr "Uzaktaki ILS"
+
+#~ msgid "Search Scope:"
+#~ msgstr "Arama Kapsamı:"
+
+#~ msgid "Please make sure you fill in all required fields."
+#~ msgstr "Lütfen gerekli tüm alanların doldurulduğundan emin olun."
+
+#~ msgid "Are you sure you want to delete %s and all its contacts?"
+#~ msgstr "%s ve tüm bağlantılarını silmek istediğinizden emin misiniz?"
+
+#~ msgid "Disconnecting..."
+#~ msgstr "Bağlantı kesiliyor..."
+
+#~ msgid "Type"
+#~ msgstr "Tür"
+
+#~ msgid "Date"
+#~ msgstr "Tarih"
+
+#~ msgid "Duration"
+#~ msgstr "Süre"
+
+#~ msgid "Hang _up"
+#~ msgstr "A_skıya al"
+
+#~ msgid "Call this user"
+#~ msgstr "Kullanıcıyı ara"
+
+#~ msgid "_Open URL"
+#~ msgstr "URL'yi _Aç"
+
+#~ msgid "_Copy URL to Clipboard"
+#~ msgstr "URL'yi Panoya _Kopyala"
+
+#~ msgid "You"
+#~ msgstr "Siz"
+
+#~ msgid "New Remote User"
+#~ msgstr "Yeni Uzaktaki Kullanıcı"
+
+#~ msgid "Changing this setting will only affect new calls"
+#~ msgstr "Bu ayarı değiştirmek sadece yeni çağrıları etkileyecektir"
+
+#~ msgid ""
+#~ "Ekiga cannot apply one or more changes to the current call. Your new "
+#~ "settings will take effect for the next call."
+#~ msgstr ""
+#~ "Ekiga bir ya da daha fazla değişikliği şimdiki aramaya uygulayamıyor. "
+#~ "Yeni ayarlarınız bir sonraki aramada etkili olacak."
+
+#~ msgid "H.245 Tunneling disabled"
+#~ msgstr "H.245 Tünelleme kapatıldı"
+
+#~ msgid "H.245 Tunneling enabled"
+#~ msgstr "H.245 Tünelleme etkinleştirildi"
+
+#~ msgid "Early H.245 disabled"
+#~ msgstr "Erken H.245 kapatıldı"
+
+#~ msgid "Early H.245 enabled"
+#~ msgstr "Erken H.245 etkinleştirildi"
+
+#~ msgid "Fast Start disabled"
+#~ msgstr "Hızlı Başlat kapatıldı"
+
+#~ msgid "Fast Start enabled"
+#~ msgstr "Hızlı Başlat etkinleştirildi"
+
+#~ msgid "Enabled silence detection"
+#~ msgstr "Sessizlik algılayıcı etkinleştirildi"
+
+#~ msgid "Disabled silence detection"
+#~ msgstr "Sessizlik algılayıcı iptal edildi"
+
+#~ msgid "Enabled echo cancelation"
+#~ msgstr "Yankı giderme etkinleştirildi"
+
+#~ msgid "Edit Groups"
+#~ msgstr "Grupları Düzenle"
+
+#~ msgid "More _Settings"
+#~ msgstr "Daha Fazla _Ayar"
+
+#~ msgid ""
+#~ "Please make sure to provide at least a full name and an URI for the "
+#~ "contact."
+#~ msgstr ""
+#~ "Lütfen bağlantı için en azından bir tam isim ya da bir URI "
+#~ "belirttiğinizden emin olun."
+
+#~ msgid "Personal Information - page %d/%d"
+#~ msgstr "Kişisel Bilgi - sayfa %d/%d"
+
+#~ msgid "NAT Type - page %d/%d"
+#~ msgstr "NAT Türü - sayfa %d/%d"
+
+#~ msgid "Click here to detect your NAT Type:"
+#~ msgstr "NAT türünüzü tespit etmek için tıklayın:"
+
+#~ msgid "Detect NAT Type"
+#~ msgstr "NAT Türünü Tespit Et"
+
+#~ msgid ""
+#~ "The NAT type detection will permit to assist you in configuring your NAT "
+#~ "router to be able to do calls with Ekiga."
+#~ msgstr ""
+#~ "NAT türü tespiti Ekiga ile görüşme yapabilmeniz için NAT yönelticinizi "
+#~ "ayarlamanızda size yardımcı olacaktır."
+
+#~ msgid "Audio Manager - page %d/%d"
+#~ msgstr "Ses Yöneticisi - sayfa %d/%d"
+
+#~ msgid "Please choose your audio manager:"
+#~ msgstr "Lütfen ses yöneticisini seçiniz:"
+
+#~ msgid ""
+#~ "The audio manager is the plugin that will manage your audio devices. "
+#~ "WindowsMultimedia is probably the best choice when available."
+#~ msgstr ""
+#~ "Ses yöneticisi ses aygıtlarınızı yöneten bir eklentidir. Kullanılabilir "
+#~ "olduğunda WindowsMultimedia muhtemelen en iyi seçimdir."
+
+#~ msgid ""
+#~ "The audio manager is the plugin that will manage your audio devices. ALSA "
+#~ "is probably the best choice when available."
+#~ msgstr ""
+#~ "Ses yöneticisi ses aygıtlarınızı yöneten bir eklentidir. Kullanılabilir "
+#~ "olduğunda ALSA muhtemelen en iyi seçenektir."
+
+#~ msgid "Audio Devices - page %d/%d"
+#~ msgstr "Ses Aygıtları - sayfa %d/%d"
+
+#~ msgid "Test Settings"
+#~ msgstr "Ayarları Test Et"
+
+#~ msgid "Video Manager - page %d/%d"
+#~ msgstr "Video Yöneticisi - sayfa %d/%d"
+
+#~ msgid "Please choose your video manager:"
+#~ msgstr "Lütfen video yöneticinizi seçiniz:"
+
+#~ msgid ""
+#~ "The video manager is the plugin that will manage your video devices, "
+#~ "Video4Linux is the most common choice if you own a webcam."
+#~ msgstr ""
+#~ "Video yöneticisi video aygıtlarınızı yönetecek olan video göstericidir, "
+#~ "eğer bir web kamera sahibiyseniz Video4Linux en çok tercih edilendir."
+
+#~ msgid "Video Devices - page %d/%d"
+#~ msgstr "Video Aygıtları - sayfa %d/%d"
+
+#~ msgid "xDSL/Cable"
+#~ msgstr "xDSL/Kablo"
+
+#~ msgid ""
+#~ "You have now finished the Ekiga configuration. All the settings can be "
+#~ "changed in the Ekiga preferences. Enjoy!\n"
+#~ "\n"
+#~ "\n"
+#~ "Configuration summary:\n"
+#~ "\n"
+#~ "Username: %s\n"
+#~ "Connection type: %s\n"
+#~ "Audio manager: %s\n"
+#~ "Audio player: %s\n"
+#~ "Audio recorder: %s\n"
+#~ "Video manager: %s\n"
+#~ "Video input: %s\n"
+#~ "SIP URI: %s\n"
+#~ msgstr ""
+#~ "Ekiga yapılandırmasını bitirdiniz. Tüm ayarlar Ekiga tercihlerinden "
+#~ "değiştirilebilir. İyi eğlenceler!\n"
+#~ "\n"
+#~ "\n"
+#~ "Yapılandırma özeti:\n"
+#~ "\n"
+#~ "Kullanıcı adı:  %s\n"
+#~ "Bağlantı türü:  %s\n"
+#~ "Ses yöneticisi:  %s\n"
+#~ "Ses çalıcısı:  %s\n"
+#~ "Ses kaydedicisi:  %s\n"
+#~ "Görüntü yöneticisi: %s\n"
+#~ "Görüntü girişi: %s\n"
+#~ "SIP URI: %s\n"
+
+#~ msgid "General History"
+#~ msgstr "Genel Geçmiş"
+
+#~ msgid "New Contact"
+#~ msgstr "Yeni Bağlantı"
+
+#~ msgid "Open text chat"
+#~ msgstr "Yazılı sohbeti aç"
+
+#~ msgid "C_all"
+#~ msgstr "_Ara"
+
+#~ msgid "Display a popup to accept the call"
+#~ msgstr "Aramayı kabul etmek için kendiliğinden açılan bir pencere aç"
+
+#~ msgid "Aut_o Answer"
+#~ msgstr "_Otomatik Cevapla"
+
+#~ msgid "Auto answer calls"
+#~ msgstr "Aramaları kendiliğinden yanıtla"
+
+#~ msgid "Reject calls"
+#~ msgstr "Aramaları reddet"
+
+#~ msgid "_Forward"
+#~ msgstr "_Yönlendir"
+
+#~ msgid "Forward calls"
+#~ msgstr "Aramaları yönlendir"
+
+#~ msgid "Speed dials"
+#~ msgstr "Hızlı çevir"
+
+#~ msgid "Save a snapshot of the current video"
+#~ msgstr "Geçerli videonun bir resmini al"
+
+#~ msgid "Panel"
+#~ msgstr "Panel"
+
+#~ msgid "Calls _History"
+#~ msgstr "Arama _Geçmişi"
+
+#~ msgid "View the call information"
+#~ msgstr "Arama bilgisini göster"
+
+#~ msgid "Both (Both in New Windows)"
+#~ msgstr "Her İkisi (Her İkisi de Yeni Pencerede)"
+
+#~ msgid "_Tools"
+#~ msgstr "Araç_lar"
+
+#~ msgid "C_hat Window"
+#~ msgstr "So_hbet Penceresi"
+
+#~ msgid "Open the chat window"
+#~ msgstr "Sohbet penceresini aç"
+
+#~ msgid "View the operations history"
+#~ msgstr "İşlem geçmişini göster"
+
+#~ msgid "PC-To-Phone Account"
+#~ msgstr "PC-Den-Telefona Hesabı"
+
+#~ msgid "Manage your PC-To-Phone account"
+#~ msgstr "PC-Den-Telefona hesabını yönet"
+
+#~ msgid "Notification area not detected"
+#~ msgstr "Uyarı alanı algılanamadı"
+
+#~ msgid ""
+#~ "The notification area is not present in your panel, so Ekiga cannot start "
+#~ "hidden."
+#~ msgstr ""
+#~ "Panelinizde uyarı alanı bulunmuyor, bu yüzden Ekiga gizli olarak "
+#~ "başlatılamaz."
+
+#~ msgid "Sent DTMF %c"
+#~ msgstr "DTMF %c gönder"
+
+#~ msgid "Missed calls: %d - Voice Mails: %s"
+#~ msgstr "Cevapsız aramalar: %d - Sesli Postalar: %s"
+
+#~ msgid "Sur_name:"
+#~ msgstr "_Soyad:"
+
+#~ msgid "Enter your surname"
+#~ msgstr "Soyadınızı giriniz"
+
+#~ msgid "E-_mail address:"
+#~ msgstr "E-_posta adresi:"
+
+#~ msgid "Enter your e-mail address"
+#~ msgstr "E-posta adresinizi giriniz"
+
+#~ msgid "_Comment:"
+#~ msgstr "Açı_klama:"
+
+#~ msgid "Enter a comment about yourself"
+#~ msgstr "Kendinizle ilgili açıklama giriniz"
+
+#~ msgid "Enter your country or city"
+#~ msgstr "Ülkenizi veya şehrinizi giriniz"
+
+#~ msgid "_Apply"
+#~ msgstr "_Uygula"
+
+#~ msgid ""
+#~ "Click here to update the users directory you are registered to with the "
+#~ "new First Name, Last Name, E-Mail, Comment and Location"
+#~ msgstr ""
+#~ "Yeni Ad, Soyad, E-posta, Açıklama ve Konum bilgileri ile kayıt olduğunuz "
+#~ "kullanıcı dizinini güncellemek için buraya tıklayınız"
+
+#~ msgid "Ekiga GUI"
+#~ msgstr "Ekiga GUI"
+
+#~ msgid "Users directory:"
+#~ msgstr "Kullanıcı dizini:"
+
+#~ msgid "The users directory server to register with"
+#~ msgstr "Kayıt yapılacak olan kullanıcı dizini sunucusu"
+
+#~ msgid "Enable _registering"
+#~ msgstr "Kaydolmayı _etkinleştir"
+
+#~ msgid "If enabled, register with the selected users directory"
+#~ msgstr "Etkinleştirildiğinde, seçilen kullanıcı dizinine kayıt yapılır"
+
+#~ msgid "_Publish my details in the users directory when registering"
+#~ msgstr "Kaydolurken _bilgilerimi kullanıcı dizininde yayınla"
+
+#~ msgid ""
+#~ "If enabled, your details are shown to people browsing the users "
+#~ "directory. If disabled, you are not visible to users browsing the users "
+#~ "directory, but they can still use the callto URI to call you."
+#~ msgstr ""
+#~ "Etkinleştirildiğinde ayrıntılı bilgileriniz kullanıcı dizinine gözatan "
+#~ "kişilerce görülebilir. Kapatıldığında kullanıcı dizinine gözatan "
+#~ "kullanıcılar tarafındann görülemezsiniz, ancak callto URI'yi kullanarak "
+#~ "sizi arayabilirler."
+
+#~ msgid "Automatically _clear calls after 30 seconds of inactivity"
+#~ msgstr "30 saniye aktif olmayan aramaları kendiliğinden _temizle"
+
+#~ msgid "Alternative output device:"
+#~ msgstr "Alternatif çıkış aygıtı:"
+
+#~ msgid "Select an alternative audio output device to use for sound events"
+#~ msgstr ""
+#~ "Ses olayları için kullanılacak alternatif bir ses çıkış aygıtı seçin"
+
+#~ msgid "STUN"
+#~ msgstr "STUN"
+
+#~ msgid "IP Translation"
+#~ msgstr "IP Çevrimi"
+
+#~ msgid "Listen on:"
+#~ msgstr "Üzerinde dinle:"
+
+#~ msgid "NAT Traversal Method:"
+#~ msgstr "NAT Dönüşüm Yöntemi:"
+
+#~ msgid "STUN Se_rver:"
+#~ msgstr "STUN _Sunucusu:"
+
+#~ msgid "The STUN server to use for STUN Support."
+#~ msgstr "STUN Desteği için kullanılacak STUN sunucusu."
+
+#~ msgid "Click here to update your NAT settings"
+#~ msgstr "NAT ayarlarınızı güncellemek için buraya tıklayın"
+
+#~ msgid "Audio Plugin"
+#~ msgstr "Ses Eklentisi"
+
+#~ msgid "Audio plugin:"
+#~ msgstr "Ses eklentisi:"
+
+#~ msgid ""
+#~ "The audio plugin that will be used to detect the devices and manage them."
+#~ msgstr "Aygıtları bulmak ve yönetmek için kullanılacak ses eklentisi."
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Large"
+#~ msgstr "Büyük"
+
+#~ msgid "Video Plugin"
+#~ msgstr "Video Eklentisi"
+
+#~ msgid "Video plugin:"
+#~ msgstr "Video eklentisi:"
+
+#~ msgid ""
+#~ "Select the transmitted video size: Normal (QCIF 176x144) or Large (CIF "
+#~ "352x288)"
+#~ msgstr ""
+#~ "İletilen görüntü büyüklüğünü seçiniz: Normal (QCIF 176x144) ya da Büyük "
+#~ "(CIF 352x288)"
+
+#~ msgid "Choose a Picture"
+#~ msgstr "Resim Seç"
+
+#~ msgid "Preview"
+#~ msgstr "Önizleme"
+
+#~ msgid "Images"
+#~ msgstr "Görüntüler"
+
+#~ msgid "Available Audio Codecs"
+#~ msgstr "Kullanılabilir Ses Kodekleri"
+
+#~ msgid "Audio Codecs Settings"
+#~ msgstr "Ses Kodek Ayarları"
+
+#~ msgid "Automatically adjust _jitter buffer between"
+#~ msgstr "Stres _tamponunun kendiliğinden ayarlanacağı aralık"
+
+#~ msgid "and"
+#~ msgstr "ve"
+
+#~ msgid "ms"
+#~ msgstr "ms"
+
+#~ msgid "The minimum jitter buffer size for audio reception (in ms)."
+#~ msgstr "Ses alımı için en düşük stres tamponu büyüklüğü (ms olarak)."
+
+#~ msgid "Available Video Codecs"
+#~ msgstr "Kullanılabilir Video Kodekleri"
+
+#~ msgid "Video Codecs Settings"
+#~ msgstr "Video Kodek Ayarları"
+
+#~ msgid "Enable _video support"
+#~ msgstr "_Görüntü desteğini etkinleştir"
+
+#~ msgid "If enabled, allows video during calls."
+#~ msgstr ""
+#~ "Etkinleştirildiğinde, arama sırasında görüntü alınmasına izin verir."
+
+#~ msgid ""
+#~ "Choose if you want to favour speed or quality for the transmitted video."
+#~ msgstr ""
+#~ "Eğer iletilen videonun hız ya da kalitesini iyileştirmek istiyorsanız "
+#~ "tıklayın."
+
+#~ msgid "Directory Settings"
+#~ msgstr "Dizin Ayarları"
+
+#~ msgid "Network Settings"
+#~ msgstr "Ağ Ayarları"
+
+#~ msgid "Audio Codecs"
+#~ msgstr "Ses Kodekleri"
+
+#~ msgid "Video Codecs"
+#~ msgstr "Video Kodekleri"
+
+#~ msgid ""
+#~ "Please provide your username and password in order to be able to use the "
+#~ "PC-To-Phone service."
+#~ msgstr ""
+#~ "PC-Den-Telefona servisini kullanabilmek için lütfen bir kullanıcı adı ve "
+#~ "parolası belirtin."
+
+#~ msgid "PC-To-Phone Settings"
+#~ msgstr "PC-Den-Telefona Ayarları"
+
+#~ msgid "Account _number:"
+#~ msgstr "Hesap _numarası:"
+
+#~ msgid "Use PC-To-Phone service"
+#~ msgstr "PC-Den-Telefona servisini kullanın"
+
+#~ msgid ""
+#~ "Click on one of the following links to get more information about your "
+#~ "existing Ekiga PC-To-Phone account, or to create a new account."
+#~ msgstr ""
+#~ "Var olan Ekiga PC-Den-Telefona hesabınız hakkında daha fazla bilgi almak "
+#~ "ya da yeni bir hesap oluşturmak için takip eden bağlantılardan birine "
+#~ "tıklayın."

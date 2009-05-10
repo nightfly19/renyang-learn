@@ -1,0 +1,982 @@
+# translation of help.HEAD.po to Greek
+# translation of help.HEAD.po to
+msgid ""
+msgstr ""
+"Project-Id-Version: help.HEAD\n"
+"POT-Creation-Date: 2008-01-05 16:41+0000\n"
+"PO-Revision-Date: 2008-01-23 23:25+0200\n"
+"Last-Translator: NikosCharonitakis <nikosx@gmail.com>\n"
+"Language-Team: Greek <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Bookmarks: 23,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+
+#: C/ekiga.xml:12(title)
+msgid "<application>Ekiga</application> Manual 2.00"
+msgstr "Εγχειρίδιο 2.00 του <application>Ekiga</application>"
+
+#: C/ekiga.xml:14(year)
+msgid "2003-2006"
+msgstr "2003-2006"
+
+#: C/ekiga.xml:14(holder)
+#: C/ekiga.xml:31(para)
+#: C/ekiga.xml:37(publishername)
+msgid "Damien Sandras"
+msgstr "Damien Sandras"
+
+#: C/ekiga.xml:15(year)
+#: C/ekiga.xml:16(year)
+msgid "2003-2004"
+msgstr "2003-2004"
+
+#: C/ekiga.xml:15(holder)
+#: C/ekiga.xml:45(publishername)
+msgid "Matthias Redlich"
+msgstr "Matthias Redlich"
+
+#: C/ekiga.xml:16(holder)
+#: C/ekiga.xml:41(publishername)
+msgid "Christopher Warner"
+msgstr "Christopher Warner"
+
+#: C/ekiga.xml:28(revnumber)
+msgid "Ekiga Manual 2.0"
+msgstr "Εγχειρίδιο Ekiga 2.0"
+
+#: C/ekiga.xml:29(date)
+msgid "2006-01-22"
+msgstr "2006-01-22"
+
+#: C/ekiga.xml:38(email)
+msgid "dsandras@seconix.com"
+msgstr "dsandras@seconix.com"
+
+#: C/ekiga.xml:42(email)
+msgid "zanee@kernelcode.com"
+msgstr "zanee@kernelcode.com"
+
+#: C/ekiga.xml:46(email)
+msgid "m-redlich@t-online.de"
+msgstr "m-redlich@t-online.de"
+
+#: C/ekiga.xml:51(firstname)
+msgid "Damien"
+msgstr "Damien"
+
+#: C/ekiga.xml:52(surname)
+msgid "Sandras"
+msgstr "Sandras"
+
+#: C/ekiga.xml:55(firstname)
+msgid "Christopher"
+msgstr "Christopher"
+
+#: C/ekiga.xml:56(surname)
+msgid "Warner"
+msgstr "Warner"
+
+#: C/ekiga.xml:57(othername)
+msgid "zanee"
+msgstr "zanee"
+
+#: C/ekiga.xml:60(firstname)
+msgid "Matthias"
+msgstr "Matthias"
+
+#: C/ekiga.xml:61(surname)
+msgid "Redlich"
+msgstr "Redlich"
+
+#: C/ekiga.xml:65(releaseinfo)
+msgid "This documentation is for version 2.00 of Ekiga."
+msgstr "Η τεκμηρίωση αυτή αφορά στην έκδοση 2.00 του Ekiga."
+
+#: C/ekiga.xml:70(para)
+msgid "Ekiga is an application for voice over IP, IP telephony, and video conferencing, with support for many audio and video codecs."
+msgstr "Το Ekiga είναι μια εφαρμογή φωνης επί ΙΡ, τηλεφωνίας επί ΙΡ και συνεδριάσεων μέσω βίντεο, με υποστήριξη πολλών κωδικοποιητών ήχου (audio codecs) και βίντεο (video codecs)."
+
+#: C/ekiga.xml:76(primary)
+#: C/ekiga.xml:79(primary)
+#: C/ekiga.xml:82(primary)
+#: C/ekiga.xml:91(title)
+msgid "Ekiga"
+msgstr "Ekiga"
+
+#: C/ekiga.xml:89(title)
+msgid "Introduction"
+msgstr "Εισαγωγή"
+
+#: C/ekiga.xml:92(para)
+msgid "<application>Ekiga</application> is a free Voice over IP, IP Telephony and Video-Conferencing application for Linux and other Unices (e.g BSD, OpenSolaris or MacOSX). It was written by Damien Sandras and is licensed under the GNU/GPL."
+msgstr "Το <application>Ekiga</application> είναι μια εφαρμογή φωνής επί ΙΡ, τηλεφωνίας επί ΙΡ και βιντεο-συνεδριάσεων για το Linux και τα άλλα Unix-οειδή (π.χ. BSD, OpenSolaris ή MacOSX).  Γράφτηκε από τον Damien Sandras και ακολουθεί την άδεια GNU/GPL."
+
+#: C/ekiga.xml:95(para)
+msgid "Ekiga is able to use modern Voice over IP protocols like SIP, and H.323. It supports all major features defined by those protocols like <emphasis>call hold</emphasis>, <emphasis>call transfer</emphasis>, <emphasis>call forwarding</emphasis>, ... It also supports basic <emphasis>instant messaging</emphasis>, and has advanced support for <emphasis>NAT traversal</emphasis>. Ekiga supports the best <emphasis>free</emphasis> audio and video codecs, and has wideband support for a superior audio quality, together with echo cancellation."
+msgstr "Το Ekiga μπορεί να χρησιμοποιήσει σύγχρονα πρωτόκολλα φωνής επί ΙΡ όπως το SIP και το H.323.  Υποστηρίζει τα σπουδαιότερα χαρακτηριστικά που ορίζουν τα πρωτόκολλα αυτά όπως <emphasis>call hold</emphasis>, <emphasis>call transfer</emphasis>,  <emphasis>call forwarding</emphasis>.  Επίσης υποστηρίζει βασικό <emphasis>άμεσης επικοινωνίας</emphasis> (instan messaging) και διαθέτει εξελειγμένη υποστήριξη για μεταβάσεις μέσω ΝΑΤ (NAT traversal) .  Το Ekiga υποστηρίζει τους καλύτερους  <emphasis>δωρεάν</emphasis> κωδικοποιητές ήχου και βίντεο και έχει ευρυζωνική υποστήριξη ανώτερης ποιότητας ήχου, αλλά και καταστολή ηχούς (echo cancellation)."
+
+#: C/ekiga.xml:101(title)
+msgid "SIP and H.323"
+msgstr "SIP και H.323"
+
+#: C/ekiga.xml:102(para)
+msgid "The Session Initiation Protocol (SIP) is a protocol developed by the IETF MMUSIC Working Group and proposed standard for initiating, modifying, and terminating an interactive user session that involves multimedia elements such as video, voice, instant messaging, online games, and virtual reality. In November 2000, SIP was accepted as a 3GPP signaling protocol and permanent element of the IMS architecture. It is one of the leading signalling protocols for Voice over IP."
+msgstr "Πρωτόκολλο Έναρξης Συνόδου (Session Initiation Protocol--SIP) είναι ένα πρωτόκολο που αναπτύχθηκε από την Ομάδα Εργασίας IEFT MMUSIC και προτάθηκε ως ένα στάνταρντ για την έναρξη, την τροποποίηση και τερματισμό μια, διαδραστικής συνεδρίας χρήστη η οποία περιλαμβάνει στοιχεία πολυμέσων όπως βίντεο, φωνή, άμεση επικοινωνία, δικτυακά παιχνίδια και εικονική πραγματικότητα.  Τον Νοέμβριο του 2000 το SIP έγινε δεκτό ως πρωτόκολλο σηματοδότησης 3GPP και ως μόνιμο στοιχείο της αρχιτεκτονικής IMS.  Είναι ένα από τα ηγετικά πρωτόκολλα σηματοδότησης για την Φωνή επί ΙΡ."
+
+#: C/ekiga.xml:106(para)
+msgid "H.323 was originally created to provide a mechanism for transporting multimedia applications over LANs but it has rapidly evolved to address the growing needs of VoIP networks. One strength of H.323 was the relatively early availability of a set of standards, not only defining the basic call model, but in addition the supplementary services, needed to address business communication expectations. H.323 was the first VoIP standard to adopt the IETF standard RTP to transport audio and video over IP networks. H.323 is based on the ISDN Q.931 protocol and is suited for interworking scenarios between IP and ISDN, respectively between IP and QSIG. A call model, similar to the ISDN call model, eases the introduction of IP Telephony into existing networks of ISDN based PBX systems."
+msgstr "Το Η323 δημιουργήθηκε αρχικά ώστε να παράσχει ένα μηχανισμό για την μεταφορά εφαρμογών πολυμέσων μέσω Δικτύων Μεγάλης Περιοχής(LAN), αλλά γρήγορα εξελίχθηκε σε εργαλείο για τις αυξανόμενες ανάγκες των δικτύων VoIP.  Ένα ισχυρό χαρακτηριστικό του Η323 ήταν η σχετικά πρώιμη διάθεση ενός συνόλου προτύπων, που προσδιόριζαν όχι μόνο το βασικό μοντέλο κλήσης αλλά, επιπρόσθετα, τις συμπληρωματικές υπηρεσίες που χρειάζονταν για την ικανοποίηση των προσδοκιών των επιχειρηματικών επικοινωνιών.  Το Η323 ήταν το πρώτο πρότυπο VoIP που υιοθετούσε το πρότυπο IETF για την μεταφορά ήχου και βίντεο μέσω δικτύων ΙΡ.  Το Η323 βασίζεται στο πρωτόκολλο ISDN Q.931 και είναι κατάλληλο για αλληλεπιδραστικά σενάρια μεταξύ ΙΡ και ISDN και αντίστοιχα μεταξύ ΙΡ και QSIG.  Ένα μοντέλο κλήσης, όπως και ένα ISDN μοντέλο κλήσης, διευκολύνει την εισαγωγή Τηλεφωνίας ΙΡ μέσα σε υπάρχοντα δίκτυα ISDN που βασίζονται σε συστήματα PBX."
+
+#: C/ekiga.xml:116(title)
+msgid "Getting Started"
+msgstr "Ξεκινώντας"
+
+#: C/ekiga.xml:117(para)
+msgid "When starting <application>Ekiga</application> for the first time the configuration assistant will show automatically. The Configuration Assistant is a step-by-step questionnaire that will guide you through all the steps involved in creating the basic configuration you will need to operate <application>Ekiga</application>. You should go through all of these steps properly, otherwise the assistant will re-appear (when it has not been completed) or <application>Ekiga</application> will not function appropriately (if some of your answers have not been correct). You may run the Configuration Assistant at any time from the Edit menu."
+msgstr "Όταν εκκινείτε το <application>Ekiga</application> για πρώτη φορά ο βοηθός ρύθμισης θα εμφανισθεί αυτομάτως.  Ο Βοηθός Ρύθμισης είναι ένα ερωτηματολόγιο βήμα-βήμα που θα σας καθοδηγήσει σε όλα τα στάδια δημιουργίας των βασικών ρυθμίσεων που χρειάζονται για να δουλέψετε το <application>Ekiga</application>.  Θα πρέπει να περάσετε από όλα αυτά τα βήματα σωστά, ειδάλλως ο βοηθός θα επανεμφανίζεται (όταν δεν θα τον ολοκληρώνετε) ή το <application>Ekiga</application> δεν θα λειτουργεί σωστά (αν κάποια από τις απαντήσεις σας δεν είναι ορθές).  Μπορείτε να εκτελέσετε τον Βοηθό Ρύθμισης ανά πάσα στιγμή μέσω του μενού Επεξεργασία (Edit)."
+
+#: C/ekiga.xml:123(title)
+#: C/ekiga.xml:297(title)
+#: C/ekiga.xml:311(title)
+#: C/ekiga.xml:329(title)
+#: C/ekiga.xml:394(title)
+#: C/ekiga.xml:437(title)
+#: C/ekiga.xml:475(title)
+#: C/ekiga.xml:567(title)
+msgid "Tip"
+msgstr "Υπόδειξη"
+
+#: C/ekiga.xml:123(para)
+msgid "All settings can be changed via the preferences window at anytime."
+msgstr "Όλες οι ρυθμίσεις μπορούν να αλλάξουν οποτεδήποτε μέσω του παραθύρου των προτιμήσεων."
+
+#: C/ekiga.xml:126(title)
+msgid "Configuration Assistant Introduction"
+msgstr "Εισαγωγή στον βοηθό ρυθμίσεων"
+
+#: C/ekiga.xml:132(para)
+msgid "Throughout the entire configuration process navigation is available at the bottom of the window. You will be able to navigate through the questions using Back, Forward and Cancel. If you hit Cancel during the setup <application>Ekiga</application> will not be affected by your changes and all entered information will be discarded."
+msgstr "Καθόλη την διάρκεια της διαδικασίας ρυθμίσεων διατίθεται περιήγηση στο κατώτατο άκρο του παραθύρου.  Θα μπορείτε να διατρέξετε τις ερωτήσεις χρησιμοποιώντας πατώντας Πίσω, Μπροστά και Άκυρο.  Αν πατήσετε Άκυρο κατά την διάρκεια της ρύθμισης, το <application>Ekiga</application> δεν θα επηρεαστεί από τις αλλαγές που κάνατε και όσες πληροφορίες πληκτρολογήσατε θα ακυρωθούν."
+
+#: C/ekiga.xml:137(para)
+msgid "This page welcomes you to the Configuration Assistant. There is nothing to change or edit here. Press the 'Forward' button towards the bottom of the window to start the configuration."
+msgstr "Η σελίδα αυτή σας καλωσορίζει στον Βοηθό Ρυθμίσεων.  Δεν υπάρχει κάτι εδώ που να χρειάζεται αλλαγή ή σύνταξη.  Πατήστε το κουμπί \"Εμπρός\" που βρισκεται στο κάτω μέρος του παραθύρου για να ξεκινήσετε τις ρυθμίσεις."
+
+#: C/ekiga.xml:144(title)
+msgid "Personal information"
+msgstr "Προσωπικές πληροφορίες"
+
+#: C/ekiga.xml:150(para)
+msgid "The Personal Information window requires you to supply personal information to use <application>Ekiga</application>. This information is displayed when connecting to other audio/video applications."
+msgstr "Το παράθυρο Προσωπικών Πληροφοριών απαιτεί από εσάς να δώσετε προσωπικές πληροφορίες που θα χρησιμοποιηθούν από το <application>Ekiga</application>.  Οι πληροφορίες αυτές εμφανίζονται όταν συνδέεστε σε άλλες εφαρμογές ήχου/βίντεο."
+
+#: C/ekiga.xml:158(title)
+msgid "ekiga.net Account"
+msgstr "Λογαριασμός ekiga.net"
+
+#: C/ekiga.xml:164(para)
+msgid "ekiga.net is a free SIP services platform provided to <application>Ekiga</application> users. If you want to call other users and to be callable, you need a SIP address. You can get one from <ulink url=\"http://www.ekiga.net\" type=\"http\">http://www.ekiga.net</ulink>. ekiga.net also offers additional services like conference rooms, voice mail or online white pages. Please see <ulink url=\"http://www.ekiga.net\" type=\"http\">http://www.ekiga.net</ulink> for more information."
+msgstr "Το ekiga.net είναι μια πλατφόρμα ελεύθερων υπηρεσιών SIP που παρέχονται στους χρήστες του <application>Ekiga</application>  Αν επιθυμείτε να καλέσετε άλλους χρήστες και να σας καλούν άλλοι χρήστες, χρειάζεστε μια διεύθυνση SIP.  Μπορείτε να λάβετε μια τέτοια διεύθυνση από εδώ <ulink url=\"http://www.ekiga.net\" type=\"http\">http://www.ekiga.net</ulink>.  Το ekiga.net επίσης προσφέρει επιπρόσθετες υπηρεσίες όπως χώρους συνεδριάσεων (conference rooms), ηχητικά μηνύματα ή αλφαβητικούς καταλόγους στο διαδίκτυο.  Παρακαλούμε δείτε το  <ulink url=\"http://www.ekiga.net\" type=\"http\">http://www.ekiga.net</ulink> για περισσότερες πληροφορίες."
+
+#: C/ekiga.xml:170(para)
+msgid "Just follow the link given in the dialog to get an account if you do not have one, then fill in your username and password. Please press 'Forward' after having entered all required information to continue."
+msgstr "Απλώς ακολουθήστε τον σύνδεσμο που σας δίνει ο διάλογος για να λάβετε ένα λογαριασμός, αν δεν έχετε ήδη έναν, και έπειτα συμπληρώστε το όνομα χρήστη και τον κωδικό σας.  Παρακαλούμε πιέστε \"Εμπρός\" για να συνεχίσετε αφού εισάγετε όλες τις απαιτούμενες πληροφορίες."
+
+#: C/ekiga.xml:177(title)
+msgid "Connection Type"
+msgstr "Τύπος σύνδεσης"
+
+#: C/ekiga.xml:183(para)
+msgid "<application>Ekiga</application> supports several audio and video codecs. It includes codecs with excellent quality as well as codecs with medium to good quality. The higher the quality of a codec, the more bandwidth it requires. Moreover, video codecs can adapt their quality to the available bandwidth. This option is necessary in the initial configuration of <application>Ekiga</application> so that it chooses the optimal codec suited to your network connection and so that it adjusts the video quality settings. If your connection type is not mentioned in the list you should select the one closest to your network connection and adjust <application>Ekiga</application> manually with the preferences window (codecs section) later on."
+msgstr "Το <application>Ekiga</application> υποστηρίζει πολλούς κωδικοποιητές ήχου και βίντεο.  Περιλαμβάνει κωδικοποιητές εξαιρετικης ποιότητας καθώς και κωδικοποιητές μέσης προς καλής ποιότητας.  Όσο υψηλότερη είναι η ποιότητα του κωδικοποιητή, τόσο μεγαλύτερο εύρος ζώνης απαιτεί.  Επιπλέον, οι κωδικοποιητές βίντεο μπορούν να προσαρμόσουν την ποιότητά τους προς το διαθέσιμο εύρος ζώνης.  Αυτή η δυνατότητα επιλογής είναι απαραίτητη κατά την αρχική ρύθμιση του <application>Ekiga</application> ώστε να επιλέξει το βέλτιστο κωδικοποιητή, κατάλληλο για τον τύπο της σύνδεσης και να προσαρμόσει τις ρυθμίσεις ποιότητας του βίντεο.  Αν ο τύπος της σύνδεσής σας δεν αναφέρεται στον κατάλογο πρέπει να επιλέξετε τον πλησιέστερο προς την σύνδεσή σας τύπο και να ρυθμίσετε το <application>Ekiga</application> χειροκίνητα μέσω του παραθύρου των ρυθμίσεων (τμήμα κωδικοποιητών) αργότερα."
+
+#: C/ekiga.xml:190(title)
+msgid "NAT Type"
+msgstr "Τύπος ΝΑΤ"
+
+#: C/ekiga.xml:196(para)
+msgid "<application>Ekiga</application> has extended support for NAT. The NAT Type detection page will allow you to detect which type of NAT you are using (if any) and help configuring <application>Ekiga</application> appropriately. Clicking on the detection button will bring a popup indicating which type of NAT was detected and automatically configure <application>Ekiga</application> to transparently cross your router. In most of the cases, it will be totally transparent. Please refer to the <application>Ekiga</application><ulink url=\"http://www.ekiga.org\" type=\"http\">FAQ</ulink> for more information."
+msgstr "Το <application>Ekiga</application> έχει εκτεταμένη υποστήριξη για ΝΑΤ.  Η σελίδα εντοπισμού του Τύπου ΝΑΤ σας επιτρέπει να εντοπίσετε ποιόν τύπο ΝΑΤ χρησιμοποιείτε (αν χρησιμοποιείτε κάποιον) και θα σας βοηθήσει να ρυθμίσετε το <application>Ekiga</application> κατάλληλα.  Πατώντας το κουμπί εντοπισμού θα εμφανιστεί ένα αναδυόμενο παράθυρο που θα δείχνει ποιός τύπος ΝΑΤ εντοπίστηκε και θα ρυθμίσει αυτόματα το <application>Ekiga</application> ώστε να συνδεθεί με διαφάνεια με τον δρομολογητή σας.  Στις περισσότερες περιπτώσεις η σύνδεση θα είναι πλήρως διαφανής.  Παρακαλούμε διαβάστε αυτό <application>Ekiga</application><ulink url=\"http://www.ekiga.org\" type=\"http\">FAQ</ulink> για περισσότερες πληροφορίες."
+
+#: C/ekiga.xml:202(title)
+msgid "Audio Manager"
+msgstr "Διαχειριστής Ήχου"
+
+#: C/ekiga.xml:208(para)
+msgid "The Audio manager manages everything audio. It is dependant on the operating system on which <application>Ekiga</application> is running, and some operating systems offer different alternatives."
+msgstr "Ο διαχειριστής Ήχου διαχειρίζεται όλους τους ήχους.  Εξαρτάται από το λειτουργικό σύστημα στο οποίο εκτελείται το <application>Ekiga</application> και κάποια λειτουργικά συστήματα προσφέρουν εναλλακτικούς τρόπους."
+
+#: C/ekiga.xml:214(title)
+msgid "Audio Devices"
+msgstr "Συσκευές ήχου"
+
+#: C/ekiga.xml:220(para)
+msgid "<application>Ekiga</application> requires audio devices to play and record sound. The audio output device ouputs the incoming sound stream during a call. Please select the device that your headset or speakers are connected to. The audio input device is where your microphone is connected to. These settings might be the same as the settings for the audio player if you have only one soundcard. But please note that it is also possible to record sound via another device (e.g. internal microphone in a webcam) too. It is generally recommended that you test your settings after having selected all the appropriate devices. Please press the 'Test Settings' button on the right. If this test was successful you can continue on to the next page in the Configuration Assistant. Otherwise you should change your devices and test your configuration again until you have a setup that works for you."
+msgstr "Το <application>Ekiga</application> απαιτεί συσκευές ήχου για να αναπαράγει και καν εγγράψει ήχους.  Η συσκευή εξόδου ήχου παράγει το εισερχόμενο ρεύμα ήχου κατά την διάρκεια μιας κλήσης.  Παρακαλούμε επιλέξτε την συσκευή στην οποία συνδέονται τα ακουστικά ή τα ηχεία σας.  Η συσκευή εισόδου ήχου είναι εκείνη με την οποία συνδέεται το μικρόφωνό σας.  Οι ρυθμίσεις αυτές ίσως είναι οι ίδιες με εκείνες της εφαρμογής αναπαραγωγής ήχων, αν έχετε μόνο μια κάρτα ήχου.  Όμως σημειώστε ότι είναι επίσης εφικτό να εγγράψετε ήχους μέσω κάποιας άλλης συσκευής (π.χ. ενός εσωτερικού μικροφώνου σε μια webcam).  Γενικά, συνιστάται ο έλεγχος των ρυθμίσεών σας μετά την επιλογή όλων των κατάλληλων συσκευών.  Παρακαλούμε πιέστε το κουμπί \"Έλεγχος Ρυθμίσεων\" στα δεξιά.  Αν ο έλεγχος είναι επιτυχής μπορείτε να συνεχίσετε στην επόμενηη σελίδα του Βοηθου Ρυθμίσεων.  Αλλιώς πρέπει να αλλάξετε τις συσκευές σας να ελέγξετε και πάλι τις ρυθμίσεις σας μέχρις ότου να έχετε μια ρύθμιση που να λειτουργεί."
+
+#: C/ekiga.xml:230(title)
+msgid "Video Manager"
+msgstr "Διαχειριστής βίντεο"
+
+#: C/ekiga.xml:236(para)
+msgid "Please select the Video Manager from the list. It can be Video4Linux to manage webcams, or AVC / DC for Firewire cameras, or any other choice depending on the operating system on which <application>Ekiga</application> is running."
+msgstr "Παρακαλούμε επιλέξτε τον Διαχειριστή Βίντεο από την λίστα.  Αυτός μπορεί να είναι ο Video4Linux για τον έλεγχο της webcam ή ο AVC/DC για κάμερες Firewire, ή οποιαδήποτε άλλη επιλογή ανάλογα με το λειτουργικο σύστημα στο οποίο εκτελείται το <application>Ekiga</application>."
+
+#: C/ekiga.xml:242(title)
+msgid "Video Devices"
+msgstr "Συσκευές βίντεο"
+
+#: C/ekiga.xml:248(para)
+msgid "This step is optional and concerns users with video devices (e.g. webcams) only. If you do not have any video devices you may skip this page."
+msgstr "Το βήμα αυτό είναι προεραιτικό και σχετίζεται μόνο με συσκευές βίντεο (π.χ. μια webcam).  Αν δεν έχετε κάποια συσκευή βίντεο μπορείτε να προσπεράσετε αυτή τη σελίδα."
+
+#: C/ekiga.xml:252(para)
+msgid "If you have a webcam or video device in the list you may select it here."
+msgstr "Αν έχετε κάποια webcam ή συσκευή βίντεο της λίστας μπορείτε να την επιλέξετε απο εδώ."
+
+#: C/ekiga.xml:254(para)
+msgid "Please hit the \"Test Settings\" button to ensure that your device works with <application>Ekiga</application>, if so, continue on with the Configuration."
+msgstr "Παρακαλούμε πατήστε το κουμπι \"Έλεγχος Ρυθμίσεων\" για να βεβαιωθείτε ότι η συσκευή σας δουλεύει με το <application>Ekiga</application>.  Αν η συσκευή δουλεύει, συνεχίστε με την Ρύθμιση."
+
+#: C/ekiga.xml:260(title)
+msgid "Configuration Complete"
+msgstr "Η ρύθμιση ολοκληρώθηκε"
+
+#: C/ekiga.xml:266(para)
+msgid "The configuration of <application>Ekiga</application> is now completed. The last window only shows a short configuration summary of the settings you have chosen. Please verify that all these settings are correct. If something is incorrect you may use the 'Back' button in the lower right hand corner of the window to move to any page of the assistant and correct the mistake."
+msgstr "Η ρύθμιση του <application>Ekiga</application> ολοκληρώθηκε.  Το τελευταίο παράθυρο δείχνει απλώς μια μικρή περίληψη των ρυθμίσεων που επιλέξατε.  Παρακαλούμε βεβαιωθείτε ότι όλες αυτές οι ρυθμίσεις είναι σωστές.  Αν κάτι δεν είναι σωστό μπορείτε να χρησιμοποιήσετε το πλήκτρο \"Πίσω\" στην κάτω δεξιά γωνία του παραθύρου για να μεταβείτε σε οποιαδήποτε σελίδα του Βοηθού και διορθώσετε τα λάθη."
+
+#: C/ekiga.xml:270(para)
+msgid "If everything is correct please press the 'Apply' button to save the configuration. The assistant will be closed and the main Window of <application>Ekiga</application> will now appear. Remember, all settings can be changed via the preferences window at anytime."
+msgstr "Αν όλα είναι σωστά, παρακαλούμε πατήστε το πλήκτρο \"Εφαρμογή\" για να αποθηκεύσετε τις ρυθμίσεις.  Ο βοηθός θα κλείσει και θα εμφανισθεί το κυρίως παράθυρο του <application>Ekiga</application>.  Να θυμάστε ότι, όλες οι ρυθμίσεις μπορούν να αλλαχθούν μέσω του παραθύρου των προτιμήσεων ανά πάσα στιγμή το θελήσετε."
+
+#: C/ekiga.xml:281(title)
+msgid "Basic Usage"
+msgstr "Βασική χρήση"
+
+#: C/ekiga.xml:284(title)
+msgid "Calling and being called"
+msgstr "Κλήση από και προς εσάς"
+
+#: C/ekiga.xml:288(title)
+msgid "From computer to computer (PC-To-PC)"
+msgstr "Από υπολογιστή σε υπολογιστή (PC-To-PC)"
+
+#: C/ekiga.xml:289(para)
+msgid "If you want to call other users and to be callable, you need a SIP address. You can get a SIP address from <ulink url=\"http://www.ekiga.net\" type=\"http\">http://www.ekiga.net</ulink> as described above."
+msgstr "Αν επιθυμείτε να καλέσετε άλλους χρήστες και να σας καλούν, θα χρειαστείτε μια διεύθυνση SIP.  Μπορείτε να λάβετε μια διεύθυνση SIP από <ulink url=\"http://www.ekiga.net\" type=\"http\">http://www.ekiga.net</ulink> όπως περιγράψαμε παραπάνω."
+
+#: C/ekiga.xml:291(para)
+msgid "The SIP address can be used by other users to call you. Similarly, you can use the SIP address of your friends and family to call them. You can for example use <emphasis>sip:dsandras@ekiga.net</emphasis> to call the author of Ekiga."
+msgstr "Η διεύθυνση SIP μπορεί να χρησιμοποιηθεί από άλλους χρήστες για να σας καλέσουν.  Παρομοίως, μπορείτε να χρησιμοποιήσετε την διεύθυνση SIP των φίλων σας και της οικογένειάς σας για να τους καλέσεε.  Για παράδειγμα, μπορείτε να χρησιμοποιήσετε το <emphasis>sip:dsandras@ekiga.net</emphasis> για να καλέσετε τον δημιουργό του Ekiga."
+
+#: C/ekiga.xml:293(para)
+msgid "You can use the online address book of <application>Ekiga</application> to find the SIP addresses of other <application>Ekiga</application> users. It is of course possible to call users who are using another provider than ekiga.net. You can actually call any user using SIP software or hardware, and registered to any public SIP provider"
+msgstr "Μπορείτε να χρησιμοποιήσετε το ηλεκτρονικό βιβλίο διευθύνσεων του <application>Ekiga</application> για να βρείτε τις SIP διευθύνσεις άλλων χρηστών του <application>Ekiga</application>.  Φυσικά, μπορείτε να καλέσετε χρήστες οι οποίοι χρησιμοποιούν άλλον παροχέα υπηρεσιών από το ekiga.net.  Μπορείτε να καλέσετε οποιονδήποτε χρήστη χρησιμοποιεί λογισμικό ή μηχάνημα που υποστηρίζει SIP και είναι εγγεγραμμένο σε κάποιον δημόσιο παροχέα SIP"
+
+#: C/ekiga.xml:295(para)
+msgid "If you know the URI address of the party that you wish to call, you may enter that URI into the sip: input box at the top of the screen and press the Connect button; eg: sip:foo@ekiga.net and pressing the Connect button would call the user at that address. With the default setup, you can simply type sip:foo to call user foo@ekiga.net."
+msgstr "Αν γνωρίζετε την διεύθυνση URI του χρήστη που επιθυμείτε να καλέσετε, μπορείτε να εισάγετε την διεύθυνση URI στο πεδίο εισαγωγής SIP που βρίσκεται στην κορυφή της οθόνης και να πατήσετε το κουμπί Σύνδεση · για παράδειγμα,πληκτρολογώντας sip:foo@ekiga.net και πατώντας το κουμπί Σύνδεση θα καλέσετε τον χρήστη αυτής της διεύθυνσης.  Με τις προεπιλεγμένες ρυθμίσεις ως έχουν, μπορείτε απλώς αν γράψετε sip:foo για να καλέσετε τον χρήστη foo@ekiga.net."
+
+#: C/ekiga.xml:297(para)
+msgid "<application>Ekiga</application> also supports H.323 and as such can call any H.323 software or hardware. Please refer to the section related to URIs to learn more about the various types of URIs that can be used to call remote H.323 and SIP users."
+msgstr "Επίσης, το <application>Ekiga</application> υποστηρίζει το Η323 και έτσι μπορεί να καλέσει οποιοδήποτε μηχάνημα ή λογισμικό που υποστηρίζει Η323.  Παρακαλούμε διαβάστε το τμήμα που αναφέρετε στο πρότυπο URI αν θέλετε να μάθετε περισσότερα για τους διαφόρους τύπους URI που μπορούν να χρησιμοποιηθούν για κλήσεις απομακρυσμένων χρηστών Η323 και SIP."
+
+#: C/ekiga.xml:300(title)
+msgid "From computer to real phones (PC-To-Phone)"
+msgstr "Από υπολογιστή προς πραγματικά τηλέφωνα (PC-To-Phone)"
+
+#: C/ekiga.xml:301(para)
+msgid "<application>Ekiga</application> can be used with several Internet Telephony Service Providers. Those providers will allow calling real phones from your computer using <application>Ekiga</application> at interesting rates. We are recommending you to use the default <application>Ekiga</application> provider."
+msgstr "Το <application>Ekiga</application> μπορεί να χρησιμοποιηθεί με πολλούς Παροχείς Τηλεφωνικών Υπηρεσιών Διαδικτύου.  Οι παροχείς αυτοί επιτρέπουν να καλείτε συνηθισμένα τηλέφωνα από τον υπολογιστή σας χρησιμοποιώντας το <application>Ekiga</application> σε συμφέρουσες τιμές.  Συνιστούμε να χρησιμοποιήσετε τον προεπιλεγμένο παροχέα <application>Ekiga</application>."
+
+#: C/ekiga.xml:303(para)
+msgid "If you want to create an account and use it to call your friends and family using regular phones at interesting rates, simply go in the Tools menu, and select the \"PC-To-Phone Account\" menu item. A dialog will appear allowing you to create an account using the \"Get an Ekiga PC-to-Phone account\". Once the account has been created, you will receive a login and a password by e-mail. Simply enter them in the dialog, enable \"Use PC-To-Phone service\", and you are ready to call regular phones using <application>Ekiga</application>"
+msgstr "Αν επιθυμείτε να δημιουργήσετε ένα λογαριασμό ώστε να τον χρησιμοποιείτε για να καλείτε τους φίλους και την οικογένειά σας μέσω συνηθισμένων τηλεφώνων σε συμφέρουσες τιμές, απλώς ανοίξτε το μενού Εργαλεία και επιλέξτε την εντολή \"Λογαριασμός PC-Προς-Τηλέφωνο\".  Θα εμφανιστεί ένας διάλογος με τον οποίο θα δημιουργήσετε ένα λογαριασμό χρησιμοποιώντας το \"Δημιουργήστε Λογαριασμό PC-Προς-Τηλέφωνο\".  Μόλις δημιουργηθεί ο λογαριασμός θα σας σταλεί μέσω ηλεκτρονικού ταχυδρομείου ένα όνομα χρήστη κι ένας κωδικός.  Απλώς εισάγετε αυτά τα δύο στον διάλογο, ενεργοποιήστε την επιλογή \"Χρήση της Υπηρεσίας PC-Προς-Τηλέφωνο\" και θα μπορείτε να καλείτε συνήθη τηλέφωνα μέσω του <application>Ekiga</application>"
+
+#: C/ekiga.xml:305(para)
+msgid "With the default setup, you can simply use sip:003210444555 to call the real phone number 003210444555, 00 is the international dialing code, 32 is the country code, 10444555 is the number to call."
+msgstr "Αφήνοντας τις προεγκατεστημένες ρυθμίσεις ως έχουν μπορείτε να γράψετε απλώς τον sip:003210444555 για να καλέσετε τον τηλεφωνικό αριθμό 003210444555.  00 είναι ο διεθνής κώδικας κλήσης, 32 είναι ο κωδικός χώρας και 10444555 είναι ο καλούμενος τηλεφωνικός αριθμός."
+
+#: C/ekiga.xml:308(title)
+msgid "From real phone to computer (Phone-To-PC)"
+msgstr "Από τηλέφωνο προς υπολογιστή (Phone-To-PC)"
+
+#: C/ekiga.xml:309(para)
+msgid "<application>Ekiga</application> can be used to receive incoming calls from regular phones. To allow this, you can simply login to your PC-To-Phone account using the Tools menu as described above, and buy a phone number in the country of your choice. <application>Ekiga</application> will ring when people will call that phone number."
+msgstr "Το <application>Ekiga</application> μπορεί να χρησιμοποιηθεί για να λαμβάνετε εισερχόμενες κλήσεις από συνήθεις τηλεφωνικές συσκευές.  Για να γίνει αυτό, συνδεθείτε στον λογαριασμός σας PC-Προς-Τηλέφωνο μέσω του μενού Εργαλεία όπως περιγράφεται παραπάνω και αγοράστε έναν τηλεφωνικό αριθμό στην χώρα της επιλογής σας.  Το <application>Ekiga</application> θα ηχήσει όταν άλλοι χρήστες θα καλέσουν τον τηλεφωνικό αριθμό."
+
+#: C/ekiga.xml:311(para)
+msgid "You can actually use any H.323 or SIP ITSP provider, including your own PBX at work. However we recommend using the integrated provider."
+msgstr "Μπορείτε να χρησιμοποιήσετε οποιονδήποτε παροχέα Η323 ή SIP ITSP, συμπεριλαμβανομένου και του δικού σας PBX στην εργασία σας.  Όμως, προτείνουμε την χρήση του ολοκληρωμένου παροχέα."
+
+#: C/ekiga.xml:317(title)
+msgid "Sending instant messages"
+msgstr "Αποστολή άμεσων μηνυμάτων"
+
+#: C/ekiga.xml:321(para)
+msgid "<application>Ekiga</application> allows you to send instant messages to remote users provided that you know their URI. You can by opening the chat window by selecting Tools -&gt; Chat Window. To send a text message to an user, simply enter his SIP address in the URI field, enter your text message, and click on Send. You can later decide to call that user by clicking on Call User."
+msgstr "Το <application>Ekiga</application> σας επιτρέπει να στέλνετε άμεσα μηνύματα σε απομακρυσμένους χρήστες, με την προϋπόθεση ότι γνωρίζετε τα URI τους.  Το κάνετε αυτό ανοίγοντας το παράθυρο συζητήσεων επιλέγοντας Εργαλεία -&gt; Παράθυρο Συζητήσεων.  Για να στείλετε ένα μήνυμα κειμένου σε κάποιον χρήστη απλώς εισάγετε την SIP διεύθυνσή του στο πεδίο URI, να γράψετε το μήνυμα κειμένου και να πατήσετε στο Αποστολή.  Μπορείτε αργότερα να καλέσετε τον χρήστη αυτόν πατώντας το Κλήση Χρήστη."
+
+#: C/ekiga.xml:325(para)
+msgid "You can also use the white pages described later to send instant messages to online users. To do this, simply highlight an user, and select Contact -&gt; Send Message. The chat window will appear and allow you to do a conversation with the selected remote user."
+msgstr "Μπορείτε επίσης να χρησιμοποιήσετε τους ονομαστικούς καταλόγους που περιγράψαμε παραπάνω για να στείλετε άμεσα μηνύματα σε συνδεδεμένους χρήστες.  Για να το κάνετε αυτό, απλώς επιλέξτε ένα χρήστη και μετά πατήστε Επαφή -&gt; Αποστολή Μηνύματος.  Θα εμφανιστεί το παράθυρο συζητήσεων που θα σας επιτρέψει να ξεκινήσετε μια συζήτηση με τον επιλεγμένο απομακρυσμένο χρήστη."
+
+#: C/ekiga.xml:329(para)
+msgid "You can also exchanges text messages with H.323 <application>Ekiga</application> users, but only while being in a call. To do this, simply click on the new tab icon, and a new tab will automatically be created allowing a conversation with the user you are in a call with."
+msgstr "Μπορείτε επίσης να ανταλλάξετε μηνύματα κειμένου με άλλους χρήστες του <application>Ekiga</application>, αλλά μόνο κατά την διάρκεια μιας κλήσης με κάποιον χρήστη.  Για να το κάνετε αυτό απλώς πατήστε στο εικονίδιο νέας καρτέλας και αυτομάτως θα δημιουργηθεί μια νέα καρτέλα που θα σας επιτρέψει μια συζήτηση με τον χρήστη τον οποίο έχετε καλέσει."
+
+#: C/ekiga.xml:334(title)
+msgid "Managing Calls"
+msgstr "Διαχείριση κλήσεων"
+
+#: C/ekiga.xml:336(title)
+msgid "Understanding the statistics"
+msgstr "Η κατανόηση των στατιστικών"
+
+#: C/ekiga.xml:340(para)
+msgid "To view the statistics, please select the Statistics tab in the control panel."
+msgstr "Για να δείτε τις στατιστικές, επιλέξτε την καρτέλα Στατιστικές στον πίνακα ελέγχου."
+
+#: C/ekiga.xml:342(para)
+msgid "The statistic visualizes the network traffic caused by <application>Ekiga</application>. It draws a graph for each RTP stream. This means that - if audio and video are enabled in <application>Ekiga</application> and the client of the remote party - you will see four different graphs. (incoming audio stream, incoming video stream, outgoing audio stream, outgoing video stream)"
+msgstr "Τα στατιστικά αναπαριστούν την κίνηση του δικτύου σας που προκαλεί το <application>Ekiga</application>.  Σχεδιάζει γραφικές παραστάσεις για κάθε ρεύμα RTP.  Αυτό σημαίνει ότι--αν είναι ενεργποιημένα ο ήχος και το βίντεο στο <application>Ekiga</application> και στην εφαρμογή του απομακρυσμένου χρήστη--θα δείτε τέσσερα διαφορετικά γραφήματα (εισερχόμενο ρεύμα ήχου, εισερχόμενο ρεύμα βίντεο, εξερχόμενο ρεύμα ήχου, εξερχόμενο ρεύμα βίντεο)"
+
+#: C/ekiga.xml:346(para)
+msgid "Lost packets: The percentage of lost packets, ie of packets from the remote user that you did not receive. A too high packets loss during the reception can result in voice and/or video distortion and is usually caused by a bad network provider or by settings requiring much bandwidth."
+msgstr "Απωλεσθέντα πακέτα: Η επί τοις εκατό απώλεια πακέτων, δηλαδή δεδομένων από τον απομακρυσμένο χρήστη τα οποία δεν λάβατε.  Μια πολύ υψηλή απώλεια πακέτων κατά την διάρκεια της λήψης έχει σαν αποτέλεσμα την διαταραχή του ήχου ή/και της εικόνας και συνήθως προκαλείται από έναν κακό παροχέα δικτύου ή από ρυθμίσεις που απαιτούν μεγάλο εύρος ζώνης."
+
+#: C/ekiga.xml:350(para)
+msgid "Late packets: The percentage of late packets, ie of packets from the remote user that you received but too late to be taken into account, <application>Ekiga</application> being sending and receiving real-time video and audio."
+msgstr "Καθυστερημένα πακέτα: Η επι τοις εκατό αναλογία των καθυστερημένων πακέτων, δηλαδή δεδομένα από τον απομακρυσμένο χρήστη τα οποία λάβατε, αλλά με καθυστέρηση και γι' αυτό δεν επεξεργάζονται από το <application>Ekiga</application> που είναι μια εφαρμογή αποστολής και λήψης ήχου ή/και εικόνας σε πραγματικό χρόνο."
+
+#: C/ekiga.xml:354(para)
+msgid "Round-trip delay: The required time for a packet to arrive at its destination and come back. You can see the Round-Trip delay during a call as a connection quality indicator together with the Lost and Late packets statistics."
+msgstr "Καθυστέρηση επιστροφής: Ο χρόνος που απαιτείται ώστε ένα πακέτο δεδομένων να φτάσει στον προορισμό του και να επιστρέψει πίσω στον αποστολέα του.  Η καθυστέρηση επιστροφής εμφανίζεται στην διάρκεια μιας κλήσης ως δείκτης ποιότητας της σύνδεσης, μαζί με τα στατιστικά δεδομένα Απωλεσθέντων και Καθυστερημένων πακέτων."
+
+#: C/ekiga.xml:358(para)
+msgid "Jitter buffer: The Jitter buffer is the buffer where received sound packets are accumulated. When the buffer is full, then the sound is played. If your network is of bad quality, then you need a big jitter buffer, ie a big delay before sound is played back, because you need more time before being able to play audio back."
+msgstr "Προσωρινή μνήμη διακυμάνσεων (Jitter buffer): Η προσωρινή μνήμη διακυμάνσεων είναι μια προσωρινή μνήμη όπου συσσωρεύονται τα ληφθέντα πακέτα ήχου.  Όταν η μνήμη αυτή γεμίσει, τότε ο ήχος αναπαράγεται.  Εάν το δίκτυό σας είναι κακής ποιότητας, τότε χρειάζεστε μεγαλύτερη προσωρινή μνήμη διακυμάνσεων, δηλαδή, μια μεγάλη καθυστέρηση πριν αναπαραχθεί ο ήχος, επειδή χρειάζεστε περισσότερο χρόνο για να συσσωρευθούν τα πακέτα ήχου και αυτός να αναπαραχθεί."
+
+#: C/ekiga.xml:363(title)
+msgid "Adjusting the audio and video settings"
+msgstr "Προσαρμογή των ρυθμίσεων ήχου και βίντεο"
+
+#: C/ekiga.xml:365(para)
+msgid "Your audio and video settings can be adjusted through the control panel while you are in a call. If you want to change the audio input or output devices during a call, simply select the Audio tab in the panel. The brightness, whiteness, color and contrast of your video input device are changed via the Video tab."
+msgstr "Οι ρυθμίσεις ήχου και βίντεο μπορούν να προσαρμοσθούν μέσω του πίνακα ελέγχου καθόσον βρίσκεστε σε μια κλήση.  Αν επιθυμείτε να αλλάξετε τις συσκευές εισόδου ή εξόδου του ήχου την στιγμή που βρίσκεστε σε μια κλήση, επιλέξετε την καρτέλα Ήχος του πίνακα ελέγχου.  Η φωτεινότητα, η λευκότητα και η αντίθεση της συσκευής εισόδου βίντεο μπορούν να αλλαχθούν μέσω της καρτέλας Βίντεο."
+
+#: C/ekiga.xml:368(title)
+msgid "Controlling the call"
+msgstr "Ελέγχοντας την κλήση"
+
+#: C/ekiga.xml:370(para)
+msgid "<application>Ekiga</application> supports several actions which can be performed when in a call. These actions enable you to control active sessions."
+msgstr "Το <application>Ekiga</application> υποστηρίζει πολλές ενέργειες οι οποίες μπορούν να γίνουν κατά την διάρκεια μιας κλήσης.  Οι ενέργειες αυτές σας επιτρέπουν να ελέγχετε ενεργές κλήσεις."
+
+#: C/ekiga.xml:374(para)
+msgid "Ending a call: The communication to the remote user can be ended by selecting Call-&gt;Disconnect."
+msgstr "Ολοκληρώνοντας μια κλήση: Η επικοινωνία με τον απομακρυσμένο χρήστη μπορεί να ολοκληρωθεί επιλέγοντας Κλήση-&gt; Αποσύνδεση."
+
+#: C/ekiga.xml:378(para)
+msgid "Holding a call: You can hold a remote party call by selecting Call-&gt;Hold. This effectively pauses Video and Audio transmission, to continue transmission again you select Call-&gt;Retrieve Call and Video and Audio Transmission will begin again."
+msgstr "Αναμονή μιας κλήσης: Μπορείτε να θέσε σε αναμονή την απομακρυσμένη κλήση επιλέγοντας Κλήση-&gt; Αναμονή.  Με τον τρόπο αυτό παύει η μετάδοση Ήχου και Βίντεο.  Για να συνεχίσετε την μετάδοση επιλέγετε Κλήση-&gt; Συνέχιση της Κλήσης και η Μετάδοση Ήχου και Βίντεο θα συνεχιστεί από εκεί που την διακόψατε."
+
+#: C/ekiga.xml:382(para)
+msgid "Mute Audio: This effectively prevents all Audio communication to your respective party."
+msgstr "Σίγαση Ήχου: Η ενέργεια αυτή εμποδίζει κάθε ηχητική επικοινωνία με τον απομακρυσμένο χρήστη."
+
+#: C/ekiga.xml:386(para)
+msgid "Suspend Video: This effectively prevents all Video transmission to your respective party."
+msgstr "Αναστολή Βίντεο: Η ενέργεια αυτή εμποδίζει κάθε μεταφορά Βίντεο προς τον απομακρυσμένο χρήστη."
+
+#: C/ekiga.xml:390(para)
+msgid "Transferring the remote party: You can transfer the remote user to another H.323 or CALLTO URI by using the appropriate menu entry in the Call menu or by double-clicking on an user in your address book, or in the calls history."
+msgstr "Μεταφορά απομακρυσμένου χρήστη:  Μπορείτε να μεταφέρετε τον απομακρυσμένο χρήστη σε ένα άλλο Η.323 ή CALLTO URI χρησιμοποιώντας την κατάλληλη εντολή του μενού Κλήση ή διπλοπατώντας στο όνομα κάποιου χρήστη στο βιβλίο διευθύνσεων ή στο ιστορικό των κλήσεων."
+
+#: C/ekiga.xml:394(para)
+msgid "All URIs supported by <application>Ekiga</application> (SIP, H.323, CALLTO and Speed Dials) can be used for call transfer."
+msgstr "Όλα τα URI που υποστηρίζει το <application>Ekiga</application> (SIP, H.323, CALLTO και Ταχείες Κλήσεις) μπορούν να χρησιμοποιηθούν για μεταφορές κλήσεων."
+
+#: C/ekiga.xml:397(title)
+msgid "Taking a snapshot"
+msgstr "Παίρνοντας ένα στηγμιότυπο"
+
+#: C/ekiga.xml:399(para)
+msgid "While in a call you can take a snapshot of the remote party via Call -&gt; Save Current Picture. A PNG-file will be saved in the current directory. The filename consists of three parts: the save_prefix, date and current time. (e.g. <application>Ekiga</application>-snap-2003_06_19-024316.png)."
+msgstr "Κατά την διάρκεια μιας κλήσης μπορείτε να λάβετε στηγμιότυπο του απομακρυσμένου χρήστη μέσω Κλήσης -&gt; Αποθήκευση Τρέχουσας Εικόνας.  Ένα αρχείο PNG θα αποθηκευθεί στον τρέχοντα κατάλογο.  Το όνομα του αρχείου αποτελείται από τρία μέρη: το πρόθεμα_αποθήκευσης, ημερομηνία και η τρέχουσα ώρα (π.χ.<application>Ekiga</application>_snap-2003_06_19-024316.png)."
+
+#: C/ekiga.xml:402(title)
+msgid "Watching calls execution using the history windows"
+msgstr "Επιθεώρηση πραγματοποιημένων κλήσεων με την χρήση των παραθύρων ιστορικού"
+
+#: C/ekiga.xml:404(para)
+msgid "History windows in <application>Ekiga</application> are comparable to logfiles. They keep chronological track of actions performed by <application>Ekiga</application> and provide additional information to the user."
+msgstr "Τα παράθυρα ιστορικού του <application>Ekiga</application> είναι σαν αρχεία καταγραφών (log files).  Διατηρούν χρονολογικά ίχνη των ενεργειών που εκτέλεσε το <application>Ekiga</application> και παρέχουν πρόσθετες πληροφορίες προς τον χρήστη."
+
+#: C/ekiga.xml:407(title)
+msgid "General History"
+msgstr "Γενικό ιστορικό"
+
+#: C/ekiga.xml:409(para)
+msgid "The General History window keeps track of many operations which are mainly performed in the background. It displays information about audio and video devices, calls, codecs and other details. The latest operations can be found at the bottom, older entries are shown on the top. You can access this information by opening Tools-&gt;Generic History."
+msgstr "Το παράθυρο Γενικού Ιστορικού παρακολουθεί πολλές ενέργειες οι οποίες, εν γένει, εκτελούνται στο παρασκήνιο.  Εμφανίζει πληροφορίες για τις συσκευές ήχου και βίντεο, κλήσεων, κωδικοποιητών και άλλων λεπτομερειών.  Οι πιο πρόσφατες ενέργειες βρίσκονται στο κάτω μέρος, οι παλαιότερες εμφανίζονται στην κορυφή του παραθύρου.  Μπορείτε να εμφανίσετε τις πληροφορίες αυτές πατώντας Εργαλεία-&gt; Γενικό Ιστορικό."
+
+#: C/ekiga.xml:413(title)
+msgid "Calls History"
+msgstr "Ιστορικό κλήσεων"
+
+#: C/ekiga.xml:418(para)
+msgid "Received calls contains all incoming calls which were accepted by <application>Ekiga</application>"
+msgstr "Οι Ληφθήσες κλήσεις περιέχουν όλες τις εισερχόμενες κλήσεις που έγιναν δεκτές από το <application>Ekiga</application>"
+
+#: C/ekiga.xml:424(para)
+msgid "Placed calls keeps track of all attempts - succesful or not - to call another user."
+msgstr "Στο Όλες οι Κλήσεις παρακολουθούνται όλες οι επιχειρούμενες - επιτυχείς ή όχι - κλήσεις προς κάποιον χρήστη."
+
+#: C/ekiga.xml:430(para)
+msgid "Unanswered calls shows incoming calls which timed out or were rejected (if Do Not Disturb is enabled, for instance) by <application>Ekiga</application>."
+msgstr "Οι Αναπάντητες κλήσεις δείχνουν τις εισερχόμενες κλήσεις που έληξαν λόγω χρόνου ή απορρίφθησαν (αν, για παράδειγμα, ήταν ενεργοποιημένο το Μην Ενοχλείτε) από το <application>Ekiga</application>."
+
+#: C/ekiga.xml:415(para)
+msgid "The Calls History window stores information (date, duration, URI, Software, Remote user) about all outgoing and incoming calls. They are divided into three groups - Received calls, Placed calls and Unanswered calls. <placeholder-1/>"
+msgstr "Το παράθυρο Ιστορικού Κλήσεων αποθηκεύει πληροφορίες (ημερομηνίας, διάρκειας, URI, Λογισμικού, Απομακρυσμένου χρήστη) για όλες τις εξερχόμενες και εισερχόμενες κλήσεις.  Χωρίζονται σε τρεις ομάδες:  Ληφθήσες κλήσεις, Placed calls και αναπάντητων κλήσεων <placeholder-1/>"
+
+#: C/ekiga.xml:437(para)
+msgid "Double-clicking on a row in the Calls History will call back the selected user or transfer any active call to that user. Notice that you can also drag and drop entries from the Calls History into the Address Book to store contact information."
+msgstr "Διπλοπατώντας σε μια γραμμή του Ιστορικού Κλήσεων θα κληθεί εκ νέου ο επιλεγμένος χρήστης ή θα μεταφερθεί σε αυτόν το χρήστη κάθε ενεργός κλήση.  Παρατηρήστε ότι μπορείτε να σύρετε περιεχόμενα του Ιστορικού Κλήσεων μέσα στο βιβλίο Διευθύνσεων ώστε να αποθηκεύσετε πληροφορίες που ανήκουν στον απομακρυσμένο χρήστη και αντιστοιχούν στην συγκεκριμένη γραμμή του Ιστορικού Κλήσεων."
+
+#: C/ekiga.xml:439(para)
+msgid "This information can be accessed by opening Tools-&gt;Calls History and by switching between the three tabs."
+msgstr "Τις πληροφορίες αυτές μπορείτε να τις δείτε ανοίγοντας Εργαλεία-&gt; Ιστορικό Κλήσεων και διαβάζοντας τις τρεις καρτέλες."
+
+#: C/ekiga.xml:447(title)
+msgid "Managing Contacts"
+msgstr "Διαχείριση των επαφών"
+
+#: C/ekiga.xml:448(title)
+msgid "Managing my contacts with the Address Book"
+msgstr "Διαχείριση των επαφών μου με το Βιβλίο Διευθύνσεων"
+
+#: C/ekiga.xml:449(para)
+msgid "The Address Book is a feature which allows you to find users to call and/or to save locally your list of persons that you call on a regular basis. It respectively loads the list of users from the LDAP directory and will store locally their addresses and associated speed dials (if any)."
+msgstr "Το Βιβλίο Διευθύνσεων είναι ένα χαρακτηριστικό που επιτρέπει να βρείτε χρήστες που επιθυμείτε να καλέσετε ή/και να αποθηκεύσετε στον υπολογιστή σας τον κατάλογο των ονομάτων των προσώπων που καλείτε πιο συχνά."
+
+#: C/ekiga.xml:454(title)
+msgid "Basics of the Address Book"
+msgstr "Τα βασικά του βιβλίου διευθύνσεων"
+
+#: C/ekiga.xml:455(para)
+msgid "To open the Address Book, select Tools -&gt; Address Book and the <application>Ekiga</application> Addressbook window should appear. To your left there will be a list dialog showing the ILS and LDAP servers as well as a list of local Address Books. The defaults are the <application>Ekiga</application> white pages, the contacts near you, and the personal address book from <ulink url=\"http://www.novell.com/products/evolution\" type=\"http\">Novell Evolution</ulink>."
+msgstr "Για να ανοίξετε το Βιβλίο Διευθύνσεων επιλέξτε Εργαλεία -&gt; Βιβλίο Διευθύνσεων και θα εμφανιστεί το Βιβλίο Διευθύνσεων του <application>Ekiga</application>.  Στα αριστερά υπάρχει ένας διάλογος μορφής λίστας που δείχνει τους εξυπηρετητές ILS και LDAP καθώς και μια λίστα των τοπικών Βιβλίων Διευθύνσεων.  Οι εξορισμού ρυθμίσεις αφορούν τις λευκές σελίδες του <application>Ekiga</application>, τις επαφές που βρίσκονται στην περιοχή σας και το προσωπικό βιβλίο διευθύνσεων από το <ulink url=\"http://www.novell.com/products/evolution\" type=\"http\">Novell Evolution</ulink>."
+
+#: C/ekiga.xml:459(para)
+msgid "<application>Ekiga</application> is able to use several types of address books, allowing to search for remote contacts, and bookmark local contacts. The most common address book type is the LDAP directory where you can find information about registered users. <application>Ekiga</application> is able to browse any LDAP directory and use a specific attribute as calling URI. For example, you could have an LDAP directory in your company, with a specific attribute containing the local extensions of all your colleagues. <application>Ekiga</application> is able to use such an LDAP directory. Simply select in File -&gt; New Address Book, and choose remote LDAP as type."
+msgstr "Το <application>Ekiga</application> μπορεί να χρησιμοποιήσει πολλούς τύπους βιβλίων διευθύνσεων ώστε να μπορείτε να αναζητήσετε απομακρυσμένες επαφές και να βάλετε σελιδοδείκτες σε τοπικές επαφές.  Ο πιο κοινός τύπος βιβλίου διευθύνσεων είναι ο κατάλογος LDAP όπου μπορείτε να βρείτε πληροφορίες για εγγεγραμμένους χρήστες.  Το <application>Ekiga</application> μπορεί να ψάξει σε κάθε κατάλογο LDAP και να χρησιμοποιήσει ένα συγκεκριμένο χαρακτηριστικό ως URI.  Για παράδειγμα, αν έχετε ένα κατάλογο LDAP στην εταιρεία σας, με ένα συγκεκριμένο χαρακτηριστικό που περιέχει πληροφορίες για όλους τους συναδέλφους σας.  Το <application>Ekiga</application> μπορεί να χρησιμοποιήσει ένα κατάλογο LDAP.  Απλώς επιλέξτε Αρχείο -gt; Νέο Βιβλίο Διευθύνσεων και διαλέξτε ως τύπο τον απομακρυσμένο LDAP."
+
+#: C/ekiga.xml:463(para)
+msgid "<application>Ekiga</application> is also able to detect other <application>Ekiga</application> users on the LAN using the Bonjour technology popularized by Apple (tm). That supposes you have a local mDNSResponder daemon running on your computer. Finally, <application>Ekiga</application> is able to bookmark contacts in the local address book, shared with the <ulink url=\"http://www.novell.com/products/evolution\" type=\"http\">Novell Evolution</ulink> suite."
+msgstr "Το <application>Ekiga</application> μπορεί επίσης να εντοπίσει άλλους χρήστες του εντός του LAN χρησιμοποιώντας την τεχνολογία Bonjour που διέδωσε η Apple (tm).  Κάτι τέτοι προϋποθέτει ότι στον υπολογιστή σας εκτελείτε τοπικά κάποιος δαίμονας mDNSResonder.  Τελος, το <application>Ekiga</application> μπορεί να σελιδοδείξει τις επαφές του τοπικού βιβλίου διευθύνσεων και οι οποίες μοιράζεται με την σουϊτα <ulink url=\"http://www.novell.com/products/evolution\" type=\"http\">Novell Evolution</ulink>."
+
+#: C/ekiga.xml:467(para)
+msgid "To refresh the list of users for a specific address book, simply click the Find button. It will search for all users in that address book. You can contact people by double clicking on their highlighted field. You can also Drag-and-Drop to call a specific party by selecting the highlighted field and dragging it into the Main Window."
+msgstr "Για να ανανεώσετε τον κατάλογο των χρηστών σε ένα συγκεκριμένο βιβλίο διευθύνσεων, απλά πατήστε το κουμπί Αναζήτησης.  Θα ψάξει για όλους τους χρήστες που βρίσκονται σε αυτό το βιβλίο διευθύνσεων.  Μπορείτε να επικοινωνήσετε με τους άλλους διπλοπατώντας επάνω σε επιλεγμένο πεδίο του βιβλίου.  Μπορείτε επίσης να χρησιμοποιήσετε την Μεταφρορά-και-Απόθεση για να καλέσετε κάποιον χρήστη, επιλέγοντας το υπογραμμισμένο πεδίο και σύροντάς το μέσα στο Κυρίως Παράθυρο."
+
+#: C/ekiga.xml:471(para)
+msgid "In certain cases you will want to search specifically for a person name, his or her call URI, or the location in the <application>Ekiga</application> white pages. The address book window allows you to apply filters when searching for contacts."
+msgstr "Σε μερικές περιπτώσεις ίσως θελήσετε να αναζητήσετε κάποιο συγκεκριμένο όνομα προσώπου, το URI κλήσης του ή την θέση του στις λευκές σελίδες του <application>Ekiga</application>.  Το βιβλίο διευθύνσεων σας επιτρέπει να χρησιμοποιείτε φίλτρα όταν αναζητάτε επαφές."
+
+#: C/ekiga.xml:475(para)
+msgid "The <application>Ekiga</application> white pages will allow you to look for users in your region. It returns a limited number of results corresponding to your search. If the user is associated to a red icon, it means that he is online. If he is associated to a greyed out icon, it means he is offline. You can then add him to your personal address book to call him later."
+msgstr "Οι λευκές σελίδες του <application>Ekiga</application> σας επιτρέπουν να αναζητήσετε χρήστες εντός της περιοχής σας.  Η διαδικασί αυτή δίνει περιορισμένο αριθμό αποτελεσμάτων, αναλόγως της αναζήτησης.  Αν ο χρήστης σημαίνεται με ένα κόκκινο εικονίδιο, είναι αποσυνδεδεμένος.  Μπορείτε να τον προσθέσετε στο προσωπικό σας βιβλίο διευθύνσεων ώστε να τον καλέσετε αργότερα."
+
+#: C/ekiga.xml:478(title)
+msgid "Managing remote and local contacts"
+msgstr "Διαχείριση απομακρυσμένων και τοπικών επαφών"
+
+#: C/ekiga.xml:479(para)
+msgid "To add an address book, select File -&gt; New Address Book. A dialog will appear. You then select the type of address book you want to add. The type can be Local, or remote LDAP or remote ILS. Enter the server name. Enter the name, the various parameters and select 'OK' and the new address book should now appear in the address books list. If you do not know what parameters to use for a remote LDAP address book, please ask them to your administrator. The address book parameters can be changed at any time by selecting File -&gt; Properties when the address book is highlighted. It can also be deleted by selecting File -&gt; Delete."
+msgstr "Για να προσθέσετε ένα βιβλίο διευθύνσεων επιλέξτε Αρχείο -&gt; Νέο Βιβλίο Διευθύνσεων.  Θα εμφανισθεί ένας διάλογος.  Μπορείτε ύστερα να επιλέξετε τον τύπο του βιβλίου διευθύνσεων που θέλετε να προσθέσετε.  Αυτός ο τύπος μπορεί να είναι Τοπικός ή απομακρυσμένος LDAP ή απομακρυσμένος ILS.  Γράψτε τον όνομα του εξυπηρετητή.  Εισάγετε όνομα, τις διάφορες πληροφορίες και επιλέξτε ΟΚ και το νέο βιβλίο διευθύνσεων θα πρέπει να εμφανιστεί στην λίστα των βιβλίων διευθύνσεων.  Εάν δεν γνωρίζετε ποιές παραμέτρους να χρησιμοποιήσετε για ένα απομακρυσμένο βιβλίο διευθύνσεων LDAP, παρακαλούμε διατυπώστε τις στον διαχειριστή σας.  Οι παράμετροι βιβλίων διευθύνσεων μπορούν να αλλαχθούν οποιαδήποτε στιγμή επιλέγοντας Αρχείο -&gt; Ιδιότητες όταν είναι επιλεγμένο το βιβλίο διευθύνσεων.  Μπορεί, επίσης, να διαγραφεί επιλέγοντας Αρχείο -&gt; Διαγραφή."
+
+#: C/ekiga.xml:483(para)
+msgid "To add a contact to one of your local address books, simply select the address book you wish to add the contact and select Contact -&gt; New Contact. The option of adding a New Contact will appear and you may now enter his name and VoIP URI as well as other settings. After complete select 'OK' and now your contact has been added. You can only add contacts to local address books. The contact parameters can be changed at any time by selecting File -&gt; Properties when the contact is highlighted. He can also be deleted by selecting File -&gt; Delete."
+msgstr "Για να προσθέσετε μια επαφή σε ένα από τα τοπικά βιβλία σας διευθύνσεων, απλώς επιλέξτε το βιβλίο στο οποίο επιθυμείτε να προσθέσετε την επαφή και επιλέξτε Επαφαή -&gt; Νέα Επαφή.  Θα εμφανιστεί το παράθυρο διαλόγου για την προσθήκη Νέας Επαφής στο οποίο πρέπει να προσθέσετε τον όνομα το προσώπου, το VoIP URI καθώς και άλλες πληροφορίες.  Αφού ολοκληρώσετε πατήστε ΟΚ και η επαφή σας έχει προστεθεί.  Μπορείτε μόνο να προσθέσετε επαφές σε τοπικά βιβλία διευθύνσεων.  Οι ρυθμίσεις της επαφής μπορούν να αλλάξουν κάθε στιγμή επιλέγοντας Αρχείο -&gt; Ιδιότητες, όταν η επαφή είναι επιλεγμένη.  Μπορεί, επίσης, να διαγραφεί επιλέγοντας Αρχείο -&gt; Διαγραφή."
+
+#: C/ekiga.xml:487(para)
+msgid "You can also add a contact from the white pages (or any other local or remote address book) by selecting the highlighted contact and dragging him to the specific local address book you wish to add him to or by selecting Contact -&gt; Add Contact to Address Book when selecting that contact."
+msgstr "Μπορείτε, επίσης, να προσθέσετε επαφές από καταλόγους (ή από άλλο τοπικό ή απομακρυσμένο βιβλιο διευθύνσεων) επιλέγοντας την υπογραμμισμένη επαφή και σύροντά την μέχρι το συγκεκριμένο βιβλίο διευθύνσεων στο οποίο επιθυμείτε να την προσθέσετε ή επιλέγοντας Επαφή -&gt; Προσθήκη Επαφής στο Βιβλίο Διευθύνσεων, με επιλεγμένη την επιθυμητή επαφή."
+
+#: C/ekiga.xml:491(para)
+msgid "Finally, you can edit the groups your users belong to using the User Properties dialog from the main menu or from the right-click menu, or using drag-and-drop between groups."
+msgstr "Τέλος, μπορείτε να επεξεργαστείτε τις ομάδες στις οποίες ανήκουν οι επαφές σας χρησιμοποιώντας τον διάλογο Ιδιότητες Χρήστη ή ανγοίγοντας το μενού με δεξί κλικ ή με την χρήση \"μεταφοράς κι απόθεσης\" μεταξύ ομάδων."
+
+#: C/ekiga.xml:499(title)
+msgid "Managing Incoming Calls"
+msgstr "Διαχείριση εισερχόμενων κλήσεων"
+
+#: C/ekiga.xml:500(title)
+msgid "Managing incoming calls"
+msgstr "Διαχείριση εισερχόμενων κλήσεων"
+
+#: C/ekiga.xml:502(para)
+msgid "<application>Ekiga</application> supports different policies for incoming calls. Per default it displays a popup window which allows you to decide whether you want to refuse or accept the request for an incoming call. Furthermore <application>Ekiga</application> offers three modes that override this behaviour: Busy mode, Free for Chat and Forward. They can be activated from the the Call menu."
+msgstr "Το <application>Ekiga</application> υποστηρίζει διάφορες πολιτικές για τις εισερχόμενες κλήσεις.  Εξορισμού εμφανίζει ένα αναδυόμενο παράθυρο το οποοίο σας επιτρέπει να απορρίψετε ή να αποδεχθείτε κάποιο αίτημα από εισερχόμενης κλήσης.  Επιπλέον, το <application>Ekiga</application> παρέχει τρεις τρόπους παράκαμψης της συμπεριφοράς αυτής:  Μην ενοχλείτε, Διαθέσιμο και Προώθηση.  Μπορούν να ενεργοποιηθούν από το μενού Κλήσεων."
+
+#: C/ekiga.xml:508(title)
+msgid "Busy mode"
+msgstr "Λειτουργία Μην Ενοχλείτε"
+
+#: C/ekiga.xml:510(para)
+msgid "If this mode is enabled <application>Ekiga</application> refuses all incoming requests and only allows outgoing calls. You are not able to receive any call and do not notice if another user tries to contact you except when looking at the Calls History."
+msgstr "Αν είναι επιλεγμένη αυτή η λειτουργία το <application>Ekiga</application> απορρίπτει όλες τις εισερχόμενες κλήσεις και επιτρέπει μόνο εξερχόμενες κλήσεις."
+
+#: C/ekiga.xml:513(para)
+msgid "This mode can be enabled by selecting Call -&gt; Busy in the main window."
+msgstr "Η λειτουργία αυτή μπορεί να ενεργοποιηθεί επιλέγοντας Κλήση -&gt; -Μην Ενοχλείτε από το κυρίως παράθυρο."
+
+#: C/ekiga.xml:516(title)
+#, fuzzy
+msgid "Free for Chat mode"
+msgstr "Λειτουργία \"Διαθέσιμο\""
+
+#: C/ekiga.xml:518(para)
+msgid "If this behavior is activated <application>Ekiga</application> accepts all incoming calls. It does not display a popup window but tries to establish the connection to the remote party immediately."
+msgstr "Αν η συμπεριφορά αυτή είναι ενεργοποιημένη το <application>Ekiga</application> θα αποδέχεται όλες τις εισερχόμενες κλήσεις.  Δεν εμφανίζεται κάποιο αναδυόμενο παράθυρο αλλά επιχειρεί άμεση αποκατάσταση επικοινωνίας με τον απομακρυσμένο χρήστη."
+
+#: C/ekiga.xml:521(para)
+msgid "This mode can be enabled by selecting Call -&gt; Free For Chat in the main window menu."
+msgstr "Η λειτουργία αυτή μπορεί να ενεργοποιηθεί επιλέγοντας Κλήση -&gt; Διαθέσιμο από το μενού του κυρίως παραθύρου."
+
+#: C/ekiga.xml:524(title)
+msgid "Forward"
+msgstr "Προώθηση"
+
+#: C/ekiga.xml:526(para)
+msgid "<application>Ekiga</application> has the ability to forward calls to another host. Which allows you to configure <application>Ekiga</application> to forward all incoming calls to a specified URI. Furthermore it is able to forward calls interactively when you do not answer the call after a configurable amount of time or when you are busy."
+msgstr "Το <application>Ekiga</application> έχει την ικανότητα να προωθεί κλήσεις σε άλλον υπολογιστή.  Πράγμα που σας επιτρέπει να ρυθμίσετε το <application>Ekiga</application> ώστε να προωθεί όλες τις εισερχόμενες κλήσεις προς ένα συγκεκριμένο URI.  Επιπλέον, μπορεί να προωθεί κλήσεις με τρόπο διαδραστικό όταν δεν απαντάτε σε μια κλήση μετά από ένα καθορισμένο χρόνο ή όταν είστε απασχολημένος/η."
+
+#: C/ekiga.xml:529(para)
+msgid "Call Forwarding can be configured by selecting Call -&gt; Forward in the main menu or through the preferences window. Notice that you need to specify an URI where to forward calls in the preferences to be able to activate that option. Open the preferences window by choosing Edit -&gt; Preferences in the main window and select Call Options on the left. You will now see the appropriate section. It contains three checkboxes for the three cases described above. The IP address/hostname of the host the calls shall be forwarded to can be configured separate in SIP Settings for SIP and accordingly in H323 Settings for H323."
+msgstr "Η Προώθηση Κλήσης μπορεί να ρυθμιστεί επιλέγοντας Κλήση -&gt; Προώθηση από το κυρίως μενού ή μέσω του παραθύρου των προτιμήσεων.  Πρέπει να ορίσετε ένα URI όπου θα πρωθούνται οι κλήσεις προκειμένου να γίνει ενεργός η επιλογή αυτή των προτιμήσεων.  Ανοίξτε το παράθυρο των προτιμήσεων επιλέγοντας Επεξεργασία -&gt; Προτιμήσεις του κυρίως παραθύρου και επιλέξτε Επιλογές Κλήσης στα αριστερά.  Θα εμφανιστεί στα δεξιά το αντίστοιχο τμήμα.  Περιέχει τετράγωνα ελέγχου των τριών περιπτώσεων που περιγράψαμε πιο πάνω.  Η διεύθυνση ΙΡ ή το όνομα του υπολογιστή προς τον οποίο θα προωθούνται οι κλήσεις μπορεί να καθοριστεί ξεχωριστά στις Ρυθμίσεις SIP, αν πρόκειται για SIP ή αναλόγως κατά Η323, αν πρόκειται για διεύθυνση κατά Η323."
+
+#: C/ekiga.xml:538(title)
+msgid "Advanced Usage"
+msgstr "Χρήση για προχωρημένους"
+
+#: C/ekiga.xml:541(title)
+msgid "Registering Additional Accounts"
+msgstr "Καταχώρηση επιπρόσθετων λογαριασμών"
+
+#: C/ekiga.xml:543(title)
+msgid "The accounts window"
+msgstr "Το παράθυρο των λογαριασμών"
+
+#: C/ekiga.xml:547(para)
+msgid "You can open the accounts window by selecting Edit -&gt; Accounts. This will open the Accounts Window. The Accounts Window will allow you to add SIP and H.323 accounts and to register to them. An account descibes the user login and password parameters to register to SIP and H.323 services. Those <emphasis>services</emphasis> can be an Internet Telephony Service provider (like ekiga.net), or an IPBX (like CISCO, Nortel, or Asterisk)."
+msgstr "Μπορείτε να ανοίξετε το παράθυρο των λογαριασμών επιλέγοντας Επεξεργασία -&gt; Λογαριασμοί.  Η ενέργεια αυτή θα εμφανίσει το Παράθυρο Λογαριασμών.  Το Παράθυρο Λογαριασμών σας επιτρέπει να προσθέσετε λογαριασμούς SIP και Η323 και να τους καταχωρήσετε.  Ένας λογαριασμός περιγράφει τις παραμέτρους σύνδεσης και κωδικού που πρέπει να καταχωρηθούν στις υπηρεσίες SIP και Η323.  Οι <emphasis>υπηρεσίες</emphasis> αυτές μπορεί να είναι ένας παροχές Υπηρεσιών Διαδυκτιακής Τηλεφωνίας ή κάποιο ΙΡΒΧ [Intranet Private Branch eXchange] (όπως CISCO, Nortel ή Asterisk)."
+
+#: C/ekiga.xml:553(title)
+msgid "Adding a SIP account"
+msgstr "Προσθήκη λογαριασμού SIP"
+
+#: C/ekiga.xml:560(para)
+#: C/ekiga.xml:587(para)
+msgid "<emphasis>Account Name:</emphasis> You can enter the account name."
+msgstr "<emphasis>Όνομα Λογαριασμού:</emphasis>Εδώ εισάγετε το όνομα του λογαριασμού."
+
+#: C/ekiga.xml:561(para)
+msgid "<emphasis>Protocol:</emphasis> You can choose SIP."
+msgstr "<emphasis>Πρωτόκολλο:</emphasis>Επιλέξτε SIP."
+
+#: C/ekiga.xml:562(para)
+msgid "<emphasis>Registrar:</emphasis> The registrar to which you want to register. This is usually an IP address or an host name that will be given to you by your Internet Telephony Service Provider, or by your administrator if you are trying to register to a SIP IPBX."
+msgstr "<emphasis>Καταχωρητής:</emphasis>Ο κατάλογος στον οποίο επιθυμείτε να καταχωρηθείτε.  Συνήθως είναι κάποια διεύθυνση ΙΡ ή όνομα υπολογιστή το οποίο θα σας έχει δοθεί από τον Παροχέα Διαδυκτιακών Υπηρεσιών είτε από τον διαχειριστή του συστήματός σας εφόσον επιχειρείτε να καταχωρηθείτε σε κάποιο SIP IPBX."
+
+#: C/ekiga.xml:563(para)
+#: C/ekiga.xml:590(para)
+msgid "<emphasis>User:</emphasis> You can enter your login."
+msgstr "<emphasis>Χρήστης:</emphasis>Εισάγετε το όνομα χρήστη της επιλογής σας."
+
+#: C/ekiga.xml:564(para)
+#: C/ekiga.xml:591(para)
+msgid "<emphasis>Password:</emphasis> You can enter your password"
+msgstr "<emphasis>Κωδικός:</emphasis>Εισάγετε τον κωδικό σας"
+
+#: C/ekiga.xml:567(para)
+msgid "<application>Ekiga</application> will do a best guess concerning the identity that will be used when calling out. Sometimes, you will need to force that identity. You can do this by specifying the identity in the user field. e.g.: dsandras@ekiga.net to force dsandras@ekiga.net to be used as outgoing identity for that account."
+msgstr "Το <application>Ekiga</application> μπορεί να μαντέψει την ταυτότητα που θα χρησιμοποιήσετε όταν πραγματοποιείτε κλήσεις.  Μερικές φορές θα αναγκαστείτε να επιλέξετε την ταυτότητα αυτή.  Μπορείτε να το κάνετε αυτό ορίζοντας την ταυτότητά σας στο πεδίο χρήστη, για παράδειγμα dsandras@ekiga.net ώστε να αναγκάσετε την ταυτότητα dsandras@ekiga.net να χρησιμοποιηθεί ως εξερχόμενη ταυτότητα για τον λογαριασμό αυτόν."
+
+#: C/ekiga.xml:557(para)
+msgid "To add a SIP account, simply click on the Add button. A dialog will appear and allow you to enter several parameters: <placeholder-1/><placeholder-2/>"
+msgstr "Για να προσθέσετε ένα λογαριασμό SIP απλώς πατήστε το κουμπί Προσθήκη.  Θα εμφανισθεί ένας διάλογος που θα σας επιτρέψει να εισάγετε μερικές παραμέτρους: <placeholder-1/><placeholder-2/>"
+
+#: C/ekiga.xml:573(para)
+msgid "<emphasis>Authentication Login:</emphasis> If it is different from the user parameter you provided above. In that case, the user field will be used to control the outgoing identity for the account you are adding, while the login will be used during the authentication phase."
+msgstr "<emphasis>Πιστοποιημένη Είσοδος:</emphasis>Όνομα σύνδεσης εφόσον διαφέρει από την παράμετρο χρήστη που δηλώσατε πιο πάνω.  Στην περίπτωση αυτή το πεδίο χρήστη θα εξυπηρετήσει τον έλεγχο της εξερχόμενης ταυτότητας για τον λογαριασμό που προσθέτετε, ενώ το όνομα σύνδεσης θα χρησιμοποιηθεί κατά την διαδικασία της εξακρίβωσης/πιστοποίησης."
+
+#: C/ekiga.xml:574(para)
+msgid "<emphasis>Realm/Domain:</emphasis> It is globally unique and dependant on the ITSP or the IPBX. It is generally identical to the registrar domain."
+msgstr "<emphasis>Περιοχή/Χώρα:</emphasis>Είναι παντού μοναδικό και εξαρτάται από τον Παροχέα Τηλεφωνικών Διαδυκτιακών Υπηρεσιών ή από το IPBX.  Γενικά, είναι το ίδιο με την τοποθεσία του καταχωρητή."
+
+#: C/ekiga.xml:575(para)
+#: C/ekiga.xml:599(para)
+msgid "<emphasis>Registration Timeout:</emphasis> The timeout after which the registration should be updated."
+msgstr "<emphasis>Λήξη ορίου χρόνου εγγραφής:</emphasis>Ο χρόνοςμετά το πέρας του οποίου θα ενημερώνεται η καταχώρησή σας."
+
+#: C/ekiga.xml:570(para)
+msgid "You can also control some advanced parameters. Like the Registrar, User and Password, they will be given to you by the ITSP you are using or by your administrator. Those parameters are: <placeholder-1/>"
+msgstr "Μπορείτε να ελέγξετε και κάποιες προχωρημένες παραμέτρους.  Όπως η Καταχώρηση, το Όνομα Χρήστη και ο Κωδικός, κι αυτές θα σας δοθούν από την Παροχές Τηλεφωνικών Διαδυκτιακών Υπηρεσιών που χρησιμοποιείτε ή από τον διαχειριστή του υπολογιστή σας.  Οι παραμάτρες αυτές είναι: <placeholder-1/>"
+
+#: C/ekiga.xml:580(title)
+msgid "Adding an H.323 account"
+msgstr "Προσθήκη ενός λογαριασμού Η.323"
+
+#: C/ekiga.xml:588(para)
+msgid "<emphasis>Protocol:</emphasis> You can choose H.323."
+msgstr "<emphasis>Πρωτόκολλο:</emphasis>Μπορείτε να επιλέξετε Η.323."
+
+#: C/ekiga.xml:589(para)
+msgid "<emphasis>Gatekeeper:</emphasis> The gatekeeper to which you want to register. This is usually an IP address or an host name that will be given to you by your Internet Telephony Service Provider, or by your administrator if you are trying to register to an H.323 IPBX."
+msgstr "<emphasis>Gatekeeper:</emphasis>Ο gatekeeper στον οποίο επιιθυμείτε να καταχωρηθείτε.  Συνήθως πρόκειται για κάποια διεύθυνση ΙΡ ή κάποιο όνομα υπολογιστή το οποίο θα σας δοθεί από τον Παροχέα Διαδυκτικών Τηλεφωνικών Υπηρεσιών ή από τον διαχειριστή του συστήματός σας εφόσον επιχειρείτε να καταχωρηθείτε σε ένα ΙΡΒΧ που διαθέτει Η.323."
+
+#: C/ekiga.xml:584(para)
+msgid "To add an H.323 account, simply click on the Add button. A dialog will appear and allow you to enter several parameters: <placeholder-1/>"
+msgstr "Για να προσθέσετε ένα λογαριασμό Η.323 απλώς πατήστε το κουμπί Προσθήκη.  Θα εμφανιστεί ένας διάλογος που θα σας επιτρέψει να εισάγετε πολλές παραμέτρους:<placeholder-1/>"
+
+#: C/ekiga.xml:598(para)
+msgid "<emphasis>Gatekeeper ID:</emphasis> The gatekeeper ID, if any."
+msgstr "<emphasis>Ταυτότητα Gatekeeper:</emphasis>Η ταυτότητα του gatekeeper, εφόσον αυτή υπάρχει."
+
+#: C/ekiga.xml:595(para)
+msgid "You can also control some advanced parameters. Those parameters are: <placeholder-1/>"
+msgstr "Μπορείτε επίσης να ελέγξετε μερικές εξελιγμένες παραμέτρους.  Οι παράμετροι αυτές είναι:<placeholder-1/>"
+
+#: C/ekiga.xml:607(title)
+msgid "Understanding URIs"
+msgstr "Κατανόηση των URI"
+
+#: C/ekiga.xml:609(title)
+msgid "SIP URI's"
+msgstr "SIP URI"
+
+#: C/ekiga.xml:611(para)
+msgid "SIP URIs are formatted as such \"sip:user@[host[:port]]\""
+msgstr "Τα URI κατά SIP έχουν την εξής μορφή:\"sip:user@[host[:port]]\""
+
+#: C/ekiga.xml:613(para)
+msgid "This permits you to call the given user or extension on the specified SIP proxy: <emphasis>sip:jonita@ekiga.net</emphasis>"
+msgstr "Αυτό σας επιτρέπει να καλέσετε τον δεδομένο χρήστη στον συγκεκριμένο υπολογιστή μεσολάβησης ο οποίος διαθέτει SIP:<emphasis>sip:jonita@ekiga.net</emphasis>"
+
+#: C/ekiga.xml:617(title)
+msgid "H.323 URIs"
+msgstr "URI κατά Η.323"
+
+#: C/ekiga.xml:619(para)
+msgid "H.323 URIs are formatted as such \"h323:[user@][host[:port]]\""
+msgstr "Τα URI κατά Η.323 έχουν την μορφή \"h323:[user@][host[:port]]\""
+
+#: C/ekiga.xml:623(para)
+msgid "Call a given host on a port different from the default port which is 1720: <emphasis>h323:seconix.com:1740</emphasis>"
+msgstr "Κλήση ενός κεντρικού υπολογιστή σε μια θύρα διαφορετική από την εξ' ορισμού που είναι η 1720:<emphasis>h323:seconix.com:1740</emphasis>"
+
+#: C/ekiga.xml:624(para)
+msgid "Call a given user using their respective alias if registered to a gatekeeper: <emphasis>h323:jonita</emphasis>"
+msgstr "Κλήση ενός χρήστη βάσει του αντίστοιχου ψευδώνυμου, εφόσον αυτό είναι καταχωρημένο στον gatekeeper:<emphasis>h323:jonita</emphasis>"
+
+#: C/ekiga.xml:625(para)
+msgid "Call a given phone number if you are registered to a gatekeeper for a PC-To-Phone provider, or if that user has an ENUM record associated to an H.323 URI: <emphasis>h323:003210111222</emphasis>"
+msgstr "Κλήση ενός τηλεφωνικού αριθμού εφόσον είστε εγγεγραμμένος σε έναν gatekeeper για παροχείς υπηρεσιών PC-To-Phone, ή αν ο χρήστης αυτός διαθέτει "
+
+#: C/ekiga.xml:626(para)
+msgid "Call a given user using their alias through a specific gateway or proxy: <emphasis>h323:jonita@gateway.seconix.com</emphasis>"
+msgstr "Κλήση ενός συγκεκριμένου χρήστη χρησιμοποιώντας το ψευδώνυμό του/της μέσω ενός συγκεκριμένοου υπολογιστή-πύλη ή μέσω κάποιου διαμεσολαβητή: <emphasis>h323:jonita@gateway.seconix.com</emphasis>"
+
+#: C/ekiga.xml:627(para)
+msgid "Call an MCU and join a specific room: <emphasis>h323:myfriendsroom@mcu.seconix.com</emphasis>"
+msgstr "Κλήση ενός MCU (Multipoint Control Unit=Μονάδα (Συσκευή) Ελέγχου Πολλαπλών Σημείων) και συμμετοχή σε ένα κανάλι συζητήσεων: <emphasis>h323:myfriendsroom@mcu.seconix.com</emphasis>"
+
+#: C/ekiga.xml:621(para)
+msgid "This permits you to: <placeholder-1/>"
+msgstr "Αυτό σας επιτρέπει να: <placeholder-1/>"
+
+#: C/ekiga.xml:632(title)
+msgid "CALLTO URIs"
+msgstr "CALLTO URIs"
+
+#: C/ekiga.xml:633(para)
+msgid "Callto URIs are formatted as such \"callto:[user@][host[:port]]\""
+msgstr "Τα CALLTO URI έχουν την μορφή \"callto:[user@][host[:port]]\""
+
+#: C/ekiga.xml:635(para)
+msgid "Callto URIs and H.323 URIs are formatted exactly the same except however callto URIs also support ILS lookups directly: <emphasis>callto:ils_server/user_mail.</emphasis>"
+msgstr "Τα CALLTO URI και τα H.323 URI έχουν ακριβώς την ίδια μορφή εκτός ότι τα CALLTO URI υποστηρίζουν άμεση αναζήτηση ILS: <emphasis>callto:ils_server/user_mail.</emphasis>"
+
+#: C/ekiga.xml:637(para)
+msgid "For example, calling <emphasis>callto:ils.seconix.com/joe.user@somedomain.com</emphasis> will look for the user with the joe.user@somedomain.com email address on the ILS server ils.seconix.com and proceed to initate a call."
+msgstr "Για παράδειγμα, η κλήση <emphasis>callto:ils.seconix.com/joe.user@somedomain.com</emphasis> θαναζητήσει χρήστη με διεύθυνση ηλεκτρονικού ταχυδρομείου joe.user@somedomain.com, στον διακομηστή ILS ils.seconix.com και θα συνεχίσει πραγματοποιώντας την κλήση."
+
+#: C/ekiga.xml:641(title)
+msgid "Speed dials"
+msgstr "Ταχείες κλήσεις"
+
+#: C/ekiga.xml:642(para)
+msgid "<application>Ekiga</application> is able to associate speed dials with URIs using the address book. You can thus for example associate the speed dial <emphasis>1</emphasis> to the URI <emphasis>sip:600000@ekiga.net</emphasis>. That speed dial can then be used as URI. For example, calling <emphasis>sip:1#</emphasis> will call <emphasis>sip:600000@ekiga.net</emphasis> provided that both are associated together in the address book."
+msgstr "Το <application>Ekiga</application> μπορεί να συσχετίσει ταχείες κλήσεις με URI, χρησιμοποιώντας το βιβλίο διευθύνσεων.  Μπορείτε, έτσι, για παράδειγμα να συσχετίσετε την ταχεία κλήση <emphasis>1</emphasis> με το URI<emphasis>sip:600000@ekiga.net</emphasis>.  Η ταχεία κλήση αυτή μπορεί έπειτα να χρησιμοποιηθεί ως URI.  Παρδείγματος χάριν, καλώντας <emphasis>sip:1#</emphasis> θα κληθεί το <emphasis>sip:600000@ekiga.net</emphasis>, εφόσον και τα δύο συνδέονται μεταξύ τους στο βιβλίο διευθύνσεων."
+
+#: C/ekiga.xml:650(title)
+msgid "Controlling the Video Bandwidth"
+msgstr "Έλεγχος του εύρους ζώνης βίντεο"
+
+#: C/ekiga.xml:652(para)
+msgid "<application>Ekiga</application> is using a best-effort algorithm to maintain a low bandwidth when transmitting video. You can adjust the video quality settings following you prefer to have a good frame rate, or a good picture quality. It will permit <application>Ekiga</application> to dynamically adjust the video bandwidth and the number of transmitted images per second during a call while trying to respect the requested video bandwidth."
+msgstr "Το <application>Ekiga</application> χρησιμοποιεί έναν αλγόριθμο βέλτιστης απόδοσης που διατηρεί χαμηλό το εύρος ζώνης όταν μεταδίδεται βίντεο.  Μπορείτε να προσαρμόσετε τις ρυθμίσεις ποιότητας του βίντεο ώστε να έχετε καλή συχνότητα πλαισίων ή καλή ποιότητας εικόνα.  Οι ρυθμίσεις αυτές επιτρέπου στο <application>Ekiga</application> να προσαρμόσουν με τρόπο δυναμικό το εύρος ζώνης του βίντεο και τον αριθμό των μεταδιδόμενων εικόνων ανά δευτερόλεπτο κατά την διάρκεια μιας κλήσης, και την ίδια στιγμή να ικανοποιεί το ζητούμενο εύρος ζώνης του βίντεο."
+
+#: C/ekiga.xml:654(para)
+msgid "Notice that the algorithm is a best-effort algorithm, which means that if you specify too low video bandwidth settings, it can be impossible to respect them. However, if the video bandwidth permits to transmit with a better quality, or faster than the requested values, then <application>Ekiga</application> will dynamically increase them so that the quality and the framerate are always the best possible."
+msgstr "Παρατηρείστε ότι ο πρόκειται για αλγόριθμο βέλτισης απόδοσης, πράγμα πο σημαίνει ότι, αν επιλέξετε πολύ χαμηλές ρυθμίσεις ζώνης εύρους βίντεο, θα είναι αδύνατον να τηρηθούν αυτές οι ρυθμίσεις.  Εντούτοις, αν το εύρος ζώνης του βίντεο επιτρέπει την μετάδοση με καλύτερη ποιότητα, ή ταχύτερα από τις τιμές που ζητούμε τότε το <application>Ekiga</application> θα αυξήσει τις τιμές αυτές δυναμικά ώστε η ποιότητα και η συχνότητα πλαισίων του βίντεο θα είναι πάντοτε οι καλύτερες δυνατές."
+
+#: C/ekiga.xml:656(para)
+msgid "Choosing a higher framerate and a lower quality will have the same result in terms of video bandwidth than choosing a higher quality with a lower framerate. It depends if you prefer using your bandwidth to transmit more lower quality images or fewer big quality images."
+msgstr "Επιλέγοντας υψηλή συχνότητα πλαισίων και χαμηλή ποιότητα βίντεο θα έχετε όμοια αποτελέσματα όσον αφορά το εύρος ζώνης του βίντεο από ότι αν επιλέξετε υψηλότερη ποιότητα με χαμηλότερη συχνότητα πλαισίων.  Εξαρτάται αν επιθυμείτε να χρησιμοποιήσετε την ευρυζωνικότητά σας για να μεταβιβάσετε περισσότερο χαμηλής ποιότητας εικόνα ή λιγοτερο μεγάλης ποιότητας εικόνα."
+
+#: C/ekiga.xml:661(title)
+msgid "Managing Codecs"
+msgstr "Διαχείριση κωδικοποιητών"
+
+#: C/ekiga.xml:664(title)
+msgid "Audio Codecs"
+msgstr "Κωδικοποιητές ήχου"
+
+#: C/ekiga.xml:665(para)
+msgid "The <application>Ekiga</application> audio codecs table in the preferences permits you to change the codecs order as well as disabling the codecs you don't want to use. Each codec has strong and weak points. For example, G.711 will give the best voice quality but will use the most bandwidth while SPEEX will give an average voice quality but requiring a very low bandwidth usage. Notice that there are two versions of SPEEX, one of them is SPEEX WideBand. You can see that to the 16 kHz clock rate."
+msgstr "Ο πίνακας κωδικοποιητών ήχου του στις προτιμήσεις του <application>Ekiga</application> επιτρέπουν να αλλάξετε την σειρά των κωδικοποιητών καθώς και την απενεργοποίηση των κωδικοποιητών που δεν θέλετε να χρησιμοποιήτε."
+
+#: C/ekiga.xml:669(title)
+msgid "Reordering the codecs"
+msgstr "Αναταξινόμηση των κωδικοποιητών"
+
+#: C/ekiga.xml:670(para)
+msgid "When you reorder the codecs, you are reordering the local capabilities table, ie the codecs you will use for sending. You will always transmit audio using the first codec in the table that is in common with the remote user. The remote user will transmit audio using the first codec in his table that is common with you."
+msgstr "Όταν αναταξινομείτε τους κωδικοποιητές αναταξινομείτε τον πίνακα των τοπικών δυνατοτήτων, δηλαδή, τους κωδικοποιητές που θα χρησιμοποιήσετε για αποστολή.  Θα μεταδίδετε ήχο χρησιμοποιώντας πάντα τον πρώτο αποκωδικοποιητή του πίνακα που έχετε κοινό με τον απομακρυσμένο χρήστη.  Ο τελευταίος, θα μεταδόσει ήχο χρησιμοποιώντας τον πρώτο κωδικοποιητή του πίνακά του τον οποίο διαθέτετε κι εσείς."
+
+#: C/ekiga.xml:674(title)
+msgid "Forcing the use of a specific codec"
+msgstr "Εξαναγκαστική χρήση συγκεκριμένου κωδικοποιητή"
+
+#: C/ekiga.xml:675(para)
+msgid "You can force the use of a specific codec by disabling all other codecs, but it will result in failed calls if the remote user doesn't allow that specific codec. The best is to put your prefered codecs at the top of the list so that you always transmit with them if the remote user allows it and to disable the codecs that you don't want to use for transmission and reception."
+msgstr "Μπορείτε να εξαναγκάσετε την χρήση συγκεκριμένου κωδικοποιητή απενεργοποιώντας όλους τους άλλους κωδικοποιητές, αλλά αυτό θα έχει αποτέλεσμα αποτυχημένες κλήσεις εφόσον ο απομακρυσμένος χρήστης δεν επιτρέπει τον συγκεκριμένο κωδικοποιητή.  Η καλύτερη λύση είναι να τοποθετίσετε τους κωδικοποιητές που προτιμάτε στην κορυφή της λίστα, ώστε να χρησιμοποιούνται πάντοτε κατά την μετάδοση εφόσον το επιτρέπει ο απομακρυσμένος χρήστης ή χρήστρια και να απενεργοποιήσετε εκείνους τους κωδικοποιητές που δεν επιθυμείτε να χρησιμοποιείτε για μετάδοση και λήψη."
+
+#: C/ekiga.xml:679(title)
+msgid "Adjusting the jitter buffer"
+msgstr "Προσαρμογή της προσωρινής μνήμης διακύμανσης-αυξομείωσης δεδομένων"
+
+#: C/ekiga.xml:680(para)
+msgid "You can adjust the delay to wait before playing the sound buffers that you have received using the jitter buffer adjustment. If there is too much packets loss, the delay required to have received all packets could be so important that it will exceed the jitter buffer. In such a case, the sound you are receiving will be of bad quality. A solution to that problem would be to increase the maximum limit of the jitter buffer to a few seconds, resulting in a big delay but in an improved voice quality. Notice that the jitter buffer will readapt itself to the lowest delay allowing for optimum transmission, and that a bad voice quality in reception is not due to a too low jitter buffer value, but to bad internet connection quality."
+msgstr "Μπορείτε να ρυθμίσετε τον χρόνο αναμονής πριν την έναρξη αναπαραγωγής του ήχου που είναι αποθηκευμένος εκείνη τη στιγμή προσωρινά στην μνήμη buffer, χρησιμοποιώντας την προσαρμογή της προσωρινής μνήμης διακύμανσης-αυξομείωσης του περιεχομένου της."
+
+#: C/ekiga.xml:689(title)
+msgid "Changing Ports"
+msgstr "Αλλαγή θυρών"
+
+#: C/ekiga.xml:691(title)
+msgid "The listen ports"
+msgstr "Οι θύρες ακρόασης listen"
+
+#: C/ekiga.xml:692(para)
+msgid "The main port listening for incoming connections in <application>Ekiga</application> for SIP is port 5060 (UDP), while 1720 (TCP) is used by H.323. To change those ports you need to load \"gconf-editor\". Open gconf-editor, select apps from the left hand side menu and then select <application>Ekiga</application>. Then select \"sip\" or \"h323\", it should give you a list in the corresponding window to your right. Select listen_port and change it to your desired value. You can also change the UDP/RTP port ranges."
+msgstr "Η κυρίως θύρα για ακρόαση των εισερχομένων κλήσεων στο <application>Ekiga</application> για το προτώκολλο SIP είναι η 5060 (UDP) ενώ η θύρα 1720 (TCP) χρησιμποιείται από το Η.323.  Για να αλλάξετε τις θύρες αυτές πρέπει να εκκινήσετε τον \"gconf-editor\".  Ανοίξτε τον gconf-editor, επιλέξτε apps από το αριστερό μενού και έπειτα επιλέξτε <application>Ekiga</application>.  Μετά επιλέξτε \"protocol\" και ύστερα \"sip\" ή \"h323\".  Θα εμφανιστεί μια λίστα στο δεξιό τμήμα της εφαρμογής.  Επιλέξτε listen_port πατήστε Enter και θέστε την επιθυμιτή τιμή.  Μπορείτε, επίσης, να αλλάξετε την κλίμακα των θυρών UDP/RTP."
+
+#: C/ekiga.xml:697(title)
+msgid "Explanation of the port ranges"
+msgstr "Εξήγηση της κλίμακας των θυρών"
+
+#: C/ekiga.xml:699(para)
+msgid "1. The \"listen_port\" value is the port <application>Ekiga</application> will listen for incoming connections on. It is different for SIP and H.323."
+msgstr "1. Η τιμή \"listen_port\" είναι η θύρα μέσω της οποίας το <application>Ekiga</application> θα ανιχνεύσει εισερχόμενες κλήσεις.  Η τιμή αυτή είναι διαφορετική για SIP και Η.323."
+
+#: C/ekiga.xml:701(para)
+msgid "2. The \"rtp_port_range\" value is the range of UDP ports that <application>Ekiga</application> will use for RTP (audio and video communication channels). <application>Ekiga</application> needs to be restarted for the new values to take effect."
+msgstr "2. Η τιμή \"rtp_port_range\" είναι το εύρος ή η κλίμακα των θυρών UDP που θα χρησιμοποιήσει το <application>Ekiga</application> για μετάδοση RTP (κανάλια μετάδοσης ήχου και βίντεο).  Για να ενεργοποιηθούν οι νέες τιμές πρέπει να επανεκκινήσετε το <application>Ekiga</application>."
+
+#: C/ekiga.xml:703(para)
+msgid "3. The \"udp_port_range\" value is the range of UDP ports that <application>Ekiga</application> will use for SIP signalling or when registering to H.323 gatekeepers."
+msgstr "3. Η τιμή \"udp_port_range\" είναι το εύρος ή η κλίμακα των θυρών UDP που θα χρησιμοποιήσει το <application>Ekiga</application> για την σηματοδότηση του SIP ή για την καταχώρησή του στους gatekeepers για Η.323."
+
+#: C/ekiga.xml:705(para)
+msgid "4. The \"tcp_port_range\" value is the range of TCP ports beside the listen_port that <application>Ekiga</application> will use for the H.245 channel with the H.323 protocol. That port range is not used by SIP. It is not used either when H.245 Tunneling is enabled, which is in general always the case, except when calling old H.323 implementations like Netmeeting."
+msgstr "4. Η τιμή \"tcp_port_range\" είναι το εύρος ή η κλίμακα των θυρών TCP που μαζί με την listen_port θα χρησιμοποιήσει το <application>Ekiga</application> για το κανάλι Η.245 με το πρωτόκολλο Η.323.  Η κλίμακα αυτή δεν χρησιμοποείται από το SIP, ούτε και από το Η.245.  Η διείσδυση (tunneling) είναι πάντα ενεργοποιημένη, εκτός και αν καλείται κάποια παλαιά υλοποίηση του Η.323, όπως το Netmeeting."
+
+#: C/ekiga.xml:711(title)
+msgid "Controlling the SIP and H.323 Settings"
+msgstr "Έλεγχος των ρυθμίσεων SIP και Η.323"
+
+#: C/ekiga.xml:713(title)
+msgid "Controlling the SIP Settings"
+msgstr "Έλεγχος των ρυθμίσεων SIP"
+
+#: C/ekiga.xml:715(title)
+#: C/ekiga.xml:728(title)
+msgid "Misc Settings"
+msgstr "Διάφορες ρυθμίσεις"
+
+#: C/ekiga.xml:716(emphasis)
+msgid "Outbound Proxy"
+msgstr "Μεσολαβητής (Proxy) Εξερχομένων"
+
+#: C/ekiga.xml:717(para)
+msgid "The outbound proxy is the SIP proxy that will relay your calls. The behavior of a SIP proxy is similar to the behavior of an HTTP proxy, ie some entity that issues the requests on your behalve and proxies the streams."
+msgstr "Ο μεσολαβητής εξερχομένων είναι ένας μεσολαβητής SIP ο οποίος θα αναμεταδόσει τις κλήσεις σας.  Η συμπεριφορά ενός μεσολαβητή SIP είναι όμοια με εκείνην ενός μεσολαβητή HTTP, δηλαδή, κάποια συσκευή που διανέμει το αίτημά σας για λογαριασμό σας και μεσολαβεί στις ροές δεδομένων (streams)."
+
+#: C/ekiga.xml:719(emphasis)
+#: C/ekiga.xml:732(emphasis)
+msgid "Forward URI"
+msgstr "URI Προώθησης"
+
+#: C/ekiga.xml:720(para)
+msgid "The URI to which SIP incoming calls should be forwarded if configured in the preferences."
+msgstr "Το URI προς τις οποίες θα προωθηθούν οι εισερχόμενες κλήσεις SIP, εφόσον έχει γίνει ρύθμιση στις προτιμήσεις."
+
+#: C/ekiga.xml:726(title)
+msgid "Controlling the H.323 Settings"
+msgstr "Έλεγχος των Ρυθμίσεων Η.323"
+
+#: C/ekiga.xml:729(emphasis)
+msgid "Default gateway"
+msgstr "Προκαθορισμένος υπολογιστής-πύλη"
+
+#: C/ekiga.xml:730(para)
+msgid "The default gateway is the H.323 gateway to use when doing calls. For example, if you are calling <emphasis>h323:123443</emphasis> with a default gateway set to <emphasis>foo</emphasis>, gateway foo will dial 123443 on your behalve. Usually, you will be registered to a gatekeeper, and gateway is not used."
+msgstr "Ο προκαθορισμένος υπολογιστής-πύλη (gateway) είναι η πύλη κατά Η.323 που θα χρησιμοποιηθεί για την πραγματοποίηση των κλήσεων.  Για παράδειγμα, εάν καλείτε <emphasis>h323:123443</emphasis> με τον προκαθορισμένο υπολογιστή-πύλη <emphasis>foo</emphasis>, η πύλη foo θα καλέσει τον 123443 για εσάς.  Συνήθως εγγράφεστε σε έναν gatekeeper και δεν χρησιμοποιείται κάποιος υπολογιστής-πύλη."
+
+#: C/ekiga.xml:733(para)
+msgid "The URI to which H.323 incoming calls should be forwarded if configured in the preferences."
+msgstr "Το URI προς το οποίο θα προωθηθούν οι κλήσεις κατά Η.323, εφόσον έχει γίνει ρύθμιση στις προτιμήσεις."
+
+#: C/ekiga.xml:737(title)
+msgid "Advanced Settings"
+msgstr "Ρυθμίσεις για προχωρημένους"
+
+#: C/ekiga.xml:738(para)
+msgid "<application>Ekiga</application> permits a fine control of the H.323 settings in the Advanced H.323 Settings section of the preferences. You can enable H.245 Tunneling, Early H.245 and Fast Start."
+msgstr "Το <application>Ekiga</application> επιτρέπει πλήρη έλεγχο των ρυθμίσεων Η.323 στο τμήμα Ρυθμίσεις Η.323 για Προχωρημένους των προτιμήσεων.  Μπορείτε να ενεργοποιήσετε την Διείσδυση Η.245 και την Γρήγορη Έναρξη."
+
+#: C/ekiga.xml:740(emphasis)
+msgid "H.245 Tunneling"
+msgstr "Διείσδυση Η.245"
+
+#: C/ekiga.xml:742(para)
+msgid "H.245 Tunneling is the encapsulation of H.245 messages within H.225/Q.931 messages (H.245 Tunneling). If you have a firewall and enable H.245 Tunneling, there is one less TCP port that you need to allow for incoming connections."
+msgstr "Η Διείσδυση Η.245 είναι το \"περίβλημα\" των μηνυμάτων Η.245 μέσα στα μηνύματα Η.225/Q.931 (Ενθηλάκωση Η.245).  Εάν έχετε κάποι τοίχος προστασίας και ενεργοποιήσετε την Διείσδυση Η.245, απαιτούνται μια λιγότερη θύρα TCP ελεύθερη για την αποδοχή εισερχομένων κλήσεων."
+
+#: C/ekiga.xml:744(emphasis)
+msgid "Early H.245"
+msgstr "Έγκαιρο Η.245"
+
+#: C/ekiga.xml:746(para)
+msgid "This enables H.245 early in the setup and permits to achieve faster call initiation."
+msgstr "Η επιλογή αυτή ενεργοποιεί εγκαίρως το Η.245 κατά την διάρκεια της ρύθμισης και επιτρέπει την ταχύτερη έναρξη της κλήσης."
+
+#: C/ekiga.xml:748(emphasis)
+msgid "Fast Start"
+msgstr "Γρήγορη εκκίνηση"
+
+#: C/ekiga.xml:750(para)
+msgid "Fast Connect is a new method of call setup that bypasses some usual steps in order to make it faster. In addition to the speed improvement, Fast Connect allows the media channels to be operational before the CONNECT message is sent, which is a requirement for certain billing procedures. It was introduced in H.323 version 2."
+msgstr "Η Γρήγορη Σύνδεση είναι μια νέα μέθοδος ρύθμισης μιας κλήσης που παρακάμπτει μερικά από τα συνήθη βήματα ώστε να πραγματοποιηθεί γρήγορα.  Επιπρόσθετα με τις βελτιώσεις της ταχύτητας, η Γρήγορη Σύνδεση βοηθά τα κανάλια πολυμέσων να ετοιμαστούν για την μετάδοση πριν σταλεί το μήνυμα CONNECT, μήνυμα το οποίο είναι απαιτούμενο για κάποιες διεργασίες τιμολόγησης.  Η λειτουργία αυτή πρωτοεισήχθη στην έκδοση 2 του Η.323."
+
+#: C/ekiga.xml:758(title)
+msgid "About <application>Ekiga</application>"
+msgstr "Σχετικά με το <application>Ekiga</application>"
+
+#: C/ekiga.xml:759(para)
+msgid "<application>Ekiga</application> is written by Damien Sandras (<email>dsandras@seconix.com</email>). To find more information about <application>Ekiga</application>, please visit the <ulink url=\"http://www.ekiga.org\" type=\"http\"><application>Ekiga</application> Home Page</ulink>."
+msgstr "Το <application>Ekiga</application> γράφτηκε από τον Damien Sandras (<email>dsandras@seconix.com</email>).  Για περισσότερες πληροφορίες σχετικά με το <application>Ekiga</application>, παρακαλούμε επισκεφθείτε την ιστοσελίδα <ulink url=\"http://www.ekiga.org\" type=\"http\"><application>Ekiga</application> Home Page</ulink>."
+
+#: C/ekiga.xml:763(para)
+msgid "To report a bug or make a suggestion regarding this application or this manual, follow the directions in <ulink url=\"ghelp:user-guide?feedback\" type=\"help\">this document</ulink>."
+msgstr "Για να δηλώσετε ένα σφάλμα (bug) ή για να κάνετε προτάσεις σχετικές με αυτή την εφαρμογή ακολουθείστε τις οδηγίες που θα βρείτε στην ιστοσελίδα <ulink url=\"ghelp:user-guide?feedback\" type=\"help\">this document</ulink>."
+
+#: C/ekiga.xml:767(para)
+msgid "This program is distributed under the terms of the GNU General Public license as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. A copy of this license can be found at this <ulink url=\"ghelp:gpl\" type=\"help\">link</ulink>, or in the file COPYING included with the source code of this program."
+msgstr "Το πρόγραμμα αυτό διανέμεται υπό τους όρους της Γενικής Δημόσιας Άδειας GNU, όπως αυτή εκδίδεται από το Ίδρυμα Ελεύθερου Λογισμικού (Free Software Foundation), ή της έκδοσης 2 της Άδειας είτε (αν προτιμάτε) κάθε παλαιότερης έκδοσης.  Αντίγραφο της Άδειας αυτής μπορείτε να βρείτε στην σελίδα <ulink url=\"ghelp:gpl\" type=\"help\">link</ulink> ή στο αρχείο COPYING που περιλαμβάνεται στον πηγαίο κώδικα αυτού του προγράμματος."
+
+#: C/ekiga.xml:773(title)
+msgid "Appendix"
+msgstr "Παράρτημα"
+
+#: C/ekiga.xml:776(title)
+msgid "Related Software"
+msgstr "Άλλο σχετικό λογισμικό"
+
+#: C/ekiga.xml:778(emphasis)
+msgid "IPBX"
+msgstr "IPBX"
+
+#: C/ekiga.xml:780(para)
+msgid "Asterisk PBX: <ulink url=\"http://asterisk.org\" type=\"http\">http://asterisk.org</ulink>"
+msgstr "Asterisk PBX: <ulink url=\"http://asterisk.org\" type=\"http\">http://asterisk.org</ulink>"
+
+#: C/ekiga.xml:783(emphasis)
+msgid "SIP"
+msgstr "SIP"
+
+#: C/ekiga.xml:785(para)
+msgid "SIP Express Router: <ulink url=\"http://www.iptel.org/ser\" type=\"http\">http://www.iptel.org/ser</ulink>"
+msgstr "SIP Express Router: <ulink url=\"http://www.iptel.org/ser\" type=\"http\">http://www.iptel.org/ser</ulink>"
+
+#: C/ekiga.xml:788(emphasis)
+msgid "H.323"
+msgstr "H.323"
+
+#: C/ekiga.xml:790(para)
+msgid "OpenH323 Gatekeeper: <ulink url=\"http://www.openh323.org\" type=\"http\">http://www.openh323.org</ulink>"
+msgstr "OpenH323 Gatekeeper: <ulink url=\"http://www.openh323.org\" type=\"http\">http://www.openh323.org</ulink>"
+
+#: C/ekiga.xml:791(para)
+msgid "GNU Gatekeeper: <ulink url=\"http://www.gnugk.org\" type=\"http\">http://www.gnugk.org</ulink>"
+msgstr "GNU Gatekeeper: <ulink url=\"http://www.gnugk.org\" type=\"http\">http://www.gnugk.org</ulink>"
+
+#: C/ekiga.xml:792(para)
+msgid "OpenH323 Proxy: <ulink url=\"http://openh323.sourceforge.net\" type=\"http\">http://openh323.sourceforge.net</ulink>"
+msgstr "OpenH323 Proxy:<ulink url=\"http://openh323.sourceforge.net\" type=\"http\">http://openh323.sourceforge.net</ulink>"
+
+#: C/ekiga.xml:793(para)
+msgid "H323 - ISDN Gateway: <ulink url=\"http://www.telos.de/linux/H323/\" type=\"http\">http://www.telos.de/linux/H323/</ulink>"
+msgstr "H323 - ISDN Gateway: <ulink url=\"http://www.telos.de/linux/H323/\" type=\"http\">http://www.telos.de/linux/H323/</ulink>"
+
+#: C/ekiga.xml:796(emphasis)
+msgid "Conferencing/VoIP Software"
+msgstr "Λογισιμικό Βιντεοδιασκέψεων/VoIP"
+
+#: C/ekiga.xml:799(para)
+msgid "OpenMCU: <ulink url=\"http://www.openh323.org\" type=\"http\">http://www.openh323.org</ulink>"
+msgstr "OpenMCU: <ulink url=\"http://www.openh323.org\" type=\"http\">http://www.openh323.org</ulink>"
+
+#: C/ekiga.xml:802(emphasis)
+msgid "Similar Clients"
+msgstr "Παρόμοιοι Πελάτες"
+
+#: C/ekiga.xml:805(para)
+msgid "XTen: <ulink url=\"http://www.xten.com\" type=\"http\">http://www.xten.com</ulink>"
+msgstr "XTen:<ulink url=\"http://www.xten.com\" type=\"http\">http://www.xten.com</ulink>"
+
+#: C/ekiga.xml:806(para)
+msgid "SJPhone: <ulink url=\"http://www.sjlabs.com/\" type=\"http\">http://www.sjlabs.com/</ulink>"
+msgstr "SJPhone: <ulink url=\"http://www.sjlabs.com/\" type=\"http\">http://www.sjlabs.com/</ulink>"
+
+#: C/ekiga.xml:807(para)
+msgid "OpenPhone: <ulink url=\"http://www.openh323.org\" type=\"http\">http://www.openh323.org</ulink>"
+msgstr "OpenPhone: <ulink url=\"http://www.openh323.org\" type=\"http\">http://www.openh323.org</ulink>"
+
+#: C/ekiga.xml:808(para)
+msgid "Netmeeting: <ulink url=\"http://www.microsoft.com\" type=\"http\">http://www.microsoft.com</ulink>"
+msgstr "Netmeeting: <ulink url=\"http://www.microsoft.com\" type=\"http\">http://www.microsoft.com</ulink>"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#: C/ekiga.xml:0(None)
+msgid "translator-credits"
+msgstr "Μετάφραση Φράγκος Γιώργος"
+

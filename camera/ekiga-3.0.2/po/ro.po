@@ -1,0 +1,5973 @@
+# Romanian Ekiga translation.
+# Copyright (C) 2001-2003, 2005, 2008 Free Software Foundation, Inc.
+# Grigore Moldovan <GrigoreMoldovan"netscape.net>, 2004.
+# Marius Dumitru <marius2677@yahoo.com>, 2003.
+# George Roman <georgeroman@gmail.com>, 2005.
+# Eugen Dedu <Eugen.Dedu@pu-pm.univ-fcomte.fr>, 2008
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-13 15:50+0100\n"
+"PO-Revision-Date: 2005-08-23 12:58+0300\n"
+"Last-Translator: George Roman <georgeroman@gmail.com>\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;plural=( n == 1 ? 0 : ( ( (n%100 > 19) || ((n%100 "
+"== 0) && (n != 0))) ? 2 : 1 ) )\n"
+#"X-Generator: KBabel 1.10.1\n"
+#with emacs
+
+#: ../ekiga.desktop.in.in.h:1
+msgid "Ekiga Softphone"
+msgstr "Telefon și video IP Ekiga"
+
+#: ../ekiga.desktop.in.in.h:2
+msgid "IP Telephony, VoIP and Video Conferencing"
+msgstr "Telefonie IP, VoIP și Videoconferință"
+
+#: ../ekiga.desktop.in.in.h:3
+msgid "Talk to people over the Internet"
+msgstr "Vorbește cu oamenii prin Internet"
+
+#: ../ekiga.schemas.in.in.h:1
+msgid "0: 56Kbps, 1: ISDN, 2:DSL, 3: LAN, 4: Custom"
+msgstr "1: 56kb/s, 2: ISDN, 3:DSL, 4: LAN, 5: Personalizat"
+
+#: ../ekiga.schemas.in.in.h:2
+msgid ""
+"Allow Ekiga to fall back to software scaling the picture-in-picture if "
+"hardware support is not available. If this is set to false, Ekiga will not "
+"try to open the PIP if hardware support is not available."
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:3
+msgid "Allow picture-in-picture software scaling"
+msgstr "Permite scalare software imagine-în-imagine"
+
+#: ../ekiga.schemas.in.in.h:4
+msgid "Alternative audio output device"
+msgstr "Dispozitiv audio de ieșire alternativ"
+
+#: ../ekiga.schemas.in.in.h:5
+msgid "Always forward calls to the given host"
+msgstr "Redirecționează apelurile către un alt calculator"
+
+#: ../ekiga.schemas.in.in.h:6
+msgid "Audio input device"
+msgstr "Dispozitiv audio de intrare"
+
+#: ../ekiga.schemas.in.in.h:7
+msgid "Audio output device"
+msgstr "Dispozitiv audio de ieșire"
+
+#: ../ekiga.schemas.in.in.h:8
+msgid "Automatic echo cancellation"
+msgstr "Anulează automat ecoul"
+
+#: ../ekiga.schemas.in.in.h:9 ../src/gui/preferences.cpp:428
+msgid ""
+"Automatically reject or forward incoming calls if no answer is given after "
+"the specified amount of time (in seconds)"
+msgstr ""
+"Respinge sau redirecționeză apelul, dacă nu este nici un răspuns după un "
+"interval specificat de timp (în secunde)"
+
+#: ../ekiga.schemas.in.in.h:10
+msgid "Calls history"
+msgstr "Istoricul apelurilor"
+
+#: ../ekiga.schemas.in.in.h:11
+#, fuzzy
+msgid "Change the main window panel section"
+msgstr "Schimbă conținutul panoului de control"
+
+#: ../ekiga.schemas.in.in.h:12
+#, fuzzy
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting"
+msgstr ""
+"Conexiunea va fi stabilită în modul de pornire rapidă.Metoda de pornire "
+"rapidă este o metodă nouă de a începe convorbirile mai repede, definită în "
+"H.323v2. Nu e compatibilă cu Netmeeting și folosirea simultană a tunelării "
+"H.245 poate bloca anumite versiuni Netmeeting"
+
+#: ../ekiga.schemas.in.in.h:13
+msgid "Contact long status"
+msgstr "Contactez stare lungă"
+
+#: ../ekiga.schemas.in.in.h:14
+msgid "Contact short status"
+msgstr "Contactez stare scurtă"
+
+#: ../ekiga.schemas.in.in.h:15
+msgid "Country code"
+msgstr "Cod țară"
+
+#: ../ekiga.schemas.in.in.h:16
+msgid "DTMF sending"
+msgstr "Trimitere DTMF"
+
+#: ../ekiga.schemas.in.in.h:17
+msgid "Disable video hardware acceleration"
+msgstr "Dezactivează accelerația video hardware"
+
+#: ../ekiga.schemas.in.in.h:18
+msgid "Display a popup window when receiving a call"
+msgstr "Deschide o fereastră nouă la primirea unui apel"
+
+#: ../ekiga.schemas.in.in.h:19
+msgid "Enable 'Fast Start'"
+msgstr "Activează 'Fast Start'"
+
+#: ../ekiga.schemas.in.in.h:20
+msgid "Enable H.245 tunneling"
+msgstr "Activează tunelarea H.245"
+
+#: ../ekiga.schemas.in.in.h:21
+msgid "Enable early H.245"
+msgstr "Activează „early H.245”"
+
+#: ../ekiga.schemas.in.in.h:22
+#, fuzzy
+msgid "Enable echo cancelation"
+msgstr "Activează înlăturarea ecoului"
+
+#: ../ekiga.schemas.in.in.h:23
+msgid "Enable silence detection"
+msgstr ""
+"Activează detectarea intervalelor de \"tăcere\" pe canalul de cumunicație"
+
+#: ../ekiga.schemas.in.in.h:24
+msgid "Enable video support"
+msgstr "Activează suportul video"
+
+#: ../ekiga.schemas.in.in.h:25
+msgid ""
+"Enter the number of seconds after which Ekiga should try refreshing the NAT "
+"binding when STUN is being used"
+msgstr "Introduceți numărul de secunde după care Ekiga va împrospăta "
+"conexiunea NAT când STUN este utilizat"
+
+#: ../ekiga.schemas.in.in.h:26 ../src/gui/preferences.cpp:378
+msgid "Enter your full name"
+msgstr "Introduceți numele dumneavostră complet"
+
+#: ../ekiga.schemas.in.in.h:27
+msgid "Forward calls to host"
+msgstr "Redirecționează apelurile către calculatorul"
+
+#: ../ekiga.schemas.in.in.h:28
+msgid "Forward calls to the given host if busy"
+msgstr ""
+"Redirecționează apelurile către aceast calculator dacă linia este ocupată"
+
+#: ../ekiga.schemas.in.in.h:29
+msgid "Forward calls to the given host if no answer"
+msgstr ""
+"Redirecționează apelurile la această calculator, dacă nu se primește răspuns "
+"la apel"
+
+#: ../ekiga.schemas.in.in.h:30 ../src/gui/preferences.cpp:999
+msgid "Frame Rate"
+msgstr "Rata de transfer a cadrelor de informație"
+
+#: ../ekiga.schemas.in.in.h:31
+msgid "Full name"
+msgstr "Nume complet"
+
+#: ../ekiga.schemas.in.in.h:32 ../src/gui/preferences.cpp:396
+msgid ""
+"If enabled, Ekiga will start hidden provided that the notification area is "
+"present in the GNOME panel"
+msgstr ""
+"La activare, dacă zona de notificare e prezentă în panoul GNOME, "
+"Ekiga va porni ascuns."
+
+#: ../ekiga.schemas.in.in.h:33
+msgid ""
+"If enabled, a popup window will be displayed when receiving an incoming call"
+msgstr "La activare, o fereastră nouă va fi afișată când se primește un apel"
+
+#: ../ekiga.schemas.in.in.h:34
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below"
+msgstr ""
+"La activare, toate apelurile primite vor fi redirecționate la gazda "
+"specificată în câmpul de mai jos."
+
+#: ../ekiga.schemas.in.in.h:35
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you already are in a call or if you are in "
+"Do Not Disturb mode"
+msgstr ""
+"La activare, dacă o convorbire e în curs de desfășurare sau modul „nu "
+"deranjați” este activ, toate apelurile primite vor fi redirecționate la "
+"gazda specificată în câmpul de mai jos"
+
+#: ../ekiga.schemas.in.in.h:36
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the field below if you do not answer the call"
+msgstr ""
+"La activare, dacă nu răspundeți la apeluri, toate apelurile primite vor fi "
+"redirecționate la gazda specificată în câmpul de mai jos"
+
+#: ../ekiga.schemas.in.in.h:37
+#, fuzzy
+msgid "If enabled, allows video during calls"
+msgstr ""
+"Dacă este activat, recepționarea imaginilor video in timpul unei conferințe "
+"este permisă"
+
+#: ../ekiga.schemas.in.in.h:38 ../src/gui/preferences.cpp:398
+msgid "If enabled, offline contacts will be shown in the roster"
+msgstr "Dacă este activat, apelurile primite vor fi afișate în agendă"
+
+#: ../ekiga.schemas.in.in.h:39
+msgid "If enabled, use echo cancelation"
+msgstr "Dacă este activat, anulează automat ecoul"
+
+#: ../ekiga.schemas.in.in.h:40
+#, fuzzy
+msgid "If enabled, use silence detection with the codecs supporting it"
+msgstr ""
+"La activare, pentru codecurile GSM și G.711 se detectează intervalele de "
+"pauză"
+
+#: ../ekiga.schemas.in.in.h:41
+msgid "Kind of network selected in the druid"
+msgstr "Tip de rețea selectat în asistentul de configurare"
+
+#: ../ekiga.schemas.in.in.h:42
+#, fuzzy
+msgid "LDAP servers"
+msgstr "Servere"
+
+#: ../ekiga.schemas.in.in.h:43
+#, fuzzy
+msgid "List of configured LDAP servers"
+msgstr "Am eșuat să mă conectez la serverul de ldap %s:%d"
+
+#: ../ekiga.schemas.in.in.h:44
+#, fuzzy
+msgid "List of folded groups in the roster"
+msgstr "Lista autorilor programelor"
+
+#: ../ekiga.schemas.in.in.h:45
+msgid "Listen port"
+msgstr "Port utilizat"
+
+#: ../ekiga.schemas.in.in.h:46
+msgid "Local video window size"
+msgstr "Mărime imagine video locală"
+
+#: ../ekiga.schemas.in.in.h:47
+#, fuzzy
+msgid "Maximum RX video bitrate"
+msgstr "Lațime maximă de bandă a semnalului video"
+
+#: ../ekiga.schemas.in.in.h:48
+#, fuzzy
+msgid "Maximum TX video bitrate"
+msgstr "Lațime maximă de bandă a semnalului video"
+
+#: ../ekiga.schemas.in.in.h:49
+msgid "Maximum jitter buffer"
+msgstr "Dimensiune maximă a buffer-ului jitter"
+
+#: ../ekiga.schemas.in.in.h:50
+msgid "NAT Binding Timeout"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:51
+msgid "No answer timeout"
+msgstr "Timp de apel maxim"
+
+#: ../ekiga.schemas.in.in.h:52
+msgid "Outbound Proxy"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:53
+msgid "Output device type"
+msgstr "Tip dispozitiv de ieșire"
+
+#: ../ekiga.schemas.in.in.h:54 ../src/gui/preferences.cpp:405
+msgid "Place windows displaying video above other windows during calls"
+msgstr ""
+"În timpul convorbirilor, plasează ferestrele care conțin semnal video "
+"deasupra celorlalte ferestre."
+
+#: ../ekiga.schemas.in.in.h:55 ../src/gui/preferences.cpp:1367
+msgid "Play busy tone"
+msgstr "Redă ton de ocupat"
+
+#: ../ekiga.schemas.in.in.h:56 ../src/gui/preferences.cpp:1358
+msgid "Play ring tone"
+msgstr "Redă ton de sonerie"
+
+#: ../ekiga.schemas.in.in.h:57 ../src/gui/preferences.cpp:1349
+msgid "Play sound on incoming calls"
+msgstr "Redă un sunet la primire apeluri"
+
+#: ../ekiga.schemas.in.in.h:58
+#, fuzzy
+msgid "Play sound on new message"
+msgstr "Redă un sunet la primire apeluri"
+
+#: ../ekiga.schemas.in.in.h:59
+#, fuzzy
+msgid "Play sound on new voice mail"
+msgstr "Redă un sunet la primire apeluri"
+
+#: ../ekiga.schemas.in.in.h:60
+msgid "Position of the local video window"
+msgstr "Poziție fereastră locală cu semnal video"
+
+#: ../ekiga.schemas.in.in.h:61
+msgid "Position on the screen of the address book window"
+msgstr "Poziție pe ecran a ferestrei cu cartea de adrese"
+
+#: ../ekiga.schemas.in.in.h:62
+#, fuzzy
+msgid "Position on the screen of the audio settings window"
+msgstr "Poziție pe ecran a ferestrei principale"
+
+#: ../ekiga.schemas.in.in.h:63
+#, fuzzy
+msgid "Position on the screen of the chat window"
+msgstr "Poziție pe ecran a ferestrei principale"
+
+#: ../ekiga.schemas.in.in.h:64
+msgid "Position on the screen of the druid window"
+msgstr "Poziție pe ecran a ferestrei cu asistentul de configurare"
+
+#: ../ekiga.schemas.in.in.h:65
+msgid "Position on the screen of the log window"
+msgstr "Poziție pe ecran a ferestrei cu înregistrări"
+
+#: ../ekiga.schemas.in.in.h:66
+msgid "Position on the screen of the main window"
+msgstr "Poziție pe ecran a ferestrei principale"
+
+#: ../ekiga.schemas.in.in.h:67
+msgid "Position on the screen of the preferences window"
+msgstr "Poziție pe ecran a ferestrei cu opțiuni"
+
+#: ../ekiga.schemas.in.in.h:68
+#, fuzzy
+msgid "Position on the screen of the video settings window"
+msgstr "Poziție pe ecran a ferestrei cu înregistrări"
+
+#: ../ekiga.schemas.in.in.h:69
+msgid "Registration timeout"
+msgstr "Expirarea timpului de inregistrare"
+
+#: ../ekiga.schemas.in.in.h:70
+msgid "Remote video window position"
+msgstr "Poziție fereastră cu semnal video recepționat"
+
+#: ../ekiga.schemas.in.in.h:71
+msgid "Remote video window size"
+msgstr "Mărime fereastră cu semnal video recepționat"
+
+#: ../ekiga.schemas.in.in.h:72
+msgid "Revision of the schema file"
+msgstr "Revizie fișierul tip schemă"
+
+#: ../ekiga.schemas.in.in.h:73
+msgid "Roster view saving group status"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:74
+#, fuzzy
+msgid "Select an alternative audio output device to use for sound events."
+msgstr ""
+"Alegeți dispozitivul de ieșire audio folosit  pentru evenimentele cu "
+"notificare sonoră"
+
+#: ../ekiga.schemas.in.in.h:75 ../src/gui/preferences.cpp:707
+msgid "Select the audio input device to use"
+msgstr "Alegeți dispozitivul de intrare audio"
+
+#: ../ekiga.schemas.in.in.h:76 ../src/gui/preferences.cpp:700
+msgid "Select the audio output device to use"
+msgstr "Alegeți dispozitivul de ieșire audio"
+
+#: ../ekiga.schemas.in.in.h:77 ../src/gui/preferences.cpp:863
+msgid ""
+"Select the format for video cameras (does not apply to most USB cameras)"
+msgstr ""
+"Alege formatul utiliyat la camerele video (nu se aplică la majoritatea "
+"camerelor USB)"
+
+#: ../ekiga.schemas.in.in.h:78
+msgid ""
+"Select the transmitted video size: Small (QCIF 176x144) or Large (CIF "
+"352x288)"
+msgstr ""
+"Alege mărimea semnalului video transmis: mic (QCIF 176x144) sau mare (CIF "
+"352x288)"
+
+#: ../ekiga.schemas.in.in.h:79 ../src/gui/preferences.cpp:855
+msgid ""
+"Select the video input device to use. If an error occurs when using this "
+"device a test picture will be transmitted."
+msgstr ""
+"Alege dispozitivul video de intrare utilizat. O poză de test va fi transmisa "
+"dacă apare o eroare în timp ce folosiți acest dispozitiv"
+
+#: ../ekiga.schemas.in.in.h:80
+msgid "Show offline contacts"
+msgstr "Arată contactele offline"
+
+#: ../ekiga.schemas.in.in.h:81 ../src/gui/main.cpp:1858
+#, fuzzy
+msgid "Show the call panel"
+msgstr "Ascunde panoul de control"
+
+#: ../ekiga.schemas.in.in.h:82
+msgid "Size of the address book window"
+msgstr "Mărime fereastră cu cartea de adrese"
+
+#: ../ekiga.schemas.in.in.h:83
+#, fuzzy
+msgid "Size of the audio settings window"
+msgstr "Mărime fereastră cu înregistrări"
+
+#: ../ekiga.schemas.in.in.h:84
+#, fuzzy
+msgid "Size of the chat window"
+msgstr "Mărime fereastră cu înregistrări"
+
+#: ../ekiga.schemas.in.in.h:85
+msgid "Size of the druid window"
+msgstr "Mărime fereastră cu asistentul de configurare"
+
+#: ../ekiga.schemas.in.in.h:86
+msgid "Size of the preferences window"
+msgstr "Mărime fereastră cu opțiuni"
+
+#: ../ekiga.schemas.in.in.h:87
+#, fuzzy
+msgid "Size of the video settings window"
+msgstr "Mărime fereastră cu înregistrări"
+
+#: ../ekiga.schemas.in.in.h:88
+msgid "Specify the software scaling algorithm"
+msgstr "Specifică algoritmul de scalare software"
+
+#: ../ekiga.schemas.in.in.h:89
+msgid ""
+"Specify the software scaling algorithm: 0: nearest neighbor, 1: nearest "
+"neighbor with box filter, 2: bilinear filtering, 3: hyperbolic filtering. "
+"Does not apply on windows systems."
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:90
+msgid "Start hidden"
+msgstr "Pornește ascuns"
+
+#: ../ekiga.schemas.in.in.h:91
+msgid "TCP port range"
+msgstr "Interval de porturi TCP"
+
+#: ../ekiga.schemas.in.in.h:92
+#, fuzzy
+msgid "Temporal Spatial Trade Off"
+msgstr "Eșec temporar"
+
+#: ../ekiga.schemas.in.in.h:93
+msgid "The Audio Codecs List"
+msgstr "Listă codecuri audio"
+
+#: ../ekiga.schemas.in.in.h:94
+msgid ""
+"The Automatic Echo Cancellation level: Off, Low, Medium, High, Automatic "
+"Gain Compensation. Choosing Automatic Gain Compensation modulates the volume "
+"for best quality."
+msgstr ""
+"Nivel „Automatic Echo Cancellation”: Off, Low, Medium, High, Automatic Gain "
+"Compensation. Alegând compensarea automată, volumul e modulat pentru a "
+"obține cea mai bună calitate"
+
+#: ../ekiga.schemas.in.in.h:95 ../src/gui/preferences.cpp:657
+msgid "The SIP Outbound Proxy to use for outgoing calls"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:96
+msgid "The STUN Server"
+msgstr "Server STUN "
+
+#: ../ekiga.schemas.in.in.h:97
+#, fuzzy
+msgid ""
+"The STUN server to use for STUN Support. STUN is a technology that permits "
+"passage through some types of NAT gateway"
+msgstr ""
+"Serverul STUN ofera suport pentru STUN (Simple Traversal of UDP over NATs). "
+"STUN este o metodă care permite trecerea prin anumite tipuri de calculatoare "
+"\"poartă\" de ieșire (Gateway) care folosesc translatarea adresei IP (NAT)"
+
+#: ../ekiga.schemas.in.in.h:98
+#, fuzzy
+msgid "The Video Codecs List"
+msgstr "Listă codecuri audio"
+
+#: ../ekiga.schemas.in.in.h:99
+msgid "The accounts list"
+msgstr "Lista conturilor"
+
+#: ../ekiga.schemas.in.in.h:100
+#, fuzzy
+msgid "The audio codecs list"
+msgstr "Listă codecuri audio"
+
+#: ../ekiga.schemas.in.in.h:101
+msgid "The busy tone sound"
+msgstr "Sunetul pentru ton ocupat"
+
+#: ../ekiga.schemas.in.in.h:102
+msgid ""
+"The chosen sound will be played at the end of calls or calling somebody who "
+"is busy, if enabled"
+msgstr ""
+"La activare, sunetul ales va fi utilizat la sfârșitul convorbirilor sau la "
+"apelul unei persoane ocupate"
+
+#: ../ekiga.schemas.in.in.h:103
+msgid "The chosen sound will be played on incoming calls, if enabled"
+msgstr "La activare, sunetul ales va fi utilizat la primirea apelurilor"
+
+#: ../ekiga.schemas.in.in.h:104
+#, fuzzy
+msgid ""
+"The chosen sound will be played when a new instant message is received, if "
+"enabled"
+msgstr "La activare, sunetul ales va fi utilizat la inițierea apelurilor"
+
+#: ../ekiga.schemas.in.in.h:105
+#, fuzzy
+msgid ""
+"The chosen sound will be played when a new voice mail is received, if enabled"
+msgstr "La activare, sunetul ales va fi utilizat la inițierea apelurilor"
+
+#: ../ekiga.schemas.in.in.h:106
+msgid "The chosen sound will be played when calling somebody, if enabled"
+msgstr "La activare, sunetul ales va fi utilizat la inițierea apelurilor"
+
+#: ../ekiga.schemas.in.in.h:107
+msgid "The default video view"
+msgstr "Imagine video implicită"
+
+#: ../ekiga.schemas.in.in.h:108
+#, fuzzy
+msgid ""
+"The default video view (0: Local, 1: Remote, 2: Both layered, 3: Both with "
+"local video in a separate window, 4: Both)"
+msgstr ""
+"Imagine video implicită (0: locală, 1: la distanță, 2: amândouă, una-în-"
+"alta , 3: amândouă cu cea locală in fereastră nouă, 4: amândouă)"
+
+#: ../ekiga.schemas.in.in.h:109
+#, fuzzy
+msgid "The dial tone sound"
+msgstr "Sunet ton sonerie"
+
+#: ../ekiga.schemas.in.in.h:110
+#, fuzzy
+msgid "The history of the 100 last calls"
+msgstr "Istoricul ultimelor 100 apeluri făcute"
+
+#: ../ekiga.schemas.in.in.h:111 ../src/gui/preferences.cpp:606
+#: ../src/gui/preferences.cpp:660
+#, fuzzy
+msgid "The host where calls should be forwarded if call forwarding is enabled"
+msgstr ""
+"Calculatorul la care trebuiesc redirectate apelurile în cazurile selectate "
+"mai sus."
+
+#: ../ekiga.schemas.in.in.h:112
+#, fuzzy
+msgid ""
+"The image to transmit if \"Picture\" is selected as video plugin or if the "
+"opening of the device fails. Leave blank to use the default Ekiga logo."
+msgstr ""
+"Imagine de transmis dacă „Picture” este selectat ca modul video, sau dacă "
+"deschiderea dispozitivului selectat eșuează. Dacă e necompletat, se va "
+"utiliza setarea implicită Ekiga"
+
+#: ../ekiga.schemas.in.in.h:113
+msgid "The incoming call sound"
+msgstr "Sunet utilizat la primerea unui apel"
+
+#: ../ekiga.schemas.in.in.h:114
+msgid "The list of accounts to which Ekiga should register"
+msgstr "Lista conturilor la care Ekiga trebuie să se conecteze"
+
+#: ../ekiga.schemas.in.in.h:115
+#, fuzzy
+msgid "The long status information"
+msgstr "Editează Informația de Contact"
+
+#: ../ekiga.schemas.in.in.h:116
+msgid ""
+"The maximum RX video bitrate in kbit/s. This value will be signaled to the "
+"peer endpoint that can adjust (if it supports it) its TX bitrate if it is "
+"above the signaled value"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:117
+#, fuzzy
+msgid ""
+"The maximum TX video bitrate in kbit/s. The video quality and the number of "
+"transmitted frames per second (depends on selected codec) will be "
+"dynamically adjusted above their minimum during calls to try to minimize the "
+"bandwidth to the given value"
+msgstr ""
+"Lațimea de bandă maximă in kbytes/s. În timpul convorbirilor, calitatea "
+"video și numărul maxim de cadre trimise într-o secundă vor fi ajustate "
+"dinamic peste valoarea minimă pentru a reduce lațimea de bandă la valoarea "
+"specificată"
+
+#: ../ekiga.schemas.in.in.h:118
+msgid "The maximum jitter buffer size for audio reception (in ms)"
+msgstr "Mărime maximă a tamponului jitter pentru recepția audio (în ms)."
+
+#: ../ekiga.schemas.in.in.h:119
+msgid ""
+"The maximum transmitted frame rate in frames/s. This rate may not be reached "
+"in case a minimum quality was configure via a TSTO value smaller than 31 and "
+"the bitrate selected is not sufficient to support this minimum quality"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:120
+#, fuzzy
+msgid "The new instant message sound"
+msgstr "Sunet ton sonerie"
+
+#: ../ekiga.schemas.in.in.h:121
+#, fuzzy
+msgid "The new voice mail sound"
+msgstr "Sunet utilizat la primerea unui apel"
+
+#: ../ekiga.schemas.in.in.h:122
+msgid ""
+"The output device type is the type of device connected to your Quicknet "
+"card. It can be either a POTS (Plain Old Telephone System) or a headset."
+msgstr ""
+"Tipul dispozitivului de ieșire este tipul de dispozitiv conectat la propria "
+"placă Quicknet. Poate să fie un POTS (paid old telephone system) sau un "
+"headset"
+
+#: ../ekiga.schemas.in.in.h:123
+#, fuzzy
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect"
+msgstr ""
+"Port deschis pentru primirea de apeluri. Ekiga trebuie repornit "
+"pentru ca noua valoare să aibă efect"
+
+#: ../ekiga.schemas.in.in.h:124
+#, fuzzy
+msgid ""
+"The port to listen to for incoming connections. Ekiga needs to be restarted "
+"for the new value to take effect."
+msgstr ""
+"Port deschis pentru primirea de apeluri. Ekiga trebuie repornit "
+"pentru ca noua valoare să aibă efect"
+
+#: ../ekiga.schemas.in.in.h:125
+msgid "The position of the local video window"
+msgstr "Poziție fereastră cu semnalul video local"
+
+#: ../ekiga.schemas.in.in.h:126
+msgid "The position of the remote video window"
+msgstr "Poziție fereastră cu semnal video primit"
+
+#: ../ekiga.schemas.in.in.h:127
+msgid ""
+"The prefix that will be used to save pictures of the conversation. That "
+"prefix is followed by the snapshot number."
+msgstr ""
+"Prefix de folosit la salvarea imaginilor conversației. Acest prefix este "
+"urmat de numărul capturii de ecran."
+
+#: ../ekiga.schemas.in.in.h:128
+msgid ""
+"The range of TCP ports that Ekiga will use for the H.323 H.245 channel. This "
+"port range has no effect if both participants to the conference are using "
+"H.245 Tunneling."
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:129
+msgid "The range of UDP ports that Ekiga will use."
+msgstr "Intervalul de porturi UDP utilizate de Ekiga."
+
+#: ../ekiga.schemas.in.in.h:130
+msgid "The save prefix"
+msgstr "Prefix la salvare"
+
+#: ../ekiga.schemas.in.in.h:131
+#, fuzzy
+msgid "The short status information"
+msgstr "Editează Informația de Contact"
+
+#: ../ekiga.schemas.in.in.h:132
+msgid "The size of the local video window"
+msgstr "Mărime fereastră locală cu semnal video"
+
+#: ../ekiga.schemas.in.in.h:133
+msgid "The size of the remote video window"
+msgstr "Mărime fereastră la distanță cu semnal video"
+
+#: ../ekiga.schemas.in.in.h:134
+msgid ""
+"The sound that will be played at the end of calls or when calling somebody "
+"who is busy, if enabled"
+msgstr ""
+"La activare, sunetul care de redat la sfârșitul convorbirilor sau la "
+"apelarea unei persoane ocupate"
+
+#: ../ekiga.schemas.in.in.h:135
+msgid "The sound that will be played on incoming calls, if enabled"
+msgstr "La activare, sunetul de redat la apelurile primite"
+
+#: ../ekiga.schemas.in.in.h:136
+msgid "The sound that will be played when calling somebody, if enabled"
+msgstr "La activare, sunetul de redat la inițierea unui apel"
+
+#: ../ekiga.schemas.in.in.h:137
+#, fuzzy
+msgid ""
+"The sound that will be played when there is a new instant message, if enabled"
+msgstr "La activare, sunetul de redat la inițierea unui apel"
+
+#: ../ekiga.schemas.in.in.h:138
+#, fuzzy
+msgid ""
+"The sound that will be played when there is a new voice mail, if enabled"
+msgstr "La activare, sunetul de redat la apelurile primite"
+
+#: ../ekiga.schemas.in.in.h:139
+#, fuzzy
+msgid ""
+"The time after which Ekiga will renew its registration with the registrar"
+msgstr ""
+"Timpul după care Ekiga va reinnoi înregistrarea cu gatekeeper-ului"
+
+#: ../ekiga.schemas.in.in.h:140
+msgid "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)"
+msgstr "Codul de două litere al țării dumneavoastră (de exemplu: RO, MD, ...)."
+
+#: ../ekiga.schemas.in.in.h:141 ../src/gui/preferences.cpp:859
+msgid "The video channel number to use (to select camera, tv or other sources)"
+msgstr ""
+"Numărul canalului video ce va fi folosit (pentru a selecta o videocameră, "
+"televizor, sau alte surse)."
+
+#: ../ekiga.schemas.in.in.h:142
+#, fuzzy
+msgid "The video codecs list"
+msgstr "Listă codecuri audio"
+
+#: ../ekiga.schemas.in.in.h:143
+#, fuzzy
+msgid "The video view before having switched to fullscreen"
+msgstr "Lațime imagine pe tot ecranul"
+
+#: ../ekiga.schemas.in.in.h:144
+msgid ""
+"The video view before having switched to fullscreen (same values as "
+"video_view)"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:145
+msgid "The zoom value"
+msgstr "Valoare magnificare"
+
+#: ../ekiga.schemas.in.in.h:146
+#, fuzzy
+msgid ""
+"The zoom value in percent to apply to images displayed in the main GUI (can "
+"be 50, 100, or 200)"
+msgstr ""
+"Valoarea magnificării ce va fi aplicată imaginilor afișate în fereastra "
+"principală (poate fi 0.5, 1.00 or 2.00)"
+
+#: ../ekiga.schemas.in.in.h:147
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be "
+"\"RFC2833\" (0), \"INFO\" (1)"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:148
+#, fuzzy
+msgid ""
+"This allows you to set the mode for sending DTMFs. The values can be \"String"
+"\" (0), \"Tone\" (1), \"RFC2833\" (2), \"Q.931\" (3) (default is \"String"
+"\"). Choosing other values than \"String\" disables the Text Chat"
+msgstr ""
+"Aceasta stabilește modul trimiterii DTMF. Valorile pot fi „toate”(0), "
+"„niciunul” (1), „rfc2833” (2), „semnal” (3) sau „șir” (4)  (implicit e 0) "
+"Alte moduri decât 0, 2 sau 4 vor face imposibile discuțiile text"
+
+#: ../ekiga.schemas.in.in.h:149 ../src/gui/preferences.cpp:618
+#, fuzzy
+msgid ""
+"This enables H.245 Tunneling mode. In H.245 Tunneling mode H.245 messages "
+"are encapsulated into the H.225 channel (port 1720). This saves one TCP "
+"connection during calls. H.245 Tunneling was introduced in H.323v2 and "
+"Netmeeting does not support it. Using both Fast Start and H.245 Tunneling "
+"can crash some versions of Netmeeting."
+msgstr ""
+"Aceasta activează modul de tunelare H.245. În modul H.245 Tunnelling, "
+"mesajele H.245 sunt încapsulate în canalul H.225 (portul 1720). Aceasta "
+"salvează un port TCP în timpul convorbirii. H.245 Tunnelling a fost introdus "
+"de H.323v2 și Netmeeting nu îl recunoaște. Folosind Start-Rapid și H.245 "
+"Tunnelling puteți termina în mod neasteptat anumite versiuni de Netmeeting."
+
+#: ../ekiga.schemas.in.in.h:150 ../src/gui/preferences.cpp:620
+msgid "This enables H.245 early in the setup"
+msgstr "Aceasta activează opțiunile „early H.245”"
+
+#: ../ekiga.schemas.in.in.h:151
+msgid ""
+"This key disables DirectX (on win32) and XVideo (on Linux) video hardware "
+"acceleration"
+msgstr ""
+
+#: ../ekiga.schemas.in.in.h:152
+msgid "UDP port range"
+msgstr "Interval porturi UDP"
+
+#: ../ekiga.schemas.in.in.h:153
+msgid "Version"
+msgstr "Versiune"
+
+#: ../ekiga.schemas.in.in.h:154
+msgid "Video channel"
+msgstr "Canal video"
+
+#: ../ekiga.schemas.in.in.h:155
+msgid "Video format"
+msgstr "Format video"
+
+#: ../ekiga.schemas.in.in.h:156
+msgid "Video image"
+msgstr "Imagine video"
+
+#: ../ekiga.schemas.in.in.h:157 ../src/gui/assistant.cpp:1146
+msgid "Video input device"
+msgstr "Dispozitiv video de intrare"
+
+#: ../ekiga.schemas.in.in.h:158
+msgid "Video preview"
+msgstr "Previzualizare video"
+
+#: ../ekiga.schemas.in.in.h:159
+msgid "Video size"
+msgstr "Mărime video"
+
+#: ../ekiga.schemas.in.in.h:160
+msgid ""
+"Whether to prefer to sustain the max. frame rate or lower it possibly in "
+"order to keep a minimum level of (spatial) quality for all frames. 0: "
+"Highest minimal quality, 31: lowest minimal quality"
+msgstr ""
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:151
+msgid "Received"
+msgstr "Primite"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:154
+msgid "Placed"
+msgstr "Date"
+
+#: ../lib/engine/addressbook/call-history/history-contact.cpp:157
+#, fuzzy
+msgid "Missed"
+msgstr "Ratate"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:234
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:197
+#: ../src/endpoints/opal-account.cpp:310 ../src/gui/main.cpp:1816
+msgid "_Edit"
+msgstr "_Editează"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:236
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:323
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:199
+#: ../src/endpoints/opal-account.cpp:312
+#, fuzzy
+msgid "_Remove"
+msgstr "_Redenumește"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:325
+#, fuzzy
+msgid "Edit contact"
+msgstr "Ajustează contrastul"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:327
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:298
+#: ../src/endpoints/opal-account.cpp:353
+msgid "Please update the following fields:"
+msgstr ""
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:329
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:224
+#: ../lib/engine/presence/local-roster/local-heap.cpp:177
+#: ../lib/engine/presence/local-roster/local-heap.cpp:324
+#: ../src/endpoints/opal-account.cpp:355 ../src/endpoints/opal-bank.cpp:101
+#: ../src/endpoints/opal-bank.cpp:111
+msgid "Name:"
+msgstr "Nume :"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:338
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:301
+msgid "VoIP _URI:"
+msgstr "_URI VoIP :"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:339
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:302
+msgid "_Home phone:"
+msgstr "Telefon acasă :"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:340
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:303
+msgid "_Office phone:"
+msgstr "Telefon la birou :"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:341
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:304
+msgid "_Cell phone:"
+msgstr "Telefon celular :"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:342
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:305
+msgid "_Pager:"
+msgstr "_Pager :"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:392
+msgid "Remove contact"
+msgstr "Ștergge contact"
+
+#: ../lib/engine/addressbook/evolution/evolution-contact.cpp:394
+msgid "Are you sure you want to remove %s from the addressbook?"
+msgstr "Sunteți sigur că vreți să ștergeți %s din cartea de adrese ?"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:76
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:601
+#, fuzzy, c-format
+msgid "%d user found"
+msgid_plural "%d users found"
+msgstr[0] "Utilizatorul nu a fost găsit"
+msgstr[1] "Utilizatorul nu a fost găsit"
+msgstr[2] "Utilizatorul nu a fost găsit"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:244
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:320
+msgid "_Refresh"
+msgstr "_Refresh"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:247
+msgid "New _Contact"
+msgstr "_Contact nou"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:296
+#: ../lib/engine/presence/local-roster/local-heap.cpp:118
+#, fuzzy
+msgid "New contact"
+msgstr "Contact nou"
+
+#: ../lib/engine/addressbook/evolution/evolution-book.cpp:300
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:157
+msgid "_Name:"
+msgstr "_Nume :"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:139
+#, fuzzy
+msgid "Add an LDAP Address Book"
+msgstr "Adaugă o agendă de adrese"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:142
+msgid "Add the Ekiga.net Directory"
+msgstr ""
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:153
+#, fuzzy
+msgid "Create LDAP directory"
+msgstr "Index utilizatori"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:155
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:621
+msgid "Please edit the following fields"
+msgstr "Vă rog editați următoarele câmpuri"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:158
+#, fuzzy
+msgid "_Hostname:"
+msgstr "Numele de rețea al calculatorului :"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:159
+#, fuzzy
+msgid "_Port:"
+msgstr "_Port :"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:160
+msgid "_Base DN:"
+msgstr "DN de _bază :"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:164
+#, fuzzy
+msgid "_Subtree"
+msgstr "Subarbore"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:165
+msgid "Single _Level"
+msgstr "Un Nive_l"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:166
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:639
+msgid "_Scope"
+msgstr ""
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:169
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:642
+msgid "Call _Attribute"
+msgstr "_Atribut de apel"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:170
+msgid "Password"
+msgstr "Parola"
+
+#: ../lib/engine/addressbook/ldap/ldap-source.cpp:188
+#, fuzzy
+msgid "Ekiga.net Directory"
+msgstr "Indexul de Utilizatori"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:325
+msgid "_Properties"
+msgstr "_Proprietăți"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:390
+msgid "Refreshing"
+msgstr "Actualizare"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:398
+msgid "Could not initialize server"
+msgstr "Serverul nu poate fi inițializat"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:431
+msgid "Could not contact server"
+msgstr "Am eșuat să mă conectez la server"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:439
+msgid "Contacted server"
+msgstr "Server contactat"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:476
+#, fuzzy
+msgid "Could not connect to server"
+msgstr "Nu se poate stabili o conexiune pâna la calculatorul de la distanță"
+
+#. patience == 0
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:526
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:574
+msgid "Could not search"
+msgstr "Nu pot căuta"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:534
+msgid "Waiting for search results"
+msgstr "Aștept rezultatele căutării"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:619
+#, fuzzy
+msgid "Edit LDAP directory"
+msgstr "Index utilizatori"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:623
+msgid "_Name"
+msgstr "_Nume"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:624
+#, fuzzy
+msgid "_Hostname"
+msgstr "Numele de rețea al calculatorului"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:630
+msgid "_Port"
+msgstr "_Port"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:632
+msgid "_Base DN"
+msgstr "DN de _bază"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:637
+msgid "Subtree"
+msgstr "Subarbore"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:638
+#, fuzzy
+msgid "Single Level"
+msgstr "Un Nivel"
+
+#: ../lib/engine/addressbook/ldap/ldap-book.cpp:644
+#, fuzzy
+msgid "_Password"
+msgstr "_Parola"
+
+#: ../lib/engine/addressbook/skel/contact-core.cpp:57
+#, fuzzy
+msgid "_Find"
+msgstr "Caută"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:659
+msgid "Address Book"
+msgstr "Agenda de adrese"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:675
+#: ../src/gui/main.cpp:1765
+msgid "Address _Book"
+msgstr "Agendă de Adrese"
+
+#. This will add static and dynamic actions
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:684
+msgid "_Action"
+msgstr "_Acțiune"
+
+#: ../lib/engine/gui/gtk-frontend/addressbook-window.cpp:729
+msgid "Category"
+msgstr "Categorie"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:638
+#: ../src/gui/assistant.cpp:1366
+msgid "Full Name"
+msgstr "Nume complet"
+
+#: ../lib/engine/gui/gtk-frontend/book-view-gtk.cpp:649
+#, fuzzy
+msgid "_Search Filter:"
+msgstr "Atribut de Căutare"
+
+#: ../lib/engine/gui/gtk-frontend/call-history-view-gtk.cpp:163
+#: ../src/gui/statusmenu.cpp:499
+msgid "Clear"
+msgstr "Șterge"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:247
+msgid "says:"
+msgstr "spune :"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:370
+msgid "Open link in browser"
+msgstr "Deschide link în navigator"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:376
+msgid "Copy link"
+msgstr "Copiază link"
+
+#: ../lib/engine/gui/gtk-frontend/chat-area.cpp:905
+msgid "_Smile..."
+msgstr "Zămbet..."
+
+#. we can't do much here since we get the Chat as reference...
+#: ../lib/engine/gui/gtk-frontend/chat-window.cpp:433
+msgid "Chat Window"
+msgstr "Arată fereastra de discuții"
+
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:981
+#: ../lib/engine/gui/gtk-frontend/roster-view-gtk.cpp:1016
+msgid "Unsorted"
+msgstr "Netriat"
+
+#: ../lib/engine/presence/avahi/avahi-heap.cpp:130
+#: ../lib/engine/presence/avahi/avahi-heap.cpp:316
+msgid "Neighbours"
+msgstr "Vecini"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:221
+msgid "Edit roster element"
+msgstr "Editează element din agendă"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:222
+msgid ""
+"Please fill in this form to change an existing element of ekiga's internal "
+"roster"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:225
+#: ../lib/engine/presence/local-roster/local-heap.cpp:186
+#: ../lib/engine/presence/local-roster/local-heap.cpp:188
+msgid "Address:"
+msgstr "Adresă :"
+
+#: ../lib/engine/presence/local-roster/local-presentity.cpp:227
+msgid "Choose groups:"
+msgstr "Alege grup :"
+
+#: ../lib/engine/presence/local-roster/local-roster-bridge.cpp:94
+#: ../lib/engine/presence/local-roster/local-heap.cpp:174
+msgid "Add to local roster"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:93
+msgid "Services"
+msgstr "Servicii"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:94
+msgid "Echo test"
+msgstr "Test de ecou"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:95
+msgid "Conference room"
+msgstr "Camera de conferință"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:111
+#, fuzzy
+msgid "Local roster"
+msgstr "Contacte locale"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:128
+#, fuzzy
+msgid "Rename"
+msgstr "Redenumește"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:175
+msgid ""
+"Please fill in this form to add a new contact to ekiga's internal roster"
+msgstr ""
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:192
+msgid "Put contact in groups:"
+msgstr "Adaugă contact în grupuri :"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:295
+msgid "You supplied an unsupported address"
+msgstr "Ați furnizat o adresă greșită"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:297
+msgid "You already have a contact with this address!"
+msgstr "Aveți deja un contact cu această adresă !"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:322
+msgid "Rename group"
+msgstr "Redenumește grup"
+
+#: ../lib/engine/presence/local-roster/local-heap.cpp:323
+#, fuzzy
+msgid "Please edit this group name"
+msgstr "Introdu numele grupului"
+
+#: ../lib/gui/codecsbox.cpp:477
+msgid "Move selected codec priority upwards"
+msgstr "Mută codecul selectat în sus"
+
+#: ../lib/gui/codecsbox.cpp:487
+msgid "Move selected codec priority downwards"
+msgstr "Mută codecul selectat în jos"
+
+#: ../lib/gui/gmdialog.c:476
+msgid "Do not show this dialog again"
+msgstr "Nu mai afișa acest dialog"
+
+#: ../src/endpoints/h323-endpoint.cpp:153
+#: ../src/endpoints/sip-endpoint.cpp:273 ../src/endpoints/sip-endpoint.cpp:277
+#, fuzzy
+msgid "Call"
+msgstr "Apeleaz_ă"
+
+#: ../src/endpoints/h323-endpoint.cpp:156
+#: ../src/endpoints/sip-endpoint.cpp:274 ../src/endpoints/sip-endpoint.cpp:278
+#: ../src/gui/main.cpp:3888
+msgid "Transfer"
+msgstr "Redirecționează"
+
+#. Translators : The alias we are registering already exists : failure
+#: ../src/endpoints/h323-endpoint.cpp:319
+msgid "Duplicate alias"
+msgstr "Alias duplicat"
+
+#: ../src/endpoints/h323-endpoint.cpp:322
+msgid "Bad username/password"
+msgstr "Nume utilizator/parolă greșită"
+
+#: ../src/endpoints/h323-endpoint.cpp:325
+#: ../src/endpoints/sip-endpoint.cpp:904
+#, fuzzy
+msgid "Transport error"
+msgstr "Redirecționează"
+
+#: ../src/endpoints/h323-endpoint.cpp:336
+#: ../src/endpoints/h323-endpoint.cpp:341
+#: ../src/endpoints/sip-endpoint.cpp:911
+#, fuzzy
+msgid "Failed"
+msgstr "Eșuat"
+
+#: ../src/endpoints/manager.cpp:704
+msgid ""
+"Ekiga did not manage to configure your network settings automatically. You "
+"can still use it, but you need to configure your network settings manually.\n"
+"\n"
+"Please see http://wiki.ekiga.org/index.php/Enable_port_forwarding_manually "
+"for instructions"
+msgstr ""
+
+#: ../src/endpoints/opal-account.cpp:302
+msgid "_Disable"
+msgstr "_Dezactivează"
+
+#: ../src/endpoints/opal-account.cpp:305
+msgid "_Enable"
+msgstr "Activ_ează"
+
+#: ../src/endpoints/opal-account.cpp:326 ../src/gui/assistant.cpp:723
+msgid "Recharge the account"
+msgstr "Reîncarcă contul"
+
+#: ../src/endpoints/opal-account.cpp:331 ../src/gui/assistant.cpp:735
+msgid "Consult the balance history"
+msgstr "Consultă istoricul bilanțului"
+
+#: ../src/endpoints/opal-account.cpp:336
+msgid "Consult the call history"
+msgstr "Consultă istoricul apelurilor"
+
+#: ../src/endpoints/opal-account.cpp:351 ../src/endpoints/opal-bank.cpp:74
+msgid "Edit account"
+msgstr "Editează cont"
+
+#: ../src/endpoints/opal-account.cpp:357 ../src/endpoints/opal-bank.cpp:112
+msgid "Registrar:"
+msgstr "Registrat"
+
+#: ../src/endpoints/opal-account.cpp:359 ../src/endpoints/opal-bank.cpp:102
+msgid "Gatekeeper:"
+msgstr "Gatekeeper :"
+
+#: ../src/endpoints/opal-account.cpp:360 ../src/endpoints/opal-bank.cpp:83
+#: ../src/endpoints/opal-bank.cpp:103 ../src/endpoints/opal-bank.cpp:113
+msgid "User:"
+msgstr "Utilizator :"
+
+#. Translators:
+#. * SIP knows two usernames: The name for the client ("User") and the name
+#. * for the authentication procedure ("Authentication User")
+#: ../src/endpoints/opal-account.cpp:365 ../src/endpoints/opal-bank.cpp:114
+msgid "Authentication User:"
+msgstr "Utilizator de autentificare :"
+
+#: ../src/endpoints/opal-account.cpp:366 ../src/endpoints/opal-bank.cpp:85
+#: ../src/endpoints/opal-bank.cpp:105 ../src/endpoints/opal-bank.cpp:115
+msgid "Password:"
+msgstr "Parola :"
+
+#: ../src/endpoints/opal-account.cpp:367 ../src/endpoints/opal-bank.cpp:106
+#: ../src/endpoints/opal-bank.cpp:116
+msgid "Timeout:"
+msgstr "Timp de expirare :"
+
+#: ../src/endpoints/opal-account.cpp:368 ../src/endpoints/opal-bank.cpp:119
+msgid "Enable Account"
+msgstr "Activează cont"
+
+#: ../src/endpoints/opal-account.cpp:403 ../src/endpoints/opal-bank.cpp:155
+msgid "You did not supply a name for that account."
+msgstr "Nu ați introdus un nume pentru acest cont."
+
+#: ../src/endpoints/opal-account.cpp:405 ../src/endpoints/opal-bank.cpp:157
+#, fuzzy
+msgid "You did not supply a host to register to."
+msgstr ""
+"Trebuie specificat un calculator de utilizat ca și calculator \"poartă\" de "
+"ieșire (gateway) sau proxy"
+
+#: ../src/endpoints/opal-account.cpp:407 ../src/endpoints/opal-bank.cpp:159
+msgid "You did not supply a user name for that account."
+msgstr "Nu ați introdus un nume de utilizator pentru acest cont."
+
+#: ../src/endpoints/opal-account.cpp:409 ../src/endpoints/opal-bank.cpp:161
+msgid "The timeout should have a bigger value."
+msgstr "Timpul de expirare trebuie să aibă o valoare mai mare."
+
+#: ../src/endpoints/opal-bank.cpp:55
+msgid "_Add an Ekiga.net Account"
+msgstr "_Adaugă un cont Ekiga.net"
+
+#: ../src/endpoints/opal-bank.cpp:57
+msgid "_Add an Ekiga Call Out Account"
+msgstr "_Adaugă un cont Ekiga Call Out"
+
+#: ../src/endpoints/opal-bank.cpp:59
+msgid "_Add a SIP Account"
+msgstr "_Adaugă un cont SIP"
+
+#: ../src/endpoints/opal-bank.cpp:61
+msgid "_Add an H.323 Account"
+msgstr "_Adaugă un cont H.323"
+
+#: ../src/endpoints/opal-bank.cpp:75
+msgid "Please update the following fields."
+msgstr "Vă rugăm actualizați următoarele câmpuri."
+
+#: ../src/endpoints/opal-bank.cpp:80 ../src/gui/assistant.cpp:599
+msgid "Get an Ekiga.net SIP account"
+msgstr "Obține un cont SIP Ekiga.net"
+
+#: ../src/endpoints/opal-bank.cpp:90 ../src/gui/assistant.cpp:711
+msgid "Get an Ekiga Call Out account"
+msgstr "Obține un cont Ekiga Call Out"
+
+#: ../src/endpoints/opal-bank.cpp:94 ../src/gui/main.cpp:3585
+#: ../src/gui/main.cpp:3682
+msgid "Account ID:"
+msgstr "ID-ul contului :"
+
+#: ../src/endpoints/opal-bank.cpp:96
+msgid "PIN Code:"
+msgstr "Codul PIN :"
+
+#: ../src/endpoints/opal-call.cpp:410
+msgid "Local user cleared the call"
+msgstr "Utilizatorul local a terminat apelul"
+
+#: ../src/endpoints/opal-call.cpp:413 ../src/endpoints/opal-call.cpp:416
+msgid "Local user rejected the call"
+msgstr "Utilizatorul local a refuzat apelul"
+
+#: ../src/endpoints/opal-call.cpp:419
+msgid "Remote user cleared the call"
+msgstr "Partenerul a terminat convorbirea"
+
+#: ../src/endpoints/opal-call.cpp:422
+msgid "Remote user rejected the call"
+msgstr "Partenerul a refuzat apelul"
+
+#: ../src/endpoints/opal-call.cpp:425
+msgid "Remote user has stopped calling"
+msgstr "Partenerul a oprit apelul"
+
+#: ../src/endpoints/opal-call.cpp:428
+msgid "Abnormal call termination"
+msgstr "Apel terminat în mod anormal"
+
+#: ../src/endpoints/opal-call.cpp:431 ../src/gui/main.cpp:1550
+msgid "Could not connect to remote host"
+msgstr "Nu se poate stabili o conexiune pâna la calculatorul de la distanță"
+
+#: ../src/endpoints/opal-call.cpp:434
+msgid "The Gatekeeper cleared the call"
+msgstr "Echipamentul Gatekeeper a închis convorbirea"
+
+#: ../src/endpoints/opal-call.cpp:437
+msgid "User not found"
+msgstr "Utilizatorul nu a fost găsit"
+
+#: ../src/endpoints/opal-call.cpp:440
+msgid "Insufficient bandwidth"
+msgstr "Lățime de bandă insuficientă"
+
+#: ../src/endpoints/opal-call.cpp:443
+msgid "No common codec"
+msgstr "Nu exista un codec comun"
+
+#: ../src/endpoints/opal-call.cpp:446
+msgid "Call forwarded"
+msgstr "Apel redirecționat"
+
+#: ../src/endpoints/opal-call.cpp:449
+msgid "Security check failed"
+msgstr "Verificarea de securitate a eșuat"
+
+#: ../src/endpoints/opal-call.cpp:452
+msgid "Local user is busy"
+msgstr "Utilizatorul local este ocupat"
+
+#: ../src/endpoints/opal-call.cpp:455 ../src/endpoints/opal-call.cpp:461
+msgid "Congested link to remote party"
+msgstr "Conexiune congestionată la partener"
+
+#: ../src/endpoints/opal-call.cpp:458
+msgid "Remote user is busy"
+msgstr "Utilizatorul de la distanță (partenerul) e ocupat"
+
+#: ../src/endpoints/opal-call.cpp:464
+msgid "Remote host is offline"
+msgstr "Calculatorul de la distanță e deconectat"
+
+#: ../src/endpoints/opal-call.cpp:470
+msgid "User is not available"
+msgstr "Utilizatorul nu este conectat"
+
+#: ../src/endpoints/opal-call.cpp:482
+msgid "Call completed"
+msgstr "Convorbire încheiată"
+
+#: ../src/endpoints/sip-endpoint.cpp:298 ../src/endpoints/sip-endpoint.cpp:300
+msgid "Message"
+msgstr "Mesaj"
+
+#: ../src/endpoints/sip-endpoint.cpp:718
+msgid "Bad request"
+msgstr "Cerere eronată"
+
+#: ../src/endpoints/sip-endpoint.cpp:722
+msgid "Payment required"
+msgstr "Plată necesară"
+
+#: ../src/endpoints/sip-endpoint.cpp:726
+msgid "Unauthorized"
+msgstr "Neautorizat"
+
+#: ../src/endpoints/sip-endpoint.cpp:730
+msgid "Forbidden"
+msgstr "Interzis"
+
+#: ../src/endpoints/sip-endpoint.cpp:734
+msgid "Timeout"
+msgstr "Timp de expirare"
+
+#: ../src/endpoints/sip-endpoint.cpp:738
+msgid "Conflict"
+msgstr "Conflict"
+
+#: ../src/endpoints/sip-endpoint.cpp:742
+#, fuzzy
+msgid "Temporarily unavailable"
+msgstr "Eșec temporar"
+
+#: ../src/endpoints/sip-endpoint.cpp:746
+msgid "Not acceptable"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:750
+msgid "Illegal status code"
+msgstr "Cod de stare ilegal"
+
+#: ../src/endpoints/sip-endpoint.cpp:754
+msgid "Multiple choices"
+msgstr "Alegeri multiple"
+
+#: ../src/endpoints/sip-endpoint.cpp:758
+msgid "Moved permanently"
+msgstr "Mutat permanent"
+
+#: ../src/endpoints/sip-endpoint.cpp:762
+msgid "Moved temporarily"
+msgstr "Mutat temporar"
+
+#: ../src/endpoints/sip-endpoint.cpp:766
+msgid "Use proxy"
+msgstr "Folosește calcularor proxy"
+
+#: ../src/endpoints/sip-endpoint.cpp:770
+msgid "Alternative service"
+msgstr "Serviciu alternativ"
+
+#: ../src/endpoints/sip-endpoint.cpp:774
+msgid "Not found"
+msgstr "Negăsit"
+
+#: ../src/endpoints/sip-endpoint.cpp:778
+msgid "Method not allowed"
+msgstr "Metodă nepermisă"
+
+#: ../src/endpoints/sip-endpoint.cpp:782
+msgid "Proxy auth. required"
+msgstr "Autentificare proxy necesară"
+
+#: ../src/endpoints/sip-endpoint.cpp:786
+msgid "Length required"
+msgstr "Lungime necesară"
+
+#: ../src/endpoints/sip-endpoint.cpp:790
+msgid "Request entity too big"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:794
+#, fuzzy
+msgid "Request URI too long"
+msgstr "Cerere ok"
+
+#: ../src/endpoints/sip-endpoint.cpp:798
+msgid "Unsupported media type"
+msgstr "Tip media nesuportat"
+
+#: ../src/endpoints/sip-endpoint.cpp:802
+msgid "Unsupported URI scheme"
+msgstr "Schemă URI nesuportată"
+
+#. Translators : The extension we are trying to register does not exist
+#: ../src/endpoints/sip-endpoint.cpp:807
+msgid "Bad extension"
+msgstr "Extensie greșită"
+
+#: ../src/endpoints/sip-endpoint.cpp:811
+msgid "Extension required"
+msgstr "Extensie necesară"
+
+#: ../src/endpoints/sip-endpoint.cpp:815
+msgid "Interval too brief"
+msgstr "Interval prea scurt"
+
+#: ../src/endpoints/sip-endpoint.cpp:819
+msgid "Loop detected"
+msgstr "Buclă detectată"
+
+#: ../src/endpoints/sip-endpoint.cpp:823
+msgid "Too many hops"
+msgstr "Prea multe hop-uri"
+
+#: ../src/endpoints/sip-endpoint.cpp:827
+msgid "Address incomplete"
+msgstr "Adresă incompletă"
+
+#: ../src/endpoints/sip-endpoint.cpp:831
+msgid "Ambiguous"
+msgstr "Ambiguu"
+
+#: ../src/endpoints/sip-endpoint.cpp:835
+msgid "Busy Here"
+msgstr "Ocupat aici"
+
+#: ../src/endpoints/sip-endpoint.cpp:839
+msgid "Request terminated"
+msgstr "Cerere terminată"
+
+#: ../src/endpoints/sip-endpoint.cpp:843
+msgid "Not acceptable here"
+msgstr "Neacceptat aici"
+
+#: ../src/endpoints/sip-endpoint.cpp:847
+msgid "Bad event"
+msgstr "Eveniment greșit"
+
+#: ../src/endpoints/sip-endpoint.cpp:851
+msgid "Request pending"
+msgstr "Cerere în prelucrare"
+
+#: ../src/endpoints/sip-endpoint.cpp:855
+msgid "Undecipherable"
+msgstr "Indescifrabil"
+
+#: ../src/endpoints/sip-endpoint.cpp:859
+msgid "Internal server error"
+msgstr "Eroare server internă"
+
+#: ../src/endpoints/sip-endpoint.cpp:863
+msgid "Not implemented"
+msgstr "Neimplementat"
+
+#: ../src/endpoints/sip-endpoint.cpp:867
+msgid "Bad gateway"
+msgstr "Calculator \"poartă\" de ieșire (gateway) greșit"
+
+#: ../src/endpoints/sip-endpoint.cpp:871
+msgid "Service unavailable"
+msgstr "Serviciu indisponibil"
+
+#: ../src/endpoints/sip-endpoint.cpp:875
+msgid "Server timeout"
+msgstr "Timp expirat la server"
+
+#: ../src/endpoints/sip-endpoint.cpp:879
+msgid "SIP version not supported"
+msgstr "Versiune SIP nesuportată"
+
+#: ../src/endpoints/sip-endpoint.cpp:883
+msgid "Message too large"
+msgstr "Mesaj prea mare"
+
+#: ../src/endpoints/sip-endpoint.cpp:887
+msgid "Busy everywhere"
+msgstr "Ocupat peste tot"
+
+#: ../src/endpoints/sip-endpoint.cpp:891
+msgid "Decline"
+msgstr "Refuză"
+
+#: ../src/endpoints/sip-endpoint.cpp:895
+msgid "Does not exist anymore"
+msgstr "Nu mai există"
+
+#: ../src/endpoints/sip-endpoint.cpp:899
+msgid "Globally not acceptable"
+msgstr ""
+
+#: ../src/endpoints/sip-endpoint.cpp:1027
+msgid "Could not send message"
+msgstr "Nu pot trimite mesajul"
+
+#: ../src/gui/accounts.cpp:234
+msgid "Registered"
+msgstr "Înregistrat"
+
+#: ../src/gui/accounts.cpp:238
+msgid "Unregistered"
+msgstr "Neînregistrat"
+
+#: ../src/gui/accounts.cpp:242
+msgid "Could not unregister"
+msgstr "Nu pot dezînregistra"
+
+#: ../src/gui/accounts.cpp:248
+msgid "Could not register"
+msgstr "Nu pot înregistra"
+
+#: ../src/gui/accounts.cpp:254
+msgid "Processing..."
+msgstr "Prelucrare..."
+
+#: ../src/gui/accounts.cpp:628
+msgid "Account Name"
+msgstr "Numele contului"
+
+#: ../src/gui/accounts.cpp:629
+msgid "Voice Mails"
+msgstr ""
+
+#: ../src/gui/accounts.cpp:630
+msgid "Status"
+msgstr "Bara de status"
+
+#: ../src/gui/accounts.cpp:641 ../src/gui/accounts.cpp:684
+msgid "Accounts"
+msgstr "Conturi"
+
+#: ../src/gui/accounts.cpp:655 ../src/gui/main.cpp:1826
+msgid "_Accounts"
+msgstr "_Conturi"
+
+#: ../src/gui/accounts.cpp:659 ../src/gui/main.cpp:1909
+msgid "_Help"
+msgstr "Ajutor"
+
+#. Translators:
+#. * The following string "A" means "activated" or "active". It's a column
+#. * description in the list of configured accounts, it shows if an account
+#. * is activated or not (a status the user can choose).
+#.
+#: ../src/gui/accounts.cpp:692 ../src/gui/preferences.cpp:497
+msgid "A"
+msgstr "A"
+
+#: ../src/gui/assistant.cpp:317
+msgid ""
+"This is the Ekiga general configuration assistant. The following steps will "
+"set up Ekiga by asking a few simple questions.\n"
+"\n"
+"Once you have completed these steps, you can always change them later by "
+"selecting Preferences in the Edit menu."
+msgstr ""
+"Acesta este asistentul de configurare generală al Ekiga. Următorii pași "
+"vor seta Ekiga doar întrebând câteva întrebari simple.\n"
+"\n"
+"După ce ați efectuat acești pași, puteți oricând schimba, mai târziu, "
+"setările, selectând Preferințe, în meniul Edit."
+
+#: ../src/gui/assistant.cpp:325
+msgid "Welcome in Ekiga"
+msgstr "Bine ați venit în Ekiga"
+
+#: ../src/gui/assistant.cpp:359 ../src/gui/preferences.cpp:373
+msgid "Personal Information"
+msgstr "Informații personale"
+
+#. The user fields
+#: ../src/gui/assistant.cpp:362
+msgid "Please enter your first name and your surname:"
+msgstr "Va rog introduceți prenumele și numele dumneavoastră :"
+
+#: ../src/gui/assistant.cpp:371
+msgid ""
+"Your first name and surname will be used when connecting to other VoIP and "
+"videoconferencing software."
+msgstr ""
+"Prenumele și numele dvs. vor fi folosite la conectarea cu alte "
+"aplicații pentru VoIP și videoconferință"
+
+#: ../src/gui/assistant.cpp:562
+msgid "Ekiga.net Account"
+msgstr "Cont Ekiga.net"
+
+#: ../src/gui/assistant.cpp:564
+msgid "Please enter your username:"
+msgstr "Vă rog introduceți numele de utilizator al dvs."
+
+#: ../src/gui/assistant.cpp:572
+msgid "Please enter your password:"
+msgstr "Vă rog introduceți parola dvs."
+
+#: ../src/gui/assistant.cpp:582
+msgid ""
+"The username and password are used to login to your existing account at the "
+"ekiga.net free SIP service. If you do not have an ekiga.net SIP address yet, "
+"you may first create an account below. This will provide a SIP address that "
+"allows people to call you.\n"
+"\n"
+"You may skip this step if you use an alternative SIP service, or if you "
+"would prefer to specify the login details later."
+msgstr ""
+
+#: ../src/gui/assistant.cpp:609
+msgid "I do not want to sign up for the ekiga.net free service"
+msgstr ""
+
+#: ../src/gui/assistant.cpp:676
+msgid "Ekiga Call Out Account"
+msgstr ""
+
+#: ../src/gui/assistant.cpp:678
+#, fuzzy
+msgid "Please enter your account ID:"
+msgstr "Vă rog introduceți adresa dumneavoastră de e-mail"
+
+#: ../src/gui/assistant.cpp:686
+msgid "Please enter your PIN code:"
+msgstr "Vă rog introduceți codul dvs. PIN"
+
+#: ../src/gui/assistant.cpp:697
+#, fuzzy
+msgid ""
+"You can make calls to regular phones and cell numbers worldwide using "
+"Ekiga.\n"
+"\n"
+"To enable this, you need to do three things:\n"
+"- First buy an account at the URL below.\n"
+"- Then enter your account ID and PIN code.\n"
+"The service will work only if your account is created using the URL in this "
+"dialog.\n"
+msgstr ""
+"Puteți să faceți apeluri la telefoane obișnuite sau mobile din întreaga "
+"lume, folosind Ekiga. Pentru a activa aceasta, aveți nevoie să vă "
+"creați un cont. Acest lucru se poate realiza cu ajutorul adresei URL de mai "
+"jos . După înregistrare, introduceți numarul contului si PIN-ul și în celle "
+"din urmă activați înregistrarea la serviciul Ekiga pe o conexiune "
+"Calculator-Telefon.\n"
+"Vă rog să vă asigurați că folosiți URL-ul de mai jos pentru a obtine contul "
+"dumneavoastră. Dacă nu faceți acest lucru, serviciul va rămâne nefuncțional."
+
+#: ../src/gui/assistant.cpp:747
+msgid "Consult the calls history"
+msgstr "Consultă istoricul apelurilor"
+
+#: ../src/gui/assistant.cpp:757
+msgid "I do not want to sign up for the Ekiga Call Out service"
+msgstr ""
+
+#: ../src/gui/assistant.cpp:826 ../src/gui/assistant.cpp:1377
+msgid "Connection Type"
+msgstr "Tipul conexiunii"
+
+#. The connection type
+#: ../src/gui/assistant.cpp:829
+msgid "Please choose your connection type:"
+msgstr "Vă rog alegeți tipul conexiunii :"
+
+#: ../src/gui/assistant.cpp:846
+msgid "56k Modem"
+msgstr "Modem 56k"
+
+#: ../src/gui/assistant.cpp:851
+msgid "ISDN"
+msgstr "ISDN"
+
+#: ../src/gui/assistant.cpp:856
+msgid "DSL/Cable (128 kbit/s uplink)"
+msgstr "DSL/Cablu (128 kbit/s uplink)"
+
+#: ../src/gui/assistant.cpp:861
+msgid "DSL/Cable (512 kbit/s uplink)"
+msgstr "DSL/Cablu (512 kbit/s uplink)"
+
+#: ../src/gui/assistant.cpp:866
+msgid "LAN"
+msgstr "LAN"
+
+#: ../src/gui/assistant.cpp:871
+msgid "Keep current settings"
+msgstr "Pastrează setările curente"
+
+#: ../src/gui/assistant.cpp:876
+msgid ""
+"The connection type will permit determining the best quality settings that "
+"Ekiga will use during calls. You can later change the settings individually "
+"in the preferences window."
+msgstr ""
+"Tipul conexiunii va permite determinarea celor mai bune setări pe care "
+"Ekiga le va folosi în timpul apelurilor. Setările pot fi individual "
+"modificate ulterior din fereastra asociată meniului preferințe."
+
+#: ../src/gui/assistant.cpp:970 ../src/gui/main.cpp:3958
+#: ../src/gui/main.cpp:3962 ../src/gui/preferences.cpp:690
+msgid "Audio Devices"
+msgstr "Dispozitivele audio"
+
+#: ../src/gui/assistant.cpp:972
+msgid "Please choose the audio ringing device:"
+msgstr "Vă rog alegeți dispozitivul audio de sunare"
+
+#: ../src/gui/assistant.cpp:992
+msgid ""
+"The audio ringing device is the device that will be used to play the ringing "
+"sound on incoming calls."
+msgstr ""
+"Dispozitivul audio de sunare este dispozitivul "
+"care va fi folosit la sonerie (când sunteți apela)."
+
+#. ---
+#: ../src/gui/assistant.cpp:1003
+msgid "Please choose the audio output device:"
+msgstr "Vă rog alegeți dispozitivul audio de ieșire"
+
+#: ../src/gui/assistant.cpp:1023
+#, fuzzy
+msgid ""
+"The audio output device is the device that will be used to play audio during "
+"calls."
+msgstr ""
+"Dispozitivul audio de ieșire este dispozitivul "
+"care va fi folosit la redarea sunetului în timpul convorbirilor."
+
+#. ---
+#: ../src/gui/assistant.cpp:1034
+msgid "Please choose the audio input device:"
+msgstr "Vă rog alegeți dispozitivul audio de intrare"
+
+#: ../src/gui/assistant.cpp:1054
+msgid ""
+"The audio input device is the device that will be used to record your voice "
+"during calls."
+msgstr ""
+"Dispozitivul audio de intrare este dispozitivul "
+"care va fi folosit la inregistrarea vocii dumneavoastră "
+" în timpul convorbirilor."
+
+#: ../src/gui/assistant.cpp:1148
+msgid "Please choose your video input device:"
+msgstr "Vă rog alegeți dispozitivul video de intrare"
+
+#: ../src/gui/assistant.cpp:1168
+msgid ""
+"The video input device is the device that will be used to capture video "
+"during calls."
+msgstr ""
+"Dispozitivul video de intrare este folosit la captura video în timpul "
+"convorbirilor."
+
+#: ../src/gui/assistant.cpp:1231 ../src/gui/assistant.cpp:1254
+#: ../src/gui/assistant.cpp:1277 ../src/gui/preferences.cpp:734
+#: ../src/gui/preferences.cpp:758 ../src/gui/preferences.cpp:781
+msgid "No device found"
+msgstr "Nici un dispozitiv nu a fost găsit"
+
+#: ../src/gui/assistant.cpp:1308
+msgid "Configuration Complete"
+msgstr "Configurație completă"
+
+#: ../src/gui/assistant.cpp:1310
+msgid ""
+"You have now finished the Ekiga configuration. All the settings can be "
+"changed in the Ekiga preferences. Enjoy!"
+msgstr ""
+
+#: ../src/gui/assistant.cpp:1317
+msgid "Configuration summary:"
+msgstr "Sumarul configurației :"
+
+#: ../src/gui/assistant.cpp:1387
+msgid "Audio Ringing Device"
+msgstr "Dispozitiv audio de sonerie"
+
+#: ../src/gui/assistant.cpp:1396
+msgid "Audio Output Device"
+msgstr "Dispozitiv audio de ieșire"
+
+#: ../src/gui/assistant.cpp:1405
+msgid "Audio Input Device"
+msgstr "Dispozitiv audio de intrare"
+
+#: ../src/gui/assistant.cpp:1414
+msgid "Video Input Device"
+msgstr "Dispozitiv video de intrare"
+
+#: ../src/gui/assistant.cpp:1427
+msgid "SIP URI"
+msgstr "URI SIP"
+
+#: ../src/gui/assistant.cpp:1439
+msgid "Ekiga Call Out"
+msgstr "Ekiga Call Out"
+
+#: ../src/gui/assistant.cpp:1481
+#, c-format
+msgid "Ekiga Configuration Assistant (%d of %d)"
+msgstr "Asistentul de configurare Ekiga (%d din %d)"
+
+#: ../src/gui/callbacks.cpp:130
+msgid "Contributors:"
+msgstr "Contributori :"
+
+#: ../src/gui/callbacks.cpp:140
+msgid "Artwork:"
+msgstr "Design :"
+
+#: ../src/gui/callbacks.cpp:148
+msgid "See AUTHORS file for full credits"
+msgstr "Vezi fișierul AUTHORS pentru creditul complet"
+
+#: ../src/gui/callbacks.cpp:164
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version. "
+msgstr ""
+
+#: ../src/gui/callbacks.cpp:168
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details. You should have received a copy of the GNU General Public "
+"License along with this program; if not, write to the Free Software "
+"Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA."
+msgstr ""
+
+#: ../src/gui/callbacks.cpp:175
+msgid ""
+"Ekiga is licensed under the GPL license and as a special exception, you have "
+"permission to link or otherwise combine this program with the programs OPAL, "
+"OpenH323 and PWLIB, and distribute the combination, without applying the "
+"requirements of the GNU GPL to the OPAL, OpenH323 and PWLIB programs, as "
+"long as you do follow the requirements of the GNU GPL for all the rest of "
+"the software thus combined."
+msgstr ""
+
+#. Translators: Please write translator credits here, and
+#. * separate names with \n
+#: ../src/gui/callbacks.cpp:187
+msgid "translator-credits"
+msgstr ""
+"Marius Dumitru (marius2677 AT yahoo DOT com) \\n Grigore Moldovan "
+"(GrigoreMoldovan AT netscape DOT net)\\n George Roman (georgeroman AT gmail "
+"dot com) \\n Eugen Dedu (Eugen.Dedu AT pu-pm.univ-fcomte.fr) \\n"
+
+#: ../src/gui/callbacks.cpp:192
+msgid ""
+"Ekiga is full-featured SIP and H.323 compatible VoIP, IP-Telephony and "
+"Videoconferencing application that allows you to make audio and video calls "
+"to remote users with SIP and H.323 hardware or software."
+msgstr ""
+"Ekiga e un program pentru conferințe video compatibile SIP și H.323, pentru "
+"VoIP și pentru Telefonie IP. Ekiga permite convorbiri audio și video "
+"cu utilizatori ce au aparatură sau programe compatibile SIP sau H.323."
+
+#: ../src/gui/dialpad.cpp:59
+msgid "abc"
+msgstr "abc"
+
+#: ../src/gui/dialpad.cpp:60
+msgid "def"
+msgstr "def"
+
+#: ../src/gui/dialpad.cpp:61
+msgid "ghi"
+msgstr "ghi"
+
+#: ../src/gui/dialpad.cpp:62
+msgid "jkl"
+msgstr "jkl"
+
+#: ../src/gui/dialpad.cpp:63
+msgid "mno"
+msgstr "mno"
+
+#: ../src/gui/dialpad.cpp:64
+msgid "pqrs"
+msgstr "pqrs"
+
+#: ../src/gui/dialpad.cpp:65
+msgid "tuv"
+msgstr "tux"
+
+#: ../src/gui/dialpad.cpp:66
+msgid "wxyz"
+msgstr "wxyz"
+
+#. Translators: Is displayed once an account "%s" is registered.
+#: ../src/gui/main.cpp:583
+msgid "Registered %s"
+msgstr "Înregistrat ca %s"
+
+#. Translators: Is displayed once an account "%s" is unregistered.
+#: ../src/gui/main.cpp:589
+msgid "Unregistered %s"
+msgstr "Dezînregistrat de la %s."
+
+#: ../src/gui/main.cpp:594
+msgid "Could not unregister %s"
+msgstr "Nu pot dezînregistra %s"
+
+#: ../src/gui/main.cpp:598
+msgid "Could not register %s"
+msgstr "Nu pot înregistra %s"
+
+#: ../src/gui/main.cpp:664
+msgid "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+msgstr "A:%.1f/%.1f   V:%.1f/%.1f   FPS:%d/%d"
+
+#: ../src/gui/main.cpp:709
+msgid "Connected with %s"
+msgstr "Conectat cu %s"
+
+#: ../src/gui/main.cpp:745 ../src/gui/main.cpp:2347
+msgid "Standby"
+msgstr "Standby"
+
+#: ../src/gui/main.cpp:811
+msgid "Call on hold"
+msgstr "Blochează convorbirea"
+
+#: ../src/gui/main.cpp:824
+msgid "Call retrieved"
+msgstr "Apel primit"
+
+#: ../src/gui/main.cpp:841
+msgid "Missed call from %s"
+msgstr "Apel ratate de la %s"
+
+#: ../src/gui/main.cpp:984 ../src/gui/misc.cpp:94
+msgid "Error"
+msgstr "Eroare"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1126
+msgid "Added video input device %s"
+msgstr "Adăugat dispozitiv audio de intrare %s"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1144
+msgid "Removed video input device %s"
+msgstr "Șters dispozitiv video de intrare %s"
+
+#: ../src/gui/main.cpp:1161
+msgid "Error while accessing video device %s"
+msgstr "Eroare la deschiderea dispozitivului video %s"
+
+#: ../src/gui/main.cpp:1164
+msgid ""
+"A moving logo will be transmitted during calls. Notice that you can always "
+"transmit a given image or the moving logo by choosing \"Picture\" as video "
+"plugin and \"Moving logo\" or \"Static picture\" as device."
+msgstr ""
+"Un logo mișcător va fi transmis în timpul convorbirii. Puteți întotdeauna să "
+"transmiteți o anumită imagine sau logo-ul Ekiga alegând \"Imagine\" "
+"ca modul video și \"Logo Mișcător\" sau \"Imagine Statică\" ca dispozitiv."
+
+#: ../src/gui/main.cpp:1168
+msgid ""
+"There was an error while opening the device. In case it is a pluggable "
+"device it may be sufficient to reconnect it. If not, or if it still is not "
+"accessible, please check your permissions and make sure that the appropriate "
+"driver is loaded."
+msgstr ""
+"S-a înregistrat o eroare la deschiderea dispozitivului. În cazul în "
+"care este un dispozitiv pluggable, este suficient să îl reconectați.  "
+"Altfel, sau dacă tot nu este accesibil, vă rog să verificați "
+"permisiunile dumneavoastră și să vă asigurați că dispozitivul este instalat "
+"corect. "
+
+#: ../src/gui/main.cpp:1172
+msgid "Your video driver doesn't support the requested video format."
+msgstr "Driverul dumneavoastră video nu suportă formatul video cerut."
+
+#: ../src/gui/main.cpp:1176
+msgid "Could not open the chosen channel."
+msgstr "Nu pot să deschid canalul ales."
+
+#: ../src/gui/main.cpp:1180
+msgid ""
+"Your driver doesn't seem to support any of the color formats supported by "
+"Ekiga.\n"
+" Please check your kernel driver documentation in order to determine which "
+"Palette is supported."
+msgstr ""
+"Driverul dumneavoastră nu suportă nici unul din formatele de culoare "
+"implementate de Ekiga.\n"
+"Vă rog să verificați documentația driverului din kernel pentru a determina "
+"ce paletă este suportată."
+
+#: ../src/gui/main.cpp:1184
+msgid "Error while setting the frame rate."
+msgstr "Eroare la setarea ratei de cadre."
+
+#: ../src/gui/main.cpp:1188
+msgid "Error while setting the frame size."
+msgstr "Eroare la setarea mărimii cadrului."
+
+#: ../src/gui/main.cpp:1193 ../src/gui/main.cpp:1308 ../src/gui/main.cpp:1430
+msgid "Unknown error."
+msgstr "Eroare necunoscută."
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1252
+msgid "Added audio input device %s"
+msgstr "Adăugat dispozitiv audio de intrare %s"
+
+#. Translators: This is a hotplug status
+#: ../src/gui/main.cpp:1273
+msgid "Removed audio input device %s"
+msgstr "Șters dispozitiv audio de intrare %s"
+
+#: ../src/gui/main.cpp:1290
+msgid "Error while opening audio input device %s"
+msgstr "Eroare la deschiderea dispozitivului de intrare audio %s"
+
+#. Translators: This happens when there is an error with audio input:
+#. * Nothing ("silence") will be transmitted
+#: ../src/gui/main.cpp:1295
+msgid "Only silence will be transmitted."
+msgstr "Nici un sunet nu va fi transmis."
+
+#: ../src/gui/main.cpp:1299
+msgid ""
+"Unable to open the selected audio device for recording. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Este imposibil să deschid dispozitivul audio selectat pentru "
+"înregistrare.  În cazul în care este un dispozitiv pluggable, "
+"probabil este suficient să îl reconectați.  Altfel, sau dacă tot "
+"nu funcționează, vă rog verificați setările audio, permisiunile "
+" dvs. și faptul că dispozitivul nu este ocupat."
+
+#: ../src/gui/main.cpp:1303
+#, fuzzy
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"read data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Dispozitivul audio selectat (%s) a fost deschis cu succes, dar îmi este "
+"imposibil să citesc date. Vă rog verificați setările audio."
+
+#: ../src/gui/main.cpp:1375
+msgid "Added audio output device %s"
+msgstr "Adăugat dispozitiv audio de ieșire %s"
+
+#: ../src/gui/main.cpp:1393
+msgid "Removed audio output device %s"
+msgstr "Șters dispozitiv audio de ieșire %s"
+
+#: ../src/gui/main.cpp:1414
+msgid "Error while opening audio output device %s"
+msgstr "Eroare la deschiderea dispozitivului audio de ieșire %s"
+
+#: ../src/gui/main.cpp:1417
+msgid "No incoming sound will be played."
+msgstr "Nici un sunet de intrare nu va fi auzit."
+
+#: ../src/gui/main.cpp:1421
+#, fuzzy
+msgid ""
+"Unable to open the selected audio device for playing. In case it is a "
+"pluggable device it may be sufficient to reconnect it. If not, or if it "
+"still is not accessible, please check your audio setup, the permissions and "
+"that the device is not busy."
+msgstr ""
+"Este imposibil să deschid dispozitivul audio selectat (%s) pentru redare. Vă "
+"rog verificați setările audio, permisiunile dumneavoastră, și faptul că "
+"dispozitivul nu este ocupat"
+
+#: ../src/gui/main.cpp:1425
+#, fuzzy
+msgid ""
+"The selected audio device was successfully opened but it is impossible to "
+"write data from this device. In case it is a pluggable device it may be "
+"sufficient to reconnect it. If not, or if it still is not accessible, please "
+"check your audio setup."
+msgstr ""
+"Dispozitivul audio selectat (%s) a fost deschis cu succes, dar îmi este "
+"imposibil să transmit date. Verificați vă rog setările audio."
+
+#: ../src/gui/main.cpp:1668
+msgid "Enter a URI on the left, and click this button to place a call"
+msgstr ""
+"Introduceți un URL la stânga și efectuati click pe acest buton "
+"pentru a apela"
+
+#: ../src/gui/main.cpp:1749
+msgid "_Chat"
+msgstr "_Chat"
+
+#: ../src/gui/main.cpp:1751
+#, fuzzy
+msgid "Ca_ll"
+msgstr "Apeleaz_ă"
+
+#: ../src/gui/main.cpp:1751
+msgid "Place a new call"
+msgstr "Apelează"
+
+#: ../src/gui/main.cpp:1754
+msgid "_Hang up"
+msgstr "Închide"
+
+#: ../src/gui/main.cpp:1755
+msgid "Terminate the current call"
+msgstr "Închide convorbirea curentă"
+
+#: ../src/gui/main.cpp:1761
+msgid "A_dd Contact"
+msgstr "A_daugă contact"
+
+#: ../src/gui/main.cpp:1761
+#, fuzzy
+msgid "Add a contact to the roster"
+msgstr "Adauga contact în _Agenda de contacte"
+
+#: ../src/gui/main.cpp:1766
+#, fuzzy
+msgid "Find contacts"
+msgstr "Găsește toate contactele"
+
+#: ../src/gui/main.cpp:1773
+#, fuzzy
+msgid "_Contact"
+msgstr "C_ontacte"
+
+#: ../src/gui/main.cpp:1774
+msgid "Act on selected contact"
+msgstr "Operează pe contactul selecționat"
+
+#: ../src/gui/main.cpp:1780
+#, fuzzy
+msgid "H_old Call"
+msgstr "_Apel în așteptare"
+
+#: ../src/gui/main.cpp:1780 ../src/gui/main.cpp:2443
+msgid "Hold the current call"
+msgstr "Reține convorbirea curentă"
+
+#: ../src/gui/main.cpp:1784
+msgid "_Transfer Call"
+msgstr "_Transferă apelul"
+
+#: ../src/gui/main.cpp:1785
+msgid "Transfer the current call"
+msgstr "Transfera apelul curent "
+
+#: ../src/gui/main.cpp:1792 ../src/gui/main.cpp:3201
+msgid "Suspend _Audio"
+msgstr "Suspendă _Audio"
+
+#: ../src/gui/main.cpp:1793
+msgid "Suspend or resume the audio transmission"
+msgstr "Încetează sau restabilește transmisia audio"
+
+#: ../src/gui/main.cpp:1797 ../src/gui/main.cpp:3203
+msgid "Suspend _Video"
+msgstr "Suspendă _Video"
+
+#: ../src/gui/main.cpp:1798
+msgid "Suspend or resume the video transmission"
+msgstr "Încetează sau restabilește transmisia video"
+
+#: ../src/gui/main.cpp:1805
+#, fuzzy
+msgid "Close the Ekiga window"
+msgstr "Închide fereastra Ekiga"
+
+#: ../src/gui/main.cpp:1812 ../src/gui/statusicon.cpp:407
+msgid "Quit"
+msgstr "Părăsește"
+
+#: ../src/gui/main.cpp:1818
+msgid "_Configuration Assistant"
+msgstr "Asistentul de _configurare"
+
+#: ../src/gui/main.cpp:1819
+msgid "Run the configuration assistant"
+msgstr "Pornește asistentul de configurare"
+
+#: ../src/gui/main.cpp:1827
+msgid "Edit your accounts"
+msgstr "Modifică contul"
+
+#: ../src/gui/main.cpp:1833
+msgid "Change your preferences"
+msgstr "Schimbă preferințele"
+
+#: ../src/gui/main.cpp:1838
+msgid "_View"
+msgstr "_Vizualizare"
+
+#: ../src/gui/main.cpp:1840
+msgid "Con_tacts"
+msgstr "Con_tacte"
+
+#: ../src/gui/main.cpp:1840
+msgid "View the contacts list"
+msgstr "Afișază lista contactelor"
+
+#: ../src/gui/main.cpp:1845
+msgid "_Dialpad"
+msgstr "_Tastatură telefonică"
+
+#: ../src/gui/main.cpp:1845
+msgid "View the dialpad"
+msgstr "Afișază tastatura telefonică"
+
+#: ../src/gui/main.cpp:1850
+#, fuzzy
+msgid "_Call History"
+msgstr "Istoricul apelurilor"
+
+#: ../src/gui/main.cpp:1850
+msgid "View the call history"
+msgstr "Afișază istoricul apelurilor"
+
+#: ../src/gui/main.cpp:1858
+msgid "_Show Call Panel"
+msgstr "Afișează panelul apelurilor"
+
+#: ../src/gui/main.cpp:1866
+msgid "_Local Video"
+msgstr "Video _local"
+
+#: ../src/gui/main.cpp:1867
+msgid "Local video image"
+msgstr "Imaginea video locală"
+
+#: ../src/gui/main.cpp:1872
+msgid "_Remote Video"
+msgstr "Video Pa_rtener"
+
+#: ../src/gui/main.cpp:1873
+msgid "Remote video image"
+msgstr "Imaginea video primită"
+
+#: ../src/gui/main.cpp:1878
+#, fuzzy
+msgid "_Picture-in-Picture"
+msgstr "Amandouă (Imagine peste Imagine)"
+
+#: ../src/gui/main.cpp:1879 ../src/gui/main.cpp:1885
+msgid "Both video images"
+msgstr "Amândouă imaginile video"
+
+#: ../src/gui/main.cpp:1884
+msgid "Picture-in-Picture in Separate _Window"
+msgstr ""
+
+#: ../src/gui/main.cpp:1892
+msgid "Zoom in"
+msgstr "Mărește"
+
+#: ../src/gui/main.cpp:1896
+msgid "Zoom out"
+msgstr "Micșorează"
+
+#: ../src/gui/main.cpp:1900
+msgid "Normal size"
+msgstr "Mărime normală"
+
+#: ../src/gui/main.cpp:1904
+#, fuzzy
+msgid "_Fullscreen"
+msgstr "Afișare pe tot ecranul"
+
+#: ../src/gui/main.cpp:1904
+msgid "Switch to fullscreen"
+msgstr "Afișează pe tot ecranul"
+
+#: ../src/gui/main.cpp:1912 ../src/gui/statusicon.cpp:395
+msgid "Get help by reading the Ekiga manual"
+msgstr "Primește ajutor prin citirea manualului Ekiga"
+
+#: ../src/gui/main.cpp:1917 ../src/gui/statusicon.cpp:400
+#, fuzzy
+msgid "View information about Ekiga"
+msgstr "Afișază informațiile despre Ekiga"
+
+#: ../src/gui/main.cpp:1954
+msgid "Contacts"
+msgstr "Contacte"
+
+#: ../src/gui/main.cpp:1982
+msgid "Dialpad"
+msgstr "Tastatura de telefon"
+
+#: ../src/gui/main.cpp:2018
+msgid "Video Settings"
+msgstr "Setări video"
+
+#: ../src/gui/main.cpp:2045
+msgid "Adjust brightness"
+msgstr "Ajustează strălucirea"
+
+#: ../src/gui/main.cpp:2066
+msgid "Adjust whiteness"
+msgstr "Ajustează albul"
+
+#: ../src/gui/main.cpp:2087
+msgid "Adjust color"
+msgstr "Ajustează culoarea"
+
+#: ../src/gui/main.cpp:2108
+msgid "Adjust contrast"
+msgstr "Ajustează contrastul"
+
+#: ../src/gui/main.cpp:2162
+msgid "Audio Settings"
+msgstr "Setări audio"
+
+#: ../src/gui/main.cpp:2381
+msgid "Change the volume of your soundcard"
+msgstr "Schimbă volumul plăcii de sunet"
+
+#: ../src/gui/main.cpp:2401
+msgid "Change the color settings of your video device"
+msgstr "Schimbă configurația culorilor dispozitivului dvs. video"
+
+#: ../src/gui/main.cpp:2423
+msgid "Display images from your camera device"
+msgstr "Afișază imagini de la camera dumneavoastră."
+
+#: ../src/gui/main.cpp:2476
+msgid "Call history"
+msgstr "Istoricul apelurilor"
+
+#: ../src/gui/main.cpp:3149
+msgid "_Retrieve Call"
+msgstr "Apel primit"
+
+#: ../src/gui/main.cpp:3162
+msgid "_Hold Call"
+msgstr "_Apel în așteptare"
+
+#: ../src/gui/main.cpp:3205
+msgid "Resume _Audio"
+msgstr "Repornire _audio"
+
+#: ../src/gui/main.cpp:3207
+msgid "Resume _Video"
+msgstr "Repornire _video"
+
+#: ../src/gui/main.cpp:3534 ../src/gui/main.cpp:3688
+msgid "Reject"
+msgstr "Respinge"
+
+#: ../src/gui/main.cpp:3536 ../src/gui/main.cpp:3687
+msgid "Accept"
+msgstr "Acceptă"
+
+#: ../src/gui/main.cpp:3542 ../src/gui/main.cpp:3675
+msgid "Incoming call from"
+msgstr "Apel primit de la"
+
+#: ../src/gui/main.cpp:3560 ../src/gui/main.cpp:3678
+#, fuzzy
+msgid "Remote URI:"
+msgstr "URL-ul de la distamță :"
+
+#: ../src/gui/main.cpp:3572 ../src/gui/main.cpp:3680
+msgid "Remote Application:"
+msgstr "Aplicația de la distanță :"
+
+#: ../src/gui/main.cpp:3593
+msgid "Call from %s"
+msgstr "Apel de la %s"
+
+#: ../src/gui/main.cpp:3850
+msgid "Call Duration: %s\n"
+msgstr "Durata Apelului : %s\n"
+
+#: ../src/gui/main.cpp:3887
+msgid "Transfer call to:"
+msgstr "Redirecționează apel către :"
+
+#: ../src/gui/main.cpp:3944
+msgid "No"
+msgstr "Nu"
+
+#: ../src/gui/main.cpp:3946
+msgid "Yes"
+msgstr "Da"
+
+#: ../src/gui/main.cpp:3957
+msgid "Detected new audio input device:"
+msgstr "Detectat un nou dispozitiv audio de intrare :"
+
+#: ../src/gui/main.cpp:3961
+msgid "Detected new audio output device:"
+msgstr "Detectat un nou dispozitiv audio de ieșire :"
+
+#: ../src/gui/main.cpp:3965
+msgid "Detected new video input device:"
+msgstr "Detectat un nou dispozitiv video de intrare :"
+
+#: ../src/gui/main.cpp:3966 ../src/gui/preferences.cpp:848
+msgid "Video Devices"
+msgstr "Dispozitive video"
+
+#: ../src/gui/main.cpp:3984
+msgid "Do you want to use it as default device?"
+msgstr "Doriți să îl utilizați ca dispozitiv implicit ?"
+
+#: ../src/gui/main.cpp:4054
+msgid "Ekiga"
+msgstr "Ekiga"
+
+#. Translators:
+#. * TX is a common abbreviation for "transmit"
+#: ../src/gui/main.cpp:4491
+#, c-format
+msgid "TX: %dx%d "
+msgstr "TX : %dx%d "
+
+#. Translators:
+#. * RX is a common abbreviation for "receive"
+#: ../src/gui/main.cpp:4496
+#, c-format
+msgid "RX: %dx%d "
+msgstr "RX : %dx%d "
+
+#: ../src/gui/main.cpp:4498
+msgid ""
+"Lost packets: %.1f %%\n"
+"Late packets: %.1f %%\n"
+"Out of order packets: %.1f %%\n"
+"Jitter buffer: %d ms%s%s%s"
+msgstr ""
+"Pachete pierdute : %.1f %%\n"
+"Pachete întârziate : %.1f %%\n"
+"Pachete primite în dezordine : %d ms\n"
+"Memoria tampon a Jitter-ului : %d ms"
+
+#: ../src/gui/main.cpp:4646
+msgid "Prints debug messages in the console (level between 1 and 5)"
+msgstr "Tipărește mesaje de debug în consolă (nivelul între 1 și 5)"
+
+#: ../src/gui/main.cpp:4651
+msgid "Prints user plane debug messages in the console (level between 1 and 4)"
+msgstr "Tipărește mesaje de debug în consolă (nivelul între 1 și 4)"
+
+#: ../src/gui/main.cpp:4656
+msgid "Makes Ekiga call the given URI"
+msgstr "Face Ekiga să apeleze URI-ul dat"
+
+#: ../src/gui/main.cpp:4772
+msgid "No usable audio plugin detected"
+msgstr "Nu a fost detectat nici un modul audio disponibil"
+
+#: ../src/gui/main.cpp:4773
+msgid ""
+"Ekiga didn't find any usable audio plugin. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga nu a detectat nici un modul audio disponibil. Verificați faptul "
+"că instalarea a fost făcută corect."
+
+#: ../src/gui/main.cpp:4776
+#, fuzzy
+msgid "No usable audio codecs detected"
+msgstr "NU a fost detectat nici un modul audio disponibil"
+
+#: ../src/gui/main.cpp:4777
+#, fuzzy
+msgid ""
+"Ekiga didn't find any usable audio codec. Make sure that your installation "
+"is correct."
+msgstr ""
+"Ekiga nu a detectat nici un modul audio disponibil. verificați faptul "
+"ca instalarea a fost făcută corect."
+
+#: ../src/gui/main.cpp:4783
+msgid "Configuration database corruption"
+msgstr "Baza de date de configurare coruptă"
+
+#: ../src/gui/main.cpp:4784
+msgid ""
+"Ekiga got an invalid value for the configuration key %s.\n"
+"\n"
+"It probably means that your configuration schemas have not been correctly "
+"installed or that the permissions are not correct.\n"
+"\n"
+"Please check the FAQ (http://www.ekiga.org/), the troubleshooting section of "
+"the GConf site (http://www.gnome.org/projects/gconf/) or the mailing list "
+"archives for more information (http://mail.gnome.org) about this problem."
+msgstr ""
+"Ekiga are o valoare invalidă pentru cheia GConf %s.\n"
+"\n"
+"Aceasta inseamnă că schemele GConf nu au fost instalate corect sau că "
+"permisiile nu sunt corecte.\n"
+"\n"
+"Pentru mai multe informații căutați în FAQ (http://www.ekiga.org/),"
+"în secțiunea depanare (troubleshoot) a sit-ului GConf (http://www.gnome."
+"org/projects/gconf/) sau în arhivele listei de mail  (http://mail.gnome.org)."
+
+#: ../src/gui/preferences.cpp:376
+#, fuzzy
+msgid "_Full name:"
+msgstr "Nume complet:"
+
+#: ../src/gui/preferences.cpp:394
+msgid "User Interface"
+msgstr "Interfața utilizator"
+
+#: ../src/gui/preferences.cpp:396
+msgid "Start _hidden"
+msgstr "Pornește ascuns"
+
+#: ../src/gui/preferences.cpp:398
+msgid "Show offline _contacts"
+msgstr "Arată contactele offline"
+
+#: ../src/gui/preferences.cpp:403
+msgid "Video Display"
+msgstr "Afișaj video"
+
+#: ../src/gui/preferences.cpp:405
+msgid "Place windows displaying video _above other windows"
+msgstr ""
+"Plasează ferestrele care conțin imaginea video in f_ața celorlalte ferestre "
+
+#: ../src/gui/preferences.cpp:415
+msgid "Call Forwarding"
+msgstr "Redirecționarea apelului"
+
+#: ../src/gui/preferences.cpp:417
+msgid "_Always forward calls to the given host"
+msgstr "Redirecționează toate apelurile la un calculator prestabilit"
+
+#: ../src/gui/preferences.cpp:417
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings"
+msgstr ""
+"La activare, toate apelurile primite vor fi redirecționate la calculatorul "
+"specificat în setările protocolului"
+
+#: ../src/gui/preferences.cpp:419
+msgid "Forward calls to the given host if _no answer"
+msgstr ""
+"Redirecționează apelurile la calculatorul prestabilit, dacă nu se primește "
+"răspuns la apel"
+
+#: ../src/gui/preferences.cpp:419
+#, fuzzy
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you do not answer the call"
+msgstr ""
+"La activare, dacă nu răspundeți la apeluri, toate apelurile primite vor fi "
+"redirecționate la gazda specificată în câmpul de mai jos"
+
+#: ../src/gui/preferences.cpp:421
+msgid "Forward calls to the given host if _busy"
+msgstr ""
+"Redirecționează apelurile la calculatorul prestabilit, dacă se primesc ton "
+"de ocupat"
+
+#: ../src/gui/preferences.cpp:421
+#, fuzzy
+msgid ""
+"If enabled, all incoming calls will be forwarded to the host that is "
+"specified in the protocol settings if you already are in a call or if you "
+"are in Do Not Disturb mode"
+msgstr ""
+"La activare, dacă o convorbire e în curs de desfășurare sau modul „nu "
+"deranjați” este activ, toate apelurile primite vor fi redirecționate la "
+"gazda specificată în câmpul de mai jos"
+
+#: ../src/gui/preferences.cpp:425 ../src/gui/preferences.cpp:1442
+msgid "Call Options"
+msgstr "Opțiuni de apel"
+
+#. Add all the fields
+#: ../src/gui/preferences.cpp:428
+#, fuzzy
+msgid "Timeout to reject or forward unanswered incoming calls (in seconds):"
+msgstr "Respinge sau redirecționează apelurile primite la care nu răspund  "
+
+#: ../src/gui/preferences.cpp:460
+#, fuzzy
+msgid "Ekiga Sound Events"
+msgstr "Evenimente sonore"
+
+#: ../src/gui/preferences.cpp:509 ../src/gui/preferences.cpp:518
+#: ../src/gui/preferences.cpp:527
+msgid "Event"
+msgstr "Eveniment"
+
+#: ../src/gui/preferences.cpp:539
+#, fuzzy
+msgid "Choose a sound"
+msgstr "Alegeți o Imagine"
+
+#: ../src/gui/preferences.cpp:545
+msgid "Wavefiles"
+msgstr "Fișiere wave"
+
+#: ../src/gui/preferences.cpp:554 ../src/gui/preferences.cpp:573
+msgid "Play"
+msgstr "Redă sunet"
+
+#: ../src/gui/preferences.cpp:594
+msgid "String"
+msgstr "String"
+
+#: ../src/gui/preferences.cpp:595
+msgid "Tone"
+msgstr "Tonuri"
+
+#: ../src/gui/preferences.cpp:596 ../src/gui/preferences.cpp:645
+msgid "RFC2833"
+msgstr "RFC2833"
+
+#: ../src/gui/preferences.cpp:597
+msgid "Q.931"
+msgstr "Q.931"
+
+#: ../src/gui/preferences.cpp:603 ../src/gui/preferences.cpp:655
+msgid "Misc Settings"
+msgstr "Setări diverse"
+
+#: ../src/gui/preferences.cpp:606 ../src/gui/preferences.cpp:660
+#, fuzzy
+msgid "Forward _URI:"
+msgstr "_Redirecționează"
+
+#: ../src/gui/preferences.cpp:615
+msgid "Advanced Settings"
+msgstr "Setări avansate"
+
+#. The toggles
+#: ../src/gui/preferences.cpp:618
+msgid "Enable H.245 _tunneling"
+msgstr "Activează tunelarea H.245 "
+
+#: ../src/gui/preferences.cpp:620
+msgid "Enable _early H.245"
+msgstr "Activează _early H.245"
+
+#: ../src/gui/preferences.cpp:622
+msgid "Enable fast _start procedure"
+msgstr "Activează procedura 'Start-Rapid'"
+
+#: ../src/gui/preferences.cpp:622
+msgid ""
+"Connection will be established in Fast Start mode. Fast Start is a new way "
+"to start calls faster that was introduced in H.323v2. It is not supported by "
+"Netmeeting and using both Fast Start and H.245 Tunneling can crash some "
+"versions of Netmeeting."
+msgstr ""
+"Conexiunea va fi stabilită în mod Start-Rapid. Acest mod reprezintă o noua "
+"metodă de a începe mai repede apelurile, ce a fost definit în H.323v2. Nu "
+"este suportat de Netmeeting și folosirea simultană a Start-Rapid și H.245 "
+"Tunnelling poate să blocheze unele versiuni de Netmeeting."
+
+#: ../src/gui/preferences.cpp:628 ../src/gui/preferences.cpp:668
+msgid "DTMF Mode"
+msgstr "Mode UTMF"
+
+#: ../src/gui/preferences.cpp:630 ../src/gui/preferences.cpp:670
+msgid "_Send DTMF as:"
+msgstr "Trimit DTMF ca:"
+
+#: ../src/gui/preferences.cpp:630 ../src/gui/preferences.cpp:670
+msgid "This allows you to set the mode for DTMFs sending."
+msgstr "Aceasta permite să setați modul trimiterii DTMF."
+
+#: ../src/gui/preferences.cpp:646
+msgid "INFO"
+msgstr "Info"
+
+#: ../src/gui/preferences.cpp:657
+msgid "_Outbound Proxy:"
+msgstr "Proxy de ieșire :"
+
+#: ../src/gui/preferences.cpp:698
+msgid "Ringing Device"
+msgstr "Dispozitivul de ieșire pentru sonerie"
+
+#: ../src/gui/preferences.cpp:698
+#, fuzzy
+msgid "Select the ringing audio device to use"
+msgstr "Alegeți dispozitivul de intrare audio"
+
+#: ../src/gui/preferences.cpp:700
+msgid "Output device:"
+msgstr "Dispozitiv de ieșire"
+
+#: ../src/gui/preferences.cpp:707 ../src/gui/preferences.cpp:855
+msgid "Input device:"
+msgstr "Dispozitiv de intrare:"
+
+#. That button will refresh the device list
+#. The file selector button
+#. FIXME disabled for now
+#. label = gtk_label_new (_("Image:"));
+#.
+#. button =
+#. gtk_file_chooser_button_new_with_backend (_("Choose a Picture"),
+#. GTK_FILE_CHOOSER_ACTION_OPEN,
+#. FILECHOOSER_BACKEND);
+#.
+#. preview_image_frame = gtk_frame_new (_("Preview"));
+#. preview_image = gtk_image_new ();
+#. gtk_container_add (GTK_CONTAINER (preview_image_frame), preview_image);
+#. gtk_widget_set_size_request (preview_image, 256, 256);
+#. gtk_widget_show (preview_image);
+#. gtk_file_chooser_set_preview_widget (GTK_FILE_CHOOSER (button),
+#. preview_image_frame);
+#.
+#.
+#. filefilter = gtk_file_filter_new ();
+#. gtk_file_filter_set_name (filefilter, _("Images"));
+#. gtk_file_filter_add_pixbuf_formats (filefilter);
+#. gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (button), filefilter);
+#.
+#. g_signal_connect (G_OBJECT (button), "update-preview",
+#. G_CALLBACK (image_filename_browse_preview_cb),
+#. (gpointer) preview_image);
+#.
+#. conf_image = gm_conf_get_string (VIDEO_DEVICES_KEY "image");
+#. if (!conf_image || (!strcmp (conf_image, ""))) {
+#. g_free (conf_image);
+#. conf_image = NULL;
+#. }
+#.
+#. if (conf_image)
+#. gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (button), conf_image);
+#. g_free (conf_image);
+#.
+#. gtk_table_attach (GTK_TABLE (subsection), button, 1, 2, 4, 5,
+#. (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
+#. (GtkAttachOptions) (GTK_FILL | GTK_EXPAND),
+#. 0, GNOMEMEETING_PAD_SMALL);
+#.
+#. gtk_table_attach (GTK_TABLE (subsection), label, 0, 1, 4, 5,
+#. (GtkAttachOptions) (GTK_FILL),
+#. (GtkAttachOptions) (GTK_FILL),
+#. 0, 0);
+#.
+#. gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+#. gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_LEFT);
+#.
+#. g_signal_connect_after (G_OBJECT (button), "selection-changed",
+#. G_CALLBACK (image_filename_browse_cb),
+#. (gpointer) VIDEO_DEVICES_KEY "image");
+#.
+#. That button will refresh the device list
+#: ../src/gui/preferences.cpp:712 ../src/gui/preferences.cpp:920
+msgid "_Detect devices"
+msgstr "_Detectează dispozitive"
+
+#: ../src/gui/preferences.cpp:712 ../src/gui/preferences.cpp:920
+#, fuzzy
+msgid "Click here to refresh the device list."
+msgstr "Apăsați aici pentru a reactualiza lista de dispozitive"
+
+#: ../src/gui/preferences.cpp:833
+msgid "PAL (Europe)"
+msgstr "PAL (Europa)"
+
+#: ../src/gui/preferences.cpp:834
+msgid "NTSC (America)"
+msgstr "NTSC (America)"
+
+#: ../src/gui/preferences.cpp:835
+msgid "SECAM (France)"
+msgstr "SECAM (Franța)"
+
+#: ../src/gui/preferences.cpp:836
+msgid "Auto"
+msgstr "Auto"
+
+#. Video Channel
+#: ../src/gui/preferences.cpp:859
+msgid "Channel:"
+msgstr "Canal:"
+
+#: ../src/gui/preferences.cpp:861
+msgid "Size:"
+msgstr "Dimensiune:"
+
+#: ../src/gui/preferences.cpp:861
+#, fuzzy
+msgid "Select the transmitted video size"
+msgstr "Alegeți dispozitivul de ieșire audio"
+
+#: ../src/gui/preferences.cpp:863
+msgid "Format:"
+msgstr "Format:"
+
+#: ../src/gui/preferences.cpp:944 ../src/gui/preferences.cpp:983
+#: ../src/gui/preferences.cpp:1467 ../src/gui/preferences.cpp:1477
+msgid "Codecs"
+msgstr "Codecuri"
+
+#: ../src/gui/preferences.cpp:957 ../src/gui/preferences.cpp:996
+#, fuzzy
+msgid "Settings"
+msgstr "Setări pentru translatarea adresei IP (NAT)"
+
+#. Translators: the full sentence is Automatically adjust jitter buffer
+#. between X and Y ms
+#: ../src/gui/preferences.cpp:961
+msgid "Enable silence _detection"
+msgstr ""
+"Activează detectarea momentelor de \"tăcere\" pe canalul de comunicație"
+
+#: ../src/gui/preferences.cpp:961
+#, fuzzy
+msgid "If enabled, use silence detection with the codecs supporting it."
+msgstr ""
+"Dacă este activat, detectează momentele de \"tăcere\" pe canalul de "
+"comunicație, pentru codecurile GSM și G.711"
+
+#: ../src/gui/preferences.cpp:963
+#, fuzzy
+msgid "Enable echo can_celation"
+msgstr "Îndepărtare a e_coului:"
+
+#: ../src/gui/preferences.cpp:963
+#, fuzzy
+msgid "If enabled, use echo cancelation."
+msgstr "Anulează automat ecoul"
+
+#: ../src/gui/preferences.cpp:965
+#, fuzzy
+msgid "Maximum _jitter buffer (in ms):"
+msgstr "Maximul bufferului de jitter:"
+
+#: ../src/gui/preferences.cpp:965
+msgid "The maximum jitter buffer size for audio reception (in ms)."
+msgstr ""
+"Marimea maximă a memoriei tampon de jitter pentru recepția audio (în ms)."
+
+#. Translators: the full sentence is Keep a minimum video quality of X %
+#: ../src/gui/preferences.cpp:999
+msgid "Picture Quality"
+msgstr "Calitatea Imaginii"
+
+#: ../src/gui/preferences.cpp:999
+msgid ""
+"Choose if you want to guarantee a minimum image quality (possibly leading to "
+"dropped frames in order not to surpass the bitrate limit) or if you prefer "
+"to keep the frame rate."
+msgstr ""
+
+#: ../src/gui/preferences.cpp:1001
+#, fuzzy
+msgid "Maximum video _bitrate (in kbits/s):"
+msgstr "Lațimea de bandă video maximă:"
+
+#: ../src/gui/preferences.cpp:1001
+#, fuzzy
+msgid ""
+"The maximum video bitrate in kbits/s. The video quality and the effective "
+"frame rate will be dynamically adjusted to keep the bitrate at the given "
+"value."
+msgstr ""
+"Lațimea de bandă maximă in KB/s. Calitatea video și numărul maxim de cadre "
+"trimise într-o secundă vor fi ajustate dinamic peste minim, in timpul "
+"convorbirilor, pentru a încerca minimizarea lățimii de bandă specificate."
+
+#: ../src/gui/preferences.cpp:1376
+#, fuzzy
+msgid "Play sound for new voice mails"
+msgstr "Redă un sunet la primire apeluri"
+
+#: ../src/gui/preferences.cpp:1385
+#, fuzzy
+msgid "Play sound for new instant messages"
+msgstr "Redă un sunet la primire apeluri"
+
+#: ../src/gui/preferences.cpp:1414
+#, fuzzy
+msgid "Ekiga Preferences"
+msgstr "_Preferințe"
+
+#: ../src/gui/preferences.cpp:1432
+msgid "General"
+msgstr "General"
+
+#: ../src/gui/preferences.cpp:1433
+msgid "Personal Data"
+msgstr "Date Personale"
+
+#: ../src/gui/preferences.cpp:1438
+msgid "General Settings"
+msgstr "Setări generale"
+
+#: ../src/gui/preferences.cpp:1447
+msgid "Sound Events"
+msgstr "Evenimente sonore"
+
+#: ../src/gui/preferences.cpp:1451
+msgid "Protocols"
+msgstr "Protocoale"
+
+#: ../src/gui/preferences.cpp:1453
+#, fuzzy
+msgid "SIP Settings"
+msgstr "Setări pentru translatarea adresei IP (NAT)"
+
+#: ../src/gui/preferences.cpp:1458
+msgid "H.323 Settings"
+msgstr "Setările H.323"
+
+#: ../src/gui/preferences.cpp:1462
+msgid "Audio"
+msgstr "Audio"
+
+#: ../src/gui/preferences.cpp:1463 ../src/gui/preferences.cpp:1473
+msgid "Devices"
+msgstr "Dispozitive"
+
+#: ../src/gui/preferences.cpp:1472
+msgid "Video"
+msgstr "Video"
+
+#: ../src/gui/statusicon.cpp:304
+#, fuzzy, c-format
+msgid "You have %d message"
+msgid_plural "You have %d messages"
+msgstr[0] "Trimite mesajul:"
+msgstr[1] "Trimite mesajul:"
+msgstr[2] "Trimite mesajul:"
+
+#: ../src/gui/statusmenu.cpp:90
+msgid "Online"
+msgstr "Online"
+
+#: ../src/gui/statusmenu.cpp:91
+msgid "Away"
+msgstr "Away"
+
+#: ../src/gui/statusmenu.cpp:92
+#, fuzzy
+msgid "Do Not Disturb"
+msgstr "_Nu deranjați"
+
+#: ../src/gui/statusmenu.cpp:456
+msgid "Custom message..."
+msgstr "Mesaj personalizat..."
+
+#. Build the dialog
+#: ../src/gui/statusmenu.cpp:587 ../src/gui/statusmenu.cpp:741
+msgid "Custom Message"
+msgstr "Mesaj personalizat"
+
+#: ../src/gui/statusmenu.cpp:603
+msgid "Delete custom messages:"
+msgstr "Șterge meraje personalizate :"
+
+#: ../src/gui/statusmenu.cpp:762
+msgid "Define a custom message:"
+msgstr "Creați un mesaj personalizat :"
+
+#~ msgid "Videoconferencing"
+#~ msgstr "Videoconferință"
+
+#~ msgid "Address of public IP detector"
+#~ msgstr "Adresa detectorului public de IP"
+
+#~ msgid "Audio plugin"
+#~ msgstr "Modul audio"
+
+#~ msgid "Automatically clear the text chat at the end of calls"
+#~ msgstr "Șterge automat textul la sfârșitul convorbiri"
+
+#~ msgid ""
+#~ "Automatically switch to fullscreen for images displayed in the main GUI "
+#~ "at the beginning of the call"
+#~ msgstr ""
+#~ "La începutul convorbirii, comută automat în modul „Afișare pe tot "
+#~ "ecranul” pentru imaginile afișate în fereastra principală"
+
+#~ msgid ""
+#~ "Change the control panel section (4 means that the control panel is off)"
+#~ msgstr ""
+#~ "Conținutul ce poate fi afișat în panoul de control: Statisticile "
+#~ "conexiunii(0), Tastatura de formare a numărului(1), Audio(2), Video(3), "
+#~ "Ascuns(4)"
+
+#~ msgid ""
+#~ "Choose the number of blocks (that have not changed) transmitted with each "
+#~ "frame. These blocks fill in the background"
+#~ msgstr ""
+#~ "Alege numărul de bucăți de memorie (neschimbate) transmise cu fiecare "
+#~ "cadru. Acestea sunt create în fundal."
+
+#~ msgid "Clear inactive calls"
+#~ msgstr "Șterge convorbirile inactive"
+
+#~ msgid "Comment"
+#~ msgstr "Notă"
+
+#~ msgid "E-mail address"
+#~ msgstr "Adresă e-mail"
+
+#~ msgid "Enable IP translation"
+#~ msgstr "Activează rezolvarea adresei IP"
+
+#~ msgid "Enable bilinear filtering on displayed video"
+#~ msgstr "Activează filtrarea biliniară a semnalului video afișat"
+
+#~ msgid ""
+#~ "Enable or disable bilinear interpolation when rendering video images "
+#~ "(this has no effect in fullscreen mode)"
+#~ msgstr ""
+#~ "Activează sau dezactivează interpolarea biliniară la afișarea semnalului "
+#~ "video (nu are nici un efect cand afișarea e pe tot ecranul)"
+
+#~ msgid "Enable registering"
+#~ msgstr "Activează înregistrarea"
+
+#~ msgid "Enable video transmission"
+#~ msgstr "Activează transmisia video"
+
+#~ msgid "Enter a comment about yourself for the user directory"
+#~ msgstr "Descrieți-vă într-un comentariu pentru indexul utilizatorilor"
+
+#~ msgid ""
+#~ "Enter a valid URL to connect to a web application that outputs the public "
+#~ "IP of your host"
+#~ msgstr ""
+#~ "Introduceți URL-ul unei aplicații web care poate detecta adresa publică a "
+#~ "calculatorului dumneavoastră"
+
+#~ msgid ""
+#~ "Enter the public IP of your NAT/PAT router if you want to use IP "
+#~ "translation. If you are registered to ils.seconix.com, GnomeMeeting will "
+#~ "automatically fetch the public IP using the ILS service"
+#~ msgstr ""
+#~ "Introduceți adresa publică a router-ului NAT/PAT prin care vă conectați "
+#~ "la internet dacă doriți translatare IP. Dacă sunteți înregistrat la ils."
+#~ "seconix.com, GnomeMeeting va obține in mod automat adresa publică IP "
+#~ "utilizând serviciul ILS"
+
+#~ msgid "Enter your e-mail address"
+#~ msgstr "Introduceți adresa dumneavoastră de e-mail"
+
+#~ msgid "Enter your first name"
+#~ msgstr "Introduceți prenumele dumneavoastră"
+
+#~ msgid "Enter your location (country or city) for the user directory"
+#~ msgstr ""
+#~ "Introduceți adresa dumneavostră (țara sau orașul) pentru indexul "
+#~ "utilizatorilor"
+
+#~ msgid "Gatekeeper ID"
+#~ msgstr "Identificator Gatekeeper"
+
+#~ msgid "Gatekeeper alias"
+#~ msgstr "Alias Gatekeeper"
+
+#~ msgid "Gatekeeper alias as primary alias"
+#~ msgstr "Primul alias al Gatekeeper-ului"
+
+#~ msgid "Gatekeeper host"
+#~ msgstr "Calculator Gatekeeper"
+
+#~ msgid "Gatekeeper password"
+#~ msgstr "Parolă Gatekeeper"
+
+#~ msgid "Gateway/proxy host"
+#~ msgstr ""
+#~ "Calculatorul \"poartă\" (prin care ieșiți pe internet)/Serverul Proxy "
+
+#~ msgid ""
+#~ "If enabled, calls for which no audio and video has been received in the "
+#~ "last 30 seconds are automatically cleared"
+#~ msgstr ""
+#~ "La activare, convorbirile fără semnal audio și video pentru ultimele 30 "
+#~ "de secunde vor fi închise automat"
+
+#~ msgid "If enabled, register with the selected user directory"
+#~ msgstr ""
+#~ "La activare, se face înregistrarea în indexul utilizatorilor selectat"
+
+#~ msgid ""
+#~ "If enabled, the splash screen will be displayed when GnomeMeeting starts"
+#~ msgstr ""
+#~ "La activare, imaginea de start va fi afișată la pornirea GnomeMeeting"
+
+#~ msgid ""
+#~ "If enabled, the text chat will automatically be cleared at the end of "
+#~ "calls"
+#~ msgstr ""
+#~ "La activare, textul discuțiilor va fi șters automat la sfârșitul "
+#~ "convorbirii"
+
+#~ msgid "If enabled, video is transmitted during a call"
+#~ msgstr "La activare, semnalul video va fi transmis în timpul convorbirii"
+
+#~ msgid ""
+#~ "If enabled, your details are shown to people browsing the user directory. "
+#~ "If disabled, you are not visible to users browsing the user directory, "
+#~ "but they can still use the callto URL to call you"
+#~ msgstr ""
+#~ "La activare, propriile detalii vor fi vizibile  persoanelor care "
+#~ "accesează informațiile din indexul utilizatorilor. La deactivare, acestea "
+#~ "nu sunt vizibile, dar puteți fi apelat prin utilizarea URL-ului „callto”"
+
+#~ msgid "Incoming call mode"
+#~ msgstr "Mod apel primit"
+
+#~ msgid "Last name"
+#~ msgstr "Nume de familie"
+
+#~ msgid "Location"
+#~ msgstr "Adresă"
+
+#~ msgid "Minimum jitter buffer"
+#~ msgstr "Dimensiune minimă a buffer-ului jitter"
+
+#~ msgid "Minimum transmitted video quality"
+#~ msgstr "Calitate minimă a semnalului video transmis"
+
+#~ msgid "Missed calls history"
+#~ msgstr "Istoricul apelurilor pierdute"
+
+#~ msgid "Number of frames for G.711"
+#~ msgstr "Număr de cadre pentru G.711"
+
+#~ msgid "Number of frames for GSM"
+#~ msgstr "Număr de cadre pentru GSM"
+
+#~ msgid "Number of frames transmitted in each packet for the G.711 codec"
+#~ msgstr "Număr de cadre transmise în fiecare pachet pentru codecul G.711"
+
+#~ msgid "Number of frames transmitted in each packet for the GSM codec"
+#~ msgstr "Număr de cadre transmise în fiecare pachet pentru codecul GSM"
+
+#~ msgid "Placed calls history"
+#~ msgstr "Istoricul apelurilor făcute"
+
+#~ msgid "Position on the screen of the PC-To-Phone window"
+#~ msgstr "Poziție pe ecran a ferestrei de control Calculator-Telefon"
+
+#~ msgid "Position on the screen of the calls history window"
+#~ msgstr "Poziție pe ecran a ferestrei cu istoricul apelurilor"
+
+#~ msgid "Public IP of the NAT/PAT router"
+#~ msgstr "Adresă IP publică a router-ului NAT/PAT"
+
+#~ msgid "Received calls history"
+#~ msgstr "Istoricul apelurilor primite"
+
+#~ msgid "Show my details to other registered users"
+#~ msgstr "Arată detaliile mele celorlalți utilizatori înregistrați"
+
+#~ msgid "Show splash screen at startup"
+#~ msgstr "Arată imaginea de start de pornire"
+
+#~ msgid "Show the chat window in the main window"
+#~ msgstr "Arată fereastra de discuție în fereastra principală"
+
+#~ msgid "Size of the PC-To-Phone window"
+#~ msgstr "Mărime fereastră de control Calculator-Telefon"
+
+#~ msgid "Size of the calls history window"
+#~ msgstr "Mărime fereastră cu istoricul apelurilor"
+
+#~ msgid ""
+#~ "The Gatekeeper alias to use when registering (string, or E164 ID if only "
+#~ "0123456789#)"
+#~ msgstr ""
+#~ "Aliasul Gatekeeper-ului de folosit pentru înregistrare (șir de caractere "
+#~ "sau identificator E164 format din 0123456789#)."
+
+#~ msgid "The Gatekeeper host to register with"
+#~ msgstr "Calculatorul Gatekeeper cu care se face înregistrarea."
+
+#~ msgid "The Gatekeeper identifier to register with"
+#~ msgstr "Identificator Gatekeeper cu care se face înregistrarea."
+
+#~ msgid ""
+#~ "The Gatekeeper password to use for H.235 authentication to the Gatekeeper"
+#~ msgstr ""
+#~ "Parolă Gatekeeper utilizată pentru autentificarea H.235 la Gatekeeper."
+
+#~ msgid ""
+#~ "The Gateway host is the host to use to do H.323 calls through a gateway "
+#~ "that will relay calls"
+#~ msgstr ""
+#~ "Calculatorul \"poartă\" de iesire (gateway) este calculatorul ce se "
+#~ "folosește pentru a face apeluri H.323 printr-un un calculator \"poarta\" "
+#~ "de isire(gateway) ce distribuie apelurile."
+
+#~ msgid ""
+#~ "The audio plugin that will be used to detect the devices and manage them"
+#~ msgstr ""
+#~ "Modul audio utilizat pentru detectarea și administrarea dispozitivelor "
+#~ "audio"
+
+#~ msgid "The history of the last 100 missed calls"
+#~ msgstr "Istoricul ultimelor 100 apeluri pierdute"
+
+#~ msgid "The history of the last 100 received calls"
+#~ msgstr "Istoricul ultimelor 100 apeluri primite"
+
+#~ msgid "The local zoom value"
+#~ msgstr "Valoare locala a magnificarii"
+
+#~ msgid "The minimum jitter buffer size for audio reception (in ms)"
+#~ msgstr ""
+#~ "Mărime minimă a memoriei tamponu jitter pentru recepție audio (în ms)"
+
+#~ msgid ""
+#~ "The minimum transmitted video quality to keep when trying to minimize the "
+#~ "used bandwidth: choose 100% on a LAN for the best quality, 1% being the "
+#~ "worst quality"
+#~ msgstr ""
+#~ "Calitatee minimă a semnalului video transmis de păstrat când se încearcă "
+#~ "reducerea lățimii de bandă: alegeți 100% într-o rețea locală pentru cea "
+#~ "mai bună calitate, 1% este cea mai proastă calitate"
+
+#~ msgid ""
+#~ "The range of TCP ports beside the listen_port that GnomeMeeting will use "
+#~ "for the H.245 channel. You can change the TCP port range if you are using "
+#~ "IP translation and if you need to have several GnomeMeeting running "
+#~ "behind your NAT/PAT router. GnomeMeeting needs to be restarted for the "
+#~ "new values to take effect. This port range has no effect if both "
+#~ "participants to the conference are using H.245 Tunneling."
+#~ msgstr ""
+#~ "Intervalul de porturi TCP utilizate pentru canalul de comunicație H.245 "
+#~ "în afara de portul utilizat de GnomeMeeting. Puteți schimba intervalul de "
+#~ "porturi TCP daca folosiți translatarea IP și dacă aveți mai multe "
+#~ "aplicații GnomeMeeting care rulează in statele unui ruter NAT/PAT. "
+#~ "GnomeMeeting trebuie repornit pentru ca noile valori să fie luate în "
+#~ "considerare. Specificarea acestei clase de porturi nu are nici un efect, "
+#~ "dacă ambii participanți la conferința folosesc tunelarea H.245"
+
+#~ msgid ""
+#~ "The range of UDP ports that GnomeMeeting will use for RTP (audio and "
+#~ "video communication channels). You can change the UDP port range if you "
+#~ "are using IP translation and if you need to have several GnomeMeeting "
+#~ "running behind your NAT/PAT router. GnomeMeeting needs to be restarted "
+#~ "for the new values to take effect."
+#~ msgstr ""
+#~ "Interval de porturi UDP utilizate de GnomeMeeting pentru RTP (canale de "
+#~ "comunicare audio și video). Puteți schimba intervalul de porturi UDP dacă "
+#~ "utilizați translatarea adresei IP și dacă aveți nevoie de mai multe "
+#~ "instanțe GnomeMeeting simultane în spatele routerului NAT/PAT. "
+#~ "GnomeMeeting trebuie repornit pentru ca noile valori să fie luate în "
+#~ "considerare."
+
+#~ msgid ""
+#~ "The range of UDP ports that GnomeMeeting will use when registering to "
+#~ "gatekeepers. You can change the UDP port range if you are using IP "
+#~ "translation and if you need to have several GnomeMeeting running behind "
+#~ "your NAT/PAT router. GnomeMeeting needs to be restarted for the new "
+#~ "values to take effect. This port range has no effect if you are not "
+#~ "registering to a gatekeeper."
+#~ msgstr ""
+#~ "Intervalul de porturi UDP ce vor fi folsite de GnomeMeeting pentru "
+#~ "apeluri. Poți schimba intervalul de porturi UDP dacă foloști translatarea "
+#~ "adresei IP și dacă ai nevoie de mai multe instanțe GnomeMeeting rulând în "
+#~ "spatele routerului tău NAT/PAT. GnomeMeeting trebuie repornit pentru ca "
+#~ "noile valori să fie luate în considerare."
+
+#~ msgid "The registering method to use"
+#~ msgstr "Metodă de înregistrare utilizată"
+
+#~ msgid "The remote zoom value"
+#~ msgstr "Valoare de magnificare a imaginii sosite"
+
+#~ msgid "The user directory server to register with"
+#~ msgstr "Serverul indexului cu utilizatori la care se face înregistrarea."
+
+#~ msgid ""
+#~ "The video plugin that will be used to detect the devices and manage them"
+#~ msgstr ""
+#~ "Modul video utilizat pentru detectarea și administrarea dispozitivelor"
+
+#~ msgid ""
+#~ "The way to react to incoming calls: 0 displays a popup, 1 automatically "
+#~ "answers the call, 2 automatically rejects the call and 3 forwards the "
+#~ "call to the given URL, if any"
+#~ msgstr ""
+#~ "Mod de reacție la apeluri primite: 0 afișează o fereastră nouă, 2 "
+#~ "respinge automatic apelul și 3 redirecționează apelul to adresa URL "
+#~ "specificată, dacă există"
+
+#~ msgid ""
+#~ "The zoom value to apply to images displayed in the local video window "
+#~ "(can be 0.50, 1.00, or 2.00)"
+#~ msgstr ""
+#~ "Valoarea magnificării ce va fi aplicată imaginilor afișate în fereastra "
+#~ "locala (poate fi 0.5, 1.00 or 2.00)"
+
+#~ msgid ""
+#~ "The zoom value to apply to images displayed in the remote video window "
+#~ "(can be 0.50, 1.00, or 2.00)"
+#~ msgstr ""
+#~ "Valoarea magnificării ce va fi aplicată imaginilor afișate în fereastra "
+#~ "cu imaginea  de la distanță (poate fi 0.5, 1.00 or 2.00)"
+
+#~ msgid ""
+#~ "This enables H.245 Tunnelling mode. In H.245 Tunnelling mode H.245 "
+#~ "messages are encapsulated into the the H.225 channel (port 1720). This "
+#~ "saves one TCP connection during calls. H.245 Tunnelling was introduced in "
+#~ "H.323v2 and Netmeeting does not support it. Using both Fast Start and "
+#~ "H.245 Tunnelling can crash some versions of Netmeeting."
+#~ msgstr ""
+#~ "Activează modul de tunelare H.245 în caremesajele H.245 vor fi "
+#~ "încapsulate în canalul H.225 (portul 1720). Aceasta evită inițierea unei "
+#~ "conexiuni TCP în timpul convorbirii. Tunelarea H.245 a fost introdusă de "
+#~ "H.323v2 și Netmeeting nu îl suportă. Acticarea simultană a pornirii "
+#~ "rapide și a tunelării H.245 poate bloca anumite versiuni de Netmeeting."
+
+#~ msgid ""
+#~ "This enables IP checking from seconix.com and fills the IP in the public "
+#~ "IP of the NAT/PAT gateway field of GnomeMeeting. The returned IP is only "
+#~ "used when IP Translation is enabled. If you disable IP checking, you will "
+#~ "have to manually enter the IP of your gateway in the GnomeMeeting "
+#~ "preferences"
+#~ msgstr ""
+#~ "Aceasta activează verificarea adresei IP de la seconix.com și completează "
+#~ "adresa IP în câmpul din GnomeMeeting al adresei IP publice a router-ului "
+#~ "NAT/PAT. Adresa IP returnată este folosită doar dacă translatarea IP este "
+#~ "activată. Dacă dezactivați verificarea adresei IP, va trebuie să "
+#~ "introduceți manual adresa IP a router-ului în opțiunile GnomeMeeting."
+
+#~ msgid ""
+#~ "This enables IP translation. IP translation is useful if GnomeMeeting is "
+#~ "running behind a NAT/PAT router. You have to put the public IP of the "
+#~ "router in the field below. If you are registered to ils.seconix.com, "
+#~ "GnomeMeeting will automatically fetch the public IP using the ILS "
+#~ "service. If your router natively supports H.323, you can disable this"
+#~ msgstr ""
+#~ "Aceasta activează translatarea adresei IP. Translatarea adresei IP este "
+#~ "folositoare dacă GnomeMeeting e pornit în spatele unui router NAT/PAT. "
+#~ "Trebuie specificată adresa publică a router-ului în câmpul de mai jos. "
+#~ "Dacă sunteți înregistrat la ils.seconix.com, GnomeMeeting va obține în "
+#~ "mod automat adresa IP publică folosind serviciul ILS. Dacă routerul "
+#~ "suportă în mod nativ H.323, se poate deactiva această opțiune."
+
+#~ msgid ""
+#~ "This enables STUN Support. STUN is a technic that permits to go through "
+#~ "some types of NAT gateways."
+#~ msgstr ""
+#~ "Aceasta activează suport pentru STUN. STUN este o metodă care permite "
+#~ "trecerea prin anumite tipuri de calculatoare \"poartă\" de ieșire "
+#~ "(Gateway) care folosesc translatarea adresei IP (NAT)"
+
+#~ msgid "Transmitted background blocks"
+#~ msgstr "Blocuri transmise în fundal"
+
+#~ msgid "Use the specified gateway to do calls"
+#~ msgstr ""
+#~ "Utilizează calculatorul \"poartă\" de ieșire (gateway-ul) specificat "
+#~ "pentru inițierea apelurilor"
+
+#~ msgid ""
+#~ "Use this option to ensure the above alias is used as the primary alias "
+#~ "when registering with a gatekeeper. This may be required if your "
+#~ "gatekeeper can only perform authentication using the first alias in the "
+#~ "list"
+#~ msgstr ""
+#~ "Utilizați această opțiune pentru a vă asigura că aliasul de mai sus este "
+#~ "aliasul primar cănd se face înregistrarea la un Gatekeeper. Poate fi "
+#~ "obligatoriu dacă propriul Gatekeeper face autentificări utilizând doar "
+#~ "prima poreclă din listă."
+
+#~ msgid "Video plugin"
+#~ msgstr "Modul video"
+
+#~ msgid "Credits"
+#~ msgstr "Mulțumiri"
+
+#~ msgid "Written by"
+#~ msgstr "Scris de "
+
+#~ msgid "Documented by"
+#~ msgstr "Documentat de "
+
+#~ msgid "Translated by"
+#~ msgstr "Tradus de"
+
+#~ msgid "C_redits"
+#~ msgstr "_Mulțumiri"
+
+#~ msgid "Authors"
+#~ msgstr "Autori"
+
+#~ msgid "Documenter entry"
+#~ msgstr "Intrare documentarist"
+
+#~ msgid "A single documenter entry"
+#~ msgstr "O singură intrare documentarist"
+
+#~ msgid ""
+#~ "An error has happened in the configuration backend.\n"
+#~ "Maybe some of your settings won't be saved."
+#~ msgstr ""
+#~ "A apărut o eroare în suportul de configurare.\n"
+#~ "Este posibil ca unele setări să nu fi fost salvate."
+
+#~ msgid "Total: %.2f MB"
+#~ msgstr "Total: %.2f MB"
+
+#~ msgid "Contact collision"
+#~ msgstr "Coliziune înre contacte"
+
+#~ msgid ""
+#~ "Another contact with the same speed dial already exists in your address "
+#~ "book:\n"
+#~ "\n"
+#~ "<b>Name</b>: %s\n"
+#~ "<b>URL</b>: %s\n"
+#~ "<b>Speed Dial</b>: %s\n"
+#~ msgstr ""
+#~ "În agenda de adrese eveti deja un alt contact avand aceeași viteză de "
+#~ "inițiere a conexiunii:\n"
+#~ "\n"
+#~ "<b>Nume</b>: %s\n"
+#~ "<b>URL</b>: %s\n"
+#~ "<b>Viteza de inițiere a conexiunii</b>: %s\n"
+
+#~ msgid ""
+#~ "Another contact with similar information already exists in your address "
+#~ "book:\n"
+#~ "\n"
+#~ "<b>Name</b>: %s\n"
+#~ "<b>URL</b>: %s\n"
+#~ "<b>Speed Dial</b>: %s\n"
+#~ "\n"
+#~ "Do you still want to add the contact?"
+#~ msgstr ""
+#~ "În agenda de adrese aveti deja un alt contact avand informație similară:\n"
+#~ "\n"
+#~ "<b>Nume</b>: %s\n"
+#~ "<b>URL</b>: %s\n"
+#~ "<b>Viteza de inițiere a conexiunii</b>: %s\n"
+#~ "\n"
+#~ "Vreți totuși să adăugați contactul?\n"
+#~ " "
+
+#~ msgid "S"
+#~ msgstr "S"
+
+#~ msgid "Software"
+#~ msgstr "Software"
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "E-Mail"
+#~ msgstr "Email"
+
+#~ msgid "Speed Dial"
+#~ msgstr "Viteza de conexiune"
+
+#~ msgid "Name contains"
+#~ msgstr "Numele conține"
+
+#~ msgid "URL contains"
+#~ msgstr "Adresa URL conține"
+
+#~ msgid "Belongs to category"
+#~ msgstr "Aparține categoriei"
+
+#~ msgid "_Copy URL to clipboard"
+#~ msgstr "Copiază URL in clipboard"
+
+#~ msgid "_Delete"
+#~ msgstr "_Sterge"
+
+#~ msgid "Error while fetching users list from %s"
+#~ msgstr "Eroare în timpul descărcării utilizatorilor de la %s."
+
+#~ msgid "Found %d user in %s"
+#~ msgid_plural "Found %d users in %s"
+#~ msgstr[0] "Am găsit %d utilizator în %s"
+#~ msgstr[1] "Am găsit %d utilizatori în %s"
+#~ msgstr[2] "Am găsit %d de utilizatori în %s"
+
+#~ msgid "Found %d user in %s for a total of %d users"
+#~ msgid_plural "Found %d users in %s for a total of %d users"
+#~ msgstr[0] "Am gasit %d utilizator în %s dintr-un număr de %d utilizatori"
+#~ msgstr[1] "Am gasit %d utilizatori în %s dintr-un număr de %d utilizatori"
+#~ msgstr[2] ""
+#~ "Am gasit %d de utilizatori în %s dintr-un număr de %d utilizatori"
+
+#~ msgid "New _Address Book"
+#~ msgstr "Agendă de _Adrese Nouă"
+
+#~ msgid "_Close"
+#~ msgstr "_Închide"
+
+#~ msgid "URL:"
+#~ msgstr "URL:"
+
+#~ msgid "Email:"
+#~ msgstr "Email:"
+
+#~ msgid "Speed Dial:"
+#~ msgstr "Viteza de conectare"
+
+#~ msgid "Categories:"
+#~ msgstr "Categorii: "
+
+#~ msgid "Local Addressbook:"
+#~ msgstr "Agenda Locală de Adrese"
+
+#~ msgid "Missing information"
+#~ msgstr "Informații care lipsesc"
+
+#~ msgid ""
+#~ "Please make sure to provide at least a full name or an URL for the "
+#~ "contact."
+#~ msgstr ""
+#~ "Vă rog asigurati-va de faptul că ați introdus un nume complet sau o "
+#~ "adresă URL de contact."
+
+#~ msgid "Edit an address book"
+#~ msgstr "Editează o agendă de adrese"
+
+#~ msgid "Type:"
+#~ msgstr "Tip: "
+
+#~ msgid "Local"
+#~ msgstr "Local"
+
+#~ msgid "Remote LDAP"
+#~ msgstr "LDAP de la distanță"
+
+#~ msgid "Remote ILS"
+#~ msgstr "ILS de la distanță"
+
+#~ msgid "Search Scope:"
+#~ msgstr "Scopul căutării"
+
+#~ msgid "Please make sure to fill in all requested fields."
+#~ msgstr ""
+#~ "Asigurati-vă de faptul că ați completat toate câmpurile care v-au fost "
+#~ "solicitate"
+
+#~ msgid "Are you sure you want to delete %s and all its contacts?"
+#~ msgstr "Sunteți sigr ca vreți să stergeți %s și toate contactele acestuia?"
+
+#~ msgid "Cannot run GnomeMeeting"
+#~ msgstr "Nu se poate rula GnomeMeeting"
+
+#~ msgid ""
+#~ "GnomeMeeting is already running, if you want it to call a given callto or "
+#~ "h323 URL, please use \"gnomemeeting -c URL\"."
+#~ msgstr ""
+#~ "GnomeMeeting rulează deja. Dacă doriți sa apelați un anumit Callto URL "
+#~ "sau h323 URL, vă rog folosiți \"gnomemeeting -c URL\""
+
+#~ msgid ""
+#~ "It appears that you do not have gnomemeeting.server installed in a valid "
+#~ "location. Factory mode disabled.\n"
+#~ msgstr ""
+#~ "Se pare că nu aveți un gnomemeeting.server instalat într-o locație "
+#~ "validă. Modul Factory este deactivat.\n"
+
+#~ msgid ""
+#~ "Error registering GnomeMeeting with the activation service; factory mode "
+#~ "disabled.\n"
+#~ msgstr ""
+#~ "Eroare la înregistrarea lui GnomeMeeting cu serviciul de activare; Modul "
+#~ "Factory este deactivat.\n"
+
+#~ msgid "Failed to retrieve gnomemeeting server from activation server\n"
+#~ msgstr ""
+#~ "Am eșuat să obțin serverul de gnomemeeting de la serverul de activare\n"
+
+#~ msgid "Code contributors:"
+#~ msgstr "Programatori contributori:"
+
+#~ msgid "Date"
+#~ msgstr "Sterge"
+
+#~ msgid "Remote User"
+#~ msgstr "Utilizator de la distanță"
+
+#~ msgid "Call End Reason"
+#~ msgstr "Motivul Terminării Convorbirii"
+
+#~ msgid "---- Call begins at %s\n"
+#~ msgstr "----Apelul incepe la %s\n"
+
+#~ msgid "---- Call ends at %s\n"
+#~ msgstr "----Apleul se incheie la %s\n"
+
+#~ msgid "Open URI"
+#~ msgstr "Deschide URI"
+
+#~ msgid "Copy Link Location"
+#~ msgstr "Copiază adresa legăturii"
+
+#~ msgid "Connect to"
+#~ msgstr "Conectare la"
+
+#~ msgid "Add to Address Book"
+#~ msgstr "Adaugă la Cartea de Adrese"
+
+#~ msgid "YES"
+#~ msgstr "DA"
+
+#~ msgid "Sorry, this script won't work while GnomeMeeting is running"
+#~ msgstr ""
+#~ "Din păcate acest script nu va funcționa atât timp cât GnomeMeeting este "
+#~ "pornit"
+
+#~ msgid "  WARNING!!!"
+#~ msgstr "  ATENȚIE!!!"
+
+#~ msgid ""
+#~ "  This script will delete all user GnomeMeeting configuration,\n"
+#~ "  including preferences that may be important! \n"
+#~ "  The GConf daemon will be shut down, so make sure you have no\n"
+#~ "  applications depending on it running.\n"
+#~ "\n"
+#~ "  Do you really want to do this?\n"
+#~ "\n"
+#~ "  If so, say \"YES\".\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Acest script va șterge toate opțiunile GnomeMeeting,\n"
+#~ "inclusiv date ce ar putea fi importante!\n"
+#~ "Demonul GConf va fi oprit, deci asigurați-vă că nu aveți aplicații "
+#~ "dependente ce sunt încă pornite.\n"
+#~ "\n"
+#~ "Sunteți sigur(ă) că doriți asta?\n"
+#~ "\n"
+#~ "Dacă da, alegeți „DA”.\n"
+#~ "\n"
+
+#~ msgid "Removing $HOME/.gconf/apps/gnomemeeting"
+#~ msgstr "Șterge $HOME/.gconf/apps/gnomemeeting"
+
+#~ msgid "Shutting down GConf daemon"
+#~ msgstr "Oprește demonul GConf"
+
+#~ msgid "...Done."
+#~ msgstr "...Terminat"
+
+#~ msgid "Leaving configuration alone."
+#~ msgstr "Lasă configurația neschimbată."
+
+#~ msgid "Have a nice day."
+#~ msgstr "O zi bună!"
+
+#~ msgid ""
+#~ "  The GConf daemon will be shut down, so make sure you have no\n"
+#~ "  applications depending on it running.\n"
+#~ "\n"
+#~ "  Do you really want to do this?\n"
+#~ "\n"
+#~ "  If so, say \"YES\".\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Demonul GConf va fi oprit, deci asigurați-vă că nu aveți aplicații "
+#~ "dependente încă pornite.\n"
+#~ "\n"
+#~ "Sunteți sigur(ă) că doriți asta?\n"
+#~ "\n"
+#~ "Dacă da, alegeți „DA”.\n"
+#~ "\n"
+
+#~ msgid "Removing schemas"
+#~ msgstr "Șterge schemele"
+
+#~ msgid "Installing schemas"
+#~ msgstr "Instalează schemele"
+
+#~ msgid ""
+#~ "CRITICAL ERROR -- Schema installation failed.\n"
+#~ "Most probably you have the GConf daemon running as root.\n"
+#~ "\n"
+#~ "Run \"gnomemeeting-config-tool --install-schemas\" as root.\n"
+#~ msgstr ""
+#~ "EROARE CRITICĂ -- Instalarea schemei a eșuat.\n"
+#~ "Cel mai probabil demonul GConf e pornit cu drepturi de root.\n"
+#~ "\n"
+#~ "Executați „gnomemeeting-config-tool --install-schemas” ca root.\n"
+
+#~ msgid "Usage:  gnomemeeting-config-tool OPTION"
+#~ msgstr "Utilizare: gnomemeeting-config-tool OPȚIUNE"
+
+#~ msgid "Fixes problems with the GnomeMeeting settings"
+#~ msgstr "Repară problemele cu opțiunile GnomeMeeting"
+
+#~ msgid "  --clean                remove all user settings"
+#~ msgstr "  --clean șterge setările tuturor utilizatorilor"
+
+#~ msgid ""
+#~ "  --install-schemas      install schemas with default settings (run as "
+#~ "root)"
+#~ msgstr ""
+#~ "  --install-schemas instalează schema cu setările implicite (ca root)"
+
+#~ msgid ""
+#~ "  --clean-schemas        remove schemas with default settings (run as "
+#~ "root)"
+#~ msgstr "  --clean-schemas șterge schema cu setările implicite (ca root)"
+
+#~ msgid ""
+#~ "  --fix-permissions      fix permissions of GConf repository (run as root)"
+#~ msgstr "  --fix-permissions repară drepturile arhivei GConf (ca root)"
+
+#~ msgid "Changing this setting will only affect new calls"
+#~ msgstr "Schimbarea acestor setări va afecta numai apelurile noi"
+
+#~ msgid ""
+#~ "You have changed a setting that doesn't permit to GnomeMeeting to apply "
+#~ "the new change to the current call. Your new setting will only take "
+#~ "effect for the next call."
+#~ msgstr ""
+#~ "Ați schimbat un parametru care nu-i permite aplicarea noilor setări la "
+#~ "convorbirea curentă. Parametrii nou setați vor avea efect în convorbirile "
+#~ "următoare"
+
+#~ msgid "H.245 Tunneling disabled"
+#~ msgstr "Tunelarea H.245 e deactivată"
+
+#~ msgid "H.245 Tunneling enabled"
+#~ msgstr "Tunelarea H.245 e activată"
+
+#~ msgid "Early H.245 disabled"
+#~ msgstr "Tunelarea „earle H.245” e deactivată"
+
+#~ msgid "Early H.245 enabled"
+#~ msgstr "Tunelarea „early H.245” e activată"
+
+#~ msgid "Fast Start disabled"
+#~ msgstr "Pornirea rapidă e dezactivată"
+
+#~ msgid "Fast Start enabled"
+#~ msgstr "Pornirea rapidă e activată"
+
+#~ msgid "No gateway or proxy specified"
+#~ msgstr ""
+#~ "Nu s-a specificat nici un calculator \"poarta\" de iesire (gateway) sau "
+#~ "proxy"
+
+#~ msgid "Disabled silence detection"
+#~ msgstr ""
+#~ "Dezactivează detectarea timpilor de \"tacere\" pe canalul de comunicație"
+
+#~ msgid "Enabled silence detection"
+#~ msgstr ""
+#~ "Activează detectarea timpilor de \"tăcere\" pe canalul de comunicație"
+
+#~ msgid "Forward URL not specified"
+#~ msgstr "Adresa URL pentru redirecționare nu e specificată"
+
+#~ msgid ""
+#~ "You need to specify an URL where to forward calls in the call forwarding "
+#~ "section of the preferences!\n"
+#~ "\n"
+#~ "Disabling forwarding."
+#~ msgstr ""
+#~ "În secțiunea cu redirecționarea apelurilor, trebuie specificată o adresă "
+#~ "URL către care să fie redirecționate apelurile!"
+
+#~ msgid "Opened codec %s for transmission"
+#~ msgstr "Deschid codecul %s pentru transmisie"
+
+#~ msgid "Closed codec %s which was opened for transmission"
+#~ msgstr "Închide codecul %s ce a fost deschis pentru transmisie"
+
+#~ msgid "Opened codec %s for reception"
+#~ msgstr "Închid codecul %s pentru recepție"
+
+#~ msgid "Closed codec %s which was opened for reception"
+#~ msgstr "Am închis codecul %s ce a fost deschis pentru transmisie"
+
+#~ msgid "Failure opening %s for transmission, will try with next common codec"
+#~ msgstr ""
+#~ "Încerc următorul codec comun, încercarea de a transmite cu %s a eșuat."
+
+#~ msgid "Failure opening %s for reception, will try with next common codec"
+#~ msgstr "Încerc urmatorul codec comun, utilizarea %s a eșuat."
+
+#~ msgid "Call transfer failed"
+#~ msgstr "Redirecționare apel eșuată"
+
+#~ msgid ""
+#~ "The remote user tried to transfer your call to another user, but it "
+#~ "failed."
+#~ msgstr ""
+#~ "Utilizatorul la distanță a încercat să vă redirecționeze apelul către un "
+#~ "alt utilizator, dar nu a reușit."
+
+#~ msgid "Configuration Druid - page 1/%d"
+#~ msgstr "Druid de configurare - pagina 1-%d"
+
+#~ msgid "Personal Information - page %d/%d"
+#~ msgstr "Informații personale - pagina %d/%d"
+
+#~ msgid "Callto URL - page %d/%d"
+#~ msgstr "Callto URL - pagina %d/%d"
+
+#~ msgid ""
+#~ "Your e-mail address is used when registering to the GnomeMeeting users "
+#~ "directory. It is used to create a callto address permitting your contacts "
+#~ "to easily call you wherever you are."
+#~ msgstr ""
+#~ "Adresa dumneavoastră de email este folosită la înregistrarea "
+#~ "utilizatorilor in indexul GnomeMeeting. Este folosită la apelarea dupa "
+#~ "adresă (callto address), permițând contactelor dumneavoastră sa va "
+#~ "apeleze în orice locatie vă aflați"
+
+#~ msgid ""
+#~ "I don't want to register to the GnomeMeeting users directory and get a "
+#~ "callto address"
+#~ msgstr ""
+#~ "Nu vreau să mă înregistrez în indexul utilizatorilor GnomeMeeting pentru "
+#~ "a nu dispune de apelare dupa adresa (callto address)"
+
+#~ msgid "NAT Type - page %d/%d"
+#~ msgstr "Tipul de translatare a adresei (NAT) - pagina %d/%d"
+
+#~ msgid "Click here to detect your NAT Type:"
+#~ msgstr ""
+#~ "Apăsați aici pentru a detecta tipul de translatare a adresei (NAT) pe "
+#~ "care îl folosiți"
+
+#~ msgid "Detect NAT Type"
+#~ msgstr "Detecteaza tipul de translatare a adresei (NAT)"
+
+#~ msgid ""
+#~ "The NAT type detection will permit to assist you in configuring your NAT "
+#~ "router to be able to do calls with GnomeMeeting."
+#~ msgstr ""
+#~ "Detectarea tipului de translatare a adresei (NAT) vă va asistă la "
+#~ "configurarea ruterului de NAT astfel încât să puteți inițializa apeluri "
+#~ "cu ajutorul GnomeMeeting"
+
+#~ msgid "Audio Manager - page %d/%d"
+#~ msgstr "Managerul Audio - pagina %d/%d"
+
+#~ msgid "Please choose your audio manager:"
+#~ msgstr "Vă rog alegeți managerul audio"
+
+#~ msgid ""
+#~ "The audio manager is the plugin that will manage your audio devices, ALSA "
+#~ "is probably the best choice when available."
+#~ msgstr ""
+#~ "Managerul audio este modulul care va administra dispozitivele audio, "
+#~ "probabil că ALSA este cea mai bună alegere pe care o aveți la dispoziție"
+
+#~ msgid "Audio Devices - page %d/%d"
+#~ msgstr "Dispozitive audio - pagina %d/%d"
+
+#~ msgid "Video Manager - page %d/%d"
+#~ msgstr "Managerul video - pagina %d/%d"
+
+#~ msgid "Please choose your video manager:"
+#~ msgstr "Vă rog alegeți managerul video pe care îl folosiți"
+
+#~ msgid ""
+#~ "The video manager is the plugin that will manage your video devices, "
+#~ "Video4Linux is the most common choice if you own a webcam."
+#~ msgstr ""
+#~ "Managerul video este modului care va administra dispoyitivele video, daca "
+#~ "folositi o camera web, cea mai buna alegere ar fi Video4Linux"
+
+#~ msgid "Video Devices - page %d/%d"
+#~ msgstr "Dispozitivele video - pagina %d/%d"
+
+#~ msgid "xDSL/Cable"
+#~ msgstr "xDSL/Cablu"
+
+#~ msgid ""
+#~ "You have now finished the GnomeMeeting configuration. All the settings "
+#~ "can be changed in the GnomeMeeting preferences. Enjoy!\n"
+#~ "\n"
+#~ "\n"
+#~ "Configuration summary:\n"
+#~ "\n"
+#~ "Username: %s\n"
+#~ "Connection type: %s\n"
+#~ "Audio manager: %s\n"
+#~ "Audio player: %s\n"
+#~ "Audio recorder: %s\n"
+#~ "Video manager: %s\n"
+#~ "Video input: %s\n"
+#~ "Callto URL: %s\n"
+#~ msgstr ""
+#~ "Ați terminat configurarea GnomeMeeting. Toate setările pot fi schimbate "
+#~ "în meniul de preferințe. Distracție plăcută!\n"
+#~ "\n"
+#~ "\n"
+#~ "Sumarul configurației:\n"
+#~ "\n"
+#~ "Nume Utilizator: %s %s\n"
+#~ "Tipul conexiunii: %s\n"
+#~ "Managerul audio: %s\n"
+#~ "Programul de redare audio: %s\n"
+#~ "Programul de înregistrare audio: %s\n"
+#~ "Managerul video: %s\n"
+#~ "Apelare prin URL (Callto URL): %s\n"
+
+#~ msgid "First Time Configuration Druid"
+#~ msgstr "Druid pentru configurare"
+
+#~ msgid "Forwarding call from %s to %s (Forward all calls)"
+#~ msgstr ""
+#~ "Redirecționez apleul de la %s la %s (Redirecționează toate apelurile)"
+
+#~ msgid "Rejecting call from %s (Do Not Disturb)"
+#~ msgstr "Resping apelul de la %s (Nu deranjați)"
+
+#~ msgid "Forwarding call from %s to %s (Busy)"
+#~ msgstr "redirecționez apelul de la %s la %s (Ocupat)"
+
+#~ msgid "Rejecting call from %s (Busy)"
+#~ msgstr "Resping la apelul de la %s (Ocupat)"
+
+#~ msgid "Accepting call from %s (Auto Answer)"
+#~ msgstr "Accept apelul de la %s (Raspuns Automat)"
+
+#~ msgid "Call automatically answered"
+#~ msgstr "Apel răspuns automat"
+
+#~ msgid "Forwarding call to %s"
+#~ msgstr "Redirecționează apelul la %s"
+
+#~ msgid "Error while forwarding call to %s"
+#~ msgstr "Eroare la redirecționarea apelului la %s"
+
+#~ msgid "There was an error when forwarding the call to the given host."
+#~ msgstr ""
+#~ "S-a înregistrat o eroare la redirectionarea apelului catre calculatorul "
+#~ "dat"
+
+#~ msgid "Connected"
+#~ msgstr "Conectat"
+
+#~ msgid "Remote user did not accept the call"
+#~ msgstr "Partenerul nu a acceptat apelul"
+
+#~ msgid "Local user did not accept the call"
+#~ msgstr "Utilizatorul local nu a acceptat apelul"
+
+#~ msgid "Call not answered in the required time"
+#~ msgstr "Apelul nu a primit răspuns în timp util"
+
+#~ msgid "Remote user is unreachable"
+#~ msgstr "Nu se poate ajunge pană la utilizatorul de la distanță"
+
+#~ msgid "Missed %d call"
+#~ msgid_plural "Missed %d calls"
+#~ msgstr[0] "%d apel pierdut"
+#~ msgstr[1] "%d apeluri pierdute"
+#~ msgstr[2] "%d de apeluri pierdute"
+
+#~ msgid "Error while starting the listener"
+#~ msgstr "Eroare la pornirea thread-ului de ascultare."
+
+#~ msgid ""
+#~ "You will not be able to receive incoming calls. Please check that no "
+#~ "other program is already running on the port used by GnomeMeeting."
+#~ msgstr ""
+#~ "NU veți putea primi apeluri. Vă rog verificați faptul ca portul utilizat "
+#~ "de GnomeMeeting nu este deja folosit de alt program."
+
+#~ msgid "Attaching lid hardware to codec"
+#~ msgstr "Atașez dispozitivul lid la codec"
+
+#~ msgid "Opened %s for recording with plugin %s"
+#~ msgstr "%s deschis pentru înregistrarea cu modulul %s"
+
+#~ msgid "Opened %s for playing with plugin %s"
+#~ msgstr "%s deschis pentru redarea cu modulul %s"
+
+#~ msgid "Could not open audio channel for audio transmission"
+#~ msgstr "Nu am putut deschide canalul audio pentru transmisie."
+
+#~ msgid ""
+#~ "An error occured while trying to record from the soundcard for the audio "
+#~ "transmission. Please check that your soundcard is not busy and that your "
+#~ "driver supports full-duplex.\n"
+#~ "The audio transmission has been disabled."
+#~ msgstr ""
+#~ "A apărut o eroare în timp ce încercam să înregistrez sunetul pentru "
+#~ "transmisia audio. Vă rog verificați verificati faptul că placa "
+#~ "dumneavoastră de sunet nu este ocupată și că driver-ul suportă modul de "
+#~ "transmisie duplex- complet.\n"
+#~ "Transmisia audio a fost dezactivată."
+
+#~ msgid "Could not open audio channel for audio reception"
+#~ msgstr "Nu am putut deschide canalul audio pentru recepție."
+
+#~ msgid ""
+#~ "An error occured while trying to play audio to the soundcard for the "
+#~ "audio reception. Please check that your soundcard is not busy and that "
+#~ "your driver supports full-duplex.\n"
+#~ "The audio reception has been disabled."
+#~ msgstr ""
+#~ "A apărut o eroare în timp ce încercam să redau semnalul audio. Vă rog "
+#~ "verificați faptul că placa dumneavoastră nu este ocupată și că driver-ul "
+#~ "suportă duplex-complet.\n"
+#~ "Recepția audio a fost deyactivată "
+
+#~ msgid "%.2ld:%.2ld:%.2ld  A:%.2f/%.2f   V:%.2f/%.2f"
+#~ msgstr "%.2ld:%.2ld:%.2ld  A:%.2f/%.2f   V:%.2f/%.2f"
+
+#~ msgid "Forwarding Call to %s (No Answer)"
+#~ msgstr "Redirecționează apelul la %s (Fără răspuns)"
+
+#~ msgid "Unregistered from gatekeeper %s"
+#~ msgstr "Neînregisstrat de la gatekeeper-ul %s "
+
+#~ msgid "Invalid gatekeeper hostname"
+#~ msgstr "Nume gatekeeper invalid"
+
+#~ msgid "Please provide a hostname to use for the gatekeeper."
+#~ msgstr "Vă rog să specificați un nume pentru gatekeeper."
+
+#~ msgid "Invalid gatekeeper ID"
+#~ msgstr "Identificatorul Gatekeeper-ului"
+
+#~ msgid "Please provide a valid ID for the gatekeeper."
+#~ msgstr "Vă rog să furnizați un ID valid pentru gatekeeper."
+
+#~ msgid "Gatekeeper registration failed: duplicate alias"
+#~ msgstr "Înegistrarea a eșuat la gatekeeper: alias duplicat"
+
+#~ msgid "Gatekeeper registration failed: bad login/password"
+#~ msgstr ""
+#~ "Înegistrarea a eșuat la gatekeeper: greșală la completarea campului user/"
+#~ "parolă"
+
+#~ msgid "Gatekeeper registration failed: transport error"
+#~ msgstr "Înegistrarea a eșuat la gatekeeper: eroare pe linia de comunicație"
+
+#~ msgid "Gatekeeper registration failed"
+#~ msgstr "Înegistrarea a eșuat la gatekeeper"
+
+#~ msgid "Gatekeeper set to %s"
+#~ msgstr "Gatekeeper a fost setat la %s"
+
+#~ msgid "Notification area not detected"
+#~ msgstr "Zona de notificare nu a fost detectată"
+
+#~ msgid ""
+#~ "You have chosen to start GnomeMeeting hidden, however the notification "
+#~ "area is not present in your panel, GnomeMeeting can thus not start hidden."
+#~ msgstr ""
+#~ "Ați ales să porniți GnomeMeeting in modul ascuns. Deoarece zona de "
+#~ "notificare nu este prezentă in panoul dumneavoastră, GnomeMeeting nu "
+#~ "poate porni in modul ascuns."
+
+#~ msgid "Answering incoming call"
+#~ msgstr "Răspund la apel primit"
+
+#~ msgid "Trying to stop calling"
+#~ msgstr "Încerc să opresc apelul"
+
+#~ msgid "Stopping current call"
+#~ msgstr "Opresc convorbirea curentă"
+
+#~ msgid "Refusing Incoming call"
+#~ msgstr "Refuz apelul primit"
+
+#~ msgid "On This Computer"
+#~ msgstr "Pe acest calculator"
+
+#~ msgid "Personal"
+#~ msgstr "Personal"
+
+#~ msgid "Started GnomeMeeting %d.%d.%d for user %s"
+#~ msgstr "GnomeMeeting %d.%d.%d a fost pornit pentru utilizatorul %s"
+
+#~ msgid "Invalid parameters"
+#~ msgstr "Parametrii invalizi"
+
+#~ msgid ""
+#~ "Please provide your first name and e-mail in the Personal Data section in "
+#~ "order to be able to register to the users directory."
+#~ msgstr ""
+#~ "Vă rog să introduceți prenumele și adresa dumneavoastră de e-mail în "
+#~ "secțiunea de Date Personale, pentru a putea să vă conectați la indexul de "
+#~ "utilizatori"
+
+#~ msgid "Invalid users directory"
+#~ msgstr "Index de utilizatori invalid"
+
+#~ msgid "Operation impossible since there is no users directory specified."
+#~ msgstr ""
+#~ "Operația este imposibilă deoarece nu este nici specificat nici un index "
+#~ "de utilizatori."
+
+#~ msgid "Failed to parse XML file"
+#~ msgstr "Nu am reusit să interpretez fișierul XML."
+
+#~ msgid ""
+#~ "There was an error while parsing the XML file. Please make sure that it "
+#~ "is correctly installed in your system."
+#~ msgstr ""
+#~ "A fost o eroare la să interpretarea fișierul XML. Asigurati-vă de faptul "
+#~ "că acesta este instalat corect pe sistemul dumneavoastră"
+
+#~ msgid "Bad information"
+#~ msgstr "Informații gresite"
+
+#~ msgid "Bad LDAP information from XML file: %s."
+#~ msgstr "Informația ldap gresite din fișierul XML: %s"
+
+#~ msgid "ILS registration failed: unable to connect to %s"
+#~ msgstr "Înregistrarea ILS a eșuat: nu m-am putut conecta la %s"
+
+#~ msgid "ILS registration failed: unable to set time limit on operations"
+#~ msgstr ""
+#~ "Înregistrarea ILS a eșuat: nu am putut sa setez limita de timp la "
+#~ "operații."
+
+#~ msgid "ILS registration failed: failed to bind to %s"
+#~ msgstr "Înregistrarea ILS a eșuat: nu am putut sa ma leg la %s"
+
+#~ msgid "Updated information on %s"
+#~ msgstr "Informație actualizată la %s."
+
+#~ msgid "Opened Quicknet device %s"
+#~ msgstr "Folosesc dispozitiv Quicknet %s"
+
+#~ msgid "Error while opening the Quicknet device."
+#~ msgstr "Eroare la conectarea la dispozitivul Quicknet."
+
+#~ msgid ""
+#~ "Please check that your driver is correctly installed and that the device "
+#~ "is working correctly."
+#~ msgstr ""
+#~ "Vă rog să verificați faptul că driverul este corect instalat și că "
+#~ "dispozitivul funcționează corect."
+
+#~ msgid "Closed Quicknet device %s"
+#~ msgstr "Folosesc dispozitiv Quicknet %s"
+
+#~ msgid "Phone is off hook"
+#~ msgstr "Telefonul nu este în furcă"
+
+#~ msgid "Phone is on hook"
+#~ msgstr "Telefonul este în furcă"
+
+#~ msgid "General History"
+#~ msgstr "Istoric general"
+
+#~ msgid "Open text chat"
+#~ msgstr "Deschide fereastra de siscuție"
+
+#~ msgid "Open control panel"
+#~ msgstr "Deschide panoul de control"
+
+#~ msgid "Open address book"
+#~ msgstr "Deschide agenda de adrese"
+
+#~ msgid ""
+#~ "Audio transmission status. During a call, click here to suspend or resume "
+#~ "the audio transmission."
+#~ msgstr ""
+#~ "Starea transmisiei audio. În timpul unui apel, apăsați aici să opriți "
+#~ "transmisia audio."
+
+#~ msgid ""
+#~ "Video transmission status. During a call, click here to suspend or resume "
+#~ "the video transmission."
+#~ msgstr ""
+#~ "Starea transmisiei video. În timpul unui apel, apăsați aici să opriți "
+#~ "transmisia video."
+
+#~ msgid "C_onnect"
+#~ msgstr "C_onectează"
+
+#~ msgid "Create a new connection"
+#~ msgstr "Creează o noua conexiune"
+
+#~ msgid "_Disconnect"
+#~ msgstr "_Deconectează"
+
+#~ msgid "Close the current connection"
+#~ msgstr "Închide conexiunea curentă"
+
+#~ msgid "_Available"
+#~ msgstr "_Disponibil"
+
+#~ msgid "Display a popup to accept the call"
+#~ msgstr "Afișază un dialog pentru acceptarea apelului"
+
+#~ msgid "Aut_o Answer"
+#~ msgstr "Aut_o răspuns"
+
+#~ msgid "Auto answer calls"
+#~ msgstr "Răspunde automat la apeluri"
+
+#~ msgid "Reject calls"
+#~ msgstr "Respinge apeluri"
+
+#~ msgid "Forward calls"
+#~ msgstr "Redirecționează apelurile"
+
+#~ msgid "Speed dials"
+#~ msgstr "Viteze de conectare"
+
+#~ msgid "_Save Current Picture"
+#~ msgstr "_Salvează imaginea curentă"
+
+#~ msgid "Save a snapshot of the current video"
+#~ msgstr "Salvează un instantaneu din secvența video curentă"
+
+#~ msgid "Quit GnomeMeeting"
+#~ msgstr "Părăsește GnomeMeeting"
+
+#~ msgid "Text Chat"
+#~ msgstr "Fereastra de discuție"
+
+#~ msgid "View/Hide the text chat window"
+#~ msgstr "Afișază/Ascunde fereastra de discuție"
+
+#~ msgid "Control Panel"
+#~ msgstr "Panoul de Control"
+
+#~ msgid "Statistics"
+#~ msgstr "Statistici"
+
+#~ msgid "View audio/video transmission and reception statistics"
+#~ msgstr "Afișază statisticile de transmisie și recepțio, audio și video"
+
+#~ msgid "View audio settings"
+#~ msgstr "Afișază setările audio"
+
+#~ msgid "View video settings"
+#~ msgstr "Afișază setările video"
+
+#~ msgid "Off"
+#~ msgstr "Oprit"
+
+#~ msgid "_Clear Text Chat"
+#~ msgstr "_Sterge texul din fereastra de discutii"
+
+#~ msgid "Clear the text chat"
+#~ msgstr "Sterge textul din fereastra de discutii"
+
+#~ msgid "Both (Side-by-Side)"
+#~ msgstr "Amandoua (Una lângă alta)"
+
+#~ msgid "Both (Both in New Windows)"
+#~ msgstr "Amândouă (amândouă în ferestre separate)"
+
+#~ msgid "Zoom In"
+#~ msgstr "Mărește"
+
+#~ msgid "Zoom Out"
+#~ msgstr "Micșorează"
+
+#~ msgid "Normal Size"
+#~ msgstr "Mărime normală"
+
+#~ msgid "_Tools"
+#~ msgstr "Unelte"
+
+#~ msgid "Open the address book"
+#~ msgstr "Deschide agenda de adrese"
+
+#~ msgid "View the operations history"
+#~ msgstr "Afișază istoricul operațiilor"
+
+#~ msgid "PC-To-Phone Account"
+#~ msgstr "Cont Calculator-Telefon"
+
+#~ msgid "Manage your PC-To-Phone account"
+#~ msgstr "Administrează contul Calculator-Telefon"
+
+#~ msgid "_Contents"
+#~ msgstr "_Cuprins"
+
+#~ msgid ""
+#~ "Lost packets:\n"
+#~ "Late packets:\n"
+#~ "Round-trip delay:\n"
+#~ "Jitter buffer:"
+#~ msgstr ""
+#~ "Pachete pierdute:\n"
+#~ "Pachete întârziate:\n"
+#~ "Întârzierea de transmisie:\n"
+#~ "Buferul de jitter:"
+
+#~ msgid "Sent DTMF %s"
+#~ msgstr "DTMF %s Trimis"
+
+#~ msgid "Click to clear"
+#~ msgstr "Apasă pentru a șterge"
+
+#~ msgid "Gconf key error"
+#~ msgstr "Eroare la cheia GConf"
+
+#~ msgid "Generic error"
+#~ msgstr "Eroare Generică"
+
+#~ msgid "Bandwidth"
+#~ msgstr "Lațime de bandă"
+
+#~ msgid "Sur_name:"
+#~ msgstr "Nume de familie:"
+
+#~ msgid "Enter your surname"
+#~ msgstr "Introduceți numele de familie"
+
+#~ msgid "E-_mail address:"
+#~ msgstr "Adresa de e-mail:"
+
+#~ msgid "_Comment:"
+#~ msgstr "_Comentariu:"
+
+#~ msgid "Enter a comment about yourself"
+#~ msgstr "Introduceți un comentariu despre dumneavoastră"
+
+#~ msgid "_Location:"
+#~ msgstr "Adresă:"
+
+#~ msgid "Enter your country or city"
+#~ msgstr "Introduceți țara dumneavoastră"
+
+#~ msgid "_Apply"
+#~ msgstr "_Aplică"
+
+#~ msgid ""
+#~ "Click here to update the users directory you are registered to with the "
+#~ "new First Name, Last Name, E-Mail, Comment and Location or to update your "
+#~ "alias on the Gatekeeper"
+#~ msgstr ""
+#~ "Apăsați aici să actualizați Idexul de Utilizatori la care sunteți "
+#~ "înregistrat cu noul prenume, nume adresă de e-mail, comentariu și "
+#~ "adresa>, sau să actualizați noul alias la Gatekeeper."
+
+#~ msgid "GnomeMeeting GUI"
+#~ msgstr "Interfața Grafică cu Utilizatorul (GUI) a GnomeMeeting"
+
+#~ msgid "_Show splash screen"
+#~ msgstr "Afișază logo-ul de pornire"
+
+#~ msgid "Users directory:"
+#~ msgstr "Indexul de Utilizatori:"
+
+#~ msgid "The users directory server to register with"
+#~ msgstr "Serverul indexului cu utilizatori la care se face înregistrarea."
+
+#~ msgid "Enable _registering"
+#~ msgstr "Activează în_registrarea"
+
+#~ msgid "If enabled, register with the selected users directory"
+#~ msgstr ""
+#~ "La activare, se face înregistrarea în indexul utilizatorilor selectat"
+
+#~ msgid "_Publish my details in the users directory when registering"
+#~ msgstr ""
+#~ "La înregistrare, _publică detaliile despre mine în indexul utilizatorilor"
+
+#~ msgid ""
+#~ "If enabled, your details are shown to people browsing the users "
+#~ "directory. If disabled, you are not visible to users browsing the users "
+#~ "directory, but they can still use the callto URL to call you."
+#~ msgstr ""
+#~ "Dacă este activat, detaliile dumneavoastră vor fi aratate persoanelor "
+#~ "care accesează informațiile din Indexul de Utilizatori. Dacă este "
+#~ "deactivat, nu veți fi vizibil utilizatorilor ce accesează acest Index, "
+#~ "dar veți putea fi în continuare apelat folosind callto URL."
+
+#~ msgid "Forward calls to _host:"
+#~ msgstr "Redirecționează apelurile la calculatorul:"
+
+#~ msgid ""
+#~ "If enabled, all incoming calls will be forwarded to the host that is "
+#~ "specified in the field above"
+#~ msgstr ""
+#~ "Dacă este activat, toate apelurile primite vor fi redirecționate la "
+#~ "calculatorul ce este specificat în câmpul de mai jos."
+
+#~ msgid ""
+#~ "If enabled, all incoming calls will be forwarded to the host that is "
+#~ "specified in the field above if you do not answer the call"
+#~ msgstr ""
+#~ "Dacă este activat, toate apelurile primite vor fi redirecționate la "
+#~ "calculatorul ce este specificat în câmpul de mai jos, dacă nu răspundeți "
+#~ "la apel."
+
+#~ msgid ""
+#~ "If enabled, all incoming calls will be forwarded to the host that is "
+#~ "specified in the field above if you already are in a call or if you are "
+#~ "in Do Not Disturb mode"
+#~ msgstr ""
+#~ "Dacă este activat, toate apelurile primite vor fi redirecționate la "
+#~ "calculatorul ce este specificat în câmpul de mai jos, dacă sunteți deja "
+#~ "în timpul unei convorbiri sau dacă sunteți în modul 'Nu Deranjați'"
+
+#~ msgid "Automatically _clear calls after 30 seconds of inactivity"
+#~ msgstr "Închide apelurile după 30s de neactivitate"
+
+#~ msgid "seconds"
+#~ msgstr "secunde"
+
+#~ msgid "GnomeMeeting Sound Events"
+#~ msgstr "Evenimente sonore GnomeMeeting"
+
+#~ msgid "Sound to play:"
+#~ msgstr "Sunetul redat:"
+
+#~ msgid "Ring Output device:"
+#~ msgstr "Dispozitivul de ieșire pentru sonerie:"
+
+#~ msgid "Select the audio output device to use for the ring sound event"
+#~ msgstr "Alegeți dispozitivul de ieșire audio pentru evenimentele sonore"
+
+#~ msgid "All"
+#~ msgstr "Toate"
+
+#~ msgid "rfc2833"
+#~ msgstr "rfc2833"
+
+#~ msgid "Signal"
+#~ msgstr "Semnal"
+
+#~ msgid "H.323 Version 2 Settings"
+#~ msgstr "Setările H.323 Versiunea 2"
+
+#~ msgid "DTMF Sending"
+#~ msgstr "Trimit DTMF"
+
+#~ msgid ""
+#~ "This permits to set the mode for DTMFs sending. The values can be \"All"
+#~ "\", \"None\", \"rfc2833\", \"Signal\" or \"String\" (default is \"All\"). "
+#~ "Choosing other values than \"All\", \"String\" or \"rfc2833\" disables "
+#~ "the Text Chat."
+#~ msgstr ""
+#~ "Aceasta permite setarea modului pentru capabilităt;ile de tastare ale "
+#~ "utilizatorului. Valorile pot fi: \"Toate\", \"Niciuna\", \"rfc2833\", "
+#~ "\"Semnal\" sau \"String\" (implicit este \"Toate\"). Alegând altă valoare "
+#~ "decât \"Toate\", \"String\" sau \"rfc2833\" se deactivează text chatul."
+
+#~ msgid "Automatically discover"
+#~ msgstr "Descoperă automat"
+
+#~ msgid "Gatekeeper _ID:"
+#~ msgstr "Identificatorul Gatekeeper-ului:"
+
+#~ msgid "Gatekeeper _host:"
+#~ msgstr "Calculatorul Gatekeeper-ului:"
+
+#~ msgid "Gatekeeper _alias:"
+#~ msgstr "Aliasul Gatekeeper-ului:"
+
+#~ msgid "Gatekeeper _password:"
+#~ msgstr "Parola Gatekeeper-ului:"
+
+#~ msgid "Registration timeout of"
+#~ msgstr "Expirare a timpului de înregistrare a "
+
+#~ msgid "minutes"
+#~ msgstr "minute"
+
+#~ msgid "Register this alias as the primary alias with the gatekeeper"
+#~ msgstr "Înregistrează acest alias ca si alias primar cu gatekeeper-ul"
+
+#~ msgid ""
+#~ "Use this option to ensure the above alias is used as the primary alias "
+#~ "when registering with a gatekeeper. This may be required if your "
+#~ "gatekeeper can only perform authentication using the first alias in the "
+#~ "list."
+#~ msgstr ""
+#~ "Folosesiți această opțiune pentru a vă asigura ca aliasul de deasupra "
+#~ "este folosit ca si alias primar la înregistrarea cu un gatekeeper. "
+#~ "Această setare este necesară dacă gatekeeper-ul poate efectua "
+#~ "autentificări doar pe baza primului alias din listă"
+
+#~ msgid "Registering method:"
+#~ msgstr "Metoda de înregistrare:"
+
+#~ msgid "Click here to update your Gatekeeper settings"
+#~ msgstr "Apăsați aici pentru a actualiza setările Gatekeeper-ului:"
+
+#~ msgid "Gateway/Proxy"
+#~ msgstr "Calcularor \"poartă\" de ieșire (Gateway) / Proxy "
+
+#~ msgid "Gateway / Proxy host:"
+#~ msgstr "Calcularor \"poartă\" de ieșire(Gateway) / Proxy:"
+
+#~ msgid "IP Translation"
+#~ msgstr "Translatarea Adresei IP"
+
+#~ msgid "Enable IP _translation"
+#~ msgstr "Activează _translatarea adresei IP"
+
+#~ msgid ""
+#~ "This enables IP translation. IP translation is useful if GnomeMeeting is "
+#~ "running behind a NAT/PAT router. You have to put the public IP of the "
+#~ "router in the field below. If you are registered to ils.seconix.com, "
+#~ "GnomeMeeting will automatically fetch the public IP using the ILS "
+#~ "service. If your router natively supports H.323, you can disable this."
+#~ msgstr ""
+#~ "Activează translatarea adresei IP. Translatarea adresei IP este "
+#~ "folositoare dacă GnomeMeeting rulează în spatele unui router NAT/PAT. "
+#~ "Trebuie să specificați adresa publică a routerului în câmpul de mai jos. "
+#~ "Dacă sunteți înregistrat la ils.seconix.com, GnomeMeeting va obține în "
+#~ "mod automat adresa IP publică folosind serviciul ILS. Dacă routerul "
+#~ "suportă în mod nativ H.323, puteți deactiva această opțiune."
+
+#~ msgid "Enable _automatic IP checking"
+#~ msgstr "Activează verificarea IP automată"
+
+#~ msgid ""
+#~ "This enables IP checking from seconix.com and fills the IP in the public "
+#~ "IP of the NAT/PAT gateway field of GnomeMeeting. The returned IP is only "
+#~ "used when IP Translation is enabled. If you disable IP checking, you will "
+#~ "have to manually enter the IP of your gateway in the GnomeMeeting "
+#~ "preferences."
+#~ msgstr ""
+#~ "Aceasta activează verificarea IP de la seconix.com și completează adresa "
+#~ "IP publică a câmpului calculator \"poartă\" de ieșire (Gateway) a "
+#~ "GnomeMeeting. Adresa IP returnată este utilizată doar atunci când "
+#~ "translatarea IP este activată. Daca dezactivați verificarea IP, va trebui "
+#~ "sa completați manual adresa IP a gateway-ului dumneavoastră în meniul "
+#~ "preferinte."
+
+#~ msgid "Public _IP of the NAT/PAT router:"
+#~ msgstr "Adresa IP publică a routerului NAT/PAT:"
+
+#~ msgid ""
+#~ "Enter the public IP of your NAT/PAT router if you want to use IP "
+#~ "translation. If you are registered to ils.seconix.com, GnomeMeeting will "
+#~ "automatically fetch the public IP using the ILS service."
+#~ msgstr ""
+#~ "Introduceți adresa IP publică a routerului NAT/PAT dacă doriți sa "
+#~ "folosiți translatarea adresei IP. dacă sunteți înregistrat la ils.seconix."
+#~ "com, GnomeMeeting va obține in mod automat adresa IP publică, folosind "
+#~ "serviciul ILS."
+
+#~ msgid "STUN Support"
+#~ msgstr "Suport STUN"
+
+#~ msgid "Enable _STUN Support"
+#~ msgstr "Activează Suport _STUN"
+
+#~ msgid "STUN Se_rver:"
+#~ msgstr "Server STUN:"
+
+#~ msgid "Click here to update your STUN Server settings"
+#~ msgstr "Apăsați aici pentru a actualiza setările serverului STUN:"
+
+#~ msgid "Low"
+#~ msgstr "Redus"
+
+#~ msgid "Medium"
+#~ msgstr "Mediu"
+
+#~ msgid "High"
+#~ msgstr "Înalt"
+
+#~ msgid "AGC"
+#~ msgstr "AGC"
+
+#~ msgid "POTS"
+#~ msgstr "Sistem de telefonie clasică"
+
+#~ msgid "Headset"
+#~ msgstr "Căști"
+
+#~ msgid "Audio Plugin"
+#~ msgstr "Modul audio"
+
+#~ msgid "Audio plugin:"
+#~ msgstr "Modul audio:"
+
+#~ msgid ""
+#~ "The audio plugin that will be used to detect the devices and manage them."
+#~ msgstr ""
+#~ "Modulul audio care va fi uilizat pentru detectarea dispozitivelor și "
+#~ "administrarea acestora"
+
+#~ msgid "Quicknet Hardware"
+#~ msgstr "Dispozitiv Quicknet"
+
+#~ msgid "Output device type:"
+#~ msgstr "Tipul dispozitivului de ieșire"
+
+#~ msgid "Country _code:"
+#~ msgstr "Codul de țară:"
+
+#~ msgid ""
+#~ "The two-letter country code of your country (e.g.: BE, UK, FR, DE, ...)."
+#~ msgstr ""
+#~ "Codul de două litere al țării dumneavoastră (de exemplu: RO, MD, ...)."
+
+#~ msgid "Click here to refresh the devices list"
+#~ msgstr "Apăsați aici pentru a reactualiza lista de dispozitive"
+
+#~ msgid "Small"
+#~ msgstr "Mic"
+
+#~ msgid "Large"
+#~ msgstr "Mare"
+
+#~ msgid "Video Plugin"
+#~ msgstr "Modul video"
+
+#~ msgid "Video plugin:"
+#~ msgstr "Modul video:"
+
+#~ msgid "Available Audio Codecs"
+#~ msgstr "Codecuri audio disponibile"
+
+#~ msgid "Audio Codecs Settings"
+#~ msgstr "Setări pentru codecurile audio"
+
+#~ msgid "Automatically adjust _jitter buffer between"
+#~ msgstr "Ajustează automat memoria tampon de jitter-ului"
+
+#~ msgid "ms"
+#~ msgstr "ms"
+
+#~ msgid "The minimum jitter buffer size for audio reception (in ms)."
+#~ msgstr ""
+#~ "Marimea minimă a memoriei tampon de jitter pentru recepția audio (în ms)."
+
+#~ msgid "Enable video _transmission"
+#~ msgstr "Activează _transmisia video"
+
+#~ msgid "If enabled, video is transmitted during a call."
+#~ msgstr ""
+#~ "Dacă este activat, se vor transmite imagini video în timpul unei "
+#~ "convorbiri."
+
+#~ msgid "Enable video _reception"
+#~ msgstr "Activează _recepția video"
+
+#~ msgid "If enabled, allows video to be received during a call."
+#~ msgstr ""
+#~ "Dacă este activat, permite recepționarea imaginilor video in timpul unei "
+#~ "conferințe."
+
+#~ msgid "Bandwidth Control"
+#~ msgstr "Controlul lățimii de bandă"
+
+#~ msgid "Maximum video _bandwidth of"
+#~ msgstr "Lațimea de bandă maximă pentru transmisia video"
+
+#~ msgid "kB/s"
+#~ msgstr "kB/s"
+
+#~ msgid "Advanced Quality Settings"
+#~ msgstr "Setări avansate pentru calitatea serviciilor (QoS)"
+
+#~ msgid ""
+#~ "Choose if you want to favour speed or quality for the transmitted video."
+#~ msgstr ""
+#~ "Alegeți dacă doriți să faceți un compromis între viteza și calitatea "
+#~ "transmisiei video"
+
+#~ msgid "Transmit"
+#~ msgstr "Transmite"
+
+#~ msgid ""
+#~ "Choose the number of blocks (that have not changed) transmitted with each "
+#~ "frame. These blocks fill in the background."
+#~ msgstr ""
+#~ "Alege numărul de blocuri de memorie (neschimbate) transmise cu fiecare "
+#~ "cadru. Acestea sunt create în fundal."
+
+#~ msgid "background _blocks with each frame"
+#~ msgstr "blocuri din fundal transmise cu fiecare cadru de informație"
+
+#~ msgid "GnomeMeeting Preferences"
+#~ msgstr "Preferințe GnomeMeeting"
+
+#~ msgid "Directory Settings"
+#~ msgstr "Setări pentru Indexul de Utilizatori"
+
+#~ msgid "Gatekeeper Settings"
+#~ msgstr "Setări Gatekeeper"
+
+#~ msgid "Gateway / Proxy Settings"
+#~ msgstr "Setări gateway/proxy"
+
+#~ msgid "Audio Codecs"
+#~ msgstr "Codecuri audio"
+
+#~ msgid "Video Codecs"
+#~ msgstr "Codecuri video"
+
+#~ msgid "Opening device for playing"
+#~ msgstr "Deschid dispozitivul pentru redare"
+
+#~ msgid "Opening device for recording"
+#~ msgstr "Deschid dispozitivul pentru înregistrare"
+
+#~ msgid "Failed to open the device"
+#~ msgstr "Nu pot să deschid dispozitivul"
+
+#~ msgid "Cannot use the audio device"
+#~ msgstr "Nu pot să deschid dispozitivul audio"
+
+#~ msgid "Recording your voice"
+#~ msgstr "Înregistrez vocea dumneavoastră"
+
+#~ msgid "Recording and playing back"
+#~ msgstr "Înregistrez și redau "
+
+#~ msgid ""
+#~ "GnomeMeeting is now recording from %s and playing back to %s. Please say "
+#~ "\"1 2 3\" in your microphone, you should hear yourself back into the "
+#~ "speakers with a 4 seconds delay."
+#~ msgstr ""
+#~ "GnomeMeeting înregistrează acum din %s și redă la %s. Spuneți \"1 2 3\" "
+#~ "în microfon, ar trebui să vă auziți vocea în difuzoare, cu o întârziere "
+#~ "de 4 secunde."
+
+#~ msgid "Open NAT"
+#~ msgstr "Deschide translator de adresă IP (NAT)"
+
+#~ msgid "Cone NAT"
+#~ msgstr "Clonează translator de adresă IP (NAT)"
+
+#~ msgid "Restricted NAT"
+#~ msgstr "Redirectează translator de adresa IP"
+
+#~ msgid "Port Restricted NAT"
+#~ msgstr "Port restricționat NAT"
+
+#~ msgid "Symmetric NAT"
+#~ msgstr "Translator de adresă IP (NAT) simetric"
+
+#~ msgid "Symmetric Firewall"
+#~ msgstr "Zid de protecție (firewall) simetric"
+
+#~ msgid "Blocked"
+#~ msgstr "Blocat"
+
+#~ msgid "Partially Blocked"
+#~ msgstr "Blocat parțial"
+
+#~ msgid "Removed STUN server"
+#~ msgstr "Server STUN înlăturat"
+
+#~ msgid "Set STUN server to %s (%s)"
+#~ msgstr "Setează serverul STUN %s (%s)"
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "GnomeMeeting could not detect the type of NAT you are using. The most "
+#~ "appropriate method, if your router does not natively support H.323, is "
+#~ "probably to forward the required ports to your internal machine and use "
+#~ "IP translation if you are behind a NAT router. Please also make sure you "
+#~ "are not running a local firewall."
+#~ msgstr ""
+#~ "Rezultatul testului STUN: %s.\n"
+#~ "\n"
+#~ "GnomeMeeting nu a putut detecta tipul de translator de adresă pe care "
+#~ "dumneavoastră îl folosiți. În cazul în care ruterul dumneavoastră nu are "
+#~ "suport nativ H.323 cea mai buna metodă pe care o puteți folosi este aceea "
+#~ "de a \"pasa\" către calculatorul intern acele porturi care sunt necesare, "
+#~ "și să utilizați translatarea IP dacă sunteți în spatele unui ruter NAT. "
+#~ "Vă rog să vă asigurați că pe calculatorul dumneavoatră nu rulează un\"zid"
+#~ "\" de protecție (firewall)"
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Your system does not need any specific configuration as long as you do "
+#~ "not have a local firewall blocking the ports required by GnomeMeeting."
+#~ msgstr ""
+#~ "Rezultatul testului STUN: %s.\n"
+#~ "\n"
+#~ "Sistemul dumneavoastră nu mai are nevoie de nici o configurație atâta "
+#~ "timp cât nu aveti un \"zid\" de protecție care să blocheze porturile "
+#~ "necesare pentru GnomeMeeting."
+
+#~ msgid ""
+#~ "GnomeMeeting detected Symmetric NAT. The most appropriate method, if your "
+#~ "router does not natively support H.323, is to forward the required ports "
+#~ "to your internal machine in order to change your Symmetric NAT into Cone "
+#~ "NAT. Running this test again after the port forwarding has been done "
+#~ "should report Cone NAT and allow GnomeMeeting to be used with STUN "
+#~ "support enabled. If it does not report Cone NAT, then it means that there "
+#~ "is a problem in your forwarding rules."
+#~ msgstr ""
+#~ "GnomeMeeting a detectat un translator simetric de adrese IP. În cazul în "
+#~ "care ruterul dumneavoastră nu are suport nativ H.323 cea mai buna metodă "
+#~ "pe care o puteți folosi pentru a transforma NAT-ul simetric într-un NAT "
+#~ "asimetrice ste aceea de a \"pasa\" către calculatorul intern acele "
+#~ "porturi care sunt necesare. La reluarea acestui test, după ce \"pasarea\" "
+#~ "de porturi a fost activată, ar trebui să vă primiți confirmarea de "
+#~ "utilizare NAT-ului asimetric, și deci activarea suportului STUN. Dacă nu "
+#~ "primiți această confirmare, este posibil să aveți o problemă la setarea "
+#~ "reguliror de \"pasare\""
+
+#~ msgid ""
+#~ "STUN test result: %s.\n"
+#~ "\n"
+#~ "Using a STUN server is most probably the most appropriate method if your "
+#~ "router does not natively support H.323.\n"
+#~ "Notice that STUN support is not sufficient if you want to contact H.323 "
+#~ "clients that do not support H.245 Tunneling like Netmeeting. In that case "
+#~ "you will have to use the classical IP translation and port forwarding.\n"
+#~ "\n"
+#~ "Enable STUN Support?"
+#~ msgstr ""
+#~ "Rezultatul testului STUN: %s.\n"
+#~ "\n"
+#~ "În cazul în care ruterul dumneavoastră nu are suport nativ H.323 cea mai "
+#~ "buna metodă pe care o puteți folosi este folosirea unui server STUN.\n"
+#~ "De notat este faptul că suportul STUN nu este suficient în cazul în care "
+#~ "doriți să contactați clienți care au suport pentru H.323, dar nu au "
+#~ "suport pentru tunelarea H.245 ca și Netmeeting. în această situație va "
+#~ "trebui să folosiți translatarea IP clasică și \"pasarea\" de port.\n"
+#~ "\n"
+#~ "Activați suportul STUN?"
+
+#~ msgid "NAT Detection Successfull"
+#~ msgstr "Detectarea translatarii de adresă IP (NAT) s-a încheiat cu succes "
+
+#~ msgid "The type of NAT was successfully detected"
+#~ msgstr "Metoda de translație a adresei (NAT) a fost detctată cu succes"
+
+#~ msgid "Set STUN server to %s"
+#~ msgstr "Setează serverul STUN la %s"
+
+#~ msgid "PC-To-Phone Settings"
+#~ msgstr "Setări conexiune Calculator-Telefon"
+
+#~ msgid "Use your MicroTelco account number"
+#~ msgstr "Folosiți numărul de cont MicroTelco"
+
+#~ msgid "_Pin:"
+#~ msgstr "_Pin:"
+
+#~ msgid "Use your MicroTelco PIN"
+#~ msgstr "Folosiți PIN-ul MicroTelco"
+
+#~ msgid "Use PC-To-Phone service"
+#~ msgstr "Folosiți serviciul de conectare Calculator-Telefon"
+
+#~ msgid ""
+#~ "Click on one of the following links to get more information about your "
+#~ "existing GnomeMeeting PC-To-Phone account, or to create a new account."
+#~ msgstr ""
+#~ "Apăsați pe unul dintre linkurile următoare pentru a obține mai multe "
+#~ "informații despre contul dumneavoastră GnomeMeeting Calculator-Telefon, "
+#~ "sau pentru a creea un cont nou."
+
+#~ msgid "Get a GnomeMeeting PC-To-Phone account"
+#~ msgstr "Obține un cont GnomeMeeting Calculator-Telefon"
+
+#~ msgid "GnomeMeeting Tray Icon"
+#~ msgstr "Icoana Tray a GnomeMeeting"
+
+#~ msgid "_Connect"
+#~ msgstr "_Conectează"
+
+#~ msgid ""
+#~ "The call transfer failed, the user was either unreachable, or simply busy "
+#~ "when he received the call transfer request."
+#~ msgstr ""
+#~ "Redirectionarea apelurilor a esuat fie din cauza nereusitei de contactare "
+#~ "a utilizatorului, fie pentru simplul motiv că acesta avea linia ocupată "
+#~ "în momentul în care cererea de redirecționare a apelului a sosit la el."
+
+#~ msgid "No contact with speed dial %s# found, will call number %s instead"
+#~ msgstr ""
+#~ "Nu s-a obținut nici un contact cu viteza de conectare %s# găsită, în "
+#~ "schimb, voi apela numărul %s"
+
+#~ msgid "Invalid URL handler"
+#~ msgstr "Heandler URL invalid"
+
+#~ msgid ""
+#~ "Please specify a valid URL handler. Currently both h323: and callto: are "
+#~ "supported."
+#~ msgstr ""
+#~ "Vă rog să specificați un heandler URL valid. În momentul de față sunt "
+#~ "suportate atât H.323 cât și callto."
+
+#~ msgid "Calling %s"
+#~ msgstr "Apelez %s"
+
+#~ msgid "Transferring call to %s"
+#~ msgstr "Redirecționez apelul la %s"
+
+#~ msgid "Opening video device %s with plugin %s"
+#~ msgstr "Deschid dispozitivul video %s cu modulul %s"
+
+#~ msgid "Successfully opened video device %s, channel %d"
+#~ msgstr "Am deschis cu succes dispozitivul video %s, pe canalul %d"
+
+#~ msgid "Couldn't open the video device"
+#~ msgstr "Nu pot să deschid dispozitivul video"
+
+#~ msgid "Opened the video device using the \"Picture\" video plugin"
+#~ msgstr ""
+#~ "S-a deschis dispozitivul video care folosește modulul \"Imagine\" video"
+
+#~ msgid "Picture"
+#~ msgstr "Imagine"
+
+#~ msgid ""
+#~ "GnomeMeeting is now testing the %s video device. If you experience "
+#~ "machine crashes, then report a bug to the video driver author."
+#~ msgstr ""
+#~ "În momentul de față, GnomeMeeting testează dispozitivul video %s. Dacă "
+#~ "calculatorul se va opri în mod neasteptat, vă rugăm să trimiteți un "
+#~ "raport de defecțiune catre autorul driverului video"
+
+#~ msgid "Test %d done"
+#~ msgstr "Testul %d terminat"
+
+#~ msgid "Test %d failed"
+#~ msgstr "Testul %d a esuat"
+
+#~ msgid "Error while opening %s."
+#~ msgstr "Eroare la deschiderea %s."
+
+#~ msgid "Could not open the chosen channel with the chosen video format."
+#~ msgstr "Nu pot să deschid canalul ales, cu formatul video ales."
+
+#~ msgid ""
+#~ "Your driver doesn't support any of the color formats tried by GnomeMeeting"
+#~ msgstr ""
+#~ "Driverul dumneavoastră nu suportă nici unul din formatele de culoare "
+#~ "încercate de de GnomeMeeting"
+
+#~ msgid "Error with the frame rate."
+#~ msgstr "Eroare la rata de cadre"
+
+#~ msgid "Error with the frame size."
+#~ msgstr "Eroare la mărimea cadrului."
+
+#~ msgid "Fullscreen height"
+#~ msgstr "Înălțimea pe tot ecranul"
+
+#~ msgid "Fullscreen width"
+#~ msgstr "Lățimea pe tot ecranul"
+
+#~ msgid "Minimum transmitted FPS"
+#~ msgstr "Număr minim de cadre pe secundă (FPS)"
+
+#~ msgid "Show a status bar at the bottom of the main window"
+#~ msgstr "Afișază bara de stare la baza ferestrei principale"
+
+#~ msgid "Show status bar"
+#~ msgstr "Arată bara de stare"
+
+#~ msgid "The image height for fullscreen"
+#~ msgstr "Înălțime imagine pe tot ecranul"
+
+#~ msgid "The list of called URLs"
+#~ msgstr "Listă cu URL-urile apelate"
+
+#~ msgid "The list of groups"
+#~ msgstr "Listă de grupuri"
+
+#~ msgid ""
+#~ "The minimum number of video frames to transmit each second when trying to "
+#~ "minimize the bandwidth"
+#~ msgstr ""
+#~ "Număr minim de cadre video de transmis în fiecare secundă când se "
+#~ "încearcă reducerea lățimii de bandă."
+
+#~ msgid "Audio transmission: suspended"
+#~ msgstr "Transmisie audio: suspendată"
+
+#~ msgid "Audio transmission: resumed"
+#~ msgstr "Transmisie audio: repornită"
+
+#~ msgid "Video transmission: suspended"
+#~ msgstr "Transmisie video: suspendată"
+
+#~ msgid "Video transmission: resumed"
+#~ msgstr "Transmisie video: repornită"
+
+#~ msgid ""
+#~ "iLBC-13k3 (internet Low Bitrate Codec) is a free speech codec suitable "
+#~ "for robust voice communication over IP. The codec is designed for narrow "
+#~ "band speech and results in a payload bit rate of 13.33 kbit/s with an "
+#~ "encoding frame length of 30 ms. The iLBC codec enables graceful speech "
+#~ "quality degradation in the case of lost frames, which occurs in "
+#~ "connection with lost or delayed IP packets."
+#~ msgstr ""
+#~ "iLBC-15k2 (internet Low Bitrate Codec) este un codec de voce gratuit "
+#~ "pentru transmisii de voce prin IP. Codecul este proiectat pentru lățimi "
+#~ "mici de bandă și utilizează o rată de încărcare de 13.33 kb/s pentru "
+#~ "lungime de interval codificat de 30 ms. Când se pierd intervale "
+#~ "codificate (ex. dacă pachetele IP sunt întârziate sau pierdute), iLBC "
+#~ "scade gradual calitatea sonoră a conversației"
+
+#~ msgid "Excellent"
+#~ msgstr "Excelent"
+
+#~ msgid "13.33 Kbps"
+#~ msgstr "13.33 Kbps"
+
+#~ msgid ""
+#~ "iLBC-15k2 (internet Low Bitrate Codec) is a free speech codec suitable "
+#~ "for robust voice communication over IP. The codec is designed for narrow "
+#~ "band speech and results in a payload bitrate of 15.20 kbps with an "
+#~ "encoding length of 20 ms. The iLBC codec enables graceful speech quality "
+#~ "degradation in the case of lost frames, which occurs in connection with "
+#~ "lost or delayed IP packets."
+#~ msgstr ""
+#~ "iLBC-15k2 (internet Low Bitrate Codec) este un codec de voce gratuit "
+#~ "pentru transmisii de voce prin IP. Acest codec este proiectat pentru "
+#~ "lățimi mici de bandă și utilizează o rată de încărcare de 15.20 kbit/s "
+#~ "pentru lungime de interval codificat de 20 ms. Când se pierd intervale "
+#~ "codificate (ex. dacă pachetele IP sunt întârziate sau pierdute), iLBC "
+#~ "scade gradual calitatea sonoră a conversației"
+
+#~ msgid "15.2 Kbps"
+#~ msgstr "15.2 Kbps"
+
+#~ msgid ""
+#~ "Speex is an Open Source/Free Software patent-free audio compression "
+#~ "format designed for speech. The Speex Project aims to lower the barrier "
+#~ "of entry for voice applications by providing a free alternative to "
+#~ "expensive proprietary speech codecs. Moreover, Speex is well-adapted to "
+#~ "Internet applications and provides useful features that are not present "
+#~ "in most other codecs. Finally, Speex is part of the GNU Project and is "
+#~ "available under the Xiph.org variant of the BSD license. SpeexNarrow-15k "
+#~ "is based on CELP and is designed to compress voice at a payload bitrate "
+#~ "of 15 kbps."
+#~ msgstr ""
+#~ "Speex este un format Open Source/Free Software de codificare audio, fără "
+#~ "probleme de patentare, gândit pentru conversații audio. Proiectul Speex "
+#~ "își propune să scadă bariera de intrare pentru programele de comunicare "
+#~ "audio prin furnizarea unei alternative gratuite la codecurile "
+#~ "proprietare. Mai mult, Speex este bine adaptat pentru programele ce "
+#~ "utilizează Internetul și oferă facilități suplimentare inexistente in "
+#~ "majoritatea codificatoarelo. Speex e parte a proiectului GNU și este "
+#~ "disponibil sub licență BSD, varianta Xiph.org. SpeexNarrow-15k e bazat pe "
+#~ "CELP și este gândit să comprime voce la o rată de redare de 15 kbps"
+
+#~ msgid "15 Kbps"
+#~ msgstr "15 Kbps"
+
+#~ msgid ""
+#~ "Speex is an Open Source/Free Software patent-free audio compression "
+#~ "format designed for speech. The Speex Project aims to lower the barrier "
+#~ "of entry for voice applications by providing a free alternative to "
+#~ "expensive proprietary speech codecs. Moreover, Speex is well-adapted to "
+#~ "Internet applications and provides useful features that are not present "
+#~ "in most other codecs. Finally, Speex is part of the GNU Project and is "
+#~ "available under the Xiph.org variant of the BSD license. SpeexNarrow-8k "
+#~ "is based on CELP and is designed to compress voice at a payload bitrate "
+#~ "of 8 kbps."
+#~ msgstr ""
+#~ "Speex este un format Open Source/Free Software de codificare audio, fără "
+#~ "probleme de patentare, gândit pentru conversații audio. Proiectul Speex "
+#~ "își propune să scadă bariera de intrare pentru programele de comunicare "
+#~ "audio prin furnizarea unei alternative gratuite la codecurile "
+#~ "proprietare. Mai mult, Speex este bine adaptat pentru programele ce "
+#~ "utilizează Internetul și oferă facilități suplimentare inexistente in "
+#~ "majoritatea codificatoarelo. Speex e parte a proiectului GNU și este "
+#~ "disponibil sub licență BSD, varianta Xiph.org. SpeexNarrow-8k e bazat pe "
+#~ "CELP și este gândit să comprime voce la o rată de redare de 8 kbps"
+
+#~ msgid "Good"
+#~ msgstr "Bun"
+
+#~ msgid "8 Kbps"
+#~ msgstr "8 Kbps"
+
+#~ msgid ""
+#~ "MS-GSM is the Microsoft version of GSM 06.10. GSM 06.10 is a standardized "
+#~ "lossy speech compression employed by most European wireless telephones. "
+#~ "It uses RPE/LTP (residual pulse excitation/long term prediction) coding "
+#~ "to compress frames of 160 13-bit samples with a frame rate of 50 Hz into "
+#~ "260 bits.  Microsoft's GSM 06.10 codec is not compatible with the "
+#~ "standard frame format, they use 65-byte-frames (2 x 32 1/2) rather than "
+#~ "rounding to 33, and they number the bits in their bytes from the other "
+#~ "end."
+#~ msgstr ""
+#~ "MS-GSM este versiunea Microsoft a GSM 06.10, care e o modalitate de "
+#~ "compresie cu pierderi ale sunetului, folosită de majoritatea telefoanelor "
+#~ "fără fir din Europa. Utilizează codare RPE/LTP (residual pulse excitation/"
+#~ "long term prediction) pentru a comprima intervale de 160 cu 13-biți și "
+#~ "rată de 50 Hz în 260 biți.  Codificatorul GSM 06.10 de la Microsoft nu e "
+#~ "compatibil cu formatul standard fiindcă folosește intervale de 65 biți (2 "
+#~ "x 32 1/2) în loc să rotunjească la 33 și fiindcă numără octeți începând "
+#~ "cu capătul opus."
+
+#~ msgid "13 Kbps"
+#~ msgstr "13 Kbps"
+
+#~ msgid ""
+#~ "G.711 is the international standard for encoding telephone audio on 64 "
+#~ "kbps channel. It is a pulse code modulation (PCM) scheme operating at 8 "
+#~ "kHz sample rate, with 8 bits per sample, fully meeting ITU-T "
+#~ "recommendations. This standard has two forms, A-Law and u-Law. A-Law "
+#~ "G.711 PCM encoder converts 13 bit linear PCM samples into 8 bit "
+#~ "compressed PCM (logarithmic form) samples, and the decoder does the "
+#~ "conversion vice versa."
+#~ msgstr ""
+#~ "G.711 este un standard internațional pentru codificarea semnalului "
+#~ "telefonic pe canal de 64 kbps. E o modulație în puls a semnalului (PCM, "
+#~ "pulse code modulation) ce operează la o rată de eșantionare de 8 kHz, cu "
+#~ "8 biți pe semnal, complet compatibilă cu recomandările ITU-T. Acest "
+#~ "standard este bazat pe două legi de compresie: Legea A și Legea u. Legea "
+#~ "A G.711 PCM transformă intervalele lineare PCM de 14 biți în intervale "
+#~ "comprimate logaritmic PCM pe 8 biți. Decodorul funcționează în mod invers."
+
+#~ msgid "64 Kbps"
+#~ msgstr "64 Kbps"
+
+#~ msgid ""
+#~ "G.711 is the international standard for encoding telephone audio on 64 "
+#~ "kbps channel. It is a pulse code modulation (PCM) scheme operating at 8 "
+#~ "kHz sample rate, with 8 bits per sample, fully meeting ITU-T "
+#~ "recommendations. This standard has two forms, A-Law and u-Law. u-Law "
+#~ "G.711 PCM encoder converts 14 bit linear PCM samples into 8 bit "
+#~ "compressed PCM (logarithmic form) samples, and the decoder does the "
+#~ "conversion vice versa."
+#~ msgstr ""
+#~ "G.711 este un standard internațional pentru codificarea semnalului "
+#~ "telefonic pe canal de 64 kbps. E o modulație în puls a semnalului (PCM, "
+#~ "pulse code modulation) ce operează la o rată de eșantionare de 8 kHz, cu "
+#~ "8 biți pe semnal, complet compatibilă cu recomandările ITU-T. Acest "
+#~ "standard este bazat pe două legi de compresie: Legea A și Legea u. Legea "
+#~ "A G.711 PCM transformă intervalele lineare PCM de 14 biți în intervale "
+#~ "comprimate logaritmic PCM pe 8 biți. Decodorul funcționează în mod invers."
+
+#~ msgid ""
+#~ "GSM 06.10 is a standardized lossy speech compression employed by first "
+#~ "generation of digital mobile phones in Europe. It uses RPE/LTP (residual "
+#~ "pulse excitation/long term prediction) coding to compress frames of 20 "
+#~ "ms, achieving a bitrate of 13kbps."
+#~ msgstr ""
+#~ "GSM 06.10 este un mod de compresie cu pierderi ale sunetelor utilizat de "
+#~ "prima generație de telefonane mobile digitale din Europa. Utilizează "
+#~ "codarea RPE/LTP (residual pulse excitation/long term prediction) pentru a "
+#~ "comprima intervale de 20 ms, obținând o rată de 13kbps."
+
+#~ msgid "16.5 Kbps"
+#~ msgstr "16.5 Kbps"
+
+#~ msgid ""
+#~ "G.726 conforms to ITU-T G.726 recommendation that specifies speech "
+#~ "compression and decompression at rates of 16, 24, 32 and 40 Kbps based on "
+#~ "Adaptive Differential Pulse Code Modulation (ADPCM)."
+#~ msgstr ""
+#~ "G.726 se conformează recomandărilor ITU-T G.726, ce specifică ratele de "
+#~ "compresie și decompresie la 16, 24, 32 și 40 Kocteți, bazate pe ADPCM "
+#~ "(Adaptive Differential Pulse Code Modulation)."
+
+#~ msgid "32 Kbps"
+#~ msgstr "32 Kbps"
+
+#~ msgid ""
+#~ "G.723.1 conforms to ITU-T G.723.1 recommendation. It was designed for "
+#~ "videoconferencing / telephony over standard phone lines, and is optimized "
+#~ "for realtime encode and decode. That codec is only available in "
+#~ "GnomeMeeting when using Quicknet cards due to patents restrictions."
+#~ msgstr ""
+#~ "G.723.1 se conformează recomandării ITU-T G.723.1. A fost proiectat "
+#~ "pentru conferințe video / telefonie prin liniile de telefon standard și e "
+#~ "optimizat pentru codificare și decodificare în timp real. Din cauza "
+#~ "restricțiilor impuse de patente, acest codificator este disponibil în "
+#~ "GnomeMeeting numai în combinație cu plăcile Quicknet"
+
+#~ msgid "6.3 or 5.7 Kbps"
+#~ msgstr "6.3 sau 5.7 Kbps"
+
+#~ msgid "Work"
+#~ msgstr "Lucu"
+
+#~ msgid "Family"
+#~ msgstr "Familie"
+
+#~ msgid "Welcome to GnomeMeeting 1.00!"
+#~ msgstr "Bun venit în GnomeMeeting 1.00!"
+
+#~ msgid ""
+#~ "Congratulations, you have just successfully launched GnomeMeeting 1.00 "
+#~ "for the first time.\n"
+#~ "GnomeMeeting is the leading VoIP, videoconferencing and telephony "
+#~ "software for Unix.\n"
+#~ "\n"
+#~ "Thanks to all of you who have helped us along the road to our golden 1.00 "
+#~ "release!\n"
+#~ "\n"
+#~ "The GnomeMeeting Team."
+#~ msgstr ""
+#~ "Felicitări, tocmai ați pornit cu succes GnomeMeeting pentru prima dată.\n"
+#~ "GnomeMeeting cea mai avansată aplicație de VoIP, videoconferințe și "
+#~ "telefonie pentru sistemele UNIX.\n"
+#~ "\n"
+#~ "Și asta datorită tuturor celor care ne-au ajutat pentru a atinge "
+#~ "versiunea 1.00!\n"
+#~ "\n"
+#~ "Echipa GnomeMeeting."
+
+#~ msgid "Error while registering with gatekeeper"
+#~ msgstr "Eroare în timpul înregistrării cu Gatekeeper"
+
+#~ msgid "Cannot contact the users directory"
+#~ msgstr "Nu pot contacta indexul de utilizatori"
+
+#~ msgid "Cannot contact the user directory"
+#~ msgstr "Nu pot contacta indexul de utilizator"
+
+#~ msgid "Failed to bind to user directory: %s."
+#~ msgstr "Am eșuat să mă conectez la indexul de utilizator: %s."
+
+#~ msgid "Unregistered from the users directory %s."
+#~ msgstr "Neînregistrat în indexul de utilizatori %s"
+
+#~ msgid "Error while registering to %s"
+#~ msgstr "Eroare în timpul înregistrării la %s"
+
+#~ msgid "Failed to set time limit on LDAP operations"
+#~ msgstr "Am eșuat sa setez limita de timp la operațiile LDAP"
+
+#~ msgid "Failed to contact to LDAP server %s: %s"
+#~ msgstr "Am eșuat să mă conectez la serverul de LDAP %s: %s"
+
+#~ msgid "Fetching online users list from %s"
+#~ msgstr "Obține lista utilizatorilor conectați în acest moment %s"
+
+#~ msgid "Connection to %s lost"
+#~ msgstr "Conexiune la %s pierdută"
+
+#~ msgid "Search completed: %d user(s) found on %s"
+#~ msgstr ""
+#~ "Căutare terminată: %d utlizator(i) au fost găsiți la %s Căutare "
+#~ "terminată: %d de utlizator(i) au fost găsiți la %s "
+
+#~ msgid "Groups:"
+#~ msgstr "Grupuri:"
+
+#~ msgid "Add %s to Address Book"
+#~ msgstr "Adaugă %s la Agenda de adrese"
+
+#~ msgid "Add a New Server"
+#~ msgstr "Adaugă un server nou"
+
+#~ msgid "Enter the server name:"
+#~ msgstr "Introdu numele serverului:"
+
+#~ msgid "Add a New Group"
+#~ msgstr "Adaugă un nou grup"
+
+#~ msgid "New Group"
+#~ msgstr "Grup nou"
+
+#~ msgid "New _Server"
+#~ msgstr "_Server Nou"
+
+#~ msgid "New _Group"
+#~ msgstr "_Grup nou"
+
+#~ msgid "V"
+#~ msgstr "V"
+
+#~ msgid "IP"
+#~ msgstr "IP"
+
+#~ msgid "First name contains"
+#~ msgstr "Prenumele conține"
+
+#~ msgid "Groups"
+#~ msgstr "Grupuri"
+
+#~ msgid "View/Hide the status bar"
+#~ msgstr "Afișază/Ascunde bara de status"
+
+#~ msgid "Both (Local Video Incrusted)"
+#~ msgstr "Amândouă (imaginea locală înglobată)"
+
+#~ msgid "Both (Local Video in New Window)"
+#~ msgstr "Amândouă (imaginea locală într-o fereastră nouă)"
+
+#~ msgid "_About GnomeMeeting"
+#~ msgstr "Despre GnomeMeeting"
+
+#~ msgid "Codec Information"
+#~ msgstr "Informații despre codec"
+
+#~ msgid "The image width for fullscreen."
+#~ msgstr "Lațimea imaginii pentru modul 'Afișare pe tot ecranul'"
+
+#~ msgid "The image height for fullscreen."
+#~ msgstr "Înălțimea imaginii pentru modul 'Afișare pe tot ecranul'"
+
+#~ msgid "NAT/PAT Router Support"
+#~ msgstr "Suport pentru routerul NAT/PAT"
+
+#~ msgid "Info"
+#~ msgstr "Info"
+
+#~ msgid "Keep a minimum video _quality of"
+#~ msgstr "Calitatea minimă a imaginilor video ale"
+
+#~ msgid ""
+#~ "The minimum transmitted video quality to keep when trying to minimize the "
+#~ "used bandwidth:  choose 100% on a LAN for the best quality, 1% being the "
+#~ "worst quality"
+#~ msgstr ""
+#~ "Calitatea minimă a video transmis ce trebuie păstrată atunci când încerc "
+#~ "minimizarea lățimii de bandă folosite: alegeți 100% pentru un LAN, pentru "
+#~ "cea mai bună calitate, 1% fiind cea mai slabă calitate"
+
+#~ msgid "Buy a card"
+#~ msgstr "Cumpără o cartelă"
+
+#~ msgid "Audio player mixer"
+#~ msgstr "Mixer ieșire audio"
+
+#~ msgid "Audio recorder"
+#~ msgstr "Înregistrare audio"
+
+#~ msgid "Audio recorder mixer"
+#~ msgstr "Mixer de înregistrare audio"
+
+#~ msgid "Color Format for the video palette"
+#~ msgstr "Formatul culorilor pentru paleta video"
+
+#~ msgid "Do not disturb"
+#~ msgstr "Nu deranjați"
+
+#~ msgid ""
+#~ "If enabled, GnomeMeeting will play a sound when receiving an incoming "
+#~ "call (the sound to play is chosen in the Gnome Control Center)."
+#~ msgstr ""
+#~ "Dacă este activat, GnomeMeeting va cânta un sunet când primește un apel "
+#~ "(sunetul este ales în Centrul de Comandă al Gnome)"
+
+#~ msgid "If enabled, incoming calls will be automatically answered."
+#~ msgstr "Dacă este activat, apelurile primite vor fi automat raspunse."
+
+#~ msgid "Local Video Popup Height"
+#~ msgstr "Înălțimea ferestrei de video local"
+
+#~ msgid "Local Video Popup Width"
+#~ msgstr "Lațimea ferestrei de video local"
+
+#~ msgid "Number of entries to store in history boxes"
+#~ msgstr "Numărul de elemente din câmpurile de istoric"
+
+#~ msgid "Received Video Quality Hint"
+#~ msgstr "Indicație despre calitatea imaginilor primite"
+
+#~ msgid "Remote Video Popup Height"
+#~ msgstr "Înălțimea ferestrei de afișare a imaginilor recepționate"
+
+#~ msgid "Select the audio recorder device to use."
+#~ msgstr "Selectați dispozitivul de înregistrare audio."
+
+#~ msgid "Select the mixer to use to change the volume of the audio player."
+#~ msgstr ""
+#~ "Selectați mixerul ce va fi folosit pentru modificarea volumului de redare "
+#~ "audio."
+
+#~ msgid "Select the mixer to use to change the volume of the audio recorder."
+#~ msgstr ""
+#~ "Selectați mixerul ce va fi folosit pentru modificare volumului de "
+#~ "înregistrare audio."
+
+#~ msgid ""
+#~ "Select the video device to use. Using an invalid video device or \"Picture"
+#~ "\" for video transmission will transmit a test picture."
+#~ msgstr ""
+#~ "Selectați dispozitivul de înregistrare video. Dacă selectați un "
+#~ "dispozitiv necunoscut/inexistent sau \"Picture\", va fi transmisă o "
+#~ "imagine de test."
+
+#~ msgid "The Video Quality to request to the remote"
+#~ msgstr "Calitatea Video ce este cerută de la partener"
+
+#~ msgid "The height of the local video popup"
+#~ msgstr "Înalțimea ferestrei popup pentru imaginile locale"
+
+#~ msgid "The height of the remote video popup"
+#~ msgstr "Înalțimea ferestrei popup pentru imaginile primite"
+
+#~ msgid "User Input Capabilities type"
+#~ msgstr "Tipul capabilitaților de introducere a textului al utilizatorului"
+
+#~ msgid "gnomemeeting"
+#~ msgstr "gnomemeeting"
+
+#~ msgid "Internationalisation Maintainer:"
+#~ msgstr "Responsabil cu internationalizarea:"
+
+#~ msgid ""
+#~ "GnomeMeeting is a full-featured H.323\n"
+#~ "video conferencing application."
+#~ msgstr ""
+#~ "GnomeMeeting este o aplicație de\n"
+#~ "video conferință, ce implementează\n"
+#~ "standardul H.323. "
+
+#~ msgid "Quit in progress..."
+#~ msgstr "Părăsire în execuție..."
+
+#~ msgid "Enabled Silence Detection"
+#~ msgstr "Activează detectarea pauzelor din vorbire"
+
+#~ msgid "Started New Logical Channel..."
+#~ msgstr "Un nou canal logic este pornit..."
+
+#~ msgid "Enabled silence detection for %s"
+#~ msgstr ""
+#~ "Activată detectarea momentelor de \"tăcere\" pe canalul de comunicație "
+#~ "pentru %s"
+
+#~ msgid "Disabled silence detection for %s"
+#~ msgstr ""
+#~ "Deactivată detectarea momentelor de \"tăcere\" pe canalul de comunicație "
+#~ "pentru %s"
+
+#~ msgid "Requesting remote to send video quality: %d%%"
+#~ msgstr "Cere partenerului să transmită calitatea video: %d%%"
+
+#~ msgid "Audio Channel:  Sending"
+#~ msgstr "Canal Audio:  Trimite"
+
+#~ msgid "Audio Channel:  Paused"
+#~ msgstr "Canal Audio:  În pauză"
+
+#~ msgid "Video Channel:  Sending"
+#~ msgstr "Canal Video:  Trimite"
+
+#~ msgid "Video Channel:  Paused"
+#~ msgstr "Canal Video:  În pauză"
+
+#~ msgid "Auto Answering Incoming Call"
+#~ msgstr "Răspunde automat la un apel primit"
+
+#~ msgid ""
+#~ "You chose to NOT use the GnomeMeeting ILS directory. Other users will not "
+#~ "be able to contact you if you don't register to a directory service."
+#~ msgstr ""
+#~ "Ați ales să NU folosiți Indexul de Utilizatori ILS al GnomeMeeting. Alți "
+#~ "utilizatori nu vor putea să vă contacteze dacă nu vă veți înregistra într-"
+#~ "un Index de Utilizatori."
+
+#~ msgid "Other"
+#~ msgstr "Altceva"
+
+#~ msgid ""
+#~ "Please enter your first name and surname, they will be used when "
+#~ "connecting to other audio/video conferencing software.\n"
+#~ "\n"
+#~ "Your e-mail address is used to provide you with a callto address that "
+#~ "your friends can use to call you without knowing your IP address.\n"
+#~ "\n"
+#~ "No information is made public unless you allow it to be published on the "
+#~ "directory of online GnomeMeeting users."
+#~ msgstr ""
+#~ "Va rog să introduceți numele și prenumele; Acestea vor fi folosite când "
+#~ "vă conectați cu un alt program de conferință audio/video.\n"
+#~ "\n"
+#~ "Adresa dumneavoastră de e-mail este folosită pentru a vă creea o adresă "
+#~ "de tip Callto, ce va putea fi folosită de către prietenii dumneavoastră "
+#~ "pentru a vă apela fără a vă cunoaște adresa IP.\n"
+#~ "\n"
+#~ "Nici o informație nu este făcută publică, până ce dumneavoastră nu veți "
+#~ "permite să fie publicată in Indexul de Utilizatori ai GnomeMeeting."
+
+#~ msgid "Callto URL"
+#~ msgstr "URL-ul \"sună la\""
+
+#~ msgid "Directory of Online GnomeMeeting Users"
+#~ msgstr "Indexul de Utilizatori GnomeMeeting conectați în acest moment"
+
+#~ msgid "Publish my information on the directory of online GnomeMeeting users"
+#~ msgstr ""
+#~ "Publică informațiile mele în Indexul de Utilizatori al utilizatorilor "
+#~ "GnomeMeeting conectați în acest moment"
+
+#~ msgid ""
+#~ "Please select your network connection type. This is used to set default "
+#~ "video settings for your bandwidth. It is possible to change these "
+#~ "defaults later."
+#~ msgstr ""
+#~ "Vă rog să selectați tipul conexiunii dumneavoastră. Acesta este folosit "
+#~ "pentru a selecta setările video implcite pentru lațimea dumneavoastră de "
+#~ "bandă. Este posibil să schimbați aceste setări mai târziu."
+
+#~ msgid "DSL/Cable"
+#~ msgstr "DSL/Cablu"
+
+#~ msgid ""
+#~ "Please choose the audio devices to use during the GnomeMeeting session. "
+#~ "You can also choose to use a Quicknet device instead of the soundcard, "
+#~ "but the \"Test Audio\" button will only work for soundcards. Notice that "
+#~ "some webcams models have an internal microphone that can be used with "
+#~ "GnomeMeeting."
+#~ msgstr ""
+#~ "Vă rog să selectați dispozitivele audio folosite de GnomeMeeting. Puteți "
+#~ "de asemenea să selectați un dispozitiv Quicknet in loc de o placă de "
+#~ "sunet, dar butonul de \"Test Audio\" va funcționa numai pentru placi de "
+#~ "sunet. Remarcați că anumite camere web au un microfon încorporat ce poate "
+#~ "fi folosit cu GnomeMeeting."
+
+#~ msgid "Audio player mixer:"
+#~ msgstr "Mixerul pentru redare audio:"
+
+#~ msgid "Audio recorder:"
+#~ msgstr "Dispozitivul de înregistrare audio:"
+
+#~ msgid "Audio recorder mixer:"
+#~ msgstr "Mixerul de înregistrare audio:"
+
+#~ msgid ""
+#~ "Please choose the video device to use during the GnomeMeeting session. "
+#~ "Click on the \"Test Video\" button to check if your setup is correct and "
+#~ "if your driver is supported by GnomeMeeting. You can only test the "
+#~ "correctness of your driver if the selected device is not already in use."
+#~ msgstr ""
+#~ "Vă rog să selectați dispozitivul video folosit de GnomeMeeting. Apăsați "
+#~ "pe butonul de \"Test Video\" pentru a verifica dacă setările "
+#~ "dumneavoastră sunt corecte și dacă driverul este suportat de "
+#~ "GnomeMeeting. Puteți să verificați corectitudinea driverului numai dacă "
+#~ "nu este deja folosit."
+
+#~ msgid ""
+#~ "Enter the video device to use. Using an invalid video device for video "
+#~ "transmission will transmit a test picture."
+#~ msgstr ""
+#~ "Introduceți dispozitivul video ce va fi folosit. Alegând un dispozitiv "
+#~ "video invalid pentru transmisia video, se va transmite o imagine de test."
+
+#~ msgid "Test Video"
+#~ msgstr "Test Video"
+
+#~ msgid "PC-To-Phone Setup - page %d/%d"
+#~ msgstr "Setare PC-To-Phone - pagina %d/%d"
+
+#~ msgid "Register to the MicroTelco service"
+#~ msgstr "Înregistrează la serviciul MicroTelco"
+
+#~ msgid "Set Audio recorder device to %s"
+#~ msgstr "Setează dispozitivul de înregistrare audio la %s"
+
+#~ msgid "Enabling H.245 Tunnelling"
+#~ msgstr "Activează tunelarea H.245"
+
+#~ msgid "Disabling H.245 Tunnelling"
+#~ msgstr "Deactvează tunelarea H.245"
+
+#~ msgid "Enabling Fast Start"
+#~ msgstr "Activează Start-Rapid"
+
+#~ msgid "Disabling Fast Start"
+#~ msgstr "Dezactivează Start-Rapid"
+
+#~ msgid "This call ended abnormally"
+#~ msgstr "Această convorbire s-a terminat anormal"
+
+#~ msgid "Remote party could not be reached"
+#~ msgstr "Partenerul nu poate fi contactat"
+
+#~ msgid "Call duration: %.2ld:%.2ld:%.2ld"
+#~ msgstr "Durata apelului %.2ld:%.2ld:%.2ld"
+
+#~ msgid "Error while registering with Gatekeeper at %s."
+#~ msgstr "Eroare în timpul înregistrării cu Gatekeeper-ul la %s."
+
+#~ msgid "Parse error: %d %s."
+#~ msgstr "Eroare de translatare: %d %s."
+
+#~ msgid "Successfully registered to %s."
+#~ msgstr "Înregistrare reușită la %s."
+
+#~ msgid "callto URL:"
+#~ msgstr "callto URL:"
+
+#~ msgid "Call this user"
+#~ msgstr "Apelează acest utilizator"
+
+#~ msgid "Edit this user information"
+#~ msgstr "Editează informația acestui utilizator"
+
+#~ msgid "Delete this user"
+#~ msgstr "Șterge acest utilizator"
+
+#~ msgid "Add to group"
+#~ msgstr "Adaugă la grup"
+
+#~ msgid ""
+#~ "GnomeMeeting can't be used without audio devices. Please install a "
+#~ "soundcard or a Quicknet card."
+#~ msgstr ""
+#~ "GnomeMeeting nu poate fi folosit fără dispozitive audio. Vă rog să "
+#~ "instalați o placă de sunet sau o placă Quicknet."
+
+#~ msgid ""
+#~ "GnomeMeeting just installed an URL handler for callto:// URLs. callto "
+#~ "URLs are an easy way to call people on the internet using GnomeMeeting. "
+#~ "They are now available to all GNOME programs able to cope with URLs. You "
+#~ "can for example create an URL launcher on the GNOME panel of the form "
+#~ "\"callto://ils.seconix.com/me@foo.com\" to call the person registered on "
+#~ "the ILS server ils.seconix.com with the me@foo.com e-mail address."
+#~ msgstr ""
+#~ "GnomeMeeting tocmai a instalat un handler pentru URL-urile callto://. "
+#~ "URL- urile callto reprezintă un mod facil de a apela persoane pe "
+#~ "Internet, folosind GnomeMeeting. Acestea sunt acum disponibile tuturor "
+#~ "programelor GNOME care sunt capabile să lucreze cu URL-uri. Puteți de "
+#~ "exemplu să creați o legătură URL în panelul GNOME sub forma: \"callto://"
+#~ "ils.seconix.com/me@foo.com\" pentru a apela persoana înregistrată la "
+#~ "serverul ILS: ils.seconix.com, cu adresa de e-mail: me@foo.com."
+
+#~ msgid ""
+#~ "Could not start the listener thread. You will not be able to receive "
+#~ "incoming calls."
+#~ msgstr ""
+#~ "Nu pot să pornesc threadul de ascultare. Nu veți putea să recepționați "
+#~ "apeluri."
+
+#~ msgid "_Video Mute"
+#~ msgstr "_Video Mut"
+
+#~ msgid "View the details of your account"
+#~ msgstr "Vedeți detalii referitoare la contul dumneavoastră"
+
+#~ msgid "Local Video Image"
+#~ msgstr "Imaginea video locală"
+
+#~ msgid "Remote Video Image"
+#~ msgstr "Imaginea video recepționată"
+
+#~ msgid "Both Video Images"
+#~ msgstr "Amândouă imaginile video"
+
+#~ msgid "Both (Local and Remote Video in New Windows)"
+#~ msgstr "Amândouă (amândouă într-o fereastră nouă)"
+
+#~ msgid "Do not disturb (reject incoming calls)"
+#~ msgstr "Nu deranjați (refuză apelurile primite)"
+
+#~ msgid ""
+#~ "Call from %s\n"
+#~ "using %s"
+#~ msgstr ""
+#~ "Apel de la %s\n"
+#~ "folosind %s"
+
+#~ msgid "Disconnect"
+#~ msgstr "Deconectează"
+
+#~ msgid "Okay"
+#~ msgstr "Bine"
+
+#~ msgid "Good Quality"
+#~ msgstr "Calitate Bună"
+
+#~ msgid "Excellent Quality"
+#~ msgstr "Calitate Excelentă"
+
+#~ msgid "E-mail address:"
+#~ msgstr "Adresă e-mail:"
+
+#~ msgid "Behavior"
+#~ msgstr "Comportament"
+
+#~ msgid "Fullscreen width:"
+#~ msgstr "Lațimea modului 'Afișază pe tot ecranul'"
+
+#~ msgid "Fullscreen height:"
+#~ msgstr "Înălțimea modului 'Afișază pe tot ecranul'"
+
+#~ msgid "Sound"
+#~ msgstr "Sunet"
+
+#~ msgid "User Input Capabilities"
+#~ msgstr "Capabilitățile de intrare ale utilizatorului"
+
+#~ msgid "User Input Capabilities type:"
+#~ msgstr "Tipul capabilităților de tastare ale utlizatorului"
+
+#~ msgid "Video format:"
+#~ msgstr "Format video:"
+
+#~ msgid "Video image:"
+#~ msgstr "Imagine video:"
+
+#~ msgid "Browse..."
+#~ msgstr "Alege..."
+
+#~ msgid "Minimum jitter buffer:"
+#~ msgstr "Minimul bufferului de jitter:"
+
+#~ msgid "Minimum transmitted video quality:"
+#~ msgstr "Calitatea minimă a video transmis:"
+
+#~ msgid "Minimum transmitted FPS:"
+#~ msgstr "Numărul minim de cadre pe secundă (FPS):"
+
+#~ msgid "Transmitted background blocks:"
+#~ msgstr "Blocurile trimise \"în fundal\":"
+
+#~ msgid "H.323 Advanced"
+#~ msgstr "H.323 Avansat"
+
+#~ msgid ""
+#~ "GnomeMeeting is now playing what it is recording with a 5 seconds delay. "
+#~ "If you don't hear yourself with the delay, you will have to fix your "
+#~ "audio setup and probably install a full-duplex driver before calling "
+#~ "other GnomeMeeting users.\n"
+#~ "\n"
+#~ "Recording and playing... Please talk."
+#~ msgstr ""
+#~ "GnomeMeeting redă acum ceea ce înregistrează cu o întârziere de 5 "
+#~ "secunde. Dacă nu vă auziți cu această întârziere, va trebuie să cercetați "
+#~ "setările audio, și probabil să instalați un driver full-duplex înainte de "
+#~ "a apela alți utilizatori GnomeMeeting.\n"
+#~ "\n"
+#~ "Înregistrez și redau...Vorbiți, vă rog!"
+
+#~ msgid "Speaker phone enabled"
+#~ msgstr "Receptorul este activat"
+
+#~ msgid "Speaker phone disabled"
+#~ msgstr "Receptorul este dezactivat"
+
+#~ msgid "Make a text chat with your friend"
+#~ msgstr "Faceți un text chat cu un prieten"
+
+#~ msgid "Display the control panel"
+#~ msgstr "Afișază panoul de control"
+
+#~ msgid ""
+#~ "Click here to activate the speaker phone device of your Quicknet card."
+#~ msgstr ""
+#~ "Apăsați aici să activez dispozitivul de recepție al plăcii Quicknet."
+
+#~ msgid "Searching for user"
+#~ msgstr "Căut utilizatorul"
+
+#~ msgid "Error while connecting to ILS directory"
+#~ msgstr "Eroarea la conectarea la Indexul de Utilizatori ILS"
+
+#~ msgid "Video Device Opened"
+#~ msgstr "Dispozitivul video este deschis"
+
+#~ msgid "Video Device Closed"
+#~ msgstr "Dispozitivul video este închis"
+
+#~ msgid "Tests OK!"
+#~ msgstr "Teste O.K!"
