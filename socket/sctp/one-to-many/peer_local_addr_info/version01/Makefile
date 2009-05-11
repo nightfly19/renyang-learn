@@ -23,6 +23,7 @@ clean:
 
 distclean: clean
 	rm -fv $(TARGET)
+	$(MAKE) $@ -C $(MAINPATH)/lib
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@

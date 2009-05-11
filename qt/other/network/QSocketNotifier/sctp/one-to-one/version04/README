@@ -1,0 +1,14 @@
+用來測試one-to-one的sctp是如何使用QSocketNotification
+
+操作方式
+
+server端
+./server
+
+client端
+./client
+
+[新增]可以偵測peer端是否有關掉連線
+
+[version04 新增]
+確認是否用connect也可以達到connectx的功能, 一次連到多個address
