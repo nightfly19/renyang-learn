@@ -1,0 +1,9 @@
+用來測試one-to-one的sctp是如何使用QSocketNotification
+
+操作方式
+
+server端
+./server
+
+client端
+./client
