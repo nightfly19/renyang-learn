@@ -4,3 +4,10 @@
 並且透過"exit"來結束程式
 
 而這一個應該就是one-to-one的模式
+
+執行方式
+server端:
+./server
+
+client端:
+./client 127.0.0.1

@@ -28,6 +28,7 @@ int main(int argc,char *argv[])
 	int MasterSock;
 	int connfd;
 	char recvbuf[FILEBUFFERSIZE];
+	int ret;
 
 	struct sockaddr_in SockAddr;
 	socklen_t AddrLen = sizeof(SockAddr);
@@ -54,10 +55,18 @@ int main(int argc,char *argv[])
 	while(1)
 	{
 		// 接收字串
-		if (RecvMsg(connfd,recvbuf) < 0)
+		if ((ret = RecvMsg(connfd,recvbuf)) == -1)
 		{
 			printf("Server recvive error\n");
 			exit(-1);
+		}
+		else if (ret == 0)
+		{
+			close(connfd);
+			printf("close connfd\n");
+			close(MasterSock);
+			printf("close MasterSock\n");
+			return 0;
 		}
 		// 列印出接收的字串
 		printf("cmd> %s",recvbuf);

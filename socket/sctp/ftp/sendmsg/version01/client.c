@@ -25,7 +25,7 @@ int SendMsg(int,char *);
 int main(int argc,char *argv[])
 {
 	// variable
-	char ipaddr[]="127.0.0.1";
+	char *ipaddr = argv[1];
 	char sendbuffer[FILEBUFFERSIZE];
 	char recvbuffer[FILEBUFFERSIZE];
 	struct sockaddr_in SockAddr;
@@ -35,6 +35,10 @@ int main(int argc,char *argv[])
 	// memset(ipaddr,0,sizeof(ipaddr));
 
 	// 與server端連線
+	if (argc < 2) {
+		printf("%s serverip\n",argv[0]);
+		return 0;
+	}
 	ServerSock = ConnectToServer(ipaddr);
 	printf("waiting for welcome....\n");
 	while(1) {
