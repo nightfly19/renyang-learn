@@ -200,7 +200,7 @@ private:
 
 	// renyang - modify - start
 	struct sockaddr_in sctp_sa;
-	QSocketNotifier *sctp_notifier;
+	QSocketNotifier *sctp_newconnection_notifier;
 	int sctp_sd;
 	// renyang - modify - end
 

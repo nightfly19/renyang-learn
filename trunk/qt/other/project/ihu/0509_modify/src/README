@@ -49,3 +49,5 @@ IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, re
 在建立Makefile就用以下的指令
 LIBS=-lsctp ./configure
 在編譯就會加入-lsctp這一個library啦
+
+[這一個程式碼主要是要把one-to-many的程式碼加入, 但是, 遇到一些困難, 先由one-to-one的加入吧]

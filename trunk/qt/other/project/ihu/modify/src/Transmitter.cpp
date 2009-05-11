@@ -146,7 +146,8 @@ void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 			break;
 	}
 	// renyang - 設定給TCP使用的啦
-	::getpeername(socket, (struct sockaddr *)&sa, &salen);
+	if (prot == IHU_UDP || prot == IHU_TCP)
+		::getpeername(socket, (struct sockaddr *)&sa, &salen);
 	start(socket);
 }
 
@@ -205,7 +206,7 @@ int Transmitter::call(QString host, int port, int prot)
 			real_protocol = 0;
 			break;
 		case IHU_SCTP:
-			type = SOCK_SEQPACKET;
+			type = SOCK_STREAM;
 			real_protocol = IPPROTO_SCTP;
 			break;
 		default:
@@ -273,8 +274,9 @@ void Transmitter::sendPacket(Packet *p)
 		// renyang - 就算是udp也可以使用::send, 因為是connect型態的udp
 		if (protocol == IHU_UDP || protocol == IHU_TCP)
 			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
-		else if (protocol == IHU_SCTP)
-			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)&sa,salen,0,0,0,0,0);
+		else if (protocol == IHU_SCTP) {
+			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,0,0,0);
+		}
 		// renyang - 傳送失敗
 		if (snt <= 0)
 		{
