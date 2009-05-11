@@ -243,6 +243,7 @@ void Call::start(int socket, int protocol)
 }
 
 // renyang - 建立一個傳送的protocol
+// renyang - 若是tcp, one-to-one sctp, 其struct sockaddr_in sa用不到
 void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 {
 #ifdef REN_DEBUG

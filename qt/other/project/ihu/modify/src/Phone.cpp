@@ -95,6 +95,10 @@ Phone::Phone(int mc)
 	notifier = NULL;
 	tcpserver = NULL;
 	sd = -1;
+	// renyang-modify - start
+	sctp_sd = -1;
+	sctp_newconnection_notifier = NULL;
+	// renyang-modify - end
 
 	rec_status = RECORDER_STATUS_STOP;
 	play_status = PLAYER_STATUS_STOP;
@@ -169,6 +173,11 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 #endif
 	inport = port;
 
+	// renyang-modify - 暫時修改為只能使用one-to-one style sctp
+	tcp = udp = false;
+	bool sctp = true;
+	// renyang-modify - end
+
 	// renyang - 在同一台電腦同一張網卡udp, tcp可以同時bind相同的port
 	if (udp)
 	{
@@ -203,16 +212,13 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 	}
 
 	// renyang - modify - start
-	int sctp = true;
 	if (sctp)
 	{
-		if ((sctp_sd = ::socket(AF_INET,SOCK_SEQPACKET,IPPROTO_SCTP)) == -1)
+		if ((sctp_sd = ::socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP)) == -1)
 			throw Error(tr("Can't initalize sctp socket! (socket())"));
-		if (::fcntl(sctp_sd,F_SETFL,O_NONBLOCK) == -1)
-			throw Error(tr("fcntl can't set socket property\n") + strerror(errno));
 
-		sctp_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
-		connect(sctp_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
+		sctp_newconnection_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
+		connect(sctp_newconnection_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
 
 		memset(&sctp_sa,0,sizeof(sctp_sa));
 		sctp_sa.sin_family = AF_INET;
@@ -227,6 +233,7 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		if (::bind(sctp_sd,(struct sockaddr *) &sctp_sa,sizeof(sctp_sa)) == -1)
 			throw Error(tr(QString("can't bind on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
 
+		// renyang - 事實上sctp_data_io_event可以不用設定開啟, 因為預設就是開啟
 		struct sctp_event_subscribe events;
 		memset((void *)&events,0,sizeof(events));
 		events.sctp_data_io_event = 1;
@@ -300,21 +307,24 @@ void Phone::newSCTPConnection(int socket)
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::newSCTPConnection(%1)").arg(socket));
 #endif
+	int connfd = ::accept(socket,(struct sockaddr *) NULL,(socklen_t *) NULL);
+	if (connfd == -1) {
+		qWarning("sctp accept error");
+	}
+
 	connections++;
-	delete sctp_notifier;
-	sctp_notifier = NULL;
 	int callId = newCall();
 	qWarning("Hello World");
 	if (callId >=0)
 	{
-		calls[callId]->start(socket,IHU_SCTP);
+		calls[callId]->start(connfd,IHU_SCTP);
 		receivedCall(callId);
+		qWarning("newSCTPConnection");
 	}
 	else
 	{
-		close(socket);
+		close(connfd);
 	}
-	qWarning("newSCTPConnection");
 }
 
 // renyang - 當有電話進來, 改變圖示, 開始播放器
@@ -378,6 +388,10 @@ void Phone::stopWaiting()
 	if (notifier)
 		delete notifier;
 	notifier = NULL;
+
+	if (sctp_newconnection_notifier)
+		delete sctp_newconnection_notifier;
+	sctp_newconnection_notifier = NULL;
 
 	// renyang - 刪掉udp的socket descriptor
 	if (sd != -1)
@@ -530,7 +544,6 @@ void Phone::call(int callId, QString host, int port, int prot)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::call(%1, %2, %3, %4)").arg(callId).arg(host).arg(port).arg(prot));
-	prot = IHU_SCTP;
 #endif
 	// renyang - 暫時 - start
 	prot = IHU_SCTP;
