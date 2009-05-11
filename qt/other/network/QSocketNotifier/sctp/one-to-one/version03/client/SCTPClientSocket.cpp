@@ -43,6 +43,8 @@ void SCTPClientSocket::connectToHost(const QString &host, Q_UINT16 port)
 		perror("connect error");
 		exit(1);
 	}
+	sctp_notification = new QSocketNotifier(connSock,QSocketNotifier::Read,this,"sctp_notification");
+	connect(sctp_notification,SIGNAL(activated(int)),this,SLOT(recvMsg(int)));
 	qWarning("connectToHost success!");
 }
 
@@ -65,5 +67,27 @@ int SCTPClientSocket::sendMsg(QString str)
 		perror("sendMsg error");
 		exit(-1);
 	}
+	return ret;
+}
+
+int SCTPClientSocket::recvMsg(int s)
+{
+	int ret;
+	char recvbuffer[1024];
+	bzero(recvbuffer,1024);
+	ret = sctp_recvmsg(s,recvbuffer,1024,(struct sockaddr *) NULL,0,(struct sctp_sndrcvinfo *) NULL, (int *) NULL);
+	if (ret == -1) {
+		perror("sctp_recvmsg error");
+		exit(-1);
+	}
+	else if (ret == 0) {
+		delete sctp_notification;
+		sctp_notification = NULL;
+		close(s);
+		emit serverclosed();
+		qWarning("peer endpoint close the connection");
+	}
+	qWarning("recv success");
+	
 	return ret;
 }
