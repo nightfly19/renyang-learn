@@ -77,6 +77,7 @@ int SCTPServerSocket::recvMsg(int s)
 		perror("sctp_recvmsg error");
 		exit(-1);
 	}
+	// 當有收到訊息, 但是長度為0, 那就表示對方離開了
 	else if (ret == 0) {
 		delete sctp_notification;
 		sctp_notification = NULL;
@@ -85,6 +86,20 @@ int SCTPServerSocket::recvMsg(int s)
 		return ret;
 	}
 	qWarning("sctp_recvmsg success!!");
+	connfd = s;
 	qWarning("%s",recvbuffer);
+	sendMsg(QString("%1").arg(recvbuffer));
+	return ret;
+}
+
+int SCTPServerSocket::sendMsg(QString str)
+{
+	int ret;
+	ret = sctp_sendmsg(connfd,str.latin1(),str.length()+1,(struct sockaddr *) NULL,0,0,0,0,0,0);
+	if (ret == -1) {
+		perror("sctp_sendmsg error");
+		exit(-1);
+	}
+	qWarning("sctp_sendmsg success");
 	return ret;
 }

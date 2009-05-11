@@ -7,3 +7,5 @@ server端
 
 client端
 ./client
+
+[新增]可以偵測peer端是否有關掉連線

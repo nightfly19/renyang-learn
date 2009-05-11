@@ -16,8 +16,10 @@ class SCTPServerSocket:public QObject
 		QSocketNotifier *sctp_newconnection_notification;
 		QSocketNotifier *sctp_notification;
 		int listenfd;
+		int connfd;
 		struct sockaddr_in serv_addr;
 		struct sctp_initmsg initmsg;
+		int sendMsg(QString);
 
 	signals:
 		void newConnection(int);
