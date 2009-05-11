@@ -16,5 +16,7 @@ int main(int argc,char **argv)
 
 	printf("%d\n",strlen(str.latin1()));
 
+	printf("%d\n",str.length());
+
 	return 0;
 }
