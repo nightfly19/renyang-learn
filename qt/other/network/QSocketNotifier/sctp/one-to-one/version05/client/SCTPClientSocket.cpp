@@ -45,6 +45,8 @@ void SCTPClientSocket::connectToHost(const QString &host, Q_UINT16 port)
 	}
 	sctp_notification = new QSocketNotifier(connSock,QSocketNotifier::Read,this,"sctp_notification");
 	connect(sctp_notification,SIGNAL(activated(int)),this,SLOT(recvMsg(int)));
+	userinput = new QSocketNotifier(0,QSocketNotifier::Read,this,"userinput");
+	connect(userinput,SIGNAL(activated(int)),this,SLOT(getMsg(int)));
 	qWarning("connectToHost success!");
 }
 
@@ -62,7 +64,7 @@ int SCTPClientSocket::SCTPSendmsg(const void *msg,size_t len,struct sockaddr *to
 int SCTPClientSocket::sendMsg(QString str)
 {
 	int ret;
-	ret = sctp_sendmsg(connSock,str.latin1(),str.length()+1,(struct sockaddr *) NULL,0,0,0,0,0,0);
+	ret = sctp_sendmsg(connSock,str.latin1(),str.length(),(struct sockaddr *) NULL,0,0,0,0,0,0);
 	if (ret == -1) {
 		perror("sendMsg error");
 		exit(-1);
@@ -90,4 +92,13 @@ int SCTPClientSocket::recvMsg(int s)
 	qWarning("%s",recvbuffer);
 	
 	return ret;
+}
+
+void SCTPClientSocket::getMsg(int s)
+{
+	char getline[1024];
+	int ret;
+	bzero(getline,1024);
+	gets(getline);
+	sendMsg(QString(getline));
 }
