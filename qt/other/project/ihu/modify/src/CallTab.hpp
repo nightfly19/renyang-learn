@@ -33,6 +33,9 @@ class QComboBox;
 class QPushButton;
 class QToolButton;
 class QStatusBar;
+// renyang-modify
+class QListBox;
+// renyang-modify
 
 class CallTab : public QWidget
 {
@@ -59,6 +62,9 @@ public:
 	QLabel *lockPixmap;
 	QToolButton* muteSpkButton;
 	QToolButton* muteMicButton;
+	// renyang-modify - 增加host list的指標
+	QListBox *hostList;
+	// renyang-modify - end
 
 	void addHost(QString);
 	void clearHosts();
