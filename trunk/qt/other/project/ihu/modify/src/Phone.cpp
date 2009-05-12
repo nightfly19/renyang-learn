@@ -312,6 +312,8 @@ void Phone::newSCTPConnection(int socket)
 		qWarning("sctp accept error");
 	}
 
+	socket2peeraddress(connfd);
+
 	connections++;
 	int callId = newCall();
 	qWarning("Hello World");
@@ -319,7 +321,6 @@ void Phone::newSCTPConnection(int socket)
 	{
 		calls[callId]->start(connfd,IHU_SCTP);
 		receivedCall(callId);
-		qWarning("newSCTPConnection");
 	}
 	else
 	{
@@ -1484,5 +1485,22 @@ void Phone::playRing(int callId)
 		ringPtr = 0;
 		ringCount = IHU_RING_COUNT;
 		ringing = true;
+	}
+}
+
+void Phone::socket2peeraddress(int connfd)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::socket2peeraddress(%1)").arg(connfd));
+#endif
+	int addrcnt;
+	struct sockaddr *addrs;
+	int i;
+	addrcnt = ::sctp_getpaddrs(connfd,0,&addrs);
+	if (addrcnt == -1) {
+		throw Error(tr("Can't initalize socket! (socket())"));
+	}
+	for (i=0;i<addrcnt;i++) {
+		qWarning("%s",inet_ntoa(((struct sockaddr_in *) addrs+i)->sin_addr));
 	}
 }

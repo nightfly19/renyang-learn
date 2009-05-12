@@ -94,10 +94,9 @@ int SCTPClientSocket::recvMsg(int s)
 	return ret;
 }
 
-void SCTPClientSocket::getMsg(int s)
+void SCTPClientSocket::getMsg(int)
 {
 	char getline[1024];
-	int ret;
 	bzero(getline,1024);
 	gets(getline);
 	sendMsg(QString(getline));
