@@ -41,16 +41,18 @@
 CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const char* name, WFlags fl )
     : QWidget( parent, name, fl )
 {
+	// renyang - 設定這一個widget的佈局
 	setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, 0, 0, sizePolicy().hasHeightForWidth() ) );
 
+	// renyang - 設定這一個CallTab對方打電話過來的名字
 	callName = QString(name);
 
-	QBoxLayout *mainLayout = new QVBoxLayout( this, 0, 10);
+	QBoxLayout *mainLayout = new QVBoxLayout( this, 0, 10,"mainLayout");
 
 	mainFrame = new QFrame( this, "ledFrame" );
 	mainLayout->addWidget(mainFrame);
 	
-	QBoxLayout *mLayout = new QVBoxLayout( mainFrame, 0, 10);
+	QBoxLayout *mLayout = new QVBoxLayout( mainFrame, 0, 10,"mLayout");
 
 	mLayout->addSpacing(10);
 
@@ -67,19 +69,36 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	mhLayout->addStretch();
 	
 	mLayout->addStretch();
-	
+
+// renyang - 增加一個hostlist可以顯示所有的peer address-----------------------
 	QBoxLayout *mhLayout0 = new QHBoxLayout(mLayout);
+
+	mhLayout0->addSpacing(5);
+
+	QBoxLayout *mvLayout = new QVBoxLayout(mhLayout0);
 
 	hostEdit = new QComboBox( TRUE, mainFrame, "hostEdit" );
 	hostEdit->setMinimumSize( QSize(100, 30) );
+	// renyang - 設定自動補齊
 	hostEdit->setAutoCompletion(TRUE);
 	hostEdit->setDuplicatesEnabled(FALSE);
+	// renyang - the string will not be inserted into the combobox
 	hostEdit->setInsertionPolicy(QComboBox::NoInsertion);
 	hostEdit->clear();
 
+	hostList = new QListBox(mainFrame,"hostList");
+	hostList->setMinimumSize(QSize(100,100));
+
+	mvLayout->addSpacing(5);
+	mvLayout->addWidget(hostEdit);
+	mvLayout->addSpacing(5);
+
+	mvLayout->addSpacing(5);
+	mvLayout->addWidget(hostList);
+	mvLayout->addSpacing(5);
+
 	mhLayout0->addSpacing(5);
-	mhLayout0->addWidget(hostEdit);
-	mhLayout0->addSpacing(5);
+// renyang --------------------------------------------------------------------
 	
 	mLayout->addStretch();
 	
@@ -94,6 +113,7 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	
 	ringButton = new QToolButton( mainFrame, "ringButton" );
 	ringButton->setFixedSize( QSize(40, 35) );
+	// renyang - 設定為可以on/off的按扭
 	ringButton->setToggleButton(TRUE);
 	ringButton->setIconSet( QIconSet( QPixmap::fromMimeSource( "bell.png" ) ) );
 	ringButton->setEnabled(FALSE);
@@ -171,7 +191,9 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 
 	mhLayout2->addSpacing(30);
 
+	// renyang - The QStatusBar class provides a horizontal bar suitable for presenting status information
 	statusbar = new QStatusBar(this, "statusbar");
+	// renyang - 讓QStatusBar的右下角不會出現可以調整大小的三角型
 	statusbar->setSizeGripEnabled(FALSE);
 
 	QWidget *trafficWidget = new QWidget( this, "trafficWidget");
@@ -179,7 +201,7 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	trafficLabel = new QLabel( trafficWidget, "trafficLabel" );
 	trafficLabel->setEnabled(FALSE);
 	tLayout->addWidget(trafficLabel);
-	statusbar->addWidget( trafficWidget, 0, TRUE);
+	statusbar->addWidget( trafficWidget, 0, true);
 	
 	mainLayout->addWidget(statusbar);
 
