@@ -312,8 +312,6 @@ void Phone::newSCTPConnection(int socket)
 		qWarning("sctp accept error");
 	}
 
-	socket2peeraddress(connfd);
-
 	connections++;
 	int callId = newCall();
 	qWarning("Hello World");
@@ -426,6 +424,10 @@ int Phone::createCall()
 		connect( calls[newId], SIGNAL(cryptedSignal(int)), this, SLOT(cryptCall(int)) );	
 		connect( calls[newId], SIGNAL(initSignal(int)), this, SLOT(playInit(int)) );	
 		connect( calls[newId], SIGNAL(ringSignal(int)), this, SLOT(playRing(int)) );	
+
+		// renyang-modify - 可以接收對方的ipaddress
+		connect( calls[newId],SIGNAL(SignalgetIps(int,QStringList)),this,SLOT(SlotgetIps(int,QStringList)));
+		// renyang-modify - end
 	}
 	return newId;
 }
@@ -1488,19 +1490,13 @@ void Phone::playRing(int callId)
 	}
 }
 
-void Phone::socket2peeraddress(int connfd)
+void Phone::SlotgetIps(int callId,QStringList addrs_list)
 {
 #ifdef REN_DEBUG
-	qWarning(QString("Phone::socket2peeraddress(%1)").arg(connfd));
+	qWarning(QString("Phone::SlotgetIps(%1,QStringList addrs_list)").arg(callId));
 #endif
-	int addrcnt;
-	struct sockaddr *addrs;
-	int i;
-	addrcnt = ::sctp_getpaddrs(connfd,0,&addrs);
-	if (addrcnt == -1) {
-		throw Error(tr("Can't initalize socket! (socket())"));
-	}
-	for (i=0;i<addrcnt;i++) {
-		qWarning("%s",inet_ntoa(((struct sockaddr_in *) addrs+i)->sin_addr));
+	for (QStringList::Iterator it = addrs_list.begin();it != addrs_list.end();++it)
+	{
+		qWarning(*it);
 	}
 }

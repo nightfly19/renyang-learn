@@ -87,6 +87,10 @@ Call::Call(int callId, QString myName)
 	connect( receiver, SIGNAL(newAudioData(char*, int)), this, SLOT(decodeAudioData(char*, int)) );
 	connect( receiver, SIGNAL(ringReplySignal()), transmitter, SLOT(sendRingReplyPacket()) );
 
+	// renyang-modify - 接收由receiver傳送上來的peer address
+	connect (receiver,SIGNAL(SignalgetIps(QStringList)),this,SLOT(SlotgetIps(QStringList)));
+	// renyang-modify - end
+
 	connect( transmitter, SIGNAL(ringMessage()), this, SLOT(ringMessage()) );
 	connect( transmitter, SIGNAL(finishSignal()), this, SLOT(stopCall()) );
 	connect( transmitter, SIGNAL(error(QString)), this, SLOT(abortCall(QString)) );
@@ -94,6 +98,7 @@ Call::Call(int callId, QString myName)
 	connect( transmitter, SIGNAL(startSignal()), this, SLOT(startRecorder()) );
 
 	connect( stopTimer, SIGNAL(timeout()), this, SLOT(close()) );
+
 }
 
 Call::~Call()
@@ -714,4 +719,12 @@ bool Call::isRecording()
 	qWarning("Call::isRecording()");
 #endif
 	return recording;
+}
+
+void Call::SlotgetIps(QStringList addrs_list)
+{
+#ifdef REN_DEBUG
+	qWarning("Call::SlotgetIps()");
+#endif
+	emit SignalgetIps(id,addrs_list);
 }
