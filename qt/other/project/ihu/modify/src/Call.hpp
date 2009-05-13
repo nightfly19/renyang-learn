@@ -84,7 +84,7 @@ public:
 private:
 	// renyang - 表示目前call id
 	int id;
-	// renyang - 在client端程式代表server端的socket
+	// renyang - 表示peer端的socket
 	int sd;
 
 	Rsa *rsa;
@@ -138,6 +138,7 @@ public slots:
 	void playInit();
 	// renyang-modify - 接收由call傳送上來的peer address
 	void SlotgetIps(QStringList);
+	void setPrimaddr(QString);
 	// renyang-modify - end
 
 signals:

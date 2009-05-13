@@ -89,12 +89,19 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	hostList = new QListBox(mainFrame,"hostList");
 	hostList->setMinimumSize(QSize(100,100));
 
+	primButton = new QPushButton(mainFrame,"primButton");
+	primButton->setMinimumSize(QSize(130,35));
+
 	mvLayout->addSpacing(5);
 	mvLayout->addWidget(hostEdit);
 	mvLayout->addSpacing(5);
 
 	mvLayout->addSpacing(5);
 	mvLayout->addWidget(hostList);
+	mvLayout->addSpacing(5);
+
+	mvLayout->addSpacing(5);
+	mvLayout->addWidget(primButton);
 	mvLayout->addSpacing(5);
 
 	mhLayout0->addSpacing(5);
@@ -211,6 +218,8 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	connect( hostEdit->lineEdit(), SIGNAL( returnPressed() ), this, SLOT( callButtonClicked() ) );
 	connect( muteMicButton, SIGNAL( clicked() ), this, SLOT( muteMicButtonClicked() ) );
 	connect( muteSpkButton, SIGNAL( clicked() ), this, SLOT( muteSpkButtonClicked() ) );
+	// renyang-modify - 新增當按下primButton時, 會做什麼事
+	connect( primButton,SIGNAL(clicked()),this,SLOT(primButtonClicked()));
 
 	languageChange();
 
@@ -246,6 +255,9 @@ void CallTab::languageChange()
 	hostname->setText( tr( "Receiver address" ) );
 	callButton->setText( tr( "&Call" ) );
 	stopButton->setText( tr( "&Hang up" ) );
+	// renyang-modify - 加入按扭文字
+	primButton->setText( tr ("Set &Primary Path"));
+	// renyang-modify - end
 	ringButton->setText( QString::null );
 	callButton->setAccel( QKeySequence( tr( "Alt+C" ) ) );
 	ringButton->setAccel( QKeySequence( tr( "Alt+B" ) ) );
@@ -533,5 +545,25 @@ void CallTab::change_hostList(QStringList addrs_list)
 	for (QStringList::Iterator it = addrs_list.begin();it != addrs_list.end();++it)
 	{
 		hostList->insertItem(*it);
+	}
+}
+
+void CallTab::primButtonClicked()
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::primButtonClicked()");
+#endif
+	uint i;
+	if (hostList->count()>0)
+	{
+		for (i=0;i<hostList->count();i++)
+		{
+			if (hostList->isSelected(i)) {
+				// renyang - 設定其中一個為primary address
+				qWarning(hostList->text(i));
+				emit setPrimaddrSignal(callId,hostList->text(i));
+				break;
+			}
+		}
 	}
 }

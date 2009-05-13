@@ -1497,3 +1497,11 @@ void Phone::SlotgetIps(int callId,QStringList addrs_list)
 #endif
 	emit SignalgetIps(callId,addrs_list);
 }
+
+void Phone::setPrimaddr(int callId,QString primaddr)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::setPrimaddr(%1,%2)").arg(callId).arg(primaddr));
+#endif
+	calls[callId]->setPrimaddr(primaddr);
+}

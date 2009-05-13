@@ -185,6 +185,8 @@ public slots:
 
 	// renyang-modify - 接收由call傳送上來的peer address
 	void SlotgetIps(int,QStringList);
+	// renyang-modify - 修改由callTab傳送上來要改的primary address
+	void setPrimaddrSlot(int,QString);
 	// renyang-modify - end
 
 private:
