@@ -734,5 +734,22 @@ void Call::setPrimaddr(QString primaddr)
 #ifdef REN_DEBUG
 	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
 #endif
+	struct sctp_setprim setprim;
+	socklen_t setprimlen;
+	struct sockaddr_in *peeraddr;
+	int ret;
+
+	ret = ::getsockopt(sd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&setprim,&setprimlen);
+	if (ret == -1) {
+		qWarning("getsockopt:SCTP_PRIMARY_ADDR error");
+	}
+	
+	peeraddr = (struct sockaddr_in *) &setprim.ssp_addr;
+	(peeraddr->sin_addr).s_addr = inet_addr(primaddr.latin1());
+	ret = ::setsockopt(sd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&setprim,setprimlen);
+	if (ret == -1) {
+		qWarning("setsockopt:SCTP_PRIMARY_ADDR error");
+	}
+
 	qWarning(QString("want to change the primary:%1").arg(primaddr));
 }

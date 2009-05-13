@@ -278,8 +278,6 @@ void Receiver::receive()
 				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(struct sockaddr *) &peer,&peerlen,&sndrcvinfo,&msg_flag);
 				if (msg_flag & MSG_NOTIFICATION)
 					return ;
-				primaddr = ::inet_ntoa(peer.sin_addr);
-				qWarning(primaddr);
 				if (primaddr != ::inet_ntoa(peer.sin_addr)) {
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
 					primaddr = ::inet_ntoa(peer.sin_addr);
