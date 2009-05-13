@@ -282,6 +282,7 @@ void Receiver::receive()
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
 					primaddr = ::inet_ntoa(peer.sin_addr);
 					qWarning(primaddr);
+					emit setPrimaddrSignal(primaddr);
 				}
 				break;
 		}

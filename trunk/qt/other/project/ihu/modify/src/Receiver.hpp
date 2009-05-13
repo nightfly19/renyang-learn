@@ -165,6 +165,8 @@ signals:
 	void newAudioData(char*, int);
 	// renyang-modify - 把對方的ips傳送給call
 	void SignalgetIps(QStringList);
+	// renyang-modify - 設定要送到對方的primary address
+	void setPrimaddrSignal(QString);
 	// renyang-modify - end
 };
 
