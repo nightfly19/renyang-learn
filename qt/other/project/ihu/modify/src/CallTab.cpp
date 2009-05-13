@@ -321,6 +321,7 @@ void CallTab::stopButtonClicked()
 	callButton->setEnabled(FALSE);
 	stopButton->setEnabled(FALSE);
 	ringButton->setEnabled(FALSE);
+
 	emit stopSignal(callId);
 }
 
@@ -365,6 +366,7 @@ void CallTab::connectedCall()
 	talking = true;
 }
 
+// renyang - 當掛斷電話時, 或是對方掛斷電話時
 void CallTab::stopCall()
 {
 	callButton->setEnabled(TRUE);
@@ -385,6 +387,10 @@ void CallTab::stopCall()
 	trafficLabel->setEnabled(FALSE);
 	received = false;
 	talking = false;
+
+	// renyang-modify - 清掉hostList
+	hostList->clear();
+	// renyang-modify - end
 }
 
 void CallTab::abortCall()
@@ -516,4 +522,16 @@ bool CallTab::isStopButtonEnabled()
 void CallTab::setRingButton(bool on)
 {
 	ringButton->setOn(on);
+}
+
+void CallTab::change_hostList(QStringList addrs_list)
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::change_hostList()");
+#endif
+	hostList->clear();
+	for (QStringList::Iterator it = addrs_list.begin();it != addrs_list.end();++it)
+	{
+		hostList->insertItem(*it);
+	}
 }

@@ -183,6 +183,10 @@ public slots:
 	virtual void abortAll(QString);
 	virtual void abortWait(QString);
 
+	// renyang-modify - 接收由call傳送上來的peer address
+	void SlotgetIps(int,QStringList);
+	// renyang-modify - end
+
 private:
 	bool closing;
 	// renyang - 是否要自動回覆

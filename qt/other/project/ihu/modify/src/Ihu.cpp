@@ -410,6 +410,9 @@ void Ihu::initIhu()
 		connect( phone, SIGNAL(newCallSignal(int)), this, SLOT(newCall(int)) );
 		connect( phone, SIGNAL(recorderSignal(bool)), this, SLOT(enableRecorder(bool)) );
 		connect( phone, SIGNAL(playerSignal(bool)), this, SLOT(enablePlayer(bool)) );
+
+		// renyang-modify - 接收由phone傳送上來的peer address
+		connect (phone,SIGNAL(SignalgetIps(int,QStringList)),this,SLOT(SlotgetIps(int,QStringList)));
 	
 		applySettings();
 
@@ -1392,4 +1395,12 @@ void Ihu::helpAbout()
 	"Using SoundTouch - Copyright (C) Olli Parviainen\n\n"
 	"Visit home page at http://ihu.sourceforge.net\n"
 	);
+}
+
+void Ihu::SlotgetIps(int callId,QStringList addrs_list)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::SlotgetIps(%1,QStringList addrs_list)").arg(callId));
+#endif
+	callTab[callId]->change_hostList(addrs_list);
 }

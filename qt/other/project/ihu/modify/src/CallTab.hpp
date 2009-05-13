@@ -92,6 +92,10 @@ public:
 	bool isStopButtonEnabled();
 	void setRingButton(bool);
 
+	// renyang-modify - 改變hostList的內容
+	void change_hostList(QStringList addrs_list);
+	// renyang-modify - end
+
 private:
 	int callId;
 	bool received;

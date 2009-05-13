@@ -1495,8 +1495,5 @@ void Phone::SlotgetIps(int callId,QStringList addrs_list)
 #ifdef REN_DEBUG
 	qWarning(QString("Phone::SlotgetIps(%1,QStringList addrs_list)").arg(callId));
 #endif
-	for (QStringList::Iterator it = addrs_list.begin();it != addrs_list.end();++it)
-	{
-		qWarning(*it);
-	}
+	emit SignalgetIps(callId,addrs_list);
 }

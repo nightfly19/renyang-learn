@@ -285,6 +285,8 @@ signals:
 	void newCallSignal(int);
 	void recorderSignal(bool);
 	void playerSignal(bool);
+	// renyang-modify - 傳送由call回傳上來的peer ipaddress
+	void SignalgetIps(int,QStringList);
 };
 
 #endif
