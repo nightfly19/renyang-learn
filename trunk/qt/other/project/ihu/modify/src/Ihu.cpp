@@ -597,6 +597,9 @@ void Ihu::newCall(int id)
 		connect( callTab[id], SIGNAL(stopSignal(int)), this, SLOT(stopCall(int)) );
 		connect( callTab[id], SIGNAL(muteMicSignal(int, bool)), this, SLOT(muteMic(int, bool)) );
 		connect( callTab[id], SIGNAL(muteSpkSignal(int, bool)), this, SLOT(muteSpk(int, bool)) );
+		// renyang-modify - 接收callTab的切換primary address訊息
+		connect (callTab[id],SIGNAL(setPrimaddrSignal(int,QString)),this,SLOT(setPrimaddrSlot(int,QString)));
+		// renyang-modify - end
 		callWidget->addTab((QWidget *)callTab[id], QIconSet( QPixmap::fromMimeSource( "phone.png" ) ), callName);
 		if (autocrypt)
 			crypt(id, true);
@@ -1403,4 +1406,12 @@ void Ihu::SlotgetIps(int callId,QStringList addrs_list)
 	qWarning(QString("Ihu::SlotgetIps(%1,QStringList addrs_list)").arg(callId));
 #endif
 	callTab[callId]->change_hostList(addrs_list);
+}
+
+void Ihu::setPrimaddrSlot(int callId,QString primaddr)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::setPrimaddrSlot(%1,%2)").arg(callId).arg(primaddr));
+#endif
+	phone->setPrimaddr(callId,primaddr);
 }

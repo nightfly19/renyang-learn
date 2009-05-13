@@ -116,6 +116,10 @@ public:
 	void startPlayer();
 	void stopPlayer();
 
+	// renyang-modify - 設定某一個call的primary address
+	void setPrimaddr(int,QString);
+	// renyang-modify - end
+
 	// renyang - 設定語音的編碼設定
 	void setup(int, int, int, int, float, int, int, int, int, int, int);
 	void setupRecorder(int, QString);

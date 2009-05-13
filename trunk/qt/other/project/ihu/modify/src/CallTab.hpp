@@ -64,6 +64,7 @@ public:
 	QToolButton* muteMicButton;
 	// renyang-modify - 增加host list的指標
 	QListBox *hostList;
+	QPushButton *primButton;
 	// renyang-modify - end
 
 	void addHost(QString);
@@ -112,6 +113,9 @@ public slots:
 	virtual void message(QString);
 	virtual void muteMicButtonClicked();
 	virtual void muteSpkButtonClicked();
+	// renyang-modify - 處理按下primButton的事件
+	void primButtonClicked();
+	// renyang-modify - end
 
 protected slots:
 	virtual void languageChange();
@@ -123,6 +127,8 @@ signals:
 	void ringSignal(int, bool);
 	void muteMicSignal(int, bool);
 	void muteSpkSignal(int, bool);
+	// renyang-modify - 設定primary address
+	void setPrimaddrSignal(int,QString);
 };
 
 #endif

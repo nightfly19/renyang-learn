@@ -140,6 +140,8 @@ private:
 	QString callerName;
 	int protocol;
 	void emitSignal(signal_type);
+	// renyang-modify - 用來記錄old primaddr
+	QString primaddr;
 
 public slots:
 	void receive(void);

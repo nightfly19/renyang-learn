@@ -728,3 +728,11 @@ void Call::SlotgetIps(QStringList addrs_list)
 #endif
 	emit SignalgetIps(id,addrs_list);
 }
+
+void Call::setPrimaddr(QString primaddr)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
+#endif
+	qWarning(QString("want to change the primary:%1").arg(primaddr));
+}

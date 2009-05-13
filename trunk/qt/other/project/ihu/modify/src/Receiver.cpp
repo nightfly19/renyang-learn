@@ -72,6 +72,10 @@ Receiver::Receiver(Rsa *r) : rsa(r)
 	reset();
 	resetStream();
 
+	// renyang-modify - 初始化primaddr
+	primaddr = "";
+	// renyang-modify - end
+
 	connect(checkTimer, SIGNAL(timeout()), this, SLOT(checkConnection()));
 }
 
@@ -247,6 +251,8 @@ void Receiver::receive()
 #endif
 	struct sctp_sndrcvinfo sndrcvinfo;
 	QString ip_from;
+	struct sockaddr_in peer;
+	socklen_t peerlen = sizeof(peer);
 	int msg_flag;
 
 	if (working)
@@ -269,9 +275,16 @@ void Receiver::receive()
 				break;
 			case IHU_SCTP:
 				qWarning("get some data from sctp");
-				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(struct sockaddr *)NULL,(socklen_t *) NULL,&sndrcvinfo,&msg_flag);
+				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(struct sockaddr *) &peer,&peerlen,&sndrcvinfo,&msg_flag);
 				if (msg_flag & MSG_NOTIFICATION)
 					return ;
+				primaddr = ::inet_ntoa(peer.sin_addr);
+				qWarning(primaddr);
+				if (primaddr != ::inet_ntoa(peer.sin_addr)) {
+					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
+					primaddr = ::inet_ntoa(peer.sin_addr);
+					qWarning(primaddr);
+				}
 				break;
 		}
 
