@@ -269,7 +269,7 @@ public slots:
 	void playCallback();
 	// renyang - modify - start
 	void newSCTPConnection(int);
-	void socket2peeraddress(int);
+	void SlotgetIps(int,QStringList);
 	// renyang - modify - end
 
 signals:

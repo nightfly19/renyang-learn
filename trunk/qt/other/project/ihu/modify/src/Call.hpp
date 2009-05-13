@@ -82,6 +82,7 @@ public:
 	bool isRecording();
 
 private:
+	// renyang - 表示目前call id
 	int id;
 	// renyang - 在client端程式代表server端的socket
 	int sd;
@@ -135,6 +136,9 @@ public slots:
 	bool mixData(float*, int, float);
 	void playRing();
 	void playInit();
+	// renyang-modify - 接收由call傳送上來的peer address
+	void SlotgetIps(QStringList);
+	// renyang-modify - end
 
 signals:
 	void connectedSignal(int);
@@ -146,6 +150,9 @@ signals:
 	void cryptedSignal(int);
 	void ringSignal(int);
 	void initSignal(int);
+	// renyang-modify - 傳送由peer address到phone
+	void SignalgetIps(int,QStringList);
+	// renyang-modify - end
 };
 
 #endif

@@ -32,6 +32,7 @@
 #include <qobject.h>
 #include <qstring.h>
 #include <qtimer.h>
+#include <qstringlist.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -99,6 +100,9 @@ public:
 	void setReceived(bool);
 	bool isReceived();
 	bool isActive();
+	// renyang-modify - 可以取得peer端的所有ip
+	void getIps();
+	// renyang-modify
 
 private:
 	// renyang - client socket file descriptor
@@ -157,6 +161,9 @@ signals:
 	void newSocket(int,int,struct sockaddr_in);
 	void connectedSignal();
 	void newAudioData(char*, int);
+	// renyang-modify - 把對方的ips傳送給call
+	void SignalgetIps(QStringList);
+	// renyang-modify - end
 };
 
 #endif

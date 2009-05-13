@@ -565,6 +565,10 @@ void Receiver::go()
 	qWarning("Receiver::go()");
 #endif
 	working = true;
+	// renyang-modify - 只有在IHU_SCTP時才會有效果
+	if (protocol == IHU_SCTP)
+		getIps();
+	// renyang-modify - end
 }
 
 long Receiver::getBytes()
@@ -733,4 +737,27 @@ bool Receiver::isActive()
 	bool temp = active;
 	active = false;
 	return temp;
+}
+
+void Receiver::getIps()
+{
+#ifdef REN_DEBUG
+	qWarning("Receiver::getIps()");
+#endif
+	struct sockaddr *addrs;
+	int addrcnt;
+	int index;
+	QStringList addrs_list;
+	addrcnt = ::sctp_getpaddrs(s,0,&addrs);
+	if (addrcnt == -1) {
+		throw Error(QString("Receiver::getIps() error"));
+	}
+	else {
+		for (index=0;index<addrcnt;index++) {
+			addrs_list.append(inet_ntoa(((struct sockaddr_in *) addrs+index)->sin_addr));
+		}
+	}
+
+	::sctp_freepaddrs(addrs);
+	emit SignalgetIps(addrs_list);
 }
