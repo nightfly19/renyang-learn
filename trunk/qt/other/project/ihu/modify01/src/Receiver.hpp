@@ -144,6 +144,8 @@ private:
 	void emitSignal(signal_type);
 	// renyang-modify - 用來記錄old primaddr
 	QString primaddr;
+	// renyang-modify - 用來處理sctp的事件
+	void emitSctpEvent(void *);
 
 public slots:
 	void receive(void);
