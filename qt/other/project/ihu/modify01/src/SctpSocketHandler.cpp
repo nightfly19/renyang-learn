@@ -200,6 +200,7 @@ void SctpSocketHandler :: SctpSetPrim(int sd,QString primaddr)
 	struct sockaddr_in *peeraddr;
 	int ret;
 
+	setprimlen = sizeof(setprim);
 	ret = ::getsockopt(sd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&setprim,&setprimlen);
 	if (ret == -1) {
 		qWarning("getsockopt:SCTP_PRIMARY_ADDR error");
@@ -210,6 +211,7 @@ void SctpSocketHandler :: SctpSetPrim(int sd,QString primaddr)
 	ret = ::setsockopt(sd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&setprim,setprimlen);
 	if (ret == -1) {
 		qWarning("setsockopt:SCTP_PRIMARY_ADDR error");
+		return ;
 	}
 
 	qWarning(QString("want to change the primary to %1").arg(primaddr));
