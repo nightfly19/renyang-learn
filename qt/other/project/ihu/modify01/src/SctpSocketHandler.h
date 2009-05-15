@@ -55,9 +55,9 @@ class SctpSocketHandler
 		static QString SctpGetPrim(int sd);
 		static void SctpSetPrim(int sd,QString primaddr);
 		static void SctpSetPeerPrim(int sd);
+		static char *Sock_ntop(const struct sockaddr *,socklen_t);
 
 	private:
-
 }; 
 
 #endif

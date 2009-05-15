@@ -843,7 +843,8 @@ void Receiver::emitSctpEvent(void *notify_buf)
                         str = "UNKNOWN";
                         break;
                 } /* end switch(spc->spc_state) */
-                printf("SCTP_PEER_ADDR_CHANGE: %s, assoc=0x%x\n", str,
+                printf("SCTP_PEER_ADDR_CHANGE: %s, addr=%s, assoc=0x%x\n", str,
+			SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr)),
                        (uint32_t)spc->spc_assoc_id);
                 break;
         case SCTP_REMOTE_ERROR:
