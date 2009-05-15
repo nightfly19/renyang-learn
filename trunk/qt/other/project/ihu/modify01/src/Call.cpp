@@ -89,6 +89,8 @@ Call::Call(int callId, QString myName)
 
 	// renyang-modify - 接收由receiver傳送上來的peer address
 	connect (receiver,SIGNAL(SignalgetIps(QStringList)),this,SLOT(SlotgetIps(QStringList)));
+	// renyang-modify - 當Receiver接收到與之前的primary不同時, 要求改變primary address
+	connect (receiver,SIGNAL(setPrimaddrSignal(QString)),this,SLOT(setPrimaddr(QString)));
 	// renyang-modify - end
 
 	connect( transmitter, SIGNAL(ringMessage()), this, SLOT(ringMessage()) );
