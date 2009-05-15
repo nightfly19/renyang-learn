@@ -220,7 +220,12 @@ int Transmitter::call(QString host, int port, int prot)
 	// renyang - 此socket是用來控制連到server端用的
 	if ((::connect(sd, (struct sockaddr *)&sa, sizeof(sa)))==-1)
 		throw Error(strerror(errno));
-	
+
+	if (protocol == IHU_SCTP) {
+		// renyang - 只有當sctp的call端會跑到這裡, 開始所有的事件
+		SctpSocketHandler::SctpTurnOnAllEvent(sd);
+	}
+
 	// renyang - 要儲存要使用的socket. s=sd
 	start(sd);
 	
