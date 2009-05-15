@@ -312,6 +312,12 @@ void Phone::newSCTPConnection(int socket)
 		qWarning("sctp accept error");
 	}
 
+	int flag=1;
+	if (setsockopt(connfd,IPPROTO_SCTP,SCTP_NODELAY,&flag,sizeof(flag))==-1)
+	{
+		qWarning("set socket SCTP_NODELAY error");
+	}
+
 	connections++;
 	int callId = newCall();
 	qWarning("Hello World");
