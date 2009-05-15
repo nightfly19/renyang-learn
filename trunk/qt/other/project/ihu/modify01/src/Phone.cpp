@@ -312,8 +312,9 @@ void Phone::newSCTPConnection(int socket)
 		qWarning("sctp accept error");
 	}
 	
-	// renyang - 只有wait的sctp會跑到這裡, 開啟所有的event
+	// renyang - 只有wait的sctp會跑到這裡, 開啟所有的event, connfd的出生地, 接收端的socket的出生地
 	SctpSocketHandler::SctpTurnOnAllEvent(connfd);
+	SctpSocketHandler::SctpSetNoDelay(connfd);
 
 	connections++;
 	int callId = newCall();
