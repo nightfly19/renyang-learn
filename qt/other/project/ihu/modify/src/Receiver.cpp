@@ -249,6 +249,7 @@ void Receiver::receive()
 #ifdef REN_DEBUG
 	qWarning("Receiver::receive()");
 #endif
+	union sctp_notification *snp;
 	struct sctp_sndrcvinfo sndrcvinfo;
 	QString ip_from;
 	struct sockaddr_in peer;
@@ -276,8 +277,11 @@ void Receiver::receive()
 			case IHU_SCTP:
 				qWarning("get some data from sctp");
 				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(struct sockaddr *) &peer,&peerlen,&sndrcvinfo,&msg_flag);
-				if (msg_flag & MSG_NOTIFICATION)
-					return ;
+				if (msg_flag & MSG_NOTIFICATION) {
+					snp = (union sctp_notification *) inputBuffer;
+					if (snp->sn_header.sn_type == SCTP_SEND_FAILED)
+						qWarning("Send Failed");
+				}
 				if (primaddr != ::inet_ntoa(peer.sin_addr)) {
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
 					primaddr = ::inet_ntoa(peer.sin_addr);

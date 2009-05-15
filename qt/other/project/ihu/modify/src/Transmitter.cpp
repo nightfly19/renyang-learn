@@ -275,7 +275,7 @@ void Transmitter::sendPacket(Packet *p)
 		if (protocol == IHU_UDP || protocol == IHU_TCP)
 			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
 		else if (protocol == IHU_SCTP) {
-			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,0,0,0);
+			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,0,100,0);
 		}
 		// renyang - 傳送失敗
 		if (snt <= 0)
