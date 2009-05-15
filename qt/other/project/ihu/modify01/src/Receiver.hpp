@@ -47,6 +47,8 @@
 #include "Rsa.h"
 #include "Blowfish.h"
 
+#include "SctpSocketHandler.h"
+
 class Receiver: public QObject {
 	Q_OBJECT
 public:

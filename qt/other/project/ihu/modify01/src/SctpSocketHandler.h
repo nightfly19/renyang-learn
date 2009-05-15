@@ -53,7 +53,7 @@ class SctpSocketHandler
 		static int SctpTurnOffAllEvent(int sd);
 		
 		static QString SctpGetPrim(int sd);
-		static void SctpSetPrim(int sd);
+		static void SctpSetPrim(int sd,QString primaddr);
 		static void SctpSetPeerPrim(int sd);
 
 	private:
