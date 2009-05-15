@@ -397,6 +397,11 @@ void Phone::stopWaiting()
 		close(sd);
 	sd = -1;
 
+	// renyang - 刪掉sctp的socket descriptor
+	if (sctp_sd != -1)
+		close(sctp_sd);
+	sctp_sd = -1;
+
 	connections = 0;
 }
 
