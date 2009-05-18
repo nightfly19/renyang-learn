@@ -23,6 +23,7 @@ int main(int argc,char **argv) {
 	// pixel depth in bits
 	// 每一個pixel是用幾個bit來表示
 	printf("Image depth=%i\n",image->depth);
+	// 若是3個channel, 則表示是RGB
 	printf("Image nChannels=%i\n",image->nChannels);
 
 	QApplication app(argc,argv);
