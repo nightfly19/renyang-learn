@@ -7,6 +7,8 @@
 QOpenCVWidget::QOpenCVWidget(QWidget *parent):QWidget(parent) {
 	layout = new QVBoxLayout(this);
 	imagelabel = new QLabel(this,"imagelabel");
+	// 如此設定就不會在更新圖片前, 把舊的frame全部清空, 造成閃爍的感覺
+	imagelabel->setBackgroundMode(Qt::NoBackground);
 	layout->addWidget(imagelabel);
 }
 
