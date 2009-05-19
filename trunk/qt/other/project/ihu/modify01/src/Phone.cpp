@@ -71,8 +71,11 @@ Phone::Phone(int mc)
 */
 	void *dec_state = speex_decoder_init(&speex_uwb_mode);
 	int enh = 1;
+	// renyang - Set enhancement on
 	speex_decoder_ctl(dec_state, SPEEX_SET_ENH, &enh);
+	// renyang - Get sampling rate used in bit-rate computation
 	speex_decoder_ctl(dec_state, SPEEX_GET_SAMPLING_RATE, &play_rate);
+	// renyang - Obtain frame size used by encoder
 	speex_decoder_ctl(dec_state, SPEEX_GET_FRAME_SIZE, &play_frame_size);
 	speex_decoder_destroy(dec_state);
 
@@ -1440,6 +1443,7 @@ void Phone::playCallback()
 			if (silence)
 			{
 				// renyang - 把某一個call的ready的檔案copy到playBuffer中
+				// renyang - 要撥放的資料長度為play_frame_size
 				if (calls[i]->playData(playBuffer, play_frame_size))
 				{
 					silence = false;

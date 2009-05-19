@@ -459,6 +459,7 @@ void Receiver::processData()
 
 // renyang-TODO - 加入Vedio的部分吧
 // renyang - 分析這一個封包是什麼種類的封包
+// renyang - 依不同的封包, 做不一樣的事情
 bool Receiver::processPacket(Packet *p)
 {
 #ifdef REN_DEBUG

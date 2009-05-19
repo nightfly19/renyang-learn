@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
 	int ret;
 	char buf[MAX_BUF];
 		
+	// 要連到哪一個ip與port上
 	Client client(ip, port);
 	
 	try{

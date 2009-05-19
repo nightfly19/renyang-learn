@@ -13,6 +13,8 @@ MyCameraWindow::MyCameraWindow(QWidget *parent):QWidget(parent),packageindex(0)
 	image = temp;
 	layout = new QVBoxLayout(this);
 	imagelabel = new QLabel(this,"imagelabel");
+	// 設定這一個就不會出現閃爍的情況
+	imagelabel->setBackgroundMode(Qt::NoBackground);
 	layout->addWidget(imagelabel);
 	// 以下三行是測試透過imagedata是否是否有效果
 	// struct imagedata pixel;

@@ -481,7 +481,7 @@ void Call::decodeAudioData(char *buf, int len)
 		else
 		{
 			// renyang - 來到這裡表示解碼成功
-			// renyang - 把解碼之後的音訊放到soundBuffer中
+			// renyang - 把解碼之後的音訊(outBuffer)放到soundBuffer中
 			putData(outBuffer, frame_size);
 		}
 	}
@@ -495,6 +495,7 @@ bool Call::playData(float *buf, int len)
 	qWarning(QString("Call::playData(float %1, int %2)").arg(*buf).arg(len));
 #endif
 	bool ret = false;
+	// renyang - 只有當真的有資料可以撥放時, 回傳才會是true
 	if (readyFrames >= len)
 	{
 		if (!mutePlay)
