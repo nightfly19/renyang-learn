@@ -41,11 +41,11 @@
  *  c) INFO data (1 byte)
  *     It contains those informations (in order):
  *     - OBSOLETE: still used for bakward compatibility (versions < 0.6.x)
- *        Speex mode (3 bits). It can be:
+ *        Speex mode (2 bits). It can be:
  *        IHU_INFO_MODE_ULTRAWIDE
  *        IHU_INFO_MODE_WIDE
  *        IHU_INFO_MODE_NARROW
- *     - Packet type (5 bits). It can be:
+ *     - Packet type (6 bits). It can be:
  *        IHU_INFO_RESET 0x0
  *        IHU_INFO_INIT 0x1
  *        IHU_INFO_AUDIO 0x2
