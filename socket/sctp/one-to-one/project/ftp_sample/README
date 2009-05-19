@@ -8,3 +8,7 @@ execute: ./cbr
 make
    若想使用的是sctp_adaptation_layer_event則必需打
 make UN_MOD=on
+
+[補充]
+每一個socket file descriptor是由一個thread來處理
+不知道多個thread共用一個thread(同時寫)是否會有問題
