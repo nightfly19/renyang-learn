@@ -57,7 +57,7 @@ void exitProgram()
 
 
 // renyang - 等待使用著輸入資料
-// renyang - 若server端有使用者輸入字串,則停止程式
+// renyang - 若server端有使用者輸入任何資料,則停止程式
 void* waitForUserInput(void *null)
 {
 	fgetc(stdin);
@@ -71,12 +71,12 @@ int cbind(char** ips, int ipCnt, int port)
 	int fd;
 	int i;
 	int result;
-	// renyang - 是因為變數的scope，因此必需要使用指標來建立address嗎??
+	// renyang - 是因為不確定要bind的ip個數, 所以要使用動態宣告記憶體
 	struct sockaddr_in *addrs;
     struct sctp_event_subscribe event;
 
 	fd = -1;
-    // renyang - 驚!!是建立one-to-one的形式, 這樣也可以使用event的特性喔
+    // renyang - 是建立one-to-one的形式, 這樣也可以使用event的特性
     if ((fd = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP)) == -1)
     {
 		perror("Create socket failed");
@@ -151,6 +151,9 @@ int cconnect(char** rIps, int rIpCnt, int rPort, char** lIps, int lIpCnt, int lP
 	fd 			= -1;
 
 	// renyang - client端應該不需要bind??
+	// renyang - 事實上, 在client端使用這一個cbind()主要是建立socket,其中的sctp_bindx若沒有設定的話
+	// renyang - 系統會自動bind某個本機端的port到本應用程式
+	// renyang - client端要把socket建立在多個address上, 還是要用sctp_connectx()
 	fd = cbind(lIps, lIpCnt, lPort);
 
 	if(fd < 0)
@@ -175,7 +178,7 @@ int cconnect(char** rIps, int rIpCnt, int rPort, char** lIps, int lIpCnt, int lP
 		}
 	}
 
-	// renyang - 連線到多個server端, 但是，一開始不是宣告one-to-one的sctp嗎?為什麼可以使用sctp_connectx??
+	// renyang - 連線到多個server端
 	result = sctp_connectx(fd, (struct sockaddr*)addrs, rIpCnt);
 
 	if(result < 0)
@@ -235,6 +238,7 @@ void* receiveData(void *parms)
 		}
 		else if(sz == 0)
 		{
+			// renyang - 若長度為0的話, 表示對方關掉連線
 			printf("Good!!! receive size is 0\n");	
 		}
 		else
@@ -308,6 +312,7 @@ void sender()
     pthread_attr_t attr;
     
     
+	// renyang - 建立一個thread, 等待user輸入, 當使用者輸入任何資料則停止程式
 	pthread_create(&waitForUserInputThread, 0, waitForUserInput, 0);
 	if((local_fd = clisten(localIps, localIpCnt, localPort, 1)) < 0)
 	{
@@ -341,14 +346,14 @@ void sender()
 		// renyang - 設定attr為可以設定為同步,應該就是說可以使用pthread_join()來等待指定的process
 		// renyang - 預設本來就設定可以pthread_join()
 		pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
-		// renyang - 建立一個pthread,pthread儲放在sendDataThread
+		// renyang - 建立一個pthread,pthread id儲放在sendDataThread
 		// renyang - 屬性為attr,執行的function為sendData,函數的參數為remote_fd
 		// renyang - 目前這一個範例程式的server端只會執行到目前這一個地方，就一直在sendData內loop啦
 		pthread_create(&sendDataThread, &attr, sendData, &remote_fd);
-		// renyang - 當程式跑到這裡時,表示thread的function也跑完了，可以把attr刪除掉了
+		// renyang - 當程式跑到這裡時,表示thread的function的設定使用完了, 可以把attr刪掉啦
 		pthread_attr_destroy(&attr);
 
-		// renyang - 以下的資料server端在目前這一個程式並不會用到
+		// renyang - 雖然有設定要接收的function, 但實際上client並不會傳送任何資料讓server接收
 		// receive data thread
 		pthread_attr_init(&attr);
 		pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
@@ -383,6 +388,7 @@ void receiver()
 	int rt;
 	pthread_attr_t attr;
 
+	// renyang - 若使用者有輸入任何資料, 則停止程式
     	pthread_create(&waitForUserInputThread, 0, waitForUserInput, 0);
 
 	remote_fd = -1;
