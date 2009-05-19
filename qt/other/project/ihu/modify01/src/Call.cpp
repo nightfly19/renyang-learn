@@ -42,6 +42,7 @@ Call::Call(int callId, QString myName)
 
 	dec_state = NULL;
 	dec_state = speex_decoder_init(&speex_uwb_mode);
+	// renyang - Initializes and allocates resources for a SpeexBits struct
 	speex_bits_init(&bits);
 
 	int enh = 1;
@@ -468,8 +469,10 @@ void Call::decodeAudioData(char *buf, int len)
 	if (dec_state)
 	{
 		// renyang - Initializes the bit-stream from the data in an area of memory
+		// renyang - 把一連串的buf轉到bit-stream
 		speex_bits_read_from(&bits, buf, len);
-		// renyang 當<0表示解碼失敗
+		// renyang - 把bits解碼到outBuffer(為float型態)
+		// renyang - 當<0表示解碼失敗
 		if (speex_decode(dec_state, &bits, outBuffer) < 0)
 		{
 			emit warning("Warning: wrong decryption key or stream corrupted!");
@@ -478,6 +481,7 @@ void Call::decodeAudioData(char *buf, int len)
 		else
 		{
 			// renyang - 來到這裡表示解碼成功
+			// renyang - 把解碼之後的音訊放到soundBuffer中
 			putData(outBuffer, frame_size);
 		}
 	}
@@ -534,6 +538,8 @@ void Call::putData(float *buf, int len)
 #ifdef REN_DEBUG
 	qWarning(QString("Call::putData() - readyFrames: %1 len: %2").arg(readyFrames).arg(len));;
 #endif
+	// renyang - 若目前這一個stream的長度小於MAXBUFSIZE扣掉以經好的, 但是還沒有被讀取的stream還有空間的話
+	// renyang - 則再塞資料進去
 	if (len < (MAXBUFSIZE - readyFrames))
 	{
 		memcpy(soundBuffer+readyFrames, buf, len*sizeof(float));
@@ -663,6 +669,7 @@ long Call::getTraffic()
 #ifdef REN_DEBUG
 	qWarning("Call::getTraffic()");
 #endif
+	// renyang - 用來記算傳送接收的總資料量
 	long total = transmitter->getBytes() + receiver->getBytes();
 	return total;
 }
@@ -700,17 +707,19 @@ void Call::setMyName(QString myName)
 	transmitter->setMyName(myName);
 }
 
-// renyang - 設定readyFrames的個數
+// renyang - 把soundBuffer後面的部分移到前面來
 void Call::updateFrames(int frames)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Call::updateFrames(int %1)").arg(frames));
 #endif
+	// renyang - 我要讀取frames個, 所以, readyFrames會減少frames個
 	readyFrames -= frames;
 	if (readyFrames < 0)
 		readyFrames = 0;
 	if (readyFrames > 0)
 	{
+		// renyang - 把後面的資料copy到前面來
 		memcpy(soundBuffer, soundBuffer+frames, sizeof(float)*readyFrames);
 	}
 }

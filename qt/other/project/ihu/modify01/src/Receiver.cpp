@@ -292,10 +292,12 @@ void Receiver::receive()
 		// renyang - 當接收字串長度大於0時, 表示有接收到資料
 		if (rlen > 0)
 		{
+			// renyang - 用來記算接收的資料量(每次呼叫getBytes(), bytes會歸0)
 			bytes += rlen;
+			// renyang - 用來記錄接收的資料量(不會歸0)
 			total += rlen;
 			active = true;
-			// renyang - 把接收到的資料放到streamBuffer中
+			// renyang - 把接收到的資料inputBuffer放到streamBuffer中
 			putData(inputBuffer, rlen);
 		}
 		else
@@ -328,7 +330,9 @@ void Receiver::putData(char *buffer, int len)
 		// renyang - 把實際的資料刪成剛好可以放到buffer的大小
 		len = MAXBUFSIZE - streamLen;
 	}
+	// renyang - 把收到的資料加到streamBuffer的後面
 	memcpy(streamBuffer + streamLen, buffer, len);
+	// renyang - 增加streamLen
 	streamLen += len;
 	
 	// renyang - 資料完成放到streamBuffer中啦

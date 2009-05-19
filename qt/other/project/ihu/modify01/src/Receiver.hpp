@@ -120,7 +120,9 @@ private:
 	char *inputBuffer;
 	char *streamBuffer;
 	char *streamPtr;
+	// renyang - 用來記算接收的資料量(每次呼叫getBytes(), bytes會歸0)
 	long bytes;
+	// renyang - 用來記錄接收的總資料量, 呼叫完getTotal()不會歸0
 	long total;
 	int streamLen;
 	Blowfish *blowfish;
