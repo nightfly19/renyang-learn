@@ -228,7 +228,9 @@ private:
 	int rate;
 	float threshold;
 	float peak;
+	// renyang - 撥放的速率
 	int play_rate;
+	// renyang - 每一次要讀取語音的大小
 	int play_frame_size;
 	float balance;
 

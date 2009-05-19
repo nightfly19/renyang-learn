@@ -49,6 +49,7 @@ bool Server::initWsa()
 }
 #endif
 
+// 建立socket
 bool Server::create()
 {
 	if( ! isValid() ) return false;
@@ -65,6 +66,7 @@ bool Server::create()
 	return true;
 }
 
+// 把建立sockaddr_in, 並把socket bind在上面
 bool Server::bind(const int port)
 {
 	if( ! isValid() ) return false;
@@ -86,6 +88,7 @@ bool Server::bind(const int port)
 	return true;
 }
 
+// 建立listen的queue
 bool Server::listen()
 {
 	if( ! isValid() ) return false;
@@ -102,6 +105,7 @@ bool Server::listen()
 	return true;
 }
 
+// 之前有定義, SOCKET就是int
 SOCKET Server::accept()
 {
 	if( ! isValid() ) return false;
