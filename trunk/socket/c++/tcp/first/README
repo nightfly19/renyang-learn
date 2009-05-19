@@ -1,3 +1,13 @@
-這一個程式很奇怪
-傳送與接收都在client端實作
-而且server端可以控制client的傳送與接收
+執行方式
+
+make -f makefile.gcc
+
+server端
+./CSrvComm
+
+client端
+./CCliComm
+
+刪除
+
+make -f makefile.gcc clean
