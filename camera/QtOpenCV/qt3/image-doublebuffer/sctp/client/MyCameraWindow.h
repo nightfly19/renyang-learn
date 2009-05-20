@@ -20,6 +20,7 @@ class MyCameraWindow:public QWidget
 		MyCameraWindow(QWidget *parent=0);
 		bool Connect2Host(QString, int);
 		void startVideo();
+		void start();
 
 	private:
 		int connfd;
@@ -34,6 +35,9 @@ class MyCameraWindow:public QWidget
 
 	public slots:
 		void Recvdata();
+	
+	protected:
+		void timerEvent(QTimerEvent*);
 };
 
 #endif

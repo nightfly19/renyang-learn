@@ -104,5 +104,14 @@ void MyCameraWindow::setCameraImage()
 	}
 	pix.convertFromImage(image);
 	imagelabel->setPixmap(pix);
+}
+
+void MyCameraWindow::start()
+{
+	startTimer(33);
+}
+
+void MyCameraWindow::timerEvent(QTimerEvent*)
+{
 	startVideo();
 }
