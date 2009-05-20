@@ -5,6 +5,8 @@
 MyCameraWindow::MyCameraWindow(QWidget *parent):QWidget(parent)
 {
 	resize(640,480);
+	QImage temp(640,480,32);
+	image = temp;
 	layout = new QVBoxLayout(this);
 	imagelabel = new QLabel(this,"imagelabel");
 	imagelabel->setBackgroundMode(Qt::NoBackground);
@@ -93,13 +95,11 @@ void MyCameraWindow::setCameraImage()
 {
 	QPixmap pix(matrix.width,matrix.height);
 	printf("height:%d\nwidth:%d\n",matrix.height,matrix.width);
-	QImage temp(matrix.width,matrix.height,32);
-	image = temp;
 	for (int y=0;y<matrix.height;y++)
 	{
 		for (int x=0;x<matrix.width;x++)
 		{
-			image.setPixel(x,y,qRgb(matrix.data[x+y*3*matrix.width+2],matrix.data[x+y*3*matrix.width+1],matrix.data[x+y*3*matrix.width]));
+			image.setPixel(x,y,qRgb(matrix.data[3*(x+y*matrix.width)+2],matrix.data[3*(x+y*matrix.width)+1],matrix.data[3*(x+y*matrix.width)]));
 		}
 	}
 	pix.convertFromImage(image);

@@ -4,6 +4,11 @@
 
 int main(int argc,char **argv)
 {
+	if (argc<2)
+	{
+		printf("%s [server ip]\n",argv[0]);
+		exit(1);
+	}
 	QApplication app(argc,argv);
 
 	MyCameraWindow *mainWin = new MyCameraWindow(0);
@@ -12,7 +17,7 @@ int main(int argc,char **argv)
 
 	mainWin->show();
 
-	mainWin->Connect2Host(QString("127.0.0.1"),MY_PORT_NUM);
+	mainWin->Connect2Host(QString(argv[1]),MY_PORT_NUM);
 
 	// 開始要求傳送圖片
 	mainWin->startVideo();
