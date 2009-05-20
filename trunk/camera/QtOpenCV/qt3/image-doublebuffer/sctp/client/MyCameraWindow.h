@@ -5,6 +5,8 @@
 #include <qlabel.h>
 #include <qimage.h>
 #include <qstring.h>
+#include <qsocketnotifier.h>
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netinet/sctp.h>
@@ -24,6 +26,11 @@ class MyCameraWindow:public QWidget
 		struct sockaddr_in servaddr;
 		QBoxLayout *layout;
 		QLabel *imagelabel;
+		QSocketNotifier *notifier;
+		struct image_matrix matrix;
+		int begin;
+	public slots:
+		void Recvdata();
 };
 
 #endif
