@@ -7,10 +7,10 @@
 
 #define MY_PORT_NUM 10000
 
-#define START_IMAGE "#image_start#"
-#define END_IMAGE "#image_end#"
-#define SENDING_IMAGE "#image_sending#"
-#define ERROR_IMAGE "#image_error#"
+#define IMAGE_START "#image_start#"
+#define IMAGE_END "#image_end#"
+#define IMAGE_OK "#image_ok#"
+#define IMAGE_ERROR "#image_error#"
 
 struct image_matrix
 {

@@ -23,6 +23,7 @@ int main(int argc,char **argv)
 		perror("ERROR opening socket");
 		exit(1);
 	}
+
 	printf("connSock : %d\n",listenSock);
 
 	bzero(&serv_addr,sizeof(serv_addr));
@@ -50,6 +51,11 @@ int main(int argc,char **argv)
 	}
 	else
 	{
+		int flag = 1;
+		ret = ::setsockopt(connSock,IPPROTO_SCTP,SCTP_NODELAY,&flag,sizeof(flag));
+		if (ret == -1) {
+			perror("setsockopt SCTP_NODELAY error");
+		}
 		printf("accept the client connect...\n");
 	}
 	// 等待client傳送指令過來
