@@ -7,7 +7,7 @@ TARGET	= server
 
 CXXFLAGS= -I..
 
-LIBS	= -lsctp
+LIBS	= -lsctp -lcv -lhighgui
 
 .PHONY: everything all clean distclean
 

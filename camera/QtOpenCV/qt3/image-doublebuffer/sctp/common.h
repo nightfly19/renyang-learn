@@ -11,6 +11,9 @@
 #define IMAGE_END "#image_end#"
 #define IMAGE_OK "#image_ok#"
 #define IMAGE_ERROR "#image_error#"
+#define IMAGE_SPACE_PREPARE_OK "#pre_ok#"
+#define IMAGE_SENDING "#image_sending#"
+#define IMAGE_RECVING "#image_recving#"
 
 struct image_matrix
 {
