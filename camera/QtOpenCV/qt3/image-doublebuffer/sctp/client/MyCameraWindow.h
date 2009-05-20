@@ -29,6 +29,10 @@ class MyCameraWindow:public QWidget
 		QSocketNotifier *notifier;
 		struct image_matrix matrix;
 		int begin;
+		QImage image;
+		QPixmap pix;
+		void setCameraImage();
+
 	public slots:
 		void Recvdata();
 };

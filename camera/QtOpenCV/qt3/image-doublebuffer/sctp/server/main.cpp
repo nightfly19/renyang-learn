@@ -20,7 +20,7 @@ struct image_matrix matrix;
 
 // ==========================define function===========================
 void analyze(char *,int);
-void SDStruct(struct image_matrix *, int);
+void SDStruct(int);
 // ====================================================================
 
 int main(int argc,char **argv)
@@ -114,12 +114,13 @@ void analyze(char *instruction,int connfd)
 
 void SDStruct(int connfd)
 {
-	int totalsize = 3*(image->height)*(image->height)+8;
+	int totalsize = 3*(image->height)*(image->width)+8;
+	printf("height:%d\nwidth:%d\ntotal:%d\n",image->height,image->width,totalsize);
 	int begin=0;
 	int ReadByte=0;
 	int ret;
 	char recvbuff[MAX_BUFFER];
-	void *ptr = &image;
+	char *ptr = (char *)&image;
 	do
 	{
 		if (totalsize>=begin+MAX_BUFFER)
@@ -132,12 +133,28 @@ void SDStruct(int connfd)
 		}
 		if (ReadByte>0)
 		{
-			ret = sctp_sendmsg(connfd,(char *)ptr+begin,ReadByte,(struct sockaddr *) NULL,0,0,0,0,0,0);
+			ret = sctp_sendmsg(connfd,ptr+begin,ReadByte,(struct sockaddr *) NULL,0,0,0,0,0,0);
 			if (ret<=0)
+			{
+				printf("sctp_sendmsg error\n");
 				return ;
+			}
+			else
+			{
+				// printf("send some data\n");
+			}
 			bzero(recvbuff,MAX_BUFFER);
 			ret = sctp_recvmsg(connfd,recvbuff,MAX_BUFFER,(struct sockaddr *) NULL,(socklen_t *) NULL,NULL,NULL);
-			begin+=ReadByte;
+			if (ret <=0)
+			{
+				printf("sctp_recvmsg error\n");
+				return ;
+			}
+			else
+			{
+				// printf("got some data\n");
+				begin+=ReadByte;
+			}
 		}
 		else
 		{
