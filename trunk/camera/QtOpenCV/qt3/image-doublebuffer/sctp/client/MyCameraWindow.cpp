@@ -36,6 +36,11 @@ bool MyCameraWindow::Connect2Host(QString host, int port)
 	}
 	else
 	{
+		int flag=1;
+		ret = ::setsockopt(connfd,IPPROTO_SCTP,SCTP_NODELAY,&flag,sizeof(flag));
+		if (ret==-1) {
+			perror("set SCTP_NODELAY error");
+		}
 		notifier = new QSocketNotifier(connfd,QSocketNotifier::Read,this);
 		connect(notifier,SIGNAL(activated(int)),this,SLOT(Recvdata()));
 		return true;
@@ -52,6 +57,7 @@ void MyCameraWindow::startVideo()
 
 void MyCameraWindow::Recvdata()
 {
+	qWarning("got some data");
 	char buffer[MAX_BUFFER];
 	int ret;
 	bzero(buffer,sizeof(buffer));
@@ -60,18 +66,38 @@ void MyCameraWindow::Recvdata()
 		return ;
 	else
 	{
+		printf("get some data\n");
 		if (strcmp(buffer,IMAGE_OK)==0)
 			ret = ::sctp_sendmsg(connfd,IMAGE_SPACE_PREPARE_OK,strlen(IMAGE_SPACE_PREPARE_OK),NULL,0,0,0,0,0,0);
 		else if (strcmp(buffer,IMAGE_END)==0)
 		{
 			// 把圖片放到qlabel
+			printf("total:%d\n",begin);
 			begin = 0;
 			printf("I got a image\n");
+			setCameraImage();
 		}
 		else
 		{
-			memcpy(((char *)&matrix)+begin,buffer,ret);
+			char *ptr=(char *)&matrix;
+			memcpy(ptr+begin,buffer,ret);
 			begin+=ret;
+			ret = ::sctp_sendmsg(connfd,IMAGE_RECVING,strlen(IMAGE_RECVING),NULL,0,0,0,0,0,0);
+			printf("height:%d\n",matrix.height);
 		}
 	}
+}
+
+void MyCameraWindow::setCameraImage()
+{
+	printf("height:%d\nwidth:%d\n",matrix.height,matrix.width);
+	for (int y=0;y<matrix.height;y++)
+	{
+		for (int x=0;x<matrix.width;x++)
+		{
+			image.setPixel(x,y,qRgb(matrix.data[x+y*matrix.width+2],matrix.data[x+y*matrix.width+1],matrix.data[x+y*matrix.width]));
+		}
+	}
+	pix.convertFromImage(image);
+	imagelabel->setPixmap(pix);
 }
