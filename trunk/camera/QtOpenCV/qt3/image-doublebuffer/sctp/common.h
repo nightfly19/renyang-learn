@@ -1,7 +1,7 @@
 #ifndef COMMOM_H
 #define COMMON_H
 
-#define MAX_BUFFER 1024
+#define MAX_BUFFER 10240
 
 #define MAXDATA 480*640*3
 
