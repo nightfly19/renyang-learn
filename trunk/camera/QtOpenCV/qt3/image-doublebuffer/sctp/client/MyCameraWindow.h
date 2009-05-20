@@ -30,7 +30,6 @@ class MyCameraWindow:public QWidget
 		struct image_matrix matrix;
 		int begin;
 		QImage image;
-		QPixmap pix;
 		void setCameraImage();
 
 	public slots:

@@ -58,6 +58,7 @@ void MyCameraWindow::startVideo()
 void MyCameraWindow::Recvdata()
 {
 	qWarning("got some data");
+	printf("gooe:%d\n",matrix.height);
 	char buffer[MAX_BUFFER];
 	int ret;
 	bzero(buffer,sizeof(buffer));
@@ -90,14 +91,18 @@ void MyCameraWindow::Recvdata()
 
 void MyCameraWindow::setCameraImage()
 {
+	QPixmap pix(matrix.width,matrix.height);
 	printf("height:%d\nwidth:%d\n",matrix.height,matrix.width);
+	QImage temp(matrix.width,matrix.height,32);
+	image = temp;
 	for (int y=0;y<matrix.height;y++)
 	{
 		for (int x=0;x<matrix.width;x++)
 		{
-			image.setPixel(x,y,qRgb(matrix.data[x+y*matrix.width+2],matrix.data[x+y*matrix.width+1],matrix.data[x+y*matrix.width]));
+			image.setPixel(x,y,qRgb(matrix.data[x+y*3*matrix.width+2],matrix.data[x+y*3*matrix.width+1],matrix.data[x+y*3*matrix.width]));
 		}
 	}
 	pix.convertFromImage(image);
 	imagelabel->setPixmap(pix);
+	startVideo();
 }

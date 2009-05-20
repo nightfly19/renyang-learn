@@ -115,12 +115,12 @@ void analyze(char *instruction,int connfd)
 void SDStruct(int connfd)
 {
 	int totalsize = 3*(image->height)*(image->width)+8;
-	printf("height:%d\nwidth:%d\ntotal:%d\n",image->height,image->width,totalsize);
+	printf("widthStep:%d\nheight:%d\nwidth:%d\ntotal:%d\n",image->widthStep,image->height,image->width,totalsize);
 	int begin=0;
 	int ReadByte=0;
 	int ret;
 	char recvbuff[MAX_BUFFER];
-	char *ptr = (char *)&image;
+	char *ptr = (char *)&matrix;
 	do
 	{
 		if (totalsize>=begin+MAX_BUFFER)
