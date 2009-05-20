@@ -41,7 +41,7 @@ bool MyCameraWindow::Connect2Host(QString host, int port)
 void MyCameraWindow::startVideo()
 {
 	int rd_sz;
-	rd_sz = ::sctp_sendmsg(connfd,START_IMAGE,sizeof(START_IMAGE),(struct sockaddr *) NULL,0,0,0,0,0,0);
+	rd_sz = ::sctp_sendmsg(connfd,IMAGE_START,strlen(IMAGE_START),(struct sockaddr *) NULL,0,0,0,0,0,0);
 	if (rd_sz < 0)
 		perror("sctp_sendmsg error");
 }
