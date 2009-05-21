@@ -1,0 +1,9 @@
+操作方式
+server端
+./server
+
+client端
+./client 127.0.0.1
+
+若每送完一個frame立刻要求下一個frame會出現網路堵塞
+因此要求每33ms由client要求server傳送圖片過來
