@@ -100,6 +100,7 @@ void MyCameraWindow::setCameraImage()
 	if (matrix.height != image.height() || matrix.width != image.width())
 	{
 		QImage temp(matrix.width,matrix.height,32);
+		resize(matrix.width,matrix.height);
 		image = temp;
 	}
 	for (int y=0;y<matrix.height;y++)
