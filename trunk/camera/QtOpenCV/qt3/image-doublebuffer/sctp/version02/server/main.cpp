@@ -15,6 +15,7 @@
 //===========================global variable===========================
 CvCapture *camera = NULL;
 IplImage *image = NULL;
+IplImage *ready_image = NULL;
 // 用來存放要傳送的圖片資料
 struct image_matrix matrix;
 //=====================================================================
@@ -22,6 +23,7 @@ struct image_matrix matrix;
 // ==========================define function===========================
 void analyze(char *,int);
 void SDStruct(int);
+void Scale(float);
 // ====================================================================
 
 int main(int argc,char **argv)
@@ -132,12 +134,17 @@ void analyze(char *instruction,int connfd)
 	{
 		// client端表示它的buffer空間準備好啦
 		printf("the image buffer prepare ok\n");
+		// 縮放Image
+		Scale(0.5);
 		// 填入要傳送的資料
-		matrix.height = image->height;
-		matrix.width = image->width;
-		memcpy(matrix.data,image->imageData,3*matrix.height*matrix.width);
+		matrix.height = ready_image->height;
+		matrix.width = ready_image->width;
+		memcpy(matrix.data,ready_image->imageData,3*matrix.height*matrix.width);
 		// 傳送結構啦
 		SDStruct(connfd);
+		// 把資料刪除
+		cvReleaseImage(&ready_image);
+		ready_image = NULL;
 	}
 	else
 		printf("undefine instruction\n");
@@ -146,8 +153,8 @@ void analyze(char *instruction,int connfd)
 void SDStruct(int connfd)
 {
 	// 計算總共要傳送的檔案大小, 加8是表示兩個額外的int
-	int totalsize = 3*(image->height)*(image->width)+8;
-	printf("widthStep:%d\nheight:%d\nwidth:%d\ntotal:%d\n",image->widthStep,image->height,image->width,totalsize);
+	int totalsize = 3*(ready_image->height)*(ready_image->width)+8;
+	printf("widthStep:%d\nheight:%d\nwidth:%d\ntotal:%d\n",ready_image->widthStep,ready_image->height,ready_image->width,totalsize);
 	// begin記錄目前送到哪裡啦
 	int begin=0;
 	// 把一個檔案分成許多個檔案, 計算目前這一個要傳送多大的資料
@@ -199,5 +206,20 @@ void SDStruct(int connfd)
 	// 表示檔案已傳送結束
 	ret = sctp_sendmsg(connfd,IMAGE_END,strlen(IMAGE_END),(struct sockaddr *) NULL,0,0,0,0,0,0);
 	printf("\nClient imagedata Finish!!\n");
+}
+
+void Scale(float rate)
+{
+	if (rate <= 0)
+	{
+		printf("the rate is negative\n");
+		exit(1);
+	}
+	CvSize dst_cvsize;
+	dst_cvsize.width = image->width*rate;
+	dst_cvsize.height = image->height*rate;
+
+	ready_image = cvCreateImage(dst_cvsize,image->depth,image->nChannels);
+	cvResize(image,ready_image,CV_INTER_LINEAR);
 }
 //======================================================================
