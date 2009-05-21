@@ -15,6 +15,7 @@
 //===========================global variable===========================
 CvCapture *camera = NULL;
 IplImage *image = NULL;
+// 用來存放要傳送的圖片資料
 struct image_matrix matrix;
 //=====================================================================
 
@@ -33,6 +34,7 @@ int main(int argc,char **argv)
 	char buffer[MAX_BUFFER];
 	client_len = sizeof(cli_addr);
 
+	// 建立一個one-to-one style的sctp socket
 	listenSock = ::socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
 
 	if (listenSock == -1) {
@@ -68,6 +70,7 @@ int main(int argc,char **argv)
 	else
 	{
 		int flag = 1;
+		// 一有資料馬上就送出去
 		ret = ::setsockopt(connSock,IPPROTO_SCTP,SCTP_NODELAY,&flag,sizeof(flag));
 		if (ret == -1) {
 			perror("setsockopt SCTP_NODELAY error");
@@ -81,6 +84,18 @@ int main(int argc,char **argv)
 		analyze(buffer,connSock);
 	}while(ret != -1 && ret != 0);
 
+	switch (ret)
+	{
+		case 0:
+			printf("the client close the connection\n");
+			break;
+		case -1:
+			printf("the connection has some error\n");
+			break;
+		default:
+			printf("It is impossible!\n");
+	}
+
 	return 0;
 }
 
@@ -88,24 +103,40 @@ int main(int argc,char **argv)
 void analyze(char *instruction,int connfd)
 {
 	int ret;
+	// 若分析到的字串是client要求開始傳送資料
 	if (strcmp(instruction,IMAGE_START)==0)
 	{
 		if (camera == NULL) {
+			// 設定要使用的webcam設備
 			camera = cvCreateCameraCapture(0);
+			// 回傳是NULL表示沒有webcam的設備
 			if (camera == NULL)
+			{
+				// 通知client取得frame過程錯誤
 				ret = sctp_sendmsg(connfd,IMAGE_ERROR,strlen(IMAGE_ERROR),(struct sockaddr *) NULL,0,0,0,0,0,0);
+			}
 		}
+		// 嘗試取得第一個frame
 		if ((image=cvQueryFrame(camera))==NULL)
+		{
+			// 通知client取得frame過程錯誤
 			ret = sctp_sendmsg(connfd,IMAGE_ERROR,strlen(IMAGE_ERROR),(struct sockaddr *) NULL,0,0,0,0,0,0);
+		}
 		else
+		{
+			// 通知client可以正常取得frame
 			ret = sctp_sendmsg(connfd,IMAGE_OK,strlen(IMAGE_OK),(struct sockaddr *) NULL,0,0,0,0,0,0);
+		}
 	}
 	else if (strcmp(instruction,IMAGE_SPACE_PREPARE_OK)==0)
 	{
+		// client端表示它的buffer空間準備好啦
 		printf("the image buffer prepare ok\n");
+		// 填入要傳送的資料
 		matrix.height = image->height;
 		matrix.width = image->width;
 		memcpy(matrix.data,image->imageData,3*matrix.height*matrix.width);
+		// 傳送結構啦
 		SDStruct(connfd);
 	}
 	else
@@ -114,9 +145,12 @@ void analyze(char *instruction,int connfd)
 
 void SDStruct(int connfd)
 {
+	// 計算總共要傳送的檔案大小, 加8是表示兩個額外的int
 	int totalsize = 3*(image->height)*(image->width)+8;
 	printf("widthStep:%d\nheight:%d\nwidth:%d\ntotal:%d\n",image->widthStep,image->height,image->width,totalsize);
+	// begin記錄目前送到哪裡啦
 	int begin=0;
+	// 把一個檔案分成許多個檔案, 計算目前這一個要傳送多大的資料
 	int ReadByte=0;
 	int ret;
 	char recvbuff[MAX_BUFFER];
@@ -144,6 +178,7 @@ void SDStruct(int connfd)
 				// printf("send some data\n");
 			}
 			bzero(recvbuff,MAX_BUFFER);
+			// 等待對方確實收到資料
 			ret = sctp_recvmsg(connfd,recvbuff,MAX_BUFFER,(struct sockaddr *) NULL,(socklen_t *) NULL,NULL,NULL);
 			if (ret <=0)
 			{
@@ -161,6 +196,7 @@ void SDStruct(int connfd)
 			break;
 		}
 	}while(true);
+	// 表示檔案已傳送結束
 	ret = sctp_sendmsg(connfd,IMAGE_END,strlen(IMAGE_END),(struct sockaddr *) NULL,0,0,0,0,0,0);
 	printf("\nClient imagedata Finish!!\n");
 }

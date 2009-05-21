@@ -59,14 +59,16 @@ void MyCameraWindow::startVideo()
 
 void MyCameraWindow::Recvdata()
 {
-	qWarning("got some data");
-	printf("gooe:%d\n",matrix.height);
+	printf("got some data\n");
 	char buffer[MAX_BUFFER];
 	int ret;
 	bzero(buffer,sizeof(buffer));
 	ret = ::sctp_recvmsg(connfd,buffer,MAX_BUFFER,(struct sockaddr *) NULL,(socklen_t *)NULL,NULL,NULL);
 	if (ret <=0)
+	{
+		printf("sctp_recvmsg error\n");
 		return ;
+	}
 	else
 	{
 		printf("get some data\n");
@@ -82,11 +84,11 @@ void MyCameraWindow::Recvdata()
 		}
 		else
 		{
+			// 把接收到的檔案收到struct中
 			char *ptr=(char *)&matrix;
 			memcpy(ptr+begin,buffer,ret);
 			begin+=ret;
 			ret = ::sctp_sendmsg(connfd,IMAGE_RECVING,strlen(IMAGE_RECVING),NULL,0,0,0,0,0,0);
-			printf("height:%d\n",matrix.height);
 		}
 	}
 }
@@ -95,6 +97,11 @@ void MyCameraWindow::setCameraImage()
 {
 	QPixmap pix(matrix.width,matrix.height);
 	printf("height:%d\nwidth:%d\n",matrix.height,matrix.width);
+	if (matrix.height != image.height() || matrix.width != image.width())
+	{
+		QImage temp(matrix.width,matrix.height,32);
+		image = temp;
+	}
 	for (int y=0;y<matrix.height;y++)
 	{
 		for (int x=0;x<matrix.width;x++)
@@ -108,6 +115,7 @@ void MyCameraWindow::setCameraImage()
 
 void MyCameraWindow::start()
 {
+	// 每XX ms執行timerEvent()一次
 	startTimer(33);
 }
 
