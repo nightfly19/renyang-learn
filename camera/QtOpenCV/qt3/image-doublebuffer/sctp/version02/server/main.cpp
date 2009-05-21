@@ -151,7 +151,7 @@ void analyze(char *instruction,int connfd)
 		// client端表示它的buffer空間準備好啦
 		printf("the image buffer prepare ok\n");
 		// 縮放Image
-		Scale(0.4);
+		Scale(scale_value);
 		// 填入要傳送的資料
 		matrix.height = ready_image->height;
 		matrix.width = ready_image->width;

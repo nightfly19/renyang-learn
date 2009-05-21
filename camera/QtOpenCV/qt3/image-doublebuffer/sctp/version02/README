@@ -8,3 +8,8 @@ client端
 
 若每送完一個frame立刻要求下一個frame會出現網路堵塞
 因此要求每33ms由client要求server傳送圖片過來
+
+[version02]
+server端可以動態決定要傳送影像的大小
+
+client端會依傳送影像的大小改變視窗大小
