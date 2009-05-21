@@ -17,6 +17,7 @@ int main(int argc,char **argv)
 
 	mainWin->show();
 
+	// 連到server端
 	mainWin->Connect2Host(QString(argv[1]),MY_PORT_NUM);
 
 	// 開始要求傳送圖片
