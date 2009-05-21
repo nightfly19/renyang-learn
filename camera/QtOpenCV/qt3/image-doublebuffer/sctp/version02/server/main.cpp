@@ -5,6 +5,7 @@
 #include <netinet/in.h>
 #include <netinet/sctp.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
@@ -18,6 +19,7 @@ IplImage *image = NULL;
 IplImage *ready_image = NULL;
 // 用來存放要傳送的圖片資料
 struct image_matrix matrix;
+float scale_value;
 //=====================================================================
 
 // ==========================define function===========================
@@ -36,12 +38,22 @@ int main(int argc,char **argv)
 	char buffer[MAX_BUFFER];
 	client_len = sizeof(cli_addr);
 
+	// 輸入要縮放的大小
+	printf("please input a scale value (0<scale_value<1):");
+	scanf("%f",&scale_value);
+
 	// 建立一個one-to-one style的sctp socket
 	listenSock = ::socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP);
 
 	if (listenSock == -1) {
 		perror("ERROR opening socket");
 		exit(1);
+	}
+
+	// 使得可以短時間內再度啟動程式(使用的port是相同的)
+	int on=1;
+	if (setsockopt(listenSock,SOL_SOCKET,SO_REUSEADDR,&on,sizeof(on))==-1) {
+		perror("set SO_RESUEADDR ERROR");
 	}
 
 	printf("connSock : %d\n",listenSock);
@@ -63,41 +75,45 @@ int main(int argc,char **argv)
 	}
 
 	printf("Accepting connections ...\n");
-	client_len = sizeof(cli_addr);
-	connSock = ::accept(listenSock,(struct sockaddr *) &cli_addr,&client_len);
-	if (connSock == -1) {
-		perror("accept error");
-		exit(1);
-	}
-	else
-	{
-		int flag = 1;
-		// 一有資料馬上就送出去
-		ret = ::setsockopt(connSock,IPPROTO_SCTP,SCTP_NODELAY,&flag,sizeof(flag));
-		if (ret == -1) {
-			perror("setsockopt SCTP_NODELAY error");
+	while(1)
+	{	client_len = sizeof(cli_addr);
+		connSock = ::accept(listenSock,(struct sockaddr *) &cli_addr,&client_len);
+		if (connSock == -1) {
+			perror("accept error");
+			exit(1);
 		}
-		printf("accept the client connect...\n");
-	}
-	// 等待client傳送指令過來
-	do {
-		bzero(buffer,sizeof(buffer));
-		ret = sctp_recvmsg(connSock,buffer,sizeof(buffer),(struct sockaddr *) NULL,(socklen_t *) NULL,&sndrcvinfo,&flags);
-		analyze(buffer,connSock);
-	}while(ret != -1 && ret != 0);
+		else
+		{
+			int flag = 1;
+			// 一有資料馬上就送出去
+			ret = ::setsockopt(connSock,IPPROTO_SCTP,SCTP_NODELAY,&flag,sizeof(flag));
+			if (ret == -1) {
+				perror("setsockopt SCTP_NODELAY error");
+			}
+			printf("accept the client connect...\n");
+		}
+		// 等待client傳送指令過來
+		do {
+			bzero(buffer,sizeof(buffer));
+			ret = sctp_recvmsg(connSock,buffer,sizeof(buffer),(struct sockaddr *) NULL,(socklen_t *) NULL,&sndrcvinfo,&flags);
+			analyze(buffer,connSock);
+		}while(ret != -1 && ret != 0);
 
-	switch (ret)
-	{
-		case 0:
-			printf("the client close the connection\n");
-			break;
-		case -1:
-			printf("the connection has some error\n");
-			break;
-		default:
-			printf("It is impossible!\n");
+		switch (ret)
+		{
+			case 0:
+				printf("the client close the connection\n");
+				::close(connSock);
+				break;
+			case -1:
+				printf("the connection has some error\n");
+				::close(connSock);
+				break;
+			default:
+				printf("It is impossible!\n");
+		}
 	}
-
+	::close(listenSock);
 	return 0;
 }
 
@@ -135,7 +151,7 @@ void analyze(char *instruction,int connfd)
 		// client端表示它的buffer空間準備好啦
 		printf("the image buffer prepare ok\n");
 		// 縮放Image
-		Scale(0.5);
+		Scale(0.4);
 		// 填入要傳送的資料
 		matrix.height = ready_image->height;
 		matrix.width = ready_image->width;
