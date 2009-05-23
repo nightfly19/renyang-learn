@@ -97,6 +97,9 @@ Transmitter::~Transmitter(void)
 
 void Transmitter::setup(int srate, int quality, int abr, int vbr, float vbr_quality, int complexity, int vad, int dtx, int txstop)
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::setup()");
+#endif
 	if (recording)
 	{
 		recorder->end();
@@ -706,6 +709,9 @@ void Transmitter::sendKeyRequestPacket()
 
 void Transmitter::setThreshold(int th)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::setThreshold(%1)").arg(th));
+#endif
 	threshold = (float) (th * th * 3.2);
 }
 

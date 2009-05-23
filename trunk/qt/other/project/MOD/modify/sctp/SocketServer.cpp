@@ -103,7 +103,7 @@ void SocketServer::initAcceptThread()
 	return ;
 }
 
-// 把socket與address_in連結在一起
+// renyang - 把socket與address_in連結在一起
 int SocketServer::Bind()
 { 
 	int ret = 0;
@@ -114,7 +114,7 @@ int SocketServer::Bind()
 	servaddr.sin_addr.s_addr = htonl( INADDR_ANY );
 	servaddr.sin_port = htons(listenPort);
 
-	// 使用c語言中的bind函式:int bind(int sid,struct sockaddr *,int len)
+	// renyang - 使用c語言中的bind函式:int bind(int sid,struct sockaddr *,int len)
 	ret = ::bind(_socket,(struct sockaddr *)&servaddr, sizeof(servaddr));
 	if( ret )
 		throw Error("Could not bind port ");
@@ -142,7 +142,7 @@ int SocketServer::Bind_Listen()
 	connect( _notifier, SIGNAL(activated(int)),
 			this, SLOT(newConnection(int)) );
 #endif
-	// 此_socket已為connected的狀態
+	// renyang - 此_socket已為connected的狀態
 	QServerSocket::setSocket( _socket );
 
 	return 0;
