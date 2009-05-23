@@ -43,6 +43,7 @@ class SocketServer : public QServerSocket
 		void initAcceptThread();
 
 		int getClientFd(){	return _clnt_socket;	};	
+		// renyang - 取得server端代表server的socket
 		int getSocketFd(){	return _socket;	};	
 
 		int Bind_Listen();
@@ -78,7 +79,9 @@ class SocketServer : public QServerSocket
 		SocketAcceptThread *_saThread; // for accept fucntion
 		
 	protected: /* 從Socket那裡拿來的 private vlue 及 data */
+		// renyang - 表示server本身等待某一個client連接的socket
 		int _socket;
+		// renyang - 在server端表示client端的socket
 		int _clnt_socket;
 #ifdef __SocketServer_Use_Notifier__
 		QSocketNotifier *_notifier;

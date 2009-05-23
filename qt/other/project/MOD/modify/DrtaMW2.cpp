@@ -74,6 +74,9 @@
 DrtaMW2 ::DrtaMW2( QWidget* parent, const char* name, WFlags fl )
     : DrtaMW( parent, name, fl ), config(Config::instance())
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::DrtaMW2()");
+#endif
 	setName( "DRTA" );
 	setSizePolicy( QSizePolicy( (QSizePolicy::SizeType)1, (QSizePolicy::SizeType)1, 0, 0, sizePolicy().hasHeightForWidth() ) );
 	setMinimumSize(QSize(300, 400));	// renyang - 設定此widget的最小長寬
@@ -238,6 +241,9 @@ DrtaMW2::~DrtaMW2()
 
 void DrtaMW2::initDrta(bool file)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::initDrta(%1)").arg(file));
+#endif
 	show();	// renyang - 顯示目前這一個GUI,在Qt中所有GUI預設是隱藏的
 	
 	try
@@ -307,6 +313,9 @@ void DrtaMW2::initDrta(bool file)
 
 void DrtaMW2::applySettings()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::applySettings()");
+#endif
 	int srate, quality, vbr, abr, complexity, vad, dtx, txstop;
 	float vbrquality;
 
@@ -378,11 +387,17 @@ void DrtaMW2::applySettings()
 
 void DrtaMW2::txLedEnable(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::txLedEnable(%1)").arg(on));
+#endif
 	txPixmap->setEnabled(on);
 }
 
 void DrtaMW2::startAll()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::startAll()");
+#endif
 	if (fromFile)
 		receiver->swap();
 	else
@@ -417,6 +432,9 @@ void DrtaMW2::startAll()
 
 void DrtaMW2::answer()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::answer()");
+#endif
 	try
 	{
 		UiStateChange( UI_ANSWER );
@@ -435,6 +453,9 @@ void DrtaMW2::answer()
 
 void DrtaMW2::call(QString host)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::call(%1)").arg(host));
+#endif
 	try
 	{
 		if (host.isEmpty())
@@ -467,6 +488,9 @@ void DrtaMW2::call(QString host)
 
 void DrtaMW2::Callx()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::Callx()");
+#endif
 	QStrList host_list;
 	unsigned int i = 0;
 
@@ -518,6 +542,9 @@ void DrtaMW2::Callx()
 
 void DrtaMW2::waitCalls(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::waitCalls(%1)").arg(on));
+#endif
 	if (on)
 	{
 		UiStateChange( UI_WAITCALL_RECV );
@@ -537,11 +564,15 @@ void DrtaMW2::waitCalls(bool on)
 
 void DrtaMW2::listen()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::listen()");
+#endif
 	try {
 		filePlayFileAction->setEnabled(FALSE);
 
 		message("Starting Receiver...");
 		listening = true;
+		// renyang - 取回連線數
 		if (receiver->getConnections() > 0)
 		{
 			rxLedEnable(TRUE);
@@ -560,8 +591,12 @@ void DrtaMW2::listen()
 	}
 }
 
+// renyang - 表示client端有資料送過來啦
 void DrtaMW2::newConnection(int sd, int protocol, struct sockaddr_in sa)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::newConnection(%1,%2,struct sockaddr_in sa)").arg(sd).arg(protocol));
+#endif
 	try
 	{
 		if (listening)
@@ -574,6 +609,7 @@ void DrtaMW2::newConnection(int sd, int protocol, struct sockaddr_in sa)
 			tx->setEnabled(TRUE);
 			rx->setEnabled(TRUE);
 			received = true;
+			// renyang - 設定Transmitter的protocol
 			transmitter->newConnection(sd, sa, protocol);
 			if (config.readBoolEntry("/drta/general/answer"))
 				answer();
@@ -595,6 +631,9 @@ void DrtaMW2::newConnection(int sd, int protocol, struct sockaddr_in sa)
 
 void DrtaMW2::stopSignal()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::stopSignal()");
+#endif
 	if (fromFile)
 	{
 		statusbar->message(tr("End of file"));
@@ -617,6 +656,9 @@ void DrtaMW2::stopSignal()
 
 void DrtaMW2::stop()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::stop()");
+#endif
 	if (received)
 		transmitter->sendRefusePacket();
 	else
@@ -635,6 +677,9 @@ void DrtaMW2::stop()
 
 void DrtaMW2::stopAll()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::stopAll()");
+#endif
 	raise();
 	try
 	{
@@ -655,6 +700,7 @@ void DrtaMW2::stopAll()
 		sliderFree = true;
 		rxLedEnable(FALSE);
 		txLedEnable(FALSE);
+		// renyang - 當停止所有的call後, 若waitButton仍是被按住的話, 則執行listen()
 		if (waitButton->isOn())
 			restartTimer->start(RESTART_TIME, true);
 	}
@@ -666,12 +712,18 @@ void DrtaMW2::stopAll()
 
 void DrtaMW2::play()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::play()");
+#endif
         QString name=QFileDialog::getOpenFileName("","*"DRTA_EXT,this,0,"Open DRTA file to play...");
 	playFile(name);
 }
 
 void DrtaMW2::playFile(QString name)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::playFile(%1)").arg(name));
+#endif
 	if (!name.isEmpty())
 	{
 		try
@@ -695,6 +747,9 @@ void DrtaMW2::playFile(QString name)
 
 void DrtaMW2::abortAll(QString message)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::abortAll(%1)").arg(message));
+#endif
 	if (waitButton->isOn())
 		waitButton->toggle();
 	stopAll();
@@ -703,18 +758,27 @@ void DrtaMW2::abortAll(QString message)
 
 void DrtaMW2::showMessageCritical(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::showMessageCritical(%1)").arg(text));
+#endif
 	message("Aborted");
 	QMessageBox::critical(0, "DRTA Error", tr("Error: ") + text);
 }
 
 void DrtaMW2::showWarning(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::showWarning(%1)").arg(text));
+#endif
 	message("WARNING!");
 	QMessageBox::warning(0, "DRTA Warning", tr("Warning: ") + text);
 }
 
 void DrtaMW2::closeEvent(QCloseEvent *e)
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::closeEvent()");
+#endif
 	if (closing)
 	{
 		e->accept();
@@ -728,6 +792,9 @@ void DrtaMW2::closeEvent(QCloseEvent *e)
 
 void DrtaMW2::fileExit()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::fileExit()");
+#endif
 	stopAll();
 	closing = true;
 	config.writeEntry("/drta/host/default", hostEdit->currentText());
@@ -740,12 +807,18 @@ void DrtaMW2::fileExit()
 
 void DrtaMW2::message(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::message(%1)").arg(text));
+#endif
 	skipStat = 1;
 	statusbar->message(text, STAT_TIME*3);
 }
 
 void DrtaMW2::warning(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::warning(%1)").arg(text));
+#endif
 	skipStat = 2;
 	statusbar->message(text);
 
@@ -755,11 +828,17 @@ void DrtaMW2::warning(QString text)
 
 void DrtaMW2::log()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::log()");
+#endif
 	logViewer->show();
 }
 
 void DrtaMW2::settings()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::settings()");
+#endif
 	Settings *settings = new Settings(this);
 	int ret = settings->exec();
 	if (ret == QDialog::Accepted)
@@ -778,17 +857,26 @@ void DrtaMW2::settings()
 
 void DrtaMW2::ringOn(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::ringOn(%1)").arg(on));
+#endif
 	transmitter->ring(on);
 }
 
 void DrtaMW2::cryptOn()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::cryptOn()");
+#endif
 	if (!cryptAction->isOn())
 		cryptAction->toggle();
 }
 
 void DrtaMW2::crypt(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::crypt(%1)").arg(on));
+#endif
 	config.writeEntry("/drta/security/crypt", on);
 	if (on)
 	{
@@ -813,6 +901,9 @@ void DrtaMW2::crypt(bool on)
 
 bool DrtaMW2::changeKey()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::changeKey()");
+#endif
 	bool ok = false;
 	try
 	{
@@ -850,6 +941,9 @@ bool DrtaMW2::changeKey()
 
 void DrtaMW2::setDecryptionKey()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::setDecryptionKey()");
+#endif
 	bool ok;
 	QString text = QInputDialog::getText("Decryption Passphrase", "Enter the decryption passphrase, leave blank to reset.", QLineEdit::Password, QString::null, &ok, this );
 	if (ok)
@@ -863,12 +957,18 @@ void DrtaMW2::setDecryptionKey()
 
 void DrtaMW2::sendKey()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::sendKey()");
+#endif
 	if (transmitter->isWorking())
 		transmitter->sendKeyPacket();
 }
 
 void DrtaMW2::sendKeyRequest()
 {
+#ifdef REN_DEBUG
+	qWarning("DrtaMW2::sendKeyRequest()");
+#endif
 	if (transmitter->isWorking())
 		transmitter->sendKeyRequestPacket();
 	else
@@ -893,6 +993,9 @@ void DrtaMW2::sendKeyRequest()
 
 void DrtaMW2::agcRefresh(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::agcRefresh(%1)").arg(on));
+#endif
 	float step = (float) (config.readNumEntry("/drta/sound/agcstep")/1000.f);
 	float level = (float) (config.readNumEntry("/drta/sound/agclevel")/100.f);
 	float min = (float) config.readNumEntry("/drta/sound/agcmin");
@@ -913,6 +1016,9 @@ void DrtaMW2::agcRefresh(bool on)
 
 void DrtaMW2::agcOn(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::agcOn(%1)").arg(on));
+#endif
 	agcRefresh(on);
 	if (on)
 		message(tr("Automatic Gain Control (AGC) enabled."));
@@ -922,6 +1028,9 @@ void DrtaMW2::agcOn(bool on)
 
 void DrtaMW2::adrRefresh(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::adrRefresh(%1)").arg(on));
+#endif
 	float mindelay = (float) (config.readNumEntry("/drta/sound/adrmindelay")/1000.f);
 	float maxdelay = (float) (config.readNumEntry("/drta/sound/adrmaxdelay")/1000.f);
 	float stretch = (float) config.readNumEntry("/drta/sound/adrstretch");
@@ -931,6 +1040,9 @@ void DrtaMW2::adrRefresh(bool on)
 
 void DrtaMW2::adrOn(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::adrOn(%1)").arg(on));
+#endif
 	adrRefresh(on);
 	if (on)
 		message(tr("Audio Delay Reduction (ADR) enabled."));
@@ -940,6 +1052,9 @@ void DrtaMW2::adrOn(bool on)
 
 void DrtaMW2::transmitterStatus(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::transmitterStatus(%1)").arg(on));
+#endif
 	try
 	{
 		if (on)
@@ -965,6 +1080,9 @@ void DrtaMW2::transmitterStatus(bool on)
 
 void DrtaMW2::receiverStatus(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::receiverStatus(%1)").arg(on));
+#endif
 	try
 	{
 		if (on)
@@ -990,12 +1108,18 @@ void DrtaMW2::receiverStatus(bool on)
 
 void DrtaMW2::changeProgress(int v)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::changeProgress(%1)").arg(v));
+#endif
 	if (sliderFree)
 		thSlider->setValue(v);
 }
 
 void DrtaMW2::sliderChanged(int v)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::sliderChanged(%1)").arg(v));
+#endif
 	if (fromFile)
 	{
 		threshold->setText(QString("File progress: %1 \%").arg( v ));
@@ -1010,6 +1134,9 @@ void DrtaMW2::sliderChanged(int v)
 
 void DrtaMW2::sliderPress()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::sliderPress()"));
+#endif
 	if (fromFile)
 	{
 		receiver->stop();
@@ -1019,6 +1146,9 @@ void DrtaMW2::sliderPress()
 
 void DrtaMW2::sliderRelease()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::sliderRelease()"));
+#endif
 	if (fromFile)
 	{
 		receiver->seekFile(thSlider->value());
@@ -1029,6 +1159,9 @@ void DrtaMW2::sliderRelease()
 
 void DrtaMW2::agcSliderChanged(int v)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::agcSliderChanged(%1)").arg(v));
+#endif
 	bool agc = config.readBoolEntry("/drta/sound/agc");
 	config.writeEntry("/drta/sound/agclevel", v);
 	agcLabel->setText(QString("AGC volume: %1 \%").arg( v ));
@@ -1037,6 +1170,9 @@ void DrtaMW2::agcSliderChanged(int v)
 
 void DrtaMW2::statistics()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::statistics()"));
+#endif
 	if (fromFile)
 	{
 		message(QString("Playing %1 (%2)").arg(fileName).arg(receiver->getCallerName()));
@@ -1070,11 +1206,17 @@ void DrtaMW2::statistics()
 
 void DrtaMW2::helpContents()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::helpContents()"));
+#endif
 	QMessageBox::information( this, "Dr.ta" , "" );
 }
 
 void DrtaMW2::helpAbout()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::helpAbout()"));
+#endif
 	QMessageBox::about( this, "Dr.ta help" ,"<center><b>Dr.ta</b> means <b>\"Driving Talking\"</b>.</center><br>"
 				         "Dr.ta is a implementation program, <br>"
 					 "based on sctp protocol and IHU,of MOD.<br>"
@@ -1087,22 +1229,34 @@ void DrtaMW2::helpAbout()
 
 void DrtaMW2::disableIn()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::disableIn()"));
+#endif
 	muteMicButton->toggle();
 }
 
 void DrtaMW2::disableOut()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::disableOut()"));
+#endif
 	muteSpkButton->toggle();
 }
 
 void DrtaMW2::waitForCalls()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::waitForCalls()"));
+#endif
 	if (!waitButton->isOn())
 		waitButton->toggle();
 }
 
 void DrtaMW2::ringMessage()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::ringMessage()"));
+#endif
 	QString text = QString("Ringing %1").arg(transmitter->getIp());
 	if (receiver->replied())
 		text += QString(" (%1)").arg(receiver->getCallerName());
@@ -1113,6 +1267,9 @@ void DrtaMW2::ringMessage()
 
 void DrtaMW2::toggleVisibility()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::toggleVisibility()"));
+#endif
 	if (isVisible())
 		hide();
 	else
@@ -1121,6 +1278,9 @@ void DrtaMW2::toggleVisibility()
 
 void DrtaMW2::receivedNewKey(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::receivedNewKey(%1)").arg(text));
+#endif
 	if (config.readBoolEntry("/drta/security/showkey"))
 	{
 		warning(QString("New decryption key: %1").arg(text));
@@ -1129,6 +1289,9 @@ void DrtaMW2::receivedNewKey(QString text)
 }
 void DrtaMW2::UiStateChange( Ui_State now_s)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::UiStateChange()"));
+#endif
 
 	switch ( now_s){
 
@@ -1226,6 +1389,9 @@ void DrtaMW2::UiStateChange( Ui_State now_s)
 
 void DrtaMW2 :: slotSendMsg()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2 :: slotSendMsg()"));
+#endif
 
 	transmitter -> sendMsgPacket( te_sendmsg -> text() . utf8()  );
 
@@ -1237,12 +1403,18 @@ void DrtaMW2 :: slotSendMsg()
 
 void DrtaMW2 :: slotRecvMsg(QString s)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2 :: slotRecvMsg(%1)").arg(s));
+#endif
 	QString to_append = receiver->getCallerName() + " :" + s;
 	te_recvmsg -> append( to_append );
 }
 
 void DrtaMW2::rxLedEnable(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::rxLedEnable(%1)").arg(on));
+#endif
 	unsigned int i = 0;
 
 	rxPixmap->setEnabled(on);
@@ -1265,6 +1437,9 @@ void DrtaMW2::rxLedEnable(bool on)
 
 void DrtaMW2::slotRemoteTerminate()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("DrtaMW2::slotRemoteTerminate()"));
+#endif
 	message(tr("Remote User Just Hang up!"));
 	QMessageBox::warning(0, "DRTA MSG", tr("Remote User Just Hange up ") );
 	

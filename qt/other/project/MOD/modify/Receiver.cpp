@@ -247,8 +247,12 @@ void Receiver::start(int socket, int pt)
 	connect(notifier,SIGNAL(activated(int)),this, SLOT(receive()));
 }
 
+// renyang - 建立socket等待client端的連線
 void Receiver::Listen(int port, bool udp, bool tcp , bool sctp , bool sctp_udp)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::Listen(%1,%2,%3,%4,%5)").arg(port).arg(udp).arg(tcp).arg(sctp).arg(sctp_udp));
+#endif
 	int sd;
 	listening = true;
 	if (udp) {
@@ -273,9 +277,12 @@ void Receiver::Listen(int port, bool udp, bool tcp , bool sctp , bool sctp_udp)
 		sctpserver = new SocketSctpServer(this, port); 
 		connect( sctpserver, SIGNAL(newConnectSCTP(int)), this, SLOT(newConnectionSCTP(int)));
 
+		// renyang - 其實這一個不需要再設定, 因為, SocketSctpServer的建構子就有設定了
 		sctpserver -> SctpEnable();
 		sctpserver -> SctpSetMaxStream(5);
+		// renyang - 設定當有資料時馬上送出去, 而不用等到資料到達一定的個數時才送出去
 		SctpSocketHandler::SctpSetNoDelay( sctpserver -> getSocketFd() );
+		// renyang - 監控所有的事件
 		SctpSocketHandler::SctpTurnOnAllEvent( sctpserver -> getSocketFd() );
 
 
@@ -841,9 +848,12 @@ void Receiver::newConnectionTCP(int socket)
 }
 void Receiver::newConnectionSCTP(int socket)
 {
+	// renyang - 確定有新的連線進來之後, 把所有的notifier關掉, 因為不想要有CallTab
 	close();
 	start(socket, DRTA_SCTP);
+	// renyang - 表示目前只有接收端, 還沒有建立傳送端
 	halfconnected = true;
+	// renyang - 判斷對方是否接受通話啦
 	checkConnection();
 	ledOn(true);
 }
@@ -899,6 +909,7 @@ void Receiver::checkConnection()
 
 		if (listening)
 			connects++;
+		// renyang - 設定一個Transmitter的類別, 讓資料可以傳送出去
 		emit newSocket(s, protocol, ca);
 		emitSignal(SIGNAL_RINGREPLY);
 	}
