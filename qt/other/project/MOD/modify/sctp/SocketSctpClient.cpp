@@ -27,6 +27,9 @@ SocketSctpClient::SocketSctpClient()
 	: SocketClient(SOCK_STREAM , IPPROTO_SCTP)
 	, _port(0)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SocketSctpClient()"));
+#endif
 	SctpEnable();
 
 	_connx_ip_list . setAutoDelete( true );
@@ -34,11 +37,17 @@ SocketSctpClient::SocketSctpClient()
 
 SocketSctpClient::~SocketSctpClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::~SocketSctpClient()"));
+#endif
 	_connx_ip_list . clear();
 }
 
 int SocketSctpClient::SctpSetMaxStream(int num = 5)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpSetMaxStream(%1)").arg(num));
+#endif
 	int ret;
 
 	struct sctp_initmsg initmsg;
@@ -54,6 +63,9 @@ int SocketSctpClient::SctpSetMaxStream(int num = 5)
 
 int SocketSctpClient::SctpGetAssocID()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpGetAssocID()"));
+#endif
 	struct sctp_status status;
 	int ret,in;
 
@@ -65,6 +77,9 @@ int SocketSctpClient::SctpGetAssocID()
 }
 int SocketSctpClient::SctpGetState()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpGetState()"));
+#endif
 	struct sctp_status status;
 	int ret,in;
 
@@ -78,6 +93,9 @@ int SocketSctpClient::SctpGetState()
 
 int SocketSctpClient::SctpEnable()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpEnable()"));
+#endif
 	 struct sctp_event_subscribe events;
 	int ret;
 
@@ -91,6 +109,9 @@ int SocketSctpClient::SctpEnable()
 }
 int SocketSctpClient::SctpSendMsg(mPacket& p,int str_num, int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpSendMsg()"));
+#endif
 	int ret=0;
 
 	if(sock  == -1) sock=_socket;
@@ -104,6 +125,9 @@ int SocketSctpClient::SctpSendMsg(mPacket& p,int str_num, int sock)
 
 int SocketSctpClient::SctpRecvMsg(mPacket& p,int& str_num, int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpRecvMsg()"));
+#endif
 	int ret=0;
 	struct sctp_sndrcvinfo sndrcvinfo;
 
@@ -122,6 +146,9 @@ int SocketSctpClient::SctpRecvMsg(mPacket& p,int& str_num, int sock)
 
 int SocketSctpClient::SctpAddConn(QString& ip , int port)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpAddConn(%1,%2)").arg(ip).arg(port));
+#endif
 	struct hostent *hostInfo = NULL;
 	//struct sockaddr_in *server_adr = NULL;
 
@@ -149,6 +176,9 @@ int SocketSctpClient::SctpAddConn(QString& ip , int port)
 
 int SocketSctpClient::SctpConnect()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpClient::SctpConnect()"));
+#endif
 	struct hostent *hostInfo = NULL;
 	int ret = 0;
 

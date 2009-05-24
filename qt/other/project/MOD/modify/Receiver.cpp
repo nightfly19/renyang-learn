@@ -71,6 +71,9 @@ Receiver::Receiver(AudioPlayer *pl, Rsa *r)
 /*Receiver::Receiver(AudioPlayer *pl)
 	: player(pl)*/
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::Receiver()"));
+#endif
 	
 	setName("Receiver");
 	s = -1;
@@ -108,6 +111,9 @@ Receiver::Receiver(AudioPlayer *pl, Rsa *r)
 
 Receiver::~Receiver(void)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::~Receiver()"));
+#endif
 	if (inputBuffer)
 		free(inputBuffer);
 	if (streamBuffer)
@@ -123,6 +129,9 @@ Receiver::~Receiver(void)
 
 void Receiver::changeMode(char mode)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::changeMode()"));
+#endif
     try
     {
 	player->end();
@@ -169,6 +178,9 @@ void Receiver::changeMode(char mode)
 
 void Receiver::initAudioPlayer(receiver_status newstatus)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::initAudioPlayer()"));
+#endif
 	switch(newstatus)
 	{
 		case RECEIVER_STATUS_MUTE:
@@ -181,6 +193,9 @@ void Receiver::initAudioPlayer(receiver_status newstatus)
 
 void Receiver::reset()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::reset()"));
+#endif
 	refuse = false;
 	reply = false;
 	newconnected = true;
@@ -196,6 +211,9 @@ void Receiver::reset()
 
 void Receiver::resetStream()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::resetStream()"));
+#endif
 	streamLen = 0;
 	streamPtr = streamBuffer;
 	sync = STREAM_READ_DATA;
@@ -203,6 +221,9 @@ void Receiver::resetStream()
 
 void Receiver::dump(QString file)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::dump(%1)").arg(file));
+#endif
 	if (!file.isEmpty())
 	{
 		streamFile = fopen(file.ascii(), "ab");
@@ -221,6 +242,9 @@ void Receiver::dump(QString file)
 
 void Receiver::changeStatus(receiver_status newstatus)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::changeStatus()"));
+#endif
 	switch(newstatus)
 	{
 		case RECEIVER_STATUS_MUTE:
@@ -236,6 +260,9 @@ void Receiver::changeStatus(receiver_status newstatus)
 
 void Receiver::start(int socket, int pt)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::start(%1,%2)").arg(socket).arg(pt));
+#endif
 	s = socket;
 	protocol = pt;
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
@@ -315,6 +342,9 @@ void Receiver::Listen(int port, bool udp, bool tcp , bool sctp , bool sctp_udp)
 
 void Receiver::close()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::close()"));
+#endif
 	if (notifier)
 		delete notifier;
 	notifier = NULL;
@@ -334,6 +364,9 @@ void Receiver::close()
 
 void Receiver::end()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::end()"));
+#endif
 	close();
 	
 	checkTimer->stop();
@@ -354,6 +387,9 @@ void Receiver::end()
 
 void Receiver::emitSctpEvent(void * inmessage)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::emitSctpEvent()"));
+#endif
 	//int error;
 	union sctp_notification* sctp_no = (union sctp_notification*) inmessage;
 
@@ -419,6 +455,9 @@ void Receiver::emitSctpEvent(void * inmessage)
 
 void Receiver::receive()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::receive()"));
+#endif
 	struct sockaddr_in sctp_from;
 	socklen_t sctp_fromlen = sizeof( sctp_from );
 	struct sctp_sndrcvinfo sndrcvinfo;
@@ -476,6 +515,9 @@ void Receiver::receive()
 
 void Receiver::putData(char *buffer, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::putData()"));
+#endif
 	if (streamFile && !fromFile)
 	{
 		fwrite(buffer, 1, len, streamFile);
@@ -506,6 +548,9 @@ void Receiver::putData(char *buffer, int len)
 
 void Receiver::checkAudioPlayer()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::checkAudioPlayer()"));
+#endif
 	if (flushing)
 	{
 		if (player->flush())
@@ -531,6 +576,9 @@ void Receiver::checkAudioPlayer()
 
 void Receiver::processData()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::processData()"));
+#endif
 	while ((sync != STREAM_READ_DATA) && (sync != STREAM_PLAYER_NOT_READY))
 	{
 		switch (sync)
@@ -625,6 +673,9 @@ void Receiver::processData()
 
 void Receiver::processPacket(Packet *p)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::processPacket()"));
+#endif
 	int mode = p->getMode();
 	QString buf;
 	if (mode)
@@ -721,6 +772,9 @@ void Receiver::processPacket(Packet *p)
 
 void Receiver::ring(int size)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::ring(%1)").arg(size));
+#endif
 	switch (status)
 	{
 		case RECEIVER_STATUS_MUTE:
@@ -733,6 +787,9 @@ void Receiver::ring(int size)
 
 void Receiver::playData(char *buf, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::playData()"));
+#endif
 	if (state)
 	{
 		speex_bits_read_from(&bits, buf, len);
@@ -750,17 +807,26 @@ void Receiver::playData(char *buf, int len)
 
 void Receiver::emitError(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::emitError(%1)").arg(text));
+#endif
 	emit error(text);
 }
 
 void Receiver::enableDecrypt(char *passwd, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::enableDecrypt()"));
+#endif
 	disableDecrypt();
 	blowfish = new Blowfish(passwd, len);
 }
 
 void Receiver::disableDecrypt()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::disableDecrypt()"));
+#endif
 	if (blowfish)
 		delete blowfish;
 	blowfish = NULL;
@@ -768,6 +834,9 @@ void Receiver::disableDecrypt()
 
 void Receiver::playFile(QString file)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::playFile(%1)").arg(file));
+#endif
 	struct stat info;
 	inFile = fopen(file.ascii(), "rb");
 	if (inFile==NULL)
@@ -786,12 +855,18 @@ void Receiver::playFile(QString file)
 
 void Receiver::startFile()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::startFile()"));
+#endif
 	readFile();
 	fileTimer->start(FILE_TICKTIME, false);
 }
 
 void Receiver::readFile()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::readFile()"));
+#endif
 	if (working)
 	{
 		if (sync == STREAM_READ_DATA)
@@ -815,6 +890,9 @@ void Receiver::readFile()
 
 void Receiver::seekFile(int off)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::seekFile(%1)").arg(off));
+#endif
 	float offset = (float) off;
 	offset /= 100.f;
 	offset *= total;
@@ -827,6 +905,9 @@ void Receiver::seekFile(int off)
 
 void Receiver::stopFile()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::stopFile()"));
+#endif
 	fileTimer->stop();
 	if (inFile)
 		fclose(inFile);
@@ -835,11 +916,17 @@ void Receiver::stopFile()
 
 void Receiver::waitConnection()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::waitConnection()"));
+#endif
 	checkTimer->start(CHECK_TICKTIME, false);
 }
 
 void Receiver::newConnectionTCP(int socket)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::newConnectionTCP(%1)").arg(socket));
+#endif
 	close();
 	start(socket, DRTA_TCP);
 	halfconnected = true;
@@ -848,6 +935,9 @@ void Receiver::newConnectionTCP(int socket)
 }
 void Receiver::newConnectionSCTP(int socket)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::newConnectionSCTP(%1)").arg(socket));
+#endif
 	// renyang - 確定有新的連線進來之後, 把所有的notifier關掉, 因為不想要有CallTab
 	close();
 	start(socket, DRTA_SCTP);
@@ -860,6 +950,9 @@ void Receiver::newConnectionSCTP(int socket)
 
 void Receiver::checkConnection()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::checkConnection()"));
+#endif
 	if (halfconnected)
 		emit warning(QString("Incoming connection from %1!").arg(getIp()));
 	if (total > 0)
@@ -919,27 +1012,42 @@ void Receiver::checkConnection()
 
 void Receiver::goRing()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::goRing()"));
+#endif
 	for (int i=0; i<RING_NUMBER; i++)
 		ring(ring_size);
 }
 
 void Receiver::stop()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::stop()"));
+#endif
 	working = false;
 }
 
 void Receiver::go()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::go()"));
+#endif
 	working = true;
 }
 
 void Receiver::swap()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::swap()"));
+#endif
 	working = !working;
 }
 
 long Receiver::getBytes()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::getBytes()"));
+#endif
 	long temp = bytes;
 	bytes = 0;
 	ledOn(false);
@@ -948,16 +1056,25 @@ long Receiver::getBytes()
 
 long Receiver::getTotal()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::getTotal()"));
+#endif
 	return total;
 }
 
 QString Receiver::getIp()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::getIp()"));
+#endif
 	return QString(inet_ntoa(ca.sin_addr));
 }
 
 QString Receiver::getCallerName()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::getCallerName()"));
+#endif
 	QString name = callerName;
 	if (name.isEmpty())
 		name = "none ";
@@ -966,28 +1083,43 @@ QString Receiver::getCallerName()
 
 int Receiver::getConnections()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::getConnections()"));
+#endif
 	return connects;
 }
 
 int Receiver::getCalls()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::getCalls()"));
+#endif
 	return calls;
 }
 
 void Receiver::resetCalls()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::resetCalls()"));
+#endif
 	calls = 0;
 	connects = 0;
 }
 
 void Receiver::ledOn(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::ledOn(%1)").arg(on));
+#endif
 	if (working)
 		emit ledEnable(on);
 }
 
 void Receiver::noDecrypt()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::noDecrypt()"));
+#endif
 	nodecrypt = true;
 	read_size = IN_BUFSIZE;
 	fileTimer->changeInterval(FILE_TICKTIME_FAST);
@@ -995,16 +1127,25 @@ void Receiver::noDecrypt()
 
 bool Receiver::refused()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::refused()"));
+#endif
 	return refuse;
 }
 
 bool Receiver::replied()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::replied()"));
+#endif
 	return reply;
 }
 
 void Receiver::emitSignal(signal_type type)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::emitSignal()"));
+#endif
 	switch(type)
 	{
 		case SIGNAL_FINISH:
@@ -1033,6 +1174,9 @@ void Receiver::emitSignal(signal_type type)
 
 void Receiver::flush()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Receiver::flush()"));
+#endif
 	stop();
 	flushing = true;
 	timer->start(TICKTIME, false);

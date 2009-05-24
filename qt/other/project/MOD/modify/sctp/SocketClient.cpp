@@ -26,29 +26,44 @@ SocketClient::SocketClient()
 	: Socket() 
 	, _read_notifier(NULL), _excp_notifier(NULL)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::SocketClient()"));
+#endif
 	init();
 }
 SocketClient::SocketClient(int protocol)
 	: Socket(AF_INET , SOCK_STREAM , protocol) 
 	, _read_notifier(NULL), _excp_notifier(NULL)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::SocketClient()"));
+#endif
 	init();
 }
 SocketClient::SocketClient(int type , int protocol)
 	: Socket(AF_INET , type , protocol) 
 	, _read_notifier(NULL), _excp_notifier(NULL)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::SocketClient()"));
+#endif
 	init();
 }
 
 SocketClient::~SocketClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::~SocketClient()"));
+#endif
 //	if(_read_notifier)	delete _read_notifier; 
 //	if(_excp_notifier)	delete _excp_notifier; 
 }
 
 void SocketClient::init()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::init()"));
+#endif
 	server_ip = "";
 	conn_port = 0;
 
@@ -61,6 +76,9 @@ void SocketClient::init()
 
 int SocketClient::Connect(QString ip,int port)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::Connect(%1,%2)").arg(ip).arg(port));
+#endif
 	int ret=0;
 	struct hostent *hostInfo;
 
@@ -99,6 +117,9 @@ int SocketClient::Connect(QString ip,int port)
 
 void SocketClient::setSocket(int s)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::setSocket(%1)").arg(s));
+#endif
 	_socket = s;
 
 	if(_read_notifier)	delete _read_notifier;
@@ -123,6 +144,9 @@ void SocketClient::setSocket(int s)
 
 void SocketClient::Close()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::Close()"));
+#endif
 	Socket::Close();
 	delete _read_notifier;
 	delete _excp_notifier; 
@@ -133,6 +157,9 @@ void SocketClient::Close()
 // 把與server的連線中斷
 void SocketClient::DiscardFromServer()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::DiscardFromServer()"));
+#endif
 	debug("SocketClient::DiscardFromServer()"); 
 	emit sigDiscardFromServer();
 }
@@ -140,6 +167,9 @@ void SocketClient::DiscardFromServer()
 // 由server端讀取資料
 void SocketClient::ReadFromServer()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketClient::ReadFromServer()"));
+#endif
 
 	debug("SocketClient::ReadFromServer()");
 	emit sigReadFromServer();

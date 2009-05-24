@@ -24,6 +24,9 @@
 /* static functions */
 int SctpSocketHandler::SctpSetMaxStream(int sd , int num = 5)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpSetMaxStream(%1,%2)").arg(sd).arg(num));
+#endif
 	int ret;
 
 	struct sctp_initmsg initmsg;
@@ -39,6 +42,9 @@ int SctpSocketHandler::SctpSetMaxStream(int sd , int num = 5)
 
 int SctpSocketHandler::SctpGetAssocID(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpGetAssocID(%1)").arg(sd));
+#endif
 	struct sctp_status status;
 	int ret,in;
 
@@ -65,6 +71,9 @@ int SctpSocketHandler::SctpGetState(int sd)
 
 int SctpSocketHandler::SctpEnable(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpEnable(%1)").arg(sd));
+#endif
 	 struct sctp_event_subscribe events;
 	int ret;
 
@@ -83,6 +92,9 @@ int SctpSocketHandler::SctpEnable(int sd)
 /* static functions */
 int SctpSocketHandler::SctpSetNoDelay(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpSetNoDelay(%1)").arg(sd));
+#endif
 	int ret; 
 	int flag = 1;
 	ret = setsockopt( sd , IPPROTO_SCTP, SCTP_NODELAY,
@@ -93,6 +105,9 @@ int SctpSocketHandler::SctpSetNoDelay(int sd)
 
 int SctpSocketHandler::SctpGetRtoMax(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpGetRtoMax(%1)").arg(sd));
+#endif
 	struct sctp_rtoinfo rto_info;
 	int ret,in;
 
@@ -108,6 +123,9 @@ int SctpSocketHandler::SctpGetRtoMax(int sd)
 
 int SctpSocketHandler::SctpGetRtoMin(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpGetRtoMin(%1)").arg(sd));
+#endif
 	struct sctp_rtoinfo rto_info;
 	int ret,in;
 
@@ -123,6 +141,9 @@ int SctpSocketHandler::SctpGetRtoMin(int sd)
 
 int SctpSocketHandler::SctpSetRtoMax(int sd , int n)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpSetRtoMax(%1,%2)").arg(sd).arg(n));
+#endif
 	struct sctp_rtoinfo rto_info;
 	int ret,in;
 
@@ -139,6 +160,9 @@ int SctpSocketHandler::SctpSetRtoMax(int sd , int n)
 
 int SctpSocketHandler::SctpSetRtoMin(int sd , int n)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpSetRtoMin(%1,%2)").arg(sd).arg(n));
+#endif
 	struct sctp_rtoinfo rto_info;
 	int ret,in;
 
@@ -156,6 +180,9 @@ int SctpSocketHandler::SctpSetRtoMin(int sd , int n)
 
 int SctpSocketHandler::SctpSetAutoClose(int sd , int n)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpSetAutoClose(%1,%2)").arg(sd).arg(n));
+#endif
 	int ret;
 
 	ret = setsockopt(sd, IPPROTO_SCTP, SCTP_AUTOCLOSE, &n, sizeof (n)); 
@@ -165,6 +192,9 @@ int SctpSocketHandler::SctpSetAutoClose(int sd , int n)
 
 int SctpSocketHandler::SctpTurnOnAllEvent(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpTurnOnAllEvent(%1)").arg(sd));
+#endif
 	int ret;
 	struct sctp_event_subscribe event;
 	int n = sizeof(event);
@@ -185,6 +215,9 @@ int SctpSocketHandler::SctpTurnOnAllEvent(int sd)
 
 int SctpSocketHandler::SctpTurnOffAllEvent(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpTurnOffAllEvent(%1)").arg(sd));
+#endif
 	int ret;
 	struct sctp_event_subscribe event;
 	int n = sizeof(event);
@@ -205,6 +238,9 @@ int SctpSocketHandler::SctpTurnOffAllEvent(int sd)
 
 QString SctpSocketHandler::SctpGetPrim(int sd , int assoc_id)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpGetPrim(%1,%2)").arg(sd).arg(assoc_id));
+#endif
 	struct sockaddr_in *in_addr;
 	struct sockaddr_in6 *in6_addr;
 	char addr_buf[INET6_ADDRSTRLEN];
@@ -295,6 +331,9 @@ void SctpSocketHandler :: SctpSetPrim(int sd , int associd , int port , QString 
 
 void SctpSocketHandler :: SctpSetPrim(int sd , int index)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler :: SctpSetPrim(%1,%2)").arg(sd).arg(index));
+#endif
 	int ret = 0;
 	struct sockaddr *addr_list;
 	//struct sockaddr_in *in;
@@ -327,6 +366,9 @@ void SctpSocketHandler :: SctpSetPrim(int sd , int index)
 
 void SctpSocketHandler :: SctpSetPeerPrim(int sd , int index)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler :: SctpSetPeerPrim(%1,%2)").arg(sd).arg(index));
+#endif
 	int ret = 0;
 	struct sockaddr *addr_list;
 	//struct sockaddr_in *in;
