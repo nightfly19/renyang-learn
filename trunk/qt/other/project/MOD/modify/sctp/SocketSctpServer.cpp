@@ -25,21 +25,33 @@
 SocketSctpServer::SocketSctpServer(QObject* parent ,int port)
 	: SocketServer(parent , SOCK_STREAM , IPPROTO_SCTP , port)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::SocketSctpServer()"));
+#endif
 	debug("有設 IPPROTO_SCTP");
 	SctpEnable(); 
 }
 void SocketSctpServer::discardFromClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::discardFromClient()"));
+#endif
 	debug("SocketSctpServer::discardFromClient()");
 }
 
 void SocketSctpServer::readFromClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::readFromClient()"));
+#endif
 	debug("SocketSctpServer::readFromClient()");
 }
 
 int SocketSctpServer::SctpSetMaxStream(int num)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::SctpSetMaxStream(%1)").arg(num));
+#endif
 /*
 	int ret; 
 	struct sctp_initmsg initmsg;
@@ -56,11 +68,17 @@ int SocketSctpServer::SctpSetMaxStream(int num)
 
 int SocketSctpServer::SctpGetAssocID()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::SctpGetAssocID()"));
+#endif
 	return SctpSocketHandler::SctpGetAssocID(_socket);
 }
 
 int SocketSctpServer::SctpEnable()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::SctpEnable()"));
+#endif
 /*
 	 struct sctp_event_subscribe events;
 	int ret;
@@ -76,6 +94,9 @@ int SocketSctpServer::SctpEnable()
 }
 int SocketSctpServer::SctpSendMsg(mPacket& p,int str_num, int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::SctpSendMsg()"));
+#endif
 	int ret=0;
 
 	if(sock  == -1) sock=_socket;
@@ -91,6 +112,9 @@ int SocketSctpServer::SctpSendMsg(mPacket& p,int str_num, int sock)
 
 int SocketSctpServer::SctpRecvMsg(mPacket& p,int& str_num, int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::SctpRecvMsg()"));
+#endif
 	int ret=0;
 	struct sctp_sndrcvinfo sndrcvinfo;
 
@@ -109,6 +133,9 @@ int SocketSctpServer::SctpRecvMsg(mPacket& p,int& str_num, int sock)
 
 void SocketSctpServer::newConnection(int sock)// 在QSocketServer傳過來
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketSctpServer::newConnection()"));
+#endif
 	debug("SocketSctpServer : newConnection(%d)" , sock);
 
 	emit newConnectSCTP(sock);

@@ -51,6 +51,9 @@
 Transmitter::Transmitter(Recorder *rec, Rsa *r)
 	: recorder(rec), rsa(r)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::Transmitter()"));
+#endif
 	setName("Transmitter");
 	s = -1;
 	salen = sizeof(sa);
@@ -84,6 +87,9 @@ Transmitter::Transmitter(Recorder *rec, Rsa *r)
 
 Transmitter::~Transmitter(void)
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::~Transmitter()");
+#endif
 	if (out)
 		free(out);
 	if (buffer)
@@ -161,6 +167,9 @@ void Transmitter::setup(int srate, int quality, int abr, int vbr, float vbr_qual
 
 void Transmitter::init(int prot)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::init(%1)").arg(prot));
+#endif
 	protocol = prot;
 	if(prot == DRTA_SCTP || prot == DRTA_SCTP_UDP){
 		_enable_sctp = true;
@@ -179,6 +188,9 @@ void Transmitter::init(int prot)
 
 void Transmitter::dump(QString name, QString file)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::dump(%1,%2)").arg(name).arg(file));
+#endif
 	if(name.length() > DRTA_MAX_NAME_LEN)
 		name.truncate(DRTA_MAX_NAME_LEN);
 	myName = name;
@@ -199,6 +211,9 @@ void Transmitter::dump(QString name, QString file)
 
 void Transmitter::initRecorder()
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::initRecorder()");
+#endif
 	switch (status)
 	{
 		case TRANSMITTER_STATUS_MUTE:
@@ -213,16 +228,25 @@ void Transmitter::initRecorder()
 
 void Transmitter::go()
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::go()");
+#endif
 	working = true;
 }
 
 void Transmitter::stop()
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::stop()");
+#endif
 	working = false;
 }
 
 void Transmitter::prepare()
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::prepare()");
+#endif
 	switch(status)
 	{
 		case TRANSMITTER_STATUS_NORMAL:
@@ -237,6 +261,9 @@ void Transmitter::prepare()
 
 void Transmitter::changeStatus(transmitter_status newstatus)
 {
+#ifdef REN_DEBUG
+	qWarning("Transmitter::changeStatus()");
+#endif
 	status = newstatus;
 	switch (status)
 	{
@@ -262,6 +289,9 @@ void Transmitter::changeStatus(transmitter_status newstatus)
 */ 
 void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::newConnection()"));
+#endif
 	init(prot);
 	
 	switch (prot)
@@ -281,6 +311,9 @@ void Transmitter::newConnection(int socket, struct sockaddr_in ca, int prot)
 
 void Transmitter::start(int socket)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::start(%1)").arg(socket));
+#endif
 	s = socket;
 	go();
 	recording = true;
@@ -288,6 +321,9 @@ void Transmitter::start(int socket)
 
 int Transmitter::call(QString host, int port, int prot)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::call(%1,%2,%3)").arg(host).arg(port).arg(prot));
+#endif
 	init(prot);
 
 	int sd = -1;
@@ -337,6 +373,9 @@ int Transmitter::call(QString host, int port, int prot)
 
 void Transmitter::end()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::end()"));
+#endif
 	stop();
 	
 	recording = transmitting = false;
@@ -358,6 +397,9 @@ void Transmitter::end()
 
 void Transmitter::enableCrypt(char *passwd, int len)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::enableCrypt()"));
+#endif
 	disableCrypt();
 	blowfish = new Blowfish(passwd, len);
 	sendResetPacket();
@@ -365,6 +407,9 @@ void Transmitter::enableCrypt(char *passwd, int len)
 
 void Transmitter::disableCrypt()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::disableCrypt()"));
+#endif
 	if (blowfish)
 		delete blowfish;
 	blowfish = NULL;
@@ -372,6 +417,9 @@ void Transmitter::disableCrypt()
 
 int Transmitter::isSpeaking(float *samples, int sample)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::isSpeaking()"));
+#endif
 	int i;
 	for (i=0; i<sample; i++)
 		if (samples[i] >= threshold)
@@ -381,6 +429,9 @@ int Transmitter::isSpeaking(float *samples, int sample)
 
 void Transmitter::processData(float *samples, int nsample)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::processData()"));
+#endif
 	readBuffer = samples;
 	while (working && (nsample > 0))
 	{
@@ -414,6 +465,9 @@ void Transmitter::processData(float *samples, int nsample)
 
 void Transmitter::sendPacket(Packet *p , int str_number)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendPacket()"));
+#endif
 	int snt = 0;
 	if (s != -1)
 	{
@@ -456,6 +510,9 @@ void Transmitter::sendPacket(Packet *p , int str_number)
 
 void Transmitter::send(float *sample, int samples)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::send()"));
+#endif
 	if (isSpeaking(sample, samples)) 
 	{
 		if (status == TRANSMITTER_STATUS_WAITING)
@@ -487,6 +544,9 @@ void Transmitter::send(float *sample, int samples)
 
 void Transmitter::ring(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::ring(%1)").arg(on));
+#endif
 	if (on)
 	{
 		transmitting = false;
@@ -501,6 +561,9 @@ void Transmitter::ring(bool on)
 
 void Transmitter::sendRing()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendRing()"));
+#endif
 	if (ringing)
 	{
 		emit ringMessage();
@@ -522,6 +585,9 @@ void Transmitter::sendRing()
 
 void Transmitter::sendAudioPacket(float *fsamples, int samples)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendAudioPacket()"));
+#endif
 	int tot = 0;
 	speex_bits_reset(&bits);
 	if (state)
@@ -561,11 +627,17 @@ void Transmitter::sendAudioPacket(float *fsamples, int samples)
 
 void Transmitter::emitError(QString text)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::emitError(%1)").arg(text));
+#endif
 	emit error(text);
 }
 
 void Transmitter::sendSpecialPacket(char *data, int len, char type)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendSpecialPacket()"));
+#endif
 	try
 	{
 		int size = PacketHandler::calculateSize(len);
@@ -585,6 +657,9 @@ void Transmitter::sendSpecialPacket(char *data, int len, char type)
 
 void Transmitter::sendNewPacket(char *data, int len, char type)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendNewPacket()"));
+#endif
 	try
 	{
 		int size = PacketHandler::calculateSize(len);
@@ -604,6 +679,9 @@ void Transmitter::sendNewPacket(char *data, int len, char type)
 
 void Transmitter::sendNamePacket(bool special, char type)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendNamePacket()"));
+#endif
 	int dataLen = 0;
 	char *dataPtr = NULL;
 	if (!myName.isEmpty())
@@ -619,6 +697,9 @@ void Transmitter::sendNamePacket(bool special, char type)
 
 void Transmitter::sendMsgPacket(QString msg)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendMsgPacket(%1)").arg(msg));
+#endif
 	int dataLen = 0;
 	char *dataPtr = NULL;
 
@@ -635,47 +716,74 @@ void Transmitter::sendMsgPacket(QString msg)
 
 void Transmitter::answer()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::answer()"));
+#endif
 	prepare();
 	sendAnswerPacket();
 }
 
 void Transmitter::sendAnswerPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendAnswerPacket()"));
+#endif
 	sendNamePacket(false, DRTA_INFO_ANSWER);
 }
 
 void Transmitter::sendRingPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendRingPacket()"));
+#endif
 	sendNamePacket(false, DRTA_INFO_RING);
 }
 
 void Transmitter::sendRingReplyPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendRingReplyPacket()"));
+#endif
 	sendNamePacket(true, DRTA_INFO_RING_REPLY);
 }
 
 void Transmitter::sendRefusePacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendRefusePacket()"));
+#endif
 	sendSpecialPacket(NULL, 0, DRTA_INFO_REFUSE);
 }
 
 void Transmitter::sendClosePacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendClosePacket()"));
+#endif
 	sendSpecialPacket(NULL, 0, DRTA_INFO_CLOSE);
 }
 
 void Transmitter::sendResetPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendResetPacket()"));
+#endif
 	sendSpecialPacket(NULL, 0, DRTA_INFO_RESET);
 }
 
 void Transmitter::sendInitPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendInitPacket()"));
+#endif
 	sendNewPacket(NULL, 0, DRTA_INFO_INIT);
 }
 
 void Transmitter::sendKeyPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendKeyPacket()"));
+#endif
 	char *out;
 	int keylen = rsa->getPeerPublicKeyLen();
 	try
@@ -702,6 +810,9 @@ void Transmitter::sendKeyPacket()
 
 void Transmitter::sendKeyRequestPacket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendKeyRequestPacket()"));
+#endif
 	int keylen = rsa->getMyPublicKeyLen();
 	char *public_key = rsa->getMyPublicKey();
 	sendSpecialPacket(public_key, keylen, DRTA_INFO_KEY_REQUEST);
@@ -717,6 +828,9 @@ void Transmitter::setThreshold(int th)
 
 long Transmitter::getBytes()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::getBytes()"));
+#endif
 	long temp = bytes;
 	bytes = 0;
 	ledOn(false);
@@ -725,27 +839,42 @@ long Transmitter::getBytes()
 
 long Transmitter::getTotal()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::getTotal()"));
+#endif
 	return total;
 }
 
 QString Transmitter::getIp()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::getIp()"));
+#endif
 	return QString(inet_ntoa(sa.sin_addr));
 }
 
 void Transmitter::ledOn(bool on)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::ledOn(%1)").arg(on));
+#endif
 	if (working)
 		emit ledEnable(on);
 }
 
 bool Transmitter::isWorking()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::isWorking()"));
+#endif
 	return working;
 }
 
 int Transmitter::Callx(QStrList host_list, int port, int prot)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::Callx()"));
+#endif
 	// Transmitter's initial
 	init(prot);
 

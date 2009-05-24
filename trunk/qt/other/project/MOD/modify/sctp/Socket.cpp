@@ -31,6 +31,9 @@
 
 Socket::Socket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Socket()"));
+#endif
 	// TCP default
 	//initSocket(AF_INET , SOCK_STREAM , 0);
 	// !! INITIAL NOTHING
@@ -39,16 +42,25 @@ Socket::Socket()
 
 Socket::Socket(int family = AF_INET , int type = SOCK_STREAM , int protocol = 0)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Socket()"));
+#endif
 	initSocket(family , type , protocol);
 }
 
 Socket::~Socket()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::~Socket()"));
+#endif
 
 }
 /* private function */
 void Socket::initSocket(int family = AF_INET , int type = SOCK_STREAM , int protocol = 0)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::initSocket()"));
+#endif
 	_socket = ::socket( family , type , protocol );
 
 	if( _socket< 0 )
@@ -58,6 +70,9 @@ void Socket::initSocket(int family = AF_INET , int type = SOCK_STREAM , int prot
 
 int Socket::Bind(int port)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Bind(%1)").arg(port));
+#endif
 	int ret = 0;
 	struct sockaddr_in servaddr;
 
@@ -77,6 +92,9 @@ int Socket::Bind(int port)
 
 int Socket::Send(mPacket& p,int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Send()"));
+#endif
 	int ret=0;
 
 	if(sock  == -1) sock=_socket;
@@ -90,6 +108,9 @@ int Socket::Send(mPacket& p,int sock)
 
 int Socket::Recv(mPacket& p , int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Recv()"));
+#endif
 	int ret = 0;
 
 	if(sock  == -1) sock=_socket;
@@ -108,12 +129,18 @@ int Socket::Recv(mPacket& p , int sock)
 
 void Socket::Close()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Close()"));
+#endif
 	::close(_socket); 
 	_socket = 0;
 
 }
 void Socket::Shutdown()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("Socket::Shutdown()"));
+#endif
 	::shutdown(_socket , 2); 
 
 }

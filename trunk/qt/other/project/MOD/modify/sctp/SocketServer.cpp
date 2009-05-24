@@ -32,6 +32,9 @@ SocketServer::SocketServer(int port)
 	:listenPort(port),_saThread(NULL),_notifier(NULL)
 #endif
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::SocketServer()"));
+#endif
 	_clnt_socket = 0;
 	initSocket(AF_INET , SOCK_STREAM , 0);
 }
@@ -44,6 +47,9 @@ SocketServer::SocketServer(QObject* parent,int type , int protocol ,int port)
 	:listenPort(port),_saThread(NULL),_notifier(NULL)
 #endif
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::SocketServer()"));
+#endif
 	debug("SocketServer @@");
 	_clnt_socket = 0;
 	initSocket(AF_INET , type , protocol);
@@ -54,6 +60,9 @@ SocketServer::SocketServer(QObject* parent,int type , int protocol ,int port)
 // 預設值為tcp傳輸
 void SocketServer::initSocket(int family = AF_INET , int type = SOCK_STREAM , int protocol = 0)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::initSocket()"));
+#endif
 	// 呼叫c語言中的socket函數
 	// int socket(int domain, int type , int protocol);
 	// 回傳為socket的file descripter
@@ -69,6 +78,9 @@ void SocketServer::initSocket(int family = AF_INET , int type = SOCK_STREAM , in
 // 等待client端connect
 int SocketServer::Accept()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Accept()"));
+#endif
 	// Block accept @@"
 	int size = sizeof(addr);
 	debug("SocketServer::Accept : block accept");
@@ -87,6 +99,9 @@ int SocketServer::Accept()
 // 我猜是想要建立thread,可以多個client端連線吧??
 void SocketServer::initAcceptThread()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::initAcceptThread()"));
+#endif
 
 /*
 	// enable the thread to exuction accept 
@@ -106,6 +121,9 @@ void SocketServer::initAcceptThread()
 // renyang - 把socket與address_in連結在一起
 int SocketServer::Bind()
 { 
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Bind()"));
+#endif
 	int ret = 0;
 	struct sockaddr_in servaddr;
 
@@ -126,6 +144,9 @@ int SocketServer::Bind()
 // 宣告最大可以的連線數
 int SocketServer::Listen()
 { 
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Listen()"));
+#endif
 	// 表示目前最大連線數為1
 	::listen(_socket, 1);
 	return 0;
@@ -133,6 +154,9 @@ int SocketServer::Listen()
 
 int SocketServer::Bind_Listen()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Bind_Listen()"));
+#endif
 	Bind();
 	Listen();
 
@@ -150,6 +174,9 @@ int SocketServer::Bind_Listen()
 
 void SocketServer::newConnection(int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::newConnection(%1)").arg(sock));
+#endif
 	debug("SocketServer::newConnection(%d)",sock);
 
 	/*
@@ -174,16 +201,25 @@ void SocketServer::newConnection(int sock)
 
 void SocketServer::discardFromClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::discardFromClient()"));
+#endif
 	::close(_clnt_socket);
 }
 void SocketServer::readFromClient(int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::readFromClient(%1)").arg(sock));
+#endif
 	debug("SocketServer::readFromClient(%d)",sock);
 	emit sigReadFromClient(sock);
 }
 
 void SocketServer::newConnection2(int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::newConnection2(%1)").arg(sock));
+#endif
 	debug("SocketServer::newConnection2(%d)",sock);
 	emit sigReadFromClient(sock);
 }
@@ -191,6 +227,9 @@ void SocketServer::newConnection2(int sock)
 // 由server傳送資料到已連線的connect_fd
 int SocketServer::Send(mPacket& p,int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Send()"));
+#endif
 	int ret=0;
 
 	if(sock  == -1) sock=_socket;
@@ -206,6 +245,9 @@ int SocketServer::Send(mPacket& p,int sock)
 // 由client端接收封包
 int SocketServer::Recv(mPacket& p , int sock)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Recv()"));
+#endif
 	int ret = 0;
 
 	if(sock  == -1) sock=_socket;
@@ -224,6 +266,9 @@ int SocketServer::Recv(mPacket& p , int sock)
 
 void SocketServer::Close()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::Close()"));
+#endif
 	CloseClient();
 
 	if(_socket)
@@ -235,6 +280,9 @@ void SocketServer::Close()
 
 void SocketServer::ShutdownClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::ShutdownClient()"));
+#endif
 	if(_clnt_socket)
 	       	::shutdown(_clnt_socket, 2);
 
@@ -243,6 +291,9 @@ void SocketServer::ShutdownClient()
 // 把connect_fd關掉
 void SocketServer::CloseClient()
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SocketServer::CloseClient()"));
+#endif
 	if(_clnt_socket)
 	       	::close(_clnt_socket);
 
