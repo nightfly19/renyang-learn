@@ -220,6 +220,14 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		if ((sctp_sd = ::socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP)) == -1)
 			throw Error(tr("Can't initalize sctp socket! (socket())"));
 
+                SctpSocketHandler::SctpEnable(sctp_sd);
+                SctpSocketHandler::SctpSetMaxStream(sctp_sd,5);
+                SctpSocketHandler::SctpSetNoDelay(sctp_sd);
+
+                SctpSocketHandler::SctpSetRtoMax(sctp_sd,10000);
+                SctpSocketHandler::SctpSetRtoMin(sctp_sd,1000);
+                SctpSocketHandler::SctpTurnOnAllEvent(sctp_sd);
+
 		sctp_newconnection_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
 		connect(sctp_newconnection_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
 
@@ -316,8 +324,13 @@ void Phone::newSCTPConnection(int socket)
 	}
 	
 	// renyang - 只有wait的sctp會跑到這裡, 開啟所有的event, connfd的出生地, 接收端的socket的出生地
-	SctpSocketHandler::SctpTurnOnAllEvent(connfd);
-	SctpSocketHandler::SctpSetNoDelay(connfd);
+        SctpSocketHandler::SctpEnable(connfd);
+        SctpSocketHandler::SctpSetMaxStream(connfd,5);
+        SctpSocketHandler::SctpSetNoDelay(connfd);
+
+        SctpSocketHandler::SctpSetRtoMax(connfd,10000);
+        SctpSocketHandler::SctpSetRtoMin(connfd,1000);
+        SctpSocketHandler::SctpTurnOnAllEvent(connfd);
 
 	connections++;
 	int callId = newCall();

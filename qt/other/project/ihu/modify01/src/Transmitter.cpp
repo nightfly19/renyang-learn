@@ -223,8 +223,13 @@ int Transmitter::call(QString host, int port, int prot)
 
 	if (protocol == IHU_SCTP) {
 		// renyang - 只有當sctp的call端會跑到這裡, 開始所有的事件, 傳送端的socket的出生地
-		SctpSocketHandler::SctpTurnOnAllEvent(sd);
-		SctpSocketHandler::SctpSetNoDelay(sd);
+                SctpSocketHandler::SctpEnable(sd);
+                SctpSocketHandler::SctpSetMaxStream(sd,5);
+                SctpSocketHandler::SctpSetNoDelay(sd);
+
+                SctpSocketHandler::SctpSetRtoMax(sd,10000);
+                SctpSocketHandler::SctpSetRtoMin(sd,1000);
+                SctpSocketHandler::SctpTurnOnAllEvent(sd);
 	}
 
 	// renyang - 要儲存要使用的socket. s=sd
