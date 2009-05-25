@@ -220,14 +220,6 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		if ((sctp_sd = ::socket(AF_INET,SOCK_STREAM,IPPROTO_SCTP)) == -1)
 			throw Error(tr("Can't initalize sctp socket! (socket())"));
 
-                SctpSocketHandler::SctpEnable(sctp_sd);
-                SctpSocketHandler::SctpSetMaxStream(sctp_sd,5);
-                SctpSocketHandler::SctpSetNoDelay(sctp_sd);
-
-                SctpSocketHandler::SctpSetRtoMax(sctp_sd,10000);
-                SctpSocketHandler::SctpSetRtoMin(sctp_sd,1000);
-                SctpSocketHandler::SctpTurnOnAllEvent(sctp_sd);
-
 		sctp_newconnection_notifier = new QSocketNotifier(sctp_sd,QSocketNotifier::Read,this);
 		connect(sctp_newconnection_notifier,SIGNAL(activated(int)),this,SLOT(newSCTPConnection(int)));
 
@@ -243,13 +235,6 @@ void Phone::waitCalls(int port, bool udp, bool tcp)
 		
 		if (::bind(sctp_sd,(struct sockaddr *) &sctp_sa,sizeof(sctp_sa)) == -1)
 			throw Error(tr(QString("can't bind on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
-
-		// renyang - 事實上sctp_data_io_event可以不用設定開啟, 因為預設就是開啟
-		struct sctp_event_subscribe events;
-		memset((void *)&events,0,sizeof(events));
-		events.sctp_data_io_event = 1;
-		if (::setsockopt(sctp_sd,SOL_SCTP,SCTP_EVENTS,(const void *)&events,sizeof(events))==-1)
-			throw Error(tr(QString("can't set io event")));
 
 		if (::listen(sctp_sd,1)==-1)
 			throw Error(tr(QString("can't listen on SCTP port %1 (%2)").arg(port).arg(strerror(errno))));
@@ -324,7 +309,6 @@ void Phone::newSCTPConnection(int socket)
 	}
 	
 	// renyang - 只有wait的sctp會跑到這裡, 開啟所有的event, connfd的出生地, 接收端的socket的出生地
-        SctpSocketHandler::SctpEnable(connfd);
         SctpSocketHandler::SctpSetMaxStream(connfd,5);
         SctpSocketHandler::SctpSetNoDelay(connfd);
 
