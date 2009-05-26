@@ -271,6 +271,7 @@ void Recorder::end(void)
 #endif
 }
 
+// renyang - 每5ms執行一次
 void Recorder::alsa_callback()
 {
 	err = snd_pcm_readi (capture_handle, samples, ALSA_REC_BUFSIZE);

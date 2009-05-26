@@ -33,7 +33,8 @@
 
 #include "Blowfish.h"
 
-#define MAX_PACKET_SIZE 255
+// renyang-modify - 修改封包最大上限為1024(bytes)
+#define MAX_PACKET_SIZE 1024
 #define MIN_PACKET_SIZE 6
 
 #define HEADER_SIZE 6
@@ -56,6 +57,12 @@
 #define IHU_INFO_CLOSE 0x7
 #define IHU_INFO_REFUSE 0x8
 #define IHU_INFO_ERROR 0x9
+// renyang-modify - 新增的型態
+#define IHU_INFO_VIDEO 0xa
+#define IHU_INFO_VIDEO_ERROR 0xb
+#define IHU_INFO_VIDEO_END 0xc
+#define IHU_INFO_VIDEO_NEXT 0xd
+// renyang-modify - end
 #define IHU_INFO_RING 0x3f
 #define IHU_INFO_RING_REPLY 0x3e
 

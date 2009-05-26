@@ -55,7 +55,7 @@ void PacketHandler::readPacket(Packet *packet, char *buffer, int len)
 	packet->fill(buffer, len);
 }
 
-// renyang - 用來計算沒有經過加密的封包大小
+// renyang - 用實際的資料大小來計算包含封包時應該的大小(就是實際的封包加上IHU封包的header的部分)
 int PacketHandler::calculateSize(int dataLen)
 {
 #ifdef REN_DEBUG
