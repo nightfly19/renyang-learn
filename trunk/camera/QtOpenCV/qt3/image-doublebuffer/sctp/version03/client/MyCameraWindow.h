@@ -32,6 +32,7 @@ class MyCameraWindow:public QWidget
 		int begin;
 		QImage image;
 		void setCameraImage();
+		bool receiving;
 
 	public slots:
 		void Recvdata();

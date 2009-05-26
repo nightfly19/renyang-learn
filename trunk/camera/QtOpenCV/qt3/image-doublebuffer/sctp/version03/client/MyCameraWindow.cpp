@@ -13,6 +13,7 @@ MyCameraWindow::MyCameraWindow(QWidget *parent):QWidget(parent)
 	layout->addWidget(imagelabel);
 	begin=0;
 	notifier = NULL;
+	receiving = false;
 }
 
 bool MyCameraWindow::Connect2Host(QString host, int port)
@@ -73,10 +74,14 @@ void MyCameraWindow::Recvdata()
 	{
 		printf("get some data\n");
 		if (strcmp(buffer,IMAGE_OK)==0)
+		{
 			ret = ::sctp_sendmsg(connfd,IMAGE_SPACE_PREPARE_OK,strlen(IMAGE_SPACE_PREPARE_OK),NULL,0,0,0,0,0,0);
+			receiving = true;
+		}
 		else if (strcmp(buffer,IMAGE_END)==0)
 		{
 			// 把圖片放到qlabel
+			receiving = false;
 			printf("total:%d\n",begin);
 			begin = 0;
 			printf("I got a image\n");
@@ -122,5 +127,6 @@ void MyCameraWindow::start()
 
 void MyCameraWindow::timerEvent(QTimerEvent*)
 {
-	startVideo();
+	if (!receiving)
+		startVideo();
 }
