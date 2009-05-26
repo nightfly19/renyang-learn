@@ -55,6 +55,17 @@
  *        IHU_INFO_ANSWER 0x6
  *        IHU_INFO_CLOSE 0x7
  *        IHU_INFO_REFUSE 0x8
+ *        IHU_INFO_ERROR 0x9
+ // renyang-modify - 傳送的資料
+ *        IHU_INFO_VIDEO 0xa
+ // renyang-modify - 當server端webcam有問題時, 會傳送以這一個為開頭的特殊封包
+ *        IHU_INFO_VIDEO_ERROR 0xb
+ // renyang-modify - 表示server端傳送image frame結尾啦
+ *        IHU_INFO_VIDEO_END 0xc
+ // renyang-modify - 由client要求下一個image divide(我把一個image frame切成很多個image divide)
+ *        IHU_INFO_VIDEO_NEXT 0xd
+ // renyang-modify - 由client端要求server傳送image frame
+ *        IHU_INFO_VIDEO_REQUEST 0xe
  *        IHU_INFO_RING 0x3f
  *        IHU_INFO_RING_REPLY 0x3e
  *

@@ -389,8 +389,9 @@ void Receiver::processData()
 							if (plen >= MIN_PACKET_SIZE)
 							{
 								Packet *p = new Packet(plen);
-								// renyang - 建立Packet
+								// renyang - 把收到的資料以IHU Packet型態呈獻
 								PacketHandler::readPacket(p, streamPtr, plen);
+								// renyang - 分析這一個封包
 								processPacket(p);
 								delete p;
 							}
@@ -520,8 +521,10 @@ bool Receiver::processPacket(Packet *p)
 			emitSignal(SIGNAL_RING);
 			break;
 		case IHU_INFO_ANSWER:
+			// renyang - 對方答應接應電話啦
 			connected = true;
 		case IHU_INFO_RING_REPLY:
+			// renyang - 對方還沒有要接通電話
 			ihu_reply = true;
 			if (p->getDataLen() > MIN_DATA_SIZE)
 				callerName = p->getData();
@@ -529,6 +532,7 @@ bool Receiver::processPacket(Packet *p)
 		case IHU_INFO_ERROR:
 			ihu_abort = true;
 		case IHU_INFO_REFUSE:
+			// renyang - 對方拒絕接通電話
 			ihu_refuse = true;
 		case IHU_INFO_CLOSE:
 			emitSignal(SIGNAL_FINISH);

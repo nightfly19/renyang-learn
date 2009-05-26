@@ -294,6 +294,7 @@ void Transmitter::sendPacket(Packet *p)
 		}
 		else
 		{
+			// renyang - 用來計算一共傳送多少資料出去
 			bytes += snt;
 			total += snt;
 			active = true;
