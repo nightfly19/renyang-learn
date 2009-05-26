@@ -49,7 +49,3 @@ IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, re
 在建立Makefile就用以下的指令
 LIBS=-lsctp ./configure
 在編譯就會加入-lsctp這一個library啦
-
-[modify01]
-目前這一個版本可以透過tcp style 的sctp傳送語音
-並且可以偵測send fail的事件
