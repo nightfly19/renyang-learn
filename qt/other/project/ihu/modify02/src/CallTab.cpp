@@ -563,7 +563,7 @@ void CallTab::primButtonClicked()
 	{
 		for (i=0;i<hostList->count();i++)
 		{
-			if (hostList->isSelected(i)) {
+			if (hostList->isSelected(i) && hostList->item(i)->isSelectable()) {
 				// renyang - 設定其中一個為primary address
 				qWarning(hostList->text(i));
 				emit setPrimaddrSignal(callId,hostList->text(i));
@@ -595,9 +595,13 @@ void CallTab::setAddressEvent(QString ip,QString description)
 			}
 			else if (description == QString("ADDRESS UNREACHABLE"))
 			{
-				hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
-				hostList->item(i)->setSelectable(false);
-				hostList->setSelected(i,false);
+				// renyang-modify - 加判斷避免一直改變hostList
+				if (hostList->item(i)->isSelectable() || (hostList->item(i)->pixmap() == NULL))
+				{
+					hostList->setSelected(i,false);
+					hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
+					hostList->item(i)->setSelectable(false);
+				}
 			}
 		}
 	}
