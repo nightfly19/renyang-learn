@@ -97,6 +97,8 @@ public:
 	void change_hostList(QStringList addrs_list);
 	// renyang-modify - 依某一個ip的情況來改變hostList的顯示
 	void setAddressEvent(QString,QString);
+	// renyang-modify - 用來處理當send fail的的作為
+	void SendFailedHandler();
 	// renyang-modify - end
 
 private:
@@ -107,6 +109,10 @@ private:
 	unsigned long seconds;
 	int skipStat;
 	QString callName;
+	// renyang-modify - 目前的send fail threshold
+	int error_threshold;
+	// renyang-modify - 記錄目前send fail 累積到幾次啦
+	int error_handled;
 
 public slots:
 	virtual void callButtonClicked();
