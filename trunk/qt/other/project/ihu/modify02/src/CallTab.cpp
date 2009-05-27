@@ -546,6 +546,11 @@ void CallTab::change_hostList(QStringList addrs_list)
 	{
 		hostList->insertItem(*it);
 	}
+	// renyang-modify - 預設都不能選
+	for (unsigned int i=0;i<hostList->count();i++)
+	{
+		hostList->item(i)->setSelectable(false);
+	}
 }
 
 void CallTab::primButtonClicked()
@@ -563,6 +568,35 @@ void CallTab::primButtonClicked()
 				qWarning(hostList->text(i));
 				emit setPrimaddrSignal(callId,hostList->text(i));
 				break;
+			}
+		}
+	}
+}
+
+// renyang-modify - 這一個函式是用來改變ip list的狀態
+void CallTab::setAddressEvent(QString ip,QString description)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("CallTab::AddressEvent(%1,%2)").arg(ip).arg(description));
+#endif
+	unsigned int i;
+	for (i=0;i<hostList->count();i++)
+	{
+		if (hostList->text(i) == ip)
+		{
+			if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS"))
+			{
+				if (description == QString("PRIMARY ADDRESS"))
+				{
+					hostEdit->setCurrentText(ip);
+				}
+				hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
+				hostList->item(i)->setSelectable(true);
+			}
+			else if (description == QString("ADDRESS UNREACHABLE"))
+			{
+				hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
+				hostList->item(i)->setSelectable(false);
 			}
 		}
 	}

@@ -141,6 +141,8 @@ public slots:
 	// renyang-modify - 接收由call傳送上來的peer address
 	void SlotgetIps(QStringList);
 	void setPrimaddr(QString);
+	// renyang-modify - 接收由Receiver傳送上來針對每一個ip的事件
+	void SlotAddressEvent(QString,QString);
 	// renyang-modify - end
 
 signals:
@@ -155,6 +157,8 @@ signals:
 	void initSignal(int);
 	// renyang-modify - 傳送由peer address到phone
 	void SignalgetIps(int,QStringList);
+	// renyang-modify - 送出某一個peer ip的情況
+	void SigAddressEvent(int,QString,QString);
 	// renyang-modify - end
 };
 

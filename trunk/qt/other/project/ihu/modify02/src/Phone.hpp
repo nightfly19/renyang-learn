@@ -276,6 +276,8 @@ public slots:
 	// renyang - modify - start
 	void newSCTPConnection(int);
 	void SlotgetIps(int,QStringList);
+	// renyang-modify - 接收由Call傳送上來針對每一個ip的事件
+	void SlotAddressEvent(int,QString,QString);
 	// renyang - modify - end
 
 signals:
@@ -293,6 +295,8 @@ signals:
 	void playerSignal(bool);
 	// renyang-modify - 傳送由call回傳上來的peer ipaddress
 	void SignalgetIps(int,QStringList);
+	// renyang-modify - 送出某一個peer ip的情況
+	void SigAddressEvent(int,QString,QString);
 };
 
 #endif

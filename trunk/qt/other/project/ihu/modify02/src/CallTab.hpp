@@ -95,6 +95,8 @@ public:
 
 	// renyang-modify - 改變hostList的內容
 	void change_hostList(QStringList addrs_list);
+	// renyang-modify - 依某一個ip的情況來改變hostList的顯示
+	void setAddressEvent(QString,QString);
 	// renyang-modify - end
 
 private:

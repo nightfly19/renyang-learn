@@ -413,6 +413,8 @@ void Ihu::initIhu()
 
 		// renyang-modify - 接收由phone傳送上來的peer address
 		connect (phone,SIGNAL(SignalgetIps(int,QStringList)),this,SLOT(SlotgetIps(int,QStringList)));
+		// renyang-modify - 接收由Phone傳送上來某一個ip的事件與其描述
+		connect (phone,SIGNAL(SigAddressEvent(int,QString,QString)),this,SLOT(SlotAddressEvent(int,QString,QString)));
 	
 		applySettings();
 
@@ -1414,4 +1416,12 @@ void Ihu::setPrimaddrSlot(int callId,QString primaddr)
 	qWarning(QString("Ihu::setPrimaddrSlot(%1,%2)").arg(callId).arg(primaddr));
 #endif
 	phone->setPrimaddr(callId,primaddr);
+}
+
+void Ihu::SlotAddressEvent(int callId,QString ip,QString description)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::SlotAddressEvent(%1,%2,%3)").arg(callId).arg(ip).arg(description));
+#endif
+	callTab[callId]->setAddressEvent(ip,description);
 }

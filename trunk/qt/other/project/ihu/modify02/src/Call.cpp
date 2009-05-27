@@ -92,6 +92,8 @@ Call::Call(int callId, QString myName)
 	connect (receiver,SIGNAL(SignalgetIps(QStringList)),this,SLOT(SlotgetIps(QStringList)));
 	// renyang-modify - 當Receiver接收到與之前的primary不同時, 要求改變primary address
 	connect (receiver,SIGNAL(setPrimaddrSignal(QString)),this,SLOT(setPrimaddr(QString)));
+	// renyang-modify - 當Receiver接收到事件時, 會通知上層的Call, 以便修改CallTab的ip list情況
+	connect (receiver,SIGNAL(SigAddressEvent(QString,QString)),this,SLOT(SlotAddressEvent(QString,QString)));
 	// renyang-modify - end
 
 	connect( transmitter, SIGNAL(ringMessage()), this, SLOT(ringMessage()) );
@@ -747,4 +749,14 @@ void Call::setPrimaddr(QString primaddr)
 	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
 #endif
 	SctpSocketHandler::SctpSetPrim(sd,primaddr);
+	// renyang-modify - 設定CallTab的list圖示
+	emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
+}
+
+void Call::SlotAddressEvent(QString ip,QString description)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Call::SlotAddressEvent(%1,%2)").arg(ip).arg(description));
+#endif
+	emit SigAddressEvent(id,ip,description);
 }

@@ -237,7 +237,8 @@ char* SctpSocketHandler::Sock_ntop(const struct sockaddr *sa,socklen_t salen)
 				return NULL;
 			if (ntohs(sin->sin_port) != 0) {
 				snprintf(portstr,sizeof(portstr),":%d",ntohs(sin->sin_port));
-				strcat(str,portstr);
+				// renyang-modify - 不加port號
+				// strcat(str,portstr);
 			}
 			return str;
 		}
