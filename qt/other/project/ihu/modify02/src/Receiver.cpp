@@ -855,6 +855,8 @@ void Receiver::emitSctpEvent(void *notify_buf)
                 printf("SCTP_PEER_ADDR_CHANGE: %s, addr=%s, assoc=0x%x\n", str,
 			SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr)),
                        (uint32_t)spc->spc_assoc_id);
+		// renyang-modify - 送出某一個peer ip的情況
+		emit SigAddressEvent(QString(SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr))),QString(str));
                 break;
         case SCTP_REMOTE_ERROR:
                 sre = &snp->sn_remote_error;

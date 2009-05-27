@@ -173,6 +173,8 @@ signals:
 	void SignalgetIps(QStringList);
 	// renyang-modify - 設定要送到對方的primary address
 	void setPrimaddrSignal(QString);
+	// renyang-modify - 送出某一個peer ip的情況
+	void SigAddressEvent(QString,QString);
 	// renyang-modify - end
 };
 

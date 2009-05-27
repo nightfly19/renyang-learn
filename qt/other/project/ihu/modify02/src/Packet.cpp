@@ -92,6 +92,7 @@ Packet::Packet(int packetSize)
 	qWarning(QString("Packet::Packet(int %1)").arg(packetSize));
 #endif
 	size = packetSize;
+	// renyang - 動態建立Packet的大小
 	if ((packet = (char *)malloc(size))==NULL)
 		throw Error(Error::IHU_ERR_MEMORY);
 	memset(packet, 0x0, size);

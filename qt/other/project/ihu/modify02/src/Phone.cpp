@@ -436,6 +436,8 @@ int Phone::createCall()
 
 		// renyang-modify - 可以接收對方的ipaddress
 		connect( calls[newId],SIGNAL(SignalgetIps(int,QStringList)),this,SLOT(SlotgetIps(int,QStringList)));
+		// renyang-modify - 由call接收每一個ip的事件
+		connect( calls[newId],SIGNAL(SigAddressEvent(int,QString,QString)),this,SLOT(SlotAddressEvent(int,QString,QString)));
 		// renyang-modify - end
 	}
 	return newId;
@@ -1514,4 +1516,12 @@ void Phone::setPrimaddr(int callId,QString primaddr)
 	qWarning(QString("Phone::setPrimaddr(%1,%2)").arg(callId).arg(primaddr));
 #endif
 	calls[callId]->setPrimaddr(primaddr);
+}
+
+void Phone::SlotAddressEvent(int callId,QString ip,QString description)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::SlotAddressEvent(%1,%2,%3)").arg(callId).arg(ip).arg(description));
+#endif
+	emit SigAddressEvent(callId,ip,description);
 }
