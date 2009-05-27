@@ -105,6 +105,8 @@ void Receiver::reset()
 	active = false;
 	total = bytes = 0;
 	callerName = IHU_ANONYMOUS;
+	// renyang-modify - 清除記錄的舊的ip address
+	primaddr = "";
 }
 
 void Receiver::resetStream()
