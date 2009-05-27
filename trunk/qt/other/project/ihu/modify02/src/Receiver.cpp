@@ -869,6 +869,8 @@ void Receiver::emitSctpEvent(void *notify_buf)
                 ssf = &snp->sn_send_failed;
                 printf("SCTP_SEND_FAILED: assoc=0x%x error=%d\n",
                        (uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
+		// renyang-modify - 送出一個SendFail的訊息給上面
+		emit SigAddressEvent(primaddr,QString("SCTP_SEND_FAILED"));
                 break;
         case SCTP_ADAPTATION_INDICATION:
                 ae = &snp->sn_adaptation_event;

@@ -228,6 +228,11 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	talking = false;
 	seconds = 0;
 	skipStat = 0;
+	// renyang-modify - 初始化error_handled
+	error_handled = 0;
+
+	// renyang-modify - 暫時預設error_threshold為5
+	error_threshold = 5;
 
 	for (int i=0; i<maxhost; i++)
 	{
@@ -593,7 +598,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 				hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 				hostList->item(i)->setSelectable(true);
 			}
-			else if (description == QString("ADDRESS UNREACHABLE"))
+			else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD"))
 			{
 				// renyang-modify - 加判斷避免一直改變hostList
 				if (hostList->item(i)->isSelectable() || (hostList->item(i)->pixmap() == NULL))
@@ -603,6 +608,39 @@ void CallTab::setAddressEvent(QString ip,QString description)
 					hostList->item(i)->setSelectable(false);
 				}
 			}
+			else if (description == QString("SCTP_SEND_FAILED"))
+			{
+				// renyang-modify - 處理send fail事件
+				SendFailedHandler();
+			}
 		}
+	}
+}
+
+void CallTab::SendFailedHandler()
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::SendFailedHandler()");
+#endif
+	qWarning("Hello World!!");
+	if (error_handled++ > error_threshold)
+	{
+		// renyang-modify - 設定目前這一個primary為不能使用
+		setAddressEvent(hostEdit->currentText(),QString("SCTP_SEND_FAILED_THRESHOLD"));
+		for (int i=0;i<hostEdit->count();i++)
+		{
+			if (hostList->item(i)->isSelectable())
+			{
+				// renyang-modify - 設定目前這一個為primary address
+				// renyang-modify - 之前send fail ip可能要設定為其它顏色的球
+				// renyang-modify - 設定這一個ip為primary address
+				emit setPrimaddrSignal(callId,hostList->text(i));
+				error_handled = 0;
+				return;
+			}
+		}
+		// renyang-modify - 若跑到這裡的話, 則表示每一個address都是un-selectable啦, 可能要掛斷電話啦
+		qWarning("There is no ip address for available");
+		stopButtonClicked();
 	}
 }
