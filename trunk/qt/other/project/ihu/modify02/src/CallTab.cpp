@@ -597,6 +597,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 			{
 				hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
 				hostList->item(i)->setSelectable(false);
+				hostList->setSelected(i,false);
 			}
 		}
 	}
