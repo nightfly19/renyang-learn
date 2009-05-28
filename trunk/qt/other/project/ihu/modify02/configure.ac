@@ -35,6 +35,7 @@ AC_CHECK_LIB(asound, snd_pcm_writei,, [AC_MSG_ERROR(ALSA needed! Download at htt
 AC_CHECK_LIB(jack, jack_client_new, [JACK=yes], [JACK=no])
 AC_CHECK_LIB(speex, speex_encode,, [AC_MSG_ERROR(Speex needed! Download at http://www.speex.org)])
 AC_CHECK_HEADER([soundtouch/SoundTouch.h],, [AC_MSG_ERROR(Soundtouch needed! Download at http://www.surina.net/soundtouch/)])
+AC_CHECK_LIB(sctp, sctp_recvmsg,, [AC_MSG_ERROR(You have get sctp to build the IHU)])
 XIPH_PATH_OGG(,AC_MSG_ERROR(Ogg needed! Download the latest version of libogg at http://www.xiph.org))
 
 if test "$JACK" = "yes"; then
