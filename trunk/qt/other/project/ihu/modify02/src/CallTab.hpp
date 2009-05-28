@@ -113,6 +113,8 @@ private:
 	int error_threshold;
 	// renyang-modify - 記錄目前send fail 累積到幾次啦
 	int error_handled;
+	// renyang-modify - 顯示影像
+	QLabel *video_label;
 
 public slots:
 	virtual void callButtonClicked();
