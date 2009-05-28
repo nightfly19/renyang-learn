@@ -89,6 +89,11 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	hostList = new QListBox(mainFrame,"hostList");
 	hostList->setMinimumSize(QSize(100,100));
 
+	video_label = new QLabel(mainFrame,"video label");
+	video_label->setMinimumSize(QSize(160,120));
+	video_label->setMaximumSize(QSize(160,120));
+	video_label->setPalette(QPalette( QColor( 250, 250, 200) ));
+
 	primButton = new QPushButton(mainFrame,"primButton");
 	primButton->setMinimumSize(QSize(130,35));
 
@@ -96,9 +101,13 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	mvLayout->addWidget(hostEdit);
 	mvLayout->addSpacing(5);
 
-	mvLayout->addSpacing(5);
-	mvLayout->addWidget(hostList);
-	mvLayout->addSpacing(5);
+	QBoxLayout *mhLayout3 = new QHBoxLayout(mvLayout);
+
+	mhLayout3->addWidget(hostList);
+	mhLayout3->addSpacing(5);
+
+	mhLayout3->addWidget(video_label);
+	mhLayout3->addSpacing(5);
 
 	mvLayout->addSpacing(5);
 	mvLayout->addWidget(primButton);
