@@ -62,6 +62,7 @@
 #define IHU_INFO_VIDEO_ERROR 0xb
 #define IHU_INFO_VIDEO_END 0xc
 #define IHU_INFO_VIDEO_NEXT 0xd
+#define IHU_INFO_VIDEO_REQUEST 0xe
 // renyang-modify - end
 #define IHU_INFO_RING 0x3f
 #define IHU_INFO_RING_REPLY 0x3e

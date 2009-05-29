@@ -39,6 +39,15 @@
 #include "Receiver.hpp"
 #include "Transmitter.hpp"
 
+#define MAXDATA 480*640*3
+
+// renyang-modify - 用來記錄要要接收與傳送的影像的資料結構
+struct image_matrix
+{
+	int height,width;
+	char data[MAXDATA];
+};
+
 class Call: public QObject {
 	Q_OBJECT
 public:
@@ -118,6 +127,14 @@ private:
 	// renyang - 目前這一個call出現錯誤
 	bool aborted;
 	QTimer *stopTimer;
+	// renyang-modify - 用來接收的image的資料
+	struct image_matrix RecvImage;
+	// renyang-modify - 用來存放要送出去的image資料
+	struct image_matrix SendImage;
+	// renyang-modify - 用來記錄接收到哪一個部分啦(因為我們把一個封包分成許多個部分)
+	int recvImage_index;
+	// renyang-modify - 用來記錄傳送的封包傳送到哪一個部分啦
+	int sendImage_index;
 
 public slots:
 	void newConnection(int, int, struct sockaddr_in);
@@ -143,6 +160,8 @@ public slots:
 	void setPrimaddr(QString);
 	// renyang-modify - 接收由Receiver傳送上來針對每一個ip的事件
 	void SlotAddressEvent(QString,QString);
+	// renyang-modify - 由webcam取得image，並放入SendImage中
+	void SlotGetImage();
 	// renyang-modify - end
 
 signals:
@@ -159,6 +178,7 @@ signals:
 	void SignalgetIps(int,QStringList);
 	// renyang-modify - 送出某一個peer ip的情況
 	void SigAddressEvent(int,QString,QString);
+	void SigGetImage(char *);
 	// renyang-modify - end
 };
 

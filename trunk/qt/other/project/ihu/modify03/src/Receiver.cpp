@@ -544,6 +544,10 @@ bool Receiver::processPacket(Packet *p)
 		case IHU_INFO_RESET:
 			disableDecrypt();
 			break;
+		// renyang - 對方要求Image(影像)
+		case IHU_INFO_VIDEO_REQUEST:
+			emit requestImage();
+			break;
 	}
 	return true;
 }

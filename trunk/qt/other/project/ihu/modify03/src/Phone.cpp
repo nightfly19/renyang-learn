@@ -55,6 +55,8 @@ Phone::Phone(int mc)
 
 	recorder = new Recorder();
 	player = new Player();
+	// renyang-modify - 建立一個Video物件
+	video = new Video();
 
 	timer = new QTimer(this);
 
@@ -105,6 +107,8 @@ Phone::Phone(int mc)
 
 	rec_status = RECORDER_STATUS_STOP;
 	play_status = PLAYER_STATUS_STOP;
+	// renyang-modify - 初始化camera的狀態
+	camera_status = VIDEO_STATUS_STOP;
 
 	if ((out = (char *) malloc(MAXBUFSIZE))==NULL)
 		throw Error(Error::IHU_ERR_MEMORY);
@@ -147,6 +151,8 @@ Phone::~Phone(void)
 	delete[] calls;
 	delete recorder;
 	delete player;
+	// renyang-modify - 刪掉Video物件
+	delete video;
 }
 
 void Phone::resize(int mc)
@@ -438,6 +444,8 @@ int Phone::createCall()
 		connect( calls[newId],SIGNAL(SignalgetIps(int,QStringList)),this,SLOT(SlotgetIps(int,QStringList)));
 		// renyang-modify - 由call接收每一個ip的事件
 		connect( calls[newId],SIGNAL(SigAddressEvent(int,QString,QString)),this,SLOT(SlotAddressEvent(int,QString,QString)));
+		// renyang-modify - 當call要求image時, 幫它把資料寫入指定的位置中
+		connect( calls[newId],SIGNAL(SigGetImage(char *)),video,SLOT(getScaleImage(char *)));
 		// renyang-modify - end
 	}
 	return newId;

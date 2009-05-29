@@ -175,6 +175,8 @@ signals:
 	void setPrimaddrSignal(QString);
 	// renyang-modify - 送出某一個peer ip的情況
 	void SigAddressEvent(QString,QString);
+	// renyang-modify - 對方要求影像
+	void requestImage();
 	// renyang-modify - end
 };
 
