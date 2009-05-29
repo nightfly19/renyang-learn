@@ -78,6 +78,16 @@ public:
 		PLAYER_STATUS_MUTE
 	};
 
+	// renyang-modify - 宣告camera的狀態
+	enum video_status {
+		// renyang - 已被初始化並且可以擷取圖片
+		VIDEO_STATUS_RUNINGING = 0,
+		// renyang - 已被停止
+		VIDEO_STATUS_STOP,
+		// renyang - 曾經初始化過, 但確失敗
+		VIDEO_STATUS_INVALID
+	};
+
 	Phone(int);
 	~Phone();
 
@@ -177,9 +187,13 @@ private:
 	recorder_status rec_status;
 	// renyang - 記錄player的狀態
 	player_status play_status;
+	// renyang-modify - 記錄video的狀態
+	video_status camera_status;
 
 	Recorder *recorder;
 	Player *player;
+	// renyang-modify - 宣告Video
+	Video *video;
 
 	QTimer *timer;
 

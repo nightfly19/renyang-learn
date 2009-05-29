@@ -68,6 +68,9 @@ Call::Call(int callId, QString myName)
 	aborted = false;
 	recording = false;
 
+	// renyang-modify - 初始化傳送與接收image的index
+	recvImage_index = sendImage_index = 0;
+
 	transmitter->setMyName(myName);
 
 	srand(time(NULL));
@@ -94,6 +97,8 @@ Call::Call(int callId, QString myName)
 	connect (receiver,SIGNAL(setPrimaddrSignal(QString)),this,SLOT(setPrimaddr(QString)));
 	// renyang-modify - 當Receiver接收到事件時, 會通知上層的Call, 以便修改CallTab的ip list情況
 	connect (receiver,SIGNAL(SigAddressEvent(QString,QString)),this,SLOT(SlotAddressEvent(QString,QString)));
+	// renyang-modify - 對方要求影像
+	connect (receiver,SIGNAL(requestImage()),this,SLOT(SlotGetImage()));
 	// renyang-modify - end
 
 	connect( transmitter, SIGNAL(ringMessage()), this, SLOT(ringMessage()) );
@@ -759,4 +764,15 @@ void Call::SlotAddressEvent(QString ip,QString description)
 	qWarning(QString("Call::SlotAddressEvent(%1,%2)").arg(ip).arg(description));
 #endif
 	emit SigAddressEvent(id,ip,description);
+}
+
+void Call::SlotGetImage()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::SlotGetImage()");
+#endif
+	// renyang-modify - 設定目前送到這一個image_matrix的哪一個位置
+	sendImage_index = 0;
+	// renyang-modify - 要求Phone把video的資料放到這一個結構中
+	emit SigGetImage((char *) &SendImage);
 }
