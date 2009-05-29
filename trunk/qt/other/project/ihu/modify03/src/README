@@ -50,5 +50,7 @@ IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, re
 LIBS=-lsctp ./configure
 在編譯就會加入-lsctp這一個library啦
 
-[modify02]
-可以切換primary, 當send fail 5次之後
+[modify03]
+修改configure檔, 使得不必每一次均使用LIBS=-lsctp與設定opencv的library
+準備加入影像的部分
+新增Video.hpp與Video.cpp專門處理影像的部分
