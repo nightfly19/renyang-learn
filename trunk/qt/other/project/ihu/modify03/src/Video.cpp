@@ -210,6 +210,7 @@ void Video::setImageStruct(char *image_matrix)
 	}
 }
 
+// renyang-modify - 把取得的本地端影像放到image_matrix這一個位址中
 void Video::getScaleImage(char *image_matrix)
 {
 #ifdef REN_DEBUG

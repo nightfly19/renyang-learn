@@ -27,8 +27,6 @@ class Video: public QObject
 		int imageHeight();
 		char * imageData();
 		void setImageStruct(char *);
-
-	public slots:
 		void getScaleImage(char *);
 
 	private:

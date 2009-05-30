@@ -415,6 +415,10 @@ void Ihu::initIhu()
 		connect (phone,SIGNAL(SignalgetIps(int,QStringList)),this,SLOT(SlotgetIps(int,QStringList)));
 		// renyang-modify - 接收由Phone傳送上來某一個ip的事件與其描述
 		connect (phone,SIGNAL(SigAddressEvent(int,QString,QString)),this,SLOT(SlotAddressEvent(int,QString,QString)));
+		// renyang-modify - 設定某一個CallTab的video_label
+		connect (phone,SIGNAL(SigputImage(QImage,int)),this,SLOT(SlotputImage(QImage,int)));
+		// renyang-modify - 向對方要求影像失敗
+		connect (phone,SIGNAL(SigrequestImageFail(int)),this,SLOT(SlotrequestImageFail(int)));
 	
 		applySettings();
 
@@ -601,6 +605,8 @@ void Ihu::newCall(int id)
 		connect( callTab[id], SIGNAL(muteSpkSignal(int, bool)), this, SLOT(muteSpk(int, bool)) );
 		// renyang-modify - 接收callTab的切換primary address訊息
 		connect (callTab[id],SIGNAL(setPrimaddrSignal(int,QString)),this,SLOT(setPrimaddrSlot(int,QString)));
+		// renyang-modify - 某一個CallTab要求對方的影像
+		connect (callTab[id],SIGNAL(SigrequestPeerImage(int)),this,SLOT(SlotrequestPeerImage(int)));
 		// renyang-modify - end
 		callWidget->addTab((QWidget *)callTab[id], QIconSet( QPixmap::fromMimeSource( "phone.png" ) ), callName);
 		if (autocrypt)
@@ -1424,4 +1430,29 @@ void Ihu::SlotAddressEvent(int callId,QString ip,QString description)
 	qWarning(QString("Ihu::SlotAddressEvent(%1,%2,%3)").arg(callId).arg(ip).arg(description));
 #endif
 	callTab[callId]->setAddressEvent(ip,description);
+}
+
+// renyang-modify - 把接收到的一整個影像放到CallTab
+void Ihu::SlotputImage(QImage image,int callId)
+{
+#ifdef REN_DEBUG
+	qWarning("Ihu::SlotputImage()");
+#endif
+	callTab[callId]->setVideo(image);
+}
+
+void Ihu::SlotrequestPeerImage(int callId)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::SlotrequestPeerImage(%1)").arg(callId));
+#endif
+	phone->requestPeerImage(callId);
+}
+
+void Ihu::SlotrequestImageFail(int callId)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::SlotrequestImageFail(%1)").arg(callId));
+#endif
+	callTab[callId]->requestImageFail();
 }

@@ -26,6 +26,9 @@
 #include <qobject.h>
 #include <qvariant.h>
 #include <qwidget.h>
+#include <qimage.h>
+#include <qcheckbox.h>
+#include <qtimer.h>
 
 class QFrame;
 class QLabel;
@@ -99,6 +102,10 @@ public:
 	void setAddressEvent(QString,QString);
 	// renyang-modify - 用來處理當send fail的的作為
 	void SendFailedHandler();
+	// renyang-modify - 送出Image給video_label
+	void setVideo(QImage);
+	// renyang-modify - 向對方要求影像失敗
+	void requestImageFail();
 	// renyang-modify - end
 
 private:
@@ -113,8 +120,13 @@ private:
 	int error_threshold;
 	// renyang-modify - 記錄目前send fail 累積到幾次啦
 	int error_handled;
-	// renyang-modify - 顯示影像
+	// renyang-modify - 顯示影像, 把影像放到video_label上
 	QLabel *video_label;
+	// renyang-modify - 決定是否要要求對方送影像過來
+	QCheckBox *video_check;
+	// renyang-modify - 當要向對方要求影像, 但是, 像還沒有整個上傳到CallTab時, waiting是true
+	bool waiting;
+	QTimer *video_timer;
 
 public slots:
 	virtual void callButtonClicked();
@@ -125,6 +137,10 @@ public slots:
 	virtual void muteSpkButtonClicked();
 	// renyang-modify - 處理按下primButton的事件
 	void primButtonClicked();
+	// renyang-modify - 當CheckChanged有改變時, 所要做的事
+	void videoCheckChanged(bool);
+	// renyang-modify - 當video_timer時間到時要執行的function
+	void video_timeout();
 	// renyang-modify - end
 
 protected slots:
@@ -139,6 +155,8 @@ signals:
 	void muteSpkSignal(int, bool);
 	// renyang-modify - 設定primary address
 	void setPrimaddrSignal(int,QString);
+	// renyang-modify - 向對方要求一個影像
+	void SigrequestPeerImage(int);
 };
 
 #endif

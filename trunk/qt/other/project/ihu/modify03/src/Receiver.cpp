@@ -377,7 +377,7 @@ void Receiver::processData()
 				else
 				{
 					// renyang - 實際封包的大小(內容值是由peer端送過來的)
-					unsigned char packetlen = (unsigned char) streamPtr[HEADER_SYNC_LEN];
+					unsigned short int packetlen = (unsigned short int) streamPtr[HEADER_SYNC_LEN];
 					int plen = (int) packetlen;
 					// renyang - 封包面裡記錄的資料大小比streamLen還要大, 則表示有資料遺失
 					if (plen > streamLen)
@@ -547,6 +547,24 @@ bool Receiver::processPacket(Packet *p)
 		// renyang - 對方要求Image(影像)
 		case IHU_INFO_VIDEO_REQUEST:
 			emit requestImage();
+			break;
+		// renyang-modify - 要求對方影像失敗
+		case IHU_INFO_VIDEO_ERROR:
+			emit requestImageFail();
+			break;
+		case IHU_INFO_VIDEO:
+			// renyang-modify - 接收到片斷的image, 把資料放到Call::RecvImage中
+			if (p->getDataLen() > MIN_DATA_SIZE)
+			{
+				emit newVideoData(p->getData(), p->getDataLen());
+			}
+			connected = true;
+			break;
+		case IHU_INFO_VIDEO_NEXT:
+			emit requestNextImage();
+			break;
+		case IHU_INFO_VIDEO_END:
+			emit completeImage();
 			break;
 	}
 	return true;

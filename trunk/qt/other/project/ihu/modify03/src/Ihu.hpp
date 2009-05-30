@@ -189,6 +189,12 @@ public slots:
 	void setPrimaddrSlot(int,QString);
 	// renyang-modify - 接收由Phone傳送上來針對每一個ip的事件
 	void SlotAddressEvent(int,QString,QString);
+	// renyang-modify - 設定某一個CallTab的video_label
+	void SlotputImage(QImage,int);
+	// renyang-modify - 向對方要求影像
+	void SlotrequestPeerImage(int);
+	// renyang-modify - 向對方要求影像失敗
+	void SlotrequestImageFail(int);
 	// renyang-modify - end
 
 private:

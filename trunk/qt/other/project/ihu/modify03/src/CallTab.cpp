@@ -94,6 +94,9 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	video_label->setMaximumSize(QSize(160,120));
 	video_label->setPalette(QPalette( QColor( 250, 250, 200) ));
 
+	video_check = new QCheckBox(mainFrame,"video_check");
+	video_check->setEnabled(false);
+
 	primButton = new QPushButton(mainFrame,"primButton");
 	primButton->setMinimumSize(QSize(130,35));
 
@@ -107,6 +110,9 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	mhLayout3->addSpacing(5);
 
 	mhLayout3->addWidget(video_label);
+	mhLayout3->addSpacing(5);
+
+	mhLayout3->addWidget(video_check);
 	mhLayout3->addSpacing(5);
 
 	mvLayout->addSpacing(5);
@@ -229,6 +235,8 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	connect( muteSpkButton, SIGNAL( clicked() ), this, SLOT( muteSpkButtonClicked() ) );
 	// renyang-modify - 新增當按下primButton時, 會做什麼事
 	connect( primButton,SIGNAL(clicked()),this,SLOT(primButtonClicked()));
+	// renyang-modify - 當按下video_check扭時, 要求對方傳送image過來
+	connect( video_check,SIGNAL(toggled(bool)),this,SLOT(videoCheckChanged(bool)));
 
 	languageChange();
 
@@ -239,6 +247,12 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	skipStat = 0;
 	// renyang-modify - 初始化error_handled
 	error_handled = 0;
+	// renyang-modify - 初始化waiting, 當要向對方要求影像, 但是, 像還沒有整個上傳到CallTab時, waiting是true
+	waiting = false;
+	// renyang-modify - 初始化video_timer
+	video_timer = new QTimer(this,"video_timer");
+	// renyang-modify - 當時間到時要要求下一個frame
+	connect(video_timer,SIGNAL(timeout()),this,SLOT(video_timeout()));
 
 	// renyang-modify - 暫時預設error_threshold為5
 	error_threshold = 5;
@@ -348,6 +362,9 @@ void CallTab::stopButtonClicked()
 	stopButton->setEnabled(FALSE);
 	ringButton->setEnabled(FALSE);
 
+	// renyang-modify - 當停止通話時, 則不能要求對方的影像
+	video_check->setEnabled(FALSE);
+
 	emit stopSignal(callId);
 }
 
@@ -389,6 +406,8 @@ void CallTab::connectedCall()
 	// renyang - 若本地端電話還在響, 則把它關掉
 	if (ringButton->isOn())
 		ringButton->setOn(false);
+	// renyang-modify - 設定可以要求對方的影像
+	video_check->setEnabled(TRUE);
 	talking = true;
 }
 
@@ -416,6 +435,8 @@ void CallTab::stopCall()
 
 	// renyang-modify - 清掉hostList
 	hostList->clear();
+	// renyang-modify - 不能要求對方的影像啦
+	video_check->setEnabled(false);
 	// renyang-modify - end
 }
 
@@ -653,3 +674,64 @@ void CallTab::SendFailedHandler()
 		stopButtonClicked();
 	}
 }
+
+// renyang-modify - 把由對方接收過來的影像放到video_label中
+void CallTab::setVideo(QImage image)
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::setVideo()");
+#endif
+	// renyang-modify - 整個封包都收到到啦, 沒有在等待剩下的封包啦
+	waiting = false;
+	QPixmap pix(video_label->size());
+	pix.convertFromImage(image);
+	video_label->setPixmap(pix);
+	// renyang-modify - 當video_timer沒有在運行時, 才要主動執行videoCheckChanged(true)要求下一個frame
+	if (!video_timer->isActive())
+		videoCheckChanged(true);
+}
+
+// renyang-modify - 這一個也可以用來當作要取下一個frame
+void CallTab::videoCheckChanged(bool check)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("CallTab::videoCheckChanged(%1)").arg(check));
+#endif
+	if (check && video_check->isEnabled())
+	{
+		// renyang-modify - 向對方要求一個影像
+		emit SigrequestPeerImage(callId);
+		// renyang-modify - 設定100ms後要啟動, 到了之後, 就不在啟動了, 100ms要求一個封包
+		video_timer->start(100,true);
+		waiting = true;
+	}
+	else
+	{
+		waiting = false;
+		video_timer->stop();
+	}
+}
+
+void CallTab::requestImageFail()
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::requestImageFail()");
+#endif
+	video_label->setText(QString("Request Image Fail"));
+	video_label->setAlignment( QLabel::AlignCenter );
+	video_check->setEnabled(false);
+	video_check->setChecked(false);
+	waiting = false;
+}
+
+void CallTab::video_timeout()
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::video_timeout()");
+#endif
+	// renyang-modify - 時間時, 封包以經傳完了, 就馬上啟動要求下一個封包
+	if (!waiting)
+		videoCheckChanged(true);
+}
+
+/* 以上setVideo()與video_timer(),videoCheckChanged()的配合可以達到儘量100ms要求一個frame */

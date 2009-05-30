@@ -445,7 +445,11 @@ int Phone::createCall()
 		// renyang-modify - 由call接收每一個ip的事件
 		connect( calls[newId],SIGNAL(SigAddressEvent(int,QString,QString)),this,SLOT(SlotAddressEvent(int,QString,QString)));
 		// renyang-modify - 當call要求image時, 幫它把資料寫入指定的位置中
-		connect( calls[newId],SIGNAL(SigGetImage(char *)),video,SLOT(getScaleImage(char *)));
+		connect( calls[newId],SIGNAL(SigGetImage(char *,int)),this,SLOT(SlotGetImage(char *,int)));
+		// renyang-modify - 準備把QImage上傳到CallTab(但是要先上傳到Ihu)
+		connect( calls[newId],SIGNAL(SigputImage(QImage,int)),this,SLOT(SlotputImage(QImage,int)));
+		// renyang-modify - 向對方要求影像失敗
+		connect (calls[newId],SIGNAL(SigrequestImageFail(int)),this,SLOT(SlotrequestImageFail(int)));
 		// renyang-modify - end
 	}
 	return newId;
@@ -1532,4 +1536,99 @@ void Phone::SlotAddressEvent(int callId,QString ip,QString description)
 	qWarning(QString("Phone::SlotAddressEvent(%1,%2,%3)").arg(callId).arg(ip).arg(description));
 #endif
 	emit SigAddressEvent(callId,ip,description);
+}
+
+void Phone::SlotGetImage(char *image_matrix,int callId)
+{
+#ifdef REN_DEBUG
+	qWarning("Phone::SlotGetImage()");
+#endif
+	// renyang-modify - 先測試目前camera的情況
+	if (camera_status == VIDEO_STATUS_STOP)
+	{
+		startVideo();
+	}
+
+	switch (camera_status)
+	{
+		// renyang-modify - 曾經初始化webcam過, 但是失敗
+		case VIDEO_STATUS_INVALID:
+			calls[callId]->sendVideoFail();
+			break;
+		// renyang-modify - 若成功運作的話, 則把Frame放到image_matrix中
+		case VIDEO_STATUS_RUNINGING:
+			// renyang-modify - 由Video取得一個Frame放到image_matrix中
+			video->getScaleImage(image_matrix);
+			// renyang-modify - 傳送取得的frame
+			calls[callId]->sendVideo();
+			break;
+		default:
+			qWarning("It is impossible here");
+			break;
+	}
+}
+
+// renyang - 應該是開始擷取麥克風的資料
+void Phone::startVideo()
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::startVideo()"));
+#endif
+	switch (camera_status)
+	{
+		case VIDEO_STATUS_RUNINGING:
+			break;
+		case VIDEO_STATUS_INVALID:
+			break;
+		default:
+			if(video->initWebcam())
+				camera_status = VIDEO_STATUS_RUNINGING;
+			else
+				camera_status = VIDEO_STATUS_INVALID;
+			break;
+	}
+}
+
+void Phone::stopVideo()
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::stopVideo()"));
+#endif
+	switch (camera_status)
+	{
+		case VIDEO_STATUS_STOP:
+			break;
+		case VIDEO_STATUS_INVALID:
+			break;
+		default:
+			camera_status = VIDEO_STATUS_STOP;
+			video->end();
+			break;
+	}
+}
+
+// renyang-modify - 把接收到的一整個影像上傳到Ihu
+void Phone::SlotputImage(QImage image,int callId)
+{
+#ifdef REN_DEBUG
+	qWarning("Phone::SlotputImage()");
+#endif
+	emit SigputImage(image,callId);
+}
+
+// renyang-modify - 向對方傳送要求image的封包
+void Phone::requestPeerImage(int callId)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::requestPeerImage(%1)").arg(callId));
+#endif
+	calls[callId]->sendVideoRequest();
+}
+
+void Phone::SlotrequestImageFail(int callId)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::SlotrequestImageFail(%1)").arg(callId));
+#endif
+	emit SigrequestImageFail(callId);
 }
