@@ -33,16 +33,16 @@
 
 #include "Blowfish.h"
 
-// renyang-modify - 修改封包最大上限為1024(bytes)
+// renyang-modify - 修改封包最大上限為1024(bytes)最大可以設定為2^16-1
 #define MAX_PACKET_SIZE 1024
-#define MIN_PACKET_SIZE 6
+#define MIN_PACKET_SIZE 8
 
-#define HEADER_SIZE 6
+#define HEADER_SIZE MIN_PACKET_SIZE
 #define HEADER_SYNC_STRING "IHU"
 #define HEADER_SYNC_LEN 3
 
 #define MIN_DATA_SIZE 0
-#define MAX_DATA_SIZE 250
+#define MAX_DATA_SIZE MAX_PACKET_SIZE-HEADER_SIZE
 
 #define DATA_BLOCK_SIZE 8
 
@@ -93,9 +93,10 @@ private:
 	char *packet;
 	// renyang - 這一個封包開始放資料的起始位址
 	char *dataPtr;
+	// renyang - 記錄原始資料的大小
 	int size;
 	// renyang - 放置此封包大小的起始位址
-	unsigned char *dataLen;
+	unsigned short int *dataLen;
 	// renyang - 放置此封包info的起始位址
 	char *info;
 };

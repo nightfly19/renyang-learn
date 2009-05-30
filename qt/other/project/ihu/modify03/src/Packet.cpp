@@ -35,8 +35,8 @@
  *     The pattern consists of the fixed ASCII string: "IHU"
  *
 // renyang - 記錄封包的大小
- *  b) Packet SIZE (1 byte): unsigned char that contains
- *     the size of the packet (min size 5, max size 256)
+ *  b) Packet SIZE (2 byte): unsigned short int that contains
+ *     the size of the packet (min size 8, max size 1024)
  *
  *  c) INFO data (1 byte)
  *     It contains those informations (in order):
@@ -69,12 +69,12 @@
  *        IHU_INFO_RING 0x3f
  *        IHU_INFO_RING_REPLY 0x3e
  *
- *  d) Data LENGTH (1 byte): unsigned char that contains
- *     the size of the following DATA part (min 0, max 250)
+ *  d) Data LENGTH (2 byte): unsigned short int that contains
+ *     the size of the following DATA part (min 0, max 1016)
  *
  *  THE DATA
  *
- *  This part of the packet is of variable size (min 0, max 250 bytes)
+ *  This part of the packet is of variable size (min 0, max 1016 bytes)
  *  and it contains the data to be trasmitted.
  *  It can be absent (if the packet doesn't need to transmit any data) 
  *  or, can be audio data or keys for encpryption.
@@ -114,10 +114,10 @@ void Packet::init(char *data, int len)
 #endif
 	// renyang - 初始化封包的header
 	strncpy(packet, HEADER_SYNC_STRING, HEADER_SYNC_LEN);
-	packet[HEADER_SYNC_LEN] = (unsigned char) size;
-	info = packet + HEADER_SYNC_LEN + 1; // Info
-	dataLen = (unsigned char *) (packet + HEADER_SYNC_LEN + 2);
-	*dataLen = (unsigned char) len;
+	packet[HEADER_SYNC_LEN] = (unsigned short int) size;
+	info = packet + HEADER_SYNC_LEN + 2; // Info
+	dataLen = (unsigned short int *) (packet + HEADER_SYNC_LEN + 3);
+	*dataLen = (unsigned short int) len;
 	if (len > 0)
 	{
 		dataPtr = packet + HEADER_SIZE;
@@ -176,8 +176,8 @@ void Packet::fill(char *buffer, int len)
 #endif
 	memcpy(packet, buffer, len);
 	dataPtr = packet + HEADER_SIZE;
-	dataLen = (unsigned char *) dataPtr - 1;
-	info = dataPtr - 2;
+	dataLen = (unsigned short int *) dataPtr - 1;
+	info = dataPtr - 3;
 }
 
 void Packet::crypt(Blowfish *blowfish)
