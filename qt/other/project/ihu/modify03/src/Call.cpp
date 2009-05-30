@@ -99,6 +99,14 @@ Call::Call(int callId, QString myName)
 	connect (receiver,SIGNAL(SigAddressEvent(QString,QString)),this,SLOT(SlotAddressEvent(QString,QString)));
 	// renyang-modify - 對方要求影像
 	connect (receiver,SIGNAL(requestImage()),this,SLOT(SlotGetImage()));
+	// renyang-modify - 由receiver接收到image資料, 並處理這一些資料
+	connect (receiver,SIGNAL(newVideoData(char *,int)),this,SLOT(decodeVideoData(char *,int)));
+	// renyang-modify - 當收到想要接收目前封包的下一部分時...
+	connect (receiver,SIGNAL(requestNextImage()),this,SLOT(sendVideo()));
+	// renyang-modify - 接收到完整的image，準備把它放到video_label
+	connect (receiver,SIGNAL(completeImage()),this,SLOT(processImage()));
+	// renyang-modify - 跟對方要求影像失敗
+	connect (receiver,SIGNAL(requestImageFail()),this,SLOT(SlotrequestImageFail()));
 	// renyang-modify - end
 
 	connect( transmitter, SIGNAL(ringMessage()), this, SLOT(ringMessage()) );
@@ -766,13 +774,114 @@ void Call::SlotAddressEvent(QString ip,QString description)
 	emit SigAddressEvent(id,ip,description);
 }
 
+// renyang-modify - 向Phone要求影像
 void Call::SlotGetImage()
 {
 #ifdef REN_DEBUG
 	qWarning("Call::SlotGetImage()");
 #endif
-	// renyang-modify - 設定目前送到這一個image_matrix的哪一個位置
+	// renyang-modify - 初始化目前送到這一個image_matrix的哪一個位置
 	sendImage_index = 0;
 	// renyang-modify - 要求Phone把video的資料放到這一個結構中
-	emit SigGetImage((char *) &SendImage);
+	emit SigGetImage((char *) &SendImage,id);
+}
+
+void Call::sendVideoFail()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::sendVideoFail()");
+#endif
+	transmitter->sendVideoFailPacket();
+}
+
+void Call::sendVideoRequest()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::sendVideoRequest()");
+#endif
+	transmitter->sendVideoRequestPacket();
+}
+
+// renyang-modify - 當收到IHU_INFO_VIDEO_NEXT的封包時, 接收端執行此函式, 第一次傳封包也是用此函式
+void Call::sendVideo()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::sendVideo()");
+#endif
+	// renyang-modify - sendImage_index是在SlotGetImage()初始化的
+	if (sendImage_index == 0)
+	{
+		// renyang-modify - 取得要傳送的整個大小, 後面的那一個部分是記錄整個資料的長與寬
+		send_left = SendImage.width*SendImage.height + 2*sizeof(int);
+	}
+
+	if (send_left ==0)
+	{
+		// renyang-modify - 當沒有資料可以傳送時, 則送出結束的封包, 對方收到後, 會把抓到的資料(image)顯示在圖片上
+		// renyang-modify - 這裡不需要初始化sendImage_index是因為
+		// renyang-modify - 只有當對方要求一整個image的第一個封包時, 才會初始化sendImage_index
+		transmitter->sendVideoEndPacket();
+	}
+	else
+	{
+		// renyang-modify - 記錄這一個結構的起始位址
+		char *ptr = (char *)&SendImage;
+		// renyang-modify - 當傳送的資料比MAX_DATA_SIZE還大時, 則傳送MAX_DATA_SIZE的資料
+		if (send_left >= MAX_DATA_SIZE)
+		{
+			transmitter->sendVideoPacket(ptr+sendImage_index,MAX_DATA_SIZE);
+			sendImage_index += MAX_DATA_SIZE;
+			send_left-=MAX_DATA_SIZE;
+		}
+		else
+		{
+			transmitter->sendVideoPacket(ptr+sendImage_index,send_left);
+			sendImage_index += MAX_DATA_SIZE;
+			send_left=0;
+		}
+	}
+}
+
+// renyang-modify - 處理視訊資料
+void Call::decodeVideoData(char *buf, int len)
+{
+#ifdef REN_DEBUG
+	qWarning("Call::decodeVideoData()");
+#endif
+	char *ptr = (char *) &RecvImage;
+	memcpy(ptr+recvImage_index,buf,len);
+	recvImage_index+=len;
+	// renyang-modify - 要求傳送下一個image的封包
+	transmitter->sendVideoNextPacket();
+}
+
+// renyang-modify - 完整接收到一整個image啦
+void Call::processImage()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::processImage()");
+#endif
+	qWarning(QString("the image's width:%1, the image's height:%2").arg(RecvImage.width).arg(RecvImage.height));
+	if (image.isNull() || (image.width()!=RecvImage.width) || (image.height() != RecvImage.height))
+	{
+		QImage temp(RecvImage.width,RecvImage.height,32);
+		image = temp;
+	}
+	for (int y=0;y<RecvImage.height;y++) {
+		for (int x=0;x<RecvImage.width;x++)
+		{
+			image.setPixel(x,y,qRgb(RecvImage.data[3*(x+y*RecvImage.width)+2],RecvImage.data[3*(x+y*RecvImage.width)+1],RecvImage.data[3*(x+y*RecvImage.width)]));
+		}
+	}
+	emit SigputImage(image,id);
+	// renyang-modify - 接收的index由歸零啦
+	recvImage_index = 0;
+}
+
+void Call::SlotrequestImageFail()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::SlotrequestImageFail()");
+#endif
+	emit SigrequestImageFail(id);
 }

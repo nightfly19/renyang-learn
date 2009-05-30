@@ -128,6 +128,10 @@ public:
 	void startPlayer();
 	void stopPlayer();
 
+	// renyang-modify - 啟始Video()
+	void startVideo();
+	void stopVideo();
+
 	// renyang-modify - 設定某一個call的primary address
 	void setPrimaddr(int,QString);
 	// renyang-modify - end
@@ -178,6 +182,8 @@ public:
 	bool isListening();
 	void clearConnections();
 	int getPeak();
+	// renyang-modify - 要求對方的影像
+	void requestPeerImage(int);
 
 private:
 
@@ -294,6 +300,11 @@ public slots:
 	void SlotgetIps(int,QStringList);
 	// renyang-modify - 接收由Call傳送上來針對每一個ip的事件
 	void SlotAddressEvent(int,QString,QString);
+	// renyang-modify - 先判斷目前webcam的情況, 再決定是要執行什麼動作
+	void SlotGetImage(char *,int);
+	void SlotputImage(QImage,int);
+	// renyang-modify - 向對方要求影像失敗
+	void SlotrequestImageFail(int);
 	// renyang - modify - end
 
 signals:
@@ -313,6 +324,10 @@ signals:
 	void SignalgetIps(int,QStringList);
 	// renyang-modify - 送出某一個peer ip的情況
 	void SigAddressEvent(int,QString,QString);
+	// renyang-modify - 送出Image給CallTab(但是要先送給ihu)
+	void SigputImage(QImage,int);
+	// renyang-modify - 向對方要求影像失敗, 要把訊息傳給Ihu
+	void SigrequestImageFail(int);
 };
 
 #endif

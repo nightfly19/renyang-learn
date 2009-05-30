@@ -177,6 +177,14 @@ signals:
 	void SigAddressEvent(QString,QString);
 	// renyang-modify - 對方要求影像
 	void requestImage();
+	// renyang-modify - 要求對方影像失敗
+	void requestImageFail();
+	// renyang-modify - 接收到片斷的Image
+	void newVideoData(char *,int);
+	// renyang-modify - 接收到對方要求要一個image的一部分
+	void requestNextImage();
+	// renyang-modify - 把接收到的整個資料放到qlabel_label中
+	void completeImage();
 	// renyang-modify - end
 };
 

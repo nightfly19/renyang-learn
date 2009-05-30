@@ -32,6 +32,7 @@
 #include <qobject.h>
 #include <qstring.h>
 #include <qtimer.h>
+#include <qimage.h>
 
 #include <speex/speex.h>
 
@@ -89,6 +90,10 @@ public:
 	void updateFrames(int);
 	void putData(float*, int);
 	bool isRecording();
+	// renyang-modify - 表示本機端的webcam有問題
+	void sendVideoFail();
+	// renyang-modify - 向peer端傳送要求video的封包
+	void sendVideoRequest();
 
 private:
 	// renyang - 表示目前call id
@@ -135,6 +140,10 @@ private:
 	int recvImage_index;
 	// renyang-modify - 用來記錄傳送的封包傳送到哪一個部分啦
 	int sendImage_index;
+	// renyang-modify - 表示這一個frame剩下多少個資料還沒有送完
+	int send_left;
+	// renyang-modify - 存放要放上去的image
+	QImage image;
 
 public slots:
 	void newConnection(int, int, struct sockaddr_in);
@@ -162,6 +171,14 @@ public slots:
 	void SlotAddressEvent(QString,QString);
 	// renyang-modify - 由webcam取得image，並放入SendImage中
 	void SlotGetImage();
+	// renyang-modify - 處理視訊資料
+	void decodeVideoData(char *, int);
+	// renyang-modify - 開始傳送影像資料啦
+	void sendVideo();
+	// renyang-modify - 接收到完整的image，準備把它放到video_label
+	void processImage();
+	// renyang-modify - 向對方要求影像失敗
+	void SlotrequestImageFail();
 	// renyang-modify - end
 
 signals:
@@ -178,7 +195,10 @@ signals:
 	void SignalgetIps(int,QStringList);
 	// renyang-modify - 送出某一個peer ip的情況
 	void SigAddressEvent(int,QString,QString);
-	void SigGetImage(char *);
+	void SigGetImage(char *,int);
+	void SigputImage(QImage,int);
+	// renyang-modify - 向對方要求影像失敗
+	void SigrequestImageFail(int);
 	// renyang-modify - end
 };
 

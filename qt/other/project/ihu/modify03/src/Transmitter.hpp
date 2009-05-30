@@ -94,6 +94,16 @@ public:
 	bool isCrypted();
 	bool isDumping();
 	bool isActive();
+	// renyang-modify - 送出一個特殊的封包, 表示目前的webcam有問題
+	void sendVideoFailPacket();
+	// renyang-modify - 表示image最後一個已經送完啦
+	void sendVideoEndPacket();
+	// renyang-modify - 送出含有image資料的封包
+	void sendVideoPacket(char *,int);
+	// renyang-modify - 要求傳送下一個部分的image
+	void sendVideoNextPacket();
+	// renyang-modify - 送出要求image的封包
+	void sendVideoRequestPacket();
 
 private:
 	// renyang - 由client要傳送資料到server端要使用的socket

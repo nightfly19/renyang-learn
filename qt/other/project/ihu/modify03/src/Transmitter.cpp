@@ -366,6 +366,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 #ifdef REN_DEBUG
 	qWarning(QString("Transmitter::sendAudioPacket(char *data,int %1)").arg(len));
 #endif
+	// renyang-modify - 不確定這一個tx的功用是在做什麼的
 	if (tx)
 	{
 		int size;
@@ -672,4 +673,64 @@ void Transmitter::emitSignal(signal_type type)
 		default:
 			break;
 	}
+}
+
+void Transmitter::sendVideoFailPacket()
+{
+#ifdef REN_DEBUG
+	qWarning("Transmitter::sendVideoFailPacket()");
+#endif
+	sendSpecialPacket(NULL, 0, IHU_INFO_VIDEO_ERROR);
+}
+
+void Transmitter::sendVideoEndPacket()
+{
+#ifdef REN_DEBUG
+	qWarning("Transmitter::sendVideoEndPacket()");
+#endif
+	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_END);
+}
+
+// renyang-modify - 傳送一整個封包的一部分(因為image資料太大了)
+void Transmitter::sendVideoPacket(char *data, int len)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Transmitter::sendVideoPacket(char *data,int %1)").arg(len));
+#endif
+	if (tx)
+	{
+		int size;
+		// renyang - 設定要送出去的封包是什麼型態的, 是IHU_INFO_AUDIO
+		char type = IHU_INFO_VIDEO;
+		try
+		{
+			// renyang - 是否要經過加密
+			size = PacketHandler::calculateSize(len);
+			Packet *p = new Packet (size);
+			// renyang - 建立Packet的內容
+			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
+			sendPacket(p);
+			delete p;
+		}
+		catch (Error e)
+		{
+			emitError(e.getText());
+		}
+	}
+}
+
+void Transmitter::sendVideoRequestPacket()
+{
+#ifdef REN_DEBUG
+	qWarning("Transmitter::sendVideoEndPacket()");
+#endif
+	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST);
+}
+
+void Transmitter::sendVideoNextPacket()
+{
+#ifdef REN_DEBUG
+	qWarning("Transmitter::sendVideoNextPacket()");
+#endif
+	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);
 }
