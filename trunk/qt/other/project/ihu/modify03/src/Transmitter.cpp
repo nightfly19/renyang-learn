@@ -678,7 +678,7 @@ void Transmitter::emitSignal(signal_type type)
 
 void Transmitter::sendVideoFailPacket()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendVideoFailPacket()");
 #endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_VIDEO_ERROR);
@@ -686,7 +686,7 @@ void Transmitter::sendVideoFailPacket()
 
 void Transmitter::sendVideoEndPacket()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_END);
@@ -695,7 +695,7 @@ void Transmitter::sendVideoEndPacket()
 // renyang-modify - 傳送一整個封包的一部分(因為image資料太大了)
 void Transmitter::sendVideoPacket(char *data, int len)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::sendVideoPacket(char *data,int %1)").arg(len));
 #endif
 	if (tx)
@@ -723,7 +723,7 @@ void Transmitter::sendVideoPacket(char *data, int len)
 
 void Transmitter::sendVideoRequestPacket()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST);
@@ -731,7 +731,7 @@ void Transmitter::sendVideoRequestPacket()
 
 void Transmitter::sendVideoNextPacket()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendVideoNextPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);
