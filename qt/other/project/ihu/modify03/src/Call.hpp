@@ -45,7 +45,7 @@
 // renyang-modify - 用來記錄要要接收與傳送的影像的資料結構
 struct image_matrix
 {
-	int height,width;
+	int width,height;
 	char data[MAXDATA];
 };
 

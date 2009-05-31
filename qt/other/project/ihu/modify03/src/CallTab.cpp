@@ -678,7 +678,7 @@ void CallTab::SendFailedHandler()
 // renyang-modify - 把由對方接收過來的影像放到video_label中
 void CallTab::setVideo(QImage image)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::setVideo()");
 #endif
 	// renyang-modify - 整個封包都收到到啦, 沒有在等待剩下的封包啦
@@ -694,7 +694,7 @@ void CallTab::setVideo(QImage image)
 // renyang-modify - 這一個也可以用來當作要取下一個frame
 void CallTab::videoCheckChanged(bool check)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("CallTab::videoCheckChanged(%1)").arg(check));
 #endif
 	if (check && video_check->isEnabled())
@@ -714,7 +714,7 @@ void CallTab::videoCheckChanged(bool check)
 
 void CallTab::requestImageFail()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::requestImageFail()");
 #endif
 	video_label->setText(QString("Request Image Fail"));
@@ -726,7 +726,7 @@ void CallTab::requestImageFail()
 
 void CallTab::video_timeout()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::video_timeout()");
 #endif
 	// renyang-modify - 時間時, 封包以經傳完了, 就馬上啟動要求下一個封包
