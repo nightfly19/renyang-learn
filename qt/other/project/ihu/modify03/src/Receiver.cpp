@@ -849,7 +849,7 @@ void Receiver::emitSctpEvent(void *notify_buf)
                         str = "UNKNOWN";
                         break;
                 } /* end switch(sac->sac_state) */
-                qWarning("SCTP_ASSOC_CHANGE: %s, assoc=0x%x\n", str,
+                qWarning("SCTP_ASSOC_CHANGE: %s, assoc=0x%x", str,
                        (uint32_t)sac->sac_assoc_id);
                 break;
         case SCTP_PEER_ADDR_CHANGE:
@@ -877,7 +877,7 @@ void Receiver::emitSctpEvent(void *notify_buf)
                         str = "UNKNOWN";
                         break;
                 } /* end switch(spc->spc_state) */
-                qWarning("SCTP_PEER_ADDR_CHANGE: %s, addr=%s, assoc=0x%x\n", str,
+                qWarning("SCTP_PEER_ADDR_CHANGE: %s, addr=%s, assoc=0x%x", str,
 			SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr)),
                        (uint32_t)spc->spc_assoc_id);
 		// renyang-modify - 送出某一個peer ip的情況
@@ -885,36 +885,36 @@ void Receiver::emitSctpEvent(void *notify_buf)
                 break;
         case SCTP_REMOTE_ERROR:
                 sre = &snp->sn_remote_error;
-                qWarning("SCTP_REMOTE_ERROR: assoc=0x%x error=%d\n",
+                qWarning("SCTP_REMOTE_ERROR: assoc=0x%x error=%d",
                        (uint32_t)sre->sre_assoc_id, sre->sre_error);
                 break;
         case SCTP_SEND_FAILED:
                 ssf = &snp->sn_send_failed;
-                qWarning("SCTP_SEND_FAILED: assoc=0x%x error=%d\n",
+                qWarning("SCTP_SEND_FAILED: assoc=0x%x error=%d",
                        (uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
 		// renyang-modify - 送出一個SendFail的訊息給上面
 		emit SigAddressEvent(primaddr,QString("SCTP_SEND_FAILED"));
                 break;
         case SCTP_ADAPTATION_INDICATION:
                 ae = &snp->sn_adaptation_event;
-                qWarning("SCTP_ADAPTATION_INDICATION: 0x%x\n",
+                qWarning("SCTP_ADAPTATION_INDICATION: 0x%x",
                     (u_int)ae->sai_adaptation_ind);
                 break;
         case SCTP_PARTIAL_DELIVERY_EVENT:
             pdapi = &snp->sn_pdapi_event;
             if(pdapi->pdapi_indication == SCTP_PARTIAL_DELIVERY_ABORTED)
-                    qWarning("SCTP_PARTIAL_DELIEVERY_ABORTED\n");
+                    qWarning("SCTP_PARTIAL_DELIEVERY_ABORTED");
             else
-                    qWarning("Unknown SCTP_PARTIAL_DELIVERY_EVENT 0x%x\n",
+                    qWarning("Unknown SCTP_PARTIAL_DELIVERY_EVENT 0x%x",
                            pdapi->pdapi_indication);
             break;
         case SCTP_SHUTDOWN_EVENT:
                 sse = &snp->sn_shutdown_event;
-                qWarning("SCTP_SHUTDOWN_EVENT: assoc=0x%x\n",
+                qWarning("SCTP_SHUTDOWN_EVENT: assoc=0x%x",
                        (uint32_t)sse->sse_assoc_id);
                 break;
         default:
-                qWarning("Unknown notification event type=0x%x\n",
+                qWarning("Unknown notification event type=0x%x",
                        snp->sn_header.sn_type);
         }
 }
