@@ -198,6 +198,9 @@ QString SctpSocketHandler::SctpGetPrim(int sd)
 
 void SctpSocketHandler :: SctpSetPrim(int sd,QString primaddr)
 {
+#ifdef REN_DEBUG
+	qWarning(QString("SctpSocketHandler::SctpSetPrim(%1,%2)").arg(sd).arg(primaddr));
+#endif
 	struct sctp_setprim setprim;
 	socklen_t setprimlen;
 	struct sockaddr_in *peeraddr;

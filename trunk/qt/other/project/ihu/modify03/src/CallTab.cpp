@@ -666,13 +666,15 @@ void CallTab::SendFailedHandler()
 	{
 		// renyang-modify - 設定目前這一個primary為不能使用
 		setAddressEvent(hostEdit->currentText(),QString("SCTP_SEND_FAILED_THRESHOLD"));
-		for (int i=0;i<hostEdit->count();i++)
+		qWarning("want to find a available address");
+		for (unsigned int i=0;i<hostList->count();i++)
 		{
 			if (hostList->item(i)->isSelectable())
 			{
 				// renyang-modify - 設定目前這一個為primary address
 				// renyang-modify - 之前send fail ip可能要設定為其它顏色的球
 				// renyang-modify - 設定這一個ip為primary address
+				qWarning(QString("%1 is available").arg(hostList->text(i)));
 				emit setPrimaddrSignal(callId,hostList->text(i));
 				error_handled = 0;
 				return;
