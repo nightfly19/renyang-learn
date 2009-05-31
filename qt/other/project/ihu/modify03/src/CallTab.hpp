@@ -106,6 +106,8 @@ public:
 	void setVideo(QImage);
 	// renyang-modify - 向對方要求影像失敗
 	void requestImageFail();
+	// renyang-modify - 清除video_label的內容
+	void clearVideoLabel();
 	// renyang-modify - end
 
 private:
@@ -124,8 +126,10 @@ private:
 	QLabel *video_label;
 	// renyang-modify - 決定是否要要求對方送影像過來
 	QCheckBox *video_check;
-	// renyang-modify - 當要向對方要求影像, 但是, 像還沒有整個上傳到CallTab時, waiting是true
+	// renyang-modify - 當要向對方要求影像, 但是, 像還沒有整個上傳到CallTab時, waiting是true, 用來處理fps的
 	bool waiting;
+	// renyang-modify - 記錄對方的video是否可以被要求
+	bool peervideofail;
 	QTimer *video_timer;
 
 public slots:
@@ -138,7 +142,7 @@ public slots:
 	// renyang-modify - 處理按下primButton的事件
 	void primButtonClicked();
 	// renyang-modify - 當CheckChanged有改變時, 所要做的事
-	void videoCheckChanged(bool);
+	void videoCheckChanged();
 	// renyang-modify - 當video_timer時間到時要執行的function
 	void video_timeout();
 	// renyang-modify - end

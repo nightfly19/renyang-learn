@@ -236,7 +236,7 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	// renyang-modify - 新增當按下primButton時, 會做什麼事
 	connect( primButton,SIGNAL(clicked()),this,SLOT(primButtonClicked()));
 	// renyang-modify - 當按下video_check扭時, 要求對方傳送image過來
-	connect( video_check,SIGNAL(toggled(bool)),this,SLOT(videoCheckChanged(bool)));
+	connect( video_check,SIGNAL(clicked()),this,SLOT(videoCheckChanged()));
 
 	languageChange();
 
@@ -253,6 +253,8 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	video_timer = new QTimer(this,"video_timer");
 	// renyang-modify - 當時間到時要要求下一個frame
 	connect(video_timer,SIGNAL(timeout()),this,SLOT(video_timeout()));
+	// renyang-modify - 記錄對方的video是否Fail
+	peervideofail = false;
 
 	// renyang-modify - 暫時預設error_threshold為5
 	error_threshold = 5;
@@ -363,7 +365,8 @@ void CallTab::stopButtonClicked()
 	ringButton->setEnabled(FALSE);
 
 	// renyang-modify - 當停止通話時, 則不能要求對方的影像
-	video_check->setEnabled(FALSE);
+	// video_check->setEnabled(FALSE);
+	// video_check->setChecked(false);
 
 	emit stopSignal(callId);
 }
@@ -409,6 +412,8 @@ void CallTab::connectedCall()
 	// renyang-modify - 設定可以要求對方的影像
 	video_check->setEnabled(TRUE);
 	talking = true;
+	// renyang - 預設一開始對方video是好的
+	peervideofail = false;
 }
 
 // renyang - 當掛斷電話時, 或是對方掛斷電話時
@@ -437,6 +442,10 @@ void CallTab::stopCall()
 	hostList->clear();
 	// renyang-modify - 不能要求對方的影像啦
 	video_check->setEnabled(false);
+	// renyang-modify - 結束通話, 清除video_check勾選
+	video_check->setChecked(false);
+	// renyang-modify - 清除video_label的所有資料
+	clearVideoLabel();
 	// renyang-modify - end
 }
 
@@ -678,7 +687,7 @@ void CallTab::SendFailedHandler()
 // renyang-modify - 把由對方接收過來的影像放到video_label中
 void CallTab::setVideo(QImage image)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::setVideo()");
 #endif
 	// renyang-modify - 整個封包都收到到啦, 沒有在等待剩下的封包啦
@@ -686,52 +695,72 @@ void CallTab::setVideo(QImage image)
 	QPixmap pix(video_label->size());
 	pix.convertFromImage(image);
 	video_label->setPixmap(pix);
-	// renyang-modify - 當video_timer沒有在運行時, 才要主動執行videoCheckChanged(true)要求下一個frame
+	// renyang-modify - 當video_timer沒有在運行時, 才要主動執行videoCheckChanged()要求下一個frame
 	if (!video_timer->isActive())
-		videoCheckChanged(true);
+		videoCheckChanged();
 }
 
 // renyang-modify - 這一個也可以用來當作要取下一個frame
-void CallTab::videoCheckChanged(bool check)
+void CallTab::videoCheckChanged()
 {
-#ifdef FANG_DEBUG
-	qWarning(QString("CallTab::videoCheckChanged(%1)").arg(check));
+#ifdef REN_DEBUG
+	qWarning(QString("CallTab::videoCheckChanged()"));
 #endif
-	if (check && video_check->isEnabled())
+	if (video_check->isEnabled() && video_check->isChecked())
 	{
 		// renyang-modify - 向對方要求一個影像
 		emit SigrequestPeerImage(callId);
 		// renyang-modify - 設定100ms後要啟動, 到了之後, 就不在啟動了, 100ms要求一個封包
 		video_timer->start(100,true);
 		waiting = true;
+		video_label->setBackgroundMode(Qt::NoBackground);
 	}
 	else
 	{
+		// renyang-modify - 只有當取消勾選時與對video_check做任何改變時, 會跑到這裡
 		waiting = false;
 		video_timer->stop();
+		// renyang-modify - 因為在執行video_check->setEnabled(false);
+		// renyang-modify - 也會觸動videoCheckChanged(), 所以, 在這裡要加一個判斷, 當peervideofail為true時
+		// renyang-modify - 不清除video_label
+		if (!peervideofail)
+			clearVideoLabel();
 	}
 }
 
+// renyang-modify - 向對方要求影像失敗
+// renyang-modify - 當video_check是Disable, 但有被勾選則表示對方沒有辦法提供影像
 void CallTab::requestImageFail()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::requestImageFail()");
 #endif
+	clearVideoLabel();
 	video_label->setText(QString("Request Image Fail"));
 	video_label->setAlignment( QLabel::AlignCenter );
 	video_check->setEnabled(false);
-	video_check->setChecked(false);
 	waiting = false;
+	peervideofail = true;
 }
 
 void CallTab::video_timeout()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::video_timeout()");
 #endif
 	// renyang-modify - 時間時, 封包以經傳完了, 就馬上啟動要求下一個封包
 	if (!waiting)
-		videoCheckChanged(true);
+		videoCheckChanged();
 }
 
 /* 以上setVideo()與video_timer(),videoCheckChanged()的配合可以達到儘量100ms要求一個frame */
+
+void CallTab::clearVideoLabel()
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::clearVideoLabel()");
+#endif
+	video_label->clear();
+	video_label->setBackgroundMode(Qt::PaletteBackground);
+	video_label->setPalette(QPalette( QColor( 250, 250, 200) ));
+}

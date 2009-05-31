@@ -777,7 +777,7 @@ void Call::SlotAddressEvent(QString ip,QString description)
 // renyang-modify - 向Phone要求影像
 void Call::SlotGetImage()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::SlotGetImage()");
 #endif
 	// renyang-modify - 初始化目前送到這一個image_matrix的哪一個位置
@@ -788,7 +788,7 @@ void Call::SlotGetImage()
 
 void Call::sendVideoFail()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::sendVideoFail()");
 #endif
 	transmitter->sendVideoFailPacket();
@@ -796,7 +796,7 @@ void Call::sendVideoFail()
 
 void Call::sendVideoRequest()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::sendVideoRequest()");
 #endif
 	transmitter->sendVideoRequestPacket();
@@ -805,7 +805,7 @@ void Call::sendVideoRequest()
 // renyang-modify - 當收到IHU_INFO_VIDEO_NEXT的封包時, 接收端執行此函式, 第一次傳封包也是用此函式
 void Call::sendVideo()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::sendVideo()");
 #endif
 	// renyang-modify - sendImage_index是在SlotGetImage()初始化的
@@ -847,7 +847,7 @@ void Call::sendVideo()
 // renyang-modify - 處理視訊資料
 void Call::decodeVideoData(char *buf, int len)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::decodeVideoData()");
 #endif
 	char *ptr = (char *) &RecvImage;
@@ -860,7 +860,7 @@ void Call::decodeVideoData(char *buf, int len)
 // renyang-modify - 完整接收到一整個image啦
 void Call::processImage()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::processImage()");
 #endif
 	qWarning(QString("the image's width:%1, the image's height:%2").arg(RecvImage.width).arg(RecvImage.height));
@@ -882,7 +882,7 @@ void Call::processImage()
 
 void Call::SlotrequestImageFail()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Call::SlotrequestImageFail()");
 #endif
 	emit SigrequestImageFail(id);
