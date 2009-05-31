@@ -104,6 +104,8 @@ public:
 	bool isActive();
 	// renyang-modify - 可以取得peer端的所有ip
 	void getIps();
+	// renyang-modify - 設定預期是由哪一個ip送資料過來
+	void setExpectAddress(QString);
 	// renyang-modify
 
 private:

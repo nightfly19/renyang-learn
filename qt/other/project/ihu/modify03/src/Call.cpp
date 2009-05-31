@@ -762,6 +762,8 @@ void Call::setPrimaddr(QString primaddr)
 	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
 #endif
 	SctpSocketHandler::SctpSetPrim(sd,primaddr);
+	// renyang-modify - 設定預期是由哪一個ip送資料過來
+	receiver->setExpectAddress(primaddr);
 	// renyang-modify - 設定CallTab的list圖示
 	emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
 }
