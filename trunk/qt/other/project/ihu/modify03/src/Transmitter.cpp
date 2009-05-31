@@ -295,6 +295,7 @@ void Transmitter::sendPacket(Packet *p)
 		else
 		{
 			// renyang - 用來計算一共傳送多少資料出去
+			qWarning("send %d bytes",snt);
 			bytes += snt;
 			total += snt;
 			active = true;
@@ -677,7 +678,7 @@ void Transmitter::emitSignal(signal_type type)
 
 void Transmitter::sendVideoFailPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoFailPacket()");
 #endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_VIDEO_ERROR);
@@ -685,7 +686,7 @@ void Transmitter::sendVideoFailPacket()
 
 void Transmitter::sendVideoEndPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_END);
@@ -694,7 +695,7 @@ void Transmitter::sendVideoEndPacket()
 // renyang-modify - 傳送一整個封包的一部分(因為image資料太大了)
 void Transmitter::sendVideoPacket(char *data, int len)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Transmitter::sendVideoPacket(char *data,int %1)").arg(len));
 #endif
 	if (tx)
@@ -710,6 +711,7 @@ void Transmitter::sendVideoPacket(char *data, int len)
 			// renyang - 建立Packet的內容
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
 			sendPacket(p);
+			qWarning("Info:%x\n",p->getInfo());
 			delete p;
 		}
 		catch (Error e)
@@ -721,7 +723,7 @@ void Transmitter::sendVideoPacket(char *data, int len)
 
 void Transmitter::sendVideoRequestPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST);
@@ -729,7 +731,7 @@ void Transmitter::sendVideoRequestPacket()
 
 void Transmitter::sendVideoNextPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoNextPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);

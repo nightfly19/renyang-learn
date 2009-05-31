@@ -114,7 +114,8 @@ void Packet::init(char *data, int len)
 #endif
 	// renyang - 初始化封包的header
 	strncpy(packet, HEADER_SYNC_STRING, HEADER_SYNC_LEN);
-	packet[HEADER_SYNC_LEN] = (unsigned short int) size;
+	packetLen = (unsigned short int *) (packet + HEADER_SYNC_LEN);
+	*packetLen = (unsigned short int) size;
 	info = packet + HEADER_SYNC_LEN + 2; // Info
 	dataLen = (unsigned short int *) (packet + HEADER_SYNC_LEN + 3);
 	*dataLen = (unsigned short int) len;

@@ -282,6 +282,7 @@ void Receiver::receive()
 					emitSctpEvent(inputBuffer);
 					return ;
 				}
+				qWarning("recv %d bytes",rlen);
 				if (primaddr != ::inet_ntoa(peer.sin_addr)) {
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
 					primaddr = ::inet_ntoa(peer.sin_addr);
@@ -377,8 +378,8 @@ void Receiver::processData()
 				else
 				{
 					// renyang - 實際封包的大小(內容值是由peer端送過來的)
-					unsigned short int packetlen = (unsigned short int) streamPtr[HEADER_SYNC_LEN];
-					int plen = (int) packetlen;
+					unsigned short int *packetlen = (unsigned short int *) (streamPtr+HEADER_SYNC_LEN);
+					int plen = (int) (*packetlen);
 					// renyang - 封包面裡記錄的資料大小比streamLen還要大, 則表示有資料遺失
 					if (plen > streamLen)
 					{

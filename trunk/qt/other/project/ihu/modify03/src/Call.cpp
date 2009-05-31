@@ -777,7 +777,7 @@ void Call::SlotAddressEvent(QString ip,QString description)
 // renyang-modify - 向Phone要求影像
 void Call::SlotGetImage()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::SlotGetImage()");
 #endif
 	// renyang-modify - 初始化目前送到這一個image_matrix的哪一個位置
@@ -788,7 +788,7 @@ void Call::SlotGetImage()
 
 void Call::sendVideoFail()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::sendVideoFail()");
 #endif
 	transmitter->sendVideoFailPacket();
@@ -796,7 +796,7 @@ void Call::sendVideoFail()
 
 void Call::sendVideoRequest()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::sendVideoRequest()");
 #endif
 	transmitter->sendVideoRequestPacket();
@@ -805,14 +805,16 @@ void Call::sendVideoRequest()
 // renyang-modify - 當收到IHU_INFO_VIDEO_NEXT的封包時, 接收端執行此函式, 第一次傳封包也是用此函式
 void Call::sendVideo()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::sendVideo()");
 #endif
 	// renyang-modify - sendImage_index是在SlotGetImage()初始化的
 	if (sendImage_index == 0)
 	{
+		qWarning("SENDVIDEO:width:%d, height:%d",SendImage.width,SendImage.height);
 		// renyang-modify - 取得要傳送的整個大小, 後面的那一個部分是記錄整個資料的長與寬
-		send_left = SendImage.width*SendImage.height + 2*sizeof(int);
+		// renyang-modify - 因為每一個pixel均由3 bytes代表, 所以整個image的大小要乘三
+		send_left = 3*SendImage.width*SendImage.height + 2*sizeof(int);
 	}
 
 	if (send_left ==0)
@@ -845,7 +847,7 @@ void Call::sendVideo()
 // renyang-modify - 處理視訊資料
 void Call::decodeVideoData(char *buf, int len)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::decodeVideoData()");
 #endif
 	char *ptr = (char *) &RecvImage;
@@ -858,7 +860,7 @@ void Call::decodeVideoData(char *buf, int len)
 // renyang-modify - 完整接收到一整個image啦
 void Call::processImage()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::processImage()");
 #endif
 	qWarning(QString("the image's width:%1, the image's height:%2").arg(RecvImage.width).arg(RecvImage.height));
@@ -880,7 +882,7 @@ void Call::processImage()
 
 void Call::SlotrequestImageFail()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::SlotrequestImageFail()");
 #endif
 	emit SigrequestImageFail(id);

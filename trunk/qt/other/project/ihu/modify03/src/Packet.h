@@ -97,6 +97,8 @@ private:
 	int size;
 	// renyang - 放置此封包大小的起始位址
 	unsigned short int *dataLen;
+	// renyang-modify - 放置此封包大小的啟始位置
+	unsigned short int *packetLen;
 	// renyang - 放置此封包info的起始位址
 	char *info;
 };

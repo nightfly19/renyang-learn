@@ -2,7 +2,7 @@
 
 Video::Video()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::Video()");
 #endif
 	src = NULL;
@@ -12,7 +12,7 @@ Video::Video()
 
 bool Video::initWebcam()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::initWebcam()");
 #endif
 	camera = cvCreateCameraCapture(0);
@@ -25,7 +25,7 @@ bool Video::initWebcam()
 
 bool Video::validWebcam()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::validWebcam()");
 #endif
 	if (camera == NULL)
@@ -35,7 +35,7 @@ bool Video::validWebcam()
 
 Video::~Video()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::~Video()");
 #endif
 	end();
@@ -43,17 +43,17 @@ Video::~Video()
 
 void Video::end()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::end()");
 #endif
 	ReleaseCamera();
-	ReleaseImage(src);
-	ReleaseImage(dst);
+	// ReleaseImage(src);
+	// ReleaseImage(dst);
 }
 
 void Video::QueryFrame()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::QueryFrame()");
 #endif
 	if (validWebcam())
@@ -72,7 +72,7 @@ void Video::QueryFrame()
 
 bool Video::validFrame(IplImage *target)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::validFrame()");
 #endif
 	if (target == NULL)
@@ -84,13 +84,13 @@ bool Video::validFrame(IplImage *target)
 
 void Video::ScaleFrame()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Video::ScaleFrame()"));
 #endif
 	if (validFrame(src))
 	{
 		// renyang - 先釋放之前使用的空間
-		ReleaseImage(dst);
+		// ReleaseImage(dst);
 		CvSize dst_cvsize;
 		// renyang - 固定縮放為160*120
 		dst_cvsize.width = 160;
@@ -102,13 +102,13 @@ void Video::ScaleFrame()
 		}
 		cvResize(src,dst,CV_INTER_LINEAR);
 		// renyang-modify - 釋放source data
-		ReleaseImage(src);
+		// ReleaseImage(src);
 	}
 }
 
 void Video::ReleaseImage(IplImage *target)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::ReleaseImage()");
 #endif
 	if (validFrame(target))
@@ -120,7 +120,7 @@ void Video::ReleaseImage(IplImage *target)
 
 void Video::ReleaseCamera()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::ReleaseCamera()");
 #endif
 	if (validWebcam())
@@ -132,7 +132,7 @@ void Video::ReleaseCamera()
 
 int Video::imageSize()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::imageSize()");
 #endif
 	if (validFrame(dst))
@@ -148,7 +148,7 @@ int Video::imageSize()
 
 char *Video::imageData()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::imageData()");
 #endif
 	if (validFrame(dst))
@@ -164,7 +164,7 @@ char *Video::imageData()
 
 int Video::imageWidth()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::imageWidth()");
 #endif
 	if (validFrame(dst))
@@ -180,7 +180,7 @@ int Video::imageWidth()
 
 int Video::imageHeight()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::imageHeight()");
 #endif
 	if (validFrame(dst))
@@ -197,7 +197,7 @@ int Video::imageHeight()
 // renyang-modify - 由Phone呼叫, 把放下來的要送出去的資料結構塞滿要送出去的資料
 void Video::setImageStruct(char *image_matrix)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::setImageStruct()");
 #endif
 	int *temp;
@@ -213,7 +213,7 @@ void Video::setImageStruct(char *image_matrix)
 // renyang-modify - 把取得的本地端影像放到image_matrix這一個位址中
 void Video::getScaleImage(char *image_matrix)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Video::getScaleImage()");
 #endif
 	// renyang-modify - 取得一個frame
