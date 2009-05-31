@@ -711,7 +711,6 @@ void Transmitter::sendVideoPacket(char *data, int len)
 			// renyang - 建立Packet的內容
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
 			sendPacket(p);
-			qWarning("Info:%x\n",p->getInfo());
 			delete p;
 		}
 		catch (Error e)

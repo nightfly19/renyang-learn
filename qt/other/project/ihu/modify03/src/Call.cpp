@@ -811,7 +811,6 @@ void Call::sendVideo()
 	// renyang-modify - sendImage_index是在SlotGetImage()初始化的
 	if (sendImage_index == 0)
 	{
-		qWarning("SENDVIDEO:width:%d, height:%d",SendImage.width,SendImage.height);
 		// renyang-modify - 取得要傳送的整個大小, 後面的那一個部分是記錄整個資料的長與寬
 		// renyang-modify - 因為每一個pixel均由3 bytes代表, 所以整個image的大小要乘三
 		send_left = 3*SendImage.width*SendImage.height + 2*sizeof(int);
@@ -863,7 +862,6 @@ void Call::processImage()
 #ifdef REN_DEBUG
 	qWarning("Call::processImage()");
 #endif
-	qWarning(QString("the image's width:%1, the image's height:%2").arg(RecvImage.width).arg(RecvImage.height));
 	if (image.isNull() || (image.width()!=RecvImage.width) || (image.height() != RecvImage.height))
 	{
 		QImage temp(RecvImage.width,RecvImage.height,32);
