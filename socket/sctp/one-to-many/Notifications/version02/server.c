@@ -47,6 +47,6 @@ main(int argc, char **argv)
 			     sri.sinfo_ppid,
 			     sri.sinfo_flags,
 			     sri.sinfo_stream,
-			     0, 0);
+			     100, 0);
 	}
 }
