@@ -628,7 +628,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 	{
 		if (hostList->text(i) == ip)
 		{
-			if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS"))
+			if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS") || description == QString("ADDRESS AVAILABLE"))
 			{
 				if (description == QString("PRIMARY ADDRESS"))
 				{
