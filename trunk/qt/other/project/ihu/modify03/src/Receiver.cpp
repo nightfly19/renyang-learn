@@ -159,6 +159,9 @@ void Receiver::start(int socket, int proto)
 	// renyang - 此s代表client端的socket file descriptor
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
+	// renyang-modify - 記錄目前的primary
+	primaddr = ::inet_ntoa(ca.sin_addr);
+
 	// renyang - 設定sync的型態為STREAM_READ_DATA, 並streamPtr回到起始位址(streamBuffer)
 	resetStream();
 	// renyang - 設定ihu_refuse, ihu_reply, ihu_abort, connected,...為false
@@ -903,8 +906,6 @@ void Receiver::emitSctpEvent(void *notify_buf)
                 ssf = &snp->sn_send_failed;
                 qWarning("SCTP_SEND_FAILED: assoc=0x%x error=%d",
                        (uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
-		// renyang-modify - 送出一個SendFail的訊息給上面
-		emit SigAddressEvent(primaddr,QString("SCTP_SEND_FAILED"));
                 break;
         case SCTP_ADAPTATION_INDICATION:
                 ae = &snp->sn_adaptation_event;

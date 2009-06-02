@@ -145,6 +145,10 @@ private:
 	int send_left;
 	// renyang-modify - 存放要放上去的image
 	QImage image;
+	// renyang-modify - 在設定完primary後, 有一段時間內不能再修改primary address
+	bool IPChanging;
+	// renyang-modify - 每當改變Primary address時, 一段時間內不能再改變Primary address
+	QTimer *IPChangingTimer;
 
 public slots:
 	void newConnection(int, int, struct sockaddr_in);
@@ -180,6 +184,8 @@ public slots:
 	void processImage();
 	// renyang-modify - 向對方要求影像失敗
 	void SlotrequestImageFail();
+	// renyang-modify - 回復IPChanging
+	void resetIPChanging();
 	// renyang-modify - end
 
 signals:

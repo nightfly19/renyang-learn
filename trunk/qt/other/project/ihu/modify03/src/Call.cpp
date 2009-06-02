@@ -68,6 +68,12 @@ Call::Call(int callId, QString myName)
 	aborted = false;
 	recording = false;
 
+	// renyang-modify - 初始化IPChanging, 表示最近沒有改變primary address
+	IPChanging = false;
+	// renyang-modify - 建立一個Timer來計數改完primary address後多久要改回IPChanging=false
+	IPChangingTimer = new QTimer(this);
+	connect(IPChangingTimer,SIGNAL(timeout()),this,SLOT(resetIPChanging()));
+
 	// renyang-modify - 初始化傳送與接收image的index
 	recvImage_index = sendImage_index = 0;
 
@@ -762,11 +768,17 @@ void Call::setPrimaddr(QString primaddr)
 #ifdef REN_DEBUG
 	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
 #endif
-	SctpSocketHandler::SctpSetPrim(sd,primaddr);
-	// renyang-modify - 設定預期是由哪一個ip送資料過來
-	receiver->setExpectAddress(primaddr);
-	// renyang-modify - 設定CallTab的list圖示
-	emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
+	if (IPChanging == false)
+	{
+		SctpSocketHandler::SctpSetPrim(sd,primaddr);
+		// renyang-modify - 設定預期是由哪一個ip送資料過來
+		receiver->setExpectAddress(primaddr);
+		// renyang-modify - 設定CallTab的list圖示
+		emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
+		// renyang-modify - 表示剛剛改變完primary address
+		IPChanging = true;
+		IPChangingTimer->start(10000);
+	}
 }
 
 void Call::SlotAddressEvent(QString ip,QString description)
@@ -887,4 +899,12 @@ void Call::SlotrequestImageFail()
 	qWarning("Call::SlotrequestImageFail()");
 #endif
 	emit SigrequestImageFail(id);
+}
+
+void Call::resetIPChanging()
+{
+#ifdef REN_DEBUG
+	qWarning("Call::resetIPChanging()");
+#endif
+	IPChanging = false;
 }
