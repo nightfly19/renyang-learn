@@ -110,10 +110,11 @@ private:
 	// renyang - 存放SpeexBits
 	SpeexBits bits;
 	void *dec_state;
-	// renyang - 由bit解碼為float型態(有一點像是第一線的緩衝)是outBuffer的四倍
+	// renyang - 由Packet解碼的音訊
 	float *outBuffer;
-	// renyang - 應該是像第二線的緩衝
+	// renyang - 存放以經解完碼的音訊
 	float *soundBuffer;
+	// renyang - 記錄每一個frame至少要多少個bytes才能代表
 	int frame_size;
 	// renyang - 目前有多少個frame已經可以播放了
 	int readyFrames;
