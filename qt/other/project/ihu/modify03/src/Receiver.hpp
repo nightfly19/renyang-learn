@@ -54,10 +54,13 @@ class Receiver: public QObject {
 public:
 
 	enum stream_status {
+		// renyang - 應該表示至少有一個封包是可以讀取的
 		STREAM_OK = 0,
+		// renyang - 表示不是一個完整的Packet資料, Header本身就有問題啦
 		STREAM_OUT_OF_SYNC,
+		// renyang - 表示資料有遺失, 資料不完整
 		STREAM_MISSING_DATA,
-		// renyang - stream要等著接收資料
+		// renyang - stream要等著接收資料(等著封包送進來)
 		STREAM_READ_DATA,
 	};
 	
@@ -75,6 +78,7 @@ public:
 	Receiver(Rsa *);
 	~Receiver(void);
 	void reset();
+	// renyang - streamPtr回到起始位址(streamBuffer)
 	void resetStream();
 	void dump(QString);
 	void listen(int, bool, bool);
@@ -120,12 +124,15 @@ private:
 	QSocketNotifier* notifier;
 	FILE *outFile;
 	char *inputBuffer;
+	// renyang - streamBuffer與streamLen搭配起來, 是表示說目前把資料放到哪裡了
 	char *streamBuffer;
+	// renyang - 記錄讀取下一個Packet的起始位置
 	char *streamPtr;
 	// renyang - 用來記算接收的資料量(每次呼叫getBytes(), bytes會歸0)
 	long bytes;
 	// renyang - 用來記錄接收的總資料量, 呼叫完getTotal()不會歸0
 	long total;
+	// renyang - 表示目前收到但是, 還沒有處理的資料長度
 	int streamLen;
 	Blowfish *blowfish;
 	Rsa *rsa;
@@ -150,6 +157,8 @@ private:
 	QString primaddr;
 	// renyang-modify - 用來處理sctp的事件
 	void emitSctpEvent(void *);
+	// renyang-modify - 每隔一段時間, 檢查是否有收到資料
+	QTimer *checkReceiveTimer;
 
 public slots:
 	void receive(void);

@@ -559,6 +559,7 @@ void Call::putData(float *buf, int len)
 	if (len < (MAXBUFSIZE - readyFrames))
 	{
 		memcpy(soundBuffer+readyFrames, buf, len*sizeof(float));
+		// renyang - 準備好的資料長度增加len
 		readyFrames += len;
 	}
 	else

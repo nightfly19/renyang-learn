@@ -109,12 +109,15 @@ void Receiver::reset()
 	primaddr = "";
 }
 
+// renyang - streamPtr回到起始位址(streamBuffer)
+// renyang - 並且等待資料送進來
 void Receiver::resetStream()
 {
 #ifdef REN_DEBUG
 	qWarning("Receiver::resetStream()");
 #endif
 	streamLen = 0;
+	// renyang - 一開始streamPtr與streamBuffer是指到同一個記憶體位址
 	streamPtr = streamBuffer;
 	sync = STREAM_READ_DATA;
 }
@@ -156,7 +159,7 @@ void Receiver::start(int socket, int proto)
 	// renyang - 此s代表client端的socket file descriptor
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
-	// renyang - 設定sync的型態為STREAM_READ_DATA
+	// renyang - 設定sync的型態為STREAM_READ_DATA, 並streamPtr回到起始位址(streamBuffer)
 	resetStream();
 	// renyang - 設定ihu_refuse, ihu_reply, ihu_abort, connected,...為false
 	reset();
@@ -326,6 +329,7 @@ void Receiver::putData(char *buffer, int len)
 	}
 	
 	// renyang - 若剩下的buffer(MAXBUFSIZE - len)小於streamLen，則表示空間不夠, 出現錯誤啦當有資料送過來, 但是長度確沒有大於0，表示對方出現錯誤或是離開
+	// renyang - 也可以說streamLen+len > MAXBUFSIZE則表示目前在記憶體中的資料加上新的資料比最大長度還大
 	// renyang - streamLen可以看成MAXBUFSIZE目前使用到哪裡的index
 	if (streamLen > (MAXBUFSIZE - len))
 	{
@@ -333,7 +337,7 @@ void Receiver::putData(char *buffer, int len)
 		// renyang - 把實際的資料刪成剛好可以放到buffer的大小
 		len = MAXBUFSIZE - streamLen;
 	}
-	// renyang - 把收到的資料加到streamBuffer的後面
+	// renyang - 把收到的資料加到streamBuffer的後面, streamLen是表示目前的stream是用到哪裡
 	memcpy(streamBuffer + streamLen, buffer, len);
 	// renyang - 增加streamLen
 	streamLen += len;
@@ -377,7 +381,7 @@ void Receiver::processData()
 				}
 				else
 				{
-					// renyang - 實際封包的大小(內容值是由peer端送過來的)
+					// renyang - 實際封包(IHU自定的封包)的大小(內容值是由peer端送過來的)
 					unsigned short int *packetlen = (unsigned short int *) (streamPtr+HEADER_SYNC_LEN);
 					int plen = (int) (*packetlen);
 					// renyang - 封包面裡記錄的資料大小比streamLen還要大, 則表示有資料遺失
@@ -393,6 +397,7 @@ void Receiver::processData()
 							{
 								Packet *p = new Packet(plen);
 								// renyang - 把收到的資料以IHU Packet型態呈獻
+								// renyang - 把streamPtr且長度為plen, 由p的位置開始放
 								PacketHandler::readPacket(p, streamPtr, plen);
 								// renyang - 分析這一個封包
 								processPacket(p);
@@ -400,9 +405,12 @@ void Receiver::processData()
 							}
 							else
 							{
+								// renyang - 比最小的封包還要小, 表示有問題
 								sync = STREAM_OUT_OF_SYNC;
 								break;
 							}
+							// renyang - 若目前這一個封包的大小比目前還沒有處理的資料還要小的話
+							// renyang - 則表示還有其它封包還在streamPtr中
 							if (plen < streamLen)
 							{
 								// renyang - 要讀取的stream移到下一個位址
@@ -415,6 +423,8 @@ void Receiver::processData()
 							else 
 							{
 								// renyang - 表示stream的封包不夠, 需要讀取stream
+								// renyang - 在reliable的情況下, 每接收到一個封包, 應該都會跑到這裡
+								// renyang - 表示沒有其它封包在streamBuffer
 								sync = STREAM_READ_DATA;
 								resetStream();
 							}
@@ -432,6 +442,7 @@ void Receiver::processData()
 				{
 					do
 					{
+						// renyang - 尋找下一個以IHU開頭的封包
 						streamPtr++;
 						streamLen--;
 						if (streamLen <= 0)
@@ -450,9 +461,9 @@ void Receiver::processData()
 			case STREAM_MISSING_DATA:
 				sync = STREAM_READ_DATA;
 			case STREAM_READ_DATA:
-				// renyang - 把streamPtr資料移動streamLen到streamBuffer
+				// renyang - 把streamPtr資料移動streamLen個bytes到streamBuffer
 				// renyang - 當我們由網路收到資料時, 我們是把它放到streamBuffer
-				// renyang - 但是, 我們在讀取的時候是透過streamPtr
+				// renyang - 但是, 我們在讀取的時候是透過streamPtr(代表下一個要讀取的封包位址)
 				// renyang - 完全就是在這裡設定
 				memmove(streamBuffer, streamPtr, streamLen);
 				streamPtr = streamBuffer;
