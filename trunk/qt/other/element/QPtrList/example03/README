@@ -1,0 +1,8 @@
+[example01]
+如何使用QPtrList
+
+[example02]
+了解當remove時, 指標是如可移動的
+
+[example03]
+在每使用一個元素前, 均檢查是否有元素
