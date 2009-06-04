@@ -1,0 +1,6 @@
+[example01]
+如何使用QPtrList
+
+[example04]
+說明當由QPtrList移除指標，
+並不會把指標指到的地方記憶體free掉
