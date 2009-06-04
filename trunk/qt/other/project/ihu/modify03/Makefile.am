@@ -29,6 +29,7 @@ ihu_SOURCES = \
 	src/LogViewer.cpp src/LogViewer.hpp\
 	src/PlayerDialog.cpp src/PlayerDialog.hpp\
 	src/CallTab.cpp src/CallTab.hpp\
+	src/SctpIPHandler.cpp src/SctpIPHandler.hpp\
 	src/Ihu.cpp src/Ihu.hpp\
 	src/main.cpp
 nodist_ihu_SOURCES = \
@@ -46,6 +47,7 @@ nodist_ihu_SOURCES = \
 	src/moc_PlayerDialog.cpp\
 	src/moc_Settings.cpp\
 	src/moc_LogViewer.cpp\
+	src/moc_SctpIPHandler.cpp\
 	src/moc_Video.cpp\
 	src/moc_Ihu.cpp
 

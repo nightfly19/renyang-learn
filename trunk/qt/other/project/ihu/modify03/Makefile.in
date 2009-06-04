@@ -70,7 +70,8 @@ am_ihu_OBJECTS = src/ihu-SctpSocketHandler.$(OBJEXT) \
 	src/ihu-Ihu2Spx.$(OBJEXT) src/ihu-IhuNoGui.$(OBJEXT) \
 	src/ihu-Settings.$(OBJEXT) src/ihu-LogViewer.$(OBJEXT) \
 	src/ihu-PlayerDialog.$(OBJEXT) src/ihu-CallTab.$(OBJEXT) \
-	src/ihu-Ihu.$(OBJEXT) src/ihu-main.$(OBJEXT)
+	src/ihu-SctpIPHandler.$(OBJEXT) src/ihu-Ihu.$(OBJEXT) \
+	src/ihu-main.$(OBJEXT)
 nodist_ihu_OBJECTS = src/ihu-moc_Receiver.$(OBJEXT) \
 	src/ihu-moc_FilePlayer.$(OBJEXT) \
 	src/ihu-moc_TcpServer.$(OBJEXT) \
@@ -80,6 +81,7 @@ nodist_ihu_OBJECTS = src/ihu-moc_Receiver.$(OBJEXT) \
 	src/ihu-moc_IhuNoGui.$(OBJEXT) src/ihu-moc_CallTab.$(OBJEXT) \
 	src/ihu-moc_PlayerDialog.$(OBJEXT) \
 	src/ihu-moc_Settings.$(OBJEXT) src/ihu-moc_LogViewer.$(OBJEXT) \
+	src/ihu-moc_SctpIPHandler.$(OBJEXT) \
 	src/ihu-moc_Video.$(OBJEXT) src/ihu-moc_Ihu.$(OBJEXT)
 ihu_OBJECTS = $(am_ihu_OBJECTS) $(nodist_ihu_OBJECTS)
 ihu_DEPENDENCIES =
@@ -106,6 +108,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-Receiver.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-Recorder.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-Rsa.Po \
+@AMDEP_TRUE@	src/$(DEPDIR)/ihu-SctpIPHandler.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-SctpSocketHandler.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-Settings.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-TcpServer.Po \
@@ -123,6 +126,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_PlayerDialog.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_Receiver.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_Recorder.Po \
+@AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_SctpIPHandler.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_Settings.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_TcpServer.Po \
 @AMDEP_TRUE@	src/$(DEPDIR)/ihu-moc_Transmitter.Po \
@@ -275,6 +279,7 @@ ihu_SOURCES = \
 	src/LogViewer.cpp src/LogViewer.hpp\
 	src/PlayerDialog.cpp src/PlayerDialog.hpp\
 	src/CallTab.cpp src/CallTab.hpp\
+	src/SctpIPHandler.cpp src/SctpIPHandler.hpp\
 	src/Ihu.cpp src/Ihu.hpp\
 	src/main.cpp
 
@@ -293,6 +298,7 @@ nodist_ihu_SOURCES = \
 	src/moc_PlayerDialog.cpp\
 	src/moc_Settings.cpp\
 	src/moc_LogViewer.cpp\
+	src/moc_SctpIPHandler.cpp\
 	src/moc_Video.cpp\
 	src/moc_Ihu.cpp
 
@@ -433,6 +439,8 @@ src/ihu-PlayerDialog.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/ihu-CallTab.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/ihu-SctpIPHandler.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/ihu-Ihu.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/ihu-main.$(OBJEXT): src/$(am__dirstamp) \
@@ -465,6 +473,8 @@ src/ihu-moc_Settings.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/ihu-moc_LogViewer.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
+src/ihu-moc_SctpIPHandler.$(OBJEXT): src/$(am__dirstamp) \
+	src/$(DEPDIR)/$(am__dirstamp)
 src/ihu-moc_Video.$(OBJEXT): src/$(am__dirstamp) \
 	src/$(DEPDIR)/$(am__dirstamp)
 src/ihu-moc_Ihu.$(OBJEXT): src/$(am__dirstamp) \
@@ -495,6 +505,7 @@ mostlyclean-compile:
 	-rm -f src/ihu-Receiver.$(OBJEXT)
 	-rm -f src/ihu-Recorder.$(OBJEXT)
 	-rm -f src/ihu-Rsa.$(OBJEXT)
+	-rm -f src/ihu-SctpIPHandler.$(OBJEXT)
 	-rm -f src/ihu-SctpSocketHandler.$(OBJEXT)
 	-rm -f src/ihu-Settings.$(OBJEXT)
 	-rm -f src/ihu-TcpServer.$(OBJEXT)
@@ -512,6 +523,7 @@ mostlyclean-compile:
 	-rm -f src/ihu-moc_PlayerDialog.$(OBJEXT)
 	-rm -f src/ihu-moc_Receiver.$(OBJEXT)
 	-rm -f src/ihu-moc_Recorder.$(OBJEXT)
+	-rm -f src/ihu-moc_SctpIPHandler.$(OBJEXT)
 	-rm -f src/ihu-moc_Settings.$(OBJEXT)
 	-rm -f src/ihu-moc_TcpServer.$(OBJEXT)
 	-rm -f src/ihu-moc_Transmitter.$(OBJEXT)
@@ -542,6 +554,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-Receiver.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-Recorder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-Rsa.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-SctpIPHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-SctpSocketHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-Settings.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-TcpServer.Po@am__quote@
@@ -559,6 +572,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_PlayerDialog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_Receiver.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_Recorder.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_SctpIPHandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_Settings.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_TcpServer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@src/$(DEPDIR)/ihu-moc_Transmitter.Po@am__quote@
@@ -982,6 +996,22 @@ src/ihu-CallTab.obj: src/CallTab.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -c -o src/ihu-CallTab.obj `if test -f 'src/CallTab.cpp'; then $(CYGPATH_W) 'src/CallTab.cpp'; else $(CYGPATH_W) '$(srcdir)/src/CallTab.cpp'; fi`
 
+src/ihu-SctpIPHandler.o: src/SctpIPHandler.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -MT src/ihu-SctpIPHandler.o -MD -MP -MF "src/$(DEPDIR)/ihu-SctpIPHandler.Tpo" -c -o src/ihu-SctpIPHandler.o `test -f 'src/SctpIPHandler.cpp' || echo '$(srcdir)/'`src/SctpIPHandler.cpp; \
+@am__fastdepCXX_TRUE@	then mv -f "src/$(DEPDIR)/ihu-SctpIPHandler.Tpo" "src/$(DEPDIR)/ihu-SctpIPHandler.Po"; else rm -f "src/$(DEPDIR)/ihu-SctpIPHandler.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/SctpIPHandler.cpp' object='src/ihu-SctpIPHandler.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='src/$(DEPDIR)/ihu-SctpIPHandler.Po' tmpdepfile='src/$(DEPDIR)/ihu-SctpIPHandler.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -c -o src/ihu-SctpIPHandler.o `test -f 'src/SctpIPHandler.cpp' || echo '$(srcdir)/'`src/SctpIPHandler.cpp
+
+src/ihu-SctpIPHandler.obj: src/SctpIPHandler.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -MT src/ihu-SctpIPHandler.obj -MD -MP -MF "src/$(DEPDIR)/ihu-SctpIPHandler.Tpo" -c -o src/ihu-SctpIPHandler.obj `if test -f 'src/SctpIPHandler.cpp'; then $(CYGPATH_W) 'src/SctpIPHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/src/SctpIPHandler.cpp'; fi`; \
+@am__fastdepCXX_TRUE@	then mv -f "src/$(DEPDIR)/ihu-SctpIPHandler.Tpo" "src/$(DEPDIR)/ihu-SctpIPHandler.Po"; else rm -f "src/$(DEPDIR)/ihu-SctpIPHandler.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/SctpIPHandler.cpp' object='src/ihu-SctpIPHandler.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='src/$(DEPDIR)/ihu-SctpIPHandler.Po' tmpdepfile='src/$(DEPDIR)/ihu-SctpIPHandler.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -c -o src/ihu-SctpIPHandler.obj `if test -f 'src/SctpIPHandler.cpp'; then $(CYGPATH_W) 'src/SctpIPHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/src/SctpIPHandler.cpp'; fi`
+
 src/ihu-Ihu.o: src/Ihu.cpp
 @am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -MT src/ihu-Ihu.o -MD -MP -MF "src/$(DEPDIR)/ihu-Ihu.Tpo" -c -o src/ihu-Ihu.o `test -f 'src/Ihu.cpp' || echo '$(srcdir)/'`src/Ihu.cpp; \
 @am__fastdepCXX_TRUE@	then mv -f "src/$(DEPDIR)/ihu-Ihu.Tpo" "src/$(DEPDIR)/ihu-Ihu.Po"; else rm -f "src/$(DEPDIR)/ihu-Ihu.Tpo"; exit 1; fi
@@ -1237,6 +1267,22 @@ src/ihu-moc_LogViewer.obj: src/moc_LogViewer.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='src/$(DEPDIR)/ihu-moc_LogViewer.Po' tmpdepfile='src/$(DEPDIR)/ihu-moc_LogViewer.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -c -o src/ihu-moc_LogViewer.obj `if test -f 'src/moc_LogViewer.cpp'; then $(CYGPATH_W) 'src/moc_LogViewer.cpp'; else $(CYGPATH_W) '$(srcdir)/src/moc_LogViewer.cpp'; fi`
+
+src/ihu-moc_SctpIPHandler.o: src/moc_SctpIPHandler.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -MT src/ihu-moc_SctpIPHandler.o -MD -MP -MF "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Tpo" -c -o src/ihu-moc_SctpIPHandler.o `test -f 'src/moc_SctpIPHandler.cpp' || echo '$(srcdir)/'`src/moc_SctpIPHandler.cpp; \
+@am__fastdepCXX_TRUE@	then mv -f "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Tpo" "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Po"; else rm -f "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/moc_SctpIPHandler.cpp' object='src/ihu-moc_SctpIPHandler.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='src/$(DEPDIR)/ihu-moc_SctpIPHandler.Po' tmpdepfile='src/$(DEPDIR)/ihu-moc_SctpIPHandler.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -c -o src/ihu-moc_SctpIPHandler.o `test -f 'src/moc_SctpIPHandler.cpp' || echo '$(srcdir)/'`src/moc_SctpIPHandler.cpp
+
+src/ihu-moc_SctpIPHandler.obj: src/moc_SctpIPHandler.cpp
+@am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -MT src/ihu-moc_SctpIPHandler.obj -MD -MP -MF "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Tpo" -c -o src/ihu-moc_SctpIPHandler.obj `if test -f 'src/moc_SctpIPHandler.cpp'; then $(CYGPATH_W) 'src/moc_SctpIPHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/src/moc_SctpIPHandler.cpp'; fi`; \
+@am__fastdepCXX_TRUE@	then mv -f "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Tpo" "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Po"; else rm -f "src/$(DEPDIR)/ihu-moc_SctpIPHandler.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/moc_SctpIPHandler.cpp' object='src/ihu-moc_SctpIPHandler.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	depfile='src/$(DEPDIR)/ihu-moc_SctpIPHandler.Po' tmpdepfile='src/$(DEPDIR)/ihu-moc_SctpIPHandler.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -c -o src/ihu-moc_SctpIPHandler.obj `if test -f 'src/moc_SctpIPHandler.cpp'; then $(CYGPATH_W) 'src/moc_SctpIPHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/src/moc_SctpIPHandler.cpp'; fi`
 
 src/ihu-moc_Video.o: src/moc_Video.cpp
 @am__fastdepCXX_TRUE@	if $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(ihu_CXXFLAGS) $(CXXFLAGS) -MT src/ihu-moc_Video.o -MD -MP -MF "src/$(DEPDIR)/ihu-moc_Video.Tpo" -c -o src/ihu-moc_Video.o `test -f 'src/moc_Video.cpp' || echo '$(srcdir)/'`src/moc_Video.cpp; \
