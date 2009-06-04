@@ -39,6 +39,8 @@
 #include "Rsa.h"
 #include "Receiver.hpp"
 #include "Transmitter.hpp"
+// renyang-modify - 增加一個SctpIPHandler, 處理多個ip的類別
+#include "SctpIPHandler.hpp"
 
 #define MAXDATA 480*640*3
 
