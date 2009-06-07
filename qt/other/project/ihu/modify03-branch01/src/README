@@ -54,5 +54,3 @@ LIBS=-lsctp ./configure
 修改configure檔, 使得不必每一次均使用LIBS=-lsctp與設定opencv的library
 準備加入影像的部分
 新增Video.hpp與Video.cpp專門處理影像的部分
-增加了SctpIPHandler.cpp與SctpIPHandler.hpp
-主要是拿來處理Multi-homing的情況
