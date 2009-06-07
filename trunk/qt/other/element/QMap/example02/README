@@ -1,3 +1,6 @@
 [example01]
 增加由string映射到自定的指標
 並透過find去依key去尋找目標
+
+[example02]
+當找不到指定的值時, find會回傳end()
