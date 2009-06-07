@@ -1553,10 +1553,12 @@ void Phone::SlotGetImage(char *image_matrix,int callId)
 	{
 		// renyang-modify - 曾經初始化webcam過, 但是失敗
 		case VIDEO_STATUS_INVALID:
+			qWarning("VIDEO_STATUS_INVALID");
 			calls[callId]->sendVideoFail();
 			break;
 		// renyang-modify - 若成功運作的話, 則把Frame放到image_matrix中
 		case VIDEO_STATUS_RUNINGING:
+			qWarning("VIDEO_STATUS_RUNINGING");
 			// renyang-modify - 由Video取得一個Frame放到image_matrix中
 			video->getScaleImage(image_matrix);
 			// renyang-modify - 傳送取得的frame

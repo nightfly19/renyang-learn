@@ -2,7 +2,7 @@
 
 SctpIPHandler::SctpIPHandler()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::SctpIPHandler()");
 #endif
 	// renyang-modify - 固定時間檢查是否有在時間內收到資料
@@ -15,7 +15,7 @@ SctpIPHandler::SctpIPHandler()
 
 SctpIPHandler::~SctpIPHandler()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::~SctpIPHandler()");
 #endif
 	end();
@@ -23,7 +23,7 @@ SctpIPHandler::~SctpIPHandler()
 
 void SctpIPHandler::start()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::start()");
 #endif
 	checkReceiveTimer->start(1000);
@@ -32,7 +32,7 @@ void SctpIPHandler::start()
 
 void SctpIPHandler::addIP(QString &IP)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("SctpIPHandler::addIP(%1)").arg(IP));
 #endif
 	IPStruct newIPStruct;
@@ -46,7 +46,7 @@ void SctpIPHandler::addIP(QString &IP)
 
 void SctpIPHandler::removeIP(QString &IP)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("SctpIPHandler::removeIP(%1)").arg(IP));
 #endif
 	if (!IP2Info.empty())
@@ -65,7 +65,7 @@ void SctpIPHandler::removeIP(QString &IP)
 
 void SctpIPHandler::setRecvingTime(QString &IP)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("SctpIPHandler::setRecvingTime(%1)").arg(IP));
 #endif
 	if (!IP2Info.empty())
@@ -86,7 +86,7 @@ void SctpIPHandler::setRecvingTime(QString &IP)
 
 void SctpIPHandler::end()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::end()");
 #endif
 	if (!IP2Info.empty())
@@ -101,7 +101,7 @@ void SctpIPHandler::end()
 
 void SctpIPHandler::checkReceive()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::checkReceive()");
 #endif
 	if (!IP2Info.empty())
@@ -121,7 +121,7 @@ void SctpIPHandler::checkReceive()
 
 void SctpIPHandler::sendConfrim()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::sendConfrim()");
 #endif
 	if (!IP2Info.empty())
@@ -132,4 +132,24 @@ void SctpIPHandler::sendConfrim()
 			emit SigAddressConfrim(it.key());
 		}
 	}
+}
+
+// renyang-modify - 尋找一個目前是連通的ip
+QString SctpIPHandler::getAvailableIP()
+{
+#ifdef REN_DEBUG
+	qWarning("SctpIPHandler::getAvailableIP()");
+#endif
+	if (!IP2Info.empty())
+	{
+		QMap<QString,IPStruct>::Iterator it;
+		for (it=IP2Info.begin();it!=IP2Info.end();++it)
+		{
+			if (it.data().connection == true)
+			{
+				return it.key();
+			}
+		}
+	}
+	return QString("NO_AVAILABLE_IP");
 }
