@@ -266,7 +266,7 @@ void Call::call(QString host, int port, int prot)
 // renyang - protocol:IHU_TCP或IHU_UDP
 void Call::start(int socket, int protocol)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Call::start(int %1,int %2)").arg(socket).arg(protocol));
 #endif
 	try
@@ -295,7 +295,7 @@ void Call::start(int socket, int protocol)
 // renyang - 若是tcp, one-to-one sctp, 其struct sockaddr_in sa用不到
 void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Call::newConnection(int %1,int %2,struct sockaddr_in sa)").arg(socketd).arg(protocol));
 #endif
 	try
@@ -803,7 +803,7 @@ void Call::setPrimaddr(QString primaddr)
 		emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
 		// renyang-modify - 表示剛剛改變完primary address
 		IPChanging = true;
-		IPChangingTimer->start(10000);
+		IPChangingTimer->start(10000,false);
 		callprimaddr = primaddr;
 	}
 }
@@ -813,9 +813,11 @@ void Call::SlotAddressEvent(QString ip,QString description)
 #ifdef REN_DEBUG
 	qWarning(QString("Call::SlotAddressEvent(%1,%2)").arg(ip).arg(description));
 #endif
-	// renyang-modify - 設定接收的時間
+	// renyang-modify - 更新由這一個ip最近接收到資料的時間
 	if (description == "RECVING")
+	{
 		sctpiphandler->setRecvingTime(ip);
+	}
 	emit SigAddressEvent(id,ip,description);
 }
 
@@ -907,19 +909,23 @@ void Call::processImage()
 #ifdef REN_DEBUG
 	qWarning("Call::processImage()");
 #endif
-	if (image.isNull() || (image.width()!=RecvImage.width) || (image.height() != RecvImage.height))
+	// renyang-modify - 收到的資料必需剛好是120*160*3+8
+	if (recvImage_index == 57608)
 	{
-		QImage temp(RecvImage.width,RecvImage.height,32);
-		image = temp;
-	}
-	for (int y=0;y<RecvImage.height;y++) {
-		for (int x=0;x<RecvImage.width;x++)
+		if (image.isNull() || (image.width()!=RecvImage.width) || (image.height() != RecvImage.height))
 		{
-			image.setPixel(x,y,qRgb(RecvImage.data[3*(x+y*RecvImage.width)+2],RecvImage.data[3*(x+y*RecvImage.width)+1],RecvImage.data[3*(x+y*RecvImage.width)]));
+			QImage temp(RecvImage.width,RecvImage.height,32);
+			image = temp;
 		}
+		for (int y=0;y<RecvImage.height;y++) {
+			for (int x=0;x<RecvImage.width;x++)
+			{
+				image.setPixel(x,y,qRgb(RecvImage.data[3*(x+y*RecvImage.width)+2],RecvImage.data[3*(x+y*RecvImage.width)+1],RecvImage.data[3*(x+y*RecvImage.width)]));
+			}
+		}
+		emit SigputImage(image,id);
+		// renyang-modify - 接收的index由歸零啦
 	}
-	emit SigputImage(image,id);
-	// renyang-modify - 接收的index由歸零啦
 	recvImage_index = 0;
 }
 
@@ -941,7 +947,7 @@ void Call::resetIPChanging()
 
 void Call::SlotAddressConfirm(QString address)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Call::SlotAddressNoRecv(%1)").arg(address));
 #endif
 	int old_streamno = transmitter->getStreamNo();
@@ -955,21 +961,21 @@ void Call::SlotAddressConfirm(QString address)
 
 void Call::SlotAddressFail(QString address)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Call::SlotAddressFail(%1)").arg(address));
 #endif
 	emit SigAddressEvent(id,address,QString("SlotAddressFail"));
 	// renyang-modify - 若這一個fail的ip剛好是目前的primary address的話, 則要更新primary address
 	if (address == callprimaddr)
 	{
-		// renyang-modify - 把目前的StreamNo增加1
+		// renyang-modify - 把目前的StreamNo增加2
 		transmitter->setStreamNo(transmitter->getStreamNo()+2);
 	}
 }
 
 void Call::SlotAddressAvailable(QString address)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Call::SlotAddressAvailable(%1)").arg(address));
 #endif
 	emit SigAddressEvent(id,address,QString("SlotAddressAvailable"));

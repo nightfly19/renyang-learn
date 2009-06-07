@@ -650,7 +650,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 			else if (description == QString("SCTP_SEND_FAILED"))
 			{
 				// renyang-modify - 處理send fail事件
-				SendFailedHandler();
+				// SendFailedHandler();
 			}
 		}
 	}

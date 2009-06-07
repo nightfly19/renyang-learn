@@ -31,6 +31,7 @@ class SctpIPHandler:public QObject
 		void setRecvingTime(QString &);
 		void start();
 		void end();
+		QString getAvailableIP();
 
 	public slots:
 		// renyang-modify - 固定時間檢查是否有在時間內接收到資料

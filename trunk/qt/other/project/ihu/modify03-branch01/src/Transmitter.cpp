@@ -739,7 +739,7 @@ void Transmitter::sendVideoNextPacket()
 
 void Transmitter::setStreamNo(int no)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("Transmitter::setStreamNo(%1)").arg(no));
 #endif
 	streamno = no;
@@ -747,7 +747,7 @@ void Transmitter::setStreamNo(int no)
 
 int Transmitter::getStreamNo()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::getStreamNo()");
 #endif
 	return streamno;
@@ -755,7 +755,7 @@ int Transmitter::getStreamNo()
 
 void Transmitter::sendConfirmPacket()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("Transmitter::sendConfirmPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_IP_CONFIRM);
