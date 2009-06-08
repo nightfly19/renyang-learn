@@ -628,7 +628,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 	{
 		if (hostList->text(i) == ip)
 		{
-			if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS") || description == QString("ADDRESS AVAILABLE"))
+			if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS") || description == QString("ADDRESS AVAILABLE") || description == "SlotAddressAvailable")
 			{
 				if (description == QString("PRIMARY ADDRESS"))
 				{
@@ -637,7 +637,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 				hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 				hostList->item(i)->setSelectable(true);
 			}
-			else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD"))
+			else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD") || description == "SlotAddressFail")
 			{
 				// renyang-modify - 加判斷避免一直改變hostList
 				if (hostList->item(i)->isSelectable() || (hostList->item(i)->pixmap() == NULL))

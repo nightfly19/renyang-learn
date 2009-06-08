@@ -288,7 +288,7 @@ void Receiver::receive()
 					emitSctpEvent(inputBuffer);
 					return ;
 				}
-				qWarning("recv %d bytes",rlen);
+				qWarning("recv %d bytes from %s",rlen,::inet_ntoa(peer.sin_addr));
 				// renyang-modify - 設定只有當streamno為偶數時, 才是傳送正常資料
 				if ((sndrcvinfo.sinfo_stream%2==0) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
@@ -898,7 +898,7 @@ void Receiver::emitSctpEvent(void *notify_buf)
 			SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr)),
                        (uint32_t)spc->spc_assoc_id);
 		// renyang-modify - 送出某一個peer ip的情況
-		emit SigAddressEvent(QString(SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr))),QString(str));
+		// emit SigAddressEvent(QString(SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr))),QString(str));
                 break;
         case SCTP_REMOTE_ERROR:
                 sre = &snp->sn_remote_error;
