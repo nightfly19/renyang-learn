@@ -1,0 +1,62 @@
+可以使用指令列查看有哪一些功能在command line就可以設定
+./ihu --help
+
+!!! 可能有問題
+??? 非常可能有問題
+@@@ 我猜, 我猜的可能有問題
+
+Phone.hpp與Phone.cpp可能是實際上在處理語音的部分(可能是一個tab就一個call???)
+Call.hpp與Call.cpp是整合連線與記錄對話，撥放對話的部分
+Transmitter.hpp與Transmitter.cpp是實際上在處理網路傳輸的部分(表示Sender)
+Receiver.hpp與Receiver.cpp表示接收端
+FilePlayer.hpp與FilePlayer.cpp應該是在撥放檔案的部分
+Player.hpp與Player.cpp是撥放聲音的地方
+Recorder.hpp與Recorder.cpp是在記錄和使用音訊的部分
+
+觀察
+void Phone::sendAudioData(float *sample, int samples);
+void Phone::send(float *fsamples, int samples);
+是在傳送語音的部分
+
+實際上把資料傳送出去的在
+void Call::send(char *data, int len)
+
+由網路傳送語音資料出去
+void Transmitter::sendAudioPacket(char *data, int len)
+
+查看Packet.cpp可以得知header的設定
+
+YYYY在Phone::waitCalls(int,bool,bool)
+要加入sctp的判斷
+
+Phone底下有Player, Recorder, QTimer, 多個Call, TcpServer
+IhuNoGui底下有Phone, FilePlayer, logger, QTimer, Config
+當FilePlayer有錯誤訊息，會通知給IhuNoGui知道
+
+我在猜在打電話給別人時，就有準備好要接收別人的聲音啦，因為電話是雙向的嘛
+
+在Makefile的檔案中的DEFS變數上加上-DREN_DEBUG可以列印出trace訊息, 但是每一次重新產生Makefile均再次修改一次
+
+renyang-TODO
+在Receiver::receive()加入IHU_SCTP的判斷
+
+key-word
+notifier
+IHU_TCP, IHU_UDP, socket, tcp, udp, fcntl, close, connect, getpeername, recv, recvfrom, send, sendto, read, write
+
+由version 350開始改寫sctp啦~
+在加入sctp之後, 因為在編譯執行檔前要-lsctp
+在建立Makefile就用以下的指令
+LIBS=-lsctp ./configure
+在編譯就會加入-lsctp這一個library啦
+
+[modify03]
+修改configure檔, 使得不必每一次均使用LIBS=-lsctp與設定opencv的library
+準備加入影像的部分
+新增Video.hpp與Video.cpp專門處理影像的部分
+
+[modify03-using-QPtrList-bad]
+使用QPtrList來管理所有的multi-ip
+因為是multi-thread會同時有多個會去使用QPtrList
+因此會照成錯誤
+所以, 新增另一個例子, 可以使用QMap來解決
