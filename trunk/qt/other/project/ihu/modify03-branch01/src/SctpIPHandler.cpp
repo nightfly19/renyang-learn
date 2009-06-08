@@ -65,7 +65,7 @@ void SctpIPHandler::removeIP(QString &IP)
 
 void SctpIPHandler::setRecvingTime(QString &IP)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("SctpIPHandler::setRecvingTime(%1)").arg(IP));
 #endif
 	if (!IP2Info.empty())
@@ -78,8 +78,12 @@ void SctpIPHandler::setRecvingTime(QString &IP)
 		else
 		{
 			it.data().recv.restart();
-			it.data().connection = true;
-			emit SigAddressAvailable(it.key());
+			if (it.data().connection == false)
+			{
+				qWarning(QString("set the %1 to be true").arg(it.key()));
+				it.data().connection = true;
+				emit SigAddressAvailable(it.key());
+			}
 		}
 	}
 }
@@ -110,8 +114,11 @@ void SctpIPHandler::checkReceive()
 		QMap<QString,IPStruct>::Iterator it;
 		for (it=IP2Info.begin();it!=IP2Info.end();++it)
 		{
-			if (currentTime.msecsTo(it.data().recv)<-2000)
+			if (currentTime.msecsTo(it.data().recv)<-3000)
 			{
+				// renyang-modify - 設定沒有辦法連通
+				qWarning(QString("set the %1 to be false").arg(it.key()));
+				it.data().connection = false;
 				emit SigAddressFail(it.key());
 				qWarning(QString("We don't recv any data within this time from %1").arg(it.key()));
 			}
@@ -121,7 +128,7 @@ void SctpIPHandler::checkReceive()
 
 void SctpIPHandler::sendConfrim()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("SctpIPHandler::sendConfrim()");
 #endif
 	if (!IP2Info.empty())
@@ -145,6 +152,7 @@ QString SctpIPHandler::getAvailableIP()
 		QMap<QString,IPStruct>::Iterator it;
 		for (it=IP2Info.begin();it!=IP2Info.end();++it)
 		{
+			qWarning(QString("%1 is %2").arg(it.key()).arg(it.data().connection));
 			if (it.data().connection == true)
 			{
 				return it.key();

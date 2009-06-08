@@ -791,7 +791,7 @@ void Call::SlotgetIps(QStringList addrs_list)
 
 void Call::setPrimaddr(QString primaddr)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
 #endif
 	if (IPChanging == false)
@@ -947,18 +947,23 @@ void Call::resetIPChanging()
 
 void Call::SlotAddressConfirm(QString address)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Call::SlotAddressNoRecv(%1)").arg(address));
 #endif
-	int old_streamno = transmitter->getStreamNo();
-	QString old_address = callprimaddr;
-	SctpSocketHandler::SctpSetPrim(sd,address);
-	transmitter->setStreamNo(old_streamno+1);
-	transmitter->sendConfirmPacket();
-	transmitter->setStreamNo(old_streamno);
-	SctpSocketHandler::SctpSetPrim(sd,old_address);
+	// renyang-modify - 只有對不是primary address的ip要傳送confirm packet
+	if (address != callprimaddr)
+	{
+		int old_streamno = transmitter->getStreamNo();
+		QString old_address = callprimaddr;
+		SctpSocketHandler::SctpSetPrim(sd,address);
+		transmitter->setStreamNo(old_streamno+1);
+		transmitter->sendConfirmPacket();
+		transmitter->setStreamNo(old_streamno);
+		SctpSocketHandler::SctpSetPrim(sd,old_address);
+	}
 }
 
+// renyang-modify - 某一個ip是不能通連的
 void Call::SlotAddressFail(QString address)
 {
 #ifdef REN_DEBUG
@@ -968,11 +973,21 @@ void Call::SlotAddressFail(QString address)
 	// renyang-modify - 若這一個fail的ip剛好是目前的primary address的話, 則要更新primary address
 	if (address == callprimaddr)
 	{
-		// renyang-modify - 把目前的StreamNo增加2
-		transmitter->setStreamNo(transmitter->getStreamNo()+2);
+		if (address == "NO_AVAILABLE_IP")
+		{
+			qWarning("there is no available IP");
+		}
+		else
+		{
+			// renyang-modify - 設定新的primary address
+			setPrimaddr(sctpiphandler->getAvailableIP());
+			// renyang-modify - 把目前的StreamNo增加2
+			transmitter->setStreamNo(transmitter->getStreamNo()+2);
+		}
 	}
 }
 
+// renyang-modify - 表示某一個ip突然可以使用了
 void Call::SlotAddressAvailable(QString address)
 {
 #ifdef REN_DEBUG
