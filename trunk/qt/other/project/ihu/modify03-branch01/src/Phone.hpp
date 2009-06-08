@@ -184,6 +184,8 @@ public:
 	int getPeak();
 	// renyang-modify - 要求對方的影像
 	void requestPeerImage(int);
+	// renyang-modify - 停止跟對方要求影像
+	void requestPeerImageStop(int);
 
 private:
 

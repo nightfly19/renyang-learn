@@ -195,6 +195,8 @@ public slots:
 	void SlotrequestPeerImage(int);
 	// renyang-modify - 向對方要求影像失敗
 	void SlotrequestImageFail(int);
+	// renyang-modify - 停止跟對方要求影像
+	void SlotrequestPeerImageStop(int);
 	// renyang-modify - end
 
 private:

@@ -96,6 +96,8 @@ public:
 	void sendVideoFail();
 	// renyang-modify - 向peer端傳送要求video的封包
 	void sendVideoRequest();
+	// renyang-modify - 停止要求對方的video
+	void requestPeerImageStop();
 
 private:
 	// renyang - 表示目前call id
@@ -123,10 +125,13 @@ private:
 	int frame_size;
 	// renyang - 目前有多少個frame已經可以播放了
 	int readyFrames;
+	// renyang-modify - 記錄目前是否是在跟對方要求影像, 而還是等待剩下影像部分的情況
+	bool requestingVideo;
 
 	int inport;
 	bool udp;
 	bool tcp;
+	// renyang - 顯示目前是否有由音效卡取得音效
 	bool recording;
 	// renyang - 表示目前這一個call是否正在撥打(進行中)
 	bool active;

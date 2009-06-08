@@ -607,6 +607,8 @@ void Ihu::newCall(int id)
 		connect (callTab[id],SIGNAL(setPrimaddrSignal(int,QString)),this,SLOT(setPrimaddrSlot(int,QString)));
 		// renyang-modify - 某一個CallTab要求對方的影像
 		connect (callTab[id],SIGNAL(SigrequestPeerImage(int)),this,SLOT(SlotrequestPeerImage(int)));
+		// renyang-modify - 停止要求對方的影像
+		connect (callTab[id],SIGNAL(SigrequestPeerImageStop(int)),this,SLOT(SlotrequestPeerImageStop(int)));
 		// renyang-modify - end
 		callWidget->addTab((QWidget *)callTab[id], QIconSet( QPixmap::fromMimeSource( "phone.png" ) ), callName);
 		if (autocrypt)
@@ -1455,4 +1457,12 @@ void Ihu::SlotrequestImageFail(int callId)
 	qWarning(QString("Ihu::SlotrequestImageFail(%1)").arg(callId));
 #endif
 	callTab[callId]->requestImageFail();
+}
+
+void Ihu::SlotrequestPeerImageStop(int callId)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::SlotrequestPeerImageStop(%1)").arg(callId));
+#endif
+	phone->requestPeerImageStop(callId);
 }

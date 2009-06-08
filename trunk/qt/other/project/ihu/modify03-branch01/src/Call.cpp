@@ -77,6 +77,8 @@ Call::Call(int callId, QString myName)
 	callFree = true;
 	aborted = false;
 	recording = false;
+	// renyang-modify - 目前是否有在要求對方的Video
+	requestingVideo = false;
 
 	// renyang-modify - 初始化IPChanging, 表示最近沒有改變primary address
 	IPChanging = false;
@@ -182,6 +184,8 @@ void Call::stop()
 		active = false;
 		recording = false;
 		sendRing(false);
+		// renyang-modify - 設定目前沒有在要求對方的Video
+		requestingVideo = false;
 		// renyang - 隔一段時間之後, 才正真close掉
 		stopTimer->start(STOP_TIME, true);
 		transmitter->end();
@@ -779,7 +783,7 @@ bool Call::isRecording()
 
 void Call::SlotgetIps(QStringList addrs_list)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::SlotgetIps()");
 #endif
 	for (QStringList::Iterator it = addrs_list.begin();it != addrs_list.end();++it)
@@ -789,6 +793,7 @@ void Call::SlotgetIps(QStringList addrs_list)
 	emit SignalgetIps(id,addrs_list);
 }
 
+// renyang-modify - 因接收到封包不是primary path而觸動更改primary path
 void Call::setPrimaddr(QString primaddr)
 {
 #ifdef FANG_DEBUG
@@ -805,12 +810,21 @@ void Call::setPrimaddr(QString primaddr)
 		IPChanging = true;
 		IPChangingTimer->start(10000,false);
 		callprimaddr = primaddr;
+
+		// renyang-modify - 把目前的StreamNo增加2
+		transmitter->setStreamNo(transmitter->getStreamNo()+2);
+
+		if (requestingVideo)
+		{
+			// renyang-modify - 若在接收的情況下, 則在要求下一個Video
+			sendVideoRequest();
+		}
 	}
 }
 
 void Call::SlotAddressEvent(QString ip,QString description)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Call::SlotAddressEvent(%1,%2)").arg(ip).arg(description));
 #endif
 	// renyang-modify - 更新由這一個ip最近接收到資料的時間
@@ -824,7 +838,7 @@ void Call::SlotAddressEvent(QString ip,QString description)
 // renyang-modify - 向Phone要求影像
 void Call::SlotGetImage()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::SlotGetImage()");
 #endif
 	// renyang-modify - 初始化目前送到這一個image_matrix的哪一個位置
@@ -835,24 +849,29 @@ void Call::SlotGetImage()
 
 void Call::sendVideoFail()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::sendVideoFail()");
 #endif
 	transmitter->sendVideoFailPacket();
 }
 
+// renyang-modify - 向對方傳送要求video的影像
 void Call::sendVideoRequest()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::sendVideoRequest()");
 #endif
 	transmitter->sendVideoRequestPacket();
+	// renyang-modify - 設定目前的狀態是跟別人要求影像
+	requestingVideo = true;
+	// renyang-modify - 在接收前先把recvImage_index歸0
+	recvImage_index = 0;
 }
 
 // renyang-modify - 當收到IHU_INFO_VIDEO_NEXT的封包時, 接收端執行此函式, 第一次傳封包也是用此函式
 void Call::sendVideo()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::sendVideo()");
 #endif
 	// renyang-modify - sendImage_index是在SlotGetImage()初始化的
@@ -893,7 +912,7 @@ void Call::sendVideo()
 // renyang-modify - 處理視訊資料
 void Call::decodeVideoData(char *buf, int len)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::decodeVideoData()");
 #endif
 	char *ptr = (char *) &RecvImage;
@@ -906,7 +925,7 @@ void Call::decodeVideoData(char *buf, int len)
 // renyang-modify - 完整接收到一整個image啦
 void Call::processImage()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::processImage()");
 #endif
 	// renyang-modify - 收到的資料必需剛好是120*160*3+8
@@ -924,22 +943,24 @@ void Call::processImage()
 			}
 		}
 		emit SigputImage(image,id);
-		// renyang-modify - 接收的index由歸零啦
+		// renyang-modify - 若沒有傳送影像上去, 就不會要求下一個影像啦
 	}
-	recvImage_index = 0;
 }
 
+// renyang-modify - 跟對方要求影像失敗
 void Call::SlotrequestImageFail()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::SlotrequestImageFail()");
 #endif
+	// renyang-modify - 不再等待對方傳送影像資料過來
+	requestingVideo = false;
 	emit SigrequestImageFail(id);
 }
 
 void Call::resetIPChanging()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Call::resetIPChanging()");
 #endif
 	IPChanging = false;
@@ -963,10 +984,10 @@ void Call::SlotAddressConfirm(QString address)
 	}
 }
 
-// renyang-modify - 某一個ip是不能通連的
+// renyang-modify - 某一個ip是不能通連的, 在固定時間內這一個ip都沒有收到任何資料
 void Call::SlotAddressFail(QString address)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Call::SlotAddressFail(%1)").arg(address));
 #endif
 	emit SigAddressEvent(id,address,QString("SlotAddressFail"));
@@ -981,8 +1002,6 @@ void Call::SlotAddressFail(QString address)
 		{
 			// renyang-modify - 設定新的primary address
 			setPrimaddr(sctpiphandler->getAvailableIP());
-			// renyang-modify - 把目前的StreamNo增加2
-			transmitter->setStreamNo(transmitter->getStreamNo()+2);
 		}
 	}
 }
@@ -990,8 +1009,16 @@ void Call::SlotAddressFail(QString address)
 // renyang-modify - 表示某一個ip突然可以使用了
 void Call::SlotAddressAvailable(QString address)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Call::SlotAddressAvailable(%1)").arg(address));
 #endif
 	emit SigAddressEvent(id,address,QString("SlotAddressAvailable"));
+}
+
+void Call::requestPeerImageStop()
+{
+#ifdef FANG_DEBUG
+	qWarning("Call::requestPeerImageStop()");
+#endif
+	requestingVideo = false;
 }

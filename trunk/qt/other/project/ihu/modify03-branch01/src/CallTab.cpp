@@ -730,6 +730,8 @@ void CallTab::videoCheckChanged()
 		// renyang-modify - 不清除video_label
 		if (!peervideofail)
 			clearVideoLabel();
+		// renyang-modify - 停止要求對方的影像
+		emit SigrequestPeerImageStop(callId);
 	}
 }
 
