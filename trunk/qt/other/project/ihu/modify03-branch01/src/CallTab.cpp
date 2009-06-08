@@ -634,8 +634,11 @@ void CallTab::setAddressEvent(QString ip,QString description)
 				{
 					hostEdit->setCurrentText(ip);
 				}
-				hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
-				hostList->item(i)->setSelectable(true);
+				if (!hostList->item(i)->isSelectable())
+				{
+					hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
+					hostList->item(i)->setSelectable(true);
+				}
 			}
 			else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD") || description == "SlotAddressFail")
 			{
