@@ -78,12 +78,9 @@ void SctpIPHandler::setRecvingTime(QString &IP)
 		else
 		{
 			it.data().recv.restart();
-			if (it.data().connection == false)
-			{
-				qWarning(QString("set the %1 to be true").arg(it.key()));
-				it.data().connection = true;
-				emit SigAddressAvailable(it.key());
-			}
+			qWarning(QString("set the %1 to be true").arg(it.key()));
+			it.data().connection = true;
+			emit SigAddressAvailable(it.key());
 		}
 	}
 }
