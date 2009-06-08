@@ -161,6 +161,8 @@ signals:
 	void setPrimaddrSignal(int,QString);
 	// renyang-modify - 向對方要求一個影像
 	void SigrequestPeerImage(int);
+	// renyang-modify - 停止要求對方的影像
+	void SigrequestPeerImageStop(int);
 };
 
 #endif

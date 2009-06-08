@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	it = map.find("JD001");
 	printf( "%s: %s, %s earns %d\n",it.key().latin1(),it.data().surname().latin1(),it.data().forename().latin1(),it.data().salary() );
 
-	// 透過find去尋找, 若找不到會回傳0
+	// 透過find去尋找, 若找不到會回傳值為end()
 	it = map.find("Hello");
 	if (it == map.end())
 	{

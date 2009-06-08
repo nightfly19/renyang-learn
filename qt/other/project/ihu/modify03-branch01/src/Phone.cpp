@@ -1634,3 +1634,11 @@ void Phone::SlotrequestImageFail(int callId)
 #endif
 	emit SigrequestImageFail(callId);
 }
+
+void Phone::requestPeerImageStop(int callId)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::requestPeerImageStop(%1)").arg(callId));
+#endif
+	calls[callId]->requestPeerImageStop();
+}

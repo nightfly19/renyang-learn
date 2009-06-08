@@ -196,6 +196,8 @@ signals:
 	void requestNextImage();
 	// renyang-modify - 把接收到的整個資料放到qlabel_label中
 	void completeImage();
+	// renyang-modify - 當對方更改address ip時, 同時也會更改stream no
+	void SigStreamNo(int);
 	// renyang-modify - end
 };
 

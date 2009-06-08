@@ -723,7 +723,7 @@ void Transmitter::sendVideoPacket(char *data, int len)
 
 void Transmitter::sendVideoRequestPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST);
@@ -731,7 +731,7 @@ void Transmitter::sendVideoRequestPacket()
 
 void Transmitter::sendVideoNextPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoNextPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);
@@ -739,7 +739,7 @@ void Transmitter::sendVideoNextPacket()
 
 void Transmitter::setStreamNo(int no)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Transmitter::setStreamNo(%1)").arg(no));
 #endif
 	streamno = no;
