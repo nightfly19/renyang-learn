@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+  <meta http-equiv="author" content="Matteo Trotta" />
+  <meta name="description" content="IHU Manual Page" />
+  <meta name="keywords" content="I Hear U, IHU, manual, documentation, doc, voip, speex" />
+  <meta name="author" content="Matteo Trotta" />
+  <meta name="language" content="EN" />
+  <title>I Hear U - Manual Page</title>
+  <style type="text/css">
+  .ind1
+  {margin-left: 10px; margin-top: 10px;}
+  .ind2
+  {margin-left: 20px; margin-top: 5px;}
+  .ind3
+  {margin-left: 40px;}
+  </style>
+</head>
+
+<body>
+
+<div style="text-align: justify; margin: 10px">
+
+<h1><a href="http://ihu.sourceforge.net"><img src="ihubig.png" alt="" style="border: 0px;" /></a>IHU Manual Page</h1>
+<div style="text-align: right;"><small>Version: 0.6.0</small></div>
+<hr style="width: 100%; height: 2px;" />
+
+<h2>Index</h2>
+<div>
+  <div class="ind1"><a href="#1.">1. Introduction</a></div>
+    <div class="ind2"><a href="#1.1">1.1 Some important notes before starting...</a></div>
+      <div class="ind3"><a href="#1.1.1">1.1.1 Network settings</a></div>
+      <div class="ind3"><a href="#1.1.2">1.1.2 Audio settings</a></div>
+    <div class="ind2"><a href="#1.2">1.2 Quick start</a></div>
+</div>
+<div>
+  <div class="ind1"><a href="#2.">2. Detailed description</a></div>
+    <div class="ind2"><a href="#2.1">2.1 The main window</a></div>
+      <div class="ind3"><a href="#2.1.1">2.1.1 The FILE menu</a></div>
+      <div class="ind3"><a href="#2.1.2">2.1.2 The CALL menu</a></div>
+      <div class="ind3"><a href="#2.1.3">2.1.3 The OPTIONS menu</a></div>
+      <div class="ind3"><a href="#2.1.4">2.1.3 The HELP menu</a></div>
+    <div class="ind2"><a href="#2.2">2.2 The settings dialog</a></div>
+      <div class="ind3"><a href="#2.2.1">2.2.1 General settings</a></div>
+      <div class="ind3"><a href="#2.2.2">2.2.2 Network settings</a></div>
+      <div class="ind3"><a href="#2.2.3">2.2.3 Sound settings</a></div>
+      <div class="ind3"><a href="#2.2.4">2.2.4 Encoder settings</a></div>
+      <div class="ind3"><a href="#2.2.5">2.2.5 Options settings</a></div>
+      <div class="ind3"><a href="#2.2.6">2.2.6 Security settings</a></div>
+    <div class="ind2"><a href="#2.3">2.3 The file player dialog</a></div>
+</div>
+<div>
+   <div class="ind1"><a href="#3.">3. Quick launch</a></div>
+</div>
+<div>
+   <div class="ind1"><a href="#4.">4. Final notes</a></div>
+</div>
+
+<hr style="width: 100%; height: 2px;" />
+
+<h2><a name="1."></a>1. Introduction</h2>
+Welcome to <span style="font-weight: bold;">I Hear U</span> (IHU), a Voice over IP (VoIP)
+application for Linux, that creates an audio stream between two computers easily and with
+the minimal traffic on the network. <br />
+<br />
+The main features are:<br />
+
+<ul>
+  <li>
+    <span style="font-weight: bold;">Peer-to-Peer</span>: the
+    communication takes place directly between the computers (UDP and TCP
+    both supported), without need of session protocols (such as SIP or H323)
+    or other servers in the middle.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Good audio performance: </span>IHU
+    was born to give the best audio performance, low latency above all. For
+    this purpose IHU is compatible with <a href="http://www.alsa-project.org">ALSA</a>,
+    now the default Linux sound architecture, but also with
+    <a href="http://jackit.sourceforge.net">JACK</a>, a low latency sound
+    server. For the audio compression, IHU uses <a href="http://www.speex.org">Speex</a>,
+    a codec optimized for speech (and completely free and open source).
+  </li>
+  <li>
+    <span style="font-weight: bold;">Crypted stream</span>: you have
+    also the possibility to Encrypt/Decrypt the stream using a fast hybrid
+    cryptographic system (RSA + Blowfish)
+  </li>
+  <li>
+    <span style="font-weight: bold;">Command-line support</span>:
+    the Qt GUI is not strictly necessary, you can run also a textual IHU
+    from command-line (for example if you need to run the program on remote
+    computers).
+  </li>
+  <li>
+    <span style="font-weight: bold;">Free and Open Source</span>: IHU
+    is totally free and distributed under the terms of the
+    <a href="http://www.fsf.org/licensing/licenses/info/GPLv2.html"> GNU General Public License</a>.
+  </li>
+</ul>
+
+The possibilities of use of IHU are endless, for example you can use it
+like a phone to talk with your friends all around the world, or at home/work
+to talk between computers in the LAN (talkback), etc.
+
+<h3><a name="1.1"></a>1.1 Some important notes before starting...</h3>
+
+First of all make sure you have the latest version of IHU (<a href="http://ihu.sourceforge.net">http://ihu.sourceforge.net</a>).
+Follow the instructions contained in README and INSTALL files to compile the sources (you'll need the
+<a  href="http://www.trolltech.org/qt/">QT libraries</a>, the <a  href="http://www.alsa-project.org">ALSA</a>
+sound driver, the <a href="http://www.speex.org">Speex</a> codec,
+the <a href="http://www.surina.net/soundtouch/">Soundtouch</a> library,
+and the <a href="http://www.xiph.org/ogg/">Ogg</a> library).
+Anyway the automatic configure script will tell you what is missing.<br />
+If you want to transmit your voice/audio, then you need a
+microphone linked to your computer (but it's not necessary to use IHU)
+and, finally, you need a person to talk with, who has a computer linked to you (through
+the Internet or LAN) and IHU installed as well (unfortunately IHU it's
+not so useful alone on your computer, even if I spent hours talking to myself for tests ;-).
+Finally, I suggest to use headphones, to prevent feedback.<br />
+IHU's way to work is similar to a telephone: there is somebody who is
+waiting for phone calls, and somebody who wants to call this person.
+In the next paragraphs, the computer that will make the call
+will be named <span style="font-style: italic;">Caller</span> and the computer
+that will receive the call will be named <span style="font-style: italic;">Receiver</span>.
+<br /><br />
+Now the next two steps are external
+to IHU and are necessary before continuing: setting up the network and the audio system.
+
+<h4><a name="1.1.1"></a>1.1.1 Network settings</h4>
+You need to know how your network is organized (is there any firewall between you and your
+IHU partner?). The most important thing is:<br />
+<br />
+<span style="font-weight: bold;">If you want to <span style="font-style: italic;">receive</span>
+calls, then your computer must be able to receive incoming connections.</span>
+<br /><br />
+Those situations are possible:<br />
+<ul>
+  <li>
+    If your computer is connected directly to Internet (or LAN)
+    and <span style="font-style: italic;">Callers</span> can access it
+    directly with an IP or DNS address, then you should be ready to make calls without problems.
+  </li>
+</ul>
+<ul>
+  <li>
+    If your computer is connected through a gateway with NAT and/or a firewall, then: 
+    in order to <span style="text-decoration: underline;">receive calls</span>, you have set
+    up the firewall/gateway rules to forward incoming connections to 1793
+    TCP/UDP port (default, but you can change it from IHU settings).<br />
+    Instead, in order to <span style="text-decoration: underline;">make
+    calls</span>, you have to make sure that the firewall (usually possible) is allowing
+    outgoing connections on port 1793 (TCP and/or UDP).
+    If you can't change the rules and you have a very strict
+    firewall that allows only outgoing connections to important ports like 80, 25, etc.,
+    you could change the port of IHU to those allowed
+    ones, but then you have to ask the <span style="font-style: italic;">Receiver</span>
+    to change his port, and for those port he needs root privileges.
+  </li>
+</ul>
+Briefly,<br />
+<ol>
+  <li>
+    If both computers are accessible from each other's IP address, no
+    problem, both can receive and make calls.
+  </li>
+  <li>
+    If one computer (or both) computers are behind firewall but you
+    could change the rules as described abow, still no problem.
+  </li>
+  <li>
+    If one computer is behind firewall and you can't change rules,
+    then on this computer you can't receive calls, but you can still make
+    calls.
+  </li>
+  <li>
+    If both computers are behind firewalls and it is not possible to
+    change any rules (it seems that you are very unlucky!), then you have
+    no chances to talk to your friend :-(
+  </li>
+</ol>
+
+<span style="font-weight: bold;">Tip</span>: You can easily test if
+everything is fine using the <a href="http://netcat.sourceforge.net">netcat</a>
+program: <span style="font-style: italic;">Receiver</span>
+runs "nc -l -p 1793" (or for UDP "nc -u -l -p 1793"), and
+<span style="font-style: italic;">Caller</span>
+runs "nc RECEIVER_IP_ADDRESS 1793" (or for UDP "nc -u RECEIVER_IP_ADDRESS 1793"). If you can see what your
+partner is typing (and viceversa), then IHU won't have any kind of problems.
+
+<h4><a name="1.1.2"></a>1.1.2 Audio Settings</h4>
+Then you need to set up the audio mixer, selecting the audio
+source and the optimal volumes. To do this you can open any mixer
+program (like "kmix" for KDE), paying attention to the recording
+source, that usually should be set to Microphone if you want to send your
+voice, and to the recording level (that for ALSA is usually named
+"Capture"). Also, take note of the playback volume (usually named
+"PCM", the one that you control also with XMMS, for example), because
+if it's too low, it will be hard to hear your partner.
+<br /><br />
+<span style="font-weight: bold;">Tip: </span>You can easily test the
+audio settings directly with IHU. Click on <span style="font-style: italic;">Wait for calls</span>
+button and then call yourself by typing "localhost" as receiver address and clicking the
+<span style="font-style: italic;">Call</span> button.
+You will now hear yourself and you can check settings.
+But read the quick start to know how to do this if you have problems calling.
+
+<h3><a name="1.2"></a>1.2 Quick start</h3>
+Ok, you are ready to use IHU! Now you just need to know the
+address (IP or DNS) of the friends to call.
+Each IHU user who wants to receive calls should give his address to his
+IHU friends. Personally, I strongly suggest to register to a dynamic
+DNS service (such as <a href="http://www.dyndns.org">dyndns</a>), where
+you can register your computer with a fancy DNS address easy to
+remember (such as <span style="font-style: italic;">ihu.homelinux.org</span>);
+then each time you go online, your IP should update and your
+friends can always call you with that address.<br />
+Let's suppose now that your internet address is <span style="font-style: italic;">ihu.homelinux.org</span>
+and that you want the receive calls from your friends. Then, first of
+all, you have to run IHU and press the <span style="font-style: italic;">Wait for calls</span> button. Your friend
+now will type <span style="font-style: italic;">ihu.homelinux.org</span>
+in the <span style="font-style: italic;">Receiver address</span> field
+and will press the <span style="font-style: italic;">Call</span> button.
+Hopefully you will see an inbound call notification and sound and if
+you want, you can answer by clicking on the <span style="font-style: italic;">Answer</span>
+button. At this point you should see the TX and RX leds flashing, and you
+should hear something, now you can finally cry out: "I Hear U!!!" ;-)
+
+<h2><a name="2."></a>2. Detailed description</h2>
+
+<h3><a name="2.1"></a>2.1 The main window</h3>
+The main window (see <a href="http://ihu.sourceforge.net/screenshots.html">screenshot</a>) is composed by:
+<ul>
+  <li>
+    <span style="font-weight: bold;">Receiver address</span>: here
+    you write the address (IP or DNS hostname) of the computer that you
+    want to call, then press Enter or click the <span style="font-style: italic;">Call</span>
+    button to start the communication. As port, IHU is using the default port in the Settings
+    (usually 1793), but if you want to temporarily use another port for a specific host
+    (without changing the default port in the settings), you can quickly specify the
+    port just after the IP address in the form ADDRESS:PORT
+    (for example to use the port number 1790 "ihu.homelinux.org:1790").
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <span style="font-weight: bold; color: rgb(0, 0, 153);">Call (Alt+C)</span>:
+    after you type the <span style="font-style: italic;">Receiver address</span>,
+    click this button to start the communication. IHU will first ring the
+    <span style="font-style: italic;">Receiver</span> and then, if he
+    answers, it will capture and send your voice to your partner and you
+    will receive your partner's voice. If your are <span style="font-style: italic;">Waiting
+    for calls</span> and you received a new call, than this button will
+    become <span style="font-style: italic;">Answer </span>(Alt+A),
+    and will allow you to answer the call.
+  </li>
+</ul>
+<ul>
+  <li>
+    <span style="font-weight: bold; color: rgb(204, 0, 0);">Ring (Alt+B)</span>
+    (the button with a little bell between Call and Hang Up):
+    this is a special button. When you click this button,
+    your partner, instead of listening to your voice, will hear a nice
+    ringing sound, similar to the phone (it is usually so loud that could
+    eventually damage his ears ;-). To stop ringing just click the button again. The button is
+    available also during conversation, useful for
+    example when you want to notify you're back after a pause, or for other
+    many reasons you can think of. To disable the ringing tone when
+    receiving new calls, see the settings below.<br />
+    <span style="font-weight: bold;">N.B.</span> IHU will automatically
+    activate this button when you make a call, and will stop ringing either
+    if your partner answers or refuses. But you can also stop ringing before,
+    without waiting for the answer clicking the
+    button manually. This is useful, for example, to:
+    <ol>
+        <li>Let your partner recognize your voice, or call him by voice (funny, isn't it? ;-).</li>
+        <li>Leave a message (like an answering machine) if your partner is recording calls (see below for details).</li>
+    </ol>
+  </li>
+</ul>
+
+<ul>
+  <li>
+    <span style="font-weight: bold; color: rgb(0, 0, 153);">Hang up (Alt+H)</span>:
+    when you click this button, IHU will close the current communication.
+    If you are waiting for calls and you just received a new call, this button will become
+    <span style="font-style: italic;">Refuse</span> (Alt+R) and you can refuse the call.
+  </li>
+</ul>
+<ul>
+  <li>
+    <span style="font-weight: bold; color: rgb(0, 153, 0);">Wait for calls (Alt+W)</span>:
+    <span style="text-decoration: underline;">when you click this button IHU
+    will wait for incoming calls</span> (remember that it isn't toggled by
+    default when you run IHU, unless you enable the proper option in the
+    settings).
+    When you receive an incoming call, IHU will NOT send your voice to
+    the caller until you press <span style="font-style: italic;">Answer</span>.
+    If you don't want to receive calls, then just deactivate this button.
+  </li>
+</ul>
+<ul>
+  <li><span style="font-weight: bold;">TX led</span>: this red led is on when IHU is transmitting data.</li>
+  <li><span style="font-weight: bold;">RX led</span>: this green ledis on when IHU is receiving data.</li>
+</ul>
+<ul>
+  <li>
+    <span style="font-weight: bold;">Disable audio input globally (Alt+I)</span> (button with microphone): click
+    this button to disable audio capture or to mute your microphone for all the calls
+  </li>
+  <li>
+    <span style="font-weight: bold;">Disable audio output globally (Alt+O) </span>(button
+    with speaker): click this button to disable playback or to mute the speakers for all the calls (but incoming data
+    will be received anyway, and eventually recorded).
+  </li>
+</ul>
+<ul>
+  <li>
+    <span style="font-weight: bold;">TX threshold</span>: the volume
+    level (-96dB/0dB) to be considered silence. When the sound level is softer than the
+    threshold, IHU will consider that sound level as silence and won't send any data.
+    This allows you to save network bandwith when you are not speaking. You should change
+    this value to a suitable value so that TX led is off when you are not speaking. Of course this
+    does not affect the data that you are receiving.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Recording level</span>: useful to monitor the current
+    volume level (-96dB/0dB) recorded on your sound card.
+  </li>
+</ul>
+
+<h4><a name="2.1.1"></a>2.1.1 The FILE menu (Alt+F)</h4>
+
+The FILE menu offers these simple functions:<br />
+
+<ul>
+  <li>
+    <span style="font-weight: bold;">New call (Ctrl+N)</span>: to create a new call tab.
+    When you create multiple call tabs you will be able to make and receive multiple calls at the same moment.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Close call (Ctrl+W)</span>: to close the current CALL tab.
+    If the call is active this operation will also close the communication. Note that the "Default" call tab
+    can't be closed.
+  </li>
+</ul>
+<ul>
+  <li>
+    <span style="font-weight: bold;">File Player (Ctrl+P):</span> this
+    button opens the File Player window. With IHU you have the possibility to save
+    the outgoing/incoming streams to a .ihu file and then play them using the File Player.
+    With the File Player it's also possible to convert .ihu files to .spx files.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Log Viewer (Ctrl+L):</span> this
+    button opens the Log window. The Log is the place where IHU records some informations
+    about the incoming/outgoing calls, the address/name of the person who called you, the encryption
+    key used, and other informations. The log is cleared each
+    time you close IHU, but you can also save it to file using the proper button in the dialog
+    or you can always save a copy of this log to file (see settings below).
+  </li>
+</ul>
+<ul>
+  <li><span style="font-weight: bold;">Quit (Ctrl+Q)</span>: to quit ;-)</li>
+</ul>
+
+<h4><a name="2.1.2"></a>2.1.2 The CALL menu (Alt+L)</h4>
+This menu contains functions that will affect only the call in the current tab:
+<ul>
+  <li>
+    <span style="font-weight: bold;">Encrypt outgoing stream (Ctrl+E)</span>:
+    when you check this option IHU will encrypt the outgoing stream.
+    Your partner will be able to decrypt thanks to an automatic (and secure) key exchange.
+    You can check/uncheck this option also during the communication.<br />
+    <span style="font-weight: bold;">N.B.</span> This option will only
+    affect your <span style="text-decoration: underline;">outgoing</span>
+    traffic. The incoming traffic is independent and can be encrypted or not, it doesn't
+    matter. However, when one peer is encrypting the stream, then his
+    partner will be "invited" to do the same, automatically enabling
+    encryption too, but the user is always able to decide whether to crypt
+    or not. So you can disable this option at any time during conversation.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Change encryption key (Ctrl+K)</span>:
+    to change your <span style="text-decoration: underline;">encryption</span>
+    key with a new key. You can change the key also during communication,
+    whenever you want (so IHU is compatible with paranoid individuals ;-)
+  </li>
+  <li>
+  <span style="font-weight: bold;">Set/reset decryption key (Ctrl+D)</span>:
+    this is useful to reset the <span style="text-decoration: underline;">decryption</span>
+    key or to change it, but, at the moment, it is only possible to set a text passphrase.
+    So if you need, for any reason, to set a different passphrase,
+    or you want to reset your decryption key in order to receive a fresh decryption key, then this
+    function is for you.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Record incoming/outgoing stream to file</span>:
+    to record the audio stream to a <span style="font-style: italic;">.ihu</span> file.
+    At the moment IHU just dumps all the data packets to file, and the if the file doesn't exist itwill be
+    created otherwise data will be appended to the file. You can only play a
+    <span style="font-style: italic;">.ihu</span> file using the
+    <span style="font-style: italic;">IHU File Player</span> (you can find it in the File menu).
+    Unfortunately, at the moment, it's only possible to record the incoming stream seperately
+    from the outoing stream. This means that your voice will be recorded to one
+    file, while your partner's voice will be recorded to another file.
+    <br />
+    The <span style="font-style: italic;">.ihu</span> files are useful also to:
+    <ol>
+        <li>Record messages when you can't answer calls (see the <span style="font-style: italic;">Ring button</span> above)</li>
+        <li>Save important conversations, so that you can listen them again in the future whenever you want.</li>
+    </ol>
+    <span style="text-decoration: underline;">N.B. If the recorded stream is encrypted, then you won't be able
+    to play it, unless you know the encryption passphrase</span>
+    <br />
+    <span style="font-weight: bold;">Tip:</span> to play multiple files together you can convert 
+    them to <span style="font-style: italic;">.spx</span> (See <span style="font-style: italic;">File Player</span>)
+    and play them all at the same time using the <span style="font-style: italic;">speexdec</span> program 
+    (remember to set <span style="font-style: italic;">TX Threshold</span> to minimum or to uncheck 
+    <span style="font-style: italic;">DTX</span> to avoid discontinuos TX when recording).
+  </li>
+</ul>
+<h4><a name="2.1.3"></a>2.1.3 The OPTIONS menu (Alt+P)</h4>
+The OPTIONS menu offers some interesting functions:<br />
+<ul>
+  <li>
+    <span style="font-weight: bold;">Audio Delay Reduction (ADR) (Ctrl+R)</span>:
+    since there might be a delay between the time you
+    receive the data and the time you listen through your speakers,
+    you may want to reduce this delay. Check this option to let IHU keep
+    the audio delay as minimum as possible (please see settings below for
+    details).
+  </li>
+  <li>
+    <span style="font-weight: bold;">Automatic Gain Control (AGC) (Ctrl+G)</span>:
+    check this option to activate an automatic system that keeps the recording level constant.
+    If your voice is too soft, AGC will amplify it, instead if too loud AGC will soften it
+    (please see settings below for details).<br />
+    <span style="text-decoration: underline;">Please note:</span> this option works well if
+    <span style="font-style: italic;">TX Threshold</span> is properly set, otherwise when you don't speak
+    the silence will get amplified too much and when you start to speak again, the sound will become distorted.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Clear Host History (Ctrl+H)</span>: to clear the history of the
+    <span style="font-style: italic;">Receiver address</span> field.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Clear Missed Calls (Ctrl+M)</span>: when you don't answer or refuse a call
+    IHU will show you an alarm icon in the tray and will notice that there are some missed in calls in the status bar.
+    Use this function to clear the tray icon and to set the missed calls to 0.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Settings (Ctrl+S)</span>: to
+    open the settings dialog and adjust IHU parameters (see below).
+  </li>
+</ul>
+<h4><a name="2.1.4"></a>2.1.4 The HELP menu (Alt+E)</h4>
+There are not so many things to say here, the only help available is
+what you are reading now! ;-)<br />
+
+<h3><a name="2.2"></a>2.2 The settings dialog</h3>
+
+You can access the settings dialog from the <span style="font-style: italic;">Settings</span>
+button in the main window or from the option menu (or Ctrl+S).
+The settings dialog allows you to change all the parameters and
+options of IHU, that are saved in a XML config file (default is
+<span style="font-style: italic;">"$HOME/.ihu.xml"</span>). You
+can also save the configuration file manually, using the 
+<span style="font-style: italic;">"Save to file"</span> button in the dialog.
+The Settings dialog is organized in several tabs (please note that
+the default button will set the default parameters only for the
+current tab):<br />
+<h4><a name="2.2.1"></a>2.2.1 General settings</h4>
+<ul>
+  <li>
+    <span style="font-weight: bold;">My name</span>: here you can
+    write your name, nickname, address, or whatever you want that your
+    partner will see in order to recognize you. In my opinion it's
+    important to write something here, but feel free to leave it
+    empty.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Wait for incoming calls at startup</span>:
+    if you prefer to be able to receive calls immediately when you launch IHU,
+    without need to click on <span  style="font-style: italic;">Wait for calls</span> button,
+    you might want to enable this option.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Answer automatically the calls</span>:
+    with this option you have the ability to automatically answer a new
+    incoming call, without need to click the <span style="font-style: italic;">
+    Answer</span> button. This is useful for example if you want to receive 
+    calls but you're too busy to click the button.<br />
+    <span style="font-weight: bold;">N.B.</span> When IHU automatically
+    answers, it will start to send to your partner audio captured by the
+    microphone (unless you disable the audio input), so be careful to not
+    use this option when you actually can't answer the call!
+  </li>
+  <li>
+    <span style="font-weight: bold;">Show tray icon</span>: to
+    enable/disable the IHU system tray icon. The tray icon is useful if you
+    need to have a quick access to IHU buttons without need of keeping the
+    window visible.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Start minimized</span>: when you
+    enable the system tray icon, you have the possibility to launch IHU
+    without opening the main window. This is useful, for example, when you
+    enable IHU to auto-run at system startup.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Max Call Number</span>: this is the maximum
+    number of calls that it's possible to use at the same time.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Save Host History</span>: this is the number of
+    host addresses savd from the Receiver Address history (use Ctrl+H to clear the history).
+  </li>
+</ul>
+
+<h4><a name="2.2.2"></a>2.2.2 Network settings</h4>
+This tab is divided into two parts. The first is about your
+IHU as <span style="font-style: italic;">Receiver</span> (when you
+receive calls), the second is about your IHU as <span
+ style="font-style: italic;">Caller</span> (when you make calls):<br />
+<ul>
+  <li>
+    <span style="font-weight: bold;">Receiver allowed protocols</span>:
+    here you can choose which protocol you want to enable on your 
+    <span style="font-style: italic;">Receiver</span>. IHU can accept both UDP
+    and TCP by default (recommended), so that callers can
+    choose their preferred protocol, but you have the possibility to
+    disable the protocols that you don't want to use. Of course you have to
+    enable at least one protocol to receive calls.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Receiver port</span>: this is
+    the UDP/TCP port number on which your IHU is receiving calls (default
+    is 1793). <span style="text-decoration: underline;">Please note:</span>
+    this port is very important and usually you shouldn't change it. If you really need
+    to change this port, please make sure that your
+    callers know your new port number, otherwise nobody can call you. In
+    order to use ports lower than 1024 you must have root privileges.
+  </li>
+</ul>
+<ul>
+  <li>
+    <span style="font-weight: bold;">Caller preferred protocol</span>:
+    this is the protocol used for outgoing calls (only one protocol is
+    possible for each call). If the <span style="font-style: italic;">Receiver</span>
+    you want to call has both TCP and UDP enabled, then you can choose your
+    preferred protocol, otherwise you have to use the protocol chosen by
+    the <span style="font-style: italic;">Receiver</span>. If you receive
+    errors like "call rejected" when making a call, try to change the protocol.
+    </li>
+  <li>
+    <span style="font-weight: bold;">Caller default port</span>: this is the
+    default port number for outgoing calls. If you don't specify any port after
+    the address in the <span style="font-style: italic;">Receiver address</span>, then IHU is using this default port.
+  </li>
+</ul>
+<h4><a name="2.2.3"></a>2.2.3 Sound settings</h4>
+<ul>
+  <li>
+    <span style="font-weight: bold;">Sound driver</span>: here you
+    can choose the sound driver for input (capture). By default IHU is using ALSA for both input/output, but if
+    you have JACK sound driver installed on your computer, then IHU should
+    have compiled with JACK driver support, and you can also
+    choose to use JACK as input and ALSA as output.<br />
+    <span style="text-decoration: underline;">A little note for JACK
+    sound driver</span>:
+    Jack can give better sound performance (against audio
+    latency), but requires a little more attention: please make
+    sure that your Jack server is properly configured for IHU (i.e. the same
+    sample rate, sample width, etc..) and that when
+    you make a call, IHU Jack ports are properly connected
+    to capture and playback devices.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Sound interface</span>: here you
+    can choose the input and output interfaces for ALSA. For each sound
+    card ALSA offers two interfaces, <span style="font-style: italic;">hw</span>
+    and <span style="font-style: italic;">plughw</span>. If you have more
+    than one sound card, you can change the sound card, giving the right card
+    number (for example <span style="font-style: italic;">plughw:1</span>,
+    please read the <span style="font-style: italic;">/proc/asound/card</span>
+    file to know the card numbers). And, for each soundcard you can change
+    the device, giving the right device number (for example <span
+     style="font-style: italic;">plughw:1,3</span>, the <span
+     style="font-style: italic;">/proc/asound/devices</span> file contains
+    the device numbers). By default IHU is using the "default" interface,
+    which will automatically choose the best
+    interface and device for you.<br />
+    <span style="text-decoration: underline; font-style: italic; color: rgb(204, 0, 0);">
+    Please note:</span> the sound interface is VERY important for IHU, so I strongly
+    suggest to select the interfaces which work better for your computer.
+    The <span style="font-style: italic;">plughw</span> and <span
+     style="font-style: italic;">hw</span> should give
+    better performance and low latency, but they have one disadvantage: they don't
+    allow more than one capture stream per time on the interface (and
+    eventually also playback, depends on your soundcard). So if
+    you need to use other capture programs, then you have to choose another
+    interface which use the <span style="font-style: italic;">dsnoop</span>
+    plugin. Or if you have other kind of problems then try to change
+    the interface (try first the <span style="font-style: italic;">plughw</span>
+    interface, then the <span style="font-style: italic;">hw</span>
+    interface, or other custom interfaces). Anyway, if you decide
+    to change the interface, than you're responsible to check the ALSA settings
+    (read <a href="http://alsa.opensrc.org/.asoundrc">ALSA documentation</a>
+    for more informations on how to configure ALSA), and keep in mind that
+    the performance of IHU can be greatly affected (long delay and bad
+    sound quality) if you choose the wrong interface. Anyway the Jack sound driver doesn't
+    have the disadvantages described above, have a look if you're interested.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Input format</span>:
+    to change the audio quality (by changing the sample rate). At the
+    moment only three rates are possible (according to Speex rates): 8000
+    Hz (low quality), 16000 Hz (medium quality) and 32000 Hz (high
+    quality). The higher the quality, the higher the use of network.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Stop TX after (silence secs)</span>:
+    when you are using <span style="font-style: italic;">TX Threshold</span> to stop transmission 
+    when you don't speak,     it's useful to continue the transmission for some
+    seconds, to preserve the stream against small speech pauses.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Packets prebuffer</span>:
+    number of packets to prebuffer before starting to play. A high number
+    of packets ensure audio continuity, but it could increase the audio delay.
+  </li>
+  <li>
+      <span style="font-weight: bold;">Ring Volume</span>: here you can adjust the volume of ring tone for incoming calls.
+  </li>
+</ul>
+
+<h4><a name="2.2.4"></a>2.2.4 Encoder settings</h4>
+Here you can change the settings of your <span style="font-weight: bold;">Speex encoder</span> (so only for your
+outgoing stream). Those settings are very important to determine the
+<span style="text-decoration: underline;">sound quality</span> of your
+voice and the use of <span style="text-decoration: underline;">network</span>,
+so adjust them very carefully (please refer to the <a href="http://www.speex.org">Speex website</a> for more details).<br />
+<ul>
+  <li>
+    <span style="font-weight: bold;">Bitrate mode</span>: you can choose a <span style="font-style: italic;">Constant Bitrate (CBR)</span>, where
+    bitrate stays constant during the communication, using always the same amount of outgoing traffic (adjust
+    bitrate with <span style="font-style: italic;">CBR Quality</span>, see
+    below). Or you can choose a <span style="font-style: italic;">Variable
+    Bitrate (VBR)</span>, where the encoder
+    decides automatically which bitrate to use for each frame, according
+    to the complexity of data (adjust bitrate with <span
+     style="font-style: italic;">VBR
+    Quality</span>, see below). Or you can finally choose an<span
+     style="font-style: italic;"> Average bitrate (ABR)</span>, that is a
+    kind of variable bitrate, but the average bitrate is constant (adjust
+    bitrate directly with <span style="font-style: italic;">ABR kbps</span>
+    parameter, see below).
+  </li>
+  <li>
+    <span style="font-weight: bold;">CBR Quality</span>: to select the bitrate for
+    CBR (1: lowest quality, 10: highest quality).
+  </li>
+  <li>
+    <span style="font-weight: bold;">VBR Quality</span>: to
+    select bitrate for VBR (1: lowest quality, 10: highest quality). Higher
+    quality means higher bitrate, but due to
+    variable bitrate, it can be lower or higher than what you chose,
+    depending on the complexity of audio signal to be encoded.
+  </li>
+  <li>
+    <span style="font-weight: bold;">ABR kbps</span>: to
+    select an average bitrate for ABR (Kbit/second). Bitrate is variable
+    but the average should be around the value you specified.
+  </li>
+  <li>
+      <span style="font-weight: bold;">Complexity</span>: it is a
+      parameter to select the algorithmic quality. (1: lowest, 10: highest).
+      Higher complexity means also higher CPU use.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Voice Activity Detection (VAD)</span>:
+    when enabled, it detects whether the audio being
+    encoded is speech or silence/background noise. VAD is implicitly
+    activated when encoding is VBR.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Discontinuous TX (DTX): </span>it's
+    an addition to VAD/VBR operation, that allows to stop transmitting
+    completely when background noise is stationary. <span style="font-style: italic;">
+    TX Threshold</span> will be disabled if you decide to not use DTX.
+  </li>
+</ul>
+<h4><a name="2.2.5"></a>2.2.5 Options settings</h4>
+Here you find some settings about the <span style="font-weight: bold;">Audio
+Delay Reduction</span> (ADR) option:<br />
+<ul>
+  <li>
+    <span style="font-weight: bold;">Time change percentage</span>:
+    this is the time percentage (0-50%) that determines the speed of delay
+    adjustment. With a high time change, the delay will be adapted faster,
+    instead with a small time change, the delay will be adjusted more gradually
+    (suggested, because a time change too high might affect the sound
+    quality or might render the speech incomprehensible, or just too fast ;-).
+  </li>
+  <li>
+    <span style="font-weight: bold;">Minimum delay</span>: this is
+    the minimum delay (milliseconds). When ADR is activated, if the delay
+    on the playback sound interface is smaller than this value, IHU will try
+    to increase the delay to this reference value, in order to avoid sound
+    crackle.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Maximum delay</span>: this is
+    the maximum delay (milliseconds). If you activated <span style="font-style: italic;">ADR</span>,
+    IHU will try to minimize the audio delay to this value. Be careful with too little values of max
+    delay, which could deteriorate the sound quality, or with values of <span
+     style="font-style: italic;">Maximum delay</span> too near
+    to <span style="font-style: italic;">Minimum Delay</span>, give at least
+    40/50 ms of tolerance.
+  </li>
+</ul>
+You find also some settings about the <span style="font-weight: bold;">Automatic
+Gain Control</span> (AGC) option. There are two methods of AGC, you can choose to
+use only one of them, or you can use them together:<br />
+<ul>
+  <li>
+    <span style="font-weight: bold;">ALSA Mixer Control</span>: this is the
+    first method of AGC. IHU will try to adjust the volume of the specified mixer control
+    (usually "Capture" on most sound cards) to reach the desired sound level.
+    This method is used by default and it's recommended because maintains a good audio quality,
+    since the gain is changed in the hardware. Disable this method only if
+    you don't want to touch the mixer levels.
+  </li>
+  <li>
+    <span style="font-weight: bold;">IHU Internal Control</span>:
+    this is the second method of AGC. IHU will amplify or soften the audio signal
+    using its internal routines, without touching the mixer levels.
+    Anyway the sound quality might be slightly damaged since the gain is virtually changed by software.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Volume Level</span>: this is the volume level used as reference
+    by AGC. IHU will take the peak value of the recorded sample and will adjust the volume
+    according to this reference value.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Volume change speed</span>: this value will influence
+    the rapidity of volume adjustment.
+  </li>
+</ul>
+
+<h4><a name="2.2.6"></a>2.2.6 Security settings</h4>
+Here you can find some settings about security and cryptography:<br />
+<ul>
+  <li>
+    <span style="font-weight: bold;">Encryption key type</span>:
+    you can choose the type of key used for the symmetric encryption
+    (Blowfish) of your data. You have two possibilities:
+    <ol>
+        <li>
+          <span style="text-decoration: underline;">Random with constant length</span>:
+          if you choose a random key, than IHU will automatically
+          choose a new random key each time you enable <span
+           style="font-style: italic;">Encrypt outgoing stream</span>, or each
+          time you <span style="font-style: italic;">Change the encryption key</span>.
+          You can choose the length of the key (in bits); bigger keys should be
+          more difficult to crack. Please remember also that with a random key it
+          will be impossible to play recorded streams.
+        </li>
+        <li><span style="text-decoration: underline;">Text passphrase</span>
+          (please use phrases of at least 30 chars, max 56 chars): when
+          you enable <span style="font-style: italic;">Encrypt outgoing
+          stream</span>, or you <span style="font-style: italic;">Change the
+          encryption key</span>, IHU will ask you to enter a new passphrase, that
+          will be used for encryption. This is useful, for example, if you want
+          to record the crypted stream to file and you want to have the
+          possibilty to play this file later with IHU (instead with a random key
+          it's not possible).
+        </li>
+    </ol>
+  </li>
+  <li>
+    <span style="font-weight: bold;">Set Passphrase</span>:
+    here you have the possibility to save the passphrase in the config file so that it won't be asked
+    each time you decide to encrypt the communication; or it will be used if your partner is
+    using encryption and IHU will start automatically to encrypt. To clear the passphrase just leave
+    blank and press OK; instead to use a different temporary passphrase use the <span style="font-style: italic;">Change the encryption key</span>
+    function in the <span style="font-style: italic;">Call</span> menu.<br />
+    <span style="text-decoration: underline; font-style: italic; color: rgb(204, 0, 0);">
+    Please note: the passphrase will be saved as cleartext in the config file, so be careful!</span>
+  </li>
+  <li>
+    <span style="font-weight: bold;">Show decryption key of
+    incoming stream in the Log</span>: this option will show the decryption key type, and
+    eventually the passphrase, of the incoming stream in the
+    <span style="font-style: italic;">Log</span>.
+    When the incoming stream is using a new encyrption key, then a
+    new message will appear in the <span style="font-style: italic;">Log</span>,
+    and if the key is a text passphrase, then it will be showed, otherwise
+    IHU will just write "random key". This is useful if you are recording
+    the stream and you want to be able to play the
+    stream with <span style="font-style: italic;">Play File</span>
+    option. Since the passphrase is a confidential information, if you don't
+    need to know the passphrase, then please do not use this option.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Write a copy of the Log also to
+    file</span>: if you want to save the <span style="font-style: italic;">Log</span>
+    (the one you open with <span style="font-style: italic;">View Log</span>
+    button) to file. This is useful if you want to save call informations
+    for the future, or if you want to carefully log all incoming
+    connections and calls.<br />
+    <span style="text-decoration: underline;">N.B</span> Please take care of this file
+    because it could contain confidential informations!
+  </li>
+</ul>
+
+<h3><a name="2.3"></a>2.3 The file player dialog</h3>
+
+The file player gives you the possibility to play a previously recorded IHU file (please above to know how to record a stream to file). 
+If the stream was encrypted than it is not possible to play the file at this time, unless you know its passphrase (IHU will automatically ask you the passphrase when encountering encrypted streams).
+
+<ul>
+  <li>
+    <span style="font-weight: bold;">Open File (Alt+O)</span>: to open a IHU file to play.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Pause (Alt+P)</span>: this button will pause the file currently played.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Stop (Alt+S)</span>: this button will stop and close the file.
+  </li>
+  <li>
+    <span style="font-weight: bold;">Convert .ihu file to .spx (Alt+C)</span>: this function is useful to convert
+    the files recorded with IHU (.ihu extension) to standard speex files (.spx extension). The .spx files are 
+    standard Ogg files and are readable also by other applications, such as speexdec.
+  </li>
+</ul>
+
+<h2><a name="3."></a>3. Quick launch</h2>
+If you are a command-line lover, you have the possibility to launch IHU
+with some quick launch options. Here is the list of available options (which you can get by starting with "--help"):
+<br />
+<pre>
+USAGE
+        ihu [OPTIONS]
+OPTIONS
+        --conf  FILE    Use FILE as configuration file
+        --wait          Wait for incoming calls
+        --call  HOST    Call HOST (DNS or IP address)
+        --file  FILE    Play a IHU FILE
+        --encrypt       Encrypt the outgoing stream
+        --noinput       Disable audio INPUT
+        --nooutput      Disable audio OUTPUT
+        --nogui         Start without GUI (no interaction)
+</pre>
+As you can see there is one option (--nogui), which allows you to run IHU without GUI. This is
+useful when you don't have the possibility to use a X server or when you want to launch
+IHU on remote computers, but then you don't have any possibility to interact with the
+program. I strongly suggest to use this option only for special cases, please use the GUI instead, which offers a
+better interface (please note that when using --nogui you have to
+change settings directly from config file, the default is <span style="font-style: italic;">"$HOME/.ihu.xml"</span>).
+
+<h2><a name="4."></a>4. Final notes</h2>
+Please use the <span style="font-style: italic;">Tracker</span> at
+<a href="http://sourceforge.net/projects/ihu/">IHU sourceforge page</a>
+to report bugs, patch, support requests. For any other kind of
+informations, suggestions, flames (ouch!), just mail the author.
+Now enjoy IHU!!
+<br /><br />
+<hr style="width: 100%; height: 2px;" />Copyright (C) 2003-2008 Matteo Trotta &lt;mtrotta@users.sourceforge.net&gt;
+<br /><br />
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the <a href="http://www.gnu.org/licenses/gpl.html">GNU
+General Public License</a>.
+</div>
+
+</body>
+</html>
