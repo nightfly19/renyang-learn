@@ -54,3 +54,7 @@ LIBS=-lsctp ./configure
 修改configure檔, 使得不必每一次均使用LIBS=-lsctp與設定opencv的library
 準備加入影像的部分
 新增Video.hpp與Video.cpp專門處理影像的部分
+
+[modify03-branch01]
+增加SctpIPHandler.hpp與SctpIPHandler.cpp專門用來處理multi-homing的情況
+並且使用QMap類別來控管所有ip與其ip的相關資訊, 什麼時候又收到資料了, 多久沒有收到資料就表示對方的連線有問題
