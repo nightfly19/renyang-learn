@@ -65,7 +65,7 @@ void SctpIPHandler::removeIP(QString &IP)
 
 void SctpIPHandler::setRecvingTime(QString &IP)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("SctpIPHandler::setRecvingTime(%1)").arg(IP));
 #endif
 	if (!IP2Info.empty())
@@ -125,7 +125,7 @@ void SctpIPHandler::checkReceive()
 
 void SctpIPHandler::sendConfrim()
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::sendConfrim()");
 #endif
 	if (!IP2Info.empty())
