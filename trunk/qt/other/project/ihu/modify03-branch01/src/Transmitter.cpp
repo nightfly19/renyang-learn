@@ -286,7 +286,6 @@ void Transmitter::sendPacket(Packet *p)
 			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
 		else if (protocol == IHU_SCTP) {
 			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,streamno,100,0);
-			qWarning("using the %d stream no",streamno);
 		}
 		// renyang - 傳送失敗
 		if (snt <= 0)
@@ -296,7 +295,7 @@ void Transmitter::sendPacket(Packet *p)
 		else
 		{
 			// renyang - 用來計算一共傳送多少資料出去
-			qWarning("send %d bytes",snt);
+			qWarning(QString("using the %1 stream no to send %2 bytes to %3").arg(streamno).arg(snt).arg(SctpSocketHandler::SctpGetPrim(s)));
 			bytes += snt;
 			total += snt;
 			active = true;
@@ -679,7 +678,7 @@ void Transmitter::emitSignal(signal_type type)
 
 void Transmitter::sendVideoFailPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoFailPacket()");
 #endif
 	sendSpecialPacket(NULL, 0, IHU_INFO_VIDEO_ERROR);
@@ -687,7 +686,7 @@ void Transmitter::sendVideoFailPacket()
 
 void Transmitter::sendVideoEndPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_END);
@@ -696,7 +695,7 @@ void Transmitter::sendVideoEndPacket()
 // renyang-modify - 傳送一整個封包的一部分(因為image資料太大了)
 void Transmitter::sendVideoPacket(char *data, int len)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Transmitter::sendVideoPacket(char *data,int %1)").arg(len));
 #endif
 	if (tx)
@@ -723,15 +722,15 @@ void Transmitter::sendVideoPacket(char *data, int len)
 
 void Transmitter::sendVideoRequestPacket()
 {
-#ifdef REN_DEBUG
-	qWarning("Transmitter::sendVideoEndPacket()");
+#ifdef FANG_DEBUG
+	qWarning("Transmitter::sendVideoRequestPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST);
 }
 
 void Transmitter::sendVideoNextPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoNextPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);
@@ -739,7 +738,7 @@ void Transmitter::sendVideoNextPacket()
 
 void Transmitter::setStreamNo(int no)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Transmitter::setStreamNo(%1)").arg(no));
 #endif
 	streamno = no;
@@ -747,7 +746,7 @@ void Transmitter::setStreamNo(int no)
 
 int Transmitter::getStreamNo()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::getStreamNo()");
 #endif
 	return streamno;
@@ -755,7 +754,7 @@ int Transmitter::getStreamNo()
 
 void Transmitter::sendConfirmPacket()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Transmitter::sendConfirmPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_IP_CONFIRM);

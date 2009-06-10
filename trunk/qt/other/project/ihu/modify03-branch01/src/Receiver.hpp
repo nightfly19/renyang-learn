@@ -110,6 +110,8 @@ public:
 	void getIps();
 	// renyang-modify - 設定預期是由哪一個ip送資料過來
 	void setExpectAddress(QString);
+	// renyang-modify - 取得記錄的primary address
+	QString getPrimAddress();
 	// renyang-modify
 
 private:

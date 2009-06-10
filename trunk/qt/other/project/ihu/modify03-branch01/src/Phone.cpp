@@ -1516,7 +1516,7 @@ void Phone::playRing(int callId)
 
 void Phone::SlotgetIps(int callId,QStringList addrs_list)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::SlotgetIps(%1,QStringList addrs_list)").arg(callId));
 #endif
 	emit SignalgetIps(callId,addrs_list);
@@ -1524,7 +1524,7 @@ void Phone::SlotgetIps(int callId,QStringList addrs_list)
 
 void Phone::setPrimaddr(int callId,QString primaddr)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::setPrimaddr(%1,%2)").arg(callId).arg(primaddr));
 #endif
 	calls[callId]->setPrimaddr(primaddr);
@@ -1532,7 +1532,7 @@ void Phone::setPrimaddr(int callId,QString primaddr)
 
 void Phone::SlotAddressEvent(int callId,QString ip,QString description)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::SlotAddressEvent(%1,%2,%3)").arg(callId).arg(ip).arg(description));
 #endif
 	emit SigAddressEvent(callId,ip,description);
@@ -1540,7 +1540,7 @@ void Phone::SlotAddressEvent(int callId,QString ip,QString description)
 
 void Phone::SlotGetImage(char *image_matrix,int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Phone::SlotGetImage()");
 #endif
 	// renyang-modify - 先測試目前camera的情況
@@ -1573,7 +1573,7 @@ void Phone::SlotGetImage(char *image_matrix,int callId)
 // renyang - 應該是開始擷取麥克風的資料
 void Phone::startVideo()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::startVideo()"));
 #endif
 	switch (camera_status)
@@ -1593,7 +1593,7 @@ void Phone::startVideo()
 
 void Phone::stopVideo()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::stopVideo()"));
 #endif
 	switch (camera_status)
@@ -1612,7 +1612,7 @@ void Phone::stopVideo()
 // renyang-modify - 把接收到的一整個影像上傳到Ihu
 void Phone::SlotputImage(QImage image,int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Phone::SlotputImage()");
 #endif
 	emit SigputImage(image,callId);
@@ -1621,7 +1621,7 @@ void Phone::SlotputImage(QImage image,int callId)
 // renyang-modify - 向對方傳送要求image的封包
 void Phone::requestPeerImage(int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::requestPeerImage(%1)").arg(callId));
 #endif
 	calls[callId]->sendVideoRequest();
@@ -1629,7 +1629,7 @@ void Phone::requestPeerImage(int callId)
 
 void Phone::SlotrequestImageFail(int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::SlotrequestImageFail(%1)").arg(callId));
 #endif
 	emit SigrequestImageFail(callId);
@@ -1637,7 +1637,7 @@ void Phone::SlotrequestImageFail(int callId)
 
 void Phone::requestPeerImageStop(int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Phone::requestPeerImageStop(%1)").arg(callId));
 #endif
 	calls[callId]->requestPeerImageStop();

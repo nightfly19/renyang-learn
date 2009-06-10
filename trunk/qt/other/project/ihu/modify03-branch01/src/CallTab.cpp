@@ -582,7 +582,7 @@ void CallTab::setRingButton(bool on)
 
 void CallTab::change_hostList(QStringList addrs_list)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::change_hostList()");
 #endif
 	hostList->clear();
@@ -599,7 +599,7 @@ void CallTab::change_hostList(QStringList addrs_list)
 
 void CallTab::primButtonClicked()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::primButtonClicked()");
 #endif
 	uint i;
@@ -620,7 +620,7 @@ void CallTab::primButtonClicked()
 // renyang-modify - 這一個函式是用來改變ip list的狀態
 void CallTab::setAddressEvent(QString ip,QString description)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("CallTab::AddressEvent(%1,%2)").arg(ip).arg(description));
 #endif
 	unsigned int i;
@@ -661,7 +661,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 
 void CallTab::SendFailedHandler()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::SendFailedHandler()");
 #endif
 	qWarning("Hello World!!");
@@ -692,7 +692,7 @@ void CallTab::SendFailedHandler()
 // renyang-modify - 把由對方接收過來的影像放到video_label中
 void CallTab::setVideo(QImage image)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::setVideo()");
 #endif
 	// renyang-modify - 整個封包都收到到啦, 沒有在等待剩下的封包啦
@@ -708,7 +708,7 @@ void CallTab::setVideo(QImage image)
 // renyang-modify - 這一個也可以用來當作要取下一個frame
 void CallTab::videoCheckChanged()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("CallTab::videoCheckChanged()"));
 #endif
 	if (video_check->isEnabled() && video_check->isChecked())
@@ -739,7 +739,7 @@ void CallTab::videoCheckChanged()
 // renyang-modify - 當video_check是Disable, 但有被勾選則表示對方沒有辦法提供影像
 void CallTab::requestImageFail()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::requestImageFail()");
 #endif
 	clearVideoLabel();
@@ -752,7 +752,7 @@ void CallTab::requestImageFail()
 
 void CallTab::video_timeout()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::video_timeout()");
 #endif
 	// renyang-modify - 時間時, 封包以經傳完了, 就馬上啟動要求下一個封包
@@ -764,7 +764,7 @@ void CallTab::video_timeout()
 
 void CallTab::clearVideoLabel()
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("CallTab::clearVideoLabel()");
 #endif
 	video_label->clear();

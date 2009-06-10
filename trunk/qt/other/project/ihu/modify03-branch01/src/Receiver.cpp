@@ -159,13 +159,14 @@ void Receiver::start(int socket, int proto)
 	// renyang - 此s代表client端的socket file descriptor
 	::getpeername(s, (struct sockaddr *)&ca, &calen);
 
-	// renyang-modify - 記錄目前的primary
-	primaddr = ::inet_ntoa(ca.sin_addr);
-
 	// renyang - 設定sync的型態為STREAM_READ_DATA, 並streamPtr回到起始位址(streamBuffer)
 	resetStream();
 	// renyang - 設定ihu_refuse, ihu_reply, ihu_abort, connected,...為false
 	reset();
+
+	// renyang-modify - 記錄目前的primary
+	primaddr = ::inet_ntoa(ca.sin_addr);
+
 	// renayng - working=ture, 表示正在響鈴
 	go();
 
@@ -288,7 +289,7 @@ void Receiver::receive()
 					emitSctpEvent(inputBuffer);
 					return ;
 				}
-				qWarning("recv %d bytes from %s",rlen,::inet_ntoa(peer.sin_addr));
+				qWarning("using %d stream number to recv %d bytes from %s",sndrcvinfo.sinfo_stream,rlen,::inet_ntoa(peer.sin_addr));
 				// renyang-modify - 設定只有當streamno為偶數時, 才是傳送正常資料
 				if ((sndrcvinfo.sinfo_stream%2==0) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
 					// renyang-modify - 當對方更改ip時, 同時也會更新stream no
@@ -566,13 +567,16 @@ bool Receiver::processPacket(Packet *p)
 			break;
 		// renyang - 對方要求Image(影像)
 		case IHU_INFO_VIDEO_REQUEST:
+			qWarning("IHU_INFO_VIDEO_REQUEST");
 			emit requestImage();
 			break;
 		// renyang-modify - 要求對方影像失敗
 		case IHU_INFO_VIDEO_ERROR:
+			qWarning("IHU_INFO_VIDEO_ERROR");
 			emit requestImageFail();
 			break;
 		case IHU_INFO_VIDEO:
+			qWarning("IHU_INFO_VIDEO");
 			// renyang-modify - 接收到片斷的image, 把資料放到Call::RecvImage中
 			if (p->getDataLen() > MIN_DATA_SIZE)
 			{
@@ -581,9 +585,11 @@ bool Receiver::processPacket(Packet *p)
 			connected = true;
 			break;
 		case IHU_INFO_VIDEO_NEXT:
+			qWarning("IHU_INFO_VIDEO_NEXT");
 			emit requestNextImage();
 			break;
 		case IHU_INFO_VIDEO_END:
+			qWarning("IHU_INFO_VIDEO_END");
 			emit completeImage();
 			break;
 	}
@@ -942,4 +948,12 @@ void Receiver::setExpectAddress(QString expectaddr)
 	qWarning(QString("Receiver::setExpectAddress(%1)").arg(expectaddr));
 #endif
 	primaddr = expectaddr;
+}
+
+QString Receiver::getPrimAddress()
+{
+#ifdef REN_DEBUG
+	qWarning("Receiver::getPrimAddress()");
+#endif
+	return primaddr;
 }

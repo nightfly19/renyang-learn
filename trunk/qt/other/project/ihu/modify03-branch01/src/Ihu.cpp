@@ -1412,7 +1412,7 @@ void Ihu::helpAbout()
 
 void Ihu::SlotgetIps(int callId,QStringList addrs_list)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Ihu::SlotgetIps(%1,QStringList addrs_list)").arg(callId));
 #endif
 	callTab[callId]->change_hostList(addrs_list);
@@ -1420,7 +1420,7 @@ void Ihu::SlotgetIps(int callId,QStringList addrs_list)
 
 void Ihu::setPrimaddrSlot(int callId,QString primaddr)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Ihu::setPrimaddrSlot(%1,%2)").arg(callId).arg(primaddr));
 #endif
 	phone->setPrimaddr(callId,primaddr);
@@ -1428,7 +1428,7 @@ void Ihu::setPrimaddrSlot(int callId,QString primaddr)
 
 void Ihu::SlotAddressEvent(int callId,QString ip,QString description)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Ihu::SlotAddressEvent(%1,%2,%3)").arg(callId).arg(ip).arg(description));
 #endif
 	callTab[callId]->setAddressEvent(ip,description);
@@ -1437,7 +1437,7 @@ void Ihu::SlotAddressEvent(int callId,QString ip,QString description)
 // renyang-modify - 把接收到的一整個影像放到CallTab
 void Ihu::SlotputImage(QImage image,int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning("Ihu::SlotputImage()");
 #endif
 	callTab[callId]->setVideo(image);
@@ -1445,7 +1445,7 @@ void Ihu::SlotputImage(QImage image,int callId)
 
 void Ihu::SlotrequestPeerImage(int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Ihu::SlotrequestPeerImage(%1)").arg(callId));
 #endif
 	phone->requestPeerImage(callId);
@@ -1453,7 +1453,7 @@ void Ihu::SlotrequestPeerImage(int callId)
 
 void Ihu::SlotrequestImageFail(int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Ihu::SlotrequestImageFail(%1)").arg(callId));
 #endif
 	callTab[callId]->requestImageFail();
@@ -1461,7 +1461,7 @@ void Ihu::SlotrequestImageFail(int callId)
 
 void Ihu::SlotrequestPeerImageStop(int callId)
 {
-#ifdef REN_DEBUG
+#ifdef FANG_DEBUG
 	qWarning(QString("Ihu::SlotrequestPeerImageStop(%1)").arg(callId));
 #endif
 	phone->requestPeerImageStop(callId);

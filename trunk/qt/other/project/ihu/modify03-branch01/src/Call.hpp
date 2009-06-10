@@ -159,8 +159,6 @@ private:
 	bool IPChanging;
 	// renyang-modify - 每當改變Primary address時, 一段時間內不能再改變Primary address
 	QTimer *IPChangingTimer;
-	// renyang-modify - 記錄目前使用的primary address
-	QString callprimaddr;
 
 public slots:
 	void newConnection(int, int, struct sockaddr_in);

@@ -194,6 +194,22 @@ int SctpSocketHandler::SctpTurnOffAllEvent(int sd)
 
 QString SctpSocketHandler::SctpGetPrim(int sd)
 {
+#ifdef REN_DEBUG
+	qWarning("SctpSocketHandler::SctpGetPrim(%d)",sd);
+#endif
+        struct sctp_setprim setprim;
+        socklen_t setprimlen;
+        struct sockaddr_in *peeraddr;
+        int ret;
+    
+        setprimlen = sizeof(setprim);
+        ret = ::getsockopt(sd,IPPROTO_SCTP,SCTP_PRIMARY_ADDR,&setprim,&setprimlen);
+        if (ret == -1) {
+                throw Error(QString("SctpSocketHandler::SctpGetPrim Error"));
+        }
+        peeraddr = (struct sockaddr_in *) &setprim.ssp_addr;
+
+        return QString(::inet_ntoa(peeraddr->sin_addr));
 }
 
 void SctpSocketHandler :: SctpSetPrim(int sd,QString primaddr)
