@@ -272,7 +272,7 @@ void Transmitter::disableCrypt()
 }
 
 // renyang - 傳送封包
-void Transmitter::sendPacket(Packet *p)
+void Transmitter::sendPacket(Packet *p,int streamno, int ttl)
 {
 #ifdef REN_DEBUG
 	qWarning("Transmitter::sendPacket(Packet *p)");
@@ -285,7 +285,7 @@ void Transmitter::sendPacket(Packet *p)
 		if (protocol == IHU_UDP || protocol == IHU_TCP)
 			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
 		else if (protocol == IHU_SCTP) {
-			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,streamno,100,0);
+			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,streamno,ttl,0);
 		}
 		// renyang - 傳送失敗
 		if (snt <= 0)
@@ -390,7 +390,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
 			if (blowfish)
 				p->crypt(blowfish);
-			sendPacket(p);
+			sendPacket(p,1);
 			delete p;
 		}
 		catch (Error e)
@@ -710,7 +710,7 @@ void Transmitter::sendVideoPacket(char *data, int len)
 			Packet *p = new Packet (size);
 			// renyang - 建立Packet的內容
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
-			sendPacket(p);
+			sendPacket(p,2);
 			delete p;
 		}
 		catch (Error e)
@@ -734,22 +734,6 @@ void Transmitter::sendVideoNextPacket()
 	qWarning("Transmitter::sendVideoNextPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);
-}
-
-void Transmitter::setStreamNo(int no)
-{
-#ifdef FANG_DEBUG
-	qWarning(QString("Transmitter::setStreamNo(%1)").arg(no));
-#endif
-	streamno = no;
-}
-
-int Transmitter::getStreamNo()
-{
-#ifdef FANG_DEBUG
-	qWarning("Transmitter::getStreamNo()");
-#endif
-	return streamno;
 }
 
 void Transmitter::sendConfirmPacket()

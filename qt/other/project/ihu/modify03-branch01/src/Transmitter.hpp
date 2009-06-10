@@ -74,7 +74,7 @@ public:
 	long getTotal();
 	void enableCrypt(char *, int);
 	void disableCrypt();
-	void sendPacket(Packet *p);
+	void sendPacket(Packet *p,int streamno=0,int ttl=100);
 	void sendNewPacket(char*, int, char);
 	void sendSpecialPacket(char*, int, char);
 	void sendNamePacket(bool, char);
@@ -104,10 +104,6 @@ public:
 	void sendVideoNextPacket();
 	// renyang-modify - 送出要求image的封包
 	void sendVideoRequestPacket();
-	// renyang-modify - 設定傳送要使用的stream no
-	void setStreamNo(int);
-	// renyang-modify - 取得Transmiter目前在使用的stream no
-	int getStreamNo();
 	// renyang-modify - 向指定的IP傳送ConfirmPacket
 	void sendConfirmPacket();
 
@@ -135,8 +131,6 @@ private:
 	// renyang - 是否可以傳送資料
 	bool tx;
 	void emitSignal(signal_type);
-	// renyang-modify - 要傳送出去的stream no
-	int streamno;
 
 public slots:
 	void sendKeyRequestPacket();

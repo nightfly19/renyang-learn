@@ -32,6 +32,9 @@
 
 #define MAXBUFSIZE 65536
 
+// renyang-modify - 設定要求每一個frame若多久沒有收到則再要求下一個frame
+#define VIDEO_WAIT_LIMIT 2000
+
 Call::Call(int callId, QString myName)
 {
 #ifdef REN_DEBUG
@@ -85,6 +88,10 @@ Call::Call(int callId, QString myName)
 	// renyang-modify - 建立一個Timer來計數改完primary address後多久要改回IPChanging=false
 	IPChangingTimer = new QTimer(this);
 	connect(IPChangingTimer,SIGNAL(timeout()),this,SLOT(resetIPChanging()));
+
+	// renyang-modify - 每要求一個frame後, 若固定時間內沒有收到完整的frame的話, 則再要求下一個frame
+	videoTimer = new QTimer(this);
+	connect(videoTimer,SIGNAL(timeout()),this,SLOT(sendVideoRequest()));
 
 	// renyang-modify - 初始化傳送與接收image的index
 	recvImage_index = sendImage_index = 0;
@@ -246,7 +253,7 @@ void Call::call(QString host, int port, int prot)
 		// renyang - 由transmitter連線到server端, 回傳表示peer端的socket
 		sd = transmitter->call(host, port, prot);
 		// renyang-modify - 設定stream no
-		transmitter->setStreamNo(0);
+		// transmitter->setStreamNo(0);
 		// renyang - 接收端開始接收由對方回傳的資料並且判斷對方的動作
 		// renyang - 開始查看是否有新的資料由peer端傳送過來
 		receiver->start(sd, prot);
@@ -306,7 +313,7 @@ void Call::newConnection(int socketd, int protocol, struct sockaddr_in sa)
 	{
 		sd = socketd;
 		// renyang-modify - 設定transmitter的stream no
-		transmitter->setStreamNo(0);
+		// transmitter->setStreamNo(0);
 		// renyang - 建立一個專門給Transmitter使用的socket
 		transmitter->newConnection(sd, sa, protocol);
 		emit warning(QString("Incoming connection from %1!").arg(receiver->getIp()));
@@ -811,7 +818,7 @@ void Call::setPrimaddr(QString primaddr)
 		IPChangingTimer->start(10000,true);
 
 		// renyang-modify - 把目前的StreamNo增加2
-		transmitter->setStreamNo(transmitter->getStreamNo()+2);
+		// transmitter->setStreamNo(transmitter->getStreamNo()+2);
 
 		if (requestingVideo)
 		{
@@ -865,6 +872,9 @@ void Call::sendVideoRequest()
 	requestingVideo = true;
 	// renyang-modify - 在接收前先把recvImage_index歸0
 	recvImage_index = 0;
+	// renyang-modify - 每當要求一個frame, 若固定時間內沒有收到一整個frame的話, 則要再重新要求一整個frame
+	if (!videoTimer->isActive())
+		videoTimer->start(VIDEO_WAIT_LIMIT,true);
 }
 
 // renyang-modify - 當收到IHU_INFO_VIDEO_NEXT的封包時, 接收端執行此函式, 第一次傳封包也是用此函式
@@ -927,6 +937,10 @@ void Call::processImage()
 #ifdef FANG_DEBUG
 	qWarning("Call::processImage()");
 #endif
+	// renyang-modify - 收到一整個frame啦, 把videoTimer停止計時
+	if (videoTimer->isActive())
+		videoTimer->stop();
+
 	// renyang-modify - 收到的資料必需剛好是120*160*3+8
 	if (recvImage_index == 57608)
 	{
@@ -943,6 +957,11 @@ void Call::processImage()
 		}
 		emit SigputImage(image,id);
 		// renyang-modify - 若沒有傳送影像上去, 就不會要求下一個影像啦
+	}
+	else
+	{
+		// renyang-modify - 這一個影像傳送失敗, 再要求下一個影像
+		sendVideoRequest();
 	}
 }
 
@@ -971,6 +990,7 @@ void Call::SlotAddressConfirm(QString address)
 	qWarning(QString("Call::SlotAddressNoRecv(%1)").arg(address));
 #endif
 	// renyang-modify - 只有對不是primary address的ip要傳送confirm packet
+	/*
 	if (address != receiver->getPrimAddress())
 	{
 		int old_streamno = transmitter->getStreamNo();
@@ -980,7 +1000,7 @@ void Call::SlotAddressConfirm(QString address)
 		transmitter->sendConfirmPacket();
 		transmitter->setStreamNo(old_streamno);
 		SctpSocketHandler::SctpSetPrim(sd,old_address);
-	}
+	}*/
 }
 
 // renyang-modify - 某一個ip是不能通連的, 在固定時間內這一個ip都沒有收到任何資料
