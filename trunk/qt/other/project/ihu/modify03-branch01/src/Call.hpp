@@ -94,8 +94,6 @@ public:
 	bool isRecording();
 	// renyang-modify - 表示本機端的webcam有問題
 	void sendVideoFail();
-	// renyang-modify - 向peer端傳送要求video的封包
-	void sendVideoRequest();
 	// renyang-modify - 停止要求對方的video
 	void requestPeerImageStop();
 
@@ -159,6 +157,8 @@ private:
 	bool IPChanging;
 	// renyang-modify - 每當改變Primary address時, 一段時間內不能再改變Primary address
 	QTimer *IPChangingTimer;
+	// renyang-modify - 每當要求一個frame時，在一定的時間內沒有回傳回來的話，則要求下一個frame
+	QTimer *videoTimer;
 
 public slots:
 	void newConnection(int, int, struct sockaddr_in);
@@ -202,6 +202,8 @@ public slots:
 	void SlotAddressFail(QString);
 	// renyang-modify - 設定某一個ip原本不能使用, 現在可以使用啦
 	void SlotAddressAvailable(QString);
+	// renyang-modify - 向peer端傳送要求video的封包
+	void sendVideoRequest();
 	// renyang-modify - end
 
 signals:
