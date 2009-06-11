@@ -291,7 +291,7 @@ void Receiver::receive()
 				}
 				qWarning("using %d stream number to recv %d bytes from %s",sndrcvinfo.sinfo_stream,rlen,::inet_ntoa(peer.sin_addr));
 				// renyang-modify - 設定只有當streamno為偶數時, 才是傳送正常資料
-				if ((sndrcvinfo.sinfo_stream%2==0) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
+				if ((sndrcvinfo.sinfo_stream==9) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
 					// renyang-modify - 當對方更改ip時, 同時也會更新stream no
 					emit SigStreamNo(sndrcvinfo.sinfo_stream);
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
