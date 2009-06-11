@@ -990,17 +990,13 @@ void Call::SlotAddressConfirm(QString address)
 	qWarning(QString("Call::SlotAddressNoRecv(%1)").arg(address));
 #endif
 	// renyang-modify - 只有對不是primary address的ip要傳送confirm packet
-	/*
 	if (address != receiver->getPrimAddress())
 	{
-		int old_streamno = transmitter->getStreamNo();
 		QString old_address = receiver->getPrimAddress();
 		SctpSocketHandler::SctpSetPrim(sd,address);
-		transmitter->setStreamNo(old_streamno+1);
 		transmitter->sendConfirmPacket();
-		transmitter->setStreamNo(old_streamno);
 		SctpSocketHandler::SctpSetPrim(sd,old_address);
-	}*/
+	}
 }
 
 // renyang-modify - 某一個ip是不能通連的, 在固定時間內這一個ip都沒有收到任何資料
