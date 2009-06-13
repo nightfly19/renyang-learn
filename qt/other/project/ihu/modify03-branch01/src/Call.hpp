@@ -153,10 +153,6 @@ private:
 	int send_left;
 	// renyang-modify - 存放要放上去的image
 	QImage image;
-	// renyang-modify - 在設定完primary後, 有一段時間內不能再修改primary address
-	bool IPChanging;
-	// renyang-modify - 每當改變Primary address時, 一段時間內不能再改變Primary address
-	QTimer *IPChangingTimer;
 	// renyang-modify - 每當要求一個frame時，在一定的時間內沒有回傳回來的話，則要求下一個frame
 	QTimer *videoTimer;
 
@@ -194,8 +190,6 @@ public slots:
 	void processImage();
 	// renyang-modify - 向對方要求影像失敗
 	void SlotrequestImageFail();
-	// renyang-modify - 回復IPChanging
-	void resetIPChanging();
 	// renyang-modify - 像某一個ip傳送封包
 	void SlotAddressConfirm(QString);
 	// renyang-modify - 表示這一個ip宣告為無法連線

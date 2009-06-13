@@ -422,7 +422,7 @@ void Transmitter::sendSpecialPacket(char *data, int len, char type,int streamno,
 		// renyang - 建立封包
 		PacketHandler::buildPacket(p, data, len, type);
 		// renyang - 傳送封包
-		sendPacket(p);
+		sendPacket(p,streamno,ttl);
 		delete p;
 	}
 	catch (Error e)
