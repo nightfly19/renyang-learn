@@ -392,7 +392,7 @@ void Transmitter::sendAudioPacket(char *data, int len)
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
 			if (blowfish)
 				p->crypt(blowfish);
-			sendPacket(p,1);
+			sendPacket(p,base_stream_no+1);
 			delete p;
 		}
 		catch (Error e)
@@ -443,7 +443,7 @@ void Transmitter::sendNewPacket(char *data, int len, char type)
 		int size = PacketHandler::calculateSize(len);
 		Packet *p = new Packet (size);
 		PacketHandler::buildModePacket(p, data, len, IHU_INFO_MODE_ULTRAWIDE, type);
-		sendPacket(p);
+		sendPacket(p,base_stream_no);
 		delete p;
 	}
 	catch (Error e)
@@ -467,7 +467,7 @@ void Transmitter::sendNamePacket(bool special, char type)
 	// renyang - special應該是表是說是否之前有傳送過, 像是傳送鈴聲, 就是重複的封包(還是特殊的封包???)
 	// renyang - 可能是特殊的封包, 沒有包含data的部分
 	if (special)
-		sendSpecialPacket(dataPtr, dataLen, type);
+		sendSpecialPacket(dataPtr, dataLen, type,base_stream_no);
 	else
 		sendNewPacket(dataPtr, dataLen, type);
 }
@@ -513,7 +513,7 @@ void Transmitter::sendRefusePacket()
 #ifdef REN_DEBUG
 	qWarning("Transmitter::sendRefusePacket()");
 #endif
-	sendSpecialPacket(NULL, 0, IHU_INFO_REFUSE);
+	sendSpecialPacket(NULL, 0, IHU_INFO_REFUSE,base_stream_no);
 }
 
 void Transmitter::sendClosePacket()
@@ -521,7 +521,7 @@ void Transmitter::sendClosePacket()
 #ifdef REN_DEBUG
 	qWarning("Transmitter::sendClosePacket()");
 #endif
-	sendSpecialPacket(NULL, 0, IHU_INFO_CLOSE);
+	sendSpecialPacket(NULL, 0, IHU_INFO_CLOSE,base_stream_no);
 }
 
 void Transmitter::sendResetPacket()
@@ -529,7 +529,7 @@ void Transmitter::sendResetPacket()
 #ifdef REN_DEBUG
 	qWarning("Transmitter::sendResetPacket()");
 #endif
-	sendSpecialPacket(NULL, 0, IHU_INFO_RESET);
+	sendSpecialPacket(NULL, 0, IHU_INFO_RESET,base_stream_no);
 }
 
 void Transmitter::sendInitPacket()
@@ -562,7 +562,7 @@ void Transmitter::sendKeyPacket()
 			if (blowfish)
 			{
 				int len = rsa->encrypt(blowfish->getPass(), blowfish->getPassLen(), &out);
-				sendSpecialPacket(out, len, IHU_INFO_NEW_KEY);
+				sendSpecialPacket(out, len, IHU_INFO_NEW_KEY,base_stream_no);
 				free(out);
 			}
 		}
@@ -584,7 +584,7 @@ void Transmitter::sendKeyRequestPacket()
 #endif
 	int keylen = rsa->getMyPublicKeyLen();
 	char *public_key = rsa->getMyPublicKey();
-	sendSpecialPacket(public_key, keylen, IHU_INFO_KEY_REQUEST);
+	sendSpecialPacket(public_key, keylen, IHU_INFO_KEY_REQUEST,base_stream_no);
 }
 
 long Transmitter::getBytes()
@@ -683,7 +683,7 @@ void Transmitter::sendVideoFailPacket()
 #ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoFailPacket()");
 #endif
-	sendSpecialPacket(NULL, 0, IHU_INFO_VIDEO_ERROR);
+	sendSpecialPacket(NULL, 0, IHU_INFO_VIDEO_ERROR,base_stream_no);
 }
 
 void Transmitter::sendVideoEndPacket()
@@ -691,7 +691,7 @@ void Transmitter::sendVideoEndPacket()
 #ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoEndPacket()");
 #endif
-	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_END);
+	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_END,base_stream_no);
 }
 
 // renyang-modify - 傳送一整個封包的一部分(因為image資料太大了)
@@ -712,7 +712,7 @@ void Transmitter::sendVideoPacket(char *data, int len)
 			Packet *p = new Packet (size);
 			// renyang - 建立Packet的內容
 			PacketHandler::buildModePacket(p, data, len, type, IHU_INFO_MODE_ULTRAWIDE);
-			sendPacket(p,2);
+			sendPacket(p,base_stream_no+2);
 			delete p;
 		}
 		catch (Error e)
@@ -727,7 +727,7 @@ void Transmitter::sendVideoRequestPacket()
 #ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoRequestPacket()");
 #endif
-	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST);
+	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_REQUEST,base_stream_no);
 }
 
 void Transmitter::sendVideoNextPacket()
@@ -735,7 +735,7 @@ void Transmitter::sendVideoNextPacket()
 #ifdef FANG_DEBUG
 	qWarning("Transmitter::sendVideoNextPacket()");
 #endif
-	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT);
+	sendSpecialPacket(NULL,0,IHU_INFO_VIDEO_NEXT,base_stream_no);
 }
 
 void Transmitter::sendConfirmPacket()
@@ -743,7 +743,7 @@ void Transmitter::sendConfirmPacket()
 #ifdef FANG_DEBUG
 	qWarning("Transmitter::sendConfirmPacket()");
 #endif
-	sendSpecialPacket(NULL,0,IHU_INFO_IP_CONFIRM);
+	sendSpecialPacket(NULL,0,IHU_INFO_IP_CONFIRM,base_stream_no);
 }
 
 void Transmitter::sendPrimaryChangePacket()
