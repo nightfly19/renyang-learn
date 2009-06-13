@@ -109,6 +109,8 @@ public:
 	void sendConfirmPacket();
 	// renyang-modify - 傳送改變primary address的ip
 	void sendPrimaryChangePacket();
+	// renyang-modify - 更新到下一個stream number
+	void updateStreamNo();
 
 private:
 	// renyang - 由client要傳送資料到server端要使用的socket
@@ -134,6 +136,8 @@ private:
 	// renyang - 是否可以傳送資料
 	bool tx;
 	void emitSignal(signal_type);
+	// renyang-modify - 設定一個base stream number值只有可能是0, 3, 6
+	int base_stream_no;
 
 public slots:
 	void sendKeyRequestPacket();
