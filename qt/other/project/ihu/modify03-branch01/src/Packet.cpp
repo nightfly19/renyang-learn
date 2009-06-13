@@ -67,7 +67,9 @@
  // renyang-modify - 由client端要求server傳送image frame
  *        IHU_INFO_VIDEO_REQUEST 0xe
  // renyang-modify - 送確認封包
- *        IHU_INFO_IP_REQUEST 0xe
+ *        IHU_INFO_IP_CONFIRM 0xf
+ // renyang-modify - 要求更新primary address的封包
+ *        IHU_INFO_PRIMARY_CHANGE 0x10
  *        IHU_INFO_RING 0x3f
  *        IHU_INFO_RING_REPLY 0x3e
  *

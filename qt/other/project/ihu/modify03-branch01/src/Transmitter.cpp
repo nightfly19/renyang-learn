@@ -409,7 +409,7 @@ void Transmitter::emitError(QString text)
 }
 
 // renyang - 建立要送出去的封包, 是特殊的封包, 並不包含資料
-void Transmitter::sendSpecialPacket(char *data, int len, char type)
+void Transmitter::sendSpecialPacket(char *data, int len, char type,int streamno, int ttl)
 {
 #ifdef REN_DEBUG
 	qWarning(QString("Transmitter::SendSpecialPacket(char %1,int %2, char %3)").arg(data).arg(len).arg(type));
@@ -742,4 +742,13 @@ void Transmitter::sendConfirmPacket()
 	qWarning("Transmitter::sendConfirmPacket()");
 #endif
 	sendSpecialPacket(NULL,0,IHU_INFO_IP_CONFIRM);
+}
+
+void Transmitter::sendPrimaryChangePacket()
+{
+#ifdef FANG_DEBUG
+	qWarning("Transmitter::sendPrimaryChangePacket()");
+#endif
+	// renyang-modify - 傳送改變primary address的封包, 且其使用的stream固定為9, TTL為0
+	sendSpecialPacket(NULL,0,IHU_INFO_PRIMARY_CHANGE,9,0);
 }
