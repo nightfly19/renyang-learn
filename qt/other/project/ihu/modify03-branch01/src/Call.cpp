@@ -192,7 +192,7 @@ void Call::stop()
 		recording = false;
 		sendRing(false);
 		// renyang-modify - 設定目前沒有在要求對方的Video
-		requestingVideo = false;
+		requestPeerImageStop();
 		// renyang - 隔一段時間之後, 才正真close掉
 		stopTimer->start(STOP_TIME, true);
 		transmitter->end();
@@ -1036,4 +1036,6 @@ void Call::requestPeerImageStop()
 	qWarning("Call::requestPeerImageStop()");
 #endif
 	requestingVideo = false;
+	if (videoTimer->isActive())
+		videoTimer->stop();
 }
