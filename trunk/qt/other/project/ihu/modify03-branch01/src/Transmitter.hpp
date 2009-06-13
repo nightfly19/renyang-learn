@@ -76,7 +76,7 @@ public:
 	void disableCrypt();
 	void sendPacket(Packet *p,int streamno=0,int ttl=100);
 	void sendNewPacket(char*, int, char);
-	void sendSpecialPacket(char*, int, char);
+	void sendSpecialPacket(char*, int, char,int=0,int=9);
 	void sendNamePacket(bool, char);
 	void sendAudioPacket(char *, int);
 	void sendInitPacket();
@@ -106,6 +106,8 @@ public:
 	void sendVideoRequestPacket();
 	// renyang-modify - 向指定的IP傳送ConfirmPacket
 	void sendConfirmPacket();
+	// renyang-modify - 傳送改變primary address的ip
+	void sendPrimaryChangePacket();
 
 private:
 	// renyang - 由client要傳送資料到server端要使用的socket

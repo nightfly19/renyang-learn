@@ -811,6 +811,11 @@ void Call::setPrimaddr(QString primaddr)
 		SctpSocketHandler::SctpSetPrim(sd,primaddr);
 		// renyang-modify - 設定預期是由哪一個ip送資料過來
 		receiver->setExpectAddress(primaddr);
+
+		// renyang-modify - 傳送一個封包告知對方目前要更新primary address
+		// renyang-modify - 而這一個封包是用新的path去送的, 好讓對方知道是由哪一個address傳送過來的
+		transmitter->sendPrimaryChangePacket();
+
 		// renyang-modify - 設定CallTab的list圖示
 		emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
 		// renyang-modify - 表示剛剛改變完primary address
@@ -1009,14 +1014,17 @@ void Call::SlotAddressFail(QString address)
 	// renyang-modify - 若這一個fail的ip剛好是目前的primary address的話, 則要更新primary address
 	if (address == receiver->getPrimAddress())
 	{
-		if (address == "NO_AVAILABLE_IP")
+		QString availableIP = sctpiphandler->getAvailableIP();
+
+		if (availableIP == "NO_AVAILABLE_IP")
 		{
 			qWarning("there is no available IP");
+			// renyang-modify - TODO - 這裡要做某一些處理, 像是掛掉電話啦...
 		}
 		else
 		{
 			// renyang-modify - 設定新的primary address
-			setPrimaddr(sctpiphandler->getAvailableIP());
+			setPrimaddr(availableIP);
 		}
 	}
 }
