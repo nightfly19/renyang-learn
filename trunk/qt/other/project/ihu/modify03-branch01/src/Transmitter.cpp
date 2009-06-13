@@ -247,6 +247,9 @@ void Transmitter::end()
 	stop();
 	
 	timer->stop();
+
+	// renyang-modify - 每當連線停止時, stream number重新算
+	base_stream_no = 0;
 	
 	s = -1;
 }
