@@ -608,7 +608,7 @@ void CallTab::primButtonClicked()
 		for (i=0;i<hostList->count();i++)
 		{
 			if (hostList->isSelected(i) && hostList->item(i)->isSelectable()) {
-				// renyang - 設定其中一個為primary address
+				// renyang - 設定被選擇的ip為primary address
 				qWarning(hostList->text(i));
 				emit setPrimaddrSignal(callId,hostList->text(i));
 				break;

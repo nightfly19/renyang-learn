@@ -67,6 +67,8 @@ void Transmitter::reset()
 	ringing = false;
 	active = false;
 	tx = false;
+	// renyang-modify - 設定base_stream_no為0
+	base_stream_no = 0;
 }
 
 // renyang - 設定真實的socket protocal, 並且把自定的protocal(IHU_TCP或IHU_UDP)存在protocol
@@ -751,4 +753,20 @@ void Transmitter::sendPrimaryChangePacket()
 #endif
 	// renyang-modify - 傳送改變primary address的封包, 且其使用的stream固定為9, TTL為0
 	sendSpecialPacket(NULL,0,IHU_INFO_PRIMARY_CHANGE,9,0);
+}
+
+void Transmitter::updateStreamNo()
+{
+#ifdef FANG_DEBUG
+	qWarning("Transmitter::updateStreamNo()");
+#endif
+	switch(base_stream_no)
+	{
+		case 0:
+		case 3:
+			base_stream_no += 3;
+			break;
+		default:
+			base_stream_no = 0;
+	}
 }
