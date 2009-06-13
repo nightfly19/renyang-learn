@@ -83,12 +83,6 @@ Call::Call(int callId, QString myName)
 	// renyang-modify - 目前是否有在要求對方的Video
 	requestingVideo = false;
 
-	// renyang-modify - 初始化IPChanging, 表示最近沒有改變primary address
-	IPChanging = false;
-	// renyang-modify - 建立一個Timer來計數改完primary address後多久要改回IPChanging=false
-	IPChangingTimer = new QTimer(this);
-	connect(IPChangingTimer,SIGNAL(timeout()),this,SLOT(resetIPChanging()));
-
 	// renyang-modify - 每要求一個frame後, 若固定時間內沒有收到完整的frame的話, 則再要求下一個frame
 	videoTimer = new QTimer(this);
 	connect(videoTimer,SIGNAL(timeout()),this,SLOT(sendVideoRequest()));
@@ -806,30 +800,22 @@ void Call::setPrimaddr(QString primaddr)
 #ifdef FANG_DEBUG
 	qWarning(QString("Call::setPrimaddr(%1)").arg(primaddr));
 #endif
-	if (IPChanging == false)
+	SctpSocketHandler::SctpSetPrim(sd,primaddr);
+	// renyang-modify - 設定預期是由哪一個ip送資料過來
+	receiver->setExpectAddress(primaddr);
+
+	// renyang-modify - 傳送一個封包告知對方目前要更新primary address
+	// renyang-modify - 而這一個封包是用新的path去送的, 好讓對方知道是由哪一個address傳送過來的
+	transmitter->sendPrimaryChangePacket();
+
+	// renyang-modify - 設定CallTab的list圖示
+	emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
+	// renyang-modify - 表示剛剛改變完primary address
+
+	if (requestingVideo)
 	{
-		SctpSocketHandler::SctpSetPrim(sd,primaddr);
-		// renyang-modify - 設定預期是由哪一個ip送資料過來
-		receiver->setExpectAddress(primaddr);
-
-		// renyang-modify - 傳送一個封包告知對方目前要更新primary address
-		// renyang-modify - 而這一個封包是用新的path去送的, 好讓對方知道是由哪一個address傳送過來的
-		transmitter->sendPrimaryChangePacket();
-
-		// renyang-modify - 設定CallTab的list圖示
-		emit SigAddressEvent(id,primaddr,"PRIMARY ADDRESS");
-		// renyang-modify - 表示剛剛改變完primary address
-		IPChanging = true;
-		IPChangingTimer->start(10000,true);
-
-		// renyang-modify - 把目前的StreamNo增加2
-		// transmitter->setStreamNo(transmitter->getStreamNo()+2);
-
-		if (requestingVideo)
-		{
-			// renyang-modify - 若在接收的情況下, 則在要求下一個Video
-			sendVideoRequest();
-		}
+		// renyang-modify - 若在接收的情況下, 則在要求下一個Video
+		sendVideoRequest();
 	}
 }
 
@@ -902,6 +888,12 @@ void Call::sendVideo()
 		// renyang-modify - 這裡不需要初始化sendImage_index是因為
 		// renyang-modify - 只有當對方要求一整個image的第一個封包時, 才會初始化sendImage_index
 		transmitter->sendVideoEndPacket();
+		// renyang-modify - 用來表示我已傳送一個EndPacket()給對方啦
+		send_left = -1;
+	}
+	else if (send_left == -1)
+	{
+		// do nothing
 	}
 	else
 	{
@@ -979,14 +971,6 @@ void Call::SlotrequestImageFail()
 	// renyang-modify - 不再等待對方傳送影像資料過來
 	requestingVideo = false;
 	emit SigrequestImageFail(id);
-}
-
-void Call::resetIPChanging()
-{
-#ifdef FANG_DEBUG
-	qWarning("Call::resetIPChanging()");
-#endif
-	IPChanging = false;
 }
 
 void Call::SlotAddressConfirm(QString address)

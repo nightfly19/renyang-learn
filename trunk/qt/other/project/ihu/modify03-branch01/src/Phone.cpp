@@ -1546,6 +1546,7 @@ void Phone::SlotGetImage(char *image_matrix,int callId)
 	// renyang-modify - 先測試目前camera的情況
 	if (camera_status == VIDEO_STATUS_STOP)
 	{
+		qWarning("Start VIDEO device");
 		startVideo();
 	}
 
