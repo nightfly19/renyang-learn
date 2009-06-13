@@ -804,6 +804,9 @@ void Call::setPrimaddr(QString primaddr)
 	// renyang-modify - 設定預期是由哪一個ip送資料過來
 	receiver->setExpectAddress(primaddr);
 
+	// renyang-modify - 更新stream number
+	transmitter->updateStreamNo();
+
 	// renyang-modify - 傳送一個封包告知對方目前要更新primary address
 	// renyang-modify - 而這一個封包是用新的path去送的, 好讓對方知道是由哪一個address傳送過來的
 	transmitter->sendPrimaryChangePacket();
