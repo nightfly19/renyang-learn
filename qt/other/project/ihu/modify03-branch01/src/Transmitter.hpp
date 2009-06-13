@@ -77,7 +77,7 @@ public:
 	// renyang-modify - 預設是傳送特殊封包streamno為0, ttl為100
 	void sendPacket(Packet *p,int streamno=0,int ttl=100);
 	void sendNewPacket(char*, int, char);
-	void sendSpecialPacket(char*, int, char,int streamno=0,int ttl=100);
+	void sendSpecialPacket(char*, int, char,int,int ttl=100);
 	void sendNamePacket(bool, char);
 	void sendAudioPacket(char *, int);
 	void sendInitPacket();
