@@ -1,0 +1,16 @@
+server端
+./serv
+
+client端
+./clnt
+
+問題:當連續執行client，會出現
+「getsockopt error: Invalid argument」
+的錯誤訊息，不知道是不是因為不能同時使用那麼多個system call
+
+[Socket_Options/SCTP_GET_PEER_ADDR_INFO/getsockopt/version01]
+透過getsockopt取得對方網路的現在的狀況
+
+[Socket_Options/SCTP_GET_PEER_ADDR_INFO/sctp_opt_info/version01]
+改用sctp_opt_info來取得訊息
+但是, 多次才會成功一次
