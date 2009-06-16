@@ -78,7 +78,9 @@ void SctpIPHandler::setRecvingTime(QString &IP)
 		else
 		{
 			it.data().recv.restart();
+			#ifdef FANG_DEBUG
 			qWarning(QString("set the %1 to be true").arg(it.key()));
+			#endif
 			it.data().connection = true;
 			emit SigAddressAvailable(it.key());
 		}
@@ -114,10 +116,14 @@ void SctpIPHandler::checkReceive()
 			if (currentTime.msecsTo(it.data().recv)<-3000)
 			{
 				// renyang-modify - 設定沒有辦法連通
+				#ifdef FANG_DEBUG
 				qWarning(QString("set the %1 to be false").arg(it.key()));
+				#endif
 				it.data().connection = false;
 				emit SigAddressFail(it.key());
+				#ifdef FANG_DEBUG
 				qWarning(QString("We don't recv any data within this time from %1").arg(it.key()));
+				#endif
 			}
 		}
 	}
