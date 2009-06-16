@@ -300,7 +300,9 @@ void Transmitter::sendPacket(Packet *p,int streamno, int ttl)
 		else
 		{
 			// renyang - 用來計算一共傳送多少資料出去
+			#ifdef FANG_DEBUG
 			qWarning(QString("using the %1 stream no to send %2 bytes to %3").arg(streamno).arg(snt).arg(SctpSocketHandler::SctpGetPrim(s)));
+			#endif
 			bytes += snt;
 			total += snt;
 			active = true;

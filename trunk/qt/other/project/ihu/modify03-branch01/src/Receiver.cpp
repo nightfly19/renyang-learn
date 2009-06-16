@@ -283,16 +283,22 @@ void Receiver::receive()
 				rlen = ::recv(s, inputBuffer, IN_BUFSIZE, 0);
 				break;
 			case IHU_SCTP:
+				#ifdef FANG_DEBUG
 				qWarning("get some data from sctp");
+				#endif
 				rlen = ::sctp_recvmsg(s,inputBuffer,IN_BUFSIZE,(struct sockaddr *) &peer,&peerlen,&sndrcvinfo,&msg_flag);
 				if (msg_flag & MSG_NOTIFICATION) {
 					emitSctpEvent(inputBuffer);
 					return ;
 				}
+				#ifdef FANG_DEBUG
 				qWarning("using %d stream number to recv %d bytes from %s",sndrcvinfo.sinfo_stream,rlen,::inet_ntoa(peer.sin_addr));
+				#endif
 				// renyang-modify - 設定只有當streamno為偶數時, 才是傳送正常資料
 				if ((sndrcvinfo.sinfo_stream==9) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
+					#ifdef FANG_DEBUG
 					qWarning("I got the packet form stream 9 and want to change primary address");
+					#endif
 					// renyang-modify - 當對方更改ip時, 同時也會更新stream no
 					emit SigStreamNo(sndrcvinfo.sinfo_stream);
 					// renyang - 當送過來的與之前送過來的位置不同, 則設定此address為primaddr
@@ -568,16 +574,22 @@ bool Receiver::processPacket(Packet *p)
 			break;
 		// renyang - 對方要求Image(影像)
 		case IHU_INFO_VIDEO_REQUEST:
+			#ifdef FANG_DEBUG
 			qWarning("IHU_INFO_VIDEO_REQUEST");
+			#endif
 			emit requestImage();
 			break;
 		// renyang-modify - 要求對方影像失敗
 		case IHU_INFO_VIDEO_ERROR:
+			#ifdef FANG_DEBUG
 			qWarning("IHU_INFO_VIDEO_ERROR");
+			#endif
 			emit requestImageFail();
 			break;
 		case IHU_INFO_VIDEO:
+			#ifdef FANG_DEBUG
 			qWarning("IHU_INFO_VIDEO");
+			#endif
 			// renyang-modify - 接收到片斷的image, 把資料放到Call::RecvImage中
 			if (p->getDataLen() > MIN_DATA_SIZE)
 			{
@@ -586,11 +598,15 @@ bool Receiver::processPacket(Packet *p)
 			connected = true;
 			break;
 		case IHU_INFO_VIDEO_NEXT:
+			#ifdef FANG_DEBUGg
 			qWarning("IHU_INFO_VIDEO_NEXT");
+			#endif
 			emit requestNextImage();
 			break;
 		case IHU_INFO_VIDEO_END:
+			#ifdef FANG_DEBUG
 			qWarning("IHU_INFO_VIDEO_END");
+			#endif
 			emit completeImage();
 			break;
 	}

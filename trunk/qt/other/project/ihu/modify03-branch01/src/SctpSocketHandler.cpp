@@ -236,7 +236,9 @@ void SctpSocketHandler :: SctpSetPrim(int sd,QString primaddr)
 		return ;
 	}
 
+	#ifdef FANG_DEBUG
 	qWarning(QString("want to change the primary to %1").arg(primaddr));
+	#endif
 }
 
 void SctpSocketHandler :: SctpSetPeerPrim(int sd)
