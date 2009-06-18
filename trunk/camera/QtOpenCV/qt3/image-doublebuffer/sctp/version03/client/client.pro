@@ -7,7 +7,7 @@ INCLUDEPATH += .
 INCLUDEPATH += ..
 
 # 設定要檢示錯誤訊息
-# DEFINES += REN_DEBUG
+DEFINES += REN_DEBUG
 
 LIBS += -lsctp
 

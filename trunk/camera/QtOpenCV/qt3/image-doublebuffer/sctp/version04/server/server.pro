@@ -7,6 +7,9 @@ INCLUDEPATH += . ..
 
 LIBS += -lsctp -lcv -lhighgui
 
+# 設定是否檢視訊息
+# DEFINES += REN_DEBUG
+
 # Input
 HEADERS += SctpSocketServer.h ../common.h
 SOURCES += main.cpp SctpSocketServer.cpp

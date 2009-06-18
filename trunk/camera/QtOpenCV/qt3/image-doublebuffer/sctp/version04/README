@@ -22,3 +22,4 @@ client端會依傳送影像的大小改變視窗大小
 
 [version04]
 把server端改由QSocketNotifier來判斷是否有收到資料
+若要檢視註解, 請把*.pro的DEFINES前的註解拿掉
