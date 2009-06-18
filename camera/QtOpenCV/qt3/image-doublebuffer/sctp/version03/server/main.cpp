@@ -132,6 +132,12 @@ void analyze(char *instruction,int connfd)
 			{
 				// 通知client取得frame過程錯誤
 				ret = sctp_sendmsg(connfd,IMAGE_ERROR,strlen(IMAGE_ERROR),(struct sockaddr *) NULL,0,0,0,0,0,0);
+#ifdef REN_DEBUGgg
+				if (ret <= 0)
+					perror("send IMAGE_ERROR error");
+				else
+					printf("send IMAGE_ERROR");
+#endif
 			}
 		}
 		// 嘗試取得第一個frame
@@ -139,11 +145,23 @@ void analyze(char *instruction,int connfd)
 		{
 			// 通知client取得frame過程錯誤
 			ret = sctp_sendmsg(connfd,IMAGE_ERROR,strlen(IMAGE_ERROR),(struct sockaddr *) NULL,0,0,0,0,0,0);
+#ifdef REN_DEBUG
+			if (ret <= 0)
+				perror("send IMAGE_ERROR error");
+			else
+				printf("send IMAGE_ERROR");
+#endif
 		}
 		else
 		{
 			// 通知client可以正常取得frame
 			ret = sctp_sendmsg(connfd,IMAGE_OK,strlen(IMAGE_OK),(struct sockaddr *) NULL,0,0,0,0,0,0);
+#ifdef REN_DEBUG
+			if (ret <= 0)
+				perror("send IMAGE_OK error");
+			else
+				printf("send IAMGE_OK");
+#endif
 		}
 	}
 	else if (strcmp(instruction,IMAGE_SPACE_PREPARE_OK)==0)
@@ -191,26 +209,31 @@ void SDStruct(int connfd)
 		if (ReadByte>0)
 		{
 			ret = sctp_sendmsg(connfd,ptr+begin,ReadByte,(struct sockaddr *) NULL,0,0,0,0,0,0);
+#ifdef REN_DEBUG
 			if (ret<=0)
 			{
-				printf("sctp_sendmsg error\n");
+				perror("sctp_sendmsg error\n");
 				return ;
 			}
 			else
 			{
 				// printf("send some data\n");
+				printf("send imagedata");
 			}
+#endif
 			bzero(recvbuff,MAX_BUFFER);
 			// 等待對方確實收到資料
 			ret = sctp_recvmsg(connfd,recvbuff,MAX_BUFFER,(struct sockaddr *) NULL,(socklen_t *) NULL,NULL,NULL);
 			if (ret <=0)
 			{
-				printf("sctp_recvmsg error\n");
+				perror("sctp_recvmsg error\n");
 				return ;
 			}
 			else
 			{
-				// printf("got some data\n");
+#ifdef REN_DEBUG
+				printf("recv image data");
+#endif
 				begin+=ReadByte;
 			}
 		}
@@ -221,6 +244,12 @@ void SDStruct(int connfd)
 	}while(true);
 	// 表示檔案已傳送結束
 	ret = sctp_sendmsg(connfd,IMAGE_END,strlen(IMAGE_END),(struct sockaddr *) NULL,0,0,0,0,0,0);
+#ifdef REN_DEBUG
+	if (ret <= 0)
+		perror("send IMAGE_END error");
+	else
+		printf("send IMAGE_END");
+#endif
 	printf("\nClient imagedata Finish!!\n");
 }
 
