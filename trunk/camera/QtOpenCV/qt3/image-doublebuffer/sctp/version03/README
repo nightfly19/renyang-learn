@@ -21,4 +21,4 @@ client端會依傳送影像的大小改變視窗大小
 ...
 在server端可以檢視debug訊息, 請使用make debug=on
 
-同樣的, 在client端也可以檢視debug訊息, 請使用make debug=on
+同樣的, 在client端也可以檢視debug訊息, 請到client.pro把DEFINES前面的#去掉

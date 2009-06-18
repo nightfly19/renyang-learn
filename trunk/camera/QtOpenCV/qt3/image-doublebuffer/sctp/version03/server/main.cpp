@@ -136,7 +136,7 @@ void analyze(char *instruction,int connfd)
 				if (ret <= 0)
 					perror("send IMAGE_ERROR error");
 				else
-					printf("send IMAGE_ERROR");
+					printf("send IMAGE_ERROR\n");
 #endif
 			}
 		}
@@ -149,7 +149,7 @@ void analyze(char *instruction,int connfd)
 			if (ret <= 0)
 				perror("send IMAGE_ERROR error");
 			else
-				printf("send IMAGE_ERROR");
+				printf("send IMAGE_ERROR\n");
 #endif
 		}
 		else
@@ -160,7 +160,7 @@ void analyze(char *instruction,int connfd)
 			if (ret <= 0)
 				perror("send IMAGE_OK error");
 			else
-				printf("send IAMGE_OK");
+				printf("send IAMGE_OK\n");
 #endif
 		}
 	}
@@ -218,7 +218,7 @@ void SDStruct(int connfd)
 			else
 			{
 				// printf("send some data\n");
-				printf("send imagedata");
+				printf("send imagedata\n");
 			}
 #endif
 			bzero(recvbuff,MAX_BUFFER);
@@ -232,7 +232,7 @@ void SDStruct(int connfd)
 			else
 			{
 #ifdef REN_DEBUG
-				printf("recv image data");
+				printf("recv image data\n");
 #endif
 				begin+=ReadByte;
 			}
@@ -248,7 +248,7 @@ void SDStruct(int connfd)
 	if (ret <= 0)
 		perror("send IMAGE_END error");
 	else
-		printf("send IMAGE_END");
+		printf("send IMAGE_END\n");
 #endif
 	printf("\nClient imagedata Finish!!\n");
 }
