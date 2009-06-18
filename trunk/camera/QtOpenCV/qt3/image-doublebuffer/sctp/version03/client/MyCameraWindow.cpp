@@ -55,7 +55,13 @@ void MyCameraWindow::startVideo()
 	int rd_sz;
 	rd_sz = ::sctp_sendmsg(connfd,IMAGE_START,strlen(IMAGE_START),(struct sockaddr *) NULL,0,0,0,0,0,0);
 	if (rd_sz < 0)
-		perror("sctp_sendmsg error");
+		qWarning("sctp_sendmsg error");
+	else
+	{
+#ifdef REN_DEBUG
+		qWarning("send IMAGE_START");
+#endif
+	}
 }
 
 void MyCameraWindow::Recvdata()
@@ -72,11 +78,21 @@ void MyCameraWindow::Recvdata()
 	}
 	else
 	{
-		printf("get some data\n");
+#ifdef REN_DEBUG
+		qWarning("get some data");
+#endif
 		if (strcmp(buffer,IMAGE_OK)==0)
 		{
 			ret = ::sctp_sendmsg(connfd,IMAGE_SPACE_PREPARE_OK,strlen(IMAGE_SPACE_PREPARE_OK),NULL,0,0,0,0,0,0);
-			receiving = true;
+			if (ret <= 0)
+				qWarning("sctp_sendmsg error");
+			else
+			{
+				receiving = true;
+#ifdef REN_DEBUG
+				qWarning("send IMAGE_SPACE_PREPARE_OK");
+#endif
+			}
 		}
 		else if (strcmp(buffer,IMAGE_END)==0)
 		{
@@ -94,6 +110,14 @@ void MyCameraWindow::Recvdata()
 			memcpy(ptr+begin,buffer,ret);
 			begin+=ret;
 			ret = ::sctp_sendmsg(connfd,IMAGE_RECVING,strlen(IMAGE_RECVING),NULL,0,0,0,0,0,0);
+			if (ret <= 0)
+				qWarning("sctp_sendmsg error");
+			else
+			{
+#ifdef REN_DEBUG
+				qWarning("send IMAGE_RECVING");
+#endif
+			}
 		}
 	}
 }
