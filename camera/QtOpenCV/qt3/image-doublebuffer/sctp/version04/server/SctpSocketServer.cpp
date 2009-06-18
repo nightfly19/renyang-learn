@@ -96,6 +96,10 @@ int SctpSocketServer::recv(int s)
 		return ret;
 	}
 
+#ifdef REN_DEBUG
+	qWarning("recv some data");
+#endif
+
 	analyze(recvbuffer);
 
 	connfd = s;
@@ -114,6 +118,14 @@ void SctpSocketServer::analyze(char *instruction)
 			{
 				// 通知client端取得frame過程錯誤
 				ret = ::sctp_sendmsg(connfd,IMAGE_ERROR,strlen(IMAGE_ERROR),(struct sockaddr *) NULL,0,0,0,0,0,0);
+				if (ret <=0)
+					qWarning("send IMAGE_ERROR error");
+				else
+				{
+#ifdef REN_DEBUG
+					qWarning("send IMAGE_ERROR");
+#endif
+				}
 			}
 		}
 
@@ -122,11 +134,27 @@ void SctpSocketServer::analyze(char *instruction)
 		{
 			// 通知client取得frame過程錯誤
 			ret = sctp_sendmsg(connfd,IMAGE_ERROR,strlen(IMAGE_ERROR),(struct sockaddr *) NULL,0,0,0,0,0,0);
+			if (ret <= 0)
+				qWarning("send IMAGE_ERROR error");
+			else
+			{
+#ifdef REN_DEBUG
+				qWarning("send IMAGE_ERROR");
+#endif
+			}
 		}
 		else
 		{
 			// 通知client可以正常取得frame
 			ret = sctp_sendmsg(connfd,IMAGE_OK,strlen(IMAGE_OK),(struct sockaddr *) NULL,0,0,0,0,0,0);
+			if (ret <= 0)
+				qWarning("send IMAGE_OK error");
+			else
+			{
+#ifdef REN_DEBUG
+				qWarning("send IMAGE_OK");
+#endif
+			}
 		}
 	}
 	else if (strcmp(instruction,IMAGE_SPACE_PREPARE_OK)==0)
@@ -202,7 +230,9 @@ void SctpSocketServer::SDStruct()
 		}
 		else
 		{
-			//qWarning("send some data");
+#ifdef REN_DEBUG
+			qWarning("send image data");
+#endif
 			begin+=ReadyByte;
 		}
 	}
@@ -210,6 +240,14 @@ void SctpSocketServer::SDStruct()
 	{
 		// 表示檔案已傳送結束
 		ret = ::sctp_sendmsg(connfd,IMAGE_END,strlen(IMAGE_END),(struct sockaddr *) NULL,0,0,0,0,0,0);
+		if (ret <= 0)
+			qWarning("send IMAGE_END error");
+#ifdef REN_DEBUG
+		else
+		{
+			qWarning("send IMAGE_END");
+		}
 		qWarning("Client imagedata Finish!!");
+#endif
 	}
 }

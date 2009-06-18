@@ -6,6 +6,9 @@ TEMPLATE = app
 INCLUDEPATH += .
 INCLUDEPATH += ..
 
+# 加入可以檢視傳送接收訊息的註解
+# DEFINES += REN_DEBUG
+
 LIBS += -lsctp
 
 # Input
