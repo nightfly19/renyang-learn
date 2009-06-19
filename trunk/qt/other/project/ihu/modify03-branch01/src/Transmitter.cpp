@@ -290,7 +290,7 @@ void Transmitter::sendPacket(Packet *p,int streamno, int ttl)
 		if (protocol == IHU_UDP || protocol == IHU_TCP)
 			snt = ::send(s, p->getPacket(), p->getSize(), MSG_NOSIGNAL);
 		else if (protocol == IHU_SCTP) {
-			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,streamno,ttl,0);
+			snt = ::sctp_sendmsg(s,p->getPacket(),p->getSize(),(struct sockaddr *)NULL,0,0,0,streamno,1000,0);
 		}
 		// renyang - 傳送失敗
 		if (snt <= 0)
@@ -300,7 +300,7 @@ void Transmitter::sendPacket(Packet *p,int streamno, int ttl)
 		else
 		{
 			// renyang - 用來計算一共傳送多少資料出去
-			#ifdef FANG_DEBUG
+			#ifdef YANG_DEBUG
 			qWarning(QString("using the %1 stream no to send %2 bytes to %3").arg(streamno).arg(snt).arg(SctpSocketHandler::SctpGetPrim(s)));
 			#endif
 			bytes += snt;

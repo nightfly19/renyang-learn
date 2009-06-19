@@ -26,8 +26,8 @@ void SctpIPHandler::start()
 #ifdef REN_DEBUG
 	qWarning("SctpIPHandler::start()");
 #endif
-	checkReceiveTimer->start(1000);
-	checkSendTimer->start(500);
+	// checkReceiveTimer->start(1000);
+	// checkSendTimer->start(500);
 }
 
 void SctpIPHandler::addIP(QString &IP)
