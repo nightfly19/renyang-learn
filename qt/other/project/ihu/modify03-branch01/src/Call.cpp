@@ -584,8 +584,8 @@ bool Call::mixData(float *buf, int len, float balance)
 // renyang - 把解碼之後的音訊放到soundBuffer中
 void Call::putData(float *buf, int len)
 {
-#ifdef REN_DEBUG
-	qWarning(QString("Call::putData() - readyFrames: %1 len: %2").arg(readyFrames).arg(len));;
+#ifdef YANG_DEBUG
+	qWarning(QString("Call::putData() - readyFrames: %1 len: %2 remain_space:%3").arg(readyFrames).arg(len).arg(MAXBUFSIZE - readyFrames));;
 #endif
 	// renyang - 若目前這一個stream的長度小於MAXBUFSIZE扣掉以經好的, 但是還沒有被讀取的stream還有空間的話
 	// renyang - 則再塞資料進去
