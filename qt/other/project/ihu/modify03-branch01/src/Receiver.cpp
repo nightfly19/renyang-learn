@@ -296,7 +296,7 @@ void Receiver::receive()
 				#endif
 				// renyang-modify - 設定只有當streamno為偶數時, 才是傳送正常資料
 				if ((sndrcvinfo.sinfo_stream==9) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
-					#ifdef YANG_DEBUG
+					#ifdef REN_DEBUG
 					qWarning("I got the packet form stream 9 and want to change primary address");
 					#endif
 					// renyang-modify - 當對方更改ip時, 同時也會更新stream no

@@ -9,12 +9,17 @@
 class IPStruct
 {
 	public:
+		IPStruct()
+		{
+			ConfirmTimer = new QTimer();
+		}
 		// renyang-modify - 記錄上一次接收資料的時間是什麼時候
 		QTime recv;
 		// renyang-modify - 記錄上次傳送資料的時間是什麼時候
 		QTime send;
 		// renyang-modify - 本地端到對方是否是連通的
 		bool connection;
+		QTimer *ConfirmTimer;
 };
 
 class SctpIPHandler:public QObject
