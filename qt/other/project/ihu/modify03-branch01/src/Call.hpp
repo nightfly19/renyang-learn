@@ -96,6 +96,8 @@ public:
 	void sendVideoFail();
 	// renyang-modify - 停止要求對方的video
 	void requestPeerImageStop();
+	// renyang-modify - 告知SctpIPHandler某一個ip相聯的情況
+	void AddressInfo(QString,bool);
 
 private:
 	// renyang - 表示目前call id

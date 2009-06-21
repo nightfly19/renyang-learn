@@ -186,6 +186,8 @@ public:
 	void requestPeerImage(int);
 	// renyang-modify - 停止跟對方要求影像
 	void requestPeerImageStop(int);
+	// renyang-modify - 告知SctpIPHandler某一個ip相聯的情況
+	void AddressInfo(int,QString,bool);
 
 private:
 

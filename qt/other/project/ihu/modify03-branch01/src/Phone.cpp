@@ -1647,3 +1647,11 @@ void Phone::requestPeerImageStop(int callId)
 #endif
 	calls[callId]->requestPeerImageStop();
 }
+
+void Phone::AddressInfo(int callId, QString IP,bool enabled)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Phone::AddressInfo(%1,%2,%3)").arg(callId).arg(IP).arg(enabled));
+#endif
+	calls[callId]->AddressInfo(IP,enabled);
+}

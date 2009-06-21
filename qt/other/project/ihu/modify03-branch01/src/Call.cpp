@@ -1003,6 +1003,9 @@ void Call::SlotAddressFail(QString address)
 		// renyang-modify - 只有檢查primary address才要檢查是否有收到資料
 		emit SigAddressEvent(id,address,QString("SlotAddressFail"));
 
+		// renyang-modify - 設定某一個ip是與對方是不連通的
+		sctpiphandler->setIPConnectable(address,false);
+
 		QString availableIP = sctpiphandler->getAvailableIP();
 
 		if (availableIP == "NO_AVAILABLE_IP")
@@ -1035,4 +1038,12 @@ void Call::requestPeerImageStop()
 	requestingVideo = false;
 	if (videoTimer->isActive())
 		videoTimer->stop();
+}
+
+void Call::AddressInfo(QString IP, bool enabled)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Call::AddressInfo(%1,%2)").arg(IP).arg(enabled));
+#endif
+	sctpiphandler->setIPConnectable(IP,enabled);
 }

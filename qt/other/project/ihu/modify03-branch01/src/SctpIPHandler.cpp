@@ -119,7 +119,8 @@ void SctpIPHandler::checkReceive()
 				#ifdef FANG_DEBUG
 				qWarning(QString("set the %1 to be false").arg(it.key()));
 				#endif
-				it.data().connection = false;
+				// renyang-modify - 不在這裡設定是否有收到資料
+				// it.data().connection = false;
 				emit SigAddressFail(it.key());
 				#ifdef FANG_DEBUG
 				qWarning(QString("We don't recv any data within this time from %1").arg(it.key()));
@@ -163,4 +164,23 @@ QString SctpIPHandler::getAvailableIP()
 		}
 	}
 	return QString("NO_AVAILABLE_IP");
+}
+
+void SctpIPHandler::setIPConnectable(QString IP, bool enabled)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("SctpIPHander::setIPConnectable(%1,%2)").arg(IP).arg(enabled));
+#endif
+	if (!IP2Info.empty())
+	{
+		QMap<QString,IPStruct>::Iterator it;
+		if ((it=IP2Info.find(IP)) == IP2Info.end())
+		{
+			qWarning("there is no match IP");
+		}
+		else
+		{
+			it.data().connection = enabled;
+		}
+	}
 }
