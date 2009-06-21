@@ -81,7 +81,7 @@ public:
 	// renyang-modify - 宣告camera的狀態
 	enum video_status {
 		// renyang - 已被初始化並且可以擷取圖片
-		VIDEO_STATUS_RUNINGING = 0,
+		VIDEO_STATUS_RUNING = 0,
 		// renyang - 已被停止
 		VIDEO_STATUS_STOP,
 		// renyang - 曾經初始化過, 但確失敗

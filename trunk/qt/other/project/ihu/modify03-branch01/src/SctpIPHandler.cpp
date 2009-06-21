@@ -26,7 +26,7 @@ void SctpIPHandler::start()
 #ifdef REN_DEBUG
 	qWarning("SctpIPHandler::start()");
 #endif
-	// checkReceiveTimer->start(1000);
+	checkReceiveTimer->start(2000);
 	// checkSendTimer->start(500);
 }
 
@@ -113,7 +113,7 @@ void SctpIPHandler::checkReceive()
 		QMap<QString,IPStruct>::Iterator it;
 		for (it=IP2Info.begin();it!=IP2Info.end();++it)
 		{
-			if (currentTime.msecsTo(it.data().recv)<-3000)
+			if (currentTime.msecsTo(it.data().recv)<-4000)
 			{
 				// renyang-modify - 設定沒有辦法連通
 				#ifdef FANG_DEBUG

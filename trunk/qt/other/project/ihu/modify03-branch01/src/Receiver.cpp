@@ -296,7 +296,7 @@ void Receiver::receive()
 				#endif
 				// renyang-modify - 設定只有當streamno為偶數時, 才是傳送正常資料
 				if ((sndrcvinfo.sinfo_stream==9) && (primaddr != ::inet_ntoa(peer.sin_addr))) {
-					#ifdef FANG_DEBUG
+					#ifdef YANG_DEBUG
 					qWarning("I got the packet form stream 9 and want to change primary address");
 					#endif
 					// renyang-modify - 當對方更改ip時, 同時也會更新stream no
@@ -923,7 +923,7 @@ void Receiver::emitSctpEvent(void *notify_buf)
 			SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr)),
                        (uint32_t)spc->spc_assoc_id);
 		// renyang-modify - 送出某一個peer ip的情況
-		// emit SigAddressEvent(QString(SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr))),QString(str));
+		emit SigAddressEvent(QString(SctpSocketHandler::Sock_ntop((struct sockaddr *) &spc->spc_aaddr,sizeof(spc->spc_aaddr))),QString(str));
                 break;
         case SCTP_REMOTE_ERROR:
                 sre = &snp->sn_remote_error;
