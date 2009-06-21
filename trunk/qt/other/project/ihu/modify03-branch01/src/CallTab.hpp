@@ -163,6 +163,8 @@ signals:
 	void SigrequestPeerImage(int);
 	// renyang-modify - 停止要求對方的影像
 	void SigrequestPeerImageStop(int);
+	// renyang-modify - 告知SctpIPHandler某一個ip相聯的情況
+	void SigAddressInfo(int,QString,bool);
 };
 
 #endif

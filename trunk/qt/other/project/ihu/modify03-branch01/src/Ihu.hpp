@@ -197,6 +197,8 @@ public slots:
 	void SlotrequestImageFail(int);
 	// renyang-modify - 停止跟對方要求影像
 	void SlotrequestPeerImageStop(int);
+	// renyang-modify - 告知SctpIPHandler某一個ip相聯的情況
+	void SlotAddressInfo(int,QString,bool);
 	// renyang-modify - end
 
 private:

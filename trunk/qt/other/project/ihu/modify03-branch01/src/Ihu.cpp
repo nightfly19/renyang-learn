@@ -609,6 +609,8 @@ void Ihu::newCall(int id)
 		connect (callTab[id],SIGNAL(SigrequestPeerImage(int)),this,SLOT(SlotrequestPeerImage(int)));
 		// renyang-modify - 停止要求對方的影像
 		connect (callTab[id],SIGNAL(SigrequestPeerImageStop(int)),this,SLOT(SlotrequestPeerImageStop(int)));
+		// renyang-modify - 告知SctpIPHandler某一個ip相聯的情況
+		connect (callTab[id],SIGNAL(SigAddressInfo(int,QString,bool)),this,SLOT(SlotAddressInfo(int,QString,bool)));
 		// renyang-modify - end
 		callWidget->addTab((QWidget *)callTab[id], QIconSet( QPixmap::fromMimeSource( "phone.png" ) ), callName);
 		if (autocrypt)
@@ -1465,4 +1467,12 @@ void Ihu::SlotrequestPeerImageStop(int callId)
 	qWarning(QString("Ihu::SlotrequestPeerImageStop(%1)").arg(callId));
 #endif
 	phone->requestPeerImageStop(callId);
+}
+
+void Ihu::SlotAddressInfo(int callId,QString IP,bool enabled)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Ihu::SlotAddressInfo(%1,%2,%3)").arg(callId).arg(IP).arg(enabled));
+#endif
+	phone->AddressInfo(callId,IP,enabled);
 }

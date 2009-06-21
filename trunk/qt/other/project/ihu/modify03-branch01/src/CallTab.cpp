@@ -638,6 +638,8 @@ void CallTab::setAddressEvent(QString ip,QString description)
 				{
 					hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 					hostList->item(i)->setSelectable(true);
+					// renyang-modify - 告知SctpIPHander某一個ip是相連的
+					emit SigAddressInfo(callId,ip,true);
 				}
 			}
 			else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD") || description == "SlotAddressFail")
@@ -648,6 +650,8 @@ void CallTab::setAddressEvent(QString ip,QString description)
 					hostList->setSelected(i,false);
 					hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
 					hostList->item(i)->setSelectable(false);
+					// renyang-modify - 告知SctpIPHander某一個ip是不相連的
+					emit SigAddressInfo(callId,ip,false);
 				}
 			}
 			else if (description == QString("SCTP_SEND_FAILED"))

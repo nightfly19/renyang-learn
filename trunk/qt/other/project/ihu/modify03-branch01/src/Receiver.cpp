@@ -932,8 +932,7 @@ void Receiver::emitSctpEvent(void *notify_buf)
                 break;
         case SCTP_SEND_FAILED:
                 ssf = &snp->sn_send_failed;
-                qWarning("SCTP_SEND_FAILED: assoc=0x%x error=%d",
-                       (uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
+                // qWarning("SCTP_SEND_FAILED: assoc=0x%x error=%d",(uint32_t)ssf->ssf_assoc_id, ssf->ssf_error);
                 break;
         case SCTP_ADAPTATION_INDICATION:
                 ae = &snp->sn_adaptation_event;

@@ -32,6 +32,7 @@ class SctpIPHandler:public QObject
 		void start();
 		void end();
 		QString getAvailableIP();
+		void setIPConnectable(QString, bool);
 
 	public slots:
 		// renyang-modify - 固定時間檢查是否有在時間內接收到資料
