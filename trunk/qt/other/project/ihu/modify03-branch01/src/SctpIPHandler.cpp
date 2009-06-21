@@ -41,6 +41,7 @@ void SctpIPHandler::addIP(QString &IP)
 	newIPStruct.recv.start();
 	// renyang-modify - 預設不連通
 	newIPStruct.connection = false;
+	connect(newIPStruct.ConfirmTimer,SIGNAL(timeout()),this,SLOT(sendConfrim()));
 	qWarning("the count is %d",IP2Info.count());
 }
 
@@ -82,6 +83,10 @@ void SctpIPHandler::setRecvingTime(QString &IP)
 			qWarning(QString("set the %1 to be true").arg(it.key()));
 			#endif
 			it.data().connection = true;
+			if (it.data().ConfirmTimer->isActive())
+			{
+				it.data().ConfirmTimer->stop();
+			}
 			emit SigAddressAvailable(it.key());
 		}
 	}
@@ -132,7 +137,7 @@ void SctpIPHandler::checkReceive()
 
 void SctpIPHandler::sendConfrim()
 {
-#ifdef REN_DEBUG
+#ifdef YANG_DEBUG
 	qWarning("SctpIPHandler::sendConfrim()");
 #endif
 	if (!IP2Info.empty())
@@ -181,6 +186,13 @@ void SctpIPHandler::setIPConnectable(QString IP, bool enabled)
 		else
 		{
 			it.data().connection = enabled;
+			if (enabled == false)
+			{
+#ifdef YANG_DEBUG
+				qWarning(QString("%1 start timer").arg(it.key()));
+#endif
+				it.data().ConfirmTimer->start(10000);
+			}
 		}
 	}
 }
