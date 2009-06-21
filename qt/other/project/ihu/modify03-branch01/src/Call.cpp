@@ -997,10 +997,12 @@ void Call::SlotAddressFail(QString address)
 #ifdef FANG_DEBUG
 	qWarning(QString("Call::SlotAddressFail(%1)").arg(address));
 #endif
-	emit SigAddressEvent(id,address,QString("SlotAddressFail"));
 	// renyang-modify - 若這一個fail的ip剛好是目前的primary address的話, 則要更新primary address
 	if (address == receiver->getPrimAddress())
 	{
+		// renyang-modify - 只有檢查primary address才要檢查是否有收到資料
+		emit SigAddressEvent(id,address,QString("SlotAddressFail"));
+
 		QString availableIP = sctpiphandler->getAvailableIP();
 
 		if (availableIP == "NO_AVAILABLE_IP")
