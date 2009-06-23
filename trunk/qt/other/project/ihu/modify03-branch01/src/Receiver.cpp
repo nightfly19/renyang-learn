@@ -844,6 +844,8 @@ void Receiver::getIps()
 	}
 	else {
 		for (index=0;index<addrcnt;index++) {
+			// renyang-modify - 設定每一個peer端的heartbeat的interval為1秒, 重傳次數為0
+			SctpSocketHandler::heartbeat_action(s,(struct sockaddr *)((struct sockaddr_in *)addrs+index),sizeof(sockaddr_in),1000,0);
 			addrs_list.append(inet_ntoa(((struct sockaddr_in *) addrs+index)->sin_addr));
 		}
 	}

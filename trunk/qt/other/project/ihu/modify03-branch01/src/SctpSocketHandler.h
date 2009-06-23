@@ -56,6 +56,8 @@ class SctpSocketHandler
 		static void SctpSetPrim(int sd,QString primaddr);
 		static void SctpSetPeerPrim(int sd);
 		static char *Sock_ntop(const struct sockaddr *,socklen_t);
+		// renyang-modify - 改變某一個association的某一個address的heartbeat
+		static void heartbeat_action(int sock_fd,struct sockaddr *sa, socklen_t salen,u_int32_t hbinterval,u_int16_t pathmaxrxt);
 
 	private:
 }; 

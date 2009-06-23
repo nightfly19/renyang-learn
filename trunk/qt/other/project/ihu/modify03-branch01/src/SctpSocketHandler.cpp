@@ -268,3 +268,23 @@ char* SctpSocketHandler::Sock_ntop(const struct sockaddr *sa,socklen_t salen)
 			return str;
 	}
 }
+
+void SctpSocketHandler::heartbeat_action(int sock_fd,struct sockaddr *sa, socklen_t salen,u_int32_t hbinterval,u_int16_t pathmaxrxt)
+{
+#ifdef YANG_DEBUG
+	qWarning(QString("SctpSocketHandler::heartbeat_action(%1,struct sockaddr *sa, %2,%3,%4)").arg(sock_fd).arg(salen).arg(hbinterval).arg(pathmaxrxt));
+#endif
+	struct sctp_paddrparams sp;
+	int ret;
+
+	bzero(&sp,sizeof(sp));
+	sp.spp_hbinterval = hbinterval;
+	sp.spp_pathmaxrxt = pathmaxrxt;
+	// renyang-modify - 設定可以修改heartbeat
+	sp.spp_flags = SPP_HB_ENABLE;
+	memcpy(&sp.spp_address,sa,salen);
+	ret = setsockopt(sock_fd,IPPROTO_SCTP,SCTP_PEER_ADDR_PARAMS,&sp,sizeof(sp));
+	if (ret == -1) {
+		qWarning("setsocketopt SCTP_PEER_ADDR_PARAMS error");
+	}
+}
