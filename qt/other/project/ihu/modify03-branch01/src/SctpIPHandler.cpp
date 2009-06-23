@@ -137,7 +137,7 @@ void SctpIPHandler::checkReceive()
 
 void SctpIPHandler::sendConfrim()
 {
-#ifdef YANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("SctpIPHandler::sendConfrim()");
 #endif
 	if (!IP2Info.empty())
@@ -188,7 +188,7 @@ void SctpIPHandler::setIPConnectable(QString IP, bool enabled)
 			it.data().connection = enabled;
 			if (enabled == false)
 			{
-#ifdef YANG_DEBUG
+#ifdef REN_DEBUG
 				qWarning(QString("%1 start timer").arg(it.key()));
 #endif
 				it.data().ConfirmTimer->start(10000);
