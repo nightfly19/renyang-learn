@@ -623,51 +623,47 @@ void CallTab::setAddressEvent(QString ip,QString description)
 #ifdef FANG_DEBUG
 	qWarning(QString("CallTab::AddressEvent(%1,%2)").arg(ip).arg(description));
 #endif
-	unsigned int i;
-	for (i=0;i<hostList->count();i++)
+	unsigned int i = 0;
+
+	if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS") || description == QString("ADDRESS AVAILABLE") || description == "SlotAddressAvailable")
 	{
-		if (hostList->text(i) == ip)
+		i = hostList->index(hostList->findItem(ip));
+		if (description == "PRIMARY ADDRESS")
 		{
-			if (description == QString("ADDRESS CONFIRMED") || description == QString("PRIMARY ADDRESS") || description == QString("ADDRESS AVAILABLE") || description == "SlotAddressAvailable")
-			{
-				if (description == QString("PRIMARY ADDRESS"))
-				{
-					hostEdit->setCurrentText(ip);
-					hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(i),i);
-				}
-				if (!hostList->item(i)->isSelectable())
-				{
-					if (hostEdit->currentText() == ip)
-						hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(i),i);
-					else
-						hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
-					hostList->item(i)->setSelectable(true);
-					// renyang-modify - 告知SctpIPHander某一個ip是相連的
-					emit SigAddressInfo(callId,ip,true);
-				}
-			}
-			else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD") || description == "SlotAddressFail")
-			{
-				// renyang-modify - 加判斷避免一直改變hostList
-				if (hostList->item(i)->isSelectable() || (hostList->item(i)->pixmap() == NULL))
-				{
-					hostList->setSelected(i,false);
-					hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
-					hostList->item(i)->setSelectable(false);
-					// renyang-modify - 告知SctpIPHander某一個ip是不相連的
-					emit SigAddressInfo(callId,ip,false);
-				}
-			}
-			else if (description == QString("SCTP_SEND_FAILED"))
-			{
-				// renyang-modify - 處理send fail事件
-				// SendFailedHandler();
-			}
+			hostEdit->setCurrentText(ip);
+			hostList->changeItem(QPixmap::fromMimeSource("little_blue.png"),hostList->text(i),i);
 		}
-		if ((hostList->item(i)->isSelectable()) && (hostList->item(i)->text() != hostEdit->currentText()))
+		if (!hostList->item(i)->isSelectable())
 		{
-			hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
+			if (hostEdit->currentText() == ip)
+				hostList->changeItem(QPixmap::fromMimeSource("little_blue.png"),hostList->text(i),i);
+			else
+				hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
+			hostList->item(i)->setSelectable(true);
+			// renyang-modify - 告知SctpIPHander某一個ip是相連的
+			emit SigAddressInfo(callId,ip,true);
 		}
+	}
+	else if (description == QString("ADDRESS UNREACHABLE") || description == QString("SCTP_SEND_FAILED_THRESHOLD") || description == "SlotAddressFail")
+	{
+		// renyang-modify - 加判斷避免一直改變hostList
+		if (hostList->item(i)->isSelectable() || (hostList->item(i)->pixmap() == NULL))
+		{
+			hostList->setSelected(i,false);
+			hostList->changeItem(QPixmap::fromMimeSource( "red.png" ),hostList->text(i),i);
+			hostList->item(i)->setSelectable(false);
+			// renyang-modify - 告知SctpIPHander某一個ip是不相連的
+			emit SigAddressInfo(callId,ip,false);
+		}
+	}
+	else if (description == QString("SCTP_SEND_FAILED"))
+	{
+		// renyang-modify - 處理send fail事件
+		// SendFailedHandler();
+	}
+	if ((hostList->item(i)->isSelectable()) && (hostList->item(i)->text() != hostEdit->currentText()))
+	{
+		hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 	}
 }
 
