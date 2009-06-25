@@ -644,6 +644,7 @@ void CallTab::setAddressEvent(QString ip,QString description)
 			{
 				// renyang-modify - 若前一個是綠色這個時候才會把它改成藍色
 				hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(previous_primaddr_index),previous_primaddr_index);
+				hostList->item(i)->setSelectable(true);
 			}
 			previous_primaddr_index = i;
 		}
