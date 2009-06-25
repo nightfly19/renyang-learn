@@ -633,10 +633,14 @@ void CallTab::setAddressEvent(QString ip,QString description)
 				if (description == QString("PRIMARY ADDRESS"))
 				{
 					hostEdit->setCurrentText(ip);
+					hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(i),i);
 				}
 				if (!hostList->item(i)->isSelectable())
 				{
-					hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
+					if (hostEdit->currentText() == ip)
+						hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(i),i);
+					else
+						hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 					hostList->item(i)->setSelectable(true);
 					// renyang-modify - 告知SctpIPHander某一個ip是相連的
 					emit SigAddressInfo(callId,ip,true);
@@ -659,6 +663,10 @@ void CallTab::setAddressEvent(QString ip,QString description)
 				// renyang-modify - 處理send fail事件
 				// SendFailedHandler();
 			}
+		}
+		if ((hostList->item(i)->isSelectable()) && (hostList->item(i)->text() != hostEdit->currentText()))
+		{
+			hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 		}
 	}
 }
