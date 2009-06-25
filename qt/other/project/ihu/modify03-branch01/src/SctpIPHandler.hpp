@@ -38,12 +38,14 @@ class SctpIPHandler:public QObject
 		void end();
 		QString getAvailableIP();
 		void setIPConnectable(QString, bool);
+		// renyang-modify - 停止每一個Confirm計時的timer
+		void stopConfirmTimer(QString&);
 
 	public slots:
 		// renyang-modify - 固定時間檢查是否有在時間內接收到資料
 		void checkReceive();
 		// renyang-modify - 固定時間傳送封包
-		void sendConfrim();
+		void sendConfirm();
 
 	signals:
 		// renyang-modify - 要求傳送某一個確認封包給某一個address

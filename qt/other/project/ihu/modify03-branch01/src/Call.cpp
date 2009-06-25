@@ -832,6 +832,11 @@ void Call::SlotAddressEvent(QString ip,QString description)
 	{
 		sctpiphandler->setRecvingTime(ip);
 	}
+	if (description == "ADDRESS UNREACHABLE")
+	{
+		// renyang-modify - 不需要再探測，交由heartbeat去處理
+		sctpiphandler->stopConfirmTimer(ip);
+	}
 	emit SigAddressEvent(id,ip,description);
 }
 
@@ -984,10 +989,12 @@ void Call::SlotAddressConfirm(QString address)
 	// renyang-modify - 只有對不是primary address的ip要傳送confirm packet
 	if (address != receiver->getPrimAddress())
 	{
+		mutex.lock();
 		QString old_address = receiver->getPrimAddress();
 		SctpSocketHandler::SctpSetPrim(sd,address);
 		transmitter->sendConfirmPacket();
 		SctpSocketHandler::SctpSetPrim(sd,old_address);
+		mutex.unlock();
 	}
 }
 

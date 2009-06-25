@@ -10,7 +10,7 @@ SctpIPHandler::SctpIPHandler()
 	connect(checkReceiveTimer,SIGNAL(timeout()),this,SLOT(checkReceive()));
 	// renyang-modify - 固定時間內傳送資料給所有的peer address
 	checkSendTimer = new QTimer(this);
-	connect(checkSendTimer,SIGNAL(timeout()),this,SLOT(sendConfrim()));
+	connect(checkSendTimer,SIGNAL(timeout()),this,SLOT(sendConfirm()));
 }
 
 SctpIPHandler::~SctpIPHandler()
@@ -41,7 +41,7 @@ void SctpIPHandler::addIP(QString &IP)
 	newIPStruct.recv.start();
 	// renyang-modify - 預設不連通
 	newIPStruct.connection = false;
-	connect(newIPStruct.ConfirmTimer,SIGNAL(timeout()),this,SLOT(sendConfrim()));
+	connect(newIPStruct.ConfirmTimer,SIGNAL(timeout()),this,SLOT(sendConfirm()));
 	qWarning("the count is %d",IP2Info.count());
 }
 
@@ -135,17 +135,19 @@ void SctpIPHandler::checkReceive()
 	}
 }
 
-void SctpIPHandler::sendConfrim()
+void SctpIPHandler::sendConfirm()
 {
 #ifdef REN_DEBUG
-	qWarning("SctpIPHandler::sendConfrim()");
+	qWarning("SctpIPHandler::sendConfirm()");
 #endif
 	if (!IP2Info.empty())
 	{
 		QMap<QString,IPStruct>::Iterator it;
 		for (it=IP2Info.begin();it!=IP2Info.end();++it)
 		{
-			emit SigAddressConfrim(it.key());
+			// renyang-modify - 只有對每一個連線為false傳送Confirm封包
+			if (it.data().connection == false)
+				emit SigAddressConfrim(it.key());
 		}
 	}
 }
@@ -192,6 +194,28 @@ void SctpIPHandler::setIPConnectable(QString IP, bool enabled)
 				qWarning(QString("%1 start timer").arg(it.key()));
 #endif
 				it.data().ConfirmTimer->start(10000);
+			}
+		}
+	}
+}
+
+void SctpIPHandler::stopConfirmTimer(QString &IP)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("SctpIPHandler::stopConfirmTimer(%1)").arg(IP));
+#endif
+	if (!IP2Info.empty())
+	{
+		QMap<QString,IPStruct>::Iterator it;
+		if ((it=IP2Info.find(IP)) == IP2Info.end())
+		{
+			qWarning("there is no match IP");
+		}
+		else
+		{
+			if (it.data().ConfirmTimer->isActive())
+			{
+				it.data().ConfirmTimer->stop();
 			}
 		}
 	}
