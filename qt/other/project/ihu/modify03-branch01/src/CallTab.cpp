@@ -613,7 +613,8 @@ void CallTab::primButtonClicked()
 	{
 		for (i=0;i<hostList->count();i++)
 		{
-			if (hostList->isSelected(i) && hostList->item(i)->isSelectable()) {
+			// renyang-modify - 若設定已經是primary address的位址為primary address並不會有反應
+			if (hostList->isSelected(i) && hostList->item(i)->isSelectable() && (!(QPixmap::fromMimeSource("green.png").convertToImage() == hostList->pixmap(i)->convertToImage()))) {
 				// renyang - 設定被選擇的ip為primary address
 				qWarning(hostList->text(i));
 				emit setPrimaddrSignal(callId,hostList->text(i));
