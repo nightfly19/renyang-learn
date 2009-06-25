@@ -255,6 +255,8 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	connect(video_timer,SIGNAL(timeout()),this,SLOT(video_timeout()));
 	// renyang-modify - 記錄對方的video是否Fail
 	peervideofail = false;
+	// renyang-modify - 記錄前一個的primary index
+	previous_primaddr_index = -1;
 
 	// renyang-modify - 暫時預設error_threshold為5
 	error_threshold = 5;
@@ -440,6 +442,8 @@ void CallTab::stopCall()
 
 	// renyang-modify - 清掉hostList
 	hostList->clear();
+	// renyang-modify - 記錄前一個的primary index
+	previous_primaddr_index = -1;
 	// renyang-modify - 不能要求對方的影像啦
 	video_check->setEnabled(false);
 	// renyang-modify - 結束通話, 清除video_check勾選
@@ -586,6 +590,8 @@ void CallTab::change_hostList(QStringList addrs_list)
 	qWarning("CallTab::change_hostList()");
 #endif
 	hostList->clear();
+	// renyang-modify - 記錄前一個的primary index
+	previous_primaddr_index = -1;
 	for (QStringList::Iterator it = addrs_list.begin();it != addrs_list.end();++it)
 	{
 		hostList->insertItem(*it);
@@ -631,15 +637,27 @@ void CallTab::setAddressEvent(QString ip,QString description)
 		if (description == "PRIMARY ADDRESS")
 		{
 			hostEdit->setCurrentText(ip);
-			hostList->changeItem(QPixmap::fromMimeSource("little_blue.png"),hostList->text(i),i);
+			hostList->changeItem(QPixmap::fromMimeSource("green.png"),hostList->text(i),i);
+			// renyang-modify - 設定前一個primary address的顏色
+			if (QPixmap::fromMimeSource("green.png").convertToImage() == hostList->pixmap(previous_primaddr_index)->convertToImage())
+			{
+				// renyang-modify - 若前一個是綠色這個時候才會把它改成藍色
+				hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(previous_primaddr_index),previous_primaddr_index);
+			}
+			previous_primaddr_index = i;
 		}
-		if (!hostList->item(i)->isSelectable())
+		else if (!hostList->item(i)->isSelectable())
 		{
 			if (hostEdit->currentText() == ip)
-				hostList->changeItem(QPixmap::fromMimeSource("little_blue.png"),hostList->text(i),i);
+			{
+				hostList->changeItem(QPixmap::fromMimeSource("green.png"),hostList->text(i),i);
+				previous_primaddr_index = i;
+			}
 			else
-				hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
-			hostList->item(i)->setSelectable(true);
+			{
+				hostList->changeItem(QPixmap::fromMimeSource( "little_blue.png" ),hostList->text(i),i);
+				hostList->item(i)->setSelectable(true);
+			}
 			// renyang-modify - 告知SctpIPHander某一個ip是相連的
 			emit SigAddressInfo(callId,ip,true);
 		}
@@ -660,10 +678,6 @@ void CallTab::setAddressEvent(QString ip,QString description)
 	{
 		// renyang-modify - 處理send fail事件
 		// SendFailedHandler();
-	}
-	if ((hostList->item(i)->isSelectable()) && (hostList->item(i)->text() != hostEdit->currentText()))
-	{
-		hostList->changeItem(QPixmap::fromMimeSource( "green.png" ),hostList->text(i),i);
 	}
 }
 
