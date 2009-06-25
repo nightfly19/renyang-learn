@@ -131,6 +131,8 @@ private:
 	// renyang-modify - 記錄對方的video是否可以被要求
 	bool peervideofail;
 	QTimer *video_timer;
+	// renyang-modify - 記錄前一個的primary index
+	int previous_primaddr_index;
 
 public slots:
 	virtual void callButtonClicked();
