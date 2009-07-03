@@ -539,8 +539,7 @@ void Call::decodeAudioData(char *buf, int len)
 bool Call::playData(float *buf, int len)
 {
 #ifdef REN_DEBUG
-	// qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
-	qWarning(QString("Call::playData(float %1, int %2)").arg(*buf).arg(len));
+	qWarning(QString("Call::playData() - readyFrames: %1 len %2").arg(readyFrames).arg(len));;
 #endif
 	bool ret = false;
 	// renyang - 只有當真的有資料可以撥放時, 回傳才會是true

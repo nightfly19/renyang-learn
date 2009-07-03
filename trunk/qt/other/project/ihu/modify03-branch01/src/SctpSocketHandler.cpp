@@ -271,7 +271,7 @@ char* SctpSocketHandler::Sock_ntop(const struct sockaddr *sa,socklen_t salen)
 
 void SctpSocketHandler::heartbeat_action(int sock_fd,struct sockaddr *sa, socklen_t salen,u_int32_t hbinterval,u_int16_t pathmaxrxt)
 {
-#ifdef YANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning(QString("SctpSocketHandler::heartbeat_action(%1,struct sockaddr *sa, %2,%3,%4)").arg(sock_fd).arg(salen).arg(hbinterval).arg(pathmaxrxt));
 #endif
 	struct sctp_paddrparams sp;
