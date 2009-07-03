@@ -30,6 +30,8 @@
 #include <qcheckbox.h>
 #include <qtimer.h>
 
+#include <qdatetime.h>
+
 class QFrame;
 class QLabel;
 class QComboBox;
@@ -133,6 +135,10 @@ private:
 	QTimer *video_timer;
 	// renyang-modify - 記錄前一個的primary index
 	int previous_primaddr_index;
+	// renyang-modify - 記錄成功收到的video的frame個數
+	int video_frame_count;
+	// renyang-modify - 計算時間的Timer
+	QTime video_time;
 
 public slots:
 	virtual void callButtonClicked();

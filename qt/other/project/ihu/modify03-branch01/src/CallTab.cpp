@@ -257,6 +257,8 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	peervideofail = false;
 	// renyang-modify - 記錄前一個的primary index
 	previous_primaddr_index = -1;
+	// renyang-modify - 初始化video_frame_count的個數
+	video_frame_count = 0;
 
 	// renyang-modify - 暫時預設error_threshold為5
 	error_threshold = 5;
@@ -284,7 +286,7 @@ void CallTab::languageChange()
 {
 	rx->setText( tr( "RX" ) );
 	tx->setText( tr( "TX" ) );
-	hostname->setText( tr( "Receiver address" ) );
+	hostname->setText( tr( "Receiver IP List" ) );
 	callButton->setText( tr( "&Call" ) );
 	stopButton->setText( tr( "&Hang up" ) );
 	// renyang-modify - 加入按扭文字
@@ -716,9 +718,14 @@ void CallTab::SendFailedHandler()
 // renyang-modify - 把由對方接收過來的影像放到video_label中
 void CallTab::setVideo(QImage image)
 {
-#ifdef FANG_DEBUG
+#ifdef REN_DEBUG
 	qWarning("CallTab::setVideo()");
 #endif
+	// renyang-modify - 每完成一個frame, 則video_frame_count數值會增加
+	if (video_frame_count==1)
+		video_time.start();
+	++video_frame_count;
+
 	// renyang-modify - 整個封包都收到到啦, 沒有在等待剩下的封包啦
 	waiting = false;
 	QPixmap pix(video_label->size());
@@ -740,7 +747,7 @@ void CallTab::videoCheckChanged()
 		// renyang-modify - 向對方要求一個影像
 		emit SigrequestPeerImage(callId);
 		// renyang-modify - 設定100ms後要啟動, 到了之後, 就不在啟動了, 100ms要求一個封包
-		video_timer->start(100,true);
+		video_timer->start(10,true);
 		waiting = true;
 		video_label->setBackgroundMode(Qt::NoBackground);
 	}
@@ -791,6 +798,9 @@ void CallTab::clearVideoLabel()
 #ifdef FANG_DEBUG
 	qWarning("CallTab::clearVideoLabel()");
 #endif
+	// renyang-modify - 初始化video_frame_count
+	qWarning("the video sending period is %d and the count of video is %d",video_time.msecsTo(QTime::currentTime()),video_frame_count);
+	video_frame_count = 0;
 	video_label->clear();
 	video_label->setBackgroundMode(Qt::PaletteBackground);
 	video_label->setPalette(QPalette( QColor( 250, 250, 200) ));
