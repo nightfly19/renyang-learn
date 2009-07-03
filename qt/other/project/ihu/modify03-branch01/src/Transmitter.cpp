@@ -374,6 +374,8 @@ void Transmitter::sendAudioPacket(char *data, int len)
 #ifdef REN_DEBUG
 	qWarning(QString("Transmitter::sendAudioPacket(char *data,int %1)").arg(len));
 #endif
+	// renyang-modify - 把mutex鎖住
+	QMutexLocker locker( &mutex );
 	// renyang-modify - 不確定這一個tx的功用是在做什麼的
 	if (tx)
 	{
@@ -443,6 +445,8 @@ void Transmitter::sendNewPacket(char *data, int len, char type)
 #ifdef REN_DEBUG
 	qWarning(QString("Transmitter::SendNewPacket(char %1,int %2, char %3)").arg(data).arg(len).arg(type));
 #endif
+	// renyang-modify - 把mutex鎖住
+	QMutexLocker locker( &mutex );
 	try
 	{
 		int size = PacketHandler::calculateSize(len);
@@ -774,4 +778,20 @@ void Transmitter::updateStreamNo()
 		default:
 			base_stream_no = 0;
 	}
+}
+
+void Transmitter::lock_mutex()
+{
+#ifdef REN_DEBUG
+	qWarning("Transmitter::lock_mutex()");
+#endif
+	mutex.lock();
+}
+
+void Transmitter::unlock_mutex()
+{
+#ifdef REN_DEBUG
+	qWarning("Transmitter::unlock_mutex()");
+#endif
+	mutex.unlock();
 }

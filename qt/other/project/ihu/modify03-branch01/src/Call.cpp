@@ -988,12 +988,12 @@ void Call::SlotAddressConfirm(QString address)
 	// renyang-modify - 只有對不是primary address的ip要傳送confirm packet
 	if (address != receiver->getPrimAddress())
 	{
-		mutex.lock();
+		transmitter->lock_mutex();
 		QString old_address = receiver->getPrimAddress();
 		SctpSocketHandler::SctpSetPrim(sd,address);
 		transmitter->sendConfirmPacket();
 		SctpSocketHandler::SctpSetPrim(sd,old_address);
-		mutex.unlock();
+		transmitter->unlock_mutex();
 	}
 }
 

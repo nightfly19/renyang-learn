@@ -39,6 +39,8 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
+#include <qmutex.h>
+
 #include "Packet.h"
 #include "Rsa.h"
 #include "Blowfish.h"
@@ -111,6 +113,10 @@ public:
 	void sendPrimaryChangePacket();
 	// renyang-modify - 更新到下一個stream number
 	void updateStreamNo();
+	// renyang-modify - 把mutex鎖住
+	void lock_mutex();
+	// renyang-modify - 把mutex解除掉
+	void unlock_mutex();
 
 private:
 	// renyang - 由client要傳送資料到server端要使用的socket
@@ -138,6 +144,8 @@ private:
 	void emitSignal(signal_type);
 	// renyang-modify - 設定一個base stream number值只有可能是0, 3, 6
 	int base_stream_no;
+	// renyang-modify - 使用互斥, 主要在更轉換ip傳送資料時, 限制傳送到其它非primary ip後, 才可以釋放給其它ip傳送資料
+	QMutex mutex;
 
 public slots:
 	void sendKeyRequestPacket();
