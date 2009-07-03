@@ -34,8 +34,6 @@
 #include <qtimer.h>
 #include <qimage.h>
 
-#include <qmutex.h>
-
 #include <speex/speex.h>
 
 #include "Rsa.h"
@@ -159,8 +157,6 @@ private:
 	QImage image;
 	// renyang-modify - 每當要求一個frame時，在一定的時間內沒有回傳回來的話，則要求下一個frame
 	QTimer *videoTimer;
-	// renyang-modify - 設定在更新ip時只能一次更新一個
-	QMutex mutex;
 
 public slots:
 	void newConnection(int, int, struct sockaddr_in);
