@@ -263,6 +263,9 @@ CallTab::CallTab( int id, QString hosts[], int maxhost, QWidget* parent, const c
 	// renyang-modify - 暫時預設error_threshold為5
 	error_threshold = 5;
 
+	// renyang-modify - 記錄程式開始啟動的時間
+	init_time = QTime::currentTime();
+
 	for (int i=0; i<maxhost; i++)
 	{
 		if (!hosts[i].isEmpty())
@@ -718,8 +721,8 @@ void CallTab::SendFailedHandler()
 // renyang-modify - 把由對方接收過來的影像放到video_label中
 void CallTab::setVideo(QImage image)
 {
-#ifdef REN_DEBUG
-	qWarning("CallTab::setVideo()");
+#ifdef  YANG_DEBUG
+	qWarning("CallTab::setVideo():time:%d",calculatediffTime(QTime::currentTime()));
 #endif
 	// renyang-modify - 每完成一個frame, 則video_frame_count數值會增加
 	if (video_frame_count==1)
@@ -804,4 +807,12 @@ void CallTab::clearVideoLabel()
 	video_label->clear();
 	video_label->setBackgroundMode(Qt::PaletteBackground);
 	video_label->setPalette(QPalette( QColor( 250, 250, 200) ));
+}
+
+int CallTab::calculatediffTime(QTime nextTime)
+{
+#ifdef REN_DEBUG
+	qWarning("CallTab::calculatediffTime()");
+#endif
+	return init_time.msecsTo(nextTime);
 }

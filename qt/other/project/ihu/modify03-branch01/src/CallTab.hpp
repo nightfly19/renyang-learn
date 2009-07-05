@@ -110,6 +110,8 @@ public:
 	void requestImageFail();
 	// renyang-modify - 清除video_label的內容
 	void clearVideoLabel();
+	// renyang-modify - 計算與init_time的時間差異, 單位為msec
+	int calculatediffTime(QTime);
 	// renyang-modify - end
 
 private:
@@ -139,6 +141,8 @@ private:
 	int video_frame_count;
 	// renyang-modify - 計算時間的Timer
 	QTime video_time;
+	// renyang-modify - 計錄程式開始啟動的時間
+	QTime init_time;
 
 public slots:
 	virtual void callButtonClicked();
