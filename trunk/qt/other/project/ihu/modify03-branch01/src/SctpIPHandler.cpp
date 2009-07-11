@@ -10,7 +10,7 @@ SctpIPHandler::SctpIPHandler()
 	connect(checkReceiveTimer,SIGNAL(timeout()),this,SLOT(checkReceive()));
 	// renyang-modify - 固定時間內傳送資料給所有的peer address
 	checkSendTimer = new QTimer(this);
-	connect(checkSendTimer,SIGNAL(timeout()),this,SLOT(sendConfirm()));
+	connect(checkSendTimer,SIGNAL(timeout()),this,SLOT(checkSend()));
 }
 
 SctpIPHandler::~SctpIPHandler()
@@ -26,8 +26,8 @@ void SctpIPHandler::start()
 #ifdef REN_DEBUG
 	qWarning("SctpIPHandler::start()");
 #endif
-	checkReceiveTimer->start(2000);
-	// checkSendTimer->start(500);
+	checkReceiveTimer->start(200);
+	checkSendTimer->start(200);
 }
 
 void SctpIPHandler::addIP(QString &IP)
@@ -118,7 +118,7 @@ void SctpIPHandler::checkReceive()
 		QMap<QString,IPStruct>::Iterator it;
 		for (it=IP2Info.begin();it!=IP2Info.end();++it)
 		{
-			if (currentTime.msecsTo(it.data().recv)<-4000)
+			if (currentTime.msecsTo(it.data().recv)<-1500)
 			{
 				// renyang-modify - 設定沒有辦法連通
 				#ifdef FANG_DEBUG
@@ -193,6 +193,7 @@ void SctpIPHandler::setIPConnectable(QString IP, bool enabled)
 #ifdef REN_DEBUG
 				qWarning(QString("%1 start timer").arg(it.key()));
 #endif
+				// renyang-modify - 開始計時對失連的ip傳送confirm data
 				it.data().ConfirmTimer->start(10000);
 			}
 		}
@@ -216,6 +217,49 @@ void SctpIPHandler::stopConfirmTimer(QString &IP)
 			if (it.data().ConfirmTimer->isActive())
 			{
 				it.data().ConfirmTimer->stop();
+			}
+		}
+	}
+}
+
+void SctpIPHandler::setSendingTime(QString IP)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("SctpIPHandler::setSendingTime(%1)").arg(IP));
+#endif
+	if (!IP2Info.empty())
+	{
+		QMap<QString,IPStruct>::Iterator it;
+		if ((it=IP2Info.find(IP)) == IP2Info.end())
+		{
+			qWarning("there is no match IP");
+		}
+		else
+		{
+			it.data().send.restart();
+		}
+	}
+}
+
+void SctpIPHandler::checkSend()
+{
+#ifdef REN_DEBUG
+	qWarning("SctpIPHandler::checkSend()");
+#endif
+	if (!IP2Info.empty())
+	{
+		QTime currentTime = QTime::currentTime();
+		QMap<QString,IPStruct>::Iterator it;
+		for (it=IP2Info.begin();it!=IP2Info.end();++it)
+		{
+			// renyang-modify - 表示在固定時間內都沒有傳送資料
+			if (currentTime.msecsTo(it.data().send)<-750)
+			{
+				// renyang-modify - 告知上層要傳送封包給對方啦
+				emit SigSendConfirm(it.key());
+				#ifdef REN_DEBUG
+				qWarning(QString("We want to send confirm packet to %1").arg(it.key()));
+				#endif
 			}
 		}
 	}

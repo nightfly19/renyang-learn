@@ -71,6 +71,8 @@ Call::Call(int callId, QString myName)
 	connect(sctpiphandler,SIGNAL(SigAddressFail(QString)),this,SLOT(SlotAddressFail(QString)));
 	// renyang-modify - 某一個ip有收到資料, 宣告這一個ip復活啦
 	connect(sctpiphandler,SIGNAL(SigAddressAvailable(QString)),this,SLOT(SlotAddressAvailable(QString)));
+	// renyang-modify - 補送資料給對方
+	connect(sctpiphandler,SIGNAL(SigSendConfirm(QString)),this,SLOT(SlotReSendConfirm(QString)));
 
 	stopTimer = new QTimer(this);
 
@@ -133,6 +135,8 @@ Call::Call(int callId, QString myName)
 	connect( transmitter, SIGNAL(error(QString)), this, SLOT(abortCall(QString)) );
 	connect( transmitter, SIGNAL(message(QString)), this, SLOT(message(QString)) );
 	connect( transmitter, SIGNAL(startSignal()), this, SLOT(startRecorder()) );
+	// renyang-modify - 處理由Transmitter傳送過來的訊號
+	connect( transmitter, SIGNAL(SigEvent(QString)),this,SLOT(SlotEvent(QString)));
 
 	connect( stopTimer, SIGNAL(timeout()), this, SLOT(close()) );
 
@@ -1052,4 +1056,25 @@ void Call::AddressInfo(QString IP, bool enabled)
 	qWarning(QString("Call::AddressInfo(%1,%2)").arg(IP).arg(enabled));
 #endif
 	sctpiphandler->setIPConnectable(IP,enabled);
+}
+
+void Call::SlotEvent(QString event)
+{
+#ifdef REN_DEBUG
+	qWarning(QString("Call::SlotEvent(%1)").arg(event));
+#endif
+	sctpiphandler->setSendingTime(receiver->getPrimAddress());
+}
+
+void Call::SlotReSendConfirm(QString address)
+{
+#ifdef FANG_DEBUG
+	qWarning(QString("Call::SlotReSendConfirm(%1)").arg(address));
+#endif
+	// renyang-modify - 若這一個fail的ip剛好是目前的primary address的話, 則要更新primary address
+	if (address == receiver->getPrimAddress())
+	{
+		// renyang-modify - 補送一個封包給對方
+		transmitter->sendConfirmPacket();
+	}
 }
