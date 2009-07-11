@@ -303,6 +303,7 @@ void Transmitter::sendPacket(Packet *p,int streamno, int ttl)
 			#ifdef REN_DEBUG
 			qWarning(QString("using the %1 stream no to send %2 bytes to %3").arg(streamno).arg(snt).arg(SctpSocketHandler::SctpGetPrim(s)));
 			#endif
+			emit SigEvent("Sending");
 			bytes += snt;
 			total += snt;
 			active = true;

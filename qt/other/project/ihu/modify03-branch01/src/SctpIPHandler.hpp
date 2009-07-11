@@ -34,6 +34,8 @@ class SctpIPHandler:public QObject
 		void removeIP(QString &);
 		// renyang-modify - 當收到資料時, 則更新receive time
 		void setRecvingTime(QString &);
+		// renyang-modify - 設定傳送的時間
+		void setSendingTime(QString);
 		void start();
 		void end();
 		QString getAvailableIP();
@@ -44,8 +46,10 @@ class SctpIPHandler:public QObject
 	public slots:
 		// renyang-modify - 固定時間檢查是否有在時間內接收到資料
 		void checkReceive();
-		// renyang-modify - 固定時間傳送封包
+		// renyang-modify - 當某一個ip失連時,固定時間傳送封包
 		void sendConfirm();
+		// renyang-modify - 固定時間檢查是否有傳送資料出去
+		void checkSend();
 
 	signals:
 		// renyang-modify - 要求傳送某一個確認封包給某一個address
@@ -54,6 +58,8 @@ class SctpIPHandler:public QObject
 		void SigAddressFail(QString);
 		// renyang-modify - 宣告某一個ip與本機端是有連接的
 		void SigAddressAvailable(QString);
+		// renyang-modify - 傳送一個confirm封包給特定的ip
+		void SigSendConfirm(QString);
 	
 	private:
 		// renyang-modify - 由IP可以得到其接收到的傳送時間與接收時間的資料

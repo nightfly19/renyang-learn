@@ -200,6 +200,10 @@ public slots:
 	void SlotAddressAvailable(QString);
 	// renyang-modify - 向peer端傳送要求video的封包
 	void sendVideoRequest();
+	// renyang-modify - 處理由Transmitter傳送過來的訊號
+	void SlotEvent(QString);
+	// renyang-modify - 補送資料給peer
+	void SlotReSendConfirm(QString);
 	// renyang-modify - end
 
 signals:

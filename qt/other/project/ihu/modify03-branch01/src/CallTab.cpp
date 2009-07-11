@@ -721,7 +721,7 @@ void CallTab::SendFailedHandler()
 // renyang-modify - 把由對方接收過來的影像放到video_label中
 void CallTab::setVideo(QImage image)
 {
-#ifdef  YANG_DEBUG
+#ifdef  REN_DEBUG
 	qWarning("CallTab::setVideo():time:%d",calculatediffTime(QTime::currentTime()));
 #endif
 	// renyang-modify - 每完成一個frame, 則video_frame_count數值會增加

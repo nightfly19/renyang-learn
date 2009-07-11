@@ -158,6 +158,8 @@ signals:
 	void message(QString);
 	void ringMessage();
 	void startSignal();
+	// renyang-modify - 表示有送出資料
+	void SigEvent(QString);
 };
 
 #endif
